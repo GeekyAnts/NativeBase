@@ -140,8 +140,8 @@ export type { ISimpleGridProps } from './SimpleGrid';
 export { Tabs } from './TabsNew';
 export type {
   ITabsProps,
-  ITabListProps,
-  ITabProps,
+  ITabBarProps,
+  ITabItemProps,
   ITabContentsProps,
   ITabBodyProps,
   ITabsContextProps,

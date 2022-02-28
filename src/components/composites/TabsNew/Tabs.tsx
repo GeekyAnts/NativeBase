@@ -8,6 +8,8 @@ import TabList from './TabList';
 import { Item } from '@react-stately/collections';
 import { useTabsState } from '@react-stately/tabs';
 import { useTabs } from '@react-native-aria/tabs';
+import Box from '../../primitives/Box';
+import TabBar from './TabBar';
 
 const getTabsAndBars = (children: any) => {
   let bars: any = [];
@@ -17,7 +19,7 @@ const getTabsAndBars = (children: any) => {
   let tabViewsProps = { props: {}, ref: undefined };
   items.forEach((item: any) => {
     if (item.type) {
-      if (item.type === TabList) {
+      if (item.type === TabBar) {
         bars = bars.concat(item.props.children);
         tabBarProps = { props: item.props, ref: item.ref };
       } else if (item.type === TabContents) {
@@ -58,21 +60,13 @@ const Tabs = ({ children, ...props }: ITabsProps, ref?: any) => {
   );
   const variant = props.variant ?? 'underlined';
   const orientation = props.orientation ?? 'horizontal';
-
   return (
-    <TabsContext.Provider
-      value={{ state, selectedTab: state.selectedKey, variant, orientation }}
-    >
-      <Stack
-        {...resolvedProps}
-        {...props}
-        ref={ref}
-        direction={orientation === 'horizontal' ? 'column' : 'row'}
-      >
-        <TabList {...tabListProps} ref={tablistRef} />
-        <TabContents {...tabPanelProps}>
+    <TabsContext.Provider value={{ variant, orientation }}>
+      <Stack {...resolvedProps} ref={ref}>
+        <TabList {...tabListProps} ref={tablistRef} state={state} />
+        <Box {...tabPanelProps} p="4">
           {state.selectedItem && state.selectedItem.props.children}
-        </TabContents>
+        </Box>
       </Stack>
     </TabsContext.Provider>
   );

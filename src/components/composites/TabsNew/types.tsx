@@ -8,22 +8,24 @@ export type ITabsProps = IBoxProps<ITabsProps> & {
   orientation?: Orientation;
 };
 
-export type ITabProps<T> = IPressableProps<T> & {
-  item: Node<T>;
-  isDisabled?: boolean;
-  orientation?: Orientation;
-};
-
-export type ITabListProps<T> = IBoxProps<T> & {
-  isDisabled?: boolean;
-  orientation?: Orientation;
-};
-
-export type ITabsContextProps<T> = {
-  state: SingleSelectListState<T>;
+export type ITabsContextProps = {
   variant?: 'underlined' | 'solid';
   orientation?: Orientation;
 };
+
+export type ITabListProps = IBoxProps & {
+  isDisabled?: boolean;
+  orientation?: Orientation;
+};
+
+export type ITabProps<T> = IPressableProps<T> & {
+  item: Node<T>;
+  state: SingleSelectListState<T>;
+  isDisabled?: boolean;
+};
+
+export type ITabBarProps = IBoxProps & {};
+export type ITabItemProps = IBoxProps & {};
 
 export type ITabBodyProps = IBoxProps<ITabBodyProps> & {};
 
@@ -32,11 +34,11 @@ export type ITabContentsProps = IBoxProps<ITabContentsProps> & {};
 export type ITabsComponentType = ((
   props: ITabsProps & { ref?: any }
 ) => JSX.Element) & {
-  List: React.MemoExoticComponent<
-    (props: ITabListProps<any> & { ref?: any }) => JSX.Element
+  Bar: React.MemoExoticComponent<
+    (props: ITabBarProps & { ref?: any }) => JSX.Element
   >;
-  Tab: React.MemoExoticComponent<
-    (props: ITabProps<any> & { ref?: any }) => JSX.Element
+  Item: React.MemoExoticComponent<
+    (props: ITabItemProps & { ref?: any }) => JSX.Element
   >;
   Contents: React.MemoExoticComponent<
     (props: ITabContentsProps & { ref?: any }) => JSX.Element
