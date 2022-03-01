@@ -1,6 +1,6 @@
 name: 'Feature Request'
 description: 'Request a feature or enhancement'
-labels: ['v3', 'feature request']
+labels: ['v3', 'feature request', 'triage']
 body:
   - type: 'markdown'
     attributes:

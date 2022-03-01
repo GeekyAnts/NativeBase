@@ -31,20 +31,25 @@ const AspectView = forwardRef((props: any, ref?: any) => {
 });
 
 const AspectRatio = (props: IAspectRatioProps, ref?: any) => {
-  const { style, ratio, children, ...resolvedProps } = usePropsResolution(
+  const {
+    style,
+    ratio,
+    children = <></>,
+    ...resolvedProps
+  } = usePropsResolution(
     'AspectRatio',
     props,
     {},
     { resolveResponsively: ['ratio'] }
   );
   let computedStyle: ViewStyle | undefined = style;
-  let newChildWithProps = React.cloneElement(
+  const newChildWithProps = React.cloneElement(
     children,
     {
-      ...children.props,
+      ...children?.props,
       style: StyleSheet.absoluteFillObject,
     },
-    children.props.children
+    children?.props?.children
   );
 
   //TODO: refactor for responsive prop

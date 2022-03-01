@@ -24,6 +24,22 @@ export interface IRadioProps extends IBoxProps<IRadioProps> {
    */
   isDisabled?: boolean;
   /**
+   * 	If true, the radio will be hovered
+   */
+  isHovered?: boolean;
+  /**
+   * 	If true, the radio will be pressed
+   */
+  isPressed?: boolean;
+  /**
+   * 	If true, the radio will be focused
+   */
+  isFocused?: boolean;
+  /**
+   * 	If true, the radio focus ring will be visible
+   */
+  isFocusVisible?: boolean;
+  /**
    * If true, the radio is marked as invalid. Changes style of unchecked state.
    */
   isInvalid?: boolean;
@@ -75,6 +91,10 @@ export interface IRadioGroupProps extends IBoxProps<IRadioGroupProps> {
    * The callback fired when any children radio is checked or unchecked.
    */
   onChange?: IRadioGroupOnChangeHandler;
+  /**
+   * Pass props will be passed to each radio.
+   */
+  _radio?: IRadioProps;
 }
 export interface IRadioContext extends IFormControlContext {
   colorScheme?: string;

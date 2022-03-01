@@ -28,7 +28,7 @@ export const Example = () => {
     },
   ];
   return (
-    <Center h="80">
+    <Center h="80" w="100%">
       <SectionList
         maxW="300"
         w="100%"

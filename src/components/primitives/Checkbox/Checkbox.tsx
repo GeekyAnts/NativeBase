@@ -19,7 +19,16 @@ import {
 } from '../../primitives/Pressable/Pressable';
 import SizedIcon from './SizedIcon';
 
-const Checkbox = ({ wrapperRef, ...props }: ICheckboxProps, ref: any) => {
+const Checkbox = (
+  {
+    wrapperRef,
+    isHovered: isHoveredProp,
+    isPressed: isPressedProp,
+    isFocused: isFocusedProp,
+    ...props
+  }: ICheckboxProps,
+  ref: any
+) => {
   const formControlContext = useFormControlContext();
 
   const {
@@ -35,7 +44,6 @@ const Checkbox = ({ wrapperRef, ...props }: ICheckboxProps, ref: any) => {
     defaultSelected: combinedProps.defaultIsChecked,
     isSelected: combinedProps.isChecked,
   });
-
   const _ref = React.useRef();
   const mergedRef = mergeRefs([ref, _ref]);
 
@@ -68,7 +76,6 @@ const Checkbox = ({ wrapperRef, ...props }: ICheckboxProps, ref: any) => {
     ...checkboxGroupContext,
     ...combinedProps,
   });
-
   return (
     <CheckboxComponent
       inputProps={inputProps}
@@ -76,6 +83,9 @@ const Checkbox = ({ wrapperRef, ...props }: ICheckboxProps, ref: any) => {
       isInvalid={isInvalid}
       isReadOnly={isReadOnly}
       isIndeterminate={isIndeterminate}
+      isHovered={isHoveredProp}
+      isPressed={isPressedProp}
+      isFocused={isFocusedProp}
       wrapperRef={wrapperRef}
     />
   );
@@ -88,6 +98,9 @@ const CheckboxComponent = React.memo(
     isInvalid,
     isReadOnly,
     isIndeterminate,
+    isHovered: isHoveredProp,
+    isPressed: isPressedProp,
+    isFocused: isFocusedProp,
   }: any) => {
     const _ref = React.useRef();
     const { hoverProps, isHovered } = useHover();
@@ -109,16 +122,20 @@ const CheckboxComponent = React.memo(
       onFocus,
       onBlur,
       ...resolvedProps
-    } = usePropsResolution('Checkbox', inputProps, {
-      isInvalid,
-      isReadOnly,
-      isIndeterminate,
-      isDisabled,
-      isChecked,
-      isHovered,
-      isPressed,
-      isFocused,
-    });
+    } = usePropsResolution(
+      'Checkbox',
+      { ...combinedProps, ...inputProps },
+      {
+        isInvalid,
+        isReadOnly,
+        isIndeterminate,
+        isDisabled,
+        isChecked,
+        isHovered: isHoveredProp || isHovered,
+        isPressed: isPressedProp || isPressed,
+        isFocused: isFocusedProp || isFocused,
+      }
+    );
 
     const [layoutProps, nonLayoutProps] = extractInObject(resolvedProps, [
       ...stylingProps.margin,
