@@ -31,6 +31,7 @@ const sizes = {
 
 const defaultProps = {
   size: 'lg',
+  as: 'h1',
 };
 
 export default {

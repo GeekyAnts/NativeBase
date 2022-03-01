@@ -10,7 +10,33 @@ const Heading = (props: IHeadingProps, ref: any) => {
   if (useHasResponsiveProps(props)) {
     return null;
   }
-  return <Text {...resolvedProps} ref={ref} />;
+
+  function getAccessibilityLevel() {
+    switch (props.as) {
+      case 'h2':
+        return 2;
+      case 'h3':
+        return 3;
+      case 'h4':
+        return 4;
+      case 'h5':
+        return 5;
+      case 'h6':
+        return 6;
+      default:
+        return 1;
+    }
+  }
+
+  return (
+    <Text
+      {...resolvedProps}
+      ref={ref}
+      // @ts-ignore
+      accessibilityRole="heading"
+      accessibilityLevel={getAccessibilityLevel()}
+    />
+  );
 };
 
 export default memo(forwardRef(Heading));
