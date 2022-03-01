@@ -6,11 +6,15 @@ export const Example = () => {
     <Tabs>
       <Tabs.Bar>
         <Tabs.Item>Button1</Tabs.Item>
-        <Tabs.Item isDisabled>Button2</Tabs.Item>
+        <Tabs.Item>Button2</Tabs.Item>
+        <Tabs.Item>Button3</Tabs.Item>
+        <Tabs.Item>Button4</Tabs.Item>
       </Tabs.Bar>
       <Tabs.Contents>
         <Tabs.Body>Body1</Tabs.Body>
         <Tabs.Body>Body2</Tabs.Body>
+        <Tabs.Body>Body3</Tabs.Body>
+        <Tabs.Body>Body4</Tabs.Body>
       </Tabs.Contents>
     </Tabs>
   );
