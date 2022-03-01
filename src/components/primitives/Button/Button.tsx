@@ -96,8 +96,6 @@ const Button = (
     );
   }
 
-  const boxChildren = isLoading && isLoadingText ? isLoadingText : children;
-
   const spinnerElement = spinner ? (
     spinner
   ) : (
@@ -127,14 +125,12 @@ const Button = (
       {...resolvedProps}
       accessibilityRole={props.accessibilityRole ?? 'button'}
     >
-      <HStack {..._stack}>
+      <HStack {..._stack} space={isLoading && !isLoadingText ? 0 : 2}>
         {startIcon && !isLoading ? startIcon : null}
         {isLoading && spinnerPlacement === 'start' ? spinnerElement : null}
-        {boxChildren ? (
-          <Box _text={_text}>
-            {isLoading && isLoadingText ? isLoadingText : children}
-          </Box>
-        ) : null}
+        <Box _text={_text}>
+          {isLoading ? (isLoadingText ? isLoadingText : null) : children}
+        </Box>
         {endIcon && !isLoading ? endIcon : null}
         {isLoading && spinnerPlacement === 'end' ? spinnerElement : null}
       </HStack>
