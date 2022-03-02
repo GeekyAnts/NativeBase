@@ -7,6 +7,7 @@ import type { ITheme } from '../index';
 import { Platform } from 'react-native';
 
 export const stylingProps = {
+  platform: ['_web', '_ios', '_android', '_dark', '_light'],
   margin: [
     'margin',
     'm',

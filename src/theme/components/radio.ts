@@ -3,27 +3,32 @@ import { mode } from '../tools';
 const baseStyle = (props: Record<string, any>) => {
   const { colorScheme } = props;
   return {
-    borderWidth: 2,
-    borderRadius: 'full',
-    p: '0.5',
-    borderColor: mode('muted.300', 'muted.600')(props),
-    bg: mode('muted.50', 'muted.700')(props), // matching background color
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    // borderWidth: 2,
+    // borderRadius: 'full',
+    // p: '0.5',
+    // borderColor: mode('muted.300', 'muted.600')(props),
+    // bg: 'red.400', // matching background color
+    _radio: {
+      borderWidth: 2,
+      borderRadius: 'full',
+      p: '0.5',
+      borderColor: mode('muted.300', 'muted.600')(props),
+      bg: mode('muted.50', 'muted.700')(props), // matching background color
+    },
     _web: {
       cursor: 'pointer',
     },
     _text: {
+      ml: 2,
       _dark: {
         color: 'lightText',
       },
       _light: {
         color: 'darkText',
       },
-    },
-    _stack: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'center',
-      space: 2,
     },
     _interactionBox: {
       position: 'absolute',

@@ -1,7 +1,5 @@
 import React, { memo, forwardRef } from 'react';
 import Box from '../Box';
-import { HStack } from '../Stack';
-import { Center } from '../../composites/Center';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { wrapStringChild } from '../../../utils/wrapStringChild';
 import type { IRadioProps } from './types';
@@ -15,7 +13,17 @@ import { CircleIcon } from '../Icon/Icons';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { combineContextAndProps, isEmptyObj } from '../../../utils';
 import { useFormControlContext } from '../../composites/FormControl';
+import { wrapperPropMap } from './wrapperPropMap';
+import { extractInObject } from '../../../theme/tools/utils';
+import { InternalWrapper } from '../../internal';
 
+const InternalCenter = ({ children, ...props }: any) => {
+  return (
+    <InternalWrapper alignItems="center" justifyContent="center" {...props}>
+      {children}
+    </InternalWrapper>
+  );
+};
 const RadioComponent = memo(
   forwardRef(
     (
@@ -41,7 +49,7 @@ const RadioComponent = memo(
       const {
         _interactionBox,
         _icon,
-        _stack,
+        _radio,
         _text,
         ...resolvedProps
       } = usePropsResolution('Radio', combinedProps, {
@@ -54,6 +62,10 @@ const RadioComponent = memo(
         isHovered: isHoveredProp || isHovered,
       });
 
+      const [wrapperProps, nonWrapperProps] = extractInObject(resolvedProps, [
+        ...wrapperPropMap,
+      ]);
+
       // only calling below function when icon exist.
       const sizedIcon = () =>
         //@ts-ignore
@@ -61,8 +73,8 @@ const RadioComponent = memo(
           ..._icon,
         });
       const component = (
-        <HStack {..._stack}>
-          <Center>
+        <>
+          <InternalCenter>
             {/* Interaction Box */}
             <Box
               style={{
@@ -72,16 +84,16 @@ const RadioComponent = memo(
               {..._interactionBox}
             />
             {/* Radio */}
-            <Center {...resolvedProps}>
+            <InternalCenter {..._radio} {...nonWrapperProps}>
               {icon && sizedIcon && isChecked ? (
                 sizedIcon()
               ) : (
                 <CircleIcon {..._icon} opacity={isChecked ? 1 : 0} />
               )}
-            </Center>
-          </Center>
+            </InternalCenter>
+          </InternalCenter>
           {wrapStringChild(children, _text)}
-        </HStack>
+        </>
       );
       //TODO: refactor for responsive prop
       if (useHasResponsiveProps(props)) {
@@ -93,6 +105,7 @@ const RadioComponent = memo(
           // @ts-ignore - RN web supports accessibilityRole="label"
           accessibilityRole="label"
           ref={mergedRefs}
+          {...wrapperProps}
         >
           <VisuallyHidden>
             <input {...inputProps} {...focusProps} ref={ref} />
