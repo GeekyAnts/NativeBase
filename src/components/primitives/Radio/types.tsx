@@ -57,6 +57,47 @@ export interface IRadioProps extends IBoxProps<IRadioProps> {
    * Ref to be passed to Icon's wrapper Box
    */
   wrapperRef?: any;
+
+  /**
+   * Passed props wilICheckboxGroupPropsl be applied on disabled state.
+   */
+  _disabled?: Omit<Partial<IRadioProps>, '_disabled'>;
+  /**
+   * Passed props will be applied on checked state.
+   */
+  _checked?: Omit<Partial<IRadioProps>, '_checked'>;
+  /**
+   * Passed props will be applied on unchecked state.
+   */
+  _unchecked?: Omit<Partial<IRadioProps>, '_unchecked'>;
+  /**
+   * Passed props will be applied on focus state.
+   */
+  _focus?: Omit<Partial<IRadioProps>, '_focus'>;
+  /**
+   * Passed props will be applied on hover state.
+   */
+  _hover?: Omit<Partial<IRadioProps>, '_hover'>;
+  /**
+   * Passed props will be applied on invalid state.
+   */
+  _invalid?: Omit<Partial<IRadioProps>, '_invalid'>;
+  /**
+   * Passed props will be applied on pressed state on native.
+   */
+  _pressed?: Omit<Partial<IRadioProps>, '_pressed'>;
+  /**
+   * Icon related props can be passed in _icon.
+   */
+  _icon?: Partial<IRadioProps>;
+  /**
+   * Passed props will be applied on readonly state.
+   */
+  _readOnly?: Omit<Partial<IRadioProps>, '_readOnly'>;
+  /**
+   * You can style interaction box around the checkbox using this.
+   */
+  _interactionBox?: Omit<Partial<IRadioProps>, '_interactionBox'>;
 }
 export interface IRadioGroupProps extends IBoxProps<IRadioGroupProps> {
   /**

@@ -78,35 +78,35 @@ export interface ICheckboxProps extends IBoxProps<ICheckboxProps> {
   /**
    * Passed props wilICheckboxGroupPropsl be applied on disabled state.
    */
-  _disabled?: Omit<ICheckboxProps, '_disabled'>;
+  _disabled?: Omit<Partial<ICheckboxProps>, '_disabled'>;
   /**
    * Passed props will be applied on checked state.
    */
-  _checked?: Omit<ICheckboxProps, '_checked'>;
+  _checked?: Omit<Partial<ICheckboxProps>, '_checked'>;
   /**
    * Passed props will be applied on unchecked state.
    */
-  _unchecked?: Omit<ICheckboxProps, '_unchecked'>;
+  _unchecked?: Omit<Partial<ICheckboxProps>, '_unchecked'>;
   /**
    * Passed props will be applied on focus state.
    */
-  _focus?: Omit<ICheckboxProps, '_focus'>;
+  _focus?: Omit<Partial<ICheckboxProps>, '_focus'>;
   /**
    * Passed props will be applied on hover state.
    */
-  _hover?: Omit<ICheckboxProps, '_hover'>;
+  _hover?: Omit<Partial<ICheckboxProps>, '_hover'>;
   /**
    * Passed props will be applied on invalid state.
    */
-  _invalid?: Omit<ICheckboxProps, '_invalid'>;
+  _invalid?: Omit<Partial<ICheckboxProps>, '_invalid'>;
   /**
    * Passed props will be applied on pressed state on native.
    */
-  _pressed?: Omit<ICheckboxProps, '_pressed'>;
+  _pressed?: Omit<Partial<ICheckboxProps>, '_pressed'>;
   /**
    * Passed props will be applied on readonly state.
    */
-  _readOnly?: Omit<ICheckboxProps, '_readOnly'>;
+  _readOnly?: Omit<Partial<ICheckboxProps>, '_readOnly'>;
   /**
    * Icon related props can be passed in _icon.
    */
@@ -114,7 +114,7 @@ export interface ICheckboxProps extends IBoxProps<ICheckboxProps> {
   /**
    * You can style interaction box around the checkbox using this.
    */
-  _interactionBox?: Omit<ICheckboxProps, '_interactionBox'>;
+  _interactionBox?: Omit<Partial<ICheckboxProps>, '_interactionBox'>;
   /**
    * Function called when the state of the checkbox changes.
    */
