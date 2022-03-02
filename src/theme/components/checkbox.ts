@@ -4,24 +4,33 @@ const baseStyle = (props: Record<string, any>) => {
   const { colorScheme, theme } = props;
 
   return {
-    justifyContent: 'flex-start',
-    flexDirection: 'row',
     borderWidth: 2,
     borderRadius: 'sm',
     borderColor: mode('muted.300', 'muted.600')(props),
     bg: mode('muted.50', 'muted.700')(props), // matching background color
-
+    _stack: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+      space: 2,
+    },
+    _web: {
+      cursor: 'pointer',
+    },
     _text: {
-      ml: 2,
       color: mode('darkText', 'lightText')(props),
     },
     _interactionBox: {
       position: 'absolute',
       borderRadius: 'full',
+      zIndex: '-1',
+      size: '3',
+      pointerEvents: 'none',
     },
     _hover: {
       _interactionBox: {
         bg: transparentize('muted.200', 0.3)(theme),
+        size: '12',
       },
     },
     _focus: {
@@ -32,17 +41,27 @@ const baseStyle = (props: Record<string, any>) => {
     _focusVisible: {
       _interactionBox: {
         bg: transparentize(`${colorScheme}.200`, 0.5)(theme),
+        size: '12',
       },
     },
     _disabled: {
+      _web: {
+        cursor: 'not-allowed',
+      },
       _interactionBox: {
         bg: 'transparent',
       },
-      opacity: 0.4,
+      _icon: {
+        bg: 'transparent',
+      },
+      _stack: {
+        opacity: '0.4',
+      },
     },
     _pressed: {
       _interactionBox: {
         bg: transparentize(`${colorScheme}.200`, 0.5)(theme),
+        size: '12',
       },
     },
     _checked: {

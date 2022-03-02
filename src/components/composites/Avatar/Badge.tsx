@@ -13,9 +13,9 @@ const AvatarBadge = memo(
     }
     return (
       <Box
-        position="absolute"
-        right={0}
-        bottom={0}
+        // position="absolute"
+        // right={0}
+        // bottom={0}
         {...newProps}
         width={boxSize || 3}
         height={boxSize || 3}

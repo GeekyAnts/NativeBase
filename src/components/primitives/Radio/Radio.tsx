@@ -1,8 +1,6 @@
 import React, { memo, forwardRef } from 'react';
 import { Pressable, IPressableProps } from '../Pressable';
-import { Center } from '../../composites/Center';
 import Box from '../Box';
-import { HStack } from '../Stack';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { wrapStringChild } from '../../../utils/wrapStringChild';
 import type { IRadioProps } from './types';
@@ -23,7 +21,16 @@ import {
   useIsPressed,
 } from '../../primitives/Pressable/Pressable';
 import { useFormControlContext } from '../../composites/FormControl';
+import { InternalWrapper } from '../../internal';
+import { wrapperPropMap } from './wrapperPropMap';
 
+const InternalCenter = ({ children, ...props }: any) => {
+  return (
+    <InternalWrapper alignItems="center" justifyContent="center" {...props}>
+      {children}
+    </InternalWrapper>
+  );
+};
 const RadioComponent = memo(
   forwardRef(
     (
@@ -56,7 +63,7 @@ const RadioComponent = memo(
         onBlur,
         _interactionBox,
         _icon,
-        _stack,
+        _radio,
         _text,
         ...resolvedProps
       } = usePropsResolution(
@@ -88,6 +95,10 @@ const RadioComponent = memo(
         '_text',
       ]);
 
+      const [wrapperProps, nonWrapperProps] = extractInObject(resolvedProps, [
+        ...wrapperPropMap,
+      ]);
+
       // only calling below function when icon exist.
       const sizedIcon = () =>
         //@ts-ignore
@@ -99,6 +110,7 @@ const RadioComponent = memo(
         <Pressable
           {...pressableProps}
           {...(cleanInputProps as IPressableProps)}
+          {...wrapperProps}
           ref={mergeRefs([ref, wrapperRef])}
           accessibilityRole="radio"
           onPressIn={composeEventHandlers(onPressIn, pressableProps.onPressIn)}
@@ -121,22 +133,22 @@ const RadioComponent = memo(
             // focusRingProps.onBlur
           )}
         >
-          <HStack {..._stack}>
-            <Center>
-              {/* Interaction Wrapper */}
-              <Box position="absolute" zIndex={-1} {..._interactionBox} />
-              {/* radio */}
-              <Center {...resolvedProps}>
-                {icon && sizedIcon && isChecked ? (
-                  sizedIcon()
-                ) : (
-                  <CircleIcon {..._icon} opacity={isChecked ? 1 : 0} />
-                )}
-              </Center>
-            </Center>
-            {/* Label */}
-            {wrapStringChild(children, _text)}
-          </HStack>
+          {/* <HStack {..._stack}> */}
+          <InternalCenter>
+            {/* Interaction Wrapper */}
+            <Box {..._interactionBox} />
+            {/* radio */}
+            <InternalCenter {...nonWrapperProps} {..._radio}>
+              {icon && sizedIcon && isChecked ? (
+                sizedIcon()
+              ) : (
+                <CircleIcon {..._icon} opacity={isChecked ? 1 : 0} />
+              )}
+            </InternalCenter>
+          </InternalCenter>
+          {/* Label */}
+          {wrapStringChild(children, _text)}
+          {/* </HStack> */}
         </Pressable>
       );
     }
@@ -178,6 +190,7 @@ const Radio = (
   const [contextCombinedProps] = React.useState({
     ...combinedProps,
   });
+  // console.log('contextCombinedProps', contextCombinedProps);
 
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {

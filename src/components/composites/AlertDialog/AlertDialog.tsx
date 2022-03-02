@@ -53,7 +53,7 @@ const AlertDialog = (
       bottom={avoidKeyboard ? bottomInset + 'px' : undefined}
       {...restThemeProps}
       ref={ref}
-      pointerEvents="box-none"
+      // pointerEvents="box-none"
     >
       {children}
     </Box>

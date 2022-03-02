@@ -21,6 +21,12 @@ export const FormControlErrorMessage = {
 export const FormControlLabel = {
   baseStyle: (props: Record<string, any>) => {
     return {
+      flexDirection: 'row',
+      justifyContent: 'flex-start',
+      _web: {
+        //@ts-ignore
+        accessibilityRole: 'label',
+      },
       _text: {
         fontSize: 'sm',
         fontWeight: 'medium',

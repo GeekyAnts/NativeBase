@@ -12,8 +12,6 @@ export const Example = () => {
         direction={{ base: 'column', md: 'row' }}
         alignItems="center"
         space={4}
-        w="75%"
-        maxW="300px"
       >
         <Radio value="1" colorScheme="red" size="sm" my={1}>
           Small

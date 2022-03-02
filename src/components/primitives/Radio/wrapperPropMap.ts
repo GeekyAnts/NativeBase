@@ -1,0 +1,26 @@
+import { stylingProps } from '../../../theme/tools/utils';
+
+export const wrapperPropMap = [
+  ...stylingProps.margin,
+  ...stylingProps.padding,
+  ...stylingProps.background,
+  ...stylingProps.border,
+  ...stylingProps.layout,
+  ...stylingProps.flexbox,
+  ...stylingProps.position,
+  ...stylingProps.platform,
+  'onHoverIn',
+  'onHoverOut',
+  'onFocus',
+  'onBlur',
+  '_hover',
+  '_pressed',
+  '_focus',
+  '_disabled',
+  'isDisabled',
+  'isHovered',
+  'isPressed',
+  'isFocused',
+  'isFocusVisible',
+  '_focusVisible',
+];

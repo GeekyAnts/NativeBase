@@ -16,7 +16,7 @@ const AlertDialogCloseButton = (props: IButtonProps, ref?: any) => {
   }
   return (
     <Button
-      variant="ghost"
+      // variant="ghost"
       {...rest}
       onPress={handleClose}
       accessibilityLabel="Close dialog"

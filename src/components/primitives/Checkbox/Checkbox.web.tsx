@@ -15,12 +15,15 @@ import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 import { combineContextAndProps } from '../../../utils';
 import SizedIcon from './SizedIcon';
+import { HStack } from '../Stack';
+import { wrapStringChild } from '../../../utils/wrapStringChild';
 
 const Checkbox = (
   {
     wrapperRef,
     isHovered: isHoveredProp,
     isFocusVisible: isFocusVisibleProp,
+    children,
     ...props
   }: ICheckboxProps,
   ref: any
@@ -87,6 +90,7 @@ const Checkbox = (
       mergedRef={mergedRef}
       inputProps={inputProps}
       combinedProps={contextCombinedProps}
+      children={children}
       isInvalid={isInvalid}
       isReadOnly={isReadOnly}
       isHovered={isHoveredProp}
@@ -101,6 +105,7 @@ const CheckboxComponent = React.memo(
     wrapperRef,
     inputProps,
     combinedProps,
+    children,
     isInvalid,
     isReadOnly,
     isIndeterminate,
@@ -119,6 +124,8 @@ const CheckboxComponent = React.memo(
       icon,
       _interactionBox,
       _icon,
+      _stack,
+      _text,
       ...resolvedProps
     } = usePropsResolution('Checkbox', combinedProps, {
       isInvalid,
@@ -140,48 +147,27 @@ const CheckboxComponent = React.memo(
 
     const component = React.useMemo(() => {
       return (
-        <Box
-          {...layoutProps}
-          opacity={isDisabled ? 0.4 : 1}
-          cursor={isDisabled ? 'not-allowed' : 'pointer'}
-        >
+        <HStack {..._stack}>
           <Center>
             {/* Interaction Box */}
             <Box
-              {..._interactionBox}
+              // eslint-disable-next-line react-native/no-inline-styles
               style={{
-                // @ts-ignore - only for web"
                 transition: 'height 200ms, width 200ms',
               }}
-              h={
-                isFocusVisible ||
-                isFocusVisibleProp ||
-                isHovered ||
-                isHoveredProp
-                  ? '200%'
-                  : '0%'
-              }
-              w={
-                isFocusVisible ||
-                isFocusVisibleProp ||
-                isHovered ||
-                isHoveredProp
-                  ? '200%'
-                  : '0%'
-              }
-              pointerEvents="none"
-              zIndex={-1}
+              {..._interactionBox}
             />
             {/* Checkbox */}
-            <Center {...nonLayoutProps}>
+            <Center {...resolvedProps}>
               {/* {iconResolver()} */}
               <SizedIcon icon={icon} _icon={_icon} isChecked={isChecked} />
             </Center>
           </Center>
           {/* Label */}
-          {resolvedProps?.children}
-        </Box>
+          {wrapStringChild(children, _text)}
+        </HStack>
       );
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [
       _icon,
       _interactionBox,

@@ -1,8 +1,10 @@
 import { mode } from '../tools';
 // Actionsheet
 export const Actionsheet = {
+  baseStyle: { justifyContent: 'flex-end' },
   defaultProps: {
     size: 'full',
+    animationPreset: 'slide',
   },
 };
 

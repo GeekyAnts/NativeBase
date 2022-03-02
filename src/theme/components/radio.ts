@@ -3,19 +3,37 @@ import { mode } from '../tools';
 const baseStyle = (props: Record<string, any>) => {
   const { colorScheme } = props;
   return {
-    borderWidth: 2,
-    borderRadius: 'full',
-    p: 0.5,
-    borderColor: mode('muted.300', 'muted.600')(props),
-    bg: mode('muted.50', 'muted.700')(props), // matching background color
-
-    _stack: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      space: 2,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    // borderWidth: 2,
+    // borderRadius: 'full',
+    // p: '0.5',
+    // borderColor: mode('muted.300', 'muted.600')(props),
+    // bg: 'red.400', // matching background color
+    _radio: {
+      borderWidth: 2,
+      borderRadius: 'full',
+      p: '0.5',
+      borderColor: mode('muted.300', 'muted.600')(props),
+      bg: mode('muted.50', 'muted.700')(props), // matching background color
+    },
+    _web: {
+      cursor: 'pointer',
+    },
+    _text: {
+      ml: 2,
+      _dark: {
+        color: 'lightText',
+      },
+      _light: {
+        color: 'darkText',
+      },
     },
     _interactionBox: {
+      position: 'absolute',
       borderRadius: 'full',
+      pointerEvents: 'none',
       size: 3,
     },
     _icon: {
@@ -24,26 +42,28 @@ const baseStyle = (props: Record<string, any>) => {
     _hover: {
       _interactionBox: {
         bg: 'muted.200:alpha.30',
-        size: 8,
+        size: 10,
       },
     },
     _focus: {
       _interactionBox: {
         bg: `${colorScheme}.200:alpha.50`,
-        size: 8,
+        size: 10,
       },
     },
     _focusVisible: {
       _interactionBox: {
         bg: `${colorScheme}.200:alpha.50`,
-        size: 8,
+        size: 10,
       },
     },
     _checked: {
       borderColor: mode(`${colorScheme}.600`, `${colorScheme}.200`)(props),
     },
     _disabled: {
-      opacity: 0.4,
+      _web: {
+        cursor: 'not-allowed',
+      },
       _interactionBox: {
         bg: 'transparent',
       },
@@ -69,17 +89,14 @@ const baseStyle = (props: Record<string, any>) => {
 const sizes = {
   lg: {
     _icon: { size: 4 },
-    // _interactionBox: { size: 5 },
     _text: { fontSize: 'lg' },
   },
   md: {
     _icon: { size: 3 },
-    // _interactionBox: { size: 16 },
     _text: { fontSize: 'md' },
   },
   sm: {
     _icon: { size: 2 },
-    // _interactionBox: { size: 3 },
     _text: { fontSize: 'sm' },
   },
 };
