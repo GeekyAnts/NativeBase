@@ -106,6 +106,7 @@ const Button = (
 
   return (
     <Pressable
+      {...hoverProps}
       disabled={isDisabled || isLoading}
       ref={ref}
       onPressIn={composeEventHandlers(onPressIn, pressableProps.onPressIn)}

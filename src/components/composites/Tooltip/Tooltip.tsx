@@ -129,7 +129,7 @@ export const Tooltip = ({
   const tooltipID = useId();
 
   const openWithDelay = React.useCallback(() => {
-    if (!isDisabled) {
+    if (!isDisabled) { // @ts-ignore
       enterTimeout.current = setTimeout(() => setIsOpen(true), openDelay);
     }
   }, [isDisabled, setIsOpen, openDelay]);
@@ -137,7 +137,7 @@ export const Tooltip = ({
   const closeWithDelay = React.useCallback(() => {
     if (enterTimeout.current) {
       clearTimeout(enterTimeout.current);
-    }
+    } // @ts-ignore
     exitTimeout.current = setTimeout(() => setIsOpen(false), closeDelay);
   }, [closeDelay, setIsOpen]);
 

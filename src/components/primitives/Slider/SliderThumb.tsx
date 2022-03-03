@@ -30,7 +30,7 @@ function SliderThumb(props: ISliderThumbProps, ref: any) {
   );
   const inputRef = React.useRef(null);
   const { thumbProps, inputProps } = useSliderThumb(
-    {
+    { // @ts-ignore
       index: 0,
       trackLayout,
       inputRef,

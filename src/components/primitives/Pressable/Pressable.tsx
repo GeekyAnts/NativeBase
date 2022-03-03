@@ -1,5 +1,9 @@
 import React, { forwardRef, memo } from 'react';
-import { Pressable as RNPressable } from 'react-native';
+import {
+  Pressable as RNPressable,
+  TouchableHighlight as RNTouchableWF,
+  Platform,
+} from 'react-native';
 import { composeEventHandlers } from '../../../utils';
 import type { IPressableProps } from './types';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
@@ -13,6 +17,8 @@ export const useHover = () => {
     hoverProps: {
       onHoverIn: () => setHovered(true),
       onHoverOut: () => setHovered(false),
+      onMouseEnter: () => setHovered(true),
+      onMouseLeave: () => setHovered(false),
     },
     isHovered,
   };
@@ -40,7 +46,9 @@ export const useIsPressed = () => {
   };
 };
 
-const StyledPressable = makeStyledComponent(RNPressable);
+const StyledPressable = makeStyledComponent(
+  Platform.OS === 'windows' ? RNTouchableWF : RNPressable
+);
 
 const Pressable = (
   {
