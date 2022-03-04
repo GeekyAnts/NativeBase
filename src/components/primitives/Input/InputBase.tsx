@@ -138,7 +138,7 @@ const InputBase = (
           }
         : {})}
       ref={mergeRefs([ref, _ref, wrapperRef])}
-      style={[Platform.OS === 'web' ? { outline: 'none' } : {}, inputProps.style]}
+      style={[Platform.OS === 'web' ? { outline: 'none' } : {}, props.style]}
     />
   );
 };
