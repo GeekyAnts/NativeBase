@@ -209,7 +209,7 @@ export const border = {
     scale: 'radii',
   },
   borderTop: {
-    property: 'borderTop',
+    property: 'borderTopWidth',
     scale: 'borders',
   },
   borderTopRadius: {
@@ -233,11 +233,11 @@ export const border = {
     scale: 'radii',
   },
   borderRight: {
-    property: 'borderRight',
+    property: 'borderRightWidth',
     scale: 'borders',
   },
   borderBottom: {
-    property: 'borderBottom',
+    property: 'borderBottomWidth',
     scale: 'borders',
   },
   borderBottomLeftRadius: {
@@ -249,15 +249,15 @@ export const border = {
     scale: 'radii',
   },
   borderLeft: {
-    property: 'borderLeft',
+    property: 'borderLeftWidth',
     scale: 'borders',
   },
   borderX: {
-    properties: ['borderLeft', 'borderRight'],
+    properties: ['borderLeftWidth', 'borderRightWidth'],
     scale: 'borders',
   },
   borderY: {
-    properties: ['borderTop', 'borderBottom'],
+    properties: ['borderTopWidth', 'borderBottomWidth'],
     scale: 'borders',
   },
   borderTopWidth: {
