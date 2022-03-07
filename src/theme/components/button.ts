@@ -17,6 +17,7 @@ const baseStyle = (props: any) => {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    userSelect: 'none',
     _web: {
       cursor: props.isDisabled
         ? 'not-allowed'
