@@ -3,6 +3,8 @@ import { mode } from '../tools';
 export const Actionsheet = {
   defaultProps: {
     size: 'full',
+    justifyContent: 'flex-end',
+    animationPreset: 'slide',
   },
 };
 
@@ -19,6 +21,16 @@ export const ActionsheetContent = {
       height: 1,
       width: 10,
       borderRadius: 2,
+    },
+    _dragArea: {
+      pt: 3,
+      pb: 3,
+      mt: -2,
+      width: '100%',
+      alignItems: 'center',
+    },
+    _draggableArea: {
+      py: 2,
     },
   }),
 };
@@ -43,5 +55,13 @@ export const ActionsheetItem = {
   }),
   defaultProps: {
     variant: 'unstyled',
+  },
+};
+
+// ActionsheetHeader
+export const ActionsheetHeader = {
+  baseStyle: {
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 };
