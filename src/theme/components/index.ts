@@ -24,6 +24,7 @@ import Button, { ButtonGroup } from './button';
 import Card from './card';
 import Center from './center';
 import Checkbox from './checkbox';
+import CheckboxGroup from './checkbox-group';
 import Box from './box';
 import FlatList from './flatList';
 import KeyboardAvoidingView from './keyboardAvoidingView';
@@ -134,6 +135,7 @@ export default {
   Card,
   Center,
   Checkbox,
+  CheckboxGroup,
   CircularProgress,
   Code,
   Container,

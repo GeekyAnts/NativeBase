@@ -18,6 +18,14 @@ const baseStyle = (props: Record<string, any>) => {
     _interactionBox: {
       position: 'absolute',
       borderRadius: 'full',
+      p: 5,
+      w: '100%',
+      h: '100%',
+      zIndex: -1,
+      _web: {
+        pointerEvents: 'none',
+        transition: 'height 200ms, width 200ms',
+      },
     },
     _hover: {
       _interactionBox: {

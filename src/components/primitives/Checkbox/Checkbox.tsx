@@ -185,13 +185,7 @@ const CheckboxComponent = React.memo(
         <Box {...layoutProps}>
           <Center>
             {/* Interaction Wrapper */}
-            <Box
-              {..._interactionBox}
-              p={5}
-              w="100%"
-              height="100%"
-              zIndex={-1}
-            />
+            <Box {..._interactionBox} />
             {/* Checkbox */}
             <Center {...nonAccessibilityProps}>
               <SizedIcon icon={icon} _icon={_icon} isChecked={isChecked} />
