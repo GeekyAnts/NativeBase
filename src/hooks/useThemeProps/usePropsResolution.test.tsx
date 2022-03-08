@@ -1257,6 +1257,102 @@ describe('props resolution', () => {
       defaultTheme.colors.emerald['800']
     );
   });
+
+  it('Pseudo props test: android imp', () => {
+    Platform.OS = 'android';
+    const newTheme = extendTheme({
+      components: {
+        Button: {
+          baseStyle: {
+            _android: {
+              _important: {
+                bg: 'green.400',
+              },
+            },
+            _important: {
+              bg: 'pink.400',
+            },
+          },
+        },
+      },
+    });
+    const { getByTestId } = render(
+      <Provider theme={newTheme}>
+        <Button bg="amber.500" testID="test">
+          Button
+        </Button>
+      </Provider>
+    );
+    const button = getByTestId('test');
+    expect(button.props.style.backgroundColor).toBe(
+      defaultTheme.colors.green['400']
+    );
+  });
+
+  it('Pseudo props test: android imp 2', () => {
+    Platform.OS = 'android';
+    const newTheme = extendTheme({
+      components: {
+        Button: {
+          baseStyle: {
+            _important: {
+              bg: 'pink.400',
+            },
+            _android: {
+              _important: {
+                bg: 'green.400',
+              },
+            },
+          },
+        },
+      },
+    });
+    const { getByTestId } = render(
+      <Provider theme={newTheme}>
+        <Button bg="amber.500" testID="test">
+          Button
+        </Button>
+      </Provider>
+    );
+    const button = getByTestId('test');
+    expect(button.props.style.backgroundColor).toBe(
+      defaultTheme.colors.green['400']
+    );
+  });
+
+  it('Pseudo props test: ios imp ', () => {
+    Platform.OS = 'ios';
+    const newTheme = extendTheme({
+      components: {
+        Button: {
+          baseStyle: {
+            _android: {
+              _important: {
+                bg: 'green.400',
+                padding: '5',
+              },
+            },
+          },
+        },
+      },
+    });
+    const { getByTestId } = render(
+      <Provider theme={newTheme}>
+        <Button bg="amber.500" testID="test">
+          Button
+        </Button>
+      </Provider>
+    );
+    const button = getByTestId('test');
+    expect(button.props.style.backgroundColor).toBe(
+      defaultTheme.colors.amber['500']
+    );
+
+    expect(button.props.style.paddingLeft).toBe(defaultTheme.space['3']);
+    expect(button.props.style.paddingRight).toBe(defaultTheme.space['3']);
+    expect(button.props.style.paddingTop).toBe(defaultTheme.space['2']);
+    expect(button.props.style.paddingBottom).toBe(defaultTheme.space['2']);
+  });
 });
 
 // =========================================================
