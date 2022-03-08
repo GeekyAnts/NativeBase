@@ -1,6 +1,6 @@
 import React, { memo, forwardRef } from 'react';
 import Box from '../Box';
-import { HStack } from '../Stack';
+import { Stack } from '../Stack';
 import { Center } from '../../composites/Center';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { wrapStringChild } from '../../../utils/wrapStringChild';
@@ -62,19 +62,10 @@ const RadioComponent = memo(
         });
 
       const component = (
-        <HStack {..._stack} cursor={isDisabled ? 'not-allowed' : 'pointer'}>
+        <Stack {..._stack} cursor={isDisabled ? 'not-allowed' : 'pointer'}>
           <Center>
             {/* Interaction Box */}
-            <Box
-              position="absolute"
-              zIndex={-1}
-              pointerEvents="none"
-              {..._interactionBox}
-              style={{
-                // @ts-ignore - only for web"
-                transition: 'height 200ms, width 200ms',
-              }}
-            />
+            <Box {..._interactionBox} />
             {/* Radio */}
             <Center {...resolvedProps}>
               {icon && sizedIcon && isChecked ? (
@@ -85,7 +76,7 @@ const RadioComponent = memo(
             </Center>
           </Center>
           {wrapStringChild(children, _text)}
-        </HStack>
+        </Stack>
       );
       //TODO: refactor for responsive prop
       if (useHasResponsiveProps(props)) {

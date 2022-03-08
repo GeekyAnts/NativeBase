@@ -149,10 +149,6 @@ const CheckboxComponent = React.memo(
             {/* Interaction Box */}
             <Box
               {..._interactionBox}
-              style={{
-                // @ts-ignore - only for web"
-                transition: 'height 200ms, width 200ms',
-              }}
               h={
                 isFocusVisible ||
                 isFocusVisibleProp ||
@@ -169,8 +165,6 @@ const CheckboxComponent = React.memo(
                   ? '200%'
                   : '0%'
               }
-              pointerEvents="none"
-              zIndex={-1}
             />
             {/* Checkbox */}
             <Center {...nonLayoutProps}>

@@ -5,14 +5,14 @@ import type { IRadioContext, IRadioGroupProps } from './types';
 import { useRadioGroupState } from '@react-stately/radio';
 import { useRadioGroup } from '@react-native-aria/radio';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 
 export const RadioContext = React.createContext<IRadioContext>(
   {} as IRadioContext
 );
 const RadioWrapper = memo((props: any) => {
-  return (
-    <Stack alignItems="flex-start" {...props.radioGroupProps} {...props} />
-  );
+  const resolvedProps = usePropsResolution('RadioGroup', props);
+  return <Stack {...resolvedProps} {...props.radioGroupProps} {...props} />;
 });
 
 const RadioGroup = (
@@ -43,7 +43,6 @@ const RadioGroup = (
     []
   );
 
-  // console.log(radioGroupState);
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps({ ...props, size, colorScheme })) {
     return null;

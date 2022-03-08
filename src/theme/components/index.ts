@@ -24,6 +24,7 @@ import Button, { ButtonGroup } from './button';
 import Card from './card';
 import Center from './center';
 import Checkbox from './checkbox';
+import CheckboxGroup from './checkbox-group';
 import Box from './box';
 import FlatList from './flatList';
 import KeyboardAvoidingView from './keyboardAvoidingView';
@@ -76,6 +77,7 @@ import PinInput from './pin-input';
 import Pressable from './pressable';
 import Progress from './progress';
 import Radio from './radio';
+import RadioGroup from './radio-group';
 import { Skeleton, SkeletonText } from './skeleton';
 import Spinner from './spinner';
 import Stat from './stat';
@@ -133,6 +135,7 @@ export default {
   Card,
   Center,
   Checkbox,
+  CheckboxGroup,
   CircularProgress,
   Code,
   Container,
@@ -182,6 +185,7 @@ export default {
   ...PopoverComponentTheme,
   Progress,
   Radio,
+  RadioGroup,
   ScaleFade,
   Select,
   SelectItem,

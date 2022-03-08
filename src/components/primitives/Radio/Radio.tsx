@@ -124,7 +124,7 @@ const RadioComponent = memo(
           <HStack {..._stack}>
             <Center>
               {/* Interaction Wrapper */}
-              <Box position="absolute" zIndex={-1} {..._interactionBox} />
+              <Box {..._interactionBox} />
               {/* radio */}
               <Center {...resolvedProps}>
                 {icon && sizedIcon && isChecked ? (
