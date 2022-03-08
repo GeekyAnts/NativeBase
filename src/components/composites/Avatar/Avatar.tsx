@@ -38,9 +38,10 @@ const Avatar = ({ children, ...props }: IAvatarProps, ref: any) => {
   if (useHasResponsiveProps(props)) {
     return null;
   }
+
   return (
     <Box {...resolvedProps}>
-      {source && !error ? (
+      {!!source?.uri && !error ? (
         <Image
           borderRadius={resolvedProps.borderRadius}
           source={source}
