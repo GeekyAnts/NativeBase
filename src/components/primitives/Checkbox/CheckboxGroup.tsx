@@ -10,6 +10,8 @@ export const CheckboxGroupContext = createContext<ICheckboxContext | null>(
   null
 );
 
+// console.log("Hello");
+
 function CheckboxGroup(
   { size, _checkbox, colorScheme, ...props }: ICheckboxGroupProps,
   ref?: any
