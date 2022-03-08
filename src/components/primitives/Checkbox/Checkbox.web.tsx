@@ -158,7 +158,7 @@ const CheckboxComponent = React.memo(
                 isFocusVisibleProp ||
                 isHovered ||
                 isHoveredProp
-                  ? '200%'
+                  ? '10'
                   : '0%'
               }
               w={
@@ -166,7 +166,7 @@ const CheckboxComponent = React.memo(
                 isFocusVisibleProp ||
                 isHovered ||
                 isHoveredProp
-                  ? '200%'
+                  ? '10'
                   : '0%'
               }
               pointerEvents="none"
