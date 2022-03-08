@@ -3,6 +3,9 @@ import { mode, transparentize } from '../tools';
 const baseStyle = (props: Record<string, any>) => {
   const { colorScheme, theme } = props;
   return {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
     borderWidth: 2,
     borderRadius: 'full',
     p: '2px',
@@ -15,6 +18,13 @@ const baseStyle = (props: Record<string, any>) => {
       position: 'absolute',
       zIndex: -1,
       borderRadius: 'full',
+      p: 5,
+      w: '100%',
+      height: '100%',
+      _web: {
+        transition: 'height 200ms, width 200ms',
+        pointerEvents: 'none',
+      },
     },
     _icon: {
       color: mode(`${colorScheme}.600`, `${colorScheme}.200`)(props), // matching background color

@@ -114,16 +114,10 @@ const RadioComponent = memo(
             // focusRingProps.onBlur
           )}
         >
-          <Center
-            flexDirection="row"
-            justifyContent="center"
-            alignItems="center"
-            borderRadius="full"
-            {...layoutProps}
-          >
+          <Center {...layoutProps}>
             <Center>
               {/* Interaction Wrapper */}
-              <Box {..._interactionBox} p={5} w="100%" height="100%" />
+              <Box {..._interactionBox} />
               {/* radio */}
               <Center {...nonLayoutProps}>
                 {icon && sizedIcon && isChecked ? (

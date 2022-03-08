@@ -66,11 +66,8 @@ const RadioComponent = memo(
         React.cloneElement(icon, {
           ..._icon,
         });
-
       const component = (
         <Box
-          flexDirection="row"
-          alignItems="center"
           {...layoutProps}
           opacity={isDisabled ? 0.4 : 1}
           cursor={isDisabled ? 'not-allowed' : 'pointer'}
@@ -79,10 +76,6 @@ const RadioComponent = memo(
             {/* Interaction Box */}
             <Box
               {..._interactionBox}
-              style={{
-                // @ts-ignore - only for web"
-                transition: 'height 200ms, width 200ms',
-              }}
               h={
                 isFocusVisible ||
                 isFocusVisibleProp ||
@@ -99,7 +92,6 @@ const RadioComponent = memo(
                   ? '200%'
                   : '100%'
               }
-              pointerEvents="none"
             />
             {/* Radio */}
             <Center {...nonLayoutProps}>

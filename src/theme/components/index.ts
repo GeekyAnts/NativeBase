@@ -76,6 +76,7 @@ import PinInput from './pin-input';
 import Pressable from './pressable';
 import Progress from './progress';
 import Radio from './radio';
+import RadioGroup from './radio-group';
 import { Skeleton, SkeletonText } from './skeleton';
 import Spinner from './spinner';
 import Stat from './stat';
@@ -182,6 +183,7 @@ export default {
   ...PopoverComponentTheme,
   Progress,
   Radio,
+  RadioGroup,
   ScaleFade,
   Select,
   SelectItem,

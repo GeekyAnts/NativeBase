@@ -5,14 +5,15 @@ import type { IRadioContext, IRadioGroupProps } from './types';
 import { useRadioGroupState } from '@react-stately/radio';
 import { useRadioGroup } from '@react-native-aria/radio';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 
 export const RadioContext = React.createContext<IRadioContext>(
   {} as IRadioContext
 );
 const RadioWrapper = React.memo((props: any) => {
-  // console.log('hello here group');
+  const resolvedProps = usePropsResolution('RadioGroup', props);
   return (
-    <Box alignItems="flex-start" {...props.radioGroupProps} {...props}>
+    <Box {...resolvedProps} {...props.radioGroupProps} {...props}>
       {props.children}
     </Box>
   );
