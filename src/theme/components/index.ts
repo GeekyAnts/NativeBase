@@ -8,7 +8,7 @@ import {
 import {
   Actionsheet,
   ActionsheetContent,
-  // ActionsheetHeader,
+  ActionsheetHeader,
   // ActionsheetFooter,
   ActionsheetItem,
 } from './actionsheet';
@@ -112,7 +112,7 @@ export default {
   AccordionDetails,
   Actionsheet,
   ActionsheetContent,
-  // ActionsheetHeader,
+  ActionsheetHeader,
   // ActionsheetFooter,
   ActionsheetItem,
   Alert,
