@@ -22,15 +22,17 @@ export const ActionsheetContent = {
       width: 10,
       borderRadius: 2,
     },
-    _dragArea: {
+    _dragIndicatorWrapper: {
       pt: 3,
       pb: 3,
       mt: -2,
       width: '100%',
       alignItems: 'center',
+      collapsable: false,
     },
-    _draggableArea: {
+    _dragIndicatorWrapperOffSet: {
       py: 2,
+      collapsable: false,
     },
   }),
 };
@@ -55,13 +57,5 @@ export const ActionsheetItem = {
   }),
   defaultProps: {
     variant: 'unstyled',
-  },
-};
-
-// ActionsheetHeader
-export const ActionsheetHeader = {
-  baseStyle: {
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 };
