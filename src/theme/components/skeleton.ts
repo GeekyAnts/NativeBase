@@ -5,7 +5,7 @@ export const Skeleton = {
   baseStyle: (props: Record<string, any>) => {
     return {
       startColor: mode('muted.200', 'muted.600')(props),
-      endColor: 'transparent',
+      overflow: 'hidden',
       fadeDuration: 0.1,
       speed: 1.0,
       h: '10',
@@ -26,6 +26,9 @@ export const SkeletonText = {
       _line: {
         h: 3,
         rounded: 'full',
+      },
+      _stack: {
+        flexDirection: 'column',
       },
     };
   },
