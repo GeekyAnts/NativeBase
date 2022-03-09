@@ -37,10 +37,10 @@ export interface ICheckboxProps extends IBoxProps<ICheckboxProps> {
    * If true, the checkbox will be indeterminate. This only affects the icon shown inside checkbox.
    */
   isIndeterminate?: boolean;
+  // isFullWidth?: boolean;
   /**
    * If true, the checkbox will be disabled.
    */
-  // isFullWidth?: boolean;
   isDisabled?: boolean;
   /**
    * If true, the checkbox is marked as invalid.

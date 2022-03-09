@@ -6,7 +6,7 @@ import { Modal } from 'react-native';
 import { useKeyboardDismissable } from '../../../hooks';
 import { ExitAnimationContext } from './ExitAnimationContext';
 
-interface IOverlayProps {
+export interface IOverlayProps {
   isOpen?: boolean;
   children?: any;
   // We use RN modal on android if needed as it supports shifting accessiblity focus to the opened view. IOS automatically shifts focus if an absolutely placed view appears in front.
