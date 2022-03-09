@@ -37,6 +37,10 @@ const slideDefaultProps = {
 };
 
 export const Slide = {
+  baseStyle: {
+    h: '100%',
+    pointerEvents: 'box-none',
+  },
   defaultProps: slideDefaultProps,
 };
 
