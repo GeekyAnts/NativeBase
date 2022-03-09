@@ -1,7 +1,11 @@
 import { mode } from '../tools';
 
 // FormControl
-export const FormControl = {};
+export const FormControl = {
+  baseStyle: {
+    width: '100%',
+  },
+};
 
 // FormControlErrorMessage
 export const FormControlErrorMessage = {
@@ -21,11 +25,15 @@ export const FormControlErrorMessage = {
 export const FormControlLabel = {
   baseStyle: (props: Record<string, any>) => {
     return {
+      flexDirection: 'row',
+      justifyContent: 'flex-start',
       _text: {
         fontSize: 'sm',
         fontWeight: 'medium',
       },
-      astrickColor: mode('danger.600', 'danger.300')(props),
+      _astrick: {
+        color: mode('danger.600', 'danger.300')(props),
+      },
       mb: '2',
       mr: '3',
     };
