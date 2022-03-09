@@ -34,7 +34,6 @@ const Modal = (
   const {
     contentSize,
     _backdrop,
-    _child,
     _backdropFade,
     _fade,
     _slide,
@@ -55,7 +54,6 @@ const Modal = (
     <Box
       bottom={avoidKeyboard ? bottomInset + 'px' : undefined}
       {...resolvedProps}
-      {..._child}
       ref={ref}
     >
       {children}

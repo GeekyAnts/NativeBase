@@ -34,7 +34,6 @@ const AlertDialog = (
   const {
     contentSize,
     _backdrop,
-    _child,
     _backdropFade,
     _fade,
     _slide,
@@ -55,7 +54,6 @@ const AlertDialog = (
     <Box
       bottom={avoidKeyboard ? bottomInset + 'px' : undefined}
       {...restThemeProps}
-      {..._child}
       ref={ref}
     >
       {children}

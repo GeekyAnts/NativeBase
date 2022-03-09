@@ -45,7 +45,7 @@ export const AlertDialog = {
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    _child: { pointerEvents: 'box-none' },
+    _web: { pointerEvents: 'box-none' },
   },
   sizes,
   defaultProps: {
