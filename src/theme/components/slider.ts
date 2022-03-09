@@ -6,6 +6,7 @@ export const SliderTrack = {
       bg: `${simplifiedColorScheme}.100`,
       borderRadius: 'lg',
       overflow: 'hidden',
+      _wrap: { alignItems: 'center', justifyContent: 'center' },
     };
   },
 };
@@ -46,6 +47,10 @@ const sizes = {
 };
 
 export const Slider = {
+  baseStyle: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   defaultProps: {
     size: 'sm',
   },

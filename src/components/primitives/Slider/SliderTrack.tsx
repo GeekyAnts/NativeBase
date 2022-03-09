@@ -17,7 +17,7 @@ const SliderTrack = ({ children, ...props }: ISliderTrackProps, ref?: any) => {
     isDisabled,
   } = React.useContext(SliderContext);
 
-  const resolvedProps = usePropsResolution(
+  const { _wrap, ...resolvedProps } = usePropsResolution(
     'SliderTrack',
     {
       size: sliderSize,
@@ -48,10 +48,10 @@ const SliderTrack = ({ children, ...props }: ISliderTrackProps, ref?: any) => {
       ref={ref}
       {...trackProps}
       {...trackStyle}
-      paddingY={!isVertical ? '12px' : undefined}
-      paddingX={isVertical ? '12px' : undefined}
-      justifyContent="center"
-      alignItems="center"
+      paddingY={!isVertical ? '3' : undefined}
+      paddingX={isVertical ? '3' : undefined}
+      alignItems={_wrap.alignItems}
+      justifyContent={_wrap.justifyContent}
     >
       <Box {...resolvedProps} style={trackStyle}>
         {children}

@@ -97,13 +97,7 @@ function Slider({ isDisabled, isReadOnly, ...props }: ISliderProps, ref?: any) {
 
   return (
     <SliderContext.Provider value={contextValue}>
-      <Box
-        {...wrapperStyle}
-        justifyContent="center"
-        ref={ref}
-        alignItems="center"
-        {...resolvedProps}
-      >
+      <Box {...wrapperStyle} ref={ref} {...resolvedProps}>
         {React.Children.map(props.children, (child, index) => {
           if (child.displayName === 'SliderThumb') {
             return React.cloneElement(child as React.ReactElement, {
