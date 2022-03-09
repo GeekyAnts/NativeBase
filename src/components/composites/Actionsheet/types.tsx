@@ -28,7 +28,20 @@ export interface IActionsheetProps extends IBoxProps<IActionsheetProps> {
 }
 
 export interface IActionsheetContentProps
-  extends IBoxProps<IActionsheetContentProps> {}
+  extends IBoxProps<IActionsheetContentProps> {
+  /**
+   * Props applied on area above actionsheet content
+   */
+  _dragIndicatorWrapperOffSet?: IBoxProps<IActionsheetContentProps>;
+  /**
+   * Props applied on area around drag indicator
+   */
+  _dragIndicatorWrapper?: IBoxProps<IActionsheetContentProps>;
+  /**
+   * Props applied on drag indicator
+   */
+  _dragIndicator?: IBoxProps<IActionsheetContentProps>;
+}
 export interface IActionsheetFooterProps
   extends IBoxProps<IActionsheetFooterProps> {}
 export interface IActionsheetHeaderProps
