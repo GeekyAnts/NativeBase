@@ -27,16 +27,17 @@ const AlertDialog = (
     backdropVisible = true,
     //@ts-ignore - internal purpose only
     animationPreset = 'fade',
-
     ...rest
   }: IAlertDialogProps,
   ref: any
 ) => {
   const bottomInset = useKeyboardBottomInset();
-  const { contentSize, _backdrop, ...restThemeProps } = usePropsResolution(
-    'AlertDialog',
-    rest
-  );
+  const {
+    contentSize,
+    _backdrop,
+    _child,
+    ...restThemeProps
+  } = usePropsResolution('AlertDialog', rest);
 
   const [visible, setVisible] = useControllableState({
     value: isOpen,
@@ -48,16 +49,17 @@ const AlertDialog = (
 
   const handleClose = () => setVisible(false);
 
-  let child = (
+  const child = (
     <Box
       bottom={avoidKeyboard ? bottomInset + 'px' : undefined}
       {...restThemeProps}
+      {..._child}
       ref={ref}
-      pointerEvents="box-none"
     >
       {children}
     </Box>
   );
+
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(rest)) {
     return null;

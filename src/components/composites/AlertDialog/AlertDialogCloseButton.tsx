@@ -7,8 +7,10 @@ import type { IButtonProps } from '../../primitives/Button';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const AlertDialogCloseButton = (props: IButtonProps, ref?: any) => {
-  const newProps = usePropsResolution('AlertDialogCloseButton', props);
-  const { _icon, ...rest } = newProps;
+  const { _icon, ...rest } = usePropsResolution(
+    'AlertDialogCloseButton',
+    props
+  );
   const { handleClose } = React.useContext(AlertDialogContext);
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
