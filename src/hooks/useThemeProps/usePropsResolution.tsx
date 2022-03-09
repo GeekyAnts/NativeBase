@@ -133,11 +133,19 @@ export function usePropsResolution(
     resolveResponsively?: string[];
     ignoreProps?: string[];
     cascadePseudoProps?: boolean;
+    extendTheme?: string[];
   }
 ) {
   const { theme } = useNativeBase();
-  const componentTheme =
+  let componentTheme =
     config?.componentTheme ?? get(theme, `components.${component}`, {});
+
+  if (config?.extendTheme) {
+    config?.extendTheme.map((componentName: string) => {
+      const currentTheme = get(theme, `components.${componentName}`, {});
+      componentTheme = merge(componentTheme, currentTheme);
+    });
+  }
 
   if (process.env.NODE_ENV === 'development' && incomingProps.debug) {
     /* eslint-disable-next-line */
@@ -173,6 +181,12 @@ export function usePropsResolution(
     config
   );
 
+  // Not Resolve theme props and pseudo props
+  if (incomingProps?.INTERNAL_notResolveThemeAndPseudoProps) {
+    delete incomingProps.INTERNAL_notResolveThemeAndPseudoProps;
+    return incomingProps;
+  }
+
   if (process.env.NODE_ENV === 'development' && incomingProps.debug) {
     /* eslint-disable-next-line */
     console.log(
@@ -193,6 +207,7 @@ export const usePropsResolutionWithComponentTheme = (
     resolveResponsively?: string[];
     ignoreProps?: string[];
     cascadePseudoProps?: boolean;
+    extendTheme?: string[];
   }
 ) => {
   const modifiedPropsForSSR = useResponsiveSSRProps(incomingProps);
