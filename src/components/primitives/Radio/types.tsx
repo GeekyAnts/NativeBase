@@ -59,7 +59,7 @@ export interface IRadioProps extends IBoxProps<IRadioProps> {
    */
   wrapperRef?: any;
   /**
-   * Props to be passed to the HStack used inside.
+   * Props to be passed to the Stack used inside.
    */
   _stack?: IStackProps;
 }

@@ -5,6 +5,7 @@ import type { IFormControlContext } from '../../composites/FormControl';
 import type { IBoxProps } from '../Box';
 import type { IIconProps } from '../Icon';
 import type { ResponsiveValue } from '../../../components/types';
+import type { IStackProps } from '../../primitives/Stack';
 
 export type ICheckboxValue = string;
 
@@ -115,6 +116,10 @@ export interface ICheckboxProps extends IBoxProps<ICheckboxProps> {
    * You can style interaction box around the checkbox using this.
    */
   _interactionBox?: Omit<ICheckboxProps, '_interactionBox'>;
+  /**
+   * Props to be passed to the Stack used inside.
+   */
+  _stack?: IStackProps;
   /**
    * Function called when the state of the checkbox changes.
    */

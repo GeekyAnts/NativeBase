@@ -15,6 +15,7 @@ import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 import { combineContextAndProps } from '../../../utils';
 import SizedIcon from './SizedIcon';
+import { Stack } from '../Stack';
 
 const Checkbox = (
   {
@@ -119,6 +120,7 @@ const CheckboxComponent = React.memo(
       icon,
       _interactionBox,
       _icon,
+      _stack,
       ...resolvedProps
     } = usePropsResolution('Checkbox', combinedProps, {
       isInvalid,
@@ -135,12 +137,15 @@ const CheckboxComponent = React.memo(
       ...stylingProps.layout,
       ...stylingProps.flexbox,
       ...stylingProps.position,
+      ...stylingProps.background,
+      ...stylingProps.padding,
+      ...stylingProps.border,
       '_text',
     ]);
 
     const component = React.useMemo(() => {
       return (
-        <Box {...layoutProps}>
+        <Stack {...layoutProps} {..._stack}>
           <Center>
             {/* Interaction Box */}
             <Box
@@ -170,17 +175,18 @@ const CheckboxComponent = React.memo(
           </Center>
           {/* Label */}
           {resolvedProps?.children}
-        </Box>
+        </Stack>
       );
     }, [
       _icon,
+      _stack,
       _interactionBox,
       icon,
       isChecked,
       isFocusVisible,
       isHovered,
-      layoutProps,
       nonLayoutProps,
+      layoutProps,
       isHoveredProp,
       isFocusVisibleProp,
       resolvedProps?.children,
