@@ -50,6 +50,15 @@ const baseStyle = (props: Record<string, any>) => {
       overflow: 'auto',
       lineHeight: 'lg', // Todo: Move to _web inside size so that sm and xs don't have this much height
     },
+    webInputBase: {
+      outline: 'none',
+    },
+    _stack: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      overflow: 'hidden',
+    },
   };
 };
 

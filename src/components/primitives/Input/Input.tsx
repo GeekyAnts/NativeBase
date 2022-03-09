@@ -1,5 +1,4 @@
 import React, { memo, forwardRef } from 'react';
-import Box from '../Box';
 import type { IInputProps } from './types';
 import InputBase from './InputBase';
 import { useFormControl } from '../../composites/FormControl';
@@ -8,6 +7,7 @@ import { useHover } from '@react-native-aria/interactions';
 import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { mergeRefs } from '../../../utils';
+import { Stack } from '../Stack';
 
 const Input = (
   { isHovered: isHoveredProp, isFocused: isFocusedProp, ...props }: IInputProps,
@@ -44,6 +44,7 @@ const Input = (
     onFocus,
     onBlur,
     wrapperRef,
+    _stack,
     ...resolvedProps
   } = usePropsResolution(
     'Input',
@@ -79,15 +80,7 @@ const Input = (
   }
   if (InputLeftElement || InputRightElement || leftElement || rightElement) {
     return (
-      <Box
-        display="flex"
-        flexDirection="row"
-        alignItems="center"
-        justifyContent="space-between"
-        overflow="hidden"
-        {...layoutProps}
-        ref={mergeRefs([_ref, wrapperRef])}
-      >
+      <Stack {..._stack} {...layoutProps} ref={mergeRefs([_ref, wrapperRef])}>
         {InputLeftElement || leftElement
           ? InputLeftElement || leftElement
           : null}
@@ -113,7 +106,7 @@ const Input = (
         {InputRightElement || rightElement
           ? InputRightElement || rightElement
           : null}
-      </Box>
+      </Stack>
     );
   } else {
     return (
