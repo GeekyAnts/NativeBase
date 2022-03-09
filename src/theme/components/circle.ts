@@ -1,4 +1,6 @@
-const baseStyle = (props: any) => ({
+import type { Dict } from './../tools';
+
+const baseStyle = (props: Dict) => ({
   rounded: 'full',
   alignItems: 'center',
   justifyContent: 'center',
