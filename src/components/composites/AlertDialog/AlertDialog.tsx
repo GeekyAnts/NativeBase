@@ -25,7 +25,6 @@ const AlertDialog = (
     isKeyboardDismissable = true,
     overlayVisible = true,
     backdropVisible = true,
-    //@ts-ignore - internal purpose only
     animationPreset = 'fade',
     ...rest
   }: IAlertDialogProps,
@@ -36,6 +35,9 @@ const AlertDialog = (
     contentSize,
     _backdrop,
     _child,
+    _backdropFade,
+    _fade,
+    _slide,
     ...restThemeProps
   } = usePropsResolution('AlertDialog', rest);
 
@@ -84,6 +86,7 @@ const AlertDialog = (
           entryDuration={200}
           in={visible}
           style={StyleSheet.absoluteFill}
+          {..._backdropFade}
         >
           {overlayVisible && backdropVisible && (
             <Backdrop
@@ -95,7 +98,7 @@ const AlertDialog = (
           )}
         </Fade>
         {animationPreset === 'slide' ? (
-          <Slide overlay={false} in={visible} duration={200}>
+          <Slide overlay={false} in={visible} duration={200} {..._slide}>
             <FocusScope
               contain={visible}
               autoFocus={visible && !initialFocusRef}
@@ -110,6 +113,7 @@ const AlertDialog = (
             entryDuration={200}
             in={visible}
             style={StyleSheet.absoluteFill}
+            {..._fade}
           >
             <FocusScope
               contain={visible}
