@@ -62,7 +62,7 @@ const RadioComponent = memo(
         });
 
       const component = (
-        <Stack {..._stack} cursor={isDisabled ? 'not-allowed' : 'pointer'}>
+        <Stack {..._stack}>
           <Center>
             {/* Interaction Box */}
             <Box {..._interactionBox} />
@@ -71,7 +71,7 @@ const RadioComponent = memo(
               {icon && sizedIcon && isChecked ? (
                 sizedIcon()
               ) : (
-                <CircleIcon {..._icon} opacity={isChecked ? 1 : 0} />
+                <CircleIcon {..._icon} />
               )}
             </Center>
           </Center>

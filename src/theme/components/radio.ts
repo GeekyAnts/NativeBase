@@ -13,6 +13,9 @@ const baseStyle = (props: Record<string, any>) => {
       direction: 'row',
       alignItems: 'center',
       space: 2,
+      _web: {
+        cursor: props.isDisabled ? 'not-allowed' : 'pointer',
+      },
     },
     _interactionBox: {
       borderRadius: 'full',
@@ -26,6 +29,7 @@ const baseStyle = (props: Record<string, any>) => {
     },
     _icon: {
       color: mode(`${colorScheme}.600`, `${colorScheme}.200`)(props), // matching background color
+      opacity: props.isChecked ? 1 : 0,
     },
     _hover: {
       _interactionBox: {

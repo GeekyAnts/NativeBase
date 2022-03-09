@@ -10,7 +10,10 @@ const baseStyle = (props: Record<string, any>) => {
     borderRadius: 'sm',
     borderColor: mode('muted.300', 'muted.600')(props),
     bg: mode('muted.50', 'muted.700')(props), // matching background color
-
+    opacity: 1,
+    _web: {
+      cursor: 'pointer',
+    },
     _text: {
       ml: 2,
       color: mode('darkText', 'lightText')(props),
@@ -45,6 +48,9 @@ const baseStyle = (props: Record<string, any>) => {
     _disabled: {
       _interactionBox: {
         bg: 'transparent',
+      },
+      _web: {
+        cursor: 'not-allowed',
       },
       opacity: 0.4,
     },

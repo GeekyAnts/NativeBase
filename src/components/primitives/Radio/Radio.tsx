@@ -2,7 +2,7 @@ import React, { memo, forwardRef } from 'react';
 import { Pressable, IPressableProps } from '../Pressable';
 import { Center } from '../../composites/Center';
 import Box from '../Box';
-import { HStack } from '../Stack';
+import { Stack } from '../Stack';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { wrapStringChild } from '../../../utils/wrapStringChild';
 import type { IRadioProps } from './types';
@@ -121,7 +121,7 @@ const RadioComponent = memo(
             // focusRingProps.onBlur
           )}
         >
-          <HStack {..._stack}>
+          <Stack {..._stack}>
             <Center>
               {/* Interaction Wrapper */}
               <Box {..._interactionBox} />
@@ -130,13 +130,13 @@ const RadioComponent = memo(
                 {icon && sizedIcon && isChecked ? (
                   sizedIcon()
                 ) : (
-                  <CircleIcon {..._icon} opacity={isChecked ? 1 : 0} />
+                  <CircleIcon {..._icon} />
                 )}
               </Center>
             </Center>
             {/* Label */}
             {wrapStringChild(children, _text)}
-          </HStack>
+          </Stack>
         </Pressable>
       );
     }

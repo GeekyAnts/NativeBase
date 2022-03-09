@@ -140,11 +140,7 @@ const CheckboxComponent = React.memo(
 
     const component = React.useMemo(() => {
       return (
-        <Box
-          {...layoutProps}
-          opacity={isDisabled ? 0.4 : 1}
-          cursor={isDisabled ? 'not-allowed' : 'pointer'}
-        >
+        <Box {...layoutProps}>
           <Center>
             {/* Interaction Box */}
             <Box
@@ -181,7 +177,6 @@ const CheckboxComponent = React.memo(
       _interactionBox,
       icon,
       isChecked,
-      isDisabled,
       isFocusVisible,
       isHovered,
       layoutProps,
