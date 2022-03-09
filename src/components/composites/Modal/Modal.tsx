@@ -32,10 +32,12 @@ const Modal = (
   ref: any
 ) => {
   const bottomInset = useKeyboardBottomInset();
-  const { contentSize, _backdrop, ...resolvedProps } = usePropsResolution(
-    'Modal',
-    rest
-  );
+  const {
+    contentSize,
+    _backdrop,
+    _child,
+    ...resolvedProps
+  } = usePropsResolution('Modal', rest);
 
   const [visible, setVisible] = useControllableState({
     value: isOpen,
@@ -51,8 +53,8 @@ const Modal = (
     <Box
       bottom={avoidKeyboard ? bottomInset + 'px' : undefined}
       {...resolvedProps}
+      {..._child}
       ref={ref}
-      pointerEvents="box-none"
     >
       {children}
     </Box>

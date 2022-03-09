@@ -45,6 +45,7 @@ export const Modal = {
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
+    _child: { pointerEvents: 'box-none' },
   },
   sizes,
   defaultProps: {
