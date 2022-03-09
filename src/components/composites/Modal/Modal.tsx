@@ -25,8 +25,7 @@ const Modal = (
     isKeyboardDismissable = true,
     overlayVisible = true,
     backdropVisible = true,
-    //@ts-ignore - internal purpose only
-    animationPreset = 'fade',
+    animationPreset,
     ...rest
   }: IModalProps,
   ref: any
@@ -36,6 +35,9 @@ const Modal = (
     contentSize,
     _backdrop,
     _child,
+    _backdropFade,
+    _fade,
+    _slide,
     ...resolvedProps
   } = usePropsResolution('Modal', rest);
 
@@ -89,6 +91,7 @@ const Modal = (
           entryDuration={200}
           in={visible}
           style={StyleSheet.absoluteFill}
+          {..._backdropFade}
         >
           {overlayVisible && backdropVisible && (
             <Backdrop
@@ -100,7 +103,7 @@ const Modal = (
           )}
         </Fade>
         {animationPreset === 'slide' ? (
-          <Slide in={visible} overlay={false} duration={200}>
+          <Slide in={visible} overlay={false} duration={200} {..._slide}>
             <FocusScope
               contain={visible}
               autoFocus={visible && !initialFocusRef}
@@ -115,6 +118,7 @@ const Modal = (
             entryDuration={200}
             in={visible}
             style={StyleSheet.absoluteFill}
+            {..._fade}
           >
             <FocusScope
               contain={visible}

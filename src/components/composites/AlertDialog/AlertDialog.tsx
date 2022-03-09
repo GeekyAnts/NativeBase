@@ -25,7 +25,7 @@ const AlertDialog = (
     isKeyboardDismissable = true,
     overlayVisible = true,
     backdropVisible = true,
-    animationPreset = 'fade',
+    animationPreset,
     ...rest
   }: IAlertDialogProps,
   ref: any

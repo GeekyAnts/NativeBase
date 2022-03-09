@@ -74,7 +74,8 @@ export interface IAlertDialogProps extends IBoxProps {
    */
   _slide?: ISlideProps;
   /**
-   * Prop applied to change Animation.
+   * Sets the animation type
+   * @default "fade"
    */
   animationPreset?: 'slide' | 'fade';
 }

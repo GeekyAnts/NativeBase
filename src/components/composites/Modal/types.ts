@@ -5,6 +5,7 @@ import type { MutableRefObject } from 'react';
 import type { ResponsiveValue } from '../../../components/types';
 import type { ISizes } from '../../../theme/base/sizes';
 import type { IScrollViewProps } from '../../basic/ScrollView';
+import type { IFadeProps, ISlideProps } from '../Transitions';
 
 export interface IModalProps extends IBoxProps<IModalProps> {
   /**
@@ -65,6 +66,18 @@ export interface IModalProps extends IBoxProps<IModalProps> {
    * @default "fade"
    */
   animationPreset?: 'fade' | 'slide';
+  /**
+   * Props applied on Overlay Animation.
+   */
+  _backdropFade?: IFadeProps;
+  /**
+   * Props applied on Child Fade Animation.
+   */
+  _fade?: IFadeProps;
+  /**
+   * Props applied on Child Slide Animation.
+   */
+  _slide?: ISlideProps;
 }
 
 export type IModalComponentType = ((
