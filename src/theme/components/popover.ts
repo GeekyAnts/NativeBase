@@ -38,6 +38,9 @@ export const PopoverContent = {
 
 export const PopoverHeader = {
   baseStyle: (props: any) => ({
+    _web: {
+      accessibilityRole: 'header',
+    },
     py: '4',
     px: '3',
     borderBottomWidth: '1',

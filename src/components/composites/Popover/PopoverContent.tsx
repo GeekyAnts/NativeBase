@@ -80,7 +80,6 @@ export const PopoverContent = React.forwardRef(
         nativeID={popoverContentId}
         {...accessibilityProps}
         {...resolvedProps}
-        {...props}
         ref={ref}
       >
         {arrowElement}
