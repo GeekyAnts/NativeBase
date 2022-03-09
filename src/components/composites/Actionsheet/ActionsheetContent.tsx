@@ -23,8 +23,8 @@ const Content = memo(
     ) => {
       const {
         _dragIndicator,
-        _draggableArea,
-        _dragArea,
+        _dragIndicatorWrapperOffSet,
+        _dragIndicatorWrapper,
         ...resolvedProps
       } = usePropsResolution('ActionsheetContent', props);
 
@@ -75,8 +75,7 @@ const Content = memo(
               {/* To increase the draggable area */}
               <Box
                 {...panResponder.panHandlers}
-                {..._draggableArea}
-                collapsable={false}
+                {..._dragIndicatorWrapperOffSet}
               />
             </>
           ) : null}
@@ -85,11 +84,7 @@ const Content = memo(
             {!hideDragIndicator ? (
               <>
                 {/* Hack. Fix later. Add -2 negative margin to remove the padding added by ActionSheetContent */}
-                <Box
-                  {...panResponder.panHandlers}
-                  collapsable={false}
-                  {..._dragArea}
-                >
+                <Box {...panResponder.panHandlers} {..._dragIndicatorWrapper}>
                   <Box {..._dragIndicator} />
                 </Box>
               </>
