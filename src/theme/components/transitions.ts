@@ -1,11 +1,16 @@
 //Fade
-const fadeDefaultProps = {
-  entryDuration: 500,
-  exitDuration: 500,
-};
+// const fadeDefaultProps = {
+//   entryDuration: 500,
+//   exitDuration: 500,
+// };
 
+export const fadeBaseStyle = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1, transition: { duration: 500 } },
+  exit: { opacity: 0, transition: { duration: 500 } },
+};
 export const Fade = {
-  defaultProps: fadeDefaultProps,
+  baseStyle: fadeBaseStyle,
 };
 
 //ScaleFade

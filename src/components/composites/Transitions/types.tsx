@@ -7,6 +7,9 @@ export type IFadeProps = IBoxProps<IFadeProps> & {
   entryDuration?: number;
   exitDuration?: number;
   delay?: number;
+  initial?: ISupportedTransitions;
+  animate?: ITransitionStyleProps;
+  exit?: ITransitionStyleProps;
 };
 export type IScaleFadeProps = IBoxProps<IScaleFadeProps> & {
   in?: boolean;

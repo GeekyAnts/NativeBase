@@ -1,11 +1,11 @@
 import React from 'react';
-import { useThemeProps } from '../../../hooks/useThemeProps';
 import PresenceTransition from '../Transitions/PresenceTransition';
 import type { IFadeProps } from './types';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import { usePropsResolution } from '../../../hooks/';
 
-const Fade = ({ children, style, ...props }: IFadeProps, ref?: any) => {
-  const { in: animationState, entryDuration, exitDuration } = useThemeProps(
+const Fade = ({ children, ...props }: IFadeProps, ref?: any) => {
+  const { in: animationState, ...resolvedProps } = usePropsResolution(
     'Fade',
     props
   );
@@ -14,14 +14,7 @@ const Fade = ({ children, style, ...props }: IFadeProps, ref?: any) => {
     return null;
   }
   return (
-    <PresenceTransition
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1, transition: { duration: entryDuration } }}
-      exit={{ opacity: 0, transition: { duration: exitDuration } }}
-      style={style}
-      visible={animationState}
-      ref={ref}
-    >
+    <PresenceTransition visible={animationState} {...resolvedProps} ref={ref}>
       {children}
     </PresenceTransition>
   );
