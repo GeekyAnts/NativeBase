@@ -9,13 +9,19 @@ export const Fade = {
 };
 
 //ScaleFade
-const scaleFadeDefaultProps = {
-  duration: 500,
-  initialScale: 0.9,
-};
+//Can be commented if not used anywhere else
+// const scaleFadeDefaultProps = {
+//   duration: 500,
+//   initialScale: 0.9,
+// };
 
+const scaleBaseStyle = {
+  initial: { opacity: 0, scale: 0.9 },
+  animate: { opacity: 1, scale: 1, transition: 500 },
+  exit: { opacity: 0, scale: 0.9, transition: 500 },
+};
 export const ScaleFade = {
-  defaultProps: scaleFadeDefaultProps,
+  baseStyle: scaleBaseStyle,
 };
 
 //Slide

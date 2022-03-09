@@ -13,6 +13,9 @@ export type IScaleFadeProps = IBoxProps<IScaleFadeProps> & {
   duration?: number;
   delay?: number;
   initialScale?: number;
+  initial?: ISupportedTransitions;
+  animate?: ITransitionStyleProps;
+  exit?: ITransitionStyleProps;
 };
 export type ISlideProps = IBoxProps<ISlideProps> & {
   in?: boolean;
