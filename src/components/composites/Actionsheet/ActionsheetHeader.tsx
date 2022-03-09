@@ -10,7 +10,14 @@ const ActionsheetHeader = (props: IActionsheetHeaderProps, ref?: any) => {
   if (useHasResponsiveProps(props)) {
     return null;
   }
-  return <Box {...resolvedProps} ref={ref} />;
+  return (
+    <Box
+      justifyContent="center"
+      alignItems="center"
+      {...resolvedProps}
+      ref={ref}
+    />
+  );
 };
 
 export default memo(forwardRef(ActionsheetHeader));
