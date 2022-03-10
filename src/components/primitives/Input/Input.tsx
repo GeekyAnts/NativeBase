@@ -45,6 +45,7 @@ const Input = (
     onBlur,
     wrapperRef,
     _stack,
+    _complexInputBase,
     ...resolvedProps
   } = usePropsResolution(
     'Input',
@@ -90,12 +91,10 @@ const Input = (
           leftElement={leftElement}
           rightElement={rightElement}
           inputProps={inputProps}
-          bg="transparent"
           {...baseInputProps}
-          flex={1}
+          {..._complexInputBase}
           disableFocusHandling
           ref={ref}
-          variant="unstyled"
           onFocus={(e) => {
             handleFocus(true, onFocus ? () => onFocus(e) : () => {});
           }}

@@ -95,6 +95,15 @@ export interface IInputProps
   // These porps are currently on hold
   // label?: string;
   // _label?: ITextProps;
+
+  /**
+   * props are passed to InputBase component
+   */
+  _webInputBase?: {};
+  /**
+   * props are used when Input is wrapped inside a Box
+   */
+  _complexInputBase?: {};
 }
 
 export interface IInputGroupProps extends IBoxProps<IInputGroupProps> {
