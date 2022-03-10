@@ -29,7 +29,6 @@ const baseStyle = (props: Record<string, any>) => {
     },
     _icon: {
       color: mode(`${colorScheme}.600`, `${colorScheme}.200`)(props), // matching background color
-      opacity: props.isChecked ? 1 : 0,
     },
     _hover: {
       _interactionBox: {

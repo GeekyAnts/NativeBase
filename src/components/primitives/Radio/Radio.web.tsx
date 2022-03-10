@@ -71,7 +71,7 @@ const RadioComponent = memo(
               {icon && sizedIcon && isChecked ? (
                 sizedIcon()
               ) : (
-                <CircleIcon {..._icon} />
+                <CircleIcon {..._icon} opacity={isChecked ? 1 : 0} />
               )}
             </Center>
           </Center>

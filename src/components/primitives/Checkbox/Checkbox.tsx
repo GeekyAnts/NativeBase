@@ -19,6 +19,7 @@ import {
 } from '../../primitives/Pressable/Pressable';
 import SizedIcon from './SizedIcon';
 import { Stack } from '../Stack';
+import { wrapStringChild } from '../../../utils/wrapStringChild';
 
 const Checkbox = (
   {
@@ -115,6 +116,7 @@ const CheckboxComponent = React.memo(
       _interactionBox,
       _icon,
       _stack,
+      _text,
       onPress,
       onPressIn,
       onPressOut,
@@ -143,9 +145,6 @@ const CheckboxComponent = React.memo(
       ...stylingProps.layout,
       ...stylingProps.flexbox,
       ...stylingProps.position,
-      ...stylingProps.background,
-      ...stylingProps.padding,
-      ...stylingProps.border,
       '_text',
     ]);
 
@@ -196,7 +195,7 @@ const CheckboxComponent = React.memo(
             </Center>
           </Center>
           {/* Label */}
-          {combinedProps.children}
+          {wrapStringChild(combinedProps.children, _text)}
         </Stack>
       </Pressable>
     );

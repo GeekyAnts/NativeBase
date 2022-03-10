@@ -14,6 +14,14 @@ const baseStyle = (props: Record<string, any>) => {
     _web: {
       cursor: 'pointer',
     },
+    _stack: {
+      direction: 'row',
+      alignItems: 'center',
+      space: 2,
+      _web: {
+        cursor: props.isDisabled ? 'not-allowed' : 'pointer',
+      },
+    },
     _text: {
       ml: 2,
       color: mode('darkText', 'lightText')(props),

@@ -16,6 +16,7 @@ import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 import { combineContextAndProps } from '../../../utils';
 import SizedIcon from './SizedIcon';
 import { Stack } from '../Stack';
+import { wrapStringChild } from '../../../utils/wrapStringChild';
 
 const Checkbox = (
   {
@@ -121,6 +122,7 @@ const CheckboxComponent = React.memo(
       _interactionBox,
       _icon,
       _stack,
+      _text,
       ...resolvedProps
     } = usePropsResolution('Checkbox', combinedProps, {
       isInvalid,
@@ -137,15 +139,11 @@ const CheckboxComponent = React.memo(
       ...stylingProps.layout,
       ...stylingProps.flexbox,
       ...stylingProps.position,
-      ...stylingProps.background,
-      ...stylingProps.padding,
-      ...stylingProps.border,
       '_text',
     ]);
-
     const component = React.useMemo(() => {
       return (
-        <Stack {...layoutProps} {..._stack}>
+        <Stack {..._stack} {...layoutProps}>
           <Center>
             {/* Interaction Box */}
             <Box
@@ -174,12 +172,14 @@ const CheckboxComponent = React.memo(
             </Center>
           </Center>
           {/* Label */}
-          {resolvedProps?.children}
+          {/* {resolvedProps?.children} */}
+          {wrapStringChild(resolvedProps?.children, _text)}
         </Stack>
       );
     }, [
       _icon,
       _stack,
+      _text,
       _interactionBox,
       icon,
       isChecked,
