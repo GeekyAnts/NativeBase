@@ -6,7 +6,7 @@ import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const Avatar = ({ children, ...props }: IAvatarProps, ref: any) => {
   const [error, setError] = React.useState(false);
-  const { _text, _image, source, ...resolvedProps } = usePropsResolution(
+  const { _image, source, ...resolvedProps } = usePropsResolution(
     'Avatar',
     props
   );
@@ -30,7 +30,7 @@ const Avatar = ({ children, ...props }: IAvatarProps, ref: any) => {
     return null;
   }
   return (
-    <Box _text={_text} {...resolvedProps}>
+    <Box {...resolvedProps}>
       {source && !error ? (
         <Image
           source={source}
