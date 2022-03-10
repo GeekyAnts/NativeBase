@@ -1,4 +1,4 @@
-import type { IBoxProps, IStackProps } from '../../primitives';
+import type { IBoxProps, IStackProps, ITextProps } from '../../primitives';
 
 export interface IFormControlProps extends IBoxProps<IFormControlProps> {
   /**
@@ -37,6 +37,10 @@ export interface IFormControlLabelProps extends IFormControlProps {
    * Reflects the value of the 'for' content property.
    */
   htmlFor?: string;
+  /**
+   * Props applied to astrick text
+   */
+  _astrick?: ITextProps;
 }
 export interface IFormControlErrorMessageProps extends IFormControlProps {
   /**
