@@ -1,12 +1,22 @@
 import { mode } from '../tools';
 
-function baseStyle(props: Record<string, any>) {
+function baseStyle({ isVertical, ...props }: Record<string, any>) {
   return {
-    borderWidth: 2,
-    borderColor: mode('gray.50', 'gray.800')(props),
-    bg: mode('gray.600', 'gray.100')(props),
+    flexDirection: isVertical ? 'column-reverse' : 'row-reverse',
     space: -4,
+    _avatar: {
+      borderColor: mode('gray.50', 'gray.800')(props),
+      borderWidth: 2,
+    },
+    _hiddenAvatarPlaceholder: {
+      bg: mode('gray.600', 'gray.100')(props),
+    },
   };
 }
 
-export default { baseStyle };
+export default {
+  baseStyle,
+  defaultProps: {
+    isVertical: false,
+  },
+};

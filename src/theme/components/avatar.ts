@@ -16,6 +16,17 @@ const baseStyle = (props: Record<string, any>) => {
     _text: {
       fontWeight: 600,
     },
+    _image: {
+      borderRadius: 'full',
+      alt: '--',
+      _alt: {
+        fontWeight: 600,
+      },
+      style: {
+        height: '100%',
+        width: '100%',
+      },
+    },
   };
 };
 
