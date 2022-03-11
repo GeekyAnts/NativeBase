@@ -10,13 +10,22 @@ const baseStyle = (props: Record<string, any>) => {
     bg: mode('muted.50', 'muted.700')(props), // matching background color
 
     _stack: {
-      flexDirection: 'row',
+      direction: 'row',
       alignItems: 'center',
       space: 2,
+      _web: {
+        cursor: props.isDisabled ? 'not-allowed' : 'pointer',
+      },
     },
     _interactionBox: {
       borderRadius: 'full',
       size: 3,
+      position: 'absolute',
+      zIndex: -1,
+      _web: {
+        transition: 'height 200ms, width 200ms',
+        pointerEvents: 'none',
+      },
     },
     _icon: {
       color: mode(`${colorScheme}.600`, `${colorScheme}.200`)(props), // matching background color

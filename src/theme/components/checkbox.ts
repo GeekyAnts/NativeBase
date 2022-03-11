@@ -10,7 +10,18 @@ const baseStyle = (props: Record<string, any>) => {
     borderRadius: 'sm',
     borderColor: mode('muted.300', 'muted.600')(props),
     bg: mode('muted.50', 'muted.700')(props), // matching background color
-
+    opacity: 1,
+    _web: {
+      cursor: 'pointer',
+    },
+    _stack: {
+      direction: 'row',
+      alignItems: 'center',
+      space: 2,
+      _web: {
+        cursor: props.isDisabled ? 'not-allowed' : 'pointer',
+      },
+    },
     _text: {
       ml: 2,
       color: mode('darkText', 'lightText')(props),
@@ -18,6 +29,14 @@ const baseStyle = (props: Record<string, any>) => {
     _interactionBox: {
       position: 'absolute',
       borderRadius: 'full',
+      p: 5,
+      w: '100%',
+      h: '100%',
+      zIndex: -1,
+      _web: {
+        transition: 'height 200ms, width 200ms',
+        pointerEvents: 'none',
+      },
     },
     _hover: {
       _interactionBox: {
@@ -37,6 +56,9 @@ const baseStyle = (props: Record<string, any>) => {
     _disabled: {
       _interactionBox: {
         bg: 'transparent',
+      },
+      _web: {
+        cursor: 'not-allowed',
       },
       opacity: 0.4,
     },
