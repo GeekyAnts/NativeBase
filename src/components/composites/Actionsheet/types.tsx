@@ -28,7 +28,20 @@ export interface IActionsheetProps extends IBoxProps<IActionsheetProps> {
 }
 
 export interface IActionsheetContentProps
-  extends IBoxProps<IActionsheetContentProps> {}
+  extends IBoxProps<IActionsheetContentProps> {
+  /**
+   * Props applied on area above actionsheet content
+   */
+  _dragIndicatorWrapperOffSet?: IBoxProps<IActionsheetContentProps>;
+  /**
+   * Props applied on area around drag indicator
+   */
+  _dragIndicatorWrapper?: IBoxProps<IActionsheetContentProps>;
+  /**
+   * Props applied on drag indicator
+   */
+  _dragIndicator?: IBoxProps<IActionsheetContentProps>;
+}
 export interface IActionsheetFooterProps
   extends IBoxProps<IActionsheetFooterProps> {}
 export interface IActionsheetHeaderProps
@@ -48,14 +61,14 @@ export type IActionsheetComponentType = ((
       props: IActionsheetItemProps & { ref?: MutableRefObject<any> }
     ) => JSX.Element
   >;
-  Header: React.MemoExoticComponent<
-    (
-      props: IActionsheetHeaderProps & { ref?: MutableRefObject<any> }
-    ) => JSX.Element
-  >;
-  Footer: React.MemoExoticComponent<
-    (
-      props: IActionsheetFooterProps & { ref?: MutableRefObject<any> }
-    ) => JSX.Element
-  >;
+  // Header: React.MemoExoticComponent<
+  //   (
+  //     props: IActionsheetHeaderProps & { ref?: MutableRefObject<any> }
+  //   ) => JSX.Element
+  // >;
+  // Footer: React.MemoExoticComponent<
+  //   (
+  //     props: IActionsheetFooterProps & { ref?: MutableRefObject<any> }
+  //   ) => JSX.Element
+  // >;
 };

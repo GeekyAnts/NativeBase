@@ -3,6 +3,8 @@ import { mode } from '../tools';
 export const Actionsheet = {
   defaultProps: {
     size: 'full',
+    justifyContent: 'flex-end',
+    animationPreset: 'slide',
   },
 };
 
@@ -19,6 +21,18 @@ export const ActionsheetContent = {
       height: 1,
       width: 10,
       borderRadius: 2,
+    },
+    _dragIndicatorWrapper: {
+      pt: 3,
+      pb: 3,
+      mt: -2,
+      width: '100%',
+      alignItems: 'center',
+      collapsable: false,
+    },
+    _dragIndicatorWrapperOffSet: {
+      py: 2,
+      collapsable: false,
     },
   }),
 };
