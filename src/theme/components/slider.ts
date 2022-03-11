@@ -14,6 +14,7 @@ export const SliderThumb = {
   baseStyle: (props: any) => {
     const simplifiedColorScheme = getColorScheme(props);
     return {
+      _web: { cursor: 'pointer' },
       borderRadius: 99999,
       zIndex: 999,
       alignItems: 'center',
