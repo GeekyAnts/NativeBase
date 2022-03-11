@@ -69,7 +69,7 @@ const Select = (
     customDropdownIconProps,
     _actionSheetContent,
     _actionSheetBody,
-    unstyledSelecWebtStyles,
+    _webSelect,
     ...resolvedProps
   } = usePropsResolution(
     'Select',
@@ -179,7 +179,7 @@ const Select = (
         {...hoverProps}
         ref={mergeRefs([ref, _ref])}
         //@ts-ignore
-        style={unstyledSelecWebtStyles}
+        style={_webSelect}
         onChange={(e) => {
           setValue(e.target.value);
         }}

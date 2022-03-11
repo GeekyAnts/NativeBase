@@ -2,7 +2,7 @@ import { mode } from '../tools';
 export const Select = {
   baseStyle: (props: Record<string, any>) => {
     return {
-      unstyledSelecWebtStyles: {
+      _webSelect: {
         appearance: 'none',
         WebkitAppearance: 'none',
         MozAppearance: 'none',
