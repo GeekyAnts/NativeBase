@@ -4,6 +4,7 @@ import type { IActionsheetContentProps } from '../../composites/Actionsheet/type
 import type { MutableRefObject } from 'react';
 import type { ResponsiveValue } from '../../../components/types';
 import type { IColors } from '../../../theme/base/colors';
+import type { IFlatListProps } from 'src/components/basic/FlatList';
 
 export interface ISelectProps extends IBoxProps<ISelectProps> {
   /**
@@ -83,6 +84,10 @@ export interface ISelectProps extends IBoxProps<ISelectProps> {
    * props to be passed to underlying ActionSheet.Content. Select uses ActionSheet underneath.
    */
   _actionSheetContent?: IActionsheetContentProps;
+  /**
+   * props to be passed to underlying Flatlist in ActionSheet.Content.
+   */
+  _actionSheetBody?: IFlatListProps<any>;
   /**
    * Ref to be attached to the Select wrapper
    */
