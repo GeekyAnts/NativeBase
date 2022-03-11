@@ -50,6 +50,8 @@ export interface ISliderProps extends IBoxProps<ISliderProps> {
   _disabled?: any;
   /** Props applied if isReadOnly is true. */
   _readOnly?: any;
+  /** Wrapper style for SliderTrack */
+  _wrap?: {};
 }
 
 export interface ISliderTrackProps extends IBoxProps<ISliderTrackProps> {

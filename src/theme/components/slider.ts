@@ -6,7 +6,12 @@ export const SliderTrack = {
       bg: `${simplifiedColorScheme}.100`,
       borderRadius: 'lg',
       overflow: 'hidden',
-      _wrap: { alignItems: 'center', justifyContent: 'center' },
+      _wrap: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingY: props.orientation !== 'vertical' ? '3' : undefined,
+        paddingX: props.orientation === 'vertical' ? '3' : undefined,
+      },
     };
   },
 };
@@ -47,9 +52,15 @@ const sizes = {
 };
 
 export const Slider = {
-  baseStyle: {
-    alignItems: 'center',
-    justifyContent: 'center',
+  baseStyle: (props: any) => {
+    return {
+      alignItems: 'center',
+      justifyContent: 'center',
+      _wrap: {
+        height: props.orientation === 'vertical' ? '100%' : undefined,
+        width: props.orientation !== 'vertical' ? '100%' : undefined,
+      },
+    };
   },
   defaultProps: {
     size: 'sm',

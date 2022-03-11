@@ -48,10 +48,7 @@ const SliderTrack = ({ children, ...props }: ISliderTrackProps, ref?: any) => {
       ref={ref}
       {...trackProps}
       {...trackStyle}
-      paddingY={!isVertical ? '3' : undefined}
-      paddingX={isVertical ? '3' : undefined}
-      alignItems={_wrap.alignItems}
-      justifyContent={_wrap.justifyContent}
+      {..._wrap}
     >
       <Box {...resolvedProps} style={trackStyle}>
         {children}

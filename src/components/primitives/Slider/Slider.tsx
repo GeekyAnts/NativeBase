@@ -47,7 +47,7 @@ function Slider({ isDisabled, isReadOnly, ...props }: ISliderProps, ref?: any) {
     },
   });
 
-  const resolvedProps = usePropsResolution('Slider', props, {
+  const { _wrap, ...resolvedProps } = usePropsResolution('Slider', props, {
     isDisabled,
     isReadOnly,
   });
@@ -58,10 +58,6 @@ function Slider({ isDisabled, isReadOnly, ...props }: ISliderProps, ref?: any) {
     trackLayout
   );
 
-  const wrapperStyle = {
-    height: props.orientation === 'vertical' ? '100%' : undefined,
-    width: props.orientation !== 'vertical' ? '100%' : undefined,
-  };
   const contextValue = React.useMemo(() => {
     return {
       trackLayout,
@@ -97,7 +93,7 @@ function Slider({ isDisabled, isReadOnly, ...props }: ISliderProps, ref?: any) {
 
   return (
     <SliderContext.Provider value={contextValue}>
-      <Box {...wrapperStyle} ref={ref} {...resolvedProps}>
+      <Box {..._wrap} ref={ref} {...resolvedProps}>
         {React.Children.map(props.children, (child, index) => {
           if (child.displayName === 'SliderThumb') {
             return React.cloneElement(child as React.ReactElement, {
