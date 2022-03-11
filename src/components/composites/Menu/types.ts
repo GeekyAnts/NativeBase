@@ -111,11 +111,11 @@ export interface IMenuItemOptionProps extends IMenuItemProps {
    */
   _stack?: IStackProps;
   /**
-   * Stack related props can be passed in _icon.
+   * Icon related props can be passed in _icon.
    */
   _icon?: IIconProps;
   /**
-   * Stack related props can be passed in _stack.
+   * Text related props can be passed in _text.
    */
   _text?: ITextProps;
 }

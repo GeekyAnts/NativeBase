@@ -46,7 +46,7 @@ const MenuItemOption = (
     >
       <HStack {..._stack}>
         <CheckIcon {..._icon} />
-        <Box {..._text}>{children}</Box>
+        <Box _text={_text}>{children}</Box>
       </HStack>
     </MenuItem>
   );
