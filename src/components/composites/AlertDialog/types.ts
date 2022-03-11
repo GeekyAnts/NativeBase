@@ -1,6 +1,7 @@
 import type { IBoxProps } from '../../primitives/Box';
 import type { IIconButtonProps } from '../IconButton';
 import type { MutableRefObject } from 'react';
+import type { IFadeProps, ISlideProps } from '../Transitions';
 
 export interface IAlertDialogProps extends IBoxProps {
   /**
@@ -60,6 +61,23 @@ export interface IAlertDialogProps extends IBoxProps {
    * Props applied on Overlay.
    */
   _backdrop?: any;
+  /**
+   * Props applied on Overlay Animation.
+   */
+  _backdropFade?: IFadeProps;
+  /**
+   * Props applied on Child Fade Animation.
+   */
+  _fade?: IFadeProps;
+  /**
+   * Props applied on Child Slide Animation.
+   */
+  _slide?: ISlideProps;
+  /**
+   * Sets the animation type
+   * @default "fade"
+   */
+  animationPreset?: 'slide' | 'fade';
 }
 
 export type IAlertDialogComponentType = ((
