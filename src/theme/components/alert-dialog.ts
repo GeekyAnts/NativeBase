@@ -46,6 +46,9 @@ export const AlertDialog = {
     justifyContent: 'center',
     alignItems: 'center',
     _web: { pointerEvents: 'box-none' },
+    _backdropFade: { exitDuration: 150, entryDuration: 200 },
+    _fade: { exitDuration: 100, entryDuration: 200 },
+    _slide: { duration: 200, overlay: false },
   },
   sizes,
   defaultProps: {

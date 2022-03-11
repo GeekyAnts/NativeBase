@@ -84,13 +84,7 @@ const Modal = (
       useRNModalOnAndroid
     >
       <ModalContext.Provider value={contextValue}>
-        <Fade
-          exitDuration={150}
-          entryDuration={200}
-          in={visible}
-          style={StyleSheet.absoluteFill}
-          {..._backdropFade}
-        >
+        <Fade in={visible} style={StyleSheet.absoluteFill} {..._backdropFade}>
           {overlayVisible && backdropVisible && (
             <Backdrop
               onPress={() => {
@@ -101,7 +95,7 @@ const Modal = (
           )}
         </Fade>
         {animationPreset === 'slide' ? (
-          <Slide in={visible} overlay={false} duration={200} {..._slide}>
+          <Slide in={visible} {..._slide}>
             <FocusScope
               contain={visible}
               autoFocus={visible && !initialFocusRef}
@@ -111,13 +105,7 @@ const Modal = (
             </FocusScope>
           </Slide>
         ) : (
-          <Fade
-            exitDuration={100}
-            entryDuration={200}
-            in={visible}
-            style={StyleSheet.absoluteFill}
-            {..._fade}
-          >
+          <Fade in={visible} style={StyleSheet.absoluteFill} {..._fade}>
             <FocusScope
               contain={visible}
               autoFocus={visible && !initialFocusRef}

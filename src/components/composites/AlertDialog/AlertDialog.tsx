@@ -79,13 +79,7 @@ const AlertDialog = (
           finalFocusRef,
         }}
       >
-        <Fade
-          exitDuration={150}
-          entryDuration={200}
-          in={visible}
-          style={StyleSheet.absoluteFill}
-          {..._backdropFade}
-        >
+        <Fade in={visible} style={StyleSheet.absoluteFill} {..._backdropFade}>
           {overlayVisible && backdropVisible && (
             <Backdrop
               onPress={() => {
@@ -96,7 +90,7 @@ const AlertDialog = (
           )}
         </Fade>
         {animationPreset === 'slide' ? (
-          <Slide overlay={false} in={visible} duration={200} {..._slide}>
+          <Slide in={visible} {..._slide}>
             <FocusScope
               contain={visible}
               autoFocus={visible && !initialFocusRef}
@@ -106,13 +100,7 @@ const AlertDialog = (
             </FocusScope>
           </Slide>
         ) : (
-          <Fade
-            exitDuration={100}
-            entryDuration={200}
-            in={visible}
-            style={StyleSheet.absoluteFill}
-            {..._fade}
-          >
+          <Fade in={visible} style={StyleSheet.absoluteFill} {..._fade}>
             <FocusScope
               contain={visible}
               autoFocus={visible && !initialFocusRef}
