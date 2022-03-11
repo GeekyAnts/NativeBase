@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Center, Fade } from 'native-base';
+import { Button, Center, PresenceTransition } from 'native-base';
 
 export const Example = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -9,7 +9,11 @@ export const Example = () => {
       <Button onPress={() => setIsOpen(!isOpen)}>
         {isOpen ? 'Hide' : 'Show'}
       </Button>
-      <Fade in={isOpen}>
+      <PresenceTransition
+        visible={isOpen}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, transition: { duration: 250 } }}
+      >
         <Center
           mt="7"
           bg="teal.500"
@@ -20,7 +24,7 @@ export const Example = () => {
         >
           Fade
         </Center>
-      </Fade>
+      </PresenceTransition>
     </Center>
   );
 };

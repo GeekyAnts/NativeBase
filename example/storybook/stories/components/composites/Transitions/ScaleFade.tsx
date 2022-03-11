@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScaleFade, Button, Center } from 'native-base';
+import { PresenceTransition, Button, Center } from 'native-base';
 export const Example = () => {
   const [isOpen, setIsOpen] = React.useState(false);
 
@@ -8,11 +8,15 @@ export const Example = () => {
       <Button onPress={() => setIsOpen(!isOpen)}>
         {isOpen ? 'Hide' : 'Show'}
       </Button>
-      <ScaleFade in={isOpen}>
+      <PresenceTransition
+        visible={isOpen}
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1, transition: { duration: 250 } }}
+      >
         <Center w="200" h="100" mt="7" bg="teal.500" rounded="md">
-          ScalableFade
+          ScaleFade
         </Center>
-      </ScaleFade>
+      </PresenceTransition>
     </Center>
   );
 };

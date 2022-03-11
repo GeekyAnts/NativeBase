@@ -1,5 +1,5 @@
 import React from 'react';
-import { SlideFade, Box, Button, Center } from 'native-base';
+import { PresenceTransition, Box, Button, Center } from 'native-base';
 export const Example = () => {
   const [isOpen, setIsOpen] = React.useState(false);
 
@@ -8,23 +8,24 @@ export const Example = () => {
       <Button onPress={() => setIsOpen(!isOpen)}>
         {isOpen ? 'Hide' : 'Show'}
       </Button>
-      <SlideFade offsetX={-100} in={isOpen}>
-        <Center>
-          <Box
-            position="absolute"
-            top="4"
-            w="200"
-            h="100"
-            justifyContent="center"
-            _text={{ color: 'white', textAlign: 'center' }}
-            mt="4"
-            bg="teal.500"
-            rounded="md"
-          >
-            SlideFade
-          </Box>
+      <PresenceTransition
+        visible={isOpen}
+        initial={{ translateX: -200, opacity: 0 }}
+        animate={{ translateX: -75, opacity: 1 }}
+      >
+        <Center
+          position="absolute"
+          top="4"
+          w="200"
+          h="100"
+          _text={{ color: 'white' }}
+          mt="4"
+          bg="teal.500"
+          rounded="md"
+        >
+          SlideFade
         </Center>
-      </SlideFade>
+      </PresenceTransition>
     </Box>
   );
 };
