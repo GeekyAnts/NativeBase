@@ -36,6 +36,7 @@ export const Slide = memo(
       placement,
       overlay,
       duration,
+      _overlay,
       ...resolvedProps
     } = usePropsResolution('Slide', props);
     const [containerOpacity, setContainerOpacity] = React.useState(0);
@@ -121,9 +122,7 @@ export const Slide = memo(
     if (overlay) {
       return (
         <>
-          <Overlay isOpen={true} style={{ overflow: 'hidden' }}>
-            {slideComponent}
-          </Overlay>
+          <Overlay {..._overlay}>{slideComponent}</Overlay>
         </>
       );
     } else {

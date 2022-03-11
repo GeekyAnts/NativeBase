@@ -34,12 +34,14 @@ const slideDefaultProps = {
   duration: 500,
   placement: 'bottom',
   overlay: true,
+  _overlay: { isOpen: true },
 };
 
 export const Slide = {
   baseStyle: {
     h: '100%',
     pointerEvents: 'box-none',
+    _overlay: { style: { overflow: 'hidden' } },
   },
   defaultProps: slideDefaultProps,
 };
