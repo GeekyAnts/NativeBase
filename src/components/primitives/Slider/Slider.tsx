@@ -47,7 +47,7 @@ function Slider({ isDisabled, isReadOnly, ...props }: ISliderProps, ref?: any) {
     },
   });
 
-  const { _wrap, ...resolvedProps } = usePropsResolution('Slider', props, {
+  const resolvedProps = usePropsResolution('Slider', props, {
     isDisabled,
     isReadOnly,
   });
@@ -93,7 +93,7 @@ function Slider({ isDisabled, isReadOnly, ...props }: ISliderProps, ref?: any) {
 
   return (
     <SliderContext.Provider value={contextValue}>
-      <Box {..._wrap} ref={ref} {...resolvedProps}>
+      <Box {...resolvedProps} ref={ref}>
         {React.Children.map(props.children, (child, index) => {
           if (child.displayName === 'SliderThumb') {
             return React.cloneElement(child as React.ReactElement, {

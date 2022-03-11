@@ -6,11 +6,9 @@ export const SliderTrack = {
       bg: `${simplifiedColorScheme}.100`,
       borderRadius: 'lg',
       overflow: 'hidden',
-      _wrap: {
+      _pressable: {
         alignItems: 'center',
         justifyContent: 'center',
-        paddingY: props.orientation !== 'vertical' ? '3' : undefined,
-        paddingX: props.orientation === 'vertical' ? '3' : undefined,
       },
     };
   },
@@ -56,10 +54,8 @@ export const Slider = {
     return {
       alignItems: 'center',
       justifyContent: 'center',
-      _wrap: {
-        height: props.orientation === 'vertical' ? '100%' : undefined,
-        width: props.orientation !== 'vertical' ? '100%' : undefined,
-      },
+      height: props.orientation === 'vertical' ? '100%' : undefined,
+      width: props.orientation !== 'vertical' ? '100%' : undefined,
     };
   },
   defaultProps: {
