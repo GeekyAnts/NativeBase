@@ -1,6 +1,5 @@
 import React from 'react';
 import { usePropsResolution } from '../../../hooks';
-import Box from '../../primitives/Box';
 import { default as IconButton, IIconButtonProps } from '../IconButton';
 import { CloseIcon } from '../../primitives/Icon/Icons';
 import { PopoverContext } from './PopoverContext';
@@ -20,13 +19,12 @@ const PopoverCloseButton = (
     return null;
   }
   return (
-    <Box position="absolute" right={1} top={1} zIndex={1} ref={ref}>
-      <IconButton
-        {...resolvedPorps}
-        icon={<CloseIcon {..._icon} />}
-        onPress={onClose}
-      />
-    </Box>
+    <IconButton
+      ref={ref}
+      {...resolvedPorps}
+      icon={<CloseIcon {..._icon} />}
+      onPress={onClose}
+    />
   );
 };
 

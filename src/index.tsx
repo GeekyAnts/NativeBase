@@ -171,6 +171,8 @@ import {
   IStackProps,
   ITextAreaProps,
   IZStackProps,
+  Overlay,
+  IOverlayProps,
 } from './components/primitives';
 
 export * from './components/basic';
@@ -223,6 +225,7 @@ export {
   Container,
   Divider,
   Link,
+  Overlay,
   Pressable,
   Progress,
   Accordion,
@@ -310,7 +313,7 @@ export type {
   IFormControlHelperTextProps,
   ISwitchProps,
   IFlexProps,
-  IWrapProps,
+  IOverlayProps,
   IPinInputProps,
   IPinInputFieldProps,
   IPressableProps,
@@ -353,6 +356,7 @@ export type {
   ITextFieldProps,
   IScrollViewProps,
   IStackProps,
+  IWrapProps,
 };
 
 export { StyledProps } from './theme';
