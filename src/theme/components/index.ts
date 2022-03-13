@@ -37,6 +37,7 @@ import Container from './container';
 import HStack from './hstack';
 import VStack from './vstack';
 import Divider from './divider';
+import Circle from './circle';
 import SimpleGrid from './simple-grid';
 import {
   FormControl,
@@ -95,6 +96,7 @@ import { TypeAheadSearchItem } from './typeahead';
 import { Wrap } from './wrap';
 import Flex from './flex';
 import Stack from './stack';
+import Square from './square';
 import View from './view';
 import ZStack from './zstack';
 import FAB from './fab';
@@ -134,6 +136,7 @@ export default {
   ButtonGroup,
   Card,
   Center,
+  Circle,
   Checkbox,
   CheckboxGroup,
   CircularProgress,
@@ -199,6 +202,7 @@ export default {
   Slide,
   SlideFade,
   Spinner,
+  Square,
   Stack,
   Stat,
   Switch,

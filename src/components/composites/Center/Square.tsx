@@ -1,22 +1,17 @@
 import React from 'react';
-import Center from './Center';
+import Box from '../../primitives/Box';
 import type { ISquareProps } from './types';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 
-const Square = ({ style, size, ...props }: ISquareProps) => {
+const Square = (props: ISquareProps) => {
+  const resolvedProps = usePropsResolution('Square', props);
+
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
   }
-  return (
-    <Center
-      size={size}
-      {...props}
-      height={props.height ? props.height : undefined}
-      width={props.width ? props.width : undefined}
-      style={style}
-    />
-  );
+  return <Box {...resolvedProps} />;
 };
 
 export default React.memo(Square);
