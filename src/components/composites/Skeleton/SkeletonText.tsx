@@ -17,7 +17,6 @@ const SkeletonText = (
     lines,
     isLoaded,
     _line,
-    _stack,
     ...resolvedProps
   } = usePropsResolution('SkeletonText', props);
 
@@ -49,7 +48,7 @@ const SkeletonText = (
   return isLoaded ? (
     children
   ) : (
-    <Stack {..._stack} {...resolvedProps} ref={ref}>
+    <Stack {...resolvedProps} ref={ref}>
       {computedChildren}
     </Stack>
   );

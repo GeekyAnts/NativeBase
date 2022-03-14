@@ -24,12 +24,10 @@ export const SkeletonText = {
       fadeDuration: 0.1,
       w: '100%',
       speed: 1.0,
+      flexDirection: 'column',
       _line: {
         h: 3,
         rounded: 'full',
-      },
-      _stack: {
-        flexDirection: 'column',
       },
     };
   },
