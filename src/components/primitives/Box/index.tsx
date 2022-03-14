@@ -1,6 +1,8 @@
 import React, { memo, forwardRef } from 'react';
 import { View } from 'react-native';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
+import { getColor } from '../../../theme';
+import { useTheme } from '../../../hooks';
 import { makeStyledComponent } from '../../../utils/styled';
 import { wrapStringChild } from '../../../utils/wrapStringChild';
 import type { IBoxProps } from './types';
@@ -14,6 +16,7 @@ let MemoizedGradient: any;
 
 const Box = ({ children, ...props }: IBoxProps, ref: any) => {
   // const { _text, ...resolvedProps } = useThemeProps('Box', props);
+  const theme = useTheme();
   const { _text, ...resolvedProps } = usePropsResolution('Box', props);
   let Gradient = useNativeBaseConfig('NativeBaseConfigProvider').config
     .dependencies?.['linear-gradient'];
@@ -44,6 +47,9 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
 
       Gradient = MemoizedGradient;
 
+      lgrad.colors = lgrad.colors?.map((color: string) => {
+        return getColor(color, theme.colors, theme);
+      });
       let startObj = { x: 0, y: 0 };
       let endObj = { x: 0, y: 1 };
       if (lgrad.start && lgrad.start.length === 2) {

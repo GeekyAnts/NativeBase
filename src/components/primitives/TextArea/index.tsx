@@ -12,15 +12,20 @@ export interface ITextAreaProps extends IInputProps {
 }
 
 const TextArea = (
-  { wrapperRef, isDisabled, ...props }: ITextAreaProps,
+  { wrapperRef, isDisabled, isInvalid, isReadOnly, ...props }: ITextAreaProps,
   ref: any
 ) => {
   const _ref = React.useRef(null);
   const { isHovered } = useHover({}, _ref);
-  const { totalLines, ...newProps } = usePropsResolution(
+  const [isFocused, setIsFocused] = React.useState(false);
+  const handleFocus = (focusState: boolean, callback: any) => {
+    setIsFocused(focusState);
+    callback();
+  };
+  const { totalLines, onFocus, onBlur, ...newProps } = usePropsResolution(
     'TextArea',
     props,
-    { isHovered, isDisabled },
+    { isHovered, isDisabled, isFocused, isInvalid, isReadOnly },
     { extendTheme: ['Input'] }
   );
   //TODO: refactor for responsive prop
@@ -34,12 +39,12 @@ const TextArea = (
       numberOfLines={totalLines}
       wrapperRef={wrapperRef}
       ref={mergeRefs([_ref, ref])}
-      // onFocus={(e) => {
-      //   handleFocus(true, onFocus ? () => onFocus(e) : () => {});
-      // }}
-      // onBlur={(e) => {
-      //   handleFocus(false, onBlur ? () => onBlur(e) : () => {});
-      // }}
+      onFocus={(e) => {
+        handleFocus(true, onFocus ? () => onFocus(e) : () => {});
+      }}
+      onBlur={(e) => {
+        handleFocus(false, onBlur ? () => onBlur(e) : () => {});
+      }}
     />
   );
 };
