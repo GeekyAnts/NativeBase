@@ -6,6 +6,7 @@ export const Skeleton = {
     return {
       startColor: mode('muted.200', 'muted.600')(props),
       endColor: 'transparent',
+      overflow: 'hidden',
       fadeDuration: 0.1,
       speed: 1.0,
       h: '10',
@@ -23,6 +24,7 @@ export const SkeletonText = {
       fadeDuration: 0.1,
       w: '100%',
       speed: 1.0,
+      flexDirection: 'column',
       _line: {
         h: 3,
         rounded: 'full',

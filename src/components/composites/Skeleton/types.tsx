@@ -61,6 +61,11 @@ export interface ISkeletonTextProps extends IStackProps {
    * Stying for each line
    */
   _line?: ISkeletonProps;
+
+  /**
+   * Props to be passed to the Stack used inside.
+   */
+  _stack?: IStackProps;
 }
 
 export type ISkeletonComponentType = ((
