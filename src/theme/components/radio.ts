@@ -14,22 +14,22 @@ const baseStyle = (props: Record<string, any>) => {
         _icon: {
           color: `${c}.600`,
         },
+        _hover: {
+          borderColor: `${c}.700`,
+          _icon: { color: `${c}.700` },
+        },
+        _pressed: {
+          borderColor: `${c}.800`,
+          _icon: { color: `${c}.800` },
+        },
       },
 
       _hover: {
         borderColor: 'muted.500',
-        _checked: {
-          borderColor: `${c}.700`,
-          _icon: { color: `${c}.700` },
-        },
       },
 
       _pressed: {
         borderColor: 'muted.600',
-        _checked: {
-          borderColor: `${c}.800`,
-          _icon: { color: `${c}.800` },
-        },
       },
 
       _invalid: {
@@ -46,22 +46,22 @@ const baseStyle = (props: Record<string, any>) => {
         _icon: {
           color: `${c}.500`,
         },
+        _hover: {
+          borderColor: `${c}.400`,
+          _icon: { color: `${c}.400` },
+        },
+        _pressed: {
+          borderColor: `${c}.300`,
+          _icon: { color: `${c}.300` },
+        },
       },
 
       _hover: {
         borderColor: 'muted.400',
-        _checked: {
-          borderColor: `${c}.400`,
-          _icon: { color: `${c}.400` },
-        },
       },
 
       _pressed: {
         borderColor: 'muted.300',
-        _checked: {
-          borderColor: `${c}.300`,
-          _icon: { color: `${c}.300` },
-        },
       },
 
       _invalid: {
@@ -78,6 +78,19 @@ const baseStyle = (props: Record<string, any>) => {
       },
     },
 
+    _disabled: {
+      opacity: 0.4,
+      _interactionBox: {
+        bg: 'transparent',
+      },
+      _icon: {
+        bg: 'transparent',
+      },
+      _stack: {
+        opacity: '0.4',
+      },
+    },
+
     _focus: {
       _interactionBox: {
         bg: `${c}.400`,
@@ -89,19 +102,6 @@ const baseStyle = (props: Record<string, any>) => {
       _interactionBox: {
         bg: `${c}.400`,
         size: 6,
-      },
-    },
-
-    _disabled: {
-      opacity: 0.4,
-      _interactionBox: {
-        bg: 'transparent',
-      },
-      _icon: {
-        bg: 'transparent',
-      },
-      _stack: {
-        opacity: '0.4',
       },
     },
 
