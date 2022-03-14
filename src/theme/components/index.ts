@@ -94,7 +94,7 @@ import { Fade, ScaleFade, Slide, SlideFade } from './transitions';
 import { List, ListItem, ListIcon } from './list';
 import { TypeAheadSearchItem } from './typeahead';
 import { Wrap } from './wrap';
-import Flex from './flex';
+import { Flex, Spacer } from './flex';
 import Stack from './stack';
 import Square from './square';
 import View from './view';
@@ -146,6 +146,7 @@ export default {
   Fade,
   FAB,
   Flex,
+  Spacer,
   FormControl,
   FormControlLabel,
   FormControlHelperText,
