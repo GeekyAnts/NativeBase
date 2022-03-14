@@ -1,7 +1,5 @@
-import { transparentize } from '../tools';
-
 const baseStyle = (props: Record<string, any>) => {
-  const { colorScheme: c, theme } = props;
+  const { colorScheme: c } = props;
 
   return {
     justifyContent: 'flex-start',
@@ -90,14 +88,23 @@ const baseStyle = (props: Record<string, any>) => {
 
     _focus: {
       _interactionBox: {
-        bg: transparentize(`${c}.200`, 0.5)(theme),
+        bg: `${c}.400`,
+        size: 4,
       },
     },
+
     _focusVisible: {
       _interactionBox: {
-        bg: transparentize(`${c}.200`, 0.5)(theme),
+        bg: `${c}.400`,
+        size: 4,
       },
     },
+
+    _interactionBox: {
+      position: 'absolute',
+      borderRadius: 'sm',
+    },
+
     _disabled: {
       _interactionBox: {
         bg: 'transparent',
