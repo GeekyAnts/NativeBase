@@ -38,6 +38,10 @@ const baseStyle = (props: Record<string, any>) => {
     _disabled: {
       opacity: '80',
       bg: mode('muted.100', 'muted.700')(props),
+      _web: {
+        disabled: true,
+        cursor: 'not-allowed',
+      },
     },
     _invalid: {
       borderColor: mode('danger.600', 'danger.300')(props),
@@ -49,9 +53,8 @@ const baseStyle = (props: Record<string, any>) => {
       outlineWidth: '0',
       overflow: 'auto',
       lineHeight: 'lg', // Todo: Move to _web inside size so that sm and xs don't have this much height
-    },
-    _webInputBase: {
       outline: 'none',
+      cursor: 'auto',
     },
     _complexInputBase: {
       bg: 'transparent',
@@ -61,8 +64,11 @@ const baseStyle = (props: Record<string, any>) => {
     _stack: {
       flexDirection: 'row',
       alignItems: 'center',
-      justifyContent: 'space-between',
+      // justifyContent: 'space-between',
       overflow: 'hidden',
+    },
+    _input: {
+      flex: 1,
     },
   };
 };
