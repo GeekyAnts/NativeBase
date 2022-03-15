@@ -1,9 +1,6 @@
-import { getColorScheme, mode } from '../tools';
 export const SliderTrack = {
-  baseStyle: ({ isVertical, size, ...props }: any) => {
-    const simplifiedColorScheme = getColorScheme(props);
+  baseStyle: ({ isVertical, size }: any) => {
     return {
-      bg: `${simplifiedColorScheme}.100`,
       borderRadius: 'lg',
       overflow: 'hidden',
       style: {
@@ -18,41 +15,38 @@ export const SliderTrack = {
         py: !isVertical ? '3' : undefined,
         px: isVertical ? '3' : undefined,
       },
+      _light: {
+        bg: 'muted.200',
+      },
+      _dark: {
+        bg: 'muted.700',
+      },
     };
   },
 };
 
 export const SliderThumb = {
-  baseStyle: (props: any) => {
-    const simplifiedColorScheme = getColorScheme(props);
+  baseStyle: () => {
     return {
-      borderRadius: 99999,
+      borderRadius: 'full',
       zIndex: 999,
       alignItems: 'center',
       justifyContent: 'center',
-      bg: mode(
-        `${simplifiedColorScheme}.600`,
-        `${simplifiedColorScheme}.300`
-      )(props),
       scaleOnPressed: 1.2,
+      _light: {
+        bg: 'primary.600',
+      },
+      _dark: {
+        bg: 'primary.500',
+      },
+      shadow: 6,
     };
   },
 };
 
 export const SliderFilledTrack = {
-  baseStyle: ({
-    orientation,
-    isReversed,
-    sliderTrackPosition,
-    size,
-    ...props
-  }: any) => {
-    const simplifiedColorScheme = getColorScheme(props);
+  baseStyle: ({ orientation, isReversed, sliderTrackPosition, size }: any) => {
     return {
-      bg: mode(
-        `${simplifiedColorScheme}.600`,
-        `${simplifiedColorScheme}.300`
-      )(props),
       left: orientation !== 'vertical' && !isReversed ? 0 : undefined,
       bottom: orientation === 'vertical' && !isReversed ? 0 : undefined,
       right: orientation !== 'vertical' && isReversed ? 0 : undefined,
@@ -61,6 +55,12 @@ export const SliderFilledTrack = {
         orientation === 'vertical'
           ? { height: sliderTrackPosition, width: size }
           : { width: sliderTrackPosition, height: size },
+      _light: {
+        bg: 'primary.600',
+      },
+      _dark: {
+        bg: 'primary.500',
+      },
     };
   },
 };
