@@ -2,7 +2,7 @@ const baseStyle = () => {
   return {
     py: 1,
     px: 2,
-    shadow: 1,
+    shadow: 6,
     rounded: 'sm',
     _text: {
       fontSize: 'sm',
