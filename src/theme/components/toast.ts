@@ -4,10 +4,10 @@ import { Easing } from 'react-native';
 const baseStyle = (props: Record<string, any>) => {
   // NOTE: Internal pseudo props like _stack, _overlay nad _presenceTransition can only be update by the theme.
   return {
-    bg: mode(`coolGray.600`, `warmGray.200`)(props),
+    bg: mode(`muted.700`, `muted.600`)(props),
     p: '2',
     rounded: 'sm',
-    shadow: 1,
+    shadow: 6,
     // The stack in which toast are being rendered
     _stack: {
       margin: 'auto',
