@@ -75,11 +75,11 @@ const variantOutlineLight = (props: Record<string, any>) => {
     borderWidth: 1,
     _light: {
       _icon: { color: `${colorScheme}.700` },
-      borderColor: transparentize(`${colorScheme}.700`, 0.2)(theme),
+      borderColor: transparentize(`${colorScheme}.700`, 0.4)(theme),
     },
     _dark: {
       _icon: { color: `${colorScheme}.600` },
-      borderColor: transparentize(`${colorScheme}.600`, 0.2)(theme),
+      borderColor: transparentize(`${colorScheme}.600`, 0.4)(theme),
     },
   };
 };
