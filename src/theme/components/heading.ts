@@ -4,7 +4,7 @@ const baseStyle = () => {
       color: 'text.900',
     },
     _dark: {
-      color: 'white',
+      color: 'text.50',
     },
     fontWeight: 'bold',
     lineHeight: 'sm',
