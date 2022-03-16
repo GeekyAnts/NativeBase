@@ -56,11 +56,6 @@ const baseStyle = (props: Record<string, any>) => {
       outline: 'none',
       cursor: 'auto',
     },
-    _complexInputBase: {
-      bg: 'transparent',
-      flex: 1,
-      variant: 'unstyled',
-    },
     _stack: {
       flexDirection: 'row',
       alignItems: 'center',
@@ -68,6 +63,7 @@ const baseStyle = (props: Record<string, any>) => {
       overflow: 'hidden',
     },
     _input: {
+      bg: 'transparent',
       flex: 1,
     },
   };
