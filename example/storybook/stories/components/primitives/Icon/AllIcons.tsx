@@ -45,127 +45,127 @@ export const Example = () => {
   });
   const icons = [
     {
-      icon: <AddIcon size="4" />,
+      icon: <AddIcon />,
       iconName: 'add',
     },
     {
-      icon: <ArrowBackIcon size="4" />,
+      icon: <ArrowBackIcon />,
       iconName: 'arrow-back',
     },
     {
-      icon: <ArrowForwardIcon size="4" />,
+      icon: <ArrowForwardIcon />,
       iconName: 'arrow-forward',
     },
     {
-      icon: <ArrowUpIcon size="4" />,
+      icon: <ArrowUpIcon />,
       iconName: 'arrow-up',
     },
     {
-      icon: <ArrowDownIcon size="4" />,
+      icon: <ArrowDownIcon />,
       iconName: 'arrow-down',
     },
     {
-      icon: <CheckIcon size="4" />,
+      icon: <CheckIcon />,
       iconName: 'check',
     },
     {
-      icon: <CheckCircleIcon size="4" />,
+      icon: <CheckCircleIcon />,
       iconName: 'check-circle',
     },
     {
-      icon: <ChevronDownIcon size="4" />,
+      icon: <ChevronDownIcon />,
       iconName: 'chevron-down',
     },
     {
-      icon: <ChevronLeftIcon size="4" />,
+      icon: <ChevronLeftIcon />,
       iconName: 'chevron-left',
     },
     {
-      icon: <ChevronRightIcon size="4" />,
+      icon: <ChevronRightIcon />,
       iconName: 'chevron-right',
     },
     {
-      icon: <ChevronUpIcon size="4" />,
+      icon: <ChevronUpIcon />,
       iconName: 'chevron-up',
     },
     {
-      icon: <CircleIcon size="4" />,
+      icon: <CircleIcon />,
       iconName: 'circle',
     },
     {
-      icon: <CloseIcon size="4" />,
+      icon: <CloseIcon />,
       iconName: 'close',
     },
     {
-      icon: <SmallCloseIcon size="4" />,
+      icon: <SmallCloseIcon />,
       iconName: 'small-close',
     },
     {
-      icon: <HamburgerIcon size="4" />,
+      icon: <HamburgerIcon />,
       iconName: 'menu',
     },
     {
-      icon: <InfoIcon size="4" />,
+      icon: <InfoIcon />,
       iconName: 'info',
     },
     {
-      icon: <InfoOutlineIcon size="4" />,
+      icon: <InfoOutlineIcon />,
       iconName: 'info-outline',
     },
     {
-      icon: <MinusIcon size="4" />,
+      icon: <MinusIcon />,
       iconName: 'minus',
     },
     {
-      icon: <MoonIcon size="4" />,
+      icon: <MoonIcon />,
       iconName: 'moon',
     },
     {
-      icon: <QuestionIcon size="4" />,
+      icon: <QuestionIcon />,
       iconName: 'question',
     },
     {
-      icon: <QuestionOutlineIcon size="4" />,
+      icon: <QuestionOutlineIcon />,
       iconName: 'question-outline',
     },
     {
-      icon: <SearchIcon size="4" />,
+      icon: <SearchIcon />,
       iconName: 'search',
     },
     {
-      icon: <SunIcon size="4" />,
+      icon: <SunIcon />,
       iconName: 'sun',
     },
     {
-      icon: <WarningIcon size="4" />,
+      icon: <WarningIcon />,
       iconName: 'warning-1',
     },
     {
-      icon: <WarningTwoIcon size="4" />,
+      icon: <WarningTwoIcon />,
       iconName: 'warning-2',
     },
     {
-      icon: <WarningOutlineIcon size="4" />,
+      icon: <WarningOutlineIcon />,
       iconName: 'warning-outline',
     },
     {
-      icon: <ThreeDotsIcon size="4" />,
+      icon: <ThreeDotsIcon />,
       iconName: 'three-dots',
     },
     {
-      icon: <ShareIcon size="4" />,
+      icon: <ShareIcon />,
       iconName: 'share',
     },
     {
-      icon: <PlayIcon size="4" />,
+      icon: <PlayIcon />,
       iconName: 'play',
     },
     {
-      icon: <FavouriteIcon size="4" />,
+      icon: <FavouriteIcon />,
       iconName: 'favourite',
     },
     {
-      icon: <DeleteIcon size="4" />,
+      icon: <DeleteIcon />,
       iconName: 'delete',
     },
   ];

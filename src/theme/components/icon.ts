@@ -1,13 +1,16 @@
-import { mode } from './../tools';
-
-const baseStyle = (props: Record<string, any>) => {
+const baseStyle = () => {
   return {
-    color: mode('muted.800', 'muted.100')(props),
+    _light: {
+      color: 'muted.500',
+    },
+    _dark: {
+      color: 'muted.400',
+    },
   };
 };
 
 const sizes = {
-  'xxs': 2,
+  '2xs': 2,
   'xs': 4,
   'sm': 6,
   'md': 8,
@@ -20,5 +23,5 @@ const sizes = {
   '6xl': 64,
 };
 
-const defaultProps = { size: 'md' };
+const defaultProps = { size: 'xs' };
 export default { baseStyle, sizes, defaultProps };
