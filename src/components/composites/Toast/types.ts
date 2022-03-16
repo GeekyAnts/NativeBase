@@ -47,11 +47,6 @@ export interface IToastProps extends IBoxProps<IToastProps> {
    * For providing props to Description inside Toast
    */
   _description?: ITextProps;
-
-  /**
-   * For providing props to Description inside Toast
-   */
-  BlahBLah?: ITextProps;
   /**
    * The text to be announced by a screen reader when the Toast opens.
    */

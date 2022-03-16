@@ -30,11 +30,11 @@ const baseStyle = (props: Record<string, any>) => {
       },
     },
     _title: {
-      color: mode(`warmGray.200`, `coolGray.600`)(props),
+      color: 'text.50',
       fontWeight: 700,
     },
     _description: {
-      color: mode(`warmGray.200`, `coolGray.600`)(props),
+      color: 'text.50',
       fontWeight: 400,
     },
   };
