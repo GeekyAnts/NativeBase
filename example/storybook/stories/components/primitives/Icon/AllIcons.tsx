@@ -17,6 +17,7 @@ import {
   ChevronRightIcon,
   ChevronUpIcon,
   CloseIcon,
+  SmallCloseIcon,
   HamburgerIcon,
   InfoIcon,
   InfoOutlineIcon,
@@ -26,6 +27,12 @@ import {
   SearchIcon,
   WarningIcon,
   WarningTwoIcon,
+  ThreeDotsIcon,
+  WarningOutlineIcon,
+  ShareIcon,
+  PlayIcon,
+  FavouriteIcon,
+  DeleteIcon,
   VStack,
   FlatList,
   useBreakpointValue,
@@ -90,6 +97,10 @@ export const Example = () => {
       iconName: 'close',
     },
     {
+      icon: <SmallCloseIcon size="4" />,
+      iconName: 'small-close',
+    },
+    {
       icon: <HamburgerIcon size="4" />,
       iconName: 'menu',
     },
@@ -132,6 +143,30 @@ export const Example = () => {
     {
       icon: <WarningTwoIcon size="4" />,
       iconName: 'warning-2',
+    },
+    {
+      icon: <WarningOutlineIcon size="4" />,
+      iconName: 'warning-outline',
+    },
+    {
+      icon: <ThreeDotsIcon size="4" />,
+      iconName: 'three-dots',
+    },
+    {
+      icon: <ShareIcon size="4" />,
+      iconName: 'share',
+    },
+    {
+      icon: <PlayIcon size="4" />,
+      iconName: 'play',
+    },
+    {
+      icon: <FavouriteIcon size="4" />,
+      iconName: 'favourite',
+    },
+    {
+      icon: <DeleteIcon size="4" />,
+      iconName: 'delete',
     },
   ];
   return (

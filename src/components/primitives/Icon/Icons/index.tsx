@@ -14,3 +14,7 @@ export * from './Sun';
 export * from './Warning';
 export * from './WarningOutline';
 export * from './ThreeDots';
+export * from './Share';
+export * from './Play';
+export * from './Delete';
+export * from './Favourite';
