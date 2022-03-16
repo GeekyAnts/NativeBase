@@ -10,7 +10,10 @@ const baseStyle = (props: Record<string, any>) => {
     borderWidth: '1',
     _text: {
       color: mode('muted.400', 'muted.500')(props),
+      fontWeight: 600,
     },
+    alignItems: 'center',
+    justifyContent: 'center',
   };
 };
 
