@@ -1,8 +1,11 @@
-import { mode } from './../tools';
-
-const baseStyle = (props: Record<string, any>) => {
+const baseStyle = () => {
   return {
-    color: mode('coolGray.800', 'warmGray.50')(props),
+    _light: {
+      color: 'text.900',
+    },
+    _dark: {
+      color: 'text.50',
+    },
     fontWeight: '400',
     fontFamily: 'body',
     fontStyle: 'normal',
