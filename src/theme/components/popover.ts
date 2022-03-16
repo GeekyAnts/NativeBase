@@ -10,6 +10,9 @@ export const PopoverCloseButton = {
     _light: {
       _icon: {
         color: 'muted.500',
+        _hover: {
+          bg: 'red.500',
+        },
       },
     },
     _dark: {
@@ -23,6 +26,7 @@ export const PopoverCloseButton = {
 export const PopoverBody = {
   baseStyle: () => ({
     p: '3',
+    shadow: '6',
     _light: {
       bg: 'muted.50',
       _text: {
@@ -40,6 +44,7 @@ export const PopoverBody = {
 
 export const PopoverContent = {
   baseStyle: () => ({
+    shadow: '6',
     _light: {
       borderColor: 'muted.300',
       _text: {
@@ -52,7 +57,6 @@ export const PopoverContent = {
         color: 'text.50',
       },
     },
-    borderWidth: 1,
     rounded: 'md',
     overflow: 'hidden',
   }),
@@ -60,6 +64,7 @@ export const PopoverContent = {
 
 export const PopoverHeader = {
   baseStyle: () => ({
+    shadow: '6',
     _web: {
       accessibilityRole: 'header',
     },
@@ -104,6 +109,7 @@ export const PopoverFooter = {
   baseStyle: () => {
     return {
       p: '4',
+      shadow: '6',
       flexDirection: 'row',
       justifyContent: 'flex-end',
       flexWrap: 'wrap',
