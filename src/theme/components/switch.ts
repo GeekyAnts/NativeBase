@@ -3,31 +3,14 @@
 
 const baseStyle = (props: Record<string, any>) => {
   const { colorScheme: c } = props;
-  //TODO: Use of Platform can be removed
   return {
     _disabled: {
       opacity: 0.4,
     },
     _invalid: {
-      borderWidth: 1,
-      borderRadius: 16,
+      borderWidth: 2,
+      borderRadius: 12,
     },
-    // offTrackColor: mode(
-    //   Platform.OS !== 'ios' ? 'gray.400' : 'gray.200',
-    //   Platform.OS !== 'ios' ? 'gray.700' : 'gray.600'
-    // )(props),
-    // onTrackColor: mode(
-    //   Platform.OS !== 'ios' ? `${colorScheme}.300` : `${colorScheme}.500`,
-    //   Platform.OS !== 'ios' ? `${colorScheme}.700` : `${colorScheme}.500`
-    // )(props),
-    // onThumbColor: mode(
-    //   Platform.OS !== 'ios' ? `${colorScheme}.600` : 'white',
-    //   Platform.OS !== 'ios' ? `${colorScheme}.500` : 'white'
-    // )(props),
-    // offThumbColor: mode(
-    //   Platform.OS !== 'ios' ? 'gray.100' : 'white',
-    //   Platform.OS !== 'ios' ? 'gray.200' : 'white'
-    // )(props),
     onThumbColor: 'muted.50',
     offThumbColor: 'muted.50',
     _light: {
@@ -38,7 +21,7 @@ const baseStyle = (props: Record<string, any>) => {
         onTrackColor: `${c}.700`,
       },
       _invalid: {
-        borderColor: 'error.500',
+        borderColor: 'error.600',
       },
     },
     _dark: {
@@ -49,7 +32,7 @@ const baseStyle = (props: Record<string, any>) => {
         onTrackColor: `${c}.400`,
       },
       _invalid: {
-        borderColor: 'error.600',
+        borderColor: 'error.500',
       },
     },
   };
