@@ -87,6 +87,12 @@ export const ModalCloseButton = {
       zIndex: '1',
       colorScheme: 'coolGray',
       p: '2',
+      bg: 'transparent',
+      borderRadius: 'sm',
+      _web: {
+        outlineWidth: 0,
+        cursor: 'pointer',
+      },
       _icon: {
         size: '4',
       },
@@ -97,6 +103,9 @@ export const ModalCloseButton = {
         _hover: {
           bg: 'muted.200',
         },
+        _pressed: {
+          bg: 'muted.300',
+        },
       },
       _dark: {
         _icon: {
@@ -104,6 +113,9 @@ export const ModalCloseButton = {
         },
         _hover: {
           bg: 'muted.700',
+        },
+        _pressed: {
+          bg: 'muted.600',
         },
       },
     };
