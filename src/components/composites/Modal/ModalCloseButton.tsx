@@ -5,11 +5,16 @@ import Button from '../../primitives/Button/Button';
 import { CloseIcon } from '../../primitives/Icon/Icons';
 import type { IButtonProps } from '../../primitives/Button';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import { useHover } from '@react-native-aria/interactions';
+import { mergeRefs } from '../../../utils';
 
 const ModalCloseButton = (props: IButtonProps, ref?: any) => {
+  const _ref = React.useRef(null);
+  const { isHovered } = useHover({}, _ref);
   const { _icon, ...resolvedProps } = usePropsResolution(
     'ModalCloseButton',
-    props
+    props,
+    { isHovered }
   );
   const { handleClose } = React.useContext(ModalContext);
   //TODO: refactor for responsive prop
@@ -22,7 +27,7 @@ const ModalCloseButton = (props: IButtonProps, ref?: any) => {
       {...resolvedProps}
       onPress={handleClose}
       accessibilityLabel="Close dialog"
-      ref={ref}
+      ref={mergeRefs([ref, _ref])}
     >
       <CloseIcon {..._icon} />
     </Button>
