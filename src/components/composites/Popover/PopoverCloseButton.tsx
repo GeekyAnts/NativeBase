@@ -1,37 +1,69 @@
 import React from 'react';
 import { usePropsResolution } from '../../../hooks';
-import { default as IconButton, IIconButtonProps } from '../IconButton';
+import { Pressable } from '../../primitives/Pressable';
 import { CloseIcon } from '../../primitives/Icon/Icons';
 import { PopoverContext } from './PopoverContext';
+import type { IButtonProps } from '../../primitives/Button';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-import { useHover } from '@react-native-aria/interactions';
-import { mergeRefs } from '../../../utils';
+import {
+  useHover,
+  useFocus,
+  useIsPressed,
+} from '../../primitives/Pressable/Pressable';
+import { composeEventHandlers } from '../../../utils';
+import { useFocusRing } from '@react-native-aria/focus';
 
-const PopoverCloseButton = (
-  props: Omit<IIconButtonProps, 'icon'>,
-  ref: any
-) => {
+const PopoverCloseButton = (props: IButtonProps, ref: any) => {
   const { onClose }: any = React.useContext(PopoverContext);
-  const _ref = React.useRef(null);
+  const { hoverProps, isHovered } = useHover();
+  const { pressableProps, isPressed } = useIsPressed();
+  const { focusProps, isFocused } = useFocus();
+  const { isFocusVisible, focusProps: focusRingProps }: any = useFocusRing();
 
-  const { isHovered } = useHover({}, _ref);
-
-  const { _icon, ...resolvedPorps } = usePropsResolution(
-    'PopoverCloseButton',
-    props,
-    { isHovered }
-  );
+  const {
+    _icon,
+    onPressIn,
+    onPressOut,
+    onHoverIn,
+    onHoverOut,
+    onFocus,
+    onBlur,
+    ...resolvedProps
+  } = usePropsResolution('PopoverCloseButton', props, {
+    isHovered,
+    isPressed,
+    isFocused,
+    isFocusVisible,
+  });
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
   }
   return (
-    <IconButton
-      ref={mergeRefs([ref, _ref])}
-      {...resolvedPorps}
-      icon={<CloseIcon {..._icon} />}
+    <Pressable
+      accessibilityRole="button"
+      ref={ref}
+      onPressIn={composeEventHandlers(onPressIn, pressableProps.onPressIn)}
+      onPressOut={composeEventHandlers(onPressOut, pressableProps.onPressOut)}
+      // @ts-ignore - web only
+      onHoverIn={composeEventHandlers(onHoverIn, hoverProps.onHoverIn)}
+      // @ts-ignore - web only
+      onHoverOut={composeEventHandlers(onHoverOut, hoverProps.onHoverOut)}
+      // @ts-ignore - web only
+      onFocus={composeEventHandlers(
+        composeEventHandlers(onFocus, focusProps.onFocus),
+        focusRingProps.onFocus
+      )}
+      // @ts-ignore - web only
+      onBlur={composeEventHandlers(
+        composeEventHandlers(onBlur, focusProps.onBlur),
+        focusRingProps.onBlur
+      )}
       onPress={onClose}
-    />
+      {...resolvedProps}
+    >
+      <CloseIcon {..._icon} />
+    </Pressable>
   );
 };
 
