@@ -1,4 +1,4 @@
-import { Dict, mode } from './../tools';
+import { mode } from './../tools';
 
 const baseStyle = (props: any) => {
   const { primary } = props.theme.colors;
@@ -33,12 +33,12 @@ const baseStyle = (props: any) => {
       space: '1.5',
       alignItems: 'center',
     },
-    // _loading: {
-    //   opacity: '80',
-    // },
-    // _disabled: {
-    //   opacity: '50',
-    // },
+    _loading: {
+      opacity: '40',
+    },
+    _disabled: {
+      opacity: '40',
+    },
     _spinner: {
       size: 'sm',
       focusable: false,
@@ -46,14 +46,8 @@ const baseStyle = (props: any) => {
   };
 };
 
-function variantGhost({ colorScheme }: Dict) {
+function variantGhost({ colorScheme }: Record<string, any>) {
   return {
-    _disabled: {
-      opacity: '40',
-    },
-    _loading: {
-      opacity: '40',
-    },
     _light: {
       _text: {
         color: `${colorScheme}.600`,
@@ -91,15 +85,10 @@ function variantGhost({ colorScheme }: Dict) {
   };
 }
 
-function variantOutline({ colorScheme }: Dict) {
+function variantOutline({ colorScheme }: Record<string, any>) {
   return {
     borderWidth: '1px',
-    _disabled: {
-      opacity: '40',
-    },
-    _loading: {
-      opacity: '40',
-    },
+
     _light: {
       borderColor: 'muted.300',
       _text: {
@@ -139,7 +128,7 @@ function variantOutline({ colorScheme }: Dict) {
   };
 }
 
-function variantSolid({ colorScheme }: Dict) {
+function variantSolid({ colorScheme }: Record<string, any>) {
   return {
     _text: {
       color: 'text.50',
@@ -150,12 +139,7 @@ function variantSolid({ colorScheme }: Dict) {
     _spinner: {
       color: 'text.50',
     },
-    _disabled: {
-      opacity: '40',
-    },
-    _loading: {
-      opacity: '40',
-    },
+
     _light: {
       bg: `${colorScheme}.600`,
       _hover: {
@@ -177,7 +161,7 @@ function variantSolid({ colorScheme }: Dict) {
   };
 }
 
-function variantSubtle({ colorScheme }: Dict) {
+function variantSubtle({ colorScheme }: Record<string, any>) {
   return {
     _text: {
       color: `${colorScheme}.900`,
@@ -188,12 +172,7 @@ function variantSubtle({ colorScheme }: Dict) {
     _spinner: {
       color: `${colorScheme}.900`,
     },
-    _disabled: {
-      opacity: '40',
-    },
-    _loading: {
-      opacity: '40',
-    },
+
     _light: {
       bg: `${colorScheme}.100`,
       _hover: {
@@ -215,7 +194,7 @@ function variantSubtle({ colorScheme }: Dict) {
   };
 }
 
-function variantLink({ colorScheme }: Dict) {
+function variantLink({ colorScheme }: Record<string, any>) {
   return {
     _icon: {
       color: `${colorScheme}.600`,
@@ -223,12 +202,7 @@ function variantLink({ colorScheme }: Dict) {
     _spinner: {
       color: `${colorScheme}.600`,
     },
-    _disabled: {
-      opacity: '40',
-    },
-    _loading: {
-      opacity: '40',
-    },
+
     _hover: {
       _text: {
         textDecorationLine: 'underline',
@@ -247,17 +221,13 @@ function variantLink({ colorScheme }: Dict) {
   };
 }
 
-function variantUnstyled() {
-  return {};
-}
-
 const variants = {
   ghost: variantGhost,
   outline: variantOutline,
   solid: variantSolid,
   subtle: variantSubtle,
   link: variantLink,
-  unstyled: variantUnstyled,
+  unstyled: {},
 };
 
 const sizes = {
@@ -268,7 +238,7 @@ const sizes = {
       fontSize: 'md',
     },
     _icon: {
-      size: 'xs',
+      size: 'md',
     },
   },
   md: {
@@ -278,7 +248,7 @@ const sizes = {
       fontSize: 'sm',
     },
     _icon: {
-      size: 'xs',
+      size: 'sm',
     },
   },
   sm: {
@@ -288,7 +258,7 @@ const sizes = {
       fontSize: 'xs',
     },
     _icon: {
-      size: 'xxs',
+      size: 'sm',
     },
   },
   xs: {
@@ -298,13 +268,13 @@ const sizes = {
       fontSize: '2xs',
     },
     _icon: {
-      size: 'xxs',
+      size: 'xs',
     },
   },
 };
 
 const defaultProps = {
-  variant: 'link',
+  variant: 'solid',
   size: 'md',
   colorScheme: 'primary',
 };
