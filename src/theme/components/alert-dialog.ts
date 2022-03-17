@@ -84,6 +84,12 @@ export const AlertDialogCloseButton = {
       top: '3',
       zIndex: '1',
       p: '2',
+      bg: 'transparent',
+      borderRadius: 'sm',
+      _web: {
+        outlineWidth: 0,
+        cursor: 'pointer',
+      },
       _icon: {
         size: '4',
       },
@@ -91,10 +97,22 @@ export const AlertDialogCloseButton = {
         _icon: {
           color: 'muted.500',
         },
+        _hover: {
+          bg: 'muted.200',
+        },
+        _pressed: {
+          bg: 'muted.300',
+        },
       },
       _dark: {
         _icon: {
           color: 'muted.400',
+        },
+        _hover: {
+          bg: 'muted.700',
+        },
+        _pressed: {
+          bg: 'muted.600',
         },
       },
     };
@@ -105,6 +123,7 @@ export const AlertDialogHeader = {
     return {
       p: '4',
       borderBottomWidth: '1',
+      shadow: '6',
       _text: {
         fontSize: 'md',
         fontWeight: 'semibold',
