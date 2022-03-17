@@ -4,8 +4,15 @@ export const PopoverCloseButton = {
     right: 3,
     top: 3,
     zIndex: 1,
+    p: '2',
+    bg: 'transparent',
+    borderRadius: 'sm',
+    _web: {
+      outlineWidth: 0,
+      cursor: 'pointer',
+    },
     _icon: {
-      size: 4,
+      size: '4',
     },
     _light: {
       _icon: {
@@ -14,6 +21,9 @@ export const PopoverCloseButton = {
       _hover: {
         bg: 'muted.200',
       },
+      _pressed: {
+        bg: 'muted.300',
+      },
     },
     _dark: {
       _icon: {
@@ -21,6 +31,9 @@ export const PopoverCloseButton = {
       },
       _hover: {
         bg: 'muted.700',
+      },
+      _pressed: {
+        bg: 'muted.600',
       },
     },
   }),
