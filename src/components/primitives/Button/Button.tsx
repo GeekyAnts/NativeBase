@@ -13,6 +13,7 @@ import {
 } from '../../primitives/Pressable/Pressable';
 import { useFocusRing } from '@react-native-aria/focus';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import { useContrastText } from '../../../hooks';
 
 const Button = (
   {
@@ -59,6 +60,22 @@ const Button = (
     isLoading,
     isFocusVisible: isFocusVisibleProp || isFocusVisible,
   });
+
+  // Setting contrast text then no color is comming
+  const contrastTextColor = useContrastText(
+    resolvedProps.bg || resolvedProps.backgroundColor || resolvedProps.bgColor,
+    _text?.color
+  );
+
+  if (
+    (resolvedProps.bg ||
+      resolvedProps.backgroundColor ||
+      resolvedProps.bgColor) &&
+    contrastTextColor &&
+    _text.color === undefined
+  ) {
+    _text.color = contrastTextColor;
+  }
 
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {

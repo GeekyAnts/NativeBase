@@ -3,11 +3,7 @@ import { useToken } from './useToken';
 import { useAccessibleColors } from '../core/color-mode/hooks';
 import { useNativeBaseConfig } from '../core/NativeBaseContext';
 
-export function useContrastText(
-  bg: string,
-  color?: string,
-  disableContrastText?: boolean
-) {
+export function useContrastText(bg: string, color?: string) {
   const [
     contrastThreshold,
     trueDarkText,
@@ -27,8 +23,9 @@ export function useContrastText(
   ).config.suppressColorAccessibilityWarning;
 
   const [accessibleColors] = useAccessibleColors();
-  if (disableContrastText) {
-    return;
+
+  if (useNativeBaseConfig('NativeBaseConfigProvider').disableContrastText) {
+    return trueColor;
   }
   if (typeof bg !== 'string') {
     return;
@@ -82,8 +79,8 @@ function getAccessibleContrastColor(
   }
   let trueContrastColor;
   let contrastColorToken;
-  let darkTextConstrast = getContrastRatio(trueBg, trueDarkText);
-  let lightTextConstrast = getContrastRatio(trueBg, trueLightText);
+  const darkTextConstrast = getContrastRatio(trueBg, trueDarkText);
+  const lightTextConstrast = getContrastRatio(trueBg, trueLightText);
 
   if (
     darkTextConstrast >= contrastThreshold ||
