@@ -94,10 +94,16 @@ export const ModalCloseButton = {
         _icon: {
           color: 'muted.500',
         },
+        _hover: {
+          bg: 'muted.200',
+        },
       },
       _dark: {
         _icon: {
           color: 'muted.400',
+        },
+        _hover: {
+          bg: 'muted.700',
         },
       },
     };
