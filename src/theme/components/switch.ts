@@ -1,6 +1,3 @@
-// import { mode, getColorScheme } from '../tools';
-// import { Platform } from 'react-native';
-
 const baseStyle = (props: Record<string, any>) => {
   const { colorScheme: c } = props;
   return {
