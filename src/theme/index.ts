@@ -32,3 +32,4 @@ export { theme, tools as themeTools };
 
 export { getColor } from './styled-system';
 export { StyledProps } from './types';
+export * from './v33x-theme';
