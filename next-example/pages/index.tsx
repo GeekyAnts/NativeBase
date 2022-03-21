@@ -5,115 +5,26 @@ import { Box, Stack, Button } from 'native-base';
 
 const Home: NextPage = () => {
   return (
-    <Stack
-      // space={[10, 20, 32]}
-      space={[10, 20, 24]}
-      // space={'10'}
-      direction={['row', 'column', 'row']}
-      // direction={'column'}
-      // flexWrap={'wrap'}
+    <Box
+      bg={{
+        linearGradient: {
+          colors: ['lightBlue.300', 'violet.800', 'pink.800', 'lime.800'],
+          start: [0, 0],
+          end: [1, 1],
+        },
+      }}
+      p="12"
+      w="72"
+      rounded="xl"
+      _text={{
+        fontSize: 'md',
+        fontWeight: 'medium',
+        color: 'warmGray.50',
+        textAlign: 'center',
+      }}
     >
-      {/* <Text>hi</Text> */}
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-
-      {/* <Button
-        w="16"
-        bg={['red.900', 'light.200', 'lightBlue.100']}
-        // _text={{ color: ['white', 'black', 'red.900'] }}
-      >
-        Text
-      </Button> */}
-      {/* <Button
-        w="16"
-        bg={['red.900', 'light.200', 'lightBlue.100']}
-        // _text={{ color: ['white', 'black', 'red.900'] }}
-      >
-        Text
-      </Button>
-      <Button
-        w="16"
-        bg={['red.900', 'light.200', 'lightBlue.100']}
-        // _text={{ color: ['white', 'black', 'red.900'] }}
-      >
-        Text
-      </Button>
-      <Button
-        w="16"
-        bg={['red.900', 'light.200', 'lightBlue.100']}
-        // _text={{ color: ['white', 'black', 'red.900'] }}
-      >
-        Text
-      </Button>
-      <Button
-        w="16"
-        bg={['red.900', 'light.200', 'lightBlue.100']}
-        // _text={{ color: ['white', 'black', 'red.900'] }}
-      >
-        Text
-      </Button>
-      <Button
-        w="16"
-        bg={['red.900', 'light.200', 'lightBlue.100']}
-        // _text={{ color: ['white', 'black', 'red.900'] }}
-      >
-        Text
-      </Button>
-      <Button
-        w="16"
-        bg={['red.900', 'light.200', 'lightBlue.100']}
-        // _text={{ color: ['white', 'black', 'red.900'] }}
-      >
-        Text
-      </Button>
-      <Button
-        w="16"
-        bg={['red.900', 'light.200', 'lightBlue.100']}
-        // _text={{ color: ['white', 'black', 'red.900'] }}
-      >
-        Text
-      </Button>
-      <Button
-        w="16"
-        bg={['red.900', 'light.200', 'lightBlue.100']}
-        // _text={{ color: ['white', 'black', 'red.900'] }}
-      >
-        Text
-      </Button>
-
-      <Button
-        w="16"
-        bg={['red.900', 'light.200', 'lightBlue.100']}
-        // _text={{ color: ['white', 'black', 'red.900'] }}
-      >
-        Text
-      </Button>
-
-      <Button
-        w="16"
-        bg={['red.900', 'light.200', 'lightBlue.100']}
-        // _text={{ color: ['white', 'black', 'red.900'] }}
-      >
-        Text
-      </Button> */}
-      {/* 
- <Button
-        w="16"
-        bg={['red.900', 'light.200', 'lightBlue.100']}
-        // _text={{ color: ['white', 'black', 'red.900'] }}
-      >
-        Text
-      </Button> */}
-      {/* <Box boxSize="20" bg="red.100"></Box> */}
-    </Stack>
+      This is a Box with Linear Gradient
+    </Box>
   );
 };
 
