@@ -1,18 +1,24 @@
 import type { ReactNode } from 'react';
 import type { ViewProps } from 'react-native';
 import type { IBoxProps } from '../../primitives';
-
+import type { IOverlayProps } from '../../primitives/Overlay';
 export type IFadeProps = IBoxProps<IFadeProps> & {
   in?: boolean;
   entryDuration?: number;
   exitDuration?: number;
   delay?: number;
+  initial?: ISupportedTransitions;
+  animate?: ITransitionStyleProps;
+  exit?: ITransitionStyleProps;
 };
 export type IScaleFadeProps = IBoxProps<IScaleFadeProps> & {
   in?: boolean;
   duration?: number;
   delay?: number;
   initialScale?: number;
+  initial?: ISupportedTransitions;
+  animate?: ITransitionStyleProps;
+  exit?: ITransitionStyleProps;
 };
 export type ISlideProps = IBoxProps<ISlideProps> & {
   in?: boolean;
@@ -20,6 +26,10 @@ export type ISlideProps = IBoxProps<ISlideProps> & {
   delay?: number;
   placement?: 'top' | 'bottom' | 'right' | 'left';
   overlay?: boolean;
+  /**
+   * Props to be passed to the Overlay used inside of Slide when overlay is true.
+   */
+  _overlay?: IOverlayProps;
 };
 export type ISlideFadeProps = IBoxProps<ISlideFadeProps> & {
   in?: boolean;
