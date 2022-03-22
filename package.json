@@ -91,13 +91,11 @@
     "visualize-bundle": "^1.4.0"
   },
   "peerDependencies": {
-    "@types/react": "*",
-    "@types/react-native": "*",
     "react": "*",
     "react-dom": "*",
     "react-native": "*",
-    "react-native-safe-area-context": "3.1.9",
-    "react-native-svg": "12.1.0"
+    "react-native-safe-area-context": "*",
+    "react-native-svg": "*"
   },
   "jest": {
     "preset": "jest-expo",
