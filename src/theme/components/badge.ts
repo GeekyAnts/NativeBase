@@ -1,6 +1,8 @@
-import { mode, getColorScheme } from '../tools';
+import { getColorScheme } from '../tools';
 
 const baseStyle = {
+  flexDirection: 'row',
+  gap: 1,
   px: '2',
   py: '0.5',
   alignItems: 'center',
@@ -10,8 +12,10 @@ const baseStyle = {
 function variantSolid(props: Record<string, any>) {
   const colorScheme = getColorScheme(props);
   return {
-    bg: mode(`${colorScheme}.600`, `${colorScheme}.300`)(props),
-    _text: { color: mode(`coolGray.100`, `coolGray.800`)(props) },
+    _text: {
+      color: 'text.50',
+    },
+    bg: `${colorScheme}.600`,
     borderWidth: '1',
     borderColor: 'transparent',
     borderRadius: '2',
@@ -21,8 +25,9 @@ function variantSolid(props: Record<string, any>) {
 function variantSubtle(props: Record<string, any>) {
   const colorScheme = getColorScheme(props);
   return {
-    bg: mode(`${colorScheme}.200`, `${colorScheme}.700`)(props),
-    _text: { color: mode(`${colorScheme}.600`, `${colorScheme}.200`)(props) },
+    _text: { color: `${colorScheme}.900` },
+    _light: { bg: `${colorScheme}.100` },
+    _dark: { bg: `${colorScheme}.300` },
     borderWidth: '1',
     borderRadius: '2',
     borderColor: 'transparent',
@@ -32,8 +37,16 @@ function variantSubtle(props: Record<string, any>) {
 function variantOutline(props: Record<string, any>) {
   const colorScheme = getColorScheme(props);
   return {
-    borderColor: mode(`${colorScheme}.500`, `${colorScheme}.400`)(props),
-    _text: { color: mode(`${colorScheme}.500`, `${colorScheme}.400`)(props) },
+    _light: {
+      _text: { color: `${colorScheme}.600` },
+      borderColor: `${colorScheme}.600`,
+    },
+    _dark: {
+      _text: {
+        color: `${colorScheme}.300`,
+      },
+      borderColor: `${colorScheme}.300`,
+    },
     borderRadius: '2',
     borderWidth: '1',
   };
@@ -47,7 +60,7 @@ const variants = {
 
 const defaultProps = {
   variant: 'subtle',
-  colorScheme: 'coolGray',
+  colorScheme: 'muted',
 };
 
 export default {
