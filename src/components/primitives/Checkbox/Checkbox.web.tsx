@@ -148,22 +148,8 @@ const CheckboxComponent = React.memo(
             {/* Interaction Box */}
             <Box
               {..._interactionBox}
-              h={
-                isFocusVisible ||
-                isFocusVisibleProp ||
-                isHovered ||
-                isHoveredProp
-                  ? '200%'
-                  : '0%'
-              }
-              w={
-                isFocusVisible ||
-                isFocusVisibleProp ||
-                isHovered ||
-                isHoveredProp
-                  ? '200%'
-                  : '0%'
-              }
+              h={isFocusVisible || isFocusVisibleProp ? '130%' : '0%'}
+              w={isFocusVisible || isFocusVisibleProp ? '130%' : '0%'}
             />
             {/* Checkbox */}
             <Center {...nonLayoutProps}>
@@ -184,10 +170,8 @@ const CheckboxComponent = React.memo(
       icon,
       isChecked,
       isFocusVisible,
-      isHovered,
       nonLayoutProps,
       layoutProps,
-      isHoveredProp,
       isFocusVisibleProp,
       resolvedProps?.children,
     ]);
