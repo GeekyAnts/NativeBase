@@ -8,4 +8,6 @@ export interface IHeadingProps extends ITextProps {
    * @default xl
    */
   size?: ResponsiveValue<ISizes | (string & {}) | number>;
+
+  as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 }
