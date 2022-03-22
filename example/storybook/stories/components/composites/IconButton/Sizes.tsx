@@ -8,6 +8,7 @@ export const Example = () => {
         {['xs', 'sm', 'md', 'lg'].map((size: any) => (
           <IconButton
             size={size}
+            variant="solid"
             _icon={{
               as: MaterialIcons,
               name: 'menu',
