@@ -1,10 +1,10 @@
 import React, { forwardRef, memo } from 'react';
 import Box from '../../primitives/Box';
-import { useThemeProps } from '../../../hooks/useThemeProps';
 import type { ISlideProps } from './types';
 import PresenceTransition from './PresenceTransition';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { Overlay } from '../../primitives/Overlay';
+import { usePropsResolution } from '../../../hooks/';
 
 const holderStyle: any = {
   top: {
@@ -31,10 +31,14 @@ const holderStyle: any = {
 
 export const Slide = memo(
   forwardRef(({ children, ...props }: ISlideProps, ref: any) => {
-    const { in: visible, placement, overlay, duration } = useThemeProps(
-      'Slide',
-      props
-    );
+    const {
+      in: visible,
+      placement,
+      overlay,
+      duration,
+      _overlay,
+      ...resolvedProps
+    } = usePropsResolution('Slide', props);
     const [containerOpacity, setContainerOpacity] = React.useState(0);
     const [size, setSize] = React.useState(0);
     const provideSize = (layoutSize: any) => {
@@ -105,10 +109,8 @@ export const Slide = memo(
         ]}
       >
         <Box
-          {...props}
-          h="100%"
+          {...resolvedProps}
           opacity={containerOpacity}
-          pointerEvents="box-none"
           ref={ref}
           onLayout={(e) => provideSize(e.nativeEvent.layout)}
         >
@@ -120,9 +122,7 @@ export const Slide = memo(
     if (overlay) {
       return (
         <>
-          <Overlay isOpen={true} style={{ overflow: 'hidden' }}>
-            {slideComponent}
-          </Overlay>
+          <Overlay {..._overlay}>{slideComponent}</Overlay>
         </>
       );
     } else {

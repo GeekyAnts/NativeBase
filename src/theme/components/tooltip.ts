@@ -1,15 +1,23 @@
-import { mode } from '../tools';
-
-const baseStyle = (props: any) => {
+const baseStyle = () => {
   return {
-    bg: mode(`gray.700`, `gray.300`)(props),
     py: 1,
     px: 2,
+    shadow: 6,
     rounded: 'sm',
-    shadow: 1,
     _text: {
-      color: mode(`gray.300`, `gray.700`)(props),
       fontSize: 'sm',
+    },
+    _light: {
+      bg: `muted.800`,
+      _text: {
+        color: `text.50`,
+      },
+    },
+    _dark: {
+      bg: `muted.50`,
+      _text: {
+        color: `text.900`,
+      },
     },
   };
 };

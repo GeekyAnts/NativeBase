@@ -92,9 +92,10 @@ export interface IInputProps
    * Passed props will be applied on invalid state.
    */
   _invalid?: Omit<IInputProps, '_hover'>;
-  // These porps are currently on hold
-  // label?: string;
-  // _label?: ITextProps;
+  /**
+   * props are passed to InputBase component
+   */
+  _input?: {};
 }
 
 export interface IInputGroupProps extends IBoxProps<IInputGroupProps> {

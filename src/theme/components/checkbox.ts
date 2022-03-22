@@ -1,19 +1,78 @@
-import { mode, transparentize } from '../tools';
-
 const baseStyle = (props: Record<string, any>) => {
-  const { colorScheme, theme } = props;
+  const { colorScheme: c } = props;
 
   return {
     justifyContent: 'flex-start',
     flexDirection: 'row',
     borderWidth: 2,
     borderRadius: 'sm',
-    borderColor: mode('muted.300', 'muted.600')(props),
-    bg: mode('muted.50', 'muted.700')(props), // matching background color
     opacity: 1,
-    _web: {
-      cursor: 'pointer',
+    p: 0.5,
+
+    _light: {
+      bg: 'muted.50',
+      borderColor: 'muted.400',
+      _text: {
+        color: 'darkText',
+      },
+      _icon: {
+        color: `muted.50`,
+      },
+      _checked: {
+        borderColor: `${c}.600`,
+        bg: `${c}.600`,
+        _hover: {
+          borderColor: `${c}.700`,
+          bg: `${c}.700`,
+        },
+        _pressed: {
+          borderColor: `${c}.800`,
+          bg: `${c}.800`,
+        },
+      },
+      _hover: {
+        borderColor: 'muted.500',
+      },
+      _pressed: {
+        borderColor: 'muted.600',
+      },
+      _invalid: {
+        borderColor: 'error.600',
+      },
     },
+
+    _dark: {
+      bg: 'muted.900',
+      borderColor: 'muted.500',
+      _text: {
+        color: 'lightText',
+      },
+      _icon: {
+        color: `muted.900`,
+      },
+      _checked: {
+        borderColor: `${c}.500`,
+        bg: `${c}.500`,
+        _hover: {
+          borderColor: `${c}.400`,
+          bg: `${c}.400`,
+        },
+        _pressed: {
+          borderColor: `${c}.300`,
+          bg: `${c}.300`,
+        },
+      },
+      _hover: {
+        borderColor: 'muted.400',
+      },
+      _pressed: {
+        borderColor: 'muted.300',
+      },
+      _invalid: {
+        borderColor: 'error.500',
+      },
+    },
+
     _stack: {
       direction: 'row',
       alignItems: 'center',
@@ -22,37 +81,30 @@ const baseStyle = (props: Record<string, any>) => {
         cursor: props.isDisabled ? 'not-allowed' : 'pointer',
       },
     },
+
     _text: {
       ml: 2,
-      color: mode('darkText', 'lightText')(props),
     },
-    _interactionBox: {
-      position: 'absolute',
-      borderRadius: 'full',
-      p: 5,
-      w: '100%',
-      h: '100%',
-      zIndex: -1,
-      _web: {
-        transition: 'height 200ms, width 200ms',
-        pointerEvents: 'none',
-      },
-    },
-    _hover: {
-      _interactionBox: {
-        bg: transparentize('muted.200', 0.3)(theme),
-      },
-    },
+
     _focus: {
       _interactionBox: {
-        bg: transparentize(`${colorScheme}.200`, 0.5)(theme),
+        bg: `${c}.400`,
+        size: 4,
       },
     },
+
     _focusVisible: {
       _interactionBox: {
-        bg: transparentize(`${colorScheme}.200`, 0.5)(theme),
+        bg: `${c}.400`,
+        size: 4,
       },
     },
+
+    _interactionBox: {
+      position: 'absolute',
+      borderRadius: 'sm',
+    },
+
     _disabled: {
       _interactionBox: {
         bg: 'transparent',
@@ -62,28 +114,13 @@ const baseStyle = (props: Record<string, any>) => {
       },
       opacity: 0.4,
     },
-    _pressed: {
-      _interactionBox: {
-        bg: transparentize(`${colorScheme}.200`, 0.5)(theme),
-      },
-    },
-    _checked: {
-      borderColor: mode(`${colorScheme}.600`, `${colorScheme}.200`)(props),
-      bg: mode(`${colorScheme}.600`, `${colorScheme}.300`)(props),
-    },
-    _invalid: {
-      borderColor: mode('error.600', 'error.400')(props),
-    },
-    _icon: {
-      color: mode(`muted.50`, `muted.800`)(props), // matching background color
-    },
   };
 };
 
 const sizes = {
-  lg: { _icon: { size: 6 }, _text: { fontSize: 'xl' } },
-  md: { _icon: { size: 5 }, _text: { fontSize: 'lg' } },
-  sm: { _icon: { size: 4 }, _text: { fontSize: 'md' } },
+  lg: { _icon: { size: 5 }, _text: { fontSize: 'xl' } },
+  md: { _icon: { size: 4 }, _text: { fontSize: 'lg' } },
+  sm: { _icon: { size: 3 }, _text: { fontSize: 'md' } },
 };
 
 const defaultProps = {
