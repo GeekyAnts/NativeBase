@@ -19,11 +19,13 @@ const baseStyle = (props: any) => {
     alignItems: 'center',
 
     _web: {
-      cursor: props.isDisabled
-        ? 'not-allowed'
-        : props.isLoading
-        ? 'default'
-        : 'pointer',
+      _disabled: {
+        cursor: 'not-allowed',
+      },
+      _loading: {
+        cursor: 'not-allowed',
+      },
+      cursor: 'pointer',
       userSelect: 'none',
     },
     _text: {
