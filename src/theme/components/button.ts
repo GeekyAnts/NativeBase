@@ -26,6 +26,7 @@ const baseStyle = (props: any) => {
         cursor: 'not-allowed',
       },
       cursor: 'pointer',
+      userSelect: 'none',
     },
     _text: {
       fontWeight: 'medium',
