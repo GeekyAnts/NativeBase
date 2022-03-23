@@ -1,15 +1,30 @@
-import { mode } from '../tools';
-
-function baseStyle({ isVertical, ...props }: Record<string, any>) {
+function baseStyle({ isVertical }: Record<string, any>) {
   return {
     flexDirection: isVertical ? 'column-reverse' : 'row-reverse',
     space: -4,
     _avatar: {
-      borderColor: mode('gray.50', 'gray.800')(props),
       borderWidth: 2,
     },
     _hiddenAvatarPlaceholder: {
-      bg: mode('gray.600', 'gray.100')(props),
+      _text: {
+        color: 'text.50',
+      },
+    },
+    _light: {
+      _avatar: {
+        borderColor: 'muted.50',
+      },
+      _hiddenAvatarPlaceholder: {
+        bg: 'gray.600',
+      },
+    },
+    _dark: {
+      _avatar: {
+        borderColor: 'muted.900',
+      },
+      _hiddenAvatarPlaceholder: {
+        bg: 'gray.600',
+      },
     },
   };
 }
