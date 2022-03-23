@@ -94,7 +94,7 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
             <OverlayProvider>
               <ToastProvider>
                 <InitializeToastRef />
-                <SSRProvider>{children}</SSRProvider>
+                {isSSR ? <SSRProvider>{children}</SSRProvider> : children}
               </ToastProvider>
             </OverlayProvider>
           </HybridProvider>

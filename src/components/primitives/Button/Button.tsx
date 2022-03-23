@@ -96,13 +96,15 @@ const Button = (
     );
   }
 
-  const boxChildren = isLoading && isLoadingText ? isLoadingText : children;
-
   const spinnerElement = spinner ? (
     spinner
   ) : (
     <Spinner color={_text?.color} {..._spinner} />
   );
+
+  const boxChildren = (child: any) => {
+    return <Box _text={_text}>{child}</Box>;
+  };
 
   return (
     <Pressable
@@ -127,14 +129,15 @@ const Button = (
       {...resolvedProps}
       accessibilityRole={props.accessibilityRole ?? 'button'}
     >
-      <HStack {..._stack}>
+      <HStack {..._stack} test={true}>
         {startIcon && !isLoading ? startIcon : null}
         {isLoading && spinnerPlacement === 'start' ? spinnerElement : null}
-        {boxChildren ? (
-          <Box _text={_text}>
-            {isLoading && isLoadingText ? isLoadingText : children}
-          </Box>
-        ) : null}
+        {isLoading
+          ? isLoadingText
+            ? boxChildren(isLoadingText)
+            : null
+          : boxChildren(children)}
+
         {endIcon && !isLoading ? endIcon : null}
         {isLoading && spinnerPlacement === 'end' ? spinnerElement : null}
       </HStack>
