@@ -1,9 +1,9 @@
 import type { PressableProps } from 'react-native';
 import type { StyledProps } from '../../../theme/types';
-import type { PlatformProps } from '../../types';
+import type { PlatformProps, typographyStyledProps } from '../../types';
 export interface IPressableProps<T = IPressableProps<unknown>>
   extends PressableProps,
-    StyledProps,
+    Omit<StyledProps, typographyStyledProps>,
     PlatformProps<T> {
   /**
    * Called when a mouse enters the Pressable

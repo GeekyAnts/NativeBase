@@ -5,6 +5,7 @@ import type {
   PlatformProps,
   ResponsiveValue,
   ColorType,
+  typographyStyledProps,
 } from '../../types';
 import type { ITextProps } from './../Text/types';
 
@@ -21,7 +22,14 @@ export interface IBoxProps<T = null>
   extends ViewProps,
     SafeAreaProps,
     PlatformProps<T extends null ? IBoxProps<any> : T>,
-    Omit<StyledProps, 'bgColor' | 'background' | 'bg' | 'backgroundColor'> {
+    Omit<
+      StyledProps,
+      | typographyStyledProps
+      | 'bgColor'
+      | 'background'
+      | 'bg'
+      | 'backgroundColor'
+    > {
   /**
    * Renders components as Box children. Accepts a JSX.Element or an array of JSX.Element. */
   children?: JSX.Element | JSX.Element[] | string | any;
