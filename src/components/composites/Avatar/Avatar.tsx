@@ -1,12 +1,12 @@
-import React, { memo, forwardRef } from 'react';
-import { Box, Image, Text } from '../../primitives';
-import { usePropsResolution } from '../../../hooks/useThemeProps';
-import type { IAvatarProps } from './types';
+import React, { forwardRef, memo } from 'react';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
+import { Box, Image, Text } from '../../primitives';
+import type { IAvatarProps } from './types';
 
 const Avatar = ({ children, ...props }: IAvatarProps, ref: any) => {
   const [error, setError] = React.useState(false);
-  const { _text, source, style, ...resolvedProps } = usePropsResolution(
+  const { _image, _text, source, style, ...resolvedProps } = usePropsResolution(
     'Avatar',
     props
   );
@@ -52,6 +52,7 @@ const Avatar = ({ children, ...props }: IAvatarProps, ref: any) => {
             setError(true);
           }}
           ref={ref}
+          {..._image}
         />
       ) : (
         remainingChildren.length !== 0 && remainingChildren
