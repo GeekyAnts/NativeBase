@@ -8,4 +8,10 @@ const baseStyle = {
   textAlignVertical: 'top',
 };
 
-export default { baseStyle };
+export default {
+  baseStyle,
+  defaultProps: {
+    size: 'sm',
+    variant: 'outline',
+  },
+};
