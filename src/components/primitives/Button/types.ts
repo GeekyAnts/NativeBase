@@ -4,12 +4,28 @@ import type { IStackProps } from '../Stack';
 import type { ResponsiveValue } from '../../types';
 import type { MutableRefObject } from 'react';
 import type { ISizes } from '../../../theme/base/sizes';
-import type { VariantType } from '../../../components/types/utils';
+import type {
+  CustomProps,
+  VariantType,
+  // VariantType,
+  // VariantTypeTest,
+} from '../../../components/types/utils';
 import type { ISpinnerProps } from '../Spinner/types';
 
+// const myFunction = ({ a, b }) => {
+//   return { a: a, b: b };
+// };
+
+// type returnType = ReturnType<typeof myFunction>;
+// type parameter = Parameters<typeof myFunction>[0];
+
+// type newparameter = keyof parameter;
+// const a: parameter =
+// type parameter = Para<typeof myFunction>;
+// type buttonVariant = VariantTypeTest<'Button'>;
 // Todo: Create underscore Props section on docs.
 // _hover?: IButtonProps;
-export interface IButtonProps extends IPressableProps<IButtonProps> {
+interface ButtonProps extends IPressableProps<IButtonProps> {
   /**
    * The color of the radio when it's checked. This should be one of the color keys in the theme (e.g."green", "red").
    * @default 'primary'
@@ -153,3 +169,5 @@ export type IButtonComponentType = ((
     (props: IButtonGroupProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
 };
+
+export type IButtonProps = ButtonProps | CustomProps<'Button'>;

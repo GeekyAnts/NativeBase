@@ -21,3 +21,39 @@ export type SizeType = ResponsiveValue<
 export type ColorType = ResponsiveValue<
   Leaves<ITheme['colors']> | (string & {})
 >;
+
+type ComponentType<T extends keyof ITheme['components']> = {
+  [Property in keyof ITheme['components'][T]]: ITheme['components'][T][Property];
+};
+
+type ParametersOf<T> = {
+  [Key in keyof T]: T[Key] extends (...args: any) => void
+    ? Parameters<T[Key]>[0] extends {}
+      ? Parameters<T[Key]>[0]
+      : never
+    : never;
+}[keyof T];
+
+// type VariantParams<T extends keyof ITheme['components']> = ParametersOf<
+//   //@ts-ignore
+//   ComponentType<T>['variants']
+// >;
+
+// type PickedVariantParams<T extends keyof ITheme['components']> = Pick<
+//   VariantParams<T>,
+//   keyof VariantParams<T>
+// >;
+type ParameterType<T, Key> = ParametersOf<
+  //@ts-ignore
+  ComponentType<T>[Key]
+>;
+type CustomPropType<T extends keyof ITheme['components'], Key> = Extract<
+  ParameterType<T, Key>,
+  Pick<ParameterType<T, Key>, keyof ParameterType<T, Key>>
+>;
+
+export type CustomProps<T extends keyof ITheme['components']> =
+  | CustomPropType<T, 'variants'>
+  | CustomPropType<T, 'baseStyle'>
+  | CustomPropType<T, 'sizes'>
+  | CustomPropType<T, 'defaultProps'>;

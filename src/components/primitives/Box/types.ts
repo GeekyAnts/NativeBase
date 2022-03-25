@@ -5,6 +5,7 @@ import type {
   PlatformProps,
   ResponsiveValue,
   ColorType,
+  CustomProps,
 } from '../../types';
 import type { ITextProps } from './../Text/types';
 
@@ -17,7 +18,7 @@ export interface ILinearGradientProps {
   };
 }
 
-export interface IBoxProps<T = null>
+interface BoxProps<T = null>
   extends ViewProps,
     SafeAreaProps,
     PlatformProps<T extends null ? IBoxProps<any> : T>,
@@ -44,3 +45,5 @@ export interface IBoxProps<T = null>
   >;
   // gap?: ResponsiveValue<number | string>;
 }
+
+export type IBoxProps<T = null> = BoxProps<T> | CustomProps<'Box'>;
