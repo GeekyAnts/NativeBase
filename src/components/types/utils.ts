@@ -1,5 +1,5 @@
 import type { Leaves } from '../../theme/base/types';
-import type { ITheme } from '../../theme';
+import type { ComponentTheme, ITheme } from '../../theme';
 import type { ResponsiveValue } from './responsiveValue';
 
 export type VariantType<
@@ -52,8 +52,15 @@ type CustomPropType<T extends keyof ITheme['components'], Key> = Extract<
   Pick<ParameterType<T, Key>, keyof ParameterType<T, Key>>
 >;
 
-export type CustomProps<T extends keyof ITheme['components']> =
-  | CustomPropType<T, 'variants'>
-  | CustomPropType<T, 'baseStyle'>
-  | CustomPropType<T, 'sizes'>
-  | CustomPropType<T, 'defaultProps'>;
+// export type CustomProps<T extends keyof ITheme['components']> =
+//   | CustomPropType<T, 'variants'>
+//   | CustomPropType<T, 'baseStyle'>
+//   | CustomPropType<T, 'sizes'>
+//   | CustomPropType<T, 'defaultProps'>;
+
+export type CustomProps<T extends keyof ITheme['components']> = Exclude<
+  {
+    [Key in keyof ComponentTheme]: CustomPropType<T, Key>;
+  }[keyof ComponentTheme],
+  undefined
+>;

@@ -27,6 +27,18 @@ const myTheme = extendTheme({
         myBtn: {
           padding: 10,
         },
+        myNewButton: ({ myPadding }: { myPadding: number }) => {
+          return {
+            padding: myPadding,
+          };
+        },
+      },
+    },
+    Box: {
+      variants: {
+        myBtn: {
+          padding: 10,
+        },
       },
     },
   },
@@ -74,8 +86,14 @@ function MyWrapper({ children }: any) {
 export function RenderTestButton() {
   const [state, setState] = React.useState(1);
   return (
-    <Box style={{ position: 'absolute', top: 10, left: 20 }}>
-      <Button title={state.toString()} onPress={() => setState(state + 1)} />
+    <Box style={{ position: 'absolute', top: 10, left: 20 }} m={2} bg="red.100">
+      <Button
+        title={state.toString()}
+        onPress={() => setState(state + 1)}
+        isCustom={true}
+        variant="myNewButton"
+        myPadding={1}
+      />
     </Box>
   );
 }
