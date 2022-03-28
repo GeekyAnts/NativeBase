@@ -21,6 +21,9 @@ export const SliderTrack = {
       _dark: {
         bg: 'muted.700',
       },
+      _disabled: {
+        opacity: 0.7,
+      },
     };
   },
 };
@@ -38,6 +41,9 @@ export const SliderThumb = {
       },
       _dark: {
         bg: 'primary.500',
+      },
+      _disabled: {
+        opacity: 0.7,
       },
       shadow: 6,
     };
@@ -60,6 +66,9 @@ export const SliderFilledTrack = {
       },
       _dark: {
         bg: 'primary.500',
+      },
+      _disabled: {
+        opacity: 0.7,
       },
     };
   },
