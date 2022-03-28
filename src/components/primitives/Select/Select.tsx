@@ -128,7 +128,7 @@ const Select = (
     ) : dropdownIcon ? (
       dropdownIcon
     ) : (
-      <ChevronDownIcon {...customDropdownIconProps} />
+      <ChevronDownIcon {...customDropdownIconProps} mr="3" />
     );
 
   const handleClose = () => {
