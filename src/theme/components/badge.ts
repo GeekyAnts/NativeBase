@@ -2,7 +2,7 @@ import { getColorScheme } from '../tools';
 
 const baseStyle = {
   flexDirection: 'row',
-  gap: 1,
+  space: 1,
   px: '2',
   py: '0.5',
   alignItems: 'center',
@@ -13,6 +13,9 @@ function variantSolid(props: Record<string, any>) {
   const colorScheme = getColorScheme(props);
   return {
     _text: {
+      color: 'text.50',
+    },
+    _icon: {
       color: 'text.50',
     },
     bg: `${colorScheme}.600`,
@@ -26,6 +29,7 @@ function variantSubtle(props: Record<string, any>) {
   const colorScheme = getColorScheme(props);
   return {
     _text: { color: `${colorScheme}.900` },
+    _icon: { color: `${colorScheme}.900` },
     _light: { bg: `${colorScheme}.100` },
     _dark: { bg: `${colorScheme}.300` },
     borderWidth: '1',
@@ -39,10 +43,14 @@ function variantOutline(props: Record<string, any>) {
   return {
     _light: {
       _text: { color: `${colorScheme}.600` },
+      _icon: { color: `${colorScheme}.600` },
       borderColor: `${colorScheme}.600`,
     },
     _dark: {
       _text: {
+        color: `${colorScheme}.300`,
+      },
+      _icon: {
         color: `${colorScheme}.300`,
       },
       borderColor: `${colorScheme}.300`,
@@ -61,6 +69,7 @@ const variants = {
 const defaultProps = {
   variant: 'subtle',
   colorScheme: 'muted',
+  size: 'md',
 };
 
 export default {
