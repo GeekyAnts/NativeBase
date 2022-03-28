@@ -15,6 +15,7 @@ export const Select = {
         },
         _disabled: {
           bg: 'muted.100',
+          placeholderTextColor: 'muted.700',
         },
         _invalid: {
           borderColor: 'error.600',
@@ -32,6 +33,7 @@ export const Select = {
         },
         _disabled: {
           bg: 'muted.800',
+          placeholderTextColor: 'text.50',
         },
         _invalid: {
           borderColor: 'error.500',
