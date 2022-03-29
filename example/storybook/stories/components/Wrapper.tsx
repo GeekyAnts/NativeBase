@@ -33,9 +33,9 @@ const myTheme = extendTheme({
         myBtn: {
           padding: 10,
         },
-        myNewButton: ({ myPadding }: { myPadding: number }) => {
+        myNewButton: ({ myPaddingX }: { myPaddingX: number }) => {
           return {
-            padding: myPadding,
+            padding: myPaddingX,
           };
         },
       },
@@ -115,6 +115,7 @@ export function RenderTestButton() {
   return (
     <Box style={{ position: 'absolute', top: 10, left: 20 }} m={2} bg="red.100">
       <Button
+        variant={'myNewButton'}
         // title={state.toString()}
         onPress={() => setState(state + 1)}
       />

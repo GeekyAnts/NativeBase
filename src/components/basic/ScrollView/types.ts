@@ -1,8 +1,8 @@
 import type { ScrollViewProps } from 'react-native';
 import type { StyledProps } from '../../../theme/types';
-import type { PlatformProps } from '../../types';
+import type { CustomProps, PlatformProps } from '../../types';
 
-export interface IScrollViewProps
+export interface InterfaceScrollViewProps
   extends ScrollViewProps,
     StyledProps,
     PlatformProps<IScrollViewProps> {
@@ -14,3 +14,7 @@ export interface IScrollViewProps
    */
   _contentContainerStyle?: IScrollViewProps;
 }
+
+export type IScrollViewProps =
+  | InterfaceScrollViewProps
+  | CustomProps<'ScrollView'>;
