@@ -43,7 +43,7 @@ export function useThemeProps(component: string, propsReceived: any) {
   // console.log('COMPONENT THEME = ', componentTheme);
   const windowWidth = useWindowDimensions()?.width;
 
-  // To pass the component theme props and component props seperately
+  // To pass the component theme props and component props separately
   return filterAndCalculateProps(
     omit(theme, ['components']),
     colorModeProps,

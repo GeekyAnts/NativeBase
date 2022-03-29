@@ -4,7 +4,7 @@ import type { IBreadcrumbItemContext, IBreadcrumbIconProps } from './types';
 import { BreadcrumbItemContext } from './Context';
 import { usePropsResolution } from '../../../hooks/useThemeProps/usePropsResolution';
 
-// Add breadcrumbIcon as child of breadcrumbItem for implementaion of isCurrent prop
+// Add breadcrumbIcon as child of breadcrumbItem for implementation of isCurrent prop
 const BreadcrumbIcon = (props: IBreadcrumbIconProps, ref?: any) => {
   const { isCurrent }: IBreadcrumbItemContext = React.useContext(
     BreadcrumbItemContext

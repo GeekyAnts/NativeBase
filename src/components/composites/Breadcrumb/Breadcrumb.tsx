@@ -124,7 +124,7 @@ const getBreadcrumbSeparator = (
           buttonAdded = false;
         }
       }
-      // Whem maxItems is an array
+      // When maxItems is an array
       else if (typeof maxItems == 'object') {
         if (children.length > maxItems[0] + maxItems[1])
           for (let i = 0; i < children.length; i++) {

@@ -89,7 +89,7 @@ const ListItem = ({ children, ...props }: IListItemProps, ref: any) => {
       // @ts-ignore - web only
       onFocus={composeEventHandlers(
         composeEventHandlers(onFocus, focusProps.onFocus)
-        // focusRingProps.onFocu
+        // focusRingProps.onFocus
       )}
       // @ts-ignore - web only
       onBlur={composeEventHandlers(

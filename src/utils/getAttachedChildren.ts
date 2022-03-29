@@ -23,7 +23,7 @@ const getAttachedChildren = (children: any) => {
   };
 
   /*
-  | Add the margiin to the children
+  | Add the margin to the children
   */
   const trailingChildrenWithSpacing = trailingChildren.map((child: any) => {
     return React.cloneElement(child, marginProp, child.props.children);

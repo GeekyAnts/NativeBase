@@ -11,7 +11,7 @@ interface IFormInput {
 export const Example = () => {
   const { control, handleSubmit, errors } = useForm<IFormInput>();
   const onSubmit = (data: IFormInput) => {
-    console.log('submiting with ', data);
+    console.log('submitting with ', data);
   };
   return (
     <VStack width="80%" space={4}>
