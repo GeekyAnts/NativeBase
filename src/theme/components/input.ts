@@ -34,7 +34,7 @@ const baseStyle = () => {
       outlineWidth: '0',
       overflow: 'auto',
       lineHeight: 'lg', // Todo: Move to _web inside size so that sm and xs don't have this much height
-      outline: 'none',
+      style: { outline: 'none' },
       cursor: 'auto',
     },
     _stack: {
@@ -140,6 +140,9 @@ function filledStyle(props: Record<string, any>) {
     },
     _hover: {
       borderWidth: '1',
+      _disabled: {
+        borderWidth: 0,
+      },
     },
     _invalid: {
       borderWidth: '2',
@@ -169,6 +172,7 @@ function underlinedStyle() {
     _invalid: {
       borderBottomWidth: '2',
     },
+    borderradius: 0,
   };
 }
 
