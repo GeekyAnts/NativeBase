@@ -18,7 +18,7 @@ export interface ILinearGradientProps {
   };
 }
 
-interface BoxProps<T = null>
+export interface InterfaceBoxProps<T = null>
   extends ViewProps,
     SafeAreaProps,
     PlatformProps<T extends null ? IBoxProps<any> : T>,
@@ -46,4 +46,4 @@ interface BoxProps<T = null>
   // gap?: ResponsiveValue<number | string>;
 }
 
-export type IBoxProps<T = null> = BoxProps<T> | CustomProps<'Box'>;
+export type IBoxProps<T = null> = InterfaceBoxProps<T> | CustomProps<'Box'>;

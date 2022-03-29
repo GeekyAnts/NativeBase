@@ -21,7 +21,13 @@ const myTheme = extendTheme({
   space: {
     mySpace: '29px',
   },
+
   components: {
+    Link: {
+      sizes: {
+        mysize: 10,
+      },
+    },
     Button: {
       variants: {
         myBtn: {
@@ -33,7 +39,28 @@ const myTheme = extendTheme({
           };
         },
       },
+      sizes: {
+        newsize: ({ mySize }: { mySize: number }) => {
+          return {
+            padding: mySize,
+          };
+        },
+      },
     },
+
+    Checkbox: {
+      sizes: {
+        myBtn: {
+          padding: 10,
+        },
+        myNewButton: ({ myPadding }: { myPadding: any }) => {
+          return {
+            padding: myPadding,
+          };
+        },
+      },
+    },
+
     Box: {
       variants: {
         myBtn: {
@@ -88,11 +115,8 @@ export function RenderTestButton() {
   return (
     <Box style={{ position: 'absolute', top: 10, left: 20 }} m={2} bg="red.100">
       <Button
-        title={state.toString()}
+        // title={state.toString()}
         onPress={() => setState(state + 1)}
-        isCustom={true}
-        variant="myNewButton"
-        myPadding={1}
       />
     </Box>
   );

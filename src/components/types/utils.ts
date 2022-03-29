@@ -18,6 +18,18 @@ export type SizeType = ResponsiveValue<
   keyof ITheme['sizes'] | (string & {}) | number
 >;
 
+export type ThemeComponentSizeType<
+  Component extends keyof ITheme['components']
+> = 'sizes' extends keyof ITheme['components'][Component]
+  ? ResponsiveValue<
+      keyof ITheme['components'][Component]['sizes'] | (string & {})
+    >
+  : never;
+
+export type CombinedSizeType<Component extends keyof ITheme['components']> =
+  | SizeType
+  | ThemeComponentSizeType<Component>;
+
 export type ColorType = ResponsiveValue<
   Leaves<ITheme['colors']> | (string & {})
 >;

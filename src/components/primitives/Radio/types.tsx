@@ -6,10 +6,11 @@ import type { MutableRefObject } from 'react';
 import type { ResponsiveValue } from '../../../components/types';
 import type { ISizes } from '../../../theme/base/sizes';
 export type IRadioValue = string;
+import type { CustomProps } from '../../types';
 
 export type IRadioGroupOnChangeHandler = (value: IRadioValue) => any;
 
-export interface IRadioProps extends IBoxProps<IRadioProps> {
+export interface InterfaceRadioProps extends IBoxProps<IRadioProps> {
   /**
    * The value to be used in the radio input. This is the value that will be returned on form submission
    */
@@ -157,3 +158,5 @@ export type IRadioComponentType = ((props: IRadioProps) => JSX.Element) & {
     (props: IRadioGroupProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
 };
+
+export type IRadioProps = InterfaceRadioProps | CustomProps<'Radio'>;

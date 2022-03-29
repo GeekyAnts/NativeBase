@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import Text from './../Text';
 import { makeStyledComponent } from '../../../utils/styled';
-import type { IBoxProps } from './types';
+import type { IBoxProps, InterfaceBoxProps } from './types';
 import { useSafeArea } from '../../../hooks/useSafeArea';
 import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
@@ -106,6 +106,5 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
   );
 };
 
-export type { IBoxProps };
-
+export type { IBoxProps, InterfaceBoxProps };
 export default memo(forwardRef(Box));

@@ -1,6 +1,8 @@
+import type { CustomProps } from 'src/components/types';
 import type { IBoxProps, IStackProps } from '../../primitives';
 
-export interface IFormControlProps extends IBoxProps<IFormControlProps> {
+export interface InterfaceFormControlProps
+  extends IBoxProps<IFormControlProps> {
   /**
    * If provided, this prop is passed to its children.
    */
@@ -89,3 +91,7 @@ export type FormControlComponentType = ((
     (props: IFormControlHelperTextProps) => JSX.Element
   >;
 };
+
+export type IFormControlProps =
+  | InterfaceFormControlProps
+  | CustomProps<'FormControl'>;
