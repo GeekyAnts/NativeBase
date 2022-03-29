@@ -1,14 +1,24 @@
 import React, { memo, forwardRef } from 'react';
+import HStack from '../../primitives/Stack/HStack';
 import Box from '../../primitives/Box';
 import type { IBadgeProps } from './types';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const Badge = (
-  { children, startIcon, rightIcon, leftIcon, endIcon, ...props }: IBadgeProps,
+  {
+    children,
+    startIcon,
+    rightIcon,
+    leftIcon,
+    endIcon,
+
+    ...props
+  }: IBadgeProps,
   ref: any
 ) => {
-  const newProps = usePropsResolution('Badge', props);
+  const { _icon, _text, ...newProps } = usePropsResolution('Badge', props);
+
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
@@ -26,8 +36,8 @@ const Badge = (
       endIcon,
       (child: JSX.Element, index: number) => {
         return React.cloneElement(child, {
-          key: `button-end-icon-${index}`,
-          ...newProps._text,
+          key: `badge-end-icon-${index}`,
+          ..._icon,
           ...child.props,
         });
       }
@@ -38,8 +48,8 @@ const Badge = (
       startIcon,
       (child: JSX.Element, index: number) => {
         return React.cloneElement(child, {
-          key: `button-start-icon-${index}`,
-          ...newProps._text,
+          key: `badge-start-icon-${index}`,
+          ..._icon,
           ...child.props,
         });
       }
@@ -47,11 +57,11 @@ const Badge = (
   }
 
   return (
-    <Box {...newProps} ref={ref}>
+    <HStack {...newProps} ref={ref}>
       {startIcon ? startIcon : null}
-      {children}
+      <Box _text={_text}>{children}</Box>
       {endIcon ? endIcon : null}
-    </Box>
+    </HStack>
   );
 };
 
