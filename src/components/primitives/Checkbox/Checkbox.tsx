@@ -163,6 +163,7 @@ const CheckboxComponent = React.memo(
 
     return (
       <Pressable
+        disabled={isDisabled}
         {...(pressableProps as IPressableProps)}
         {...accessibilityProps}
         onPress={onPress}
