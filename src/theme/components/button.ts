@@ -212,10 +212,20 @@ function variantLink({ colorScheme }: Record<string, any>) {
       _text: {
         color: `${colorScheme}.600`,
       },
+      _pressed: {
+        _text: {
+          color: `${colorScheme}.800`,
+        },
+      },
     },
     _dark: {
       _text: {
         color: `${colorScheme}.500`,
+      },
+      _pressed: {
+        _text: {
+          color: `${colorScheme}.300`,
+        },
       },
     },
   };
