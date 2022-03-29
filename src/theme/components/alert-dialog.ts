@@ -123,7 +123,6 @@ export const AlertDialogHeader = {
     return {
       p: '4',
       borderBottomWidth: '1',
-      shadow: '6',
       _text: {
         fontSize: 'md',
         fontWeight: 'semibold',
