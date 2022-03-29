@@ -1,27 +1,27 @@
 import type { ReactNode } from 'react';
 import type { ViewProps } from 'react-native';
-import type { IBoxProps } from '../../primitives';
+import type { InterfaceBoxProps } from '../../primitives/Box';
 
-export type IFadeProps = IBoxProps<IFadeProps> & {
+export type IFadeProps = InterfaceBoxProps<IFadeProps> & {
   in?: boolean;
   entryDuration?: number;
   exitDuration?: number;
   delay?: number;
 };
-export type IScaleFadeProps = IBoxProps<IScaleFadeProps> & {
+export type IScaleFadeProps = InterfaceBoxProps<IScaleFadeProps> & {
   in?: boolean;
   duration?: number;
   delay?: number;
   initialScale?: number;
 };
-export type ISlideProps = IBoxProps<ISlideProps> & {
+export type ISlideProps = InterfaceBoxProps<ISlideProps> & {
   in?: boolean;
   duration?: number;
   delay?: number;
   placement?: 'top' | 'bottom' | 'right' | 'left';
   overlay?: boolean;
 };
-export type ISlideFadeProps = IBoxProps<ISlideFadeProps> & {
+export type ISlideFadeProps = InterfaceBoxProps<ISlideFadeProps> & {
   in?: boolean;
   delay?: number;
   duration?: number;

@@ -2,13 +2,17 @@ import type { CheckboxGroupState } from '@react-stately/checkbox';
 import type { MutableRefObject } from 'react';
 import type { TouchableOpacityProps } from 'react-native';
 import type { IFormControlContext } from '../../composites/FormControl';
-import type { IBoxProps } from '../Box';
+import type { InterfaceBoxProps } from '../Box';
 import type { IIconProps } from '../Icon';
-import type { ResponsiveValue } from '../../../components/types';
+import type {
+  CustomProps,
+  ResponsiveValue,
+  ThemeComponentSizeType,
+} from '../../../components/types';
 
 export type ICheckboxValue = string;
 
-export interface ICheckboxProps extends IBoxProps<ICheckboxProps> {
+export interface InterfaceCheckbox extends InterfaceBoxProps<ICheckboxProps> {
   /**
    * assign id to checkbox
    */
@@ -70,7 +74,9 @@ export interface ICheckboxProps extends IBoxProps<ICheckboxProps> {
    * The size (width and height) of the checkbox.
    * @default 'md'
    */
-  size?: ResponsiveValue<'sm' | 'md' | 'lg'>;
+  size?:
+    | ResponsiveValue<'sm' | 'md' | 'lg'>
+    | ThemeComponentSizeType<'Checkbox'>;
   /**
    * If given, will use this icon instead of the default.
    */
@@ -128,7 +134,8 @@ export interface ICheckboxProps extends IBoxProps<ICheckboxProps> {
   wrapperRef?: any;
   ref?: MutableRefObject<any>;
 }
-export interface ICheckboxGroupProps extends IBoxProps<ICheckboxGroupProps> {
+export interface ICheckboxGroupProps
+  extends InterfaceBoxProps<ICheckboxGroupProps> {
   /**
    * assign id to checkbox group
    */
@@ -184,3 +191,5 @@ export type ICheckboxComponentType = ((
     (props: ICheckboxGroupProps, ref?: MutableRefObject<any>) => JSX.Element
   >;
 };
+
+export type ICheckboxProps = InterfaceCheckbox | CustomProps<'Checkbox'>;

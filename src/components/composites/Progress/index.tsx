@@ -1,11 +1,13 @@
 import React, { memo, forwardRef } from 'react';
-import { Box, IBoxProps } from '../../primitives';
+import { Box } from '../../primitives';
+import type { InterfaceBoxProps } from '../../primitives/Box';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-import type { ResponsiveValue } from '../../../components/types';
+import type { CustomProps, ResponsiveValue } from '../../../components/types';
 import type { ISizes } from '../../../theme/base/sizes';
 
-export interface IProgressProps extends IBoxProps<IProgressProps> {
+export interface InterfaceProgressProps
+  extends InterfaceBoxProps<IProgressProps> {
   /**
    * Value of Progress.
    * @default 0
@@ -30,7 +32,7 @@ export interface IProgressProps extends IBoxProps<IProgressProps> {
   /**
    * Pseudo prop to give Prop to filled track
    */
-  _filledTrack?: IBoxProps<IProgressProps>;
+  _filledTrack?: InterfaceBoxProps<IProgressProps>;
   /**
    * Min progress value
    * @default 0
@@ -43,6 +45,7 @@ export interface IProgressProps extends IBoxProps<IProgressProps> {
   max?: number;
 }
 
+export type IProgressProps = InterfaceProgressProps | CustomProps<'Progress'>;
 const Progress = (props: IProgressProps, ref?: any) => {
   const {
     min,

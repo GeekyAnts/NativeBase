@@ -6,11 +6,13 @@ import { composeEventHandlers, mergeRefs } from '../../../utils';
 import { PresenceTransition } from '../Transitions';
 import { Platform, StyleSheet } from 'react-native';
 import { usePropsResolution } from '../../../hooks';
-import Box, { IBoxProps } from '../../primitives/Box';
+import Box from '../../primitives/Box';
+import type { InterfaceBoxProps } from '../../primitives/Box';
 import { useId } from '@react-aria/utils';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import type { CustomProps } from 'src/components/types';
 
-interface ITooltipProps extends IBoxProps<ITooltipProps> {
+interface InterfaceTooltipProps extends InterfaceBoxProps<ITooltipProps> {
   /**
    * Text to be placed in the tooltip
    */
@@ -87,6 +89,7 @@ interface ITooltipProps extends IBoxProps<ITooltipProps> {
   offset?: number;
 }
 
+export type ITooltipProps = InterfaceTooltipProps | CustomProps<'Tooltip'>;
 export const Tooltip = ({
   label,
   children,

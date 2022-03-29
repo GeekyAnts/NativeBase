@@ -1,10 +1,11 @@
 import isNil from 'lodash.isnil';
 import React, { useEffect, useRef, forwardRef } from 'react';
 import { ViewStyle, LayoutAnimation, UIManager, Platform } from 'react-native';
-import { Box, IBoxProps } from '../../primitives';
+import { Box } from '../../primitives';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-
-export type ICollapseProps = IBoxProps<ICollapseProps> & {
+import type { InterfaceBoxProps } from '../../primitives/Box';
+// import type { CustomProps } from 'src/components/types';
+export type InterfaceCollapseProps = InterfaceBoxProps<ICollapseProps> & {
   style?: ViewStyle;
   endingHeight?: number;
   startingHeight?: number;
@@ -14,6 +15,8 @@ export type ICollapseProps = IBoxProps<ICollapseProps> & {
   onAnimationEnd?: Function;
   onAnimationStart?: Function;
 };
+
+export type ICollapseProps = InterfaceCollapseProps;
 
 function usePrevious(value: any) {
   const ref = useRef();
