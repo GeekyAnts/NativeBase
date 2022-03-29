@@ -60,7 +60,8 @@ export const PopoverBody = {
 
 export const PopoverContent = {
   baseStyle: () => ({
-    shadow: '6',
+    //TODO: Box inside PopperContent is not able to resolve shadow
+    // shadow: '6',
     _light: {
       borderColor: 'muted.300',
       _text: {
@@ -73,6 +74,7 @@ export const PopoverContent = {
         color: 'text.50',
       },
     },
+    borderWidth: 1,
     rounded: 'md',
     overflow: 'hidden',
   }),
