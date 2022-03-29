@@ -68,6 +68,9 @@ const baseStyle = () => {
       },
       _disabled: {
         placeholderTextColor: 'muted.700',
+        _hover: {
+          borderColor: 'muted.300',
+        },
       },
     },
     _dark: {
@@ -91,6 +94,9 @@ const baseStyle = () => {
       },
       _disabled: {
         placeholderTextColor: 'text.50',
+        _hover: {
+          borderColor: 'muted.700',
+        },
       },
     },
   };
