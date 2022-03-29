@@ -1,8 +1,9 @@
 import type { IAlertProps } from '../Alert/types';
 import type { ReactNode } from 'react';
-import type { IBoxProps } from '../../primitives/Box';
+import type { InterfaceBoxProps } from '../../primitives/Box';
+import type { CustomProps } from '../../../components/types';
 
-export interface IToastProps extends IBoxProps<IToastProps> {
+export interface InterfaceToastProps extends InterfaceBoxProps<IToastProps> {
   /**
    * The title to be rendered in the Toast
    */
@@ -81,3 +82,5 @@ export type IToastContext = {
   setVisibleToasts: any;
   hideToast: (id: any) => void;
 };
+
+export type IToastProps = InterfaceToastProps | CustomProps<'Toast'>;

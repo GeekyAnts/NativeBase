@@ -1,8 +1,9 @@
 import type { IBoxProps } from '../../primitives/Box';
 import type { IIconButtonProps } from '../IconButton';
 import type { MutableRefObject } from 'react';
+import type { CustomProps } from 'src/components/types';
 
-export interface IAlertDialogProps extends IBoxProps {
+export interface InterfaceAlertDialogProps extends IBoxProps {
   /**
    * If true, the AlertDialog will open. Useful for controllable state behaviour
    */
@@ -81,3 +82,7 @@ export type IAlertDialogComponentType = ((
     (props: IBoxProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
 };
+
+export type IAlertDialogProps =
+  | InterfaceAlertDialogProps
+  | CustomProps<'AlertDialog'>;

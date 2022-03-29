@@ -1,9 +1,10 @@
 import type { ITextProps } from '../../primitives/Text';
-import type { IBoxProps } from '../../primitives/Box';
+import type { InterfaceBoxProps } from '../../primitives/Box/types';
 import type { IPressableProps } from '../../primitives/Pressable';
 import type { MutableRefObject } from 'react';
+import type { CustomProps } from '../../../components/types';
 
-export interface IMenuProps extends IBoxProps<IMenuProps> {
+export interface InterfaceMenuProps extends InterfaceBoxProps<IMenuProps> {
   /**
    * Function that returns a React Element. This element will be used as a Trigger for the menu
    */
@@ -157,3 +158,4 @@ export type IMenuContextProps = {
   open?: boolean;
   closeOnSelect?: boolean;
 };
+export type IMenuProps = InterfaceMenuProps | CustomProps<'Menu'>;
