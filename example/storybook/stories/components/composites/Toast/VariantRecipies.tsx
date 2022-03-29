@@ -73,7 +73,13 @@ export const Example = () => {
               fontSize="md"
               fontWeight="medium"
               flexShrink={1}
-              color={variant === 'solid' ? 'lightText' : 'darkText'}
+              color={
+                variant === 'solid'
+                  ? 'lightText'
+                  : variant !== 'outline'
+                  ? 'darkText'
+                  : null
+              }
             >
               {title}
             </Text>
@@ -81,17 +87,24 @@ export const Example = () => {
           {isClosable ? (
             <IconButton
               variant="unstyled"
-              icon={
-                <CloseIcon
-                  size="3"
-                  color={variant === 'solid' ? 'lightText' : 'darkText'}
-                />
-              }
+              icon={<CloseIcon size="3" />}
+              _icon={{
+                color: variant === 'solid' ? 'lightText' : 'darkText',
+              }}
               onPress={() => toast.close(id)}
             />
           ) : null}
         </HStack>
-        <Text px="6" color={variant === 'solid' ? 'lightText' : 'darkText'}>
+        <Text
+          px="6"
+          color={
+            variant === 'solid'
+              ? 'lightText'
+              : variant !== 'outline'
+              ? 'darkText'
+              : null
+          }
+        >
           {description}
         </Text>
       </VStack>
