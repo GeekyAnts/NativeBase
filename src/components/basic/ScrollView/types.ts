@@ -12,5 +12,5 @@ export interface IScrollViewProps
   /**
    * pass props to contentContainerStyle, and this also resolved NB tokens.
    */
-  _contentContainerStyle?: IScrollViewProps;
+  _contentContainerStyle?: Partial<IScrollViewProps>;
 }
