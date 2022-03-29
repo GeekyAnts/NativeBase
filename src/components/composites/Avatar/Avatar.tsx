@@ -6,7 +6,7 @@ import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const Avatar = ({ children, ...props }: IAvatarProps, ref: any) => {
   const [error, setError] = React.useState(false);
-  const { _image, source, ...resolvedProps } = usePropsResolution(
+  const { _image, _badgeSize, source, ...resolvedProps } = usePropsResolution(
     'Avatar',
     props
   );
@@ -19,7 +19,7 @@ const Avatar = ({ children, ...props }: IAvatarProps, ref: any) => {
       typeof child?.type === 'object' &&
       child?.type.displayName === 'AvatarBadge'
     ) {
-      Badge = child;
+      Badge = React.cloneElement(child, { size: _badgeSize[0] });
     } else {
       remainingChildren.push(child);
     }

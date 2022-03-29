@@ -13,6 +13,7 @@ const baseStyle = (props: Record<string, any>) => {
     borderRadius: 'full',
     _text: {
       fontWeight: 600,
+      color: 'text.50',
     },
     _image: {
       borderRadius: 'full',
@@ -34,23 +35,24 @@ const baseStyle = (props: Record<string, any>) => {
   };
 };
 
-function getSize(size: any, fontSize: string) {
+function getSize(size: any, fontSize: string, badgeSize: any) {
   return {
     width: size,
     height: size,
     _text: {
       fontSize: fontSize,
     },
+    _badgeSize: badgeSize,
   };
 }
 
 const sizes = {
-  'xs': getSize('6', '2xs'),
-  'sm': getSize('8', 'xs'),
-  'md': getSize('12', 'md'),
-  'lg': getSize('16', 'xl'),
-  'xl': getSize('24', '3xl'),
-  '2xl': getSize('32', '5xl'),
+  'xs': getSize('6', '2xs', '2'),
+  'sm': getSize('8', 'xs', '3'),
+  'md': getSize('12', 'md', '4'),
+  'lg': getSize('16', 'xl', '5'),
+  'xl': getSize('24', '3xl', '6'),
+  '2xl': getSize('32', '5xl', '7'),
 };
 
 const defaultProps = {
