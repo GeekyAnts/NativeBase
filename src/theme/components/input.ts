@@ -172,7 +172,7 @@ function underlinedStyle() {
     _invalid: {
       borderBottomWidth: '2',
     },
-    borderradius: 0,
+    borderRadius: 0,
   };
 }
 
