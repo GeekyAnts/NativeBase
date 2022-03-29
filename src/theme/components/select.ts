@@ -5,16 +5,17 @@ export const Select = {
     const { theme } = props;
     return {
       _light: {
-        customDropdownIconProps: { color: 'muted.500' },
+        customDropdownIconProps: { color: 'muted.500', mr: '3' },
         _hover: {
           borderColor: 'primary.600',
         },
         _focus: {
           borderColor: 'primary.600',
-          bg: transparentize('primary.600', 0.1)(theme),
+          // bg: transparentize('primary.600', 0.1)(theme),
         },
         _disabled: {
           bg: 'muted.100',
+          placeholderTextColor: 'muted.700',
         },
         _invalid: {
           borderColor: 'error.600',
@@ -22,16 +23,17 @@ export const Select = {
       },
 
       _dark: {
-        customDropdownIconProps: { color: 'muted.400' },
+        customDropdownIconProps: { color: 'muted.400', mr: '3' },
         _hover: {
           borderColor: 'primary.500',
         },
         _focus: {
           borderColor: 'primary.500',
-          bg: transparentize('primary.500', 0.1)(theme),
+          // bg: transparentize('primary.500', 0.1)(theme),
         },
         _disabled: {
           bg: 'muted.800',
+          placeholderTextColor: 'text.50',
         },
         _invalid: {
           borderColor: 'error.500',
