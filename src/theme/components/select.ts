@@ -11,7 +11,7 @@ export const Select = {
         },
         _focus: {
           borderColor: 'primary.600',
-          bg: transparentize('primary.600', 0.1)(theme),
+          // bg: transparentize('primary.600', 0.1)(theme),
         },
         _disabled: {
           bg: 'muted.100',
@@ -29,7 +29,7 @@ export const Select = {
         },
         _focus: {
           borderColor: 'primary.500',
-          bg: transparentize('primary.500', 0.1)(theme),
+          // bg: transparentize('primary.500', 0.1)(theme),
         },
         _disabled: {
           bg: 'muted.800',
