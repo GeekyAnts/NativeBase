@@ -24,6 +24,10 @@ const baseStyle = (props: Record<string, any>) => {
         _hover: {
           borderColor: `${c}.700`,
           bg: `${c}.700`,
+          _disabled: {
+            borderColor: `${c}.600`,
+            bg: `${c}.600`,
+          },
         },
         _pressed: {
           borderColor: `${c}.800`,
@@ -32,6 +36,9 @@ const baseStyle = (props: Record<string, any>) => {
       },
       _hover: {
         borderColor: 'muted.500',
+        _disabled: {
+          borderColor: 'muted.400',
+        },
       },
       _pressed: {
         borderColor: 'muted.600',
@@ -56,6 +63,10 @@ const baseStyle = (props: Record<string, any>) => {
         _hover: {
           borderColor: `${c}.400`,
           bg: `${c}.400`,
+          _disabled: {
+            borderColor: `${c}.500`,
+            bg: `${c}.500`,
+          },
         },
         _pressed: {
           borderColor: `${c}.300`,
@@ -64,6 +75,9 @@ const baseStyle = (props: Record<string, any>) => {
       },
       _hover: {
         borderColor: 'muted.400',
+        _disabled: {
+          borderColor: 'muted.500',
+        },
       },
       _pressed: {
         borderColor: 'muted.300',

@@ -1,7 +1,8 @@
 import type { VariantType } from '../../types';
-import type { IBoxProps } from '../../primitives';
-
-export interface IBadgeProps extends IBoxProps<IBadgeProps> {
+import type { IStackProps } from '../../primitives//Stack';
+import type { ITextProps } from '../../primitives/Text/types';
+import type { IIconProps } from '../../primitives/Icon';
+export interface IBadgeProps extends IStackProps {
   /**
    * The style variant of the badge.
    * @default subtle
@@ -27,4 +28,12 @@ export interface IBadgeProps extends IBoxProps<IBadgeProps> {
    * The end icon element to use in the button.
    */
   endIcon?: JSX.Element | Array<JSX.Element>;
+  /**
+   * Props to style the child text
+   */
+  _text?: ITextProps;
+  /**
+   * Props to be passed to the Icon used inside of Button.
+   */
+  _icon?: IIconProps;
 }

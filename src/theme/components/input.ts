@@ -158,6 +158,15 @@ function filledStyle(props: Record<string, any>) {
 function unstyledStyle() {
   return {
     borderWidth: '0',
+    _light: {
+      _focus: { placeholderTextColor: 'text.900' },
+    },
+    _dark: {
+      _focus: { placeholderTextColor: 'text.50' },
+    },
+    _focus: {
+      bg: 'transparent',
+    },
   };
 }
 function underlinedStyle() {

@@ -3,10 +3,7 @@ import { getColor, getColorScheme, transparentize } from '../tools';
 function getBg(props: Record<string, any>) {
   let { theme, colorScheme, status, variant } = props;
 
-  colorScheme = getColorScheme(
-    props,
-    colorScheme !== 'primary' ? colorScheme : status
-  );
+  colorScheme = getColorScheme(props, !status ? colorScheme : status);
 
   const lightBg =
     variant === 'solid'
@@ -25,10 +22,7 @@ const variantSubtle = (props: Record<string, any>) => {
   let { colorScheme, status } = props;
   const { lightBg, darkBg } = getBg(props);
 
-  colorScheme = getColorScheme(
-    props,
-    colorScheme !== 'primary' ? colorScheme : status
-  );
+  colorScheme = getColorScheme(props, !status ? colorScheme : status);
 
   return {
     _light: {
@@ -45,10 +39,7 @@ const variantSubtle = (props: Record<string, any>) => {
 const variantOutline = (props: Record<string, any>) => {
   let { colorScheme, status } = props;
 
-  colorScheme = getColorScheme(
-    props,
-    colorScheme !== 'primary' ? colorScheme : status
-  );
+  colorScheme = getColorScheme(props, !status ? colorScheme : status);
 
   return {
     borderWidth: 1,
@@ -66,10 +57,7 @@ const variantOutline = (props: Record<string, any>) => {
 const variantOutlineLight = (props: Record<string, any>) => {
   let { colorScheme, status, theme } = props;
 
-  colorScheme = getColorScheme(
-    props,
-    colorScheme !== 'primary' ? colorScheme : status
-  );
+  colorScheme = getColorScheme(props, !status ? colorScheme : status);
 
   return {
     borderWidth: 1,
@@ -101,10 +89,7 @@ const variantLeftAccent = (props: Record<string, any>) => {
   let { colorScheme, status } = props;
   const { lightBg, darkBg } = getBg(props);
 
-  colorScheme = getColorScheme(
-    props,
-    colorScheme !== 'primary' ? colorScheme : status
-  );
+  colorScheme = getColorScheme(props, !status ? colorScheme : status);
 
   return {
     borderLeftWidth: 4,
@@ -125,10 +110,7 @@ const variantTopAccent = (props: Record<string, any>) => {
   let { colorScheme, status } = props;
   const { lightBg, darkBg } = getBg(props);
 
-  colorScheme = getColorScheme(
-    props,
-    colorScheme !== 'primary' ? colorScheme : status
-  );
+  colorScheme = getColorScheme(props, !status ? colorScheme : status);
 
   return {
     borderTopWidth: 4,

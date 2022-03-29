@@ -3,7 +3,7 @@ const baseStyle = (props: Record<string, any>) => {
   return {
     borderWidth: 2,
     borderRadius: 'full',
-    p: 0.5,
+    p: 1,
 
     _light: {
       bg: 'muted.50',
@@ -17,6 +17,12 @@ const baseStyle = (props: Record<string, any>) => {
         _hover: {
           borderColor: `${c}.700`,
           _icon: { color: `${c}.700` },
+          _disabled: {
+            borderColor: `${c}.600`,
+            _icon: {
+              color: `${c}.600`,
+            },
+          },
         },
         _pressed: {
           borderColor: `${c}.800`,
@@ -26,6 +32,9 @@ const baseStyle = (props: Record<string, any>) => {
 
       _hover: {
         borderColor: 'muted.500',
+        _disabled: {
+          borderColor: 'muted.400',
+        },
       },
 
       _pressed: {
@@ -49,6 +58,12 @@ const baseStyle = (props: Record<string, any>) => {
         _hover: {
           borderColor: `${c}.400`,
           _icon: { color: `${c}.400` },
+          _disabled: {
+            borderColor: `${c}.500`,
+            _icon: {
+              color: `${c}.500`,
+            },
+          },
         },
         _pressed: {
           borderColor: `${c}.300`,
@@ -58,6 +73,9 @@ const baseStyle = (props: Record<string, any>) => {
 
       _hover: {
         borderColor: 'muted.400',
+        _disabled: {
+          borderColor: 'muted.500',
+        },
       },
 
       _pressed: {
@@ -79,7 +97,7 @@ const baseStyle = (props: Record<string, any>) => {
     },
 
     _disabled: {
-      opacity: 0.4,
+      opacity: '0.6',
       _interactionBox: {
         bg: 'transparent',
       },
@@ -87,27 +105,26 @@ const baseStyle = (props: Record<string, any>) => {
         bg: 'transparent',
       },
       _stack: {
-        opacity: '0.4',
+        opacity: '0.6',
       },
     },
 
     _focus: {
       _interactionBox: {
         bg: `${c}.400`,
-        size: 6,
+        p: '3',
       },
     },
 
     _focusVisible: {
       _interactionBox: {
         bg: `${c}.400`,
-        size: 6,
+        p: '3',
       },
     },
 
     _interactionBox: {
       borderRadius: 'full',
-      size: 3,
       position: 'absolute',
       zIndex: -1,
       _web: {
@@ -121,17 +138,16 @@ const baseStyle = (props: Record<string, any>) => {
 const sizes = {
   lg: {
     _icon: { size: 4 },
-    // _interactionBox: { size: 5 },
+    _interactionBox: { size: 8 },
     _text: { fontSize: 'lg' },
   },
   md: {
     _icon: { size: 3 },
-    // _interactionBox: { size: 16 },
+    _interactionBox: { size: 7 },
     _text: { fontSize: 'md' },
   },
   sm: {
     _icon: { size: 2 },
-    // _interactionBox: { size: 3 },
     _text: { fontSize: 'sm' },
   },
 };
