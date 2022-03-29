@@ -5,7 +5,7 @@ export const Select = {
     const { theme } = props;
     return {
       _light: {
-        customDropdownIconProps: { color: 'muted.500' },
+        customDropdownIconProps: { color: 'muted.500', mr: '3' },
         _hover: {
           borderColor: 'primary.600',
         },
@@ -23,7 +23,7 @@ export const Select = {
       },
 
       _dark: {
-        customDropdownIconProps: { color: 'muted.400' },
+        customDropdownIconProps: { color: 'muted.400', mr: '3' },
         _hover: {
           borderColor: 'primary.500',
         },
