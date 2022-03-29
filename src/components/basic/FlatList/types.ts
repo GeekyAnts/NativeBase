@@ -9,7 +9,7 @@ export interface InterfaceFlatListProps<ItemT>
   /**
    * pass props to contentContainerStyle, and this also resolved NB tokens.
    */
-  _contentContainerStyle?: IFlatListProps<ItemT>;
+  _contentContainerStyle?: Partial<IFlatListProps<ItemT>>;
 }
 
 export type IFlatListProps<ItemT> =
