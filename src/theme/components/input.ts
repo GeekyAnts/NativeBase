@@ -66,6 +66,9 @@ const baseStyle = () => {
       _android: {
         selectionColor: 'coolGray.800',
       },
+      _disabled: {
+        placeholderTextColor: 'muted.700',
+      },
     },
     _dark: {
       placeholderTextColor: 'text.600',
@@ -85,6 +88,9 @@ const baseStyle = () => {
       },
       _android: {
         selectionColor: 'warmGray.50',
+      },
+      _disabled: {
+        placeholderTextColor: 'text.50',
       },
     },
   };
@@ -148,9 +154,11 @@ function unstyledStyle() {
 function underlinedStyle() {
   return {
     borderWidth: '0',
+    pl: '0',
     borderBottomWidth: '1',
     _focus: {
       borderBottomWidth: '2',
+      fontWeight: '500',
     },
     _invalid: {
       borderBottomWidth: '2',
