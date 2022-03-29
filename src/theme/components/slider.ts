@@ -21,9 +21,6 @@ export const SliderTrack = {
       _dark: {
         bg: 'muted.700',
       },
-      _disabled: {
-        opacity: 0.7,
-      },
     };
   },
 };
@@ -41,9 +38,6 @@ export const SliderThumb = {
       },
       _dark: {
         bg: 'primary.500',
-      },
-      _disabled: {
-        opacity: 0.7,
       },
       shadow: 6,
     };
@@ -67,9 +61,6 @@ export const SliderFilledTrack = {
       _dark: {
         bg: 'primary.500',
       },
-      _disabled: {
-        opacity: 0.7,
-      },
     };
   },
 };
@@ -87,6 +78,12 @@ export const Slider = {
       justifyContent: 'center',
       height: props.orientation === 'vertical' ? '100%' : undefined,
       width: props.orientation !== 'vertical' ? '100%' : undefined,
+      _disabled: {
+        opacity: 0.5,
+        _web: {
+          cursor: 'not-allowed',
+        },
+      },
     };
   },
   defaultProps: {
