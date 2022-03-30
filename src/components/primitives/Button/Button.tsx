@@ -1,7 +1,6 @@
 import React, { memo, forwardRef } from 'react';
 import Spinner from '../Spinner';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
-import { default as Box, IBoxProps } from '../Box';
 import HStack from '../Stack/HStack';
 import { Pressable } from '../Pressable';
 import type { IButtonProps } from './types';
@@ -14,6 +13,7 @@ import {
 import { useFocusRing } from '@react-native-aria/focus';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { useContrastText } from '../../../hooks';
+import type { IBoxProps } from '../Box';
 
 const Button = (
   {
@@ -115,7 +115,6 @@ const Button = (
   }
 
   const boxChildren = isLoading && isLoadingText ? isLoadingText : children;
-
   const spinnerElement = spinner ? spinner : <Spinner {..._spinner} />;
 
   return (
@@ -141,14 +140,15 @@ const Button = (
       {...resolvedProps}
       accessibilityRole={props.accessibilityRole ?? 'button'}
     >
-      <HStack {..._stack}>
+      <HStack {..._stack} test={true}>
         {startIcon && !isLoading ? startIcon : null}
         {isLoading && spinnerPlacement === 'start' ? spinnerElement : null}
-        {boxChildren ? (
-          <Box _text={_text}>
-            {isLoading && isLoadingText ? isLoadingText : children}
-          </Box>
-        ) : null}
+        {isLoading
+          ? isLoadingText
+            ? boxChildren(isLoadingText)
+            : null
+          : boxChildren(children)}
+
         {endIcon && !isLoading ? endIcon : null}
         {isLoading && spinnerPlacement === 'end' ? spinnerElement : null}
       </HStack>

@@ -1,6 +1,8 @@
-import type { IBoxProps } from '../../primitives/Box';
+import type { CustomProps } from '../../../components/types';
+import type { InterfaceBoxProps } from '../../primitives/Box';
 
-export interface ITooltipProps extends IBoxProps<ITooltipProps> {
+export interface InterfaceTooltipProps
+  extends InterfaceBoxProps<ITooltipProps> {
   /**
    * Text to be placed in the tooltip
    */
@@ -76,3 +78,5 @@ export interface ITooltipProps extends IBoxProps<ITooltipProps> {
    */
   offset?: number;
 }
+
+export type ITooltipProps = InterfaceTooltipProps | CustomProps<'Tooltip'>;

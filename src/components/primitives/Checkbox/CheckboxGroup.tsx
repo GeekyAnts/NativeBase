@@ -31,6 +31,7 @@ function CheckboxGroup(
   return (
     <CheckboxGroupContext.Provider
       value={{
+        //@ts-ignore
         size,
         colorScheme,
         ..._checkbox,

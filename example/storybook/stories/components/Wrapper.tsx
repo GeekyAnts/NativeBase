@@ -21,8 +21,47 @@ const myTheme = extendTheme({
   space: {
     mySpace: '29px',
   },
+
   components: {
+    Link: {
+      sizes: {
+        mysize: 10,
+      },
+    },
     Button: {
+      variants: {
+        myBtn: {
+          padding: 10,
+        },
+        myNewButton: ({ myPaddingX }: { myPaddingX: number }) => {
+          return {
+            padding: myPaddingX,
+          };
+        },
+      },
+      sizes: {
+        newsize: ({ mySize }: { mySize: number }) => {
+          return {
+            padding: mySize,
+          };
+        },
+      },
+    },
+
+    Checkbox: {
+      sizes: {
+        myBtn: {
+          padding: 10,
+        },
+        myNewButton: ({ myPadding }: { myPadding: any }) => {
+          return {
+            padding: myPadding,
+          };
+        },
+      },
+    },
+
+    Box: {
       variants: {
         myBtn: {
           padding: 10,
@@ -75,8 +114,12 @@ function MyWrapper({ children }: any) {
 export function RenderTestButton() {
   const [state, setState] = React.useState(1);
   return (
-    <Box style={{ position: 'absolute', top: 10, left: 20 }}>
-      <Button title={state.toString()} onPress={() => setState(state + 1)} />
+    <Box style={{ position: 'absolute', top: 10, left: 20 }} m={2} bg="red.100">
+      <Button
+        variant={'myNewButton'}
+        // title={state.toString()}
+        onPress={() => setState(state + 1)}
+      />
     </Box>
   );
 }

@@ -1,8 +1,9 @@
 import type { ReactNode } from 'react';
-import type { IBoxProps } from '../../primitives/Box';
 import type { ITextProps } from '../../primitives/Text';
+import type { InterfaceBoxProps } from '../../primitives/Box';
+import type { CustomProps } from '../../../components/types';
 
-export interface IToastProps extends IBoxProps<IToastProps> {
+export interface InterfaceToastProps extends InterfaceBoxProps<IToastProps> {
   /**
    * The title to be rendered in the Toast
    */
@@ -42,11 +43,11 @@ export interface IToastProps extends IBoxProps<IToastProps> {
   /**
    * For providing props to Title inside Toast
    */
-  _title?: ITextProps;
+  _title?: Partial<ITextProps>;
   /**
    * For providing props to Description inside Toast
    */
-  _description?: ITextProps;
+  _description?: Partial<ITextProps>;
   /**
    * The text to be announced by a screen reader when the Toast opens.
    */
@@ -78,3 +79,5 @@ export type IToastContext = {
   setVisibleToasts: any;
   hideToast: (id: any) => void;
 };
+
+export type IToastProps = InterfaceToastProps | CustomProps<'Toast'>;

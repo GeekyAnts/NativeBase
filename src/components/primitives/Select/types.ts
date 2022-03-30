@@ -2,11 +2,12 @@ import type { IBoxProps } from '../Box';
 import type { IButtonProps } from '../Button';
 import type { IActionsheetContentProps } from '../../composites/Actionsheet/types';
 import type { MutableRefObject } from 'react';
-import type { ResponsiveValue } from '../../../components/types';
+import type { CustomProps, ResponsiveValue } from '../../../components/types';
 import type { IColors } from '../../../theme/base/colors';
 import type { IFlatListProps } from 'src/components/basic/FlatList';
+import type { InterfaceButtonProps } from '../Button/types';
 
-export interface ISelectProps extends IBoxProps<ISelectProps> {
+export interface InterfaceSelectProps extends IBoxProps<ISelectProps> {
   /**
    * The placeholder that describes the Select.
    */
@@ -83,18 +84,18 @@ export interface ISelectProps extends IBoxProps<ISelectProps> {
   /**
    * props to be passed to underlying ActionSheet.Content. Select uses ActionSheet underneath.
    */
-  _actionSheetContent?: IActionsheetContentProps;
+  _actionSheetContent?: Partial<IActionsheetContentProps>;
   /**
    * props to be passed to underlying Flatlist in ActionSheet.Content.
    */
-  _actionSheetBody?: IFlatListProps<any>;
+  _actionSheetBody?: Partial<IFlatListProps<any>>;
   /**
    * Ref to be attached to the Select wrapper
    */
   wrapperRef?: MutableRefObject<any>;
 }
 
-export interface ISelectItemProps extends IButtonProps {
+export interface ISelectItemProps extends InterfaceButtonProps {
   /**
    * The label which will be displayed.
    */
@@ -112,3 +113,4 @@ export type ISelectComponentType = ((
     (props: ISelectItemProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
 };
+export type ISelectProps = InterfaceSelectProps | CustomProps<'Select'>;

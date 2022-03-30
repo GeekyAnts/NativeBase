@@ -1,7 +1,8 @@
 import type { MutableRefObject } from 'react';
-import type { IBoxProps } from '../Box';
+import type { CustomProps } from '../../../components/types';
+import type { InterfaceBoxProps } from '../Box';
 
-export interface ISliderProps extends IBoxProps<ISliderProps> {
+export interface InterfaceSliderProps extends InterfaceBoxProps<ISliderProps> {
   /** The current value of the Slider */
   value?: number;
   /** The default value (uncontrolled). */
@@ -52,7 +53,8 @@ export interface ISliderProps extends IBoxProps<ISliderProps> {
   _readOnly?: any;
 }
 
-export interface ISliderTrackProps extends IBoxProps<ISliderTrackProps> {
+export interface ISliderTrackProps
+  extends InterfaceBoxProps<ISliderTrackProps> {
   /** Whether the whole Slider is readonly. */
   isReadOnly?: boolean;
   /** Props applied if isDisabled is true. */
@@ -64,7 +66,7 @@ export interface ISliderTrackProps extends IBoxProps<ISliderTrackProps> {
 }
 
 export interface ISliderTrackFilledProps
-  extends IBoxProps<ISliderTrackFilledProps> {
+  extends InterfaceBoxProps<ISliderTrackFilledProps> {
   /** Whether the whole Slider is readonly. */
   isReadOnly?: boolean;
   /** Props applied if isDisabled is true. */
@@ -73,7 +75,8 @@ export interface ISliderTrackFilledProps
   _readOnly?: any;
 }
 
-export interface ISliderThumbProps extends IBoxProps<ISliderThumbProps> {
+export interface ISliderThumbProps
+  extends InterfaceBoxProps<ISliderThumbProps> {
   /**
    * The orientation of the Slider.
    * @default 'horizontal'
@@ -104,3 +107,5 @@ export type ISliderComponentType = ((
     ) => JSX.Element
   >;
 };
+
+export type ISliderProps = InterfaceSliderProps | CustomProps<'Slider'>;

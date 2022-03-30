@@ -7,9 +7,9 @@ import { PresenceTransition } from '../Transitions';
 import { Platform, StyleSheet } from 'react-native';
 import { usePropsResolution } from '../../../hooks';
 import Box from '../../primitives/Box';
+import type { ITooltipProps } from './types';
 import { useId } from '@react-aria/utils';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-import type { ITooltipProps } from './types';
 
 export const Tooltip = ({
   label,

@@ -80,9 +80,11 @@
     "postinstall-postinstall": "^2.1.0",
     "prettier": "^2.0.5",
     "react": "16.11.0",
+    "react-dom": "^17.0.2",
     "react-native": "0.63.2",
     "react-native-safe-area-context": "^3.1.9",
     "react-native-svg": "^12.1.0",
+    "react-native-web": "^0.17.7",
     "react-test-renderer": "^16.9.0",
     "release-it": "^13.5.8",
     "rollup": "^2.34.1",
@@ -96,8 +98,8 @@
     "react": "*",
     "react-dom": "*",
     "react-native": "*",
-    "react-native-safe-area-context": "3.1.9",
-    "react-native-svg": "12.1.0"
+    "react-native-safe-area-context": "*",
+    "react-native-svg": "*"
   },
   "jest": {
     "preset": "jest-expo",
@@ -180,7 +182,7 @@
     "@react-native-aria/combobox": "^0.2.4-alpha.0",
     "@react-native-aria/focus": "^0.2.4",
     "@react-native-aria/interactions": "^0.2.2",
-    "@react-native-aria/listbox": "^0.2.4-alpha.3",
+    "@react-native-aria/listbox": "0.2.4-alpha.3",
     "@react-native-aria/overlays": "0.3.3-rc.0",
     "@react-native-aria/radio": "^0.2.4",
     "@react-native-aria/slider": "^0.2.5-alpha.1",
