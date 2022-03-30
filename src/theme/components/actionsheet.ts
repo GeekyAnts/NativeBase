@@ -63,6 +63,14 @@ export const ActionsheetItem = {
         bg: 'muted.200',
       },
       _pressed: {
+        bg: 'muted.400',
+      },
+      _focusVisible: {
+        _web: {
+          outlineWidth: '0',
+          style: { boxShadow: `none` },
+          bg: 'muted.300',
+        },
         bg: 'muted.300',
       },
     },
@@ -74,7 +82,14 @@ export const ActionsheetItem = {
         bg: 'muted.700',
       },
       _pressed: {
-        bg: 'muted.600',
+        bg: 'muted.500',
+      },
+      _focusVisible: {
+        _web: {
+          outlineWidth: '0',
+          style: { boxShadow: `none` },
+          bg: 'muted.600',
+        },
       },
     },
   }),

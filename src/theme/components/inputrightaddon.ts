@@ -4,6 +4,7 @@ const baseStyle = () => {
     p: '2',
     borderWidth: '1',
     borderLeftWidth: '0',
+    borderRightRadius: 'sm',
     _text: {
       fontWeight: 400,
     },
