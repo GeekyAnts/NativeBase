@@ -4,7 +4,6 @@ import { ViewStyle, LayoutAnimation, UIManager, Platform } from 'react-native';
 import { Box } from '../../primitives';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import type { InterfaceBoxProps } from '../../primitives/Box';
-// import type { CustomProps } from 'src/components/types';
 export type InterfaceCollapseProps = InterfaceBoxProps<ICollapseProps> & {
   style?: ViewStyle;
   endingHeight?: number;
@@ -99,7 +98,7 @@ const Collapse = (
       <Box
         //@ts-ignore
         overflow={Platform.OS === 'web' ? 'auto' : 'scroll'}
-        onLayout={(e) => provideSize(e.nativeEvent.layout)}
+        onLayout={(e: any) => provideSize(e.nativeEvent.layout)}
         {...props}
       />
     </Box>
