@@ -1,6 +1,7 @@
 import React, { memo, forwardRef } from 'react';
 import Spinner from '../Spinner';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
+import { default as Box, IBoxProps } from '../Box';
 import HStack from '../Stack/HStack';
 import { Pressable } from '../Pressable';
 import type { IButtonProps } from './types';
@@ -12,8 +13,6 @@ import {
 } from '../../primitives/Pressable/Pressable';
 import { useFocusRing } from '@react-native-aria/focus';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-import { useContrastText } from '../../../hooks';
-import type { IBoxProps } from '../Box';
 
 const Button = (
   {
@@ -50,8 +49,8 @@ const Button = (
     _text,
     _stack,
     _spinner,
-    _icon,
     isLoadingText,
+    _icon,
     ...resolvedProps
   } = usePropsResolution('Button', props, {
     isDisabled,
@@ -61,22 +60,6 @@ const Button = (
     isLoading,
     isFocusVisible: isFocusVisibleProp || isFocusVisible,
   });
-
-  // Setting contrast text then no color is comming
-  const contrastTextColor = useContrastText(
-    resolvedProps.bg || resolvedProps.backgroundColor || resolvedProps.bgColor,
-    _text?.color
-  );
-
-  if (
-    (resolvedProps.bg ||
-      resolvedProps.backgroundColor ||
-      resolvedProps.bgColor) &&
-    contrastTextColor &&
-    _text.color === undefined
-  ) {
-    _text.color = contrastTextColor;
-  }
 
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
@@ -114,8 +97,15 @@ const Button = (
     );
   }
 
-  const boxChildren = isLoading && isLoadingText ? isLoadingText : children;
-  const spinnerElement = spinner ? spinner : <Spinner {..._spinner} />;
+  const spinnerElement = spinner ? (
+    spinner
+  ) : (
+    <Spinner color={_text?.color} {..._spinner} />
+  );
+
+  const boxChildren = (child: any) => {
+    return <Box _text={_text}>{child}</Box>;
+  };
 
   return (
     <Pressable
