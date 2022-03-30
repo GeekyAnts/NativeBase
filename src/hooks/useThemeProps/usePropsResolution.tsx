@@ -310,6 +310,7 @@ export const usePropsResolutionWithComponentTheme = (
     }
     if (
       incomingWithDefaultProps.size &&
+      extededComponentTheme?.sizes &&
       extededComponentTheme?.sizes[incomingWithDefaultProps.size]
     ) {
       if (
