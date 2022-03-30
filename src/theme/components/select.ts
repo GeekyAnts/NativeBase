@@ -1,8 +1,5 @@
-import { transparentize } from '../tools';
-
 export const Select = {
-  baseStyle: (props: Record<string, any>) => {
-    const { theme } = props;
+  baseStyle: () => {
     return {
       _light: {
         customDropdownIconProps: { color: 'muted.500', mr: '3' },
