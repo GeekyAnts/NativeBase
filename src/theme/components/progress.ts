@@ -19,6 +19,7 @@ function baseStyle(props: Record<string, any>) {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
+      rounded: 'full',
       _text: {
         color: 'white',
         fontWeight: 'bold',

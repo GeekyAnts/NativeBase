@@ -17,11 +17,14 @@ const baseStyle = (props: any) => {
     justifyContent: 'center',
     alignItems: 'center',
     _web: {
-      cursor: props.isDisabled
-        ? 'not-allowed'
-        : props.isLoading
-        ? 'default'
-        : 'pointer',
+      _disabled: {
+        cursor: 'not-allowed',
+      },
+      _loading: {
+        cursor: 'not-allowed',
+      },
+      cursor: 'pointer',
+      userSelect: 'none',
     },
     _focusVisible: {
       _web: {
@@ -212,10 +215,20 @@ function variantLink({ colorScheme }: Record<string, any>) {
       _text: {
         color: `${colorScheme}.600`,
       },
+      _pressed: {
+        _text: {
+          color: `${colorScheme}.800`,
+        },
+      },
     },
     _dark: {
       _text: {
         color: `${colorScheme}.500`,
+      },
+      _pressed: {
+        _text: {
+          color: `${colorScheme}.300`,
+        },
       },
     },
   };

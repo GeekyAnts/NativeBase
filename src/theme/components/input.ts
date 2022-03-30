@@ -34,7 +34,7 @@ const baseStyle = () => {
       outlineWidth: '0',
       overflow: 'auto',
       lineHeight: 'lg', // Todo: Move to _web inside size so that sm and xs don't have this much height
-      outline: 'none',
+      style: { outline: 'none' },
       cursor: 'auto',
     },
     _stack: {
@@ -66,6 +66,12 @@ const baseStyle = () => {
       _android: {
         selectionColor: 'coolGray.800',
       },
+      _disabled: {
+        placeholderTextColor: 'muted.700',
+        _hover: {
+          borderColor: 'muted.300',
+        },
+      },
     },
     _dark: {
       placeholderTextColor: 'text.600',
@@ -85,6 +91,12 @@ const baseStyle = () => {
       },
       _android: {
         selectionColor: 'warmGray.50',
+      },
+      _disabled: {
+        placeholderTextColor: 'text.50',
+        _hover: {
+          borderColor: 'muted.700',
+        },
       },
     },
   };
@@ -128,6 +140,9 @@ function filledStyle(props: Record<string, any>) {
     },
     _hover: {
       borderWidth: '1',
+      _disabled: {
+        borderWidth: 0,
+      },
     },
     _invalid: {
       borderWidth: '2',
@@ -143,18 +158,30 @@ function filledStyle(props: Record<string, any>) {
 function unstyledStyle() {
   return {
     borderWidth: '0',
+    _light: {
+      _focus: { placeholderTextColor: 'text.900' },
+    },
+    _dark: {
+      _focus: { placeholderTextColor: 'text.50' },
+    },
+    _focus: {
+      bg: 'transparent',
+    },
   };
 }
 function underlinedStyle() {
   return {
     borderWidth: '0',
+    pl: '0',
     borderBottomWidth: '1',
     _focus: {
       borderBottomWidth: '2',
+      fontWeight: '500',
     },
     _invalid: {
       borderBottomWidth: '2',
     },
+    borderRadius: 0,
   };
 }
 

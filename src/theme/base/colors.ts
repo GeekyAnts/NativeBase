@@ -335,14 +335,14 @@ const colors = {
   tertiary: {} as IColorHues,
 };
 
-colors.danger = colors.red;
-colors.error = colors.rose;
-colors.success = colors.emerald;
+colors.danger = colors.rose;
+colors.error = colors.red;
+colors.success = colors.green;
 colors.warning = colors.orange;
 colors.muted = colors.trueGray;
 colors.primary = colors.cyan;
 colors.secondary = colors.pink;
-colors.tertiary = colors.green;
+colors.tertiary = colors.emerald;
 colors.info = colors.lightBlue;
 colors.light = colors.warmGray;
 

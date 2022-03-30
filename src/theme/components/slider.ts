@@ -78,6 +78,12 @@ export const Slider = {
       justifyContent: 'center',
       height: props.orientation === 'vertical' ? '100%' : undefined,
       width: props.orientation !== 'vertical' ? '100%' : undefined,
+      _disabled: {
+        opacity: 0.4,
+        _web: {
+          cursor: 'not-allowed',
+        },
+      },
     };
   },
   defaultProps: {

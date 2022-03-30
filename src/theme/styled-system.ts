@@ -571,6 +571,7 @@ const extraProps = {
   },
   cursor: true,
   overflow: true,
+  userSelect: { property: 'userSelect' },
 } as const;
 
 export const propConfig = {
