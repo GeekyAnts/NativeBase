@@ -1,4 +1,4 @@
-import type { CustomProps } from 'src/components/types';
+import type { CustomProps } from '../../../components/types/utils';
 import type { InterfaceBoxProps } from '../../../components/primitives/Box/types';
 
 export interface InterfaceCenterProps extends InterfaceBoxProps<ICenterProps> {}

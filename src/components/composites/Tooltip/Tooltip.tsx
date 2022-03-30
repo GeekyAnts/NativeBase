@@ -10,7 +10,7 @@ import Box from '../../primitives/Box';
 import type { InterfaceBoxProps } from '../../primitives/Box';
 import { useId } from '@react-aria/utils';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-import type { CustomProps } from 'src/components/types';
+import type { CustomProps } from '../../../components/types/utils';
 
 interface InterfaceTooltipProps extends InterfaceBoxProps<ITooltipProps> {
   /**

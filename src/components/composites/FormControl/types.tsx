@@ -1,4 +1,4 @@
-import type { CustomProps } from 'src/components/types';
+import type { CustomProps } from '../../../components/types/utils';
 import type { IBoxProps, IStackProps } from '../../primitives';
 
 export interface InterfaceFormControlProps

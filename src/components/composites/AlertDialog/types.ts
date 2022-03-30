@@ -1,7 +1,7 @@
 import type { IBoxProps } from '../../primitives/Box';
 import type { IIconButtonProps } from '../IconButton';
 import type { MutableRefObject } from 'react';
-import type { CustomProps } from 'src/components/types';
+import type { CustomProps } from '../../../components/types/utils';
 
 export interface InterfaceAlertDialogProps extends IBoxProps {
   /**
