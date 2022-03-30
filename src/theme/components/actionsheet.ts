@@ -1,4 +1,3 @@
-import { mode } from '../tools';
 // Actionsheet
 export const Actionsheet = {
   defaultProps: {
@@ -10,14 +9,23 @@ export const Actionsheet = {
 
 // ActionsheetContent
 export const ActionsheetContent = {
-  baseStyle: (props: any) => ({
+  baseStyle: () => ({
     alignItems: 'center',
     px: 2,
     py: 2,
     borderRadius: 'none',
     roundedTop: 20,
+    _light: {
+      _dragIndicator: {
+        bg: 'muted.500',
+      },
+    },
+    _dark: {
+      _dragIndicator: {
+        bg: 'muted.400',
+      },
+    },
     _dragIndicator: {
-      bg: mode('gray.400', 'gray.400')(props),
       height: 1,
       width: 10,
       borderRadius: 2,
@@ -39,20 +47,35 @@ export const ActionsheetContent = {
 
 // ActionsheetItem
 export const ActionsheetItem = {
-  baseStyle: (props: any) => ({
+  baseStyle: () => ({
     width: '100%',
     justifyContent: 'flex-start',
     p: 4,
     _text: {
       fontSize: 16,
       fontWeight: 'normal',
-      color: mode('coolGray.800', 'warmGray.50')(props),
     },
-    _pressed: {
-      bg: mode('coolGray.300', 'gray.600')(props),
+    _light: {
+      _text: {
+        color: 'text.900',
+      },
+      _hover: {
+        bg: 'muted.200',
+      },
+      _pressed: {
+        bg: 'muted.300',
+      },
     },
-    _hover: {
-      bg: mode('coolGray.200', 'gray.500')(props),
+    _dark: {
+      _text: {
+        color: 'muted.50',
+      },
+      _hover: {
+        bg: 'muted.700',
+      },
+      _pressed: {
+        bg: 'muted.600',
+      },
     },
   }),
   defaultProps: {

@@ -1,15 +1,6 @@
-import { mode } from '../tools';
-import { Platform } from 'react-native';
+import { transparentize } from '../tools';
 
-function getSelectionColor(props: Record<string, any>) {
-  if (Platform.OS === 'ios') {
-    return mode('coolGray.800', 'warmGray.50')(props);
-  } else if (Platform.OS === 'android') {
-    return mode('coolGray.800', 'warmGray.50')(props);
-  }
-}
-
-const baseStyle = (props: Record<string, any>) => {
+const baseStyle = () => {
   // const { primary } = props.theme.colors;
   // Todo: Resolve boxShadow Color or Provide some alternatiove prop for user to change focusRing color
   // // Todo: Update to support similar focusRing on iOS , Android and Web
@@ -27,33 +18,23 @@ const baseStyle = (props: Record<string, any>) => {
   //       };
 
   return {
-    selectionColor: getSelectionColor(props),
     fontFamily: 'body',
-    p: '2',
+    py: '2',
+    px: '3',
     borderRadius: 'sm',
     overflow: 'hidden',
-    color: mode('coolGray.800', 'warmGray.50')(props),
-    placeholderTextColor: 'muted.400',
-    borderColor: mode('muted.200', 'gray.500')(props),
     _disabled: {
-      opacity: '80',
-      bg: mode('muted.100', 'muted.700')(props),
+      opacity: '0.4',
       _web: {
         disabled: true,
         cursor: 'not-allowed',
       },
     },
-    _invalid: {
-      borderColor: mode('danger.600', 'danger.300')(props),
-    },
-    _focus: {
-      borderColor: mode('primary.400', 'primary.500')(props),
-    },
     _web: {
       outlineWidth: '0',
       overflow: 'auto',
       lineHeight: 'lg', // Todo: Move to _web inside size so that sm and xs don't have this much height
-      outline: 'none',
+      style: { outline: 'none' },
       cursor: 'auto',
     },
     _stack: {
@@ -66,48 +47,141 @@ const baseStyle = (props: Record<string, any>) => {
       bg: 'transparent',
       flex: 1,
     },
+    _light: {
+      placeholderTextColor: 'text.400',
+      color: 'text.900',
+      borderColor: 'muted.300',
+      _hover: {
+        borderColor: 'primary.600',
+      },
+      _focus: {
+        borderColor: 'primary.600',
+      },
+      _invalid: {
+        borderColor: 'error.600',
+      },
+      _ios: {
+        selectionColor: 'coolGray.800',
+      },
+      _android: {
+        selectionColor: 'coolGray.800',
+      },
+      _disabled: {
+        placeholderTextColor: 'muted.700',
+        _hover: {
+          borderColor: 'muted.300',
+        },
+      },
+    },
+    _dark: {
+      placeholderTextColor: 'text.600',
+      color: 'text.50',
+      borderColor: 'muted.700',
+      _hover: {
+        borderColor: 'primary.500',
+      },
+      _focus: {
+        borderColor: 'primary.500',
+      },
+      _invalid: {
+        borderColor: 'error.500',
+      },
+      _ios: {
+        selectionColor: 'warmGray.50',
+      },
+      _android: {
+        selectionColor: 'warmGray.50',
+      },
+      _disabled: {
+        placeholderTextColor: 'text.50',
+        _hover: {
+          borderColor: 'muted.700',
+        },
+      },
+    },
   };
 };
 
 function roundedStyle(props: Record<string, any>) {
+  const { theme } = props;
   return {
-    borderRadius: '25',
+    borderRadius: 'full',
     borderWidth: '1',
-    _hover: {
-      bg: mode('gray.100', 'gray.700')(props),
+    _focus: {
+      borderWidth: '2',
+      bg: transparentize('primary.600', 0.1)(theme),
+    },
+    _invalid: {
+      borderWidth: '2',
     },
   };
 }
 function outlineStyle(props: Record<string, any>) {
+  const { theme } = props;
   return {
     borderWidth: '1',
-    _hover: {
-      bg: mode('gray.100', 'gray.700')(props),
+    _focus: {
+      borderWidth: '2',
+      bg: transparentize('primary.600', 0.1)(theme),
+    },
+    _invalid: {
+      borderWidth: '2',
     },
   };
 }
 function filledStyle(props: Record<string, any>) {
+  const { theme } = props;
   return {
-    bg: props.bg || mode('muted.200', 'muted.600')(props),
-    borderWidth: '1',
+    borderWidth: '0',
     borderColor: 'transparent',
+    _focus: {
+      borderWidth: '2',
+      bg: transparentize('primary.600', 0.1)(theme),
+    },
     _hover: {
-      bg: mode('muted.300', 'muted.700')(props),
+      borderWidth: '1',
+      _disabled: {
+        borderWidth: 0,
+      },
+    },
+    _invalid: {
+      borderWidth: '2',
+    },
+    _light: {
+      bg: 'muted.100',
+    },
+    _dark: {
+      bg: 'muted.800',
     },
   };
 }
 function unstyledStyle() {
   return {
     borderWidth: '0',
+    _light: {
+      _focus: { placeholderTextColor: 'text.900' },
+    },
+    _dark: {
+      _focus: { placeholderTextColor: 'text.50' },
+    },
+    _focus: {
+      bg: 'transparent',
+    },
   };
 }
 function underlinedStyle() {
   return {
-    borderRadius: '0',
-    borderTopWidth: '0',
-    borderLeftWidth: '0',
-    borderRightWidth: '0',
+    borderWidth: '0',
+    pl: '0',
     borderBottomWidth: '1',
+    _focus: {
+      borderBottomWidth: '2',
+      fontWeight: '500',
+    },
+    _invalid: {
+      borderBottomWidth: '2',
+    },
+    borderRadius: 0,
   };
 }
 

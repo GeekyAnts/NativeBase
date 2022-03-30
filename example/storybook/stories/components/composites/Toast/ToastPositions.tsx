@@ -45,7 +45,6 @@ export const Example = () => {
             toast.show({
               title: 'Hello world',
               placement: 'top-right',
-              backgroundColor: 'pink.400',
             })
           }
         >

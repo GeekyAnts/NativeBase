@@ -97,6 +97,7 @@ const RadioComponent = memo(
 
       return (
         <Pressable
+          disabled={isDisabled}
           {...pressableProps}
           {...(cleanInputProps as IPressableProps)}
           ref={mergeRefs([ref, wrapperRef])}
