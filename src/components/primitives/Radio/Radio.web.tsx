@@ -72,7 +72,7 @@ const RadioComponent = memo(
           flexDirection="row"
           alignItems="center"
           {...layoutProps}
-          opacity={isDisabled ? 0.4 : 1}
+          opacity={isDisabled ? nonLayoutProps.opacity || 0.4 : 1}
           cursor={isDisabled ? 'not-allowed' : 'pointer'}
         >
           <Center>

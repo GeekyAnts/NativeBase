@@ -142,7 +142,7 @@ const CheckboxComponent = React.memo(
       return (
         <Box
           {...layoutProps}
-          opacity={isDisabled ? 0.4 : 1}
+          opacity={isDisabled ? nonLayoutProps.opacity || 0.4 : 1}
           cursor={isDisabled ? 'not-allowed' : 'pointer'}
         >
           <Center>
