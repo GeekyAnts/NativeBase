@@ -136,8 +136,9 @@ const Button = (
           ? isLoadingText
             ? boxChildren(isLoadingText)
             : null
-          : boxChildren(children)}
-
+          : children
+          ? boxChildren(children)
+          : null}
         {endIcon && !isLoading ? endIcon : null}
         {isLoading && spinnerPlacement === 'end' ? spinnerElement : null}
       </HStack>
