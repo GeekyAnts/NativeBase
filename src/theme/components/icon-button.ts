@@ -2,6 +2,7 @@ import { mode } from './../tools';
 
 const baseStyle = (props: any) => {
   const { primary } = props.theme.colors;
+  const { colorScheme } = props;
   const focusRing = mode(
     {
       boxShadow: `${primary[400]} 0px 0px 0px 2px`,
@@ -22,6 +23,10 @@ const baseStyle = (props: any) => {
         : props.isLoading
         ? 'default'
         : 'pointer',
+    },
+    _focus: {
+      borderWidth: 2,
+      borderColor: `${colorScheme}.400`,
     },
     _focusVisible: {
       _web: {
@@ -68,7 +73,6 @@ function variantGhost({ colorScheme }: Record<string, any>) {
 function variantOutline({ colorScheme }: Record<string, any>) {
   return {
     borderWidth: '1px',
-
     _light: {
       borderColor: `${colorScheme}.600`,
       _icon: {
