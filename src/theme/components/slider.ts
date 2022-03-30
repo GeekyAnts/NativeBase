@@ -79,7 +79,7 @@ export const Slider = {
       height: props.orientation === 'vertical' ? '100%' : undefined,
       width: props.orientation !== 'vertical' ? '100%' : undefined,
       _disabled: {
-        opacity: 0.5,
+        opacity: 0.4,
         _web: {
           cursor: 'not-allowed',
         },
