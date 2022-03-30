@@ -17,11 +17,14 @@ const baseStyle = (props: any) => {
     justifyContent: 'center',
     alignItems: 'center',
     _web: {
-      cursor: props.isDisabled
-        ? 'not-allowed'
-        : props.isLoading
-        ? 'default'
-        : 'pointer',
+      _disabled: {
+        cursor: 'not-allowed',
+      },
+      _loading: {
+        cursor: 'not-allowed',
+      },
+      cursor: 'pointer',
+      userSelect: 'none',
     },
     _focusVisible: {
       _web: {
