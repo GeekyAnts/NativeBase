@@ -70,9 +70,11 @@ type CustomPropType<T extends keyof ITheme['components'], Key> = Extract<
 //   | CustomPropType<T, 'sizes'>
 //   | CustomPropType<T, 'defaultProps'>;
 
-export type CustomProps<T extends keyof ITheme['components']> = Exclude<
-  {
-    [Key in keyof ComponentTheme]: CustomPropType<T, Key>;
-  }[keyof ComponentTheme],
-  undefined
+export type CustomProps<T extends keyof ITheme['components']> = Partial<
+  Exclude<
+    {
+      [Key in keyof ComponentTheme]: CustomPropType<T, Key>;
+    }[keyof ComponentTheme],
+    undefined
+  >
 >;
