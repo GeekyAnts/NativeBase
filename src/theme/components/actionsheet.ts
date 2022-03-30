@@ -15,13 +15,17 @@ export const ActionsheetContent = {
     py: 2,
     borderRadius: 'none',
     roundedTop: 20,
-    _dragIndicator: {
-      _light: {
+    _light: {
+      _dragIndicator: {
         bg: 'muted.500',
       },
-      _dark: {
+    },
+    _dark: {
+      _dragIndicator: {
         bg: 'muted.400',
       },
+    },
+    _dragIndicator: {
       height: 1,
       width: 10,
       borderRadius: 2,
