@@ -7,6 +7,7 @@ import type { ResponsiveValue } from '../../../components/types';
 import type { ISizes } from '../../../theme/base/sizes';
 export type IRadioValue = string;
 import type { CustomProps } from '../../types';
+import type { IIconProps } from '../Icon';
 
 export type IRadioGroupOnChangeHandler = (value: IRadioValue) => any;
 
@@ -90,7 +91,7 @@ export interface InterfaceRadioProps extends IBoxProps<IRadioProps> {
   /**
    * Icon related props can be passed in _icon.
    */
-  _icon?: Partial<IRadioProps>;
+  _icon?: Partial<IIconProps>;
   /**
    * Passed props will be applied on readonly state.
    */
