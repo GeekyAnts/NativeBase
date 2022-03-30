@@ -116,7 +116,7 @@ export interface InterfaceCheckbox extends InterfaceBoxProps<ICheckboxProps> {
   /**
    * Icon related props can be passed in _icon.
    */
-  _icon?: IIconProps;
+  _icon?: Partial<IIconProps>;
   /**
    * You can style interaction box around the checkbox using this.
    */
