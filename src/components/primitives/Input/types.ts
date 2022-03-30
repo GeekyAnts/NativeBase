@@ -4,7 +4,7 @@ import type { PlatformProps, VariantType } from '../../types';
 import type { IBoxProps } from '../Box';
 import type { ResponsiveValue } from '../../../components/types';
 import type { ISizes } from '../../../theme/base/sizes';
-
+import type { IStackProps } from '../../primitives/Stack';
 export interface IInputProps
   extends PlatformProps<IInputProps>,
     Omit<TextInputProps, 'textAlign'>,
@@ -96,6 +96,10 @@ export interface IInputProps
    * props are passed to InputBase component
    */
   _input?: {};
+  /**
+   * Props to be passed to the Stack used inside.
+   */
+  _stack?: IStackProps;
 }
 
 export interface IInputGroupProps extends IBoxProps<IInputGroupProps> {
