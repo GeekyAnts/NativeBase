@@ -1,10 +1,10 @@
-import type { IPressableProps } from '../../primitives/Pressable';
+import type { InterfacePressableProps } from '../../primitives/Pressable/types';
 import type { IIconProps } from '../../primitives/Icon';
-import type { ResponsiveValue, VariantType } from '../../types';
+import type { CustomProps, ResponsiveValue, VariantType } from '../../types';
 import type { ISizes } from '../../../theme/base/sizes';
 
-export interface IIconButtonProps
-  extends Omit<IPressableProps, 'children' | 'color'>,
+export interface InterfaceIconButtonProps
+  extends Omit<InterfacePressableProps, 'children' | 'color'>,
     Omit<
       IIconProps,
       | 'delayLongPress'
@@ -61,3 +61,5 @@ export interface IIconButtonProps
    */
   _focus?: IIconButtonProps;
 }
+
+export type IIconButtonProps = InterfaceIconButtonProps | CustomProps<'Icon'>;

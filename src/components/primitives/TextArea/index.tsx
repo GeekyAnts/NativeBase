@@ -1,10 +1,11 @@
 import React, { memo, forwardRef } from 'react';
-import { Input, IInputProps } from '../Input';
+import { Input } from '../Input';
+import type { InterfaceInputProps } from '../Input/types';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { useHover } from '@react-native-aria/interactions';
 import { mergeRefs } from '../../../utils';
-export interface ITextAreaProps extends IInputProps {
+export interface ITextAreaProps extends InterfaceInputProps {
   /**
    * Maps to react-native TextInput's numberOfLines.
    */

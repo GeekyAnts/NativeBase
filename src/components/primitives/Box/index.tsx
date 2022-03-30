@@ -5,7 +5,7 @@ import { getColor } from '../../../theme';
 import { useTheme } from '../../../hooks';
 import { makeStyledComponent } from '../../../utils/styled';
 import { wrapStringChild } from '../../../utils/wrapStringChild';
-import type { IBoxProps } from './types';
+import type { IBoxProps, InterfaceBoxProps } from './types';
 import { useSafeArea } from '../../../hooks/useSafeArea';
 import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
@@ -114,6 +114,5 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
   );
 };
 
-export type { IBoxProps };
-
+export type { IBoxProps, InterfaceBoxProps };
 export default memo(forwardRef(Box));

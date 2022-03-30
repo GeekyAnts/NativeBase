@@ -1,11 +1,11 @@
 import type { SwitchProps } from 'react-native';
 import type { StyledProps } from '../../../theme/types';
 
-import type { ResponsiveValue } from '../../../components/types';
+import type { CustomProps, ResponsiveValue } from '../../../components/types';
 import type { ISizes } from '../../../theme/base/sizes';
 import type { IColors } from '../../../theme/base/colors';
 
-export interface ISwitchProps
+export interface InterfaceSwitchProps
   extends Omit<SwitchProps, 'tintColor'>,
     StyledProps {
   /**
@@ -66,3 +66,5 @@ export interface ISwitchProps
    */
   _hover?: Omit<ISwitchProps, '_hover'>;
 }
+
+export type ISwitchProps = InterfaceSwitchProps | CustomProps<'Switch'>;

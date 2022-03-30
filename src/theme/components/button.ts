@@ -16,6 +16,7 @@ const baseStyle = (props: any) => {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+
     _web: {
       _disabled: {
         cursor: 'not-allowed',

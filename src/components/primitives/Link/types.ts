@@ -1,8 +1,9 @@
 import type { MutableRefObject } from 'react';
 import type { GestureResponderEvent } from 'react-native';
-import type { IBoxProps } from '../Box';
+import type { CustomProps, ThemeComponentSizeType } from '../../types';
+import type { InterfaceBoxProps } from '../Box/types';
 
-export interface ILinkProps extends IBoxProps<ILinkProps> {
+export interface InterfaceLinkProps extends InterfaceBoxProps<ILinkProps> {
   /**
    * URL that should be opened on Link press
    */
@@ -10,7 +11,15 @@ export interface ILinkProps extends IBoxProps<ILinkProps> {
   /**
    * Size of the link
    */
-  size?: '2xl' | 'xl' | 'lg' | 'md' | 'sm' | 'xsm' | number;
+  size?:
+    | '2xl'
+    | 'xl'
+    | 'lg'
+    | 'md'
+    | 'sm'
+    | 'xsm'
+    | number
+    | ThemeComponentSizeType<'Link'>;
   /**
    * Whether Link text should be underlined
    */
@@ -43,3 +52,5 @@ export type IUseLinkProp = {
   onPress: ((event?: GestureResponderEvent) => any) | null | undefined;
   _ref: MutableRefObject<any>;
 };
+
+export type ILinkProps = InterfaceLinkProps | CustomProps<'Link'>;
