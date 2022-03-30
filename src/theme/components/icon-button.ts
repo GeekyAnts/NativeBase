@@ -111,7 +111,7 @@ function variantOutline({ colorScheme }: Record<string, any>) {
         },
       },
       _focus: {
-        bg: `${colorScheme}.600`,
+        bg: `${colorScheme}.500`,
         _icon: {
           color: 'muted.900',
         },
