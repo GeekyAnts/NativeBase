@@ -29,9 +29,10 @@ const Avatar = ({ children, ...props }: IAvatarProps, ref: any) => {
   if (useHasResponsiveProps(props)) {
     return null;
   }
+
   return (
     <Box {...resolvedProps}>
-      {source && !error ? (
+      {!!source?.uri && !error ? (
         <Image
           source={source}
           onError={() => {

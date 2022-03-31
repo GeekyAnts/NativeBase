@@ -13,7 +13,6 @@ import {
 } from '../../primitives/Pressable/Pressable';
 import { useFocusRing } from '@react-native-aria/focus';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-import { useContrastText } from '../../../hooks';
 
 const Button = (
   {
@@ -50,8 +49,8 @@ const Button = (
     _text,
     _stack,
     _spinner,
-    _icon,
     isLoadingText,
+    _icon,
     ...resolvedProps
   } = usePropsResolution('Button', props, {
     isDisabled,
@@ -61,22 +60,6 @@ const Button = (
     isLoading,
     isFocusVisible: isFocusVisibleProp || isFocusVisible,
   });
-
-  // Setting contrast text then no color is comming
-  const contrastTextColor = useContrastText(
-    resolvedProps.bg || resolvedProps.backgroundColor || resolvedProps.bgColor,
-    _text?.color
-  );
-
-  if (
-    (resolvedProps.bg ||
-      resolvedProps.backgroundColor ||
-      resolvedProps.bgColor) &&
-    contrastTextColor &&
-    _text.color === undefined
-  ) {
-    _text.color = contrastTextColor;
-  }
 
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
@@ -114,9 +97,15 @@ const Button = (
     );
   }
 
-  const boxChildren = isLoading && isLoadingText ? isLoadingText : children;
+  const spinnerElement = spinner ? (
+    spinner
+  ) : (
+    <Spinner color={_text?.color} {..._spinner} />
+  );
 
-  const spinnerElement = spinner ? spinner : <Spinner {..._spinner} />;
+  const boxChildren = (child: any) => {
+    return <Box _text={_text}>{child}</Box>;
+  };
 
   return (
     <Pressable
@@ -141,14 +130,15 @@ const Button = (
       {...resolvedProps}
       accessibilityRole={props.accessibilityRole ?? 'button'}
     >
-      <HStack {..._stack}>
+      <HStack {..._stack} test={true}>
         {startIcon && !isLoading ? startIcon : null}
         {isLoading && spinnerPlacement === 'start' ? spinnerElement : null}
-        {boxChildren ? (
-          <Box _text={_text}>
-            {isLoading && isLoadingText ? isLoadingText : children}
-          </Box>
-        ) : null}
+        {isLoading
+          ? isLoadingText
+            ? boxChildren(isLoadingText)
+            : null
+          : boxChildren(children)}
+
         {endIcon && !isLoading ? endIcon : null}
         {isLoading && spinnerPlacement === 'end' ? spinnerElement : null}
       </HStack>

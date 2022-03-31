@@ -1,7 +1,7 @@
 import type { PressableProps } from 'react-native';
 import type { StyledProps } from '../../../theme/types';
-import type { PlatformProps } from '../../types';
-export interface IPressableProps<T = IPressableProps<unknown>>
+import type { CustomProps, PlatformProps } from '../../types';
+export interface InterfacePressableProps<T = IPressableProps>
   extends PressableProps,
     StyledProps,
     PlatformProps<T> {
@@ -76,3 +76,11 @@ export interface IPressableProps<T = IPressableProps<unknown>>
         isFocused: boolean;
       }) => any);
 }
+
+// export type IPressableProps<T> =
+//   | InterfacePressableProps<T>
+//   | CustomProps<'Pressable'>;
+
+export type IPressableProps =
+  | InterfacePressableProps<IPressableProps>
+  | CustomProps<'Pressable'>;

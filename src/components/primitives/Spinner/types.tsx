@@ -1,7 +1,7 @@
 import type { ActivityIndicatorProps } from 'react-native';
 import type { StyledProps } from '../../../theme/types';
-import type { ResponsiveValue } from '../../../components/types';
-export interface ISpinnerProps
+import type { CustomProps, ResponsiveValue } from '../../../components/types';
+export interface InterfaceSpinnerProps
   extends Omit<ActivityIndicatorProps, 'size'>,
     Omit<StyledProps, 'size' | 'color'> {
   /**
@@ -18,3 +18,5 @@ export interface ISpinnerProps
   // duration?: number;
   // renderProp?: JSX.Element | JSX.Element[];
 }
+
+export type ISpinnerProps = InterfaceSpinnerProps | CustomProps<'Spinner'>;

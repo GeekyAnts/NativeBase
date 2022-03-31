@@ -1,6 +1,6 @@
 import type { TextInputProps } from 'react-native';
 import type { StyledProps } from '../../../theme/types';
-import type { PlatformProps, VariantType } from '../../types';
+import type { CombinedSizeType, PlatformProps, VariantType } from '../../types';
 import type { IBoxProps } from '../Box';
 import type { ResponsiveValue } from '../../../components/types';
 import type { ISizes } from '../../../theme/base/sizes';
@@ -34,7 +34,7 @@ export interface IInputProps
    * The size of the input.
    * @default 'md'
    */
-  size?: ResponsiveValue<ISizes | (string & {}) | number>;
+  size?: CombinedSizeType<'Input'>; // ResponsiveValue<ISizes | (string & {}) | number>;
   /**
    * This will set aria-required="true" on web when passed in formcontrol.
    */
@@ -75,31 +75,31 @@ export interface IInputProps
   /**
    * Passed props will be applied on hovered state.
    */
-  _hover?: Omit<IInputProps, '_hover'>;
+  _hover?: Omit<Partial<IInputProps>, '_hover'>;
   /**
    * Passed props will be applied on focused state.
    */
-  _focus?: Omit<IInputProps, '_focus'>;
+  _focus?: Omit<Partial<IInputProps>, '_focus'>;
   /**
    * Passed props will be applied on disabled state.
    */
-  _disabled?: Omit<IInputProps, '_disabled'>;
+  _disabled?: Omit<Partial<IInputProps>, '_disabled'>;
   /**
    * Passed props will be applied on readOnly state.
    */
-  _readOnly?: Omit<IInputProps, '_readOnly'>;
+  _readOnly?: Omit<Partial<IInputProps>, '_readOnly'>;
   /**
    * Passed props will be applied on invalid state.
    */
-  _invalid?: Omit<IInputProps, '_hover'>;
+  _invalid?: Omit<Partial<IInputProps>, '_hover'>;
   /**
    * props are passed to InputBase component
    */
-  _input?: {};
+  _input?: Partial<IInputProps>;
   /**
    * Props to be passed to the Stack used inside.
    */
-  _stack?: IStackProps;
+  _stack?: Partial<IStackProps>;
 }
 
 export interface IInputGroupProps extends IBoxProps<IInputGroupProps> {

@@ -1,8 +1,9 @@
-import type { VariantType } from '../../types';
-import type { IStackProps } from '../../primitives//Stack';
 import type { ITextProps } from '../../primitives/Text/types';
 import type { IIconProps } from '../../primitives/Icon';
-export interface IBadgeProps extends IStackProps {
+import type { CustomProps, VariantType } from '../../types';
+import type { IBoxProps } from '../../primitives';
+
+export interface InterfaceBadgeProps extends IBoxProps<IBadgeProps> {
   /**
    * The style variant of the badge.
    * @default subtle
@@ -37,3 +38,5 @@ export interface IBadgeProps extends IStackProps {
    */
   _icon?: IIconProps;
 }
+
+export type IBadgeProps = InterfaceBadgeProps | CustomProps<'Badge'>;

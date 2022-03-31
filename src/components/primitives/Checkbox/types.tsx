@@ -2,14 +2,18 @@ import type { CheckboxGroupState } from '@react-stately/checkbox';
 import type { MutableRefObject } from 'react';
 import type { TouchableOpacityProps } from 'react-native';
 import type { IFormControlContext } from '../../composites/FormControl';
-import type { IBoxProps } from '../Box';
+import type { InterfaceBoxProps } from '../Box';
 import type { IIconProps } from '../Icon';
-import type { ResponsiveValue } from '../../../components/types';
 import type { IStackProps } from '../../primitives/Stack';
+import type {
+  CustomProps,
+  ResponsiveValue,
+  ThemeComponentSizeType,
+} from '../../../components/types';
 
 export type ICheckboxValue = string;
 
-export interface ICheckboxProps extends IBoxProps<ICheckboxProps> {
+export interface InterfaceCheckbox extends InterfaceBoxProps<ICheckboxProps> {
   /**
    * assign id to checkbox
    */
@@ -71,7 +75,9 @@ export interface ICheckboxProps extends IBoxProps<ICheckboxProps> {
    * The size (width and height) of the checkbox.
    * @default 'md'
    */
-  size?: ResponsiveValue<'sm' | 'md' | 'lg'>;
+  size?:
+    | ResponsiveValue<'sm' | 'md' | 'lg'>
+    | ThemeComponentSizeType<'Checkbox'>;
   /**
    * If given, will use this icon instead of the default.
    */
@@ -79,43 +85,43 @@ export interface ICheckboxProps extends IBoxProps<ICheckboxProps> {
   /**
    * Passed props wilICheckboxGroupPropsl be applied on disabled state.
    */
-  _disabled?: Omit<ICheckboxProps, '_disabled'>;
+  _disabled?: Omit<Partial<ICheckboxProps>, '_disabled'>;
   /**
    * Passed props will be applied on checked state.
    */
-  _checked?: Omit<ICheckboxProps, '_checked'>;
+  _checked?: Omit<Partial<ICheckboxProps>, '_checked'>;
   /**
    * Passed props will be applied on unchecked state.
    */
-  _unchecked?: Omit<ICheckboxProps, '_unchecked'>;
+  _unchecked?: Omit<Partial<ICheckboxProps>, '_unchecked'>;
   /**
    * Passed props will be applied on focus state.
    */
-  _focus?: Omit<ICheckboxProps, '_focus'>;
+  _focus?: Omit<Partial<ICheckboxProps>, '_focus'>;
   /**
    * Passed props will be applied on hover state.
    */
-  _hover?: Omit<ICheckboxProps, '_hover'>;
+  _hover?: Omit<Partial<ICheckboxProps>, '_hover'>;
   /**
    * Passed props will be applied on invalid state.
    */
-  _invalid?: Omit<ICheckboxProps, '_invalid'>;
+  _invalid?: Omit<Partial<ICheckboxProps>, '_invalid'>;
   /**
    * Passed props will be applied on pressed state on native.
    */
-  _pressed?: Omit<ICheckboxProps, '_pressed'>;
+  _pressed?: Omit<Partial<ICheckboxProps>, '_pressed'>;
   /**
    * Passed props will be applied on readonly state.
    */
-  _readOnly?: Omit<ICheckboxProps, '_readOnly'>;
+  _readOnly?: Omit<Partial<ICheckboxProps>, '_readOnly'>;
   /**
    * Icon related props can be passed in _icon.
    */
-  _icon?: IIconProps;
+  _icon?: Partial<IIconProps>;
   /**
    * You can style interaction box around the checkbox using this.
    */
-  _interactionBox?: Omit<ICheckboxProps, '_interactionBox'>;
+  _interactionBox?: Omit<Partial<ICheckboxProps>, '_interactionBox'>;
   /**
    * Props to be passed to the Stack used inside.
    */
@@ -133,7 +139,8 @@ export interface ICheckboxProps extends IBoxProps<ICheckboxProps> {
   wrapperRef?: any;
   ref?: MutableRefObject<any>;
 }
-export interface ICheckboxGroupProps extends IBoxProps<ICheckboxGroupProps> {
+export interface ICheckboxGroupProps
+  extends InterfaceBoxProps<ICheckboxGroupProps> {
   /**
    * assign id to checkbox group
    */
@@ -189,3 +196,5 @@ export type ICheckboxComponentType = ((
     (props: ICheckboxGroupProps, ref?: MutableRefObject<any>) => JSX.Element
   >;
 };
+
+export type ICheckboxProps = InterfaceCheckbox | CustomProps<'Checkbox'>;

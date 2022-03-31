@@ -1,13 +1,13 @@
-import type { IBoxProps } from '../../primitives/Box';
+import type { InterfaceBoxProps } from '../../primitives/Box';
 import type { IIconButtonProps } from '../../composites/IconButton';
 import type { MutableRefObject } from 'react';
 
-import type { ResponsiveValue } from '../../../components/types';
+import type { CustomProps, ResponsiveValue } from '../../../components/types';
 import type { ISizes } from '../../../theme/base/sizes';
 import type { IScrollViewProps } from '../../basic/ScrollView';
 import type { IFadeProps, ISlideProps } from '../Transitions';
 
-export interface IModalProps extends IBoxProps<IModalProps> {
+export interface InterfaceModalProps extends InterfaceBoxProps<IModalProps> {
   /**
    * If true, the modal will open. Useful for controllable state behaviour
    */
@@ -85,7 +85,9 @@ export type IModalComponentType = ((
 ) => JSX.Element) & {
   Body: React.MemoExoticComponent<
     (
-      props: IBoxProps<IModalProps> & { _scrollview?: IScrollViewProps } & {
+      props: InterfaceBoxProps<IModalProps> & {
+        _scrollview?: IScrollViewProps;
+      } & {
         ref?: MutableRefObject<any>;
       }
     ) => JSX.Element
@@ -95,17 +97,19 @@ export type IModalComponentType = ((
   >;
   Content: React.MemoExoticComponent<
     (
-      props: IBoxProps<IModalProps> & { ref?: MutableRefObject<any> }
+      props: InterfaceBoxProps<IModalProps> & { ref?: MutableRefObject<any> }
     ) => JSX.Element
   >;
   Footer: React.MemoExoticComponent<
     (
-      props: IBoxProps<IModalProps> & { ref?: MutableRefObject<any> }
+      props: InterfaceBoxProps<IModalProps> & { ref?: MutableRefObject<any> }
     ) => JSX.Element
   >;
   Header: React.MemoExoticComponent<
     (
-      props: IBoxProps<IModalProps> & { ref?: MutableRefObject<any> }
+      props: InterfaceBoxProps<IModalProps> & { ref?: MutableRefObject<any> }
     ) => JSX.Element
   >;
 };
+
+export type IModalProps = InterfaceModalProps | CustomProps<'Modal'>;

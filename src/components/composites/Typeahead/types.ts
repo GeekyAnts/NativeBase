@@ -1,6 +1,6 @@
-import type { IBoxProps } from '../../primitives/Box/types';
+import type { InterfaceBoxProps } from '../../primitives/Box/types';
 
-export type ITypeaheadProps = IBoxProps<ITypeaheadProps> & {
+export type ITypeaheadProps = InterfaceBoxProps<ITypeaheadProps> & {
   options: any[];
   renderItem?: (item: any) => any;
   onChange?: (value: string) => void;

@@ -1,9 +1,9 @@
 import type { ImageProps, ImageSourcePropType } from 'react-native';
 import type { StyledProps } from '../../../theme/types';
 import type { ITextProps } from '../../primitives';
-import type { PlatformProps } from '../../types';
+import type { CustomProps, PlatformProps } from '../../types';
 
-export interface IImageProps
+export interface InterfaceImageProps
   extends PlatformProps<IImageProps>,
     Omit<
       ImageProps,
@@ -46,3 +46,5 @@ export interface IImageProps
    */
   src?: string;
 }
+
+export type IImageProps = InterfaceImageProps | CustomProps<'Image'>;
