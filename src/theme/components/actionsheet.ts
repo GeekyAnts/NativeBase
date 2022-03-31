@@ -56,6 +56,7 @@ export const ActionsheetItem = {
       fontWeight: 'normal',
     },
     _light: {
+      bg: 'muted.50',
       _text: {
         color: 'text.900',
       },
@@ -75,6 +76,7 @@ export const ActionsheetItem = {
       },
     },
     _dark: {
+      bg: 'muted.800',
       _text: {
         color: 'muted.50',
       },
