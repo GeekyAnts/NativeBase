@@ -4,8 +4,10 @@ import type { CombinedSizeType, PlatformProps, VariantType } from '../../types';
 import type { IBoxProps } from '../Box';
 import type { ResponsiveValue } from '../../../components/types';
 import type { ISizes } from '../../../theme/base/sizes';
-import type { IStackProps } from '../../primitives/Stack';
-export interface IInputProps
+import type { CustomProps } from '../../types';
+import type { IStackProps } from '../Stack/Stack';
+
+export interface InterfaceInputProps
   extends PlatformProps<IInputProps>,
     Omit<TextInputProps, 'textAlign'>,
     StyledProps {
@@ -114,3 +116,5 @@ export interface IInputGroupProps extends IBoxProps<IInputGroupProps> {
    */
   size?: ResponsiveValue<ISizes | (string & {}) | number>;
 }
+
+export type IInputProps = InterfaceInputProps | CustomProps<'Input'>;
