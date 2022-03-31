@@ -27,10 +27,10 @@ const baseStyle = (props: any) => {
       userSelect: 'none',
     },
     _focus: {
-      borderWidth: 2,
       borderColor: `${colorScheme}.400`,
     },
     _focusVisible: {
+      borderWidth: 2,
       _web: {
         outlineWidth: '0',
         style: { ...focusRing },
