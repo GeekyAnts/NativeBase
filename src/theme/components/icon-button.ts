@@ -2,12 +2,17 @@ import { mode } from './../tools';
 
 const baseStyle = (props: any) => {
   const { colorScheme } = props;
+  const colors = props.theme.colors;
   const focusRing = mode(
     {
-      boxShadow: `${colorScheme[400]} 0px 0px 0px 2px`,
+      outlineWidth: '2px',
+      outlineColor: `${colors[colorScheme][600]}`,
+      outlineStyle: 'solid',
     },
     {
-      boxShadow: `${colorScheme[500]} 0px 0px 0px 2px`,
+      outlineWidth: '2px',
+      outlineColor: `${colors[colorScheme][500]}`,
+      outlineStyle: 'solid',
     }
   )(props);
 
@@ -30,9 +35,7 @@ const baseStyle = (props: any) => {
       borderColor: `${colorScheme}.400`,
     },
     _focusVisible: {
-      borderWidth: 2,
       _web: {
-        outlineWidth: '0',
         style: { ...focusRing },
       },
     },

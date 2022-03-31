@@ -1,22 +1,19 @@
-import { transparentize } from '../tools';
+import { transparentize, mode } from '../tools';
 
-const baseStyle = () => {
-  // const { primary } = props.theme.colors;
-  // Todo: Resolve boxShadow Color or Provide some alternatiove prop for user to change focusRing color
-  // // Todo: Update to support similar focusRing on iOS , Android and Web
-  // const focusRing =
-  //   Platform.OS === 'web'
-  //     ? {
-  //         boxShadow:
-  //           props.variant !== 'underlined'
-  //             ? `${primary[400]} 0px 0px 0px 1px`
-  //             : `${primary[400]} 0px 1px 0px 0px`,
-  //         zIndex: 1,
-  //       }
-  //     : {
-  //         // boxShadow: `${useToken('colors', ['primary.400'])} 0px 0px 0px 1px`,
-  //       };
-
+const baseStyle = (props: any) => {
+  const { primary } = props.theme.colors;
+  const focusRing = mode(
+    {
+      outlineWidth: '1px',
+      outlineColor: `${primary[600]}`,
+      outlineStyle: 'solid',
+    },
+    {
+      outlineWidth: '1px',
+      outlineColor: `${primary[500]}`,
+      outlineStyle: 'solid',
+    }
+  )(props);
   return {
     fontFamily: 'body',
     py: '2',
@@ -73,11 +70,7 @@ const baseStyle = () => {
         // justifyContent: 'space-between',
         overflow: 'hidden',
         _focus: {
-          style: {
-            outlineWidth: '1px',
-            outlineColor: 'primary.600',
-            outlineStyle: 'solid',
-          },
+          style: { ...focusRing },
         },
       },
     },
@@ -112,11 +105,7 @@ const baseStyle = () => {
         // justifyContent: 'space-between',
         overflow: 'hidden',
         _focus: {
-          style: {
-            outlineWidth: '3px',
-            outlineColor: 'primary.500',
-            outlineStyle: 'solid',
-          },
+          style: { ...focusRing },
         },
       },
     },
