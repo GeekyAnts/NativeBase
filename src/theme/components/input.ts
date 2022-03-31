@@ -37,12 +37,7 @@ const baseStyle = () => {
       style: { outline: 'none' },
       cursor: 'auto',
     },
-    _stack: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      // justifyContent: 'space-between',
-      overflow: 'hidden',
-    },
+
     _input: {
       bg: 'transparent',
       flex: 1,
@@ -72,6 +67,19 @@ const baseStyle = () => {
           borderColor: 'muted.300',
         },
       },
+      _stack: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        // justifyContent: 'space-between',
+        overflow: 'hidden',
+        _focus: {
+          style: {
+            outlineWidth: '1px',
+            outlineColor: 'primary.600',
+            outlineStyle: 'solid',
+          },
+        },
+      },
     },
     _dark: {
       placeholderTextColor: 'text.600',
@@ -98,6 +106,19 @@ const baseStyle = () => {
           borderColor: 'muted.700',
         },
       },
+      _stack: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        // justifyContent: 'space-between',
+        overflow: 'hidden',
+        _focus: {
+          style: {
+            outlineWidth: '3px',
+            outlineColor: 'primary.500',
+            outlineStyle: 'solid',
+          },
+        },
+      },
     },
   };
 };
@@ -108,7 +129,6 @@ function roundedStyle(props: Record<string, any>) {
     borderRadius: 'full',
     borderWidth: '1',
     _focus: {
-      borderWidth: '2',
       bg: transparentize('primary.600', 0.1)(theme),
     },
     _invalid: {
@@ -121,7 +141,6 @@ function outlineStyle(props: Record<string, any>) {
   return {
     borderWidth: '1',
     _focus: {
-      borderWidth: '2',
       bg: transparentize('primary.600', 0.1)(theme),
     },
     _invalid: {
@@ -132,10 +151,8 @@ function outlineStyle(props: Record<string, any>) {
 function filledStyle(props: Record<string, any>) {
   const { theme } = props;
   return {
-    borderWidth: '0',
-    borderColor: 'transparent',
+    borderWidth: '1',
     _focus: {
-      borderWidth: '2',
       bg: transparentize('primary.600', 0.1)(theme),
     },
     _hover: {
@@ -149,9 +166,11 @@ function filledStyle(props: Record<string, any>) {
     },
     _light: {
       bg: 'muted.100',
+      borderColor: 'muted.100',
     },
     _dark: {
       bg: 'muted.800',
+      borderColor: 'muted.800',
     },
   };
 }
@@ -167,6 +186,13 @@ function unstyledStyle() {
     _focus: {
       bg: 'transparent',
     },
+    _stack: {
+      _focus: {
+        style: {
+          outlineWidth: '0',
+        },
+      },
+    },
   };
 }
 function underlinedStyle() {
@@ -174,9 +200,13 @@ function underlinedStyle() {
     borderWidth: '0',
     pl: '0',
     borderBottomWidth: '1',
-    _focus: {
-      borderBottomWidth: '2',
-      fontWeight: '500',
+    _stack: {
+      _focus: {
+        style: {
+          outlineWidth: '0',
+          boxShadow: '0 1px 0 0 #0891B2',
+        },
+      },
     },
     _invalid: {
       borderBottomWidth: '2',
