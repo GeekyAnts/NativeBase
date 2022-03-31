@@ -1,4 +1,5 @@
-import type { IBoxProps } from '../../primitives';
+import type { IStackProps } from '../../primitives/Stack';
+import type { IBoxProps } from '../../primitives/Box/types';
 import type { IFormControlContext } from '../../composites';
 import type { AccessibilityRole } from 'react-native';
 import type { RadioGroupState } from '@react-stately/radio';
@@ -59,6 +60,10 @@ export interface InterfaceRadioProps extends IBoxProps<IRadioProps> {
    * Ref to be passed to Icon's wrapper Box
    */
   wrapperRef?: any;
+  /**
+   * Props to be passed to the Stack used inside.
+   */
+  _stack?: Partial<IStackProps>;
 
   /**
    * Passed props wilICheckboxGroupPropsl be applied on disabled state.
@@ -101,7 +106,7 @@ export interface InterfaceRadioProps extends IBoxProps<IRadioProps> {
    */
   _interactionBox?: Omit<Partial<IRadioProps>, '_interactionBox'>;
 }
-export interface IRadioGroupProps extends IBoxProps<IRadioGroupProps> {
+export interface IRadioGroupProps extends IStackProps {
   /**
    * The value of the radio group.
    */

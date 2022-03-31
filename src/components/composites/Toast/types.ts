@@ -1,5 +1,5 @@
-import type { IAlertProps } from '../Alert/types';
 import type { ReactNode } from 'react';
+import type { ITextProps } from '../../primitives/Text';
 import type { InterfaceBoxProps } from '../../primitives/Box';
 import type { CustomProps } from '../../../components/types';
 
@@ -22,10 +22,6 @@ export interface InterfaceToastProps extends InterfaceBoxProps<IToastProps> {
    */
   id?: any;
   /**
-   * If `true`, toast will show a close button
-   */
-  isClosable?: boolean;
-  /**
    * Callback function to run side effects after the toast has closed.
    */
   onCloseComplete?: () => void;
@@ -45,12 +41,13 @@ export interface InterfaceToastProps extends InterfaceBoxProps<IToastProps> {
    */
   render?: (props: any) => ReactNode;
   /**
-   * The status of the toast. Adding status will render an [Alert](alert.md) component inside the `Toast`
+   * For providing props to Title inside Toast
    */
-  status?: IAlertProps['status'];
-  /** The variants of the [Alert](alert.md) component.
+  _title?: Partial<ITextProps>;
+  /**
+   * For providing props to Description inside Toast
    */
-  variant?: IAlertProps['variant'];
+  _description?: Partial<ITextProps>;
   /**
    * The text to be announced by a screen reader when the Toast opens.
    */

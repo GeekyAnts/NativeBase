@@ -11,6 +11,7 @@ import type {
   // VariantTypeTest,
 } from '../../../components/types/utils';
 import type { ISpinnerProps } from '../Spinner/types';
+import type { IIconProps } from '../Icon';
 import type { InterfacePressableProps } from '../Pressable/types';
 
 // const myFunction = ({ a, b }) => {
@@ -86,11 +87,15 @@ export interface InterfaceButtonProps
   /**
    * Props to style the child text
    */
-  _text?: ITextProps;
+  _text?: Partial<ITextProps>;
   /**
    * Props to be passed to the HStack used inside of Button.
    */
-  _stack?: IStackProps;
+  _stack?: Partial<IStackProps>;
+  /**
+   * Props to be passed to the Icon used inside of Button.
+   */
+  _icon?: Partial<IIconProps>;
   /**
    * Prop to decide placement of spinner.
    */

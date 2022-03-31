@@ -4,6 +4,7 @@ import type { TouchableOpacityProps } from 'react-native';
 import type { IFormControlContext } from '../../composites/FormControl';
 import type { InterfaceBoxProps } from '../Box';
 import type { IIconProps } from '../Icon';
+import type { IStackProps } from '../../primitives/Stack';
 import type {
   CustomProps,
   ResponsiveValue,
@@ -41,10 +42,10 @@ export interface InterfaceCheckbox extends InterfaceBoxProps<ICheckboxProps> {
    * If true, the checkbox will be indeterminate. This only affects the icon shown inside checkbox.
    */
   isIndeterminate?: boolean;
+  // isFullWidth?: boolean;
   /**
    * If true, the checkbox will be disabled.
    */
-  // isFullWidth?: boolean;
   isDisabled?: boolean;
   /**
    * If true, the checkbox is marked as invalid.
@@ -121,6 +122,10 @@ export interface InterfaceCheckbox extends InterfaceBoxProps<ICheckboxProps> {
    * You can style interaction box around the checkbox using this.
    */
   _interactionBox?: Omit<Partial<ICheckboxProps>, '_interactionBox'>;
+  /**
+   * Props to be passed to the Stack used inside.
+   */
+  _stack?: IStackProps;
   /**
    * Function called when the state of the checkbox changes.
    */

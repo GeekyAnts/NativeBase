@@ -61,6 +61,8 @@ export interface ISliderTrackProps
   _disabled?: any;
   /** Props applied if isReadOnly is true. */
   _readOnly?: any;
+  /** Wrapper style for SliderTrack */
+  _pressable?: {};
 }
 
 export interface ISliderTrackFilledProps

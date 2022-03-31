@@ -103,6 +103,7 @@ function MyWrapper({ children }: any) {
           zIndex={4}
           onPress={toggleColorMode}
           icon={colorMode === 'dark' ? <SunIcon /> : <MoonIcon />}
+          size="lg"
         />
       </Tooltip>
       {children}
@@ -126,7 +127,7 @@ export default ({ children, theme }: any) => {
   const colorModeManager: StorageManager = {
     get: async () => {
       try {
-        let val = await AsyncStorage.getItem('@example-wrapper-mode');
+        const val = await AsyncStorage.getItem('@example-wrapper-mode');
         return val === 'dark' ? 'dark' : 'light';
       } catch (e) {
         console.log(e);

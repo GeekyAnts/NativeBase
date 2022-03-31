@@ -61,6 +61,13 @@ const Progress = (props: IProgressProps, ref?: any) => {
     return null;
   }
 
+  let valueWidth =
+    value < max && value > min
+      ? ((value - min) / (max - min)) * 100
+      : value > min
+      ? 100
+      : 0;
+
   return (
     <Box
       {...resolvedProps}
@@ -70,25 +77,10 @@ const Progress = (props: IProgressProps, ref?: any) => {
       accessibilityValue={{
         min: min,
         max: max,
-        now:
-          value < max && value > min
-            ? ((value - min) / (max - min)) * 100
-            : value > min
-            ? 100
-            : 0,
+        now: valueWidth,
       }}
     >
-      <Box
-        // {...resolvedProps}
-        {..._filledTrack}
-        w={
-          value < max && value > min
-            ? ((value - min) / (max - min)) * 100 + '%'
-            : value > min
-            ? '100%'
-            : '0%'
-        }
-      >
+      <Box w={`${valueWidth}%`} {..._filledTrack}>
         {children}
       </Box>
     </Box>

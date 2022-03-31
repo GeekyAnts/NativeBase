@@ -10,7 +10,7 @@ const PopoverArrow = React.forwardRef((props: IBoxProps, ref: any) => {
   if (useHasResponsiveProps(props)) {
     return null;
   }
-  return <Popper.Arrow {...props} {...resolvedProps} ref={ref} />;
+  return <Popper.Arrow {...resolvedProps} ref={ref} />;
 });
 
 PopoverArrow.displayName = 'PopperArrow';

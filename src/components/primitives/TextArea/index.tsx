@@ -3,6 +3,8 @@ import { Input } from '../Input';
 import type { InterfaceInputProps } from '../Input/types';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import { useHover } from '@react-native-aria/interactions';
+import { mergeRefs } from '../../../utils';
 export interface ITextAreaProps extends InterfaceInputProps {
   /**
    * Maps to react-native TextInput's numberOfLines.
@@ -10,8 +12,23 @@ export interface ITextAreaProps extends InterfaceInputProps {
   totalLines?: number;
 }
 
-const TextArea = ({ wrapperRef, ...props }: ITextAreaProps, ref: any) => {
-  const { totalLines, ...newProps } = usePropsResolution('TextArea', props);
+const TextArea = (
+  { wrapperRef, isDisabled, isInvalid, isReadOnly, ...props }: ITextAreaProps,
+  ref: any
+) => {
+  const _ref = React.useRef(null);
+  const { isHovered } = useHover({}, _ref);
+  const [isFocused, setIsFocused] = React.useState(false);
+  const handleFocus = (focusState: boolean, callback: any) => {
+    setIsFocused(focusState);
+    callback();
+  };
+  const { totalLines, onFocus, onBlur, ...newProps } = usePropsResolution(
+    'TextArea',
+    props,
+    { isHovered, isDisabled, isFocused, isInvalid, isReadOnly },
+    { extendTheme: ['Input'] }
+  );
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
@@ -19,9 +36,16 @@ const TextArea = ({ wrapperRef, ...props }: ITextAreaProps, ref: any) => {
   return (
     <Input
       {...newProps}
+      INTERNAL_notResolveThemeAndPseudoProps
       numberOfLines={totalLines}
       wrapperRef={wrapperRef}
-      ref={ref}
+      ref={mergeRefs([_ref, ref])}
+      onFocus={(e) => {
+        handleFocus(true, onFocus ? () => onFocus(e) : () => {});
+      }}
+      onBlur={(e) => {
+        handleFocus(false, onBlur ? () => onBlur(e) : () => {});
+      }}
     />
   );
 };
