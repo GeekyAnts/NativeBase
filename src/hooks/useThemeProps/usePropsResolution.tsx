@@ -435,7 +435,28 @@ export const usePropsResolutionWithComponentTheme = (
     flattenSizeStyle
   );
 
+  /*Resolve all the internal used Pseudo Props*/
+  const resolvePseudoProps = (
+    flatPseudoProp: any /** Props coming from Pseudo inside flattenProps */,
+    baseStylePseudoProp: any /** Props coming from Pseudo inside defaultStyles(baseStyle) */
+  ) => {
+    for (const prop in flatPseudoProp) {
+      baseStylePseudoProp[prop] =
+        flatPseudoProp[
+          prop
+        ]; /* Replace all the similar prop from from internal props */
+    }
+    return baseStylePseudoProp;
+  };
+
   for (const prop in defaultStyles) {
+    if (prop.startsWith('_') && flattenProps.hasOwnProperty(prop)) {
+      /*Resolve all the internal used Pseudo Props*/
+      defaultStyles[prop] = resolvePseudoProps(
+        flattenProps[prop],
+        defaultStyles[prop]
+      );
+    }
     delete flattenProps[prop];
   }
 
