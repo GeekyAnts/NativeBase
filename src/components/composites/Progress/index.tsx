@@ -45,7 +45,7 @@ export interface InterfaceProgressProps
   max?: number;
 }
 
-export type IProgressProps = InterfaceProgressProps | CustomProps<'Progress'>;
+export type IProgressProps = InterfaceProgressProps & CustomProps<'Progress'>;
 const Progress = (props: IProgressProps, ref?: any) => {
   const {
     min,

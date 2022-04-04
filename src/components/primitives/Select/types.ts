@@ -108,4 +108,4 @@ export type ISelectComponentType = ((
     (props: ISelectItemProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
 };
-export type ISelectProps = InterfaceSelectProps | CustomProps<'Select'>;
+export type ISelectProps = InterfaceSelectProps & CustomProps<'Select'>;

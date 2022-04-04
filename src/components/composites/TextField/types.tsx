@@ -9,12 +9,11 @@ type componentsSpecificProps =
   | ({ component?: 'textarea' } & ITextAreaProps)
   | ({ component?: 'select' } & ISelectProps);
 
-export type ITextFieldProps =
-  | (componentsSpecificProps &
-      InterfaceStackProps & {
-        helperText?: string;
-        errorMessage?: string;
-        _helperTextProps?: any;
-        _errorMessageProps?: any;
-      })
-  | CustomProps<'TextField'>;
+export type ITextFieldProps = (componentsSpecificProps &
+  InterfaceStackProps & {
+    helperText?: string;
+    errorMessage?: string;
+    _helperTextProps?: any;
+    _errorMessageProps?: any;
+  }) &
+  CustomProps<'TextField'>;

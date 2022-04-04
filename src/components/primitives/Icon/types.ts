@@ -73,4 +73,4 @@ export interface IcreateIconProps {
   d?: string;
 }
 
-export type IIconProps = InterfaceIconProps | CustomProps<'Icon'>;
+export type IIconProps = InterfaceIconProps & CustomProps<'Icon'>;

@@ -89,7 +89,7 @@ interface InterfaceTooltipProps extends InterfaceBoxProps<ITooltipProps> {
   offset?: number;
 }
 
-export type ITooltipProps = InterfaceTooltipProps | CustomProps<'Tooltip'>;
+export type ITooltipProps = InterfaceTooltipProps & CustomProps<'Tooltip'>;
 export const Tooltip = ({
   label,
   children,

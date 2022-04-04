@@ -44,6 +44,5 @@ export type IBreadcrumbComponentType = ((
   >;
 };
 
-export type IBreadcrumbProps =
-  | InterfaceBreadcrumbProps
-  | CustomProps<'Breadcrumb'>;
+export type IBreadcrumbProps = InterfaceBreadcrumbProps &
+  CustomProps<'Breadcrumb'>;

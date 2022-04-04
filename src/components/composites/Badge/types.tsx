@@ -13,4 +13,4 @@ export interface InterfaceBadgeProps extends IBoxProps<IBadgeProps> {
   colorScheme?: string;
 }
 
-export type IBadgeProps = InterfaceBadgeProps | CustomProps<'Badge'>;
+export type IBadgeProps = InterfaceBadgeProps & CustomProps<'Badge'>;

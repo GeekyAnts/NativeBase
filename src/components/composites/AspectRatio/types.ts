@@ -10,6 +10,5 @@ export interface InterfaceAspectRatioProps
   ratio?: ResponsiveValue<number>;
 }
 
-export type IAspectRatioProps =
-  | InterfaceAspectRatioProps
-  | CustomProps<'AspectRatio'>;
+export type IAspectRatioProps = InterfaceAspectRatioProps &
+  CustomProps<'AspectRatio'>;

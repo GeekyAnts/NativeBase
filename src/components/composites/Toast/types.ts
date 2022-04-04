@@ -83,4 +83,4 @@ export type IToastContext = {
   hideToast: (id: any) => void;
 };
 
-export type IToastProps = InterfaceToastProps | CustomProps<'Toast'>;
+export type IToastProps = InterfaceToastProps & CustomProps<'Toast'>;
