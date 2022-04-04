@@ -1,6 +1,10 @@
 import type { TextInputProps } from 'react-native';
 import type { StyledProps } from '../../../theme/types';
-import type { CombinedSizeType, PlatformProps, VariantType } from '../../types';
+import type {
+  PlatformProps,
+  ThemeComponentSizeType,
+  VariantType,
+} from '../../types';
 import type { InterfaceBoxProps } from '../Box';
 import type { ResponsiveValue } from '../../../components/types';
 import type { ISizes } from '../../../theme/base/sizes';
@@ -36,7 +40,7 @@ export interface InterfaceInputProps
    * The size of the input.
    * @default 'md'
    */
-  size?: CombinedSizeType<'Input'>; // ResponsiveValue<ISizes | (string & {}) | number>;
+  size?: ThemeComponentSizeType<'Input'>; // ResponsiveValue<ISizes | (string & {}) | number>;
   /**
    * This will set aria-required="true" on web when passed in formcontrol.
    */
