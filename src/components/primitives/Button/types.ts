@@ -4,7 +4,7 @@ import type { ResponsiveValue } from '../../types';
 import type { MutableRefObject } from 'react';
 import type { ISizes } from '../../../theme/base/sizes';
 import type {
-  CombinedSizeType,
+  ThemeComponentSizeType,
   CustomProps,
   VariantType,
   // VariantType,
@@ -62,7 +62,13 @@ export interface InterfaceButtonProps
   /**
    * The size of the button.
    */
-  size?: CombinedSizeType<'Button'>;
+  size?:
+    | 'xs'
+    | 'sm'
+    | 'md'
+    | 'lg'
+    | (string & {})
+    | ThemeComponentSizeType<'Button'>;
   // size?: SizeType;
   /**
    * The start icon element to use in the button.
