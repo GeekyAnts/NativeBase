@@ -81,23 +81,23 @@ export interface InterfaceInputProps
   /**
    * Passed props will be applied on hovered state.
    */
-  _hover?: Omit<IInputProps, '_hover'>;
+  _hover?: Partial<IInputProps>;
   /**
    * Passed props will be applied on focused state.
    */
-  _focus?: Omit<IInputProps, '_focus'>;
+  _focus?: Partial<IInputProps>;
   /**
    * Passed props will be applied on disabled state.
    */
-  _disabled?: Omit<IInputProps, '_disabled'>;
+  _disabled?: Partial<IInputProps>;
   /**
    * Passed props will be applied on readOnly state.
    */
-  _readOnly?: Omit<IInputProps, '_readOnly'>;
+  _readOnly?: Partial<IInputProps>;
   /**
    * Passed props will be applied on invalid state.
    */
-  _invalid?: Omit<IInputProps, '_hover'>;
+  _invalid?: Partial<IInputProps>;
   // These porps are currently on hold
   // label?: string;
   // _label?: ITextProps;
