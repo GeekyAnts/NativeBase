@@ -1,7 +1,7 @@
 import type { CustomProps, VariantType } from '../../types';
-import type { IBoxProps } from '../../primitives';
+import type { InterfaceBoxProps } from '../../primitives/Box';
 
-export interface InterfaceBadgeProps extends IBoxProps<IBadgeProps> {
+export interface InterfaceBadgeProps extends InterfaceBoxProps<IBadgeProps> {
   /**
    * The style variant of the badge.
    * @default subtle

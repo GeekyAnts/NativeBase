@@ -1,8 +1,9 @@
 import type { MutableRefObject } from 'react';
-import type { IBoxProps, IIconProps } from '../../primitives';
+import type { InterfaceBoxProps } from '../../../components/primitives/Box';
+import type { IIconProps } from '../../primitives';
 import type { CustomProps, VariantType } from '../../types';
 
-export interface InterfaceAlertProps extends IBoxProps<IAlertProps> {
+export interface InterfaceAlertProps extends InterfaceBoxProps<IAlertProps> {
   /** The status of the alert
    *  @default info
    */
