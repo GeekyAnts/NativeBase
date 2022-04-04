@@ -40,9 +40,7 @@ export interface InterfaceInputProps
    * The size of the input.
    * @default 'md'
    */
-  size?:
-    | ResponsiveValue<ISizes | (string & {}) | number>
-    | ThemeComponentSizeType<'Input'>;
+  size?: ThemeComponentSizeType<'Input'>; // ResponsiveValue<ISizes | (string & {}) | number>;
   /**
    * This will set aria-required="true" on web when passed in formcontrol.
    */

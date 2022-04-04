@@ -69,6 +69,11 @@ const myTheme = extendTheme({
           };
         },
       },
+      sizes: {
+        'my-size': {
+          padding: 2,
+        },
+      },
     },
 
     Checkbox: {
@@ -137,8 +142,9 @@ export function RenderTestButton() {
   const [state, setState] = React.useState(1);
   return (
     <Box style={{ position: 'absolute', top: 10, left: 20 }} m={2} bg="red.100">
-      <Input m={2} />
+      <Input m={2} size="my-size" />
       <Button
+        size=""
         variant={'myNewButton'}
         // title={state.toString()}
         onPress={() => setState(state + 1)}
