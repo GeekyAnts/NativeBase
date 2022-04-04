@@ -38,19 +38,21 @@ const NumberInputFiled = (
     return null;
   }
   return (
-    <Input
-      p={0}
-      pl={2}
-      {...context}
-      {...props}
-      onBlur={() => blurHandler()}
-      isDisabled={isDisabled || context.isDisabled}
-      onChangeText={(inputValue) => changeHandler(inputValue)}
-      keyboardType="numeric"
-      value={`${numberInputValue}`}
-      InputRightElement={numberInputStepper}
-      ref={ref}
-    />
+    <>
+      <Input
+        p={0}
+        pl={2}
+        {...context}
+        {...props}
+        onBlur={() => blurHandler()}
+        isDisabled={isDisabled || context.isDisabled}
+        onChangeText={(inputValue: any) => changeHandler(inputValue)}
+        keyboardType="numeric"
+        value={`${numberInputValue}`}
+        InputRightElement={numberInputStepper}
+        ref={ref}
+      />
+    </>
   );
 };
 

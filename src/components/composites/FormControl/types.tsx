@@ -97,6 +97,5 @@ export type FormControlComponentType = ((
   >;
 };
 
-export type IFormControlProps =
-  | InterfaceFormControlProps
-  | CustomProps<'FormControl'>;
+export type IFormControlProps = InterfaceFormControlProps &
+  CustomProps<'FormControl'>;

@@ -13,7 +13,7 @@ export interface InterfaceVStackProps extends InterfaceStackProps {
   >;
 }
 
-export type IVStackProps = InterfaceVStackProps | CustomProps<'VStack'>;
+export type IVStackProps = InterfaceVStackProps & CustomProps<'VStack'>;
 
 const VStack = (props: IVStackProps, ref?: any) => {
   const resolvedProps = usePropsResolution('VStack', props);

@@ -186,4 +186,4 @@ export type IMenuContextProps = {
   open?: boolean;
   closeOnSelect?: boolean;
 };
-export type IMenuProps = InterfaceMenuProps | CustomProps<'Menu'>;
+export type IMenuProps = InterfaceMenuProps & CustomProps<'Menu'>;

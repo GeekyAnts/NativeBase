@@ -75,6 +75,5 @@ export type IActionsheetComponentType = ((
   // >;
 };
 
-export type IActionsheetProps =
-  | InterfaceActionsheetProps
-  | CustomProps<'Actionsheet'>;
+export type IActionsheetProps = InterfaceActionsheetProps &
+  CustomProps<'Actionsheet'>;

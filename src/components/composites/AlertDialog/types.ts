@@ -101,6 +101,5 @@ export type IAlertDialogComponentType = ((
   >;
 };
 
-export type IAlertDialogProps =
-  | InterfaceAlertDialogProps
-  | CustomProps<'AlertDialog'>;
+export type IAlertDialogProps = InterfaceAlertDialogProps &
+  CustomProps<'AlertDialog'>;

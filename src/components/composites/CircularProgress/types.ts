@@ -20,6 +20,5 @@ export type InterfaceCircularProgressProps = InterfaceBoxProps<ICircularProgress
   _text?: ITextProps;
 };
 
-export type ICircularProgressProps =
-  | InterfaceCircularProgressProps
-  | CustomProps<'CircularProgress'>;
+export type ICircularProgressProps = InterfaceCircularProgressProps &
+  CustomProps<'CircularProgress'>;

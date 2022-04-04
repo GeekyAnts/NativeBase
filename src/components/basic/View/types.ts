@@ -11,4 +11,4 @@ export interface InterfaceViewProps
   children?: JSX.Element | JSX.Element[] | string | any;
 }
 
-export type IViewProps = InterfaceViewProps | CustomProps<'View'>;
+export type IViewProps = InterfaceViewProps & CustomProps<'View'>;

@@ -39,4 +39,4 @@ export interface InterfaceBadgeProps extends IBoxProps<IBadgeProps> {
   _icon?: IIconProps;
 }
 
-export type IBadgeProps = InterfaceBadgeProps | CustomProps<'Badge'>;
+export type IBadgeProps = InterfaceBadgeProps & CustomProps<'Badge'>;

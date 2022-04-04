@@ -62,4 +62,4 @@ export interface InterfaceIconButtonProps
   _focus?: IIconButtonProps;
 }
 
-export type IIconButtonProps = InterfaceIconButtonProps | CustomProps<'Icon'>;
+export type IIconButtonProps = InterfaceIconButtonProps & CustomProps<'Icon'>;
