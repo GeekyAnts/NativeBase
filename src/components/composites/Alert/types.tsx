@@ -32,4 +32,4 @@ export type IAlertComponentType = ((
   >;
 };
 
-export type IAlertProps = InterfaceAlertProps | CustomProps<'Alert'>;
+export type IAlertProps = InterfaceAlertProps & CustomProps<'Alert'>;

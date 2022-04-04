@@ -3,13 +3,12 @@ import type { InterfaceInputProps } from '../../primitives/Input/types';
 import type { CustomProps, ResponsiveValue } from '../../../components/types';
 import type { ISizes } from '../../../theme/base/sizes';
 
-export type IPinInputProps =
-  | (InterfaceInputProps & {
-      onChange?: (value: string) => void;
-      children?: JSX.Element[] | JSX.Element;
-      manageFocus?: boolean;
-    })
-  | CustomProps<'PinInput'>;
+export type IPinInputProps = (InterfaceInputProps & {
+  onChange?: (value: string) => void;
+  children?: JSX.Element[] | JSX.Element;
+  manageFocus?: boolean;
+}) &
+  CustomProps<'PinInput'>;
 
 export type IPinInputFieldProps = InterfaceInputProps & {
   fieldIndex?: number;

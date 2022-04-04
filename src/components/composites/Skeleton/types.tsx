@@ -75,4 +75,4 @@ export type ISkeletonComponentType = ((
   >;
 };
 
-export type ISkeletonProps = InterfaceSkeletonProps | CustomProps<'Skeleton'>;
+export type ISkeletonProps = InterfaceSkeletonProps & CustomProps<'Skeleton'>;

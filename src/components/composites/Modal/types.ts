@@ -99,4 +99,4 @@ export type IModalComponentType = ((
   >;
 };
 
-export type IModalProps = InterfaceModalProps | CustomProps<'Modal'>;
+export type IModalProps = InterfaceModalProps & CustomProps<'Modal'>;

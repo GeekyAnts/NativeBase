@@ -67,4 +67,4 @@ export interface InterfaceSwitchProps
   _hover?: Omit<ISwitchProps, '_hover'>;
 }
 
-export type ISwitchProps = InterfaceSwitchProps | CustomProps<'Switch'>;
+export type ISwitchProps = InterfaceSwitchProps & CustomProps<'Switch'>;

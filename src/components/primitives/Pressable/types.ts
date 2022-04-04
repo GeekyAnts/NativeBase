@@ -79,8 +79,7 @@ export interface InterfacePressableProps<T = IPressableProps>
 
 // export type IPressableProps<T> =
 //   | InterfacePressableProps<T>
-//   | CustomProps<'Pressable'>;
+//   & CustomProps<'Pressable'>;
 
-export type IPressableProps =
-  | InterfacePressableProps<IPressableProps>
-  | CustomProps<'Pressable'>;
+export type IPressableProps = InterfacePressableProps<IPressableProps> &
+  CustomProps<'Pressable'>;

@@ -7,4 +7,4 @@ export interface InterfaceTagProps extends InterfaceBoxProps<ITagProps> {
   size?: string | number;
 }
 
-export type ITagProps = InterfaceTagProps | CustomProps<'Tag'>;
+export type ITagProps = InterfaceTagProps & CustomProps<'Tag'>;

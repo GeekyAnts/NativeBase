@@ -12,6 +12,5 @@ export interface InterfaceFlatListProps<ItemT>
   _contentContainerStyle?: Partial<IFlatListProps<ItemT>>;
 }
 
-export type IFlatListProps<ItemT> =
-  | InterfaceFlatListProps<ItemT>
-  | CustomProps<'FlatList'>;
+export type IFlatListProps<ItemT> = InterfaceFlatListProps<ItemT> &
+  CustomProps<'FlatList'>;

@@ -42,8 +42,8 @@ type ParametersOf<T> = {
   [Key in keyof T]: T[Key] extends (...args: any) => void
     ? Parameters<T[Key]>[0] extends {}
       ? Parameters<T[Key]>[0]
-      : never
-    : never;
+      : {}
+    : {};
 }[keyof T];
 
 // type VariantParams<T extends keyof ITheme['components']> = ParametersOf<
@@ -70,7 +70,9 @@ type CustomPropType<T extends keyof ITheme['components'], Key> = Extract<
 //   | CustomPropType<T, 'sizes'>
 //   | CustomPropType<T, 'defaultProps'>;
 
-export type CustomProps<T extends keyof ITheme['components']> = Partial<
+export type CustomComponentProps<
+  T extends keyof ITheme['components']
+> = Partial<
   Exclude<
     {
       [Key in keyof ComponentTheme]: CustomPropType<T, Key>;
@@ -78,3 +80,16 @@ export type CustomProps<T extends keyof ITheme['components']> = Partial<
     undefined
   >
 >;
+export type CustomProps<
+  T extends keyof ITheme['components']
+> = CustomComponentProps<T> extends never
+  ? {}
+  : // : CustomComponentProps<T> extends Record<string, any>
+    // ? {}
+    CustomComponentProps<T>;
+
+export type UnionToIntersection<U> = (
+  U extends any ? (k: U) => void : never
+) extends (k: infer I) => void
+  ? I
+  : never;

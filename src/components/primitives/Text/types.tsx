@@ -84,4 +84,4 @@ export interface InterfaceTextProps
   variant?: VariantType<'Text'>;
 }
 
-export type ITextProps = InterfaceTextProps | CustomProps<'Text'>;
+export type ITextProps = InterfaceTextProps & CustomProps<'Text'>;

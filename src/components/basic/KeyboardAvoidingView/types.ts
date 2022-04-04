@@ -11,6 +11,5 @@ export interface InterfaceKeyboardAvoidingViewProps
   children?: JSX.Element | JSX.Element[] | string | any;
 }
 
-export type IKeyboardAvoidingViewProps =
-  | InterfaceKeyboardAvoidingViewProps
-  | CustomProps<'KeyboardAvoidingView'>;
+export type IKeyboardAvoidingViewProps = InterfaceKeyboardAvoidingViewProps &
+  CustomProps<'KeyboardAvoidingView'>;

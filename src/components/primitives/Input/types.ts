@@ -11,7 +11,7 @@ import type { ISizes } from '../../../theme/base/sizes';
 import type { CustomProps } from '../../types';
 
 export interface InterfaceInputProps
-  extends PlatformProps<IInputProps>,
+  extends PlatformProps<any>,
     Omit<TextInputProps, 'textAlign'>,
     StyledProps {
   /**

@@ -47,4 +47,4 @@ export interface InterfaceImageProps
   src?: string;
 }
 
-export type IImageProps = InterfaceImageProps | CustomProps<'Image'>;
+export type IImageProps = InterfaceImageProps & CustomProps<'Image'>;

@@ -46,4 +46,4 @@ export interface InterfaceBoxProps<T = null>
   // gap?: ResponsiveValue<number | string>;
 }
 
-export type IBoxProps<T = null> = InterfaceBoxProps<T> | CustomProps<'Box'>;
+export type IBoxProps<T = null> = InterfaceBoxProps<T> & CustomProps<'Box'>;

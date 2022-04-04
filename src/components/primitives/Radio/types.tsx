@@ -159,4 +159,4 @@ export type IRadioComponentType = ((props: IRadioProps) => JSX.Element) & {
   >;
 };
 
-export type IRadioProps = InterfaceRadioProps | CustomProps<'Radio'>;
+export type IRadioProps = InterfaceRadioProps & CustomProps<'Radio'>;

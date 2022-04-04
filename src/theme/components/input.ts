@@ -1,4 +1,4 @@
-import { mode } from '../tools';
+import { Dict, mode } from '../tools';
 import { Platform } from 'react-native';
 
 function getSelectionColor(props: Record<string, any>) {
@@ -53,7 +53,7 @@ const baseStyle = (props: Record<string, any>) => {
   };
 };
 
-function roundedStyle(props: Record<string, any>) {
+function roundedStyle(props: Dict) {
   return {
     borderRadius: '25',
     borderWidth: '1',
@@ -62,7 +62,7 @@ function roundedStyle(props: Record<string, any>) {
     },
   };
 }
-function outlineStyle(props: Record<string, any>) {
+function outlineStyle(props: Dict) {
   return {
     borderWidth: '1',
     _hover: {
@@ -70,7 +70,7 @@ function outlineStyle(props: Record<string, any>) {
     },
   };
 }
-function filledStyle(props: Record<string, any>) {
+function filledStyle(props: Dict) {
   return {
     bg: props.bg || mode('muted.200', 'muted.600')(props),
     borderWidth: '1',

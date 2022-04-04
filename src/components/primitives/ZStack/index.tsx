@@ -12,7 +12,7 @@ export interface InterfaceZStackProps extends IBoxProps<IZStackProps> {
   reversed?: boolean;
 }
 
-export type IZStackProps = InterfaceZStackProps | CustomProps<'ZStack'>;
+export type IZStackProps = InterfaceZStackProps & CustomProps<'ZStack'>;
 const ZStack = ({ children, reversed, ...props }: IZStackProps, ref?: any) => {
   const resolvedProps = usePropsResolution('ZStack', props);
   //TODO: refactor for responsive prop

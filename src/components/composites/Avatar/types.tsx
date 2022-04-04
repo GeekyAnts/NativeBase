@@ -48,4 +48,4 @@ export type IAvatarComponentType = ((
   >;
 };
 
-export type IAvatarProps = InterfaceAvatarProps | CustomProps<'Avatar'>;
+export type IAvatarProps = InterfaceAvatarProps & CustomProps<'Avatar'>;
