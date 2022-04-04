@@ -21,6 +21,7 @@ const Icon = ({ as, ...props }: IIconProps, ref?: any) => {
       ? (resolvedProps) =>
           React.cloneElement(as, {
             ...resolvedProps,
+            //@ts-ignore
             ...as.props,
           })
       : as

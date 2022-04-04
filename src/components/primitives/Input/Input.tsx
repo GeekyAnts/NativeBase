@@ -103,10 +103,10 @@ const Input = (
           disableFocusHandling
           ref={ref}
           variant="unstyled"
-          onFocus={(e) => {
+          onFocus={(e: any) => {
             handleFocus(true, onFocus ? () => onFocus(e) : () => {});
           }}
-          onBlur={(e) => {
+          onBlur={(e: any) => {
             handleFocus(false, onBlur ? () => onBlur(e) : () => {});
           }}
         />
@@ -123,10 +123,10 @@ const Input = (
         isFocused={isFocusedProp}
         {...props}
         ref={ref}
-        onFocus={(e) => {
+        onFocus={(e: any) => {
           handleFocus(true, onFocus ? () => onFocus(e) : () => {});
         }}
-        onBlur={(e) => {
+        onBlur={(e: any) => {
           handleFocus(false, onBlur ? () => onBlur(e) : () => {});
         }}
       />
