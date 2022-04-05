@@ -1,5 +1,7 @@
 import type { InterfacePressableProps } from '../../primitives/Pressable/types';
 import type { IIconProps } from '../../primitives/Icon';
+import type { ColorSchemeType } from '../../../components/types';
+
 import type { CustomProps, VariantType } from '../../types';
 import type { ThemeComponentSizeType } from '../../../components/types/utils';
 export interface InterfaceIconButtonProps
@@ -25,7 +27,7 @@ export interface InterfaceIconButtonProps
    * The color of the radio when it's checked. This should be one of the color keys in the theme (e.g."green", "red").
    * @default 'primary'
    */
-  colorScheme?: string;
+  colorScheme?: ColorSchemeType;
   /**
    * The variant of the button style to use.
    * @default 'ghost'

@@ -2,6 +2,7 @@ import type { ITextProps } from '../../primitives/Text/types';
 import type { IIconProps } from '../../primitives/Icon';
 import type { CustomProps, VariantType } from '../../types';
 import type { InterfaceBoxProps } from '../../primitives/Box';
+import type { ColorSchemeType } from '../../../components/types';
 
 export interface InterfaceBadgeProps extends InterfaceBoxProps<IBadgeProps> {
   /**
@@ -12,7 +13,7 @@ export interface InterfaceBadgeProps extends InterfaceBoxProps<IBadgeProps> {
   /**
    * The color scheme to use for the badge. Must be a key in theme.colors.
    */
-  colorScheme?: string;
+  colorScheme?: ColorSchemeType;
   /**
    * The right icon element to use in the button.
    */

@@ -1,6 +1,7 @@
 import type { MutableRefObject } from 'react';
 import type { CustomProps } from '../../../components/types';
 import type { InterfaceBoxProps } from '../Box';
+import type { ColorSchemeType } from '../../../components/types';
 
 export interface InterfaceSliderProps extends InterfaceBoxProps<ISliderProps> {
   /** The current value of the Slider */
@@ -12,7 +13,7 @@ export interface InterfaceSliderProps extends InterfaceBoxProps<ISliderProps> {
   /**
    * Color scheme of the slider
    */
-  colorScheme?: string;
+  colorScheme?: ColorSchemeType;
   /**
    * Text description of slider. This will be announced by screen reader/
    */

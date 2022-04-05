@@ -6,6 +6,7 @@ import type {
 } from '../../../components/types';
 import type { IColors } from '../../../theme/base/colors';
 import type { InterfaceBoxProps } from '../Box';
+import type { ColorSchemeType } from '../../../components/types';
 
 export interface InterfaceSwitchProps
   extends Omit<SwitchProps, 'tintColor'>,
@@ -62,7 +63,7 @@ export interface InterfaceSwitchProps
   /**
    * Color scheme to be used for the Switch
    */
-  colorScheme?: string;
+  colorScheme?: ColorSchemeType;
   /**
    * Props when Switch is hovered. Accepts all the Switch props.
    */

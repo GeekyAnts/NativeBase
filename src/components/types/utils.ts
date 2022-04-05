@@ -34,6 +34,10 @@ export type ColorType = ResponsiveValue<
   Leaves<ITheme['colors']> | (string & {})
 >;
 
+export type ColorSchemeType = ResponsiveValue<
+  Exclude<keyof ITheme['colors'], 'contrastThreshold'> | (string & {})
+>;
+
 type ComponentType<T extends keyof ITheme['components']> = {
   [Property in keyof ITheme['components'][T]]: ITheme['components'][T][Property];
 };
