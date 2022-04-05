@@ -22,7 +22,7 @@ export interface InterfaceRadioProps extends InterfaceBoxProps<IRadioProps> {
    * The color of the radio. This should be one of the color keys in the theme (e.g."green", "red").
    * @default 'primary'
    */
-  colorScheme?: ColorSchemeType | ResponsiveValue<'default'>;
+  colorScheme?: ColorSchemeType & ResponsiveValue<'default'>;
   /**
    * 	If true, the radio will be disabled
    */

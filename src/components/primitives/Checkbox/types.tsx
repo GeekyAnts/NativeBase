@@ -30,7 +30,7 @@ export interface InterfaceCheckbox extends InterfaceBoxProps<ICheckboxProps> {
   /**
    * The color of the radio when it's checked. This should be one of the color keys in the theme (e.g."green", "red").
    */
-  colorScheme?: ColorSchemeType | ResponsiveValue<'default'>;
+  colorScheme?: ColorSchemeType & ResponsiveValue<'default'>;
   /**
    * If true, the checkbox will be initially checked. (use defaultValue prop if using it inside Checkbox.Group)
    */

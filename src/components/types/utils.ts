@@ -33,7 +33,7 @@ export type ColorType = ResponsiveValue<
 >;
 
 export type ColorSchemeType = ResponsiveValue<
-  keyof ITheme['colors'] | (string & {})
+  Exclude<keyof ITheme['colors'], 'contrastThreshold'> | (string & {})
 >;
 
 type ComponentType<T extends keyof ITheme['components']> = {
