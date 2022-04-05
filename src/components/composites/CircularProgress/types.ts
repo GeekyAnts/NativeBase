@@ -4,6 +4,7 @@ import type { CustomProps, ResponsiveValue } from '../../../components/types';
 import type { ISizes } from '../../../theme/base/sizes';
 import type { IColors } from '../../../theme/base/colors';
 import type { InterfaceBoxProps } from '../../../components/primitives/Box/types';
+import type { ColorSchemeType } from '../../../components/types';
 
 export type InterfaceCircularProgressProps = InterfaceBoxProps<ICircularProgressProps> & {
   style?: ViewStyle;
@@ -11,7 +12,7 @@ export type InterfaceCircularProgressProps = InterfaceBoxProps<ICircularProgress
   value: number;
   size?: ResponsiveValue<ISizes | (string & {}) | number>;
   thickness?: number;
-  colorScheme?: string;
+  colorScheme?: ColorSchemeType;
   color?: ResponsiveValue<IColors | (string & {})>;
   trackColor?: ResponsiveValue<IColors | (string & {})>;
   isIndeterminate?: boolean;

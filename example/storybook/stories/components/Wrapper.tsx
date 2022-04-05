@@ -22,6 +22,11 @@ const myTheme = extendTheme({
   space: {
     mySpace: '29px',
   },
+  colors: {
+    blue1: {
+      '100': 'blue',
+    },
+  },
 
   components: {
     Link: {

@@ -5,6 +5,7 @@ import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import type { CustomProps, ResponsiveValue } from '../../../components/types';
 import type { ISizes } from '../../../theme/base/sizes';
+import type { ColorSchemeType } from '../../../components/types';
 
 export interface InterfaceProgressProps
   extends InterfaceBoxProps<IProgressProps> {
@@ -23,7 +24,7 @@ export interface InterfaceProgressProps
    * The color scheme of the progress. This should be one of the color keys in the theme (e.g."green", "red").
    * @default primary
    */
-  colorScheme?: string;
+  colorScheme?: ColorSchemeType;
   // /**
   //  * Whether progress is indeterminate
   //  * @default false
