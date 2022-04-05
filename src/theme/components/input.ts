@@ -38,6 +38,7 @@ const baseStyle = (props: any) => {
     _input: {
       bg: 'transparent',
       flex: 1,
+      w: '100%',
     },
     _light: {
       placeholderTextColor: 'text.400',
