@@ -1,13 +1,13 @@
 import type { SwitchProps } from 'react-native';
-import type { StyledProps } from '../../../theme/types';
 
 import type { CustomProps, ResponsiveValue } from '../../../components/types';
 import type { ISizes } from '../../../theme/base/sizes';
 import type { IColors } from '../../../theme/base/colors';
+import type { InterfaceBoxProps } from '../Box';
 
 export interface InterfaceSwitchProps
   extends Omit<SwitchProps, 'tintColor'>,
-    StyledProps {
+    InterfaceBoxProps<ISwitchProps> {
   /**
    * The size (width and height) of the switch.
    * @default md
@@ -28,7 +28,7 @@ export interface InterfaceSwitchProps
   /**
    * Function called when the state of the Switch changes.
    */
-  onToggle?: () => any;
+  onToggle?: (...args: any) => void;
   /**
    * If true, set the Switch to the checked state.
    */
@@ -67,4 +67,4 @@ export interface InterfaceSwitchProps
   _hover?: Omit<ISwitchProps, '_hover'>;
 }
 
-export type ISwitchProps = InterfaceSwitchProps | CustomProps<'Switch'>;
+export type ISwitchProps = InterfaceSwitchProps & CustomProps<'Switch'>;

@@ -197,4 +197,4 @@ export type ICheckboxComponentType = ((
   >;
 };
 
-export type ICheckboxProps = InterfaceCheckbox | CustomProps<'Checkbox'>;
+export type ICheckboxProps = InterfaceCheckbox & CustomProps<'Checkbox'>;

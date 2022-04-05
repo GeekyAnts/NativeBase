@@ -109,10 +109,10 @@ const InputAdvance = (
         disableFocusHandling
         ref={ref}
         variant="unstyled"
-        onFocus={(e) => {
+        onFocus={(e: any) => {
           handleFocus(true, onFocus ? () => onFocus(e) : () => {});
         }}
-        onBlur={(e) => {
+        onBlur={(e: any) => {
           handleFocus(false, onBlur ? () => onBlur(e) : () => {});
         }}
         shadow="none"

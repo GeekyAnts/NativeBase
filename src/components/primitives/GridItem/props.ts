@@ -14,15 +14,14 @@ import type { InterfaceBoxProps } from '../Box/types';
 //   area?: string;
 // };
 
-export type IGridItemProps =
-  | (InterfaceBoxProps<IGridItemProps> & {
-      gap?: CSS.Property.Gap;
-      rowSpan?: number;
-      colSpan?: number;
-      colStart?: CSS.Property.GridColumnStart;
-      colEnd?: CSS.Property.GridColumnEnd;
-      rowStart?: CSS.Property.GridColumnStart;
-      rowEnd?: CSS.Property.GridColumnEnd;
-      area?: string;
-    })
-  | CustomProps<'Box'>;
+export type IGridItemProps = (InterfaceBoxProps<IGridItemProps> & {
+  gap?: CSS.Property.Gap;
+  rowSpan?: number;
+  colSpan?: number;
+  colStart?: CSS.Property.GridColumnStart;
+  colEnd?: CSS.Property.GridColumnEnd;
+  rowStart?: CSS.Property.GridColumnStart;
+  rowEnd?: CSS.Property.GridColumnEnd;
+  area?: string;
+}) &
+  CustomProps<'Box'>;

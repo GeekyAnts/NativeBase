@@ -1,6 +1,6 @@
 import { mode } from './../tools';
 
-const baseStyle = (props: any) => {
+const baseStyle = (props: Record<string, any>) => {
   const { primary } = props.theme.colors;
   const focusRing = mode(
     {

@@ -13,4 +13,4 @@ export interface InterfaceDividerProps
   thickness?: SpaceType;
 }
 
-export type IDividerProps = InterfaceDividerProps | CustomProps<'Divider'>;
+export type IDividerProps = InterfaceDividerProps & CustomProps<'Divider'>;

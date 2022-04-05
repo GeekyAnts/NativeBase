@@ -50,7 +50,7 @@ export interface InterfaceStackProps extends InterfaceBoxProps<IStackProps> {
   isReadOnly?: boolean;
 }
 
-export type IStackProps = InterfaceStackProps | CustomProps<'Stack'>;
+export type IStackProps = InterfaceStackProps & CustomProps<'Stack'>;
 
 const Stack = ({ space, ...props }: IStackProps, ref?: any) => {
   const dir = props.direction;

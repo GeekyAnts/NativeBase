@@ -1,11 +1,11 @@
-import type { IBoxProps } from '../../primitives/Box';
+import type { InterfaceBoxProps } from '../../primitives/Box';
 import type { IImageProps } from '../../primitives/Image';
 import type { ImageSourcePropType } from 'react-native';
 import type { MutableRefObject } from 'react';
 import type { CustomProps, ResponsiveValue } from '../../../components/types';
 import type { ISizes } from '../../../theme/base/sizes';
 
-export interface InterfaceAvatarProps extends IBoxProps<IAvatarProps> {
+export interface InterfaceAvatarProps extends InterfaceBoxProps<IAvatarProps> {
   /**
    * The image source of the avatar.
    */
@@ -25,7 +25,8 @@ export interface InterfaceAvatarProps extends IBoxProps<IAvatarProps> {
   wrapperRef?: MutableRefObject<any>;
 }
 
-export interface IAvatarBadgeProps extends IBoxProps<IAvatarBadgeProps> {}
+export interface IAvatarBadgeProps
+  extends InterfaceBoxProps<IAvatarBadgeProps> {}
 
 export interface IAvatarGroupProps extends IAvatarProps {
   /**
@@ -67,4 +68,4 @@ export type IAvatarComponentType = ((
   >;
 };
 
-export type IAvatarProps = InterfaceAvatarProps | CustomProps<'Avatar'>;
+export type IAvatarProps = InterfaceAvatarProps & CustomProps<'Avatar'>;

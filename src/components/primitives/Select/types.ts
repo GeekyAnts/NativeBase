@@ -1,13 +1,13 @@
-import type { IBoxProps } from '../Box';
+import type { InterfaceBoxProps } from '../Box';
 import type { IButtonProps } from '../Button';
 import type { IActionsheetContentProps } from '../../composites/Actionsheet/types';
 import type { MutableRefObject } from 'react';
 import type { CustomProps, ResponsiveValue } from '../../../components/types';
 import type { IColors } from '../../../theme/base/colors';
-import type { IFlatListProps } from 'src/components/basic/FlatList';
+import type { IFlatListProps } from '../../../components/basic/FlatList';
 import type { InterfaceButtonProps } from '../Button/types';
 
-export interface InterfaceSelectProps extends IBoxProps<ISelectProps> {
+export interface InterfaceSelectProps extends InterfaceBoxProps<ISelectProps> {
   /**
    * The placeholder that describes the Select.
    */
@@ -113,4 +113,4 @@ export type ISelectComponentType = ((
     (props: ISelectItemProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
 };
-export type ISelectProps = InterfaceSelectProps | CustomProps<'Select'>;
+export type ISelectProps = InterfaceSelectProps & CustomProps<'Select'>;

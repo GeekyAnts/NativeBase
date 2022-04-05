@@ -79,4 +79,4 @@ export interface InterfaceTooltipProps
   offset?: number;
 }
 
-export type ITooltipProps = InterfaceTooltipProps | CustomProps<'Tooltip'>;
+export type ITooltipProps = InterfaceTooltipProps & CustomProps<'Tooltip'>;

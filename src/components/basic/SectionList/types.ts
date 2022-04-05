@@ -10,6 +10,7 @@ export interface InterfaceSectionListProps<ItemT, sectionT = DefaultSectionT>
     StyledProps,
     PlatformProps<ISectionListProps<ItemT, sectionT>> {}
 
-export type ISectionListProps<ItemT, sectionT = DefaultSectionT> =
-  | InterfaceSectionListProps<ItemT, sectionT>
-  | CustomProps<'SectionList'>;
+export type ISectionListProps<
+  ItemT,
+  sectionT = DefaultSectionT
+> = InterfaceSectionListProps<ItemT, sectionT> & CustomProps<'SectionList'>;

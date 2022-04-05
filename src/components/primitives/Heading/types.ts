@@ -14,4 +14,4 @@ export interface IterfaceHeadingProps extends ITextProps {
     | ThemeComponentSizeType<'Heading'>;
 }
 
-export type IHeadingProps = IterfaceHeadingProps | CustomProps<'Heading'>;
+export type IHeadingProps = IterfaceHeadingProps & CustomProps<'Heading'>;
