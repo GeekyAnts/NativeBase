@@ -34,7 +34,7 @@ export interface InterfaceBoxProps<T = null>
   /**
    * For providing props to Text inside Box
    */
-  _text?: ITextProps;
+  _text?: Partial<ITextProps>;
   bg?: ResponsiveValue<ColorType | (string & {}) | ILinearGradientProps>;
   background?: ResponsiveValue<
     ColorType | (string & {}) | ILinearGradientProps
@@ -46,4 +46,4 @@ export interface InterfaceBoxProps<T = null>
   // gap?: ResponsiveValue<number | string>;
 }
 
-export type IBoxProps<T = null> = InterfaceBoxProps<T> | CustomProps<'Box'>;
+export type IBoxProps<T = null> = InterfaceBoxProps<T> & CustomProps<'Box'>;

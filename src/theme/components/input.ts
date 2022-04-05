@@ -1,22 +1,19 @@
-import { transparentize } from '../tools';
+import { transparentize, mode } from '../tools';
 
-const baseStyle = () => {
-  // const { primary } = props.theme.colors;
-  // Todo: Resolve boxShadow Color or Provide some alternatiove prop for user to change focusRing color
-  // // Todo: Update to support similar focusRing on iOS , Android and Web
-  // const focusRing =
-  //   Platform.OS === 'web'
-  //     ? {
-  //         boxShadow:
-  //           props.variant !== 'underlined'
-  //             ? `${primary[400]} 0px 0px 0px 1px`
-  //             : `${primary[400]} 0px 1px 0px 0px`,
-  //         zIndex: 1,
-  //       }
-  //     : {
-  //         // boxShadow: `${useToken('colors', ['primary.400'])} 0px 0px 0px 1px`,
-  //       };
-
+const baseStyle = (props: any) => {
+  const { primary } = props.theme.colors;
+  const focusRing = mode(
+    {
+      outlineWidth: '1px',
+      outlineColor: `${primary[600]}`,
+      outlineStyle: 'solid',
+    },
+    {
+      outlineWidth: '1px',
+      outlineColor: `${primary[500]}`,
+      outlineStyle: 'solid',
+    }
+  )(props);
   return {
     fontFamily: 'body',
     py: '2',
@@ -37,15 +34,11 @@ const baseStyle = () => {
       style: { outline: 'none' },
       cursor: 'auto',
     },
-    _stack: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      // justifyContent: 'space-between',
-      overflow: 'hidden',
-    },
+
     _input: {
       bg: 'transparent',
       flex: 1,
+      w: '100%',
     },
     _light: {
       placeholderTextColor: 'text.400',
@@ -70,6 +63,15 @@ const baseStyle = () => {
         placeholderTextColor: 'muted.700',
         _hover: {
           borderColor: 'muted.300',
+        },
+      },
+      _stack: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        // justifyContent: 'space-between',
+        overflow: 'hidden',
+        _focus: {
+          style: { ...focusRing },
         },
       },
     },
@@ -98,6 +100,15 @@ const baseStyle = () => {
           borderColor: 'muted.700',
         },
       },
+      _stack: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        // justifyContent: 'space-between',
+        overflow: 'hidden',
+        _focus: {
+          style: { ...focusRing },
+        },
+      },
     },
   };
 };
@@ -108,7 +119,6 @@ function roundedStyle(props: Record<string, any>) {
     borderRadius: 'full',
     borderWidth: '1',
     _focus: {
-      borderWidth: '2',
       bg: transparentize('primary.600', 0.1)(theme),
     },
     _invalid: {
@@ -121,7 +131,6 @@ function outlineStyle(props: Record<string, any>) {
   return {
     borderWidth: '1',
     _focus: {
-      borderWidth: '2',
       bg: transparentize('primary.600', 0.1)(theme),
     },
     _invalid: {
@@ -132,10 +141,8 @@ function outlineStyle(props: Record<string, any>) {
 function filledStyle(props: Record<string, any>) {
   const { theme } = props;
   return {
-    borderWidth: '0',
-    borderColor: 'transparent',
+    borderWidth: '1',
     _focus: {
-      borderWidth: '2',
       bg: transparentize('primary.600', 0.1)(theme),
     },
     _hover: {
@@ -149,9 +156,11 @@ function filledStyle(props: Record<string, any>) {
     },
     _light: {
       bg: 'muted.100',
+      borderColor: 'muted.100',
     },
     _dark: {
       bg: 'muted.800',
+      borderColor: 'muted.800',
     },
   };
 }
@@ -167,6 +176,13 @@ function unstyledStyle() {
     _focus: {
       bg: 'transparent',
     },
+    _stack: {
+      _focus: {
+        style: {
+          outlineWidth: '0',
+        },
+      },
+    },
   };
 }
 function underlinedStyle() {
@@ -174,9 +190,13 @@ function underlinedStyle() {
     borderWidth: '0',
     pl: '0',
     borderBottomWidth: '1',
-    _focus: {
-      borderBottomWidth: '2',
-      fontWeight: '500',
+    _stack: {
+      _focus: {
+        style: {
+          outlineWidth: '0',
+          boxShadow: '0 1px 0 0 #0891B2',
+        },
+      },
     },
     _invalid: {
       borderBottomWidth: '2',

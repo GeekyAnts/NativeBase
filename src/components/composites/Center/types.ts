@@ -9,4 +9,4 @@ export type ISquareProps = InterfaceBoxProps<ISquareProps> & {
   size?: number | string;
 };
 
-export type ICenterProps = InterfaceCenterProps | CustomProps<'Center'>;
+export type ICenterProps = InterfaceCenterProps & CustomProps<'Center'>;

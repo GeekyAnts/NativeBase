@@ -15,6 +15,5 @@ export interface InterfaceScrollViewProps
   _contentContainerStyle?: Partial<IScrollViewProps>;
 }
 
-export type IScrollViewProps =
-  | InterfaceScrollViewProps
-  | CustomProps<'ScrollView'>;
+export type IScrollViewProps = InterfaceScrollViewProps &
+  CustomProps<'ScrollView'>;

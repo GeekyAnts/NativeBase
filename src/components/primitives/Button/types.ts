@@ -4,7 +4,7 @@ import type { ResponsiveValue } from '../../types';
 import type { MutableRefObject } from 'react';
 import type { ISizes } from '../../../theme/base/sizes';
 import type {
-  CombinedSizeType,
+  ThemeComponentSizeType,
   CustomProps,
   VariantType,
   // VariantType,
@@ -27,6 +27,7 @@ import type { InterfacePressableProps } from '../Pressable/types';
 // type buttonVariant = VariantTypeTest<'Button'>;
 // Todo: Create underscore Props section on docs.
 // _hover?: IButtonProps;
+
 export interface InterfaceButtonProps
   extends InterfacePressableProps<IButtonProps> {
   /**
@@ -62,7 +63,7 @@ export interface InterfaceButtonProps
   /**
    * The size of the button.
    */
-  size?: CombinedSizeType<'Button'>;
+  size?: ThemeComponentSizeType<'Button'>;
   // size?: SizeType;
   /**
    * The start icon element to use in the button.
@@ -103,27 +104,27 @@ export interface InterfaceButtonProps
   /**
    * Props to be passed to the button when isLoading is true.
    */
-  _loading?: Omit<IButtonProps, '_loading'>;
+  _loading?: Omit<Partial<IButtonProps>, '_loading'>;
   /**
    * Props to be passed to the button when button is disabled.
    */
-  _disabled?: Omit<IButtonProps, '_disable'>;
+  _disabled?: Omit<Partial<IButtonProps>, '_disable'>;
   /**
    * Props to be passed to the spinner when isLoading is true.
    */
-  _spinner?: ISpinnerProps;
+  _spinner?: Partial<ISpinnerProps>;
   /**
    * Props to be passed to the button when button is hovered.
    */
-  _hover?: Omit<IButtonProps, '_hover'>;
+  _hover?: Omit<Partial<IButtonProps>, '_hover'>;
   /**
    * Props to be passed to the button when button is pressed.
    */
-  _pressed?: Omit<IButtonProps, '_pressed'>;
+  _pressed?: Omit<Partial<IButtonProps>, '_pressed'>;
   /**
    * Props to be passed to the button when button is focused.
    */
-  _focus?: Omit<IButtonProps, '_focus'>;
+  _focus?: Omit<Partial<IButtonProps>, '_focus'>;
   /**
    * The right icon element to use in the button.
    */
@@ -178,4 +179,4 @@ export type IButtonComponentType = ((
   >;
 };
 
-export type IButtonProps = InterfaceButtonProps | CustomProps<'Button'>;
+export type IButtonProps = InterfaceButtonProps & CustomProps<'Button'>;

@@ -1,14 +1,18 @@
 import type { TextInputProps } from 'react-native';
 import type { StyledProps } from '../../../theme/types';
-import type { CombinedSizeType, PlatformProps, VariantType } from '../../types';
-import type { IBoxProps } from '../Box';
+import type {
+  PlatformProps,
+  ThemeComponentSizeType,
+  VariantType,
+} from '../../types';
+import type { InterfaceBoxProps } from '../Box';
 import type { ResponsiveValue } from '../../../components/types';
 import type { ISizes } from '../../../theme/base/sizes';
 import type { CustomProps } from '../../types';
 import type { IStackProps } from '../Stack/Stack';
 
 export interface InterfaceInputProps
-  extends PlatformProps<IInputProps>,
+  extends PlatformProps<any>,
     Omit<TextInputProps, 'textAlign'>,
     StyledProps {
   /**
@@ -36,7 +40,7 @@ export interface InterfaceInputProps
    * The size of the input.
    * @default 'md'
    */
-  size?: CombinedSizeType<'Input'>; // ResponsiveValue<ISizes | (string & {}) | number>;
+  size?: ThemeComponentSizeType<'Input'>; // ResponsiveValue<ISizes | (string & {}) | number>;
   /**
    * This will set aria-required="true" on web when passed in formcontrol.
    */
@@ -104,7 +108,7 @@ export interface InterfaceInputProps
   _stack?: Partial<IStackProps>;
 }
 
-export interface IInputGroupProps extends IBoxProps<IInputGroupProps> {
+export interface IInputGroupProps extends InterfaceBoxProps<IInputGroupProps> {
   /**
    * The variant of the input style to use.
    * @default 'outline'
@@ -117,4 +121,6 @@ export interface IInputGroupProps extends IBoxProps<IInputGroupProps> {
   size?: ResponsiveValue<ISizes | (string & {}) | number>;
 }
 
-export type IInputProps = InterfaceInputProps | CustomProps<'Input'>;
+export type IInputComponentType = (props: IInputProps) => JSX.Element;
+
+export type IInputProps = InterfaceInputProps & CustomProps<'Input'>;

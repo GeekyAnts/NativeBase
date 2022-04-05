@@ -39,7 +39,7 @@ export interface InterfaceLinkProps extends InterfaceBoxProps<ILinkProps> {
   /**
    * Hover props. Accepts all styled system props.
    */
-  _hover?: Omit<ILinkProps, '_hover'>;
+  _hover?: Omit<Partial<ILinkProps>, '_hover'>;
   /**
    * Ref to be attached to the Link wrapper
    */
@@ -53,4 +53,4 @@ export type IUseLinkProp = {
   _ref: MutableRefObject<any>;
 };
 
-export type ILinkProps = InterfaceLinkProps | CustomProps<'Link'>;
+export type ILinkProps = InterfaceLinkProps & CustomProps<'Link'>;

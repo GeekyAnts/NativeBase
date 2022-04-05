@@ -3,9 +3,9 @@ import type { InterfaceBoxProps } from '../../primitives/Box/types';
 import type { IPressableProps } from '../../primitives/Pressable';
 import type { MutableRefObject } from 'react';
 import type { IPresenceTransitionProps } from '../Transitions/types';
-import type { IIconProps } from 'src/components/primitives/Icon';
-import type { IStackProps } from 'src/components/primitives/Stack';
-import type { IOverlayProps } from 'src/components/primitives/Overlay';
+import type { IIconProps } from '../../../components/primitives/Icon';
+import type { IStackProps } from '../../../components/primitives/Stack';
+import type { IOverlayProps } from '../../../components/primitives/Overlay';
 import type { CustomProps } from '../../../components/types';
 
 export interface InterfaceMenuProps extends InterfaceBoxProps<IMenuProps> {
@@ -95,7 +95,7 @@ export interface IMenuItemProps extends IPressableProps {
   /**
    * Props to be passed to Text
    */
-  _text?: ITextProps;
+  _text?: Partial<ITextProps>;
   /**
    * This value will be available for the typeahead menu feature
    */
@@ -186,4 +186,4 @@ export type IMenuContextProps = {
   open?: boolean;
   closeOnSelect?: boolean;
 };
-export type IMenuProps = InterfaceMenuProps | CustomProps<'Menu'>;
+export type IMenuProps = InterfaceMenuProps & CustomProps<'Menu'>;

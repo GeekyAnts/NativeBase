@@ -36,7 +36,7 @@ export interface InterfaceImageProps
   /**
    * Text styling for alt.
    */
-  _alt?: ITextProps;
+  _alt?: Partial<ITextProps>;
   /**
    * In event there was an error loading the src, specify a fallback JSX Element.
    */
@@ -47,4 +47,4 @@ export interface InterfaceImageProps
   src?: string;
 }
 
-export type IImageProps = InterfaceImageProps | CustomProps<'Image'>;
+export type IImageProps = InterfaceImageProps & CustomProps<'Image'>;

@@ -112,7 +112,12 @@ const Input = (
   }
 
   return (
-    <Stack {..._stack} {...layoutProps} ref={mergeRefs([_ref, wrapperRef])}>
+    <Stack
+      {..._stack}
+      {...layoutProps}
+      ref={mergeRefs([_ref, wrapperRef])}
+      isFocused={isFocused}
+    >
       {InputLeftElement || leftElement ? InputLeftElement || leftElement : null}
       <StyledInput
         {...inputProps}

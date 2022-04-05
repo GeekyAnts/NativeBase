@@ -108,4 +108,4 @@ export type ISliderComponentType = ((
   >;
 };
 
-export type ISliderProps = InterfaceSliderProps | CustomProps<'Slider'>;
+export type ISliderProps = InterfaceSliderProps & CustomProps<'Slider'>;

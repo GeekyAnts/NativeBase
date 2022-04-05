@@ -1,12 +1,10 @@
 import type { InterfaceBoxProps } from '../../primitives/Box';
 import type { IIconButtonProps } from '../../composites/IconButton';
 import type { MutableRefObject } from 'react';
-
-import type { CustomProps, ResponsiveValue } from '../../../components/types';
-import type { ISizes } from '../../../theme/base/sizes';
+import type { CustomProps } from '../../../components/types';
 import type { IScrollViewProps } from '../../basic/ScrollView';
 import type { IFadeProps, ISlideProps } from '../Transitions';
-
+import type { ThemeComponentSizeType } from '../../../components/types/utils';
 export interface InterfaceModalProps extends InterfaceBoxProps<IModalProps> {
   /**
    * If true, the modal will open. Useful for controllable state behaviour
@@ -23,7 +21,7 @@ export interface InterfaceModalProps extends InterfaceBoxProps<IModalProps> {
   /**
    * The size of the modal
    */
-  size?: ResponsiveValue<ISizes | (string & {}) | number>;
+  size?: ThemeComponentSizeType<'Modal'>;
   /**
    * The ref of element to receive focus when the modal opens.
    */
@@ -69,15 +67,15 @@ export interface InterfaceModalProps extends InterfaceBoxProps<IModalProps> {
   /**
    * Props applied on Overlay Animation.
    */
-  _backdropFade?: IFadeProps;
+  _backdropFade?: Partial<IFadeProps>;
   /**
    * Props applied on Child Fade Animation.
    */
-  _fade?: IFadeProps;
+  _fade?: Partial<IFadeProps>;
   /**
    * Props applied on Child Slide Animation.
    */
-  _slide?: ISlideProps;
+  _slide?: Partial<ISlideProps>;
 }
 
 export type IModalComponentType = ((
@@ -112,4 +110,4 @@ export type IModalComponentType = ((
   >;
 };
 
-export type IModalProps = InterfaceModalProps | CustomProps<'Modal'>;
+export type IModalProps = InterfaceModalProps & CustomProps<'Modal'>;

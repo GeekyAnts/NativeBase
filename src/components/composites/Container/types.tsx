@@ -5,6 +5,5 @@ export type InterfaceContainerProps = InterfaceBoxProps<IContainerProps> & {
   centerContent?: boolean;
 };
 
-export type IContainerProps =
-  | InterfaceContainerProps
-  | CustomProps<'Container'>;
+export type IContainerProps = InterfaceContainerProps &
+  CustomProps<'Container'>;

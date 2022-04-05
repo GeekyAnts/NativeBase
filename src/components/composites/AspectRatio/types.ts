@@ -1,8 +1,8 @@
-import type { IBoxProps } from '../../primitives/Box';
+import type { InterfaceBoxProps } from '../../primitives/Box';
 import type { CustomProps, ResponsiveValue } from '../../../components/types';
 
 export interface InterfaceAspectRatioProps
-  extends IBoxProps<IAspectRatioProps> {
+  extends InterfaceBoxProps<IAspectRatioProps> {
   /**
    * The aspect ratio of the container. Some examples are `16/9`, `16/10`, `9/16`, `4/3`
    * @default 4/3
@@ -10,6 +10,5 @@ export interface InterfaceAspectRatioProps
   ratio?: ResponsiveValue<number>;
 }
 
-export type IAspectRatioProps =
-  | InterfaceAspectRatioProps
-  | CustomProps<'AspectRatio'>;
+export type IAspectRatioProps = InterfaceAspectRatioProps &
+  CustomProps<'AspectRatio'>;

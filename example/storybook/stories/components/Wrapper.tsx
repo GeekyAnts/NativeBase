@@ -11,6 +11,7 @@ import {
   SunIcon,
   extendTheme,
   Button,
+  Input,
 } from 'native-base';
 import type { StorageManager } from 'native-base';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -38,12 +39,39 @@ const myTheme = extendTheme({
             padding: myPaddingX,
           };
         },
+
+        myNewButton1: (props: any) => {
+          return {
+            padding: props.padding,
+          };
+        },
       },
       sizes: {
         newsize: ({ mySize }: { mySize: number }) => {
           return {
             padding: mySize,
           };
+        },
+      },
+    },
+
+    Input: {
+      variants: {
+        newsize: ({ mySize }: { mySize: number }) => {
+          return {
+            padding: mySize,
+          };
+        },
+
+        newsize1: (props: any) => {
+          return {
+            padding: props.padding,
+          };
+        },
+      },
+      sizes: {
+        'my-size': {
+          padding: 2,
         },
       },
     },
@@ -115,7 +143,9 @@ export function RenderTestButton() {
   const [state, setState] = React.useState(1);
   return (
     <Box style={{ position: 'absolute', top: 10, left: 20 }} m={2} bg="red.100">
+      <Input m={2} size="my-size" />
       <Button
+        size=""
         variant={'myNewButton'}
         // title={state.toString()}
         onPress={() => setState(state + 1)}
