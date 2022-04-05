@@ -31,12 +31,12 @@ export interface IFormControlLabelProps extends IFormControlProps {
   /**
    * Passed props will be applied on disabled state.
    */
-  _disabled?: IBoxProps<IFormControlLabelProps>;
+  _disabled?: Partial<IBoxProps<IFormControlLabelProps>>;
   // _focus?: any;
   /**
    * Passed props will be applied on invalid state.
    */
-  _invalid?: IBoxProps<IFormControlLabelProps>;
+  _invalid?: Partial<IBoxProps<IFormControlLabelProps>>;
   /**
    * Reflects the value of the 'for' content property.
    */
@@ -44,13 +44,13 @@ export interface IFormControlLabelProps extends IFormControlProps {
   /**
    * Props applied to astrick text
    */
-  _astrick?: ITextProps;
+  _astrick?: Partial<ITextProps>;
 }
 export interface IFormControlErrorMessageProps extends IFormControlProps {
   /**
    * Passed props will be applied on disabled state.
    */
-  _disabled?: IBoxProps<IFormControlLabelProps>;
+  _disabled?: Partial<IBoxProps<IFormControlLabelProps>>;
   /**
    * The right icon element to use in the FormControl.ErrorMessage.
    */
@@ -70,18 +70,18 @@ export interface IFormControlErrorMessageProps extends IFormControlProps {
   /**
    * Props to be passed to the HStack used inside of FormControl.ErrorMessage.
    */
-  _stack?: IStackProps;
+  _stack?: Partial<IStackProps>;
 }
 export interface IFormControlHelperTextProps extends IFormControlProps {
   /**
    * Passed props will be applied on disabled state.
    */
-  _disabled?: IBoxProps<IFormControlLabelProps>;
+  _disabled?: Partial<IBoxProps<IFormControlLabelProps>>;
   // _focus?: any;
   /**
    * Passed props will be applied on invalid state.
    */
-  _invalid?: IBoxProps<IFormControlLabelProps>;
+  _invalid?: Partial<IBoxProps<IFormControlLabelProps>>;
 }
 
 export type FormControlComponentType = ((
