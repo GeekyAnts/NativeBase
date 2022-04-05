@@ -20,9 +20,11 @@ export type SizeType = ResponsiveValue<
 
 export type ThemeComponentSizeType<
   Component extends keyof ITheme['components']
-> = 'sizes' extends keyof ITheme['components'][Component]
-  ? keyof ITheme['components'][Component]['sizes'] | (string & {}) | number
-  : never;
+> = ResponsiveValue<
+  'sizes' extends keyof ITheme['components'][Component]
+    ? keyof ITheme['components'][Component]['sizes'] | (string & {}) | number
+    : never
+>;
 
 export type CombinedSizeType<Component extends keyof ITheme['components']> =
   | SizeType
