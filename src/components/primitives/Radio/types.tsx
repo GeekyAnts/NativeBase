@@ -7,7 +7,7 @@ import type { MutableRefObject } from 'react';
 import type { ResponsiveValue } from '../../../components/types';
 import type { ISizes } from '../../../theme/base/sizes';
 export type IRadioValue = string;
-import type { CustomProps } from '../../types';
+import type { CustomProps, ThemeComponentSizeType } from '../../types';
 import type { IIconProps } from '../Icon';
 
 export type IRadioGroupOnChangeHandler = (value: IRadioValue) => any;
@@ -50,7 +50,7 @@ export interface InterfaceRadioProps extends InterfaceBoxProps<IRadioProps> {
    * 	The size (width and height) of the radio.
    */
 
-  size?: ResponsiveValue<ISizes | (string & {}) | number>;
+  size?: ThemeComponentSizeType<'Radio'>;
 
   /**
    * If given, will use this icon instead of the default.
