@@ -63,7 +63,7 @@ export interface InterfaceButtonProps
   /**
    * The size of the button.
    */
-  size?: ThemeComponentSizeType<'Button'>;
+  size?: ThemeComponentSizeType<'Button'> | number;
   // size?: SizeType;
   /**
    * The start icon element to use in the button.
