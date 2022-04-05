@@ -1,5 +1,5 @@
 import type { ColorValue } from 'react-native';
-import type { IBoxProps } from '../../primitives/Box';
+import type { InterfaceBoxProps } from '../../primitives/Box';
 import type { IIconButtonProps } from '../../composites/IconButton';
 import type { MutableRefObject } from 'react';
 
@@ -7,7 +7,7 @@ export type IPopoverArrowProps = {
   height?: number;
   width?: number;
   color?: ColorValue;
-} & IBoxProps;
+} & InterfaceBoxProps;
 
 export type IPopoverArrowImplProps = {
   placement?: string;
@@ -20,7 +20,7 @@ export type IArrowProps = {
   style: Object;
 };
 
-export interface IPopoverProps {
+export interface InterfacePopoverProps {
   /**
    * If true, the popover will be opened by default
    */
@@ -124,14 +124,15 @@ export type IScrollContentStyle = {
   arrowWidth: number;
 };
 
-export interface IPopoverContentProps extends IBoxProps<IPopoverContentProps> {}
+export interface IPopoverContentProps
+  extends InterfaceBoxProps<IPopoverContentProps> {}
 
 export type IPopoverComponentType = ((
   props: IPopoverProps & { ref?: MutableRefObject<any> }
 ) => JSX.Element & { ref?: MutableRefObject<any> }) & {
   Body: React.MemoExoticComponent<
     (
-      props: IBoxProps<IPopoverProps> & { ref?: MutableRefObject<any> }
+      props: InterfaceBoxProps<IPopoverProps> & { ref?: MutableRefObject<any> }
     ) => JSX.Element
   >;
   CloseButton: React.MemoExoticComponent<
@@ -146,17 +147,19 @@ export type IPopoverComponentType = ((
   >;
   Footer: React.MemoExoticComponent<
     (
-      props: IBoxProps<IPopoverProps> & { ref?: MutableRefObject<any> }
+      props: InterfaceBoxProps<IPopoverProps> & { ref?: MutableRefObject<any> }
     ) => JSX.Element
   >;
   Header: React.MemoExoticComponent<
     (
-      props: IBoxProps<IPopoverProps> & { ref?: MutableRefObject<any> }
+      props: InterfaceBoxProps<IPopoverProps> & { ref?: MutableRefObject<any> }
     ) => JSX.Element
   >;
   Arrow: React.MemoExoticComponent<
     (
-      props: IBoxProps<IPopoverProps> & { ref?: MutableRefObject<any> }
+      props: InterfaceBoxProps<IPopoverProps> & { ref?: MutableRefObject<any> }
     ) => JSX.Element
   >;
 };
+
+export type IPopoverProps = InterfacePopoverProps;

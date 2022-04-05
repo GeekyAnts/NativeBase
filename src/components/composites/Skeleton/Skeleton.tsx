@@ -58,7 +58,7 @@ const Skeleton = (props: ISkeletonProps, ref: any) => {
   return resolvedProps.isLoaded ? (
     children
   ) : (
-    <Box bg={endColor} {...resolvedProps} ref={ref} overflow="hidden">
+    <Box bg={endColor} {...resolvedProps} ref={ref}>
       <Animated.View style={skeletonStyle.skeleton} />
     </Box>
   );

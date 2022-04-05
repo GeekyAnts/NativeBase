@@ -1,9 +1,9 @@
 import React, { memo, forwardRef } from 'react';
-import StackMain, { IStackProps } from './Stack';
+import StackMain, { InterfaceStackProps } from './Stack';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
-import type { ResponsiveValue } from '../../types';
+import type { CustomProps, ResponsiveValue } from '../../types';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-export interface IHStackProps extends IStackProps {
+export interface InterfaceHStackProps extends InterfaceStackProps {
   /**
    * The direction of the Stack Items.
    * @default row
@@ -13,6 +13,7 @@ export interface IHStackProps extends IStackProps {
   >;
 }
 
+export type IHStackProps = InterfaceHStackProps & CustomProps<'HStack'>;
 const HStack = (props: IHStackProps, ref?: any) => {
   const resolvedProps = usePropsResolution('HStack', props);
   //TODO: refactor for responsive prop

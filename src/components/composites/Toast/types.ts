@@ -1,8 +1,9 @@
-import type { IAlertProps } from '../Alert/types';
 import type { ReactNode } from 'react';
-import type { IBoxProps } from '../../primitives/Box';
+import type { ITextProps } from '../../primitives/Text';
+import type { InterfaceBoxProps } from '../../primitives/Box';
+import type { CustomProps } from '../../../components/types';
 
-export interface IToastProps extends IBoxProps<IToastProps> {
+export interface InterfaceToastProps extends InterfaceBoxProps<IToastProps> {
   /**
    * The title to be rendered in the Toast
    */
@@ -20,10 +21,6 @@ export interface IToastProps extends IBoxProps<IToastProps> {
    * The `id` of the toast. Mostly used when you need to prevent duplicate. By default, we generate a unique `id` for each toast
    */
   id?: any;
-  /**
-   * If `true`, toast will show a close button
-   */
-  isClosable?: boolean;
   /**
    * Callback function to run side effects after the toast has closed.
    */
@@ -44,12 +41,13 @@ export interface IToastProps extends IBoxProps<IToastProps> {
    */
   render?: (props: any) => ReactNode;
   /**
-   * The status of the toast. Adding status will render an [Alert](alert.md) component inside the `Toast`
+   * For providing props to Title inside Toast
    */
-  status?: IAlertProps['status'];
-  /** The variants of the [Alert](alert.md) component.
+  _title?: Partial<ITextProps>;
+  /**
+   * For providing props to Description inside Toast
    */
-  variant?: IAlertProps['variant'];
+  _description?: Partial<ITextProps>;
   /**
    * The text to be announced by a screen reader when the Toast opens.
    */
@@ -81,3 +79,5 @@ export type IToastContext = {
   setVisibleToasts: any;
   hideToast: (id: any) => void;
 };
+
+export type IToastProps = InterfaceToastProps & CustomProps<'Toast'>;

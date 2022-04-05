@@ -1,9 +1,11 @@
 import React, { memo, forwardRef } from 'react';
 import { View } from 'react-native';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
-import Text from './../Text';
+import { getColor } from '../../../theme';
+import { useTheme } from '../../../hooks';
 import { makeStyledComponent } from '../../../utils/styled';
-import type { IBoxProps } from './types';
+import { wrapStringChild } from '../../../utils/wrapStringChild';
+import type { IBoxProps, InterfaceBoxProps } from './types';
 import { useSafeArea } from '../../../hooks/useSafeArea';
 import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
@@ -14,6 +16,7 @@ let MemoizedGradient: any;
 
 const Box = ({ children, ...props }: IBoxProps, ref: any) => {
   // const { _text, ...resolvedProps } = useThemeProps('Box', props);
+  const theme = useTheme();
   const { _text, ...resolvedProps } = usePropsResolution('Box', props);
   let Gradient = useNativeBaseConfig('NativeBaseConfigProvider').config
     .dependencies?.['linear-gradient'];
@@ -44,6 +47,9 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
 
       Gradient = MemoizedGradient;
 
+      lgrad.colors = lgrad.colors?.map((color: string) => {
+        return getColor(color, theme.colors, theme);
+      });
       let startObj = { x: 0, y: 0 };
       let endObj = { x: 0, y: 1 };
       if (lgrad.start && lgrad.start.length === 2) {
@@ -78,20 +84,21 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
           end={endObj}
           locations={lgrad.locations}
         >
-          {React.Children.map(children, (child) =>
+          {/* {React.Children.map(children, (child) =>
             typeof child === 'string' || typeof child === 'number' ? (
               <Text {..._text}>{child}</Text>
             ) : (
               child
             )
-          )}
+          )} */}
+          {wrapStringChild(children, _text)}
         </Gradient>
       );
     }
   }
   return (
     <StyledBox ref={ref} {...safeAreaProps}>
-      {React.Children.map(children, (child) => {
+      {/* {React.Children.map(children, (child) => {
         return typeof child === 'string' ||
           typeof child === 'number' ||
           (child?.type === React.Fragment &&
@@ -101,11 +108,11 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
         ) : (
           child
         );
-      })}
+      })} */}
+      {wrapStringChild(children, _text)}
     </StyledBox>
   );
 };
 
-export type { IBoxProps };
-
+export type { IBoxProps, InterfaceBoxProps };
 export default memo(forwardRef(Box));

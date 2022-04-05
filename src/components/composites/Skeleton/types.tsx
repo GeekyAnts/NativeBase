@@ -1,10 +1,11 @@
 import type { MutableRefObject } from 'react';
-import type { IBoxProps } from '../../primitives';
+import type { InterfaceBoxProps } from '../../primitives/Box';
 import type { IStackProps } from '../../primitives/Stack/Stack';
-import type { ResponsiveValue } from '../../../components/types';
+import type { CustomProps, ResponsiveValue } from '../../../components/types';
 import type { ISizes } from '../../../theme/base/sizes';
 import type { IColors } from '../../../theme/base/colors';
-export interface ISkeletonProps extends IBoxProps<ISkeletonProps> {
+export interface InterfaceSkeletonProps
+  extends InterfaceBoxProps<ISkeletonProps> {
   /**
    * The fadeIn duration in seconds
    */
@@ -60,7 +61,12 @@ export interface ISkeletonTextProps extends IStackProps {
   /**
    * Stying for each line
    */
-  _line?: ISkeletonProps;
+  _line?: Partial<ISkeletonProps>;
+
+  /**
+   * Props to be passed to the Stack used inside.
+   */
+  _stack?: Partial<IStackProps>;
 }
 
 export type ISkeletonComponentType = ((
@@ -73,3 +79,5 @@ export type ISkeletonComponentType = ((
     (props: ISkeletonTextProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
 };
+
+export type ISkeletonProps = InterfaceSkeletonProps & CustomProps<'Skeleton'>;

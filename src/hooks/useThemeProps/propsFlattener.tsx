@@ -1,5 +1,6 @@
 import merge from 'lodash.merge';
 
+const SPECIFICITY_1000 = 1000;
 const SPECIFICITY_110 = 110;
 const SPECIFICITY_100 = 100;
 const SPECIFICITY_70 = 70;
@@ -8,9 +9,11 @@ const SPECIFICITY_55 = 55;
 const SPECIFICITY_50 = 50;
 const SPECIFICITY_40 = 40;
 const SPECIFICITY_30 = 30;
+// SPECIFICITY_20 is being user for defferentiating between User Props and Theme Props. So any specificity less than SPECIFICITY_20 will be ovridable by user props.
+const SPECIFICITY_20 = 20;
 const SPECIFICITY_10 = 10;
-const SPECIFICITY_1 = 1;
 const specificityPrecedence = [
+  SPECIFICITY_1000,
   SPECIFICITY_110,
   SPECIFICITY_100,
   SPECIFICITY_70,
@@ -19,10 +22,11 @@ const specificityPrecedence = [
   SPECIFICITY_50,
   SPECIFICITY_40,
   SPECIFICITY_30,
+  SPECIFICITY_20,
   SPECIFICITY_10,
-  SPECIFICITY_1,
 ];
 const INITIAL_PROP_SPECIFICITY = {
+  [SPECIFICITY_1000]: 0,
   [SPECIFICITY_110]: 0,
   [SPECIFICITY_100]: 0,
   [SPECIFICITY_70]: 0,
@@ -31,8 +35,8 @@ const INITIAL_PROP_SPECIFICITY = {
   [SPECIFICITY_55]: 0,
   [SPECIFICITY_40]: 0,
   [SPECIFICITY_30]: 0,
+  [SPECIFICITY_20]: 0,
   [SPECIFICITY_10]: 0,
-  [SPECIFICITY_1]: 0,
 };
 
 const pseudoPropsMap = {
@@ -96,6 +100,10 @@ const pseudoPropsMap = {
     respondTo: 'isLoading',
     priority: SPECIFICITY_110,
   },
+  _important: {
+    dependentOn: null,
+    priority: SPECIFICITY_1000,
+  },
 } as const;
 
 type IPseudoPropsMap = typeof pseudoPropsMap;
@@ -150,6 +158,8 @@ const shouldResolvePseudoProp = ({
   } else if (pseudoPropsMap[property].dependentOn === 'state') {
     // @ts-ignore
     return state[pseudoPropsMap[property].respondTo];
+  } else if (pseudoPropsMap[property].dependentOn === null) {
+    return true;
   } else {
     return false;
   }
@@ -208,17 +218,19 @@ const simplifyProps = (
       ? { ...currentSpecificity }
       : {
           ...INITIAL_PROP_SPECIFICITY,
-          [SPECIFICITY_1]: priority,
+          [SPECIFICITY_20]: priority,
         };
 
     if (
       // @ts-ignore
       state[pseudoPropsMap[property]?.respondTo] ||
-      ['_dark', '_light', '_web', '_ios', '_android'].includes(property)
+      ['_dark', '_light', '_web', '_ios', '_android', '_important'].includes(
+        property
+      )
     ) {
       // @ts-ignore
       if (shouldResolvePseudoProp({ property, state, platform, colormode })) {
-        // NOTE: Handling (state driven) props like _web, _ios, _android, _dark, _light, _disabled, _focus, _focusVisible, _hover, _pressed, _readOnly, _invalid, .... Only when they are true.
+        // NOTE: Handling (state driven) props like _important, _web, _ios, _android, _dark, _light, _disabled, _focus, _focusVisible, _hover, _pressed, _readOnly, _invalid, .... Only when they are true.
         if (process.env.NODE_ENV === 'development' && props.debug) {
           /* eslint-disable-next-line */
           console.log(
@@ -280,9 +292,6 @@ const simplifyProps = (
           console.log(`%c ${property}`, 'color: #818cf8;', 'deleted');
         }
       } else {
-        // specificityMap[property] = propertySpecity;
-        // flattenProps[property] = props[property];
-
         if (process.env.NODE_ENV === 'development' && props.debug) {
           /* eslint-disable-next-line */
           console.log(`%c ${property}`, 'color: #818cf8;', 'cascaded');
@@ -318,13 +327,6 @@ export const propsFlattener = (
   }
 
   const specificityMap = currentSpecificityMap || {};
-
-  // STEP 1.a (if): Check weather it should be recursively resolved
-  // NOTE: (when true) recursively resolved it
-  // STEP 1.b (else if): Check specificty
-  // STEP 1.b.i: Check for pseudo props
-  // NOTE: (when true) Merge it.
-  // NOTE: (when false) Replace it.
 
   simplifyProps(
     {

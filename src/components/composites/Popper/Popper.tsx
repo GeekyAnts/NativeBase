@@ -71,7 +71,7 @@ const PopperContent = React.forwardRef(
       shouldOverlapWithTrigger,
     });
 
-    let restElements: React.ReactNode[] = [];
+    const restElements: React.ReactNode[] = [];
     let arrowElement: React.ReactElement | null = null;
 
     React.useEffect(() => {
@@ -182,7 +182,7 @@ const PopperArrow = React.forwardRef(
       [actualPlacement, height, width]
     );
 
-    let triangleStyle: ViewStyle = React.useMemo(
+    const triangleStyle: ViewStyle = React.useMemo(
       () => ({
         position: 'absolute',
         width,
@@ -191,7 +191,7 @@ const PopperArrow = React.forwardRef(
       [width, height]
     );
 
-    let arrowStyles = React.useMemo(
+    const arrowStyles = React.useMemo(
       () => [arrowProps.style, triangleStyle, additionalStyles, style],
       [triangleStyle, additionalStyles, arrowProps.style, style]
     );
@@ -210,7 +210,7 @@ const PopperArrow = React.forwardRef(
 );
 
 const getArrowStyles = (props: IArrowStyles) => {
-  let additionalStyles: any = {
+  const additionalStyles: any = {
     transform: [],
   };
 

@@ -1,10 +1,9 @@
-import type { IPressableProps } from '../../primitives/Pressable';
+import type { InterfacePressableProps } from '../../primitives/Pressable/types';
 import type { IIconProps } from '../../primitives/Icon';
-import type { ResponsiveValue, VariantType } from '../../types';
-import type { ISizes } from '../../../theme/base/sizes';
-
-export interface IIconButtonProps
-  extends Omit<IPressableProps, 'children' | 'color'>,
+import type { CustomProps, VariantType } from '../../types';
+import type { ThemeComponentSizeType } from '../../../components/types/utils';
+export interface InterfaceIconButtonProps
+  extends Omit<InterfacePressableProps, 'children' | 'color'>,
     Omit<
       IIconProps,
       | 'delayLongPress'
@@ -35,7 +34,7 @@ export interface IIconButtonProps
   /**
    * The size of the button.
    */
-  size?: ResponsiveValue<ISizes | (string & {}) | number>;
+  size?: ThemeComponentSizeType<'IconButton'>;
   /**
    * If true, the button will be disabled.
    */
@@ -47,17 +46,19 @@ export interface IIconButtonProps
   /**
    * Props to be passed to the icon used inside of IconButton.
    */
-  _icon?: IIconProps;
+  _icon?: Partial<IIconProps>;
   /**
    *
    */
-  _hover?: IIconButtonProps;
+  _hover?: Omit<Partial<IIconButtonProps>, '_hover'>;
   /**
    *
    */
-  _pressed?: IIconButtonProps;
+  _pressed?: Omit<Partial<IIconButtonProps>, '_pressed'>;
   /**
    *
    */
-  _focus?: IIconButtonProps;
+  _focus?: Omit<Partial<IIconButtonProps>, '_focus'>;
 }
+
+export type IIconButtonProps = InterfaceIconButtonProps & CustomProps<'Icon'>;

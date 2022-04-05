@@ -1,5 +1,4 @@
 import { Dimensions } from 'react-native';
-import { mode } from '../tools';
 
 const sizes = {
   xs: {
@@ -45,6 +44,10 @@ export const AlertDialog = {
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
+    _web: { pointerEvents: 'box-none' },
+    _backdropFade: { exitDuration: 150, entryDuration: 200 },
+    _fade: { exitDuration: 100, entryDuration: 200 },
+    _slide: { duration: 200, overlay: false },
   },
   sizes,
   defaultProps: {
@@ -54,68 +57,129 @@ export const AlertDialog = {
 };
 
 export const AlertDialogContent = {
-  baseStyle: (props: Record<string, any>) => {
+  baseStyle: () => {
     return {
-      bg: mode('coolGray.50', 'gray.700')(props),
-      _text: { color: mode('coolGray.800', 'warmGray.50')(props) },
       shadow: 1,
       rounded: 'lg',
       maxHeight: `${Dimensions.get('window').height - 150}px`,
       overflow: 'hidden',
+      _light: {
+        bg: 'muted.50',
+        _text: {
+          color: 'text.900',
+        },
+      },
+      _dark: {
+        bg: 'muted.800',
+        color: 'text.50',
+      },
     };
   },
 };
 export const AlertDialogCloseButton = {
-  baseStyle: (props: Record<string, any>) => {
+  baseStyle: () => {
     return {
       position: 'absolute',
       right: '3',
       top: '3',
       zIndex: '1',
-      colorScheme: 'coolGray',
       p: '2',
+      bg: 'transparent',
+      borderRadius: 'sm',
+      _web: {
+        outlineWidth: 0,
+        cursor: 'pointer',
+      },
       _icon: {
-        size: '3',
-        color: mode('coolGray.600', 'coolGray.100')(props),
+        size: '4',
+      },
+      _light: {
+        _icon: {
+          color: 'muted.500',
+        },
+        _hover: {
+          bg: 'muted.200',
+        },
+        _pressed: {
+          bg: 'muted.300',
+        },
+      },
+      _dark: {
+        _icon: {
+          color: 'muted.400',
+        },
+        _hover: {
+          bg: 'muted.700',
+        },
+        _pressed: {
+          bg: 'muted.600',
+        },
       },
     };
   },
 };
 export const AlertDialogHeader = {
-  baseStyle: (props: Record<string, any>) => {
+  baseStyle: () => {
     return {
-      py: '4',
-      px: '3',
+      p: '4',
       borderBottomWidth: '1',
-      borderColor: mode('coolGray.200', 'gray.600')(props),
       _text: {
         fontSize: 'md',
         fontWeight: 'semibold',
-        color: mode('coolGray.800', 'warmGray.50')(props),
         lineHeight: 'sm',
+      },
+      _light: {
+        bg: 'muted.50',
+        borderColor: 'muted.300',
+        _text: {
+          color: 'text.900',
+        },
+      },
+      _dark: {
+        bg: 'muted.800',
+        borderColor: 'muted.700',
+        _text: {
+          color: 'text.50',
+        },
       },
     };
   },
 };
 export const AlertDialogBody = {
-  baseStyle: (props: Record<string, any>) => {
+  baseStyle: () => {
     return {
-      pt: '2',
-      p: '3',
-      _text: {
-        color: mode('coolGray.600', 'coolGray.300')(props),
+      p: '4',
+      _light: {
+        bg: 'muted.50',
+        _text: {
+          color: 'text.900',
+        },
+      },
+      _dark: {
+        bg: 'muted.800',
+        _text: {
+          color: 'text.50',
+        },
       },
     };
   },
 };
 export const AlertDialogFooter = {
-  baseStyle: (props: Record<string, any>) => {
+  baseStyle: () => {
     return {
-      p: '3',
-      bg: mode('coolGray.100', 'gray.600')(props),
+      p: '4',
       flexDirection: 'row',
       justifyContent: 'flex-end',
       flexWrap: 'wrap',
+      borderTopWidth: '1',
+      _light: {
+        bg: 'muted.50',
+        borderColor: 'muted.300',
+      },
+      _dark: {
+        bg: 'muted.800',
+        borderColor: 'muted.700',
+      },
     };
   },
 };

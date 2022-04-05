@@ -1,15 +1,35 @@
 import type { ITextProps } from './../Text/types';
-import type { IPressableProps } from '../Pressable';
 import type { IStackProps } from '../Stack';
 import type { ResponsiveValue } from '../../types';
 import type { MutableRefObject } from 'react';
 import type { ISizes } from '../../../theme/base/sizes';
-import type { VariantType } from '../../../components/types/utils';
+import type {
+  ThemeComponentSizeType,
+  CustomProps,
+  VariantType,
+  // VariantType,
+  // VariantTypeTest,
+} from '../../../components/types/utils';
 import type { ISpinnerProps } from '../Spinner/types';
+import type { IIconProps } from '../Icon';
+import type { InterfacePressableProps } from '../Pressable/types';
 
+// const myFunction = ({ a, b }) => {
+//   return { a: a, b: b };
+// };
+
+// type returnType = ReturnType<typeof myFunction>;
+// type parameter = Parameters<typeof myFunction>[0];
+
+// type newparameter = keyof parameter;
+// const a: parameter =
+// type parameter = Para<typeof myFunction>;
+// type buttonVariant = VariantTypeTest<'Button'>;
 // Todo: Create underscore Props section on docs.
 // _hover?: IButtonProps;
-export interface IButtonProps extends IPressableProps<IButtonProps> {
+
+export interface InterfaceButtonProps
+  extends InterfacePressableProps<IButtonProps> {
   /**
    * The color of the radio when it's checked. This should be one of the color keys in the theme (e.g."green", "red").
    * @default 'primary'
@@ -43,7 +63,8 @@ export interface IButtonProps extends IPressableProps<IButtonProps> {
   /**
    * The size of the button.
    */
-  size?: ResponsiveValue<ISizes | (string & {}) | number>;
+  size?: ThemeComponentSizeType<'Button'>;
+  // size?: SizeType;
   /**
    * The start icon element to use in the button.
    */
@@ -67,11 +88,15 @@ export interface IButtonProps extends IPressableProps<IButtonProps> {
   /**
    * Props to style the child text
    */
-  _text?: ITextProps;
+  _text?: Partial<ITextProps>;
   /**
    * Props to be passed to the HStack used inside of Button.
    */
-  _stack?: IStackProps;
+  _stack?: Partial<IStackProps>;
+  /**
+   * Props to be passed to the Icon used inside of Button.
+   */
+  _icon?: Partial<IIconProps>;
   /**
    * Prop to decide placement of spinner.
    */
@@ -79,27 +104,27 @@ export interface IButtonProps extends IPressableProps<IButtonProps> {
   /**
    * Props to be passed to the button when isLoading is true.
    */
-  _loading?: Omit<IButtonProps, '_loading'>;
+  _loading?: Omit<Partial<IButtonProps>, '_loading'>;
   /**
    * Props to be passed to the button when button is disabled.
    */
-  _disabled?: Omit<IButtonProps, '_disable'>;
+  _disabled?: Omit<Partial<IButtonProps>, '_disable'>;
   /**
    * Props to be passed to the spinner when isLoading is true.
    */
-  _spinner?: ISpinnerProps;
+  _spinner?: Partial<ISpinnerProps>;
   /**
    * Props to be passed to the button when button is hovered.
    */
-  _hover?: Omit<IButtonProps, '_hover'>;
+  _hover?: Omit<Partial<IButtonProps>, '_hover'>;
   /**
    * Props to be passed to the button when button is pressed.
    */
-  _pressed?: Omit<IButtonProps, '_pressed'>;
+  _pressed?: Omit<Partial<IButtonProps>, '_pressed'>;
   /**
    * Props to be passed to the button when button is focused.
    */
-  _focus?: Omit<IButtonProps, '_focus'>;
+  _focus?: Omit<Partial<IButtonProps>, '_focus'>;
   /**
    * The right icon element to use in the button.
    */
@@ -153,3 +178,5 @@ export type IButtonComponentType = ((
     (props: IButtonGroupProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
 };
+
+export type IButtonProps = InterfaceButtonProps & CustomProps<'Button'>;

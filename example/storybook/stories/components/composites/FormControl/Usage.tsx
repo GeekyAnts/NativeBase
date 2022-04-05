@@ -10,7 +10,7 @@ import {
 export const Example = () => {
   return (
     <Box alignItems="center">
-      <Box w="90%" maxWidth="300px">
+      <Box w="100%" maxWidth="300px">
         <FormControl isRequired>
           <Stack mx="4">
             <FormControl.Label>Password</FormControl.Label>

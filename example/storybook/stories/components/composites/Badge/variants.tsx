@@ -14,11 +14,14 @@ export function Example() {
             <Badge colorScheme="success" alignSelf="center" variant={key}>
               SUCCESS
             </Badge>
-            <Badge colorScheme="danger" alignSelf="center" variant={key}>
-              DANGER
+            <Badge colorScheme="error" alignSelf="center" variant={key}>
+              ERROR
             </Badge>
             <Badge colorScheme="info" alignSelf="center" variant={key}>
               INFO
+            </Badge>
+            <Badge colorScheme="warning" alignSelf="center" variant={key}>
+              WARNING
             </Badge>
           </VStack>
         ))}

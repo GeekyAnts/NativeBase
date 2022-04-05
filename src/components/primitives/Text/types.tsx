@@ -7,10 +7,10 @@ import type {
   ILetterSpacing,
   ILineHeight,
 } from '../../../theme/base/typography';
-import type { PlatformProps, ResponsiveValue } from '../../types';
+import type { CustomProps, PlatformProps, ResponsiveValue } from '../../types';
 import type { VariantType } from '../../../components/types';
 
-export interface ITextProps
+export interface InterfaceTextProps
   extends PlatformProps<ITextProps>,
     StyledProps,
     TextProps {
@@ -83,3 +83,5 @@ export interface ITextProps
    */
   variant?: VariantType<'Text'>;
 }
+
+export type ITextProps = InterfaceTextProps & CustomProps<'Text'>;

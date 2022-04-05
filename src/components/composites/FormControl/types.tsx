@@ -1,6 +1,10 @@
+import type { ITextProps } from '../../primitives';
+import type { CustomProps } from '../../../components/types/utils';
 import type { IBoxProps, IStackProps } from '../../primitives';
+import type { InterfaceBoxProps } from '../../../components/primitives/Box';
 
-export interface IFormControlProps extends IBoxProps<IFormControlProps> {
+export interface InterfaceFormControlProps
+  extends InterfaceBoxProps<IFormControlProps> {
   /**
    * If provided, this prop is passed to its children.
    */
@@ -27,22 +31,26 @@ export interface IFormControlLabelProps extends IFormControlProps {
   /**
    * Passed props will be applied on disabled state.
    */
-  _disabled?: IBoxProps<IFormControlLabelProps>;
+  _disabled?: Partial<IBoxProps<IFormControlLabelProps>>;
   // _focus?: any;
   /**
    * Passed props will be applied on invalid state.
    */
-  _invalid?: IBoxProps<IFormControlLabelProps>;
+  _invalid?: Partial<IBoxProps<IFormControlLabelProps>>;
   /**
    * Reflects the value of the 'for' content property.
    */
   htmlFor?: string;
+  /**
+   * Props applied to astrick text
+   */
+  _astrick?: Partial<ITextProps>;
 }
 export interface IFormControlErrorMessageProps extends IFormControlProps {
   /**
    * Passed props will be applied on disabled state.
    */
-  _disabled?: IBoxProps<IFormControlLabelProps>;
+  _disabled?: Partial<IBoxProps<IFormControlLabelProps>>;
   /**
    * The right icon element to use in the FormControl.ErrorMessage.
    */
@@ -62,18 +70,18 @@ export interface IFormControlErrorMessageProps extends IFormControlProps {
   /**
    * Props to be passed to the HStack used inside of FormControl.ErrorMessage.
    */
-  _stack?: IStackProps;
+  _stack?: Partial<IStackProps>;
 }
 export interface IFormControlHelperTextProps extends IFormControlProps {
   /**
    * Passed props will be applied on disabled state.
    */
-  _disabled?: IBoxProps<IFormControlLabelProps>;
+  _disabled?: Partial<IBoxProps<IFormControlLabelProps>>;
   // _focus?: any;
   /**
    * Passed props will be applied on invalid state.
    */
-  _invalid?: IBoxProps<IFormControlLabelProps>;
+  _invalid?: Partial<IBoxProps<IFormControlLabelProps>>;
 }
 
 export type FormControlComponentType = ((
@@ -89,3 +97,6 @@ export type FormControlComponentType = ((
     (props: IFormControlHelperTextProps) => JSX.Element
   >;
 };
+
+export type IFormControlProps = InterfaceFormControlProps &
+  CustomProps<'FormControl'>;

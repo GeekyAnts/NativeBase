@@ -5,14 +5,13 @@ import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { ScrollView, IScrollViewProps } from '../../basic/ScrollView';
 
 const ModalBody = (
-  {
-    children,
-    _scrollview,
-    ...props
-  }: IBoxProps & { _scrollview?: IScrollViewProps },
+  { children, ...props }: IBoxProps & { _scrollview?: IScrollViewProps },
   ref?: any
 ) => {
-  const resolvedProps = usePropsResolution('ModalBody', props);
+  const { _scrollview, ...resolvedProps } = usePropsResolution(
+    'ModalBody',
+    props
+  );
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
