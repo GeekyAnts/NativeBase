@@ -123,7 +123,7 @@ export interface InterfaceCheckbox extends InterfaceBoxProps<ICheckboxProps> {
   /**
    * Props to be passed to the Stack used inside.
    */
-  _stack?: IStackProps;
+  _stack?: Partial<IStackProps>;
   /**
    * Function called when the state of the checkbox changes.
    */
@@ -166,7 +166,7 @@ export interface ICheckboxGroupProps
   /**
    * Pass props will be passed to each checkbox.
    */
-  _checkbox?: ICheckboxProps;
+  _checkbox?: Partial<ICheckboxProps>;
 }
 export interface ICheckboxContext extends IFormControlContext {
   colorScheme?: string;

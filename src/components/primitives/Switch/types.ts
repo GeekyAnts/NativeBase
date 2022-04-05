@@ -66,7 +66,7 @@ export interface InterfaceSwitchProps
   /**
    * Props when Switch is hovered. Accepts all the Switch props.
    */
-  _hover?: Omit<ISwitchProps, '_hover'>;
+  _hover?: Omit<Partial<ISwitchProps>, '_hover'>;
 }
 
 export type ISwitchProps = InterfaceSwitchProps & CustomProps<'Switch'>;
