@@ -1,7 +1,9 @@
 import type { SwitchProps } from 'react-native';
-
-import type { CustomProps, ResponsiveValue } from '../../../components/types';
-import type { ISizes } from '../../../theme/base/sizes';
+import type {
+  CustomProps,
+  ThemeComponentSizeType,
+  ResponsiveValue,
+} from '../../../components/types';
 import type { IColors } from '../../../theme/base/colors';
 import type { InterfaceBoxProps } from '../Box';
 
@@ -12,7 +14,7 @@ export interface InterfaceSwitchProps
    * The size (width and height) of the switch.
    * @default md
    */
-  size?: ResponsiveValue<ISizes | (string & {}) | number>;
+  size?: ThemeComponentSizeType<'Switch'>;
   /**
    * If true, set the disabled to the invalid state.
    */
@@ -64,7 +66,7 @@ export interface InterfaceSwitchProps
   /**
    * Props when Switch is hovered. Accepts all the Switch props.
    */
-  _hover?: Omit<ISwitchProps, '_hover'>;
+  _hover?: Omit<Partial<ISwitchProps>, '_hover'>;
 }
 
 export type ISwitchProps = InterfaceSwitchProps & CustomProps<'Switch'>;

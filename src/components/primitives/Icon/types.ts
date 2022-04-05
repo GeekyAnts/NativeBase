@@ -1,7 +1,6 @@
 import type { PlatformProps } from '../../types';
 import type { StyledProps } from '../../../theme/types';
 import type { ResponsiveValue } from '../../types/responsiveValue';
-import type { ISizes } from '../../../theme/base/sizes';
 import type { SvgProps } from 'react-native-svg';
 import type { IColors } from '../../../theme/base/colors';
 
@@ -27,9 +26,7 @@ export interface InterfaceIconProps
   /**
    * The size of the icon.
    */
-  size?:
-    | ResponsiveValue<ISizes | (string & {}) | number>
-    | ThemeComponentSizeType<'Icon'>;
+  size?: ThemeComponentSizeType<'Icon'>;
 
   /**
    * The color of the icon.

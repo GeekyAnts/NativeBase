@@ -23,11 +23,11 @@ export interface InterfaceSelectProps extends InterfaceBoxProps<ISelectProps> {
   /**
    * Item props passed here will be passed to each Select.Item component.
    */
-  _item?: IButtonProps;
+  _item?: Partial<IButtonProps>;
   /**
    * Item props passed here will be passed to the selected Select.Item component.
    */
-  _selectedItem?: IButtonProps;
+  _selectedItem?: Partial<IButtonProps>;
   /**
    * Currently selected value. Useful for controlling the Select state
    */
