@@ -95,7 +95,7 @@ export interface IMenuItemProps extends IPressableProps {
   /**
    * Props to be passed to Text
    */
-  _text?: ITextProps;
+  _text?: Partial<ITextProps>;
   /**
    * This value will be available for the typeahead menu feature
    */

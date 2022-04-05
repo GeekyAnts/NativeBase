@@ -2,7 +2,10 @@ import type { IBoxProps } from '../../primitives/Box';
 import type { IIconButtonProps } from '../IconButton';
 import type { MutableRefObject } from 'react';
 import type { IFadeProps, ISlideProps } from '../Transitions';
-import type { CustomProps } from '../../../components/types/utils';
+import type {
+  CustomProps,
+  ThemeComponentSizeType,
+} from '../../../components/types/utils';
 
 export interface InterfaceAlertDialogProps extends IBoxProps {
   /**
@@ -20,7 +23,7 @@ export interface InterfaceAlertDialogProps extends IBoxProps {
   /**
    * The size of the AlertDialog
    */
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'full' | number | string;
+  size?: ThemeComponentSizeType<'AlertDialog'>; //'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'full' | number | string;
   /**
    * The ref of element that is least destructive child of the AlertDialog.
    */
@@ -65,15 +68,15 @@ export interface InterfaceAlertDialogProps extends IBoxProps {
   /**
    * Props applied on Overlay Animation.
    */
-  _backdropFade?: IFadeProps;
+  _backdropFade?: Partial<IFadeProps>;
   /**
    * Props applied on Child Fade Animation.
    */
-  _fade?: IFadeProps;
+  _fade?: Partial<IFadeProps>;
   /**
    * Props applied on Child Slide Animation.
    */
-  _slide?: ISlideProps;
+  _slide?: Partial<ISlideProps>;
   /**
    * Sets the animation type
    * @default "fade"
