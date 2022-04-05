@@ -149,7 +149,9 @@ export interface IButtonGroupProps extends IStackProps {
    * The variant of the button style to use.
    * @default 'solid'
    */
-  variant?: 'ghost' | 'outline' | 'solid' | 'link' | 'unstyled' | 'subtle';
+  variant?: ResponsiveValue<
+    'ghost' | 'outline' | 'solid' | 'link' | 'unstyled' | 'subtle'
+  >;
   /**
    * The start icon element to use in the button.
    */
