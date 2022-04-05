@@ -75,9 +75,7 @@ export interface InterfaceCheckbox extends InterfaceBoxProps<ICheckboxProps> {
    * The size (width and height) of the checkbox.
    * @default 'md'
    */
-  size?:
-    | ResponsiveValue<'sm' | 'md' | 'lg'>
-    | ThemeComponentSizeType<'Checkbox'>;
+  size?: ThemeComponentSizeType<'Checkbox'>;
   /**
    * If given, will use this icon instead of the default.
    */
