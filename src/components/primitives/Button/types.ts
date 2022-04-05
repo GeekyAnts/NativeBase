@@ -180,13 +180,3 @@ export type IButtonComponentType = ((
 };
 
 export type IButtonProps = InterfaceButtonProps & CustomProps<'Button'>;
-
-// const a: IButtonProps = {
-//   size:'' ;
-// }
-// type myProps = CustomProps<'Input'>;
-// export type IInputProps = InterfaceInputProps & CustomProps<'Input'>;
-
-// const a: IButtonProps = {
-//   m
-// };

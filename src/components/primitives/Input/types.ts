@@ -121,4 +121,6 @@ export interface IInputGroupProps extends InterfaceBoxProps<IInputGroupProps> {
   size?: ResponsiveValue<ISizes | (string & {}) | number>;
 }
 
+export type IInputComponentType = (props: IInputProps) => JSX.Element;
+
 export type IInputProps = InterfaceInputProps & CustomProps<'Input'>;

@@ -84,7 +84,7 @@ export type CustomProps<
   ? {}
   : // : CustomComponentProps<T> extends Record<string, any>
     // ? {}
-    CustomComponentProps<T>;
+    UnionToIntersection<CustomComponentProps<T>> & {};
 
 export type UnionToIntersection<U> = (
   U extends any ? (k: U) => void : never
