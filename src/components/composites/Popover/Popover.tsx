@@ -95,13 +95,12 @@ const Popover = (
                 bodyMounted,
                 setBodyMounted,
                 setHeaderMounted,
+                isOpen,
               }}
             >
-              {isOpen && (
-                <FocusScope contain={trapFocus} restoreFocus autoFocus>
-                  {children}
-                </FocusScope>
-              )}
+              <FocusScope contain={trapFocus} restoreFocus autoFocus>
+                {children}
+              </FocusScope>
             </PopoverContext.Provider>
           </Popper>
         </PresenceTransition>
