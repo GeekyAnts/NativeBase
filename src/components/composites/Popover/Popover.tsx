@@ -73,38 +73,44 @@ const Popover = (
   return (
     <Box ref={ref}>
       {updatedTrigger()}
-      <Overlay isOpen={isOpen} onRequestClose={handleClose} useRNModalOnAndroid>
-        <PresenceTransition
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1, transition: { duration: 150 } }}
-          exit={{ opacity: 0, scale: 0.95, transition: { duration: 100 } }}
-          visible={isOpen}
-          style={StyleSheet.absoluteFill}
+      {isOpen && (
+        <Overlay
+          isOpen={isOpen}
+          onRequestClose={handleClose}
+          useRNModalOnAndroid
         >
-          <Popper onClose={handleClose} triggerRef={triggerRef} {...props}>
-            <Backdrop onPress={handleClose} bg="transparent" />
-            <PopoverContext.Provider
-              value={{
-                onClose: handleClose,
-                initialFocusRef,
-                finalFocusRef,
-                popoverContentId,
-                bodyId,
-                headerId,
-                headerMounted,
-                bodyMounted,
-                setBodyMounted,
-                setHeaderMounted,
-                isOpen,
-              }}
-            >
-              <FocusScope contain={trapFocus} restoreFocus autoFocus>
-                {children}
-              </FocusScope>
-            </PopoverContext.Provider>
-          </Popper>
-        </PresenceTransition>
-      </Overlay>
+          <PresenceTransition
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, transition: { duration: 150 } }}
+            exit={{ opacity: 0, scale: 0.95, transition: { duration: 100 } }}
+            visible={isOpen}
+            style={StyleSheet.absoluteFill}
+          >
+            <Popper onClose={handleClose} triggerRef={triggerRef} {...props}>
+              <Backdrop onPress={handleClose} bg="transparent" />
+              <PopoverContext.Provider
+                value={{
+                  onClose: handleClose,
+                  initialFocusRef,
+                  finalFocusRef,
+                  popoverContentId,
+                  bodyId,
+                  headerId,
+                  headerMounted,
+                  bodyMounted,
+                  setBodyMounted,
+                  setHeaderMounted,
+                  isOpen,
+                }}
+              >
+                <FocusScope contain={trapFocus} restoreFocus autoFocus>
+                  {children}
+                </FocusScope>
+              </PopoverContext.Provider>
+            </Popper>
+          </PresenceTransition>
+        </Overlay>
+      )}
     </Box>
   );
 };
