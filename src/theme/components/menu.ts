@@ -11,13 +11,13 @@ const baseStyle = {
     bg: 'muted.800',
   },
   _presenceTransition: {
-    initial: { opacity: 0, translateY: -10 },
+    initial: { opacity: 0 },
     animate: {
       opacity: 1,
       translateY: 0,
       transition: { duration: 200 },
     },
-    exit: { opacity: 0, translateY: -10, transition: { duration: 150 } },
+    exit: { opacity: 0, transition: { duration: 150 } },
     style: StyleSheet.absoluteFill,
   },
   _overlay: {},
