@@ -93,7 +93,7 @@ const Menu = (
             {...resolvedProps}
           >
             <Backdrop onPress={handleClose} {..._backdrop} />
-            <Popper.Content>
+            <Popper.Content isOpen={isOpen}>
               <MenuContext.Provider
                 value={{ closeOnSelect, onClose: handleClose }}
               >
