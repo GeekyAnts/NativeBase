@@ -9,6 +9,7 @@ import type { ISizes } from '../../../theme/base/sizes';
 export type IRadioValue = string;
 import type { CustomProps, ThemeComponentSizeType } from '../../types';
 import type { IIconProps } from '../Icon';
+import type { ColorSchemeType } from '../../../components/types';
 
 export type IRadioGroupOnChangeHandler = (value: IRadioValue) => any;
 
@@ -21,7 +22,7 @@ export interface InterfaceRadioProps extends InterfaceBoxProps<IRadioProps> {
    * The color of the radio. This should be one of the color keys in the theme (e.g."green", "red").
    * @default 'primary'
    */
-  colorScheme?: string | 'default';
+  colorScheme?: ColorSchemeType & ResponsiveValue<'default'>;
   /**
    * 	If true, the radio will be disabled
    */
@@ -123,7 +124,7 @@ export interface IRadioGroupProps extends IStackProps {
    * The color of the radios. This should be one of the color keys in the theme (e.g."green", "red").
    * @default 'primary'
    */
-  colorScheme?: string;
+  colorScheme?: ColorSchemeType;
   /**
    * 	The size (width and height) of the radio.
    */
@@ -145,7 +146,7 @@ export interface IRadioGroupProps extends IStackProps {
   _radio?: IRadioProps;
 }
 export interface IRadioContext extends IFormControlContext {
-  colorScheme?: string;
+  colorScheme?: ColorSchemeType;
   size?: ResponsiveValue<ISizes | (string & {}) | number>;
   state: RadioGroupState;
 }

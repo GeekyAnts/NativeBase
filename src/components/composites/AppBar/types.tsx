@@ -1,7 +1,8 @@
+import type { ColorSchemeType } from '../../../components/types';
 import type { InterfaceStackProps } from '../../primitives/Stack/Stack';
 
 export type IAppBarProps = InterfaceStackProps & {
-  colorScheme?: string;
+  colorScheme?: ColorSchemeType;
   statusBarHeight?: number;
   space?: number;
 };

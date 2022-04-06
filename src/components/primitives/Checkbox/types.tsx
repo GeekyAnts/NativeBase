@@ -10,6 +10,7 @@ import type {
   ResponsiveValue,
   ThemeComponentSizeType,
 } from '../../../components/types';
+import type { ColorSchemeType } from '../../../components/types';
 
 export type ICheckboxValue = string;
 
@@ -29,7 +30,7 @@ export interface InterfaceCheckbox extends InterfaceBoxProps<ICheckboxProps> {
   /**
    * The color of the radio when it's checked. This should be one of the color keys in the theme (e.g."green", "red").
    */
-  colorScheme?: string | 'default';
+  colorScheme?: ColorSchemeType & ResponsiveValue<'default'>;
   /**
    * If true, the checkbox will be initially checked. (use defaultValue prop if using it inside Checkbox.Group)
    */
@@ -154,7 +155,7 @@ export interface ICheckboxGroupProps
   /**
    * The color of the radio when it's checked. This should be one of the color keys in the theme (e.g."green", "red").
    */
-  colorScheme?: string;
+  colorScheme?: ColorSchemeType;
   /**
    * The size (width and height) of the checkbox.
    */
@@ -169,7 +170,7 @@ export interface ICheckboxGroupProps
   _checkbox?: Partial<ICheckboxProps>;
 }
 export interface ICheckboxContext extends IFormControlContext {
-  colorScheme?: string;
+  colorScheme?: ColorSchemeType;
   size?: ResponsiveValue<'sm' | 'md' | 'lg'>;
   state: CheckboxGroupState;
 }

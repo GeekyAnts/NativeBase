@@ -95,6 +95,7 @@ const Popover = (
                 bodyMounted,
                 setBodyMounted,
                 setHeaderMounted,
+                isOpen,
               }}
             >
               <FocusScope contain={trapFocus} restoreFocus autoFocus>

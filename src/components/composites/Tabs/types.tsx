@@ -2,11 +2,12 @@ import type { RefObject } from 'react';
 import type { ViewProps } from 'react-native';
 import type { InterfaceBoxProps } from '../../primitives/Box';
 import type { InterfaceIconProps } from '../../primitives/Icon/types';
+import type { ColorSchemeType } from '../../../components/types';
 
 export type ITabsProps = InterfaceBoxProps<ITabsProps> & {
   align?: 'center' | 'end' | 'start';
   id?: string;
-  colorScheme?: string;
+  colorScheme?: ColorSchemeType;
   index?: number;
   defaultIndex?: number;
   isFitted?: boolean;

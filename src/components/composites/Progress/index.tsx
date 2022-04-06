@@ -3,6 +3,7 @@ import { Box } from '../../primitives';
 import type { InterfaceBoxProps } from '../../primitives/Box';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import type { ColorSchemeType } from '../../../components/types';
 import type {
   CustomProps,
   ThemeComponentSizeType,
@@ -25,7 +26,7 @@ export interface InterfaceProgressProps
    * The color scheme of the progress. This should be one of the color keys in the theme (e.g."green", "red").
    * @default primary
    */
-  colorScheme?: string;
+  colorScheme?: ColorSchemeType;
   // /**
   //  * Whether progress is indeterminate
   //  * @default false

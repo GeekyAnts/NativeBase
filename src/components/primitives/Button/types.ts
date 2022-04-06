@@ -13,6 +13,7 @@ import type {
 import type { ISpinnerProps } from '../Spinner/types';
 import type { IIconProps } from '../Icon';
 import type { InterfacePressableProps } from '../Pressable/types';
+import type { ColorSchemeType } from '../../../components/types';
 
 // const myFunction = ({ a, b }) => {
 //   return { a: a, b: b };
@@ -34,7 +35,7 @@ export interface InterfaceButtonProps
    * The color of the radio when it's checked. This should be one of the color keys in the theme (e.g."green", "red").
    * @default 'primary'
    */
-  colorScheme?: string;
+  colorScheme?: ColorSchemeType;
   /**
    * The variant of the button style to use.
    * @default 'solid'
@@ -149,7 +150,9 @@ export interface IButtonGroupProps extends IStackProps {
    * The variant of the button style to use.
    * @default 'solid'
    */
-  variant?: 'ghost' | 'outline' | 'solid' | 'link' | 'unstyled';
+  variant?: ResponsiveValue<
+    'ghost' | 'outline' | 'solid' | 'link' | 'unstyled' | 'subtle'
+  >;
   /**
    * The start icon element to use in the button.
    */
@@ -160,7 +163,7 @@ export interface IButtonGroupProps extends IStackProps {
    * The color of the radio when it's checked. This should be one of the color keys in the theme (e.g."green", "red").
    * @default 'primary'
    */
-  colorScheme?: string;
+  colorScheme?: ColorSchemeType;
   /**
    * If true, the button will be disabled.
    */
