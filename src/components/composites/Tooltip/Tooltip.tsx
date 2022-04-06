@@ -132,7 +132,7 @@ export const Tooltip = ({
               placement={placement}
               offset={offset}
             >
-              <Popper.Content>
+              <Popper.Content isOpen={isOpen}>
                 {hasArrow && (
                   <Popper.Arrow
                     borderColor="transparent"
