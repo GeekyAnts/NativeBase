@@ -79,34 +79,36 @@ const Menu = (
   return (
     <>
       {updatedTrigger()}
-      <Overlay
-        isOpen={isOpen}
-        onRequestClose={handleClose}
-        useRNModalOnAndroid
-        {..._overlay}
-      >
-        <PresenceTransition visible={isOpen} {..._presenceTransition}>
-          <Popper
-            triggerRef={triggerRef}
-            onClose={handleClose}
-            placement={placement}
-            {...resolvedProps}
-          >
-            <Backdrop onPress={handleClose} {..._backdrop} />
-            <Popper.Content isOpen={isOpen}>
-              <MenuContext.Provider
-                value={{ closeOnSelect, onClose: handleClose }}
-              >
-                <FocusScope contain restoreFocus autoFocus>
-                  <MenuContent menuRef={ref} {...resolvedProps}>
-                    {children}
-                  </MenuContent>
-                </FocusScope>
-              </MenuContext.Provider>
-            </Popper.Content>
-          </Popper>
-        </PresenceTransition>
-      </Overlay>
+      {isOpen && (
+        <Overlay
+          isOpen={isOpen}
+          onRequestClose={handleClose}
+          useRNModalOnAndroid
+          {..._overlay}
+        >
+          <PresenceTransition visible={isOpen} {..._presenceTransition}>
+            <Popper
+              triggerRef={triggerRef}
+              onClose={handleClose}
+              placement={placement}
+              {...resolvedProps}
+            >
+              <Backdrop onPress={handleClose} {..._backdrop} />
+              <Popper.Content isOpen={isOpen}>
+                <MenuContext.Provider
+                  value={{ closeOnSelect, onClose: handleClose }}
+                >
+                  <FocusScope contain restoreFocus autoFocus>
+                    <MenuContent menuRef={ref} {...resolvedProps}>
+                      {children}
+                    </MenuContent>
+                  </FocusScope>
+                </MenuContext.Provider>
+              </Popper.Content>
+            </Popper>
+          </PresenceTransition>
+        </Overlay>
+      )}
     </>
   );
 };
