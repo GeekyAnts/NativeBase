@@ -104,7 +104,7 @@ const Button = (
   );
 
   const boxChildren = (child: any) => {
-    return <Box _text={_text}>{child}</Box>;
+    return child ? <Box _text={_text}>{child}</Box> : null;
   };
 
   return (
