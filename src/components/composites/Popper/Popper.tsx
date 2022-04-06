@@ -40,7 +40,7 @@ const Popper = (
 };
 
 const PopperContent = React.forwardRef(
-  ({ children, style, ...rest }: IBoxProps, ref: any) => {
+  ({ children, style, ...rest }: IBoxProps & { isOpen: boolean }, ref: any) => {
     const {
       triggerRef,
       shouldFlip,
@@ -52,6 +52,7 @@ const PopperContent = React.forwardRef(
       setOverlayRef,
     } = usePopperContext('PopperContent');
     const overlayRef = React.useRef(null);
+
     // const { top } = useSafeAreaInsets();
     const {
       overlayProps,
@@ -63,7 +64,7 @@ const PopperContent = React.forwardRef(
       overlayRef,
       shouldFlip: shouldFlip,
       crossOffset: crossOffset,
-      isOpen: true,
+      isOpen: rest.isOpen,
       offset: offset,
       placement: placementProp as any,
       containerPadding: 0,
