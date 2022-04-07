@@ -48,7 +48,8 @@ export interface IActionsheetFooterProps
   extends InterfaceBoxProps<IActionsheetFooterProps> {}
 export interface IActionsheetHeaderProps
   extends InterfaceBoxProps<IActionsheetHeaderProps> {}
-export interface IActionsheetItemProps extends InterfaceButtonProps {}
+export interface IActionsheetItemProps
+  extends Omit<InterfaceButtonProps, 'variant' | 'size' | 'colorScheme'> {}
 
 export type IActionsheetComponentType = ((
   props: IActionsheetProps & { ref?: MutableRefObject<any> }

@@ -1,11 +1,11 @@
 import React, { memo, forwardRef } from 'react';
 import { Pressable } from '../../primitives/Pressable';
-import Box, { IBoxProps } from '../../primitives/Box';
+import Box from '../../primitives/Box';
 import { HStack } from '../../primitives/Stack';
 import Spinner from '../../primitives/Spinner';
-import type { IButtonProps } from '../../primitives/Button';
 import { usePropsResolution } from '../../../hooks';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import type { IActionsheetItemProps } from './types';
 
 const ActionsheetItem = (
   {
@@ -20,7 +20,7 @@ const ActionsheetItem = (
     isLoading,
     spinnerPlacement = 'start',
     ...props
-  }: IButtonProps & IBoxProps,
+  }: IActionsheetItemProps,
   ref: any
 ) => {
   const {
