@@ -39,6 +39,8 @@ const Input = (
   /**Converting into Hash Color Code */
   //@ts-ignore
   props.focusOutlineColor = useToken('colors', props.focusOutlineColor);
+  //@ts-ignore
+  props.inValidOutlineColor = useToken('colors', props.inValidOutlineColor);
 
   const _ref = React.useRef(null);
   const { isHovered } = useHover({}, _ref);
