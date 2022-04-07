@@ -342,7 +342,9 @@ export const usePropsResolutionWithComponentTheme = (
       'background: #4b5563; color: #FFF; font-weight: 700; padding: 2px 8px;'
     );
   }
-  let [flattenProps, specificityMap] = callPropsFlattener(
+  //TODO: hack
+  let flattenProps: any, specificityMap;
+  [flattenProps, specificityMap] = callPropsFlattener(
     incomingWithDefaultProps,
     {},
     2
