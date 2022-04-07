@@ -36,6 +36,10 @@ const Input = (
     callback();
   };
 
+  /**Converting into Hash Color Code */
+  //@ts-ignore
+  props.focusOutlineColor = useToken('colors', props.focusOutlineColor);
+
   const _ref = React.useRef(null);
   const { isHovered } = useHover({}, _ref);
 
@@ -68,6 +72,7 @@ const Input = (
     wrapperRef,
     _stack,
     _input,
+
     ...resolvedProps
   } = usePropsResolution(
     'Input',
