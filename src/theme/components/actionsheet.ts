@@ -50,13 +50,22 @@ export const ActionsheetItem = {
   baseStyle: () => ({
     width: '100%',
     justifyContent: 'flex-start',
+    _stack: {
+      space: 4,
+    },
     p: 4,
     _text: {
-      fontSize: 16,
+      fontSize: 'md',
       fontWeight: 'normal',
+    },
+    _disabled: {
+      opacity: 40,
     },
     _light: {
       bg: 'muted.50',
+      _icon: {
+        color: 'muted.500',
+      },
       _text: {
         color: 'text.900',
       },
@@ -77,6 +86,9 @@ export const ActionsheetItem = {
     },
     _dark: {
       bg: 'muted.800',
+      _icon: {
+        color: 'muted.400',
+      },
       _text: {
         color: 'muted.50',
       },
@@ -95,7 +107,4 @@ export const ActionsheetItem = {
       },
     },
   }),
-  defaultProps: {
-    variant: 'unstyled',
-  },
 };
