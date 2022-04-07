@@ -68,4 +68,6 @@ export { VisuallyHidden } from './VisuallyHidden';
 export { default as ZStack } from './ZStack';
 export type { IZStackProps } from './ZStack';
 
-export { Overlay, IOverlayProps } from './Overlay';
+export { Overlay } from './Overlay';
+
+export type { IOverlayProps } from './Overlay';
