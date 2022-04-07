@@ -5,7 +5,7 @@ import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { OverlayContainer } from '@react-native-aria/overlays';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
-const Fab = (props: IFabProps, ref: any) => {
+const Fab = ({ variant, ...props }: IFabProps, ref: any) => {
   const themeProps = usePropsResolution('FAB', props);
   const {
     label,
@@ -18,6 +18,7 @@ const Fab = (props: IFabProps, ref: any) => {
 
   const fabComponent = (
     <Button
+      variant={variant}
       {...placementProps[placement]}
       ref={ref}
       startIcon={icon}
