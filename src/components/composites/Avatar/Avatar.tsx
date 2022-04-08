@@ -3,6 +3,8 @@ import { Box, Image, Text } from '../../primitives';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IAvatarProps } from './types';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import isNil from 'lodash.isnil';
+import has from 'lodash.has';
 
 const Avatar = ({ children, ...props }: IAvatarProps, ref: any) => {
   const [error, setError] = React.useState(false);
@@ -39,9 +41,21 @@ const Avatar = ({ children, ...props }: IAvatarProps, ref: any) => {
     return null;
   }
 
+  const getSource = () => {
+    if (source) {
+      if (has(source, 'uri') && !isNil(source.uri)) {
+        return source;
+      } else if (!has(source, 'uri')) {
+        return source;
+      }
+    }
+    return null;
+  };
+  const imageSource = getSource();
+
   return (
     <Box {...resolvedProps}>
-      {!!source?.uri && !error ? (
+      {imageSource && !error ? (
         <Image
           borderRadius={resolvedProps.borderRadius}
           source={source}
