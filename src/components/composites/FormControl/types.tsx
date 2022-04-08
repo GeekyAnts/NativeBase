@@ -1,8 +1,9 @@
 import type { CustomProps } from '../../../components/types/utils';
 import type { IBoxProps, IStackProps } from '../../primitives';
+import type { InterfaceBoxProps } from '../../../components/primitives/Box';
 
 export interface InterfaceFormControlProps
-  extends IBoxProps<IFormControlProps> {
+  extends InterfaceBoxProps<IFormControlProps> {
   /**
    * If provided, this prop is passed to its children.
    */
@@ -92,6 +93,5 @@ export type FormControlComponentType = ((
   >;
 };
 
-export type IFormControlProps =
-  | InterfaceFormControlProps
-  | CustomProps<'FormControl'>;
+export type IFormControlProps = InterfaceFormControlProps &
+  CustomProps<'FormControl'>;

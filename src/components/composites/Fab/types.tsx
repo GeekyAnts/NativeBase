@@ -24,4 +24,4 @@ export interface InterfaceFabProps extends InterfaceButtonProps {
   renderInPortal?: boolean;
 }
 
-export type IFabProps = InterfaceFabProps | CustomProps<'FAB'>;
+export type IFabProps = InterfaceFabProps & CustomProps<'FAB'>;

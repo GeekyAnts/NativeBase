@@ -19,4 +19,4 @@ export interface InterfaceSpinnerProps
   // renderProp?: JSX.Element | JSX.Element[];
 }
 
-export type ISpinnerProps = InterfaceSpinnerProps | CustomProps<'Spinner'>;
+export type ISpinnerProps = InterfaceSpinnerProps & CustomProps<'Spinner'>;

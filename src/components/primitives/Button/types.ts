@@ -4,7 +4,7 @@ import type { ResponsiveValue } from '../../types';
 import type { MutableRefObject } from 'react';
 import type { ISizes } from '../../../theme/base/sizes';
 import type {
-  CombinedSizeType,
+  ThemeComponentSizeType,
   CustomProps,
   VariantType,
   // VariantType,
@@ -26,6 +26,7 @@ import type { InterfacePressableProps } from '../Pressable/types';
 // type buttonVariant = VariantTypeTest<'Button'>;
 // Todo: Create underscore Props section on docs.
 // _hover?: IButtonProps;
+
 export interface InterfaceButtonProps
   extends InterfacePressableProps<IButtonProps> {
   /**
@@ -61,7 +62,7 @@ export interface InterfaceButtonProps
   /**
    * The size of the button.
    */
-  size?: CombinedSizeType<'Button'>;
+  size?: ThemeComponentSizeType<'Button'>;
   // size?: SizeType;
   /**
    * The start icon element to use in the button.
@@ -173,4 +174,14 @@ export type IButtonComponentType = ((
   >;
 };
 
-export type IButtonProps = InterfaceButtonProps | CustomProps<'Button'>;
+export type IButtonProps = InterfaceButtonProps & CustomProps<'Button'>;
+
+// const a: IButtonProps = {
+//   size:'' ;
+// }
+// type myProps = CustomProps<'Input'>;
+// export type IInputProps = InterfaceInputProps & CustomProps<'Input'>;
+
+// const a: IButtonProps = {
+//   m
+// };

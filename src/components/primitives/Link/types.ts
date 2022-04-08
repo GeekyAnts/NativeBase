@@ -53,4 +53,4 @@ export type IUseLinkProp = {
   _ref: MutableRefObject<any>;
 };
 
-export type ILinkProps = InterfaceLinkProps | CustomProps<'Link'>;
+export type ILinkProps = InterfaceLinkProps & CustomProps<'Link'>;

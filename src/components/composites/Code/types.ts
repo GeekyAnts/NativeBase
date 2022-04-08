@@ -5,4 +5,4 @@ export type InterfaceCodeProps = InterfaceBoxProps<ICodeProps> & {
   colorScheme?: string | undefined;
 };
 
-export type ICodeProps = InterfaceCodeProps | CustomProps<'Code'>;
+export type ICodeProps = InterfaceCodeProps & CustomProps<'Code'>;
