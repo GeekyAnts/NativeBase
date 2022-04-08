@@ -33,4 +33,7 @@ type AllProps<T extends StyledPropConfig> = {
     : unknown;
 };
 
-export type StyledProps = AllProps<StyledPropConfig>;
+export type StyledProps = Omit<
+  AllProps<StyledPropConfig>,
+  'gap' | 'borderBottom'
+>;
