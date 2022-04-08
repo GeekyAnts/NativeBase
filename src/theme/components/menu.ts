@@ -9,13 +9,13 @@ function baseStyle(props: Record<string, any>) {
     borderColor: mode(`coolGray.200`, `gray.600`)(props),
     borderRadius: 'sm',
     transition: {
-      initial: { opacity: 0, translateY: -10 },
+      initial: { opacity: 0 },
       animate: {
         opacity: 1,
         translateY: 0,
         transition: { duration: 200 },
       },
-      exit: { opacity: 0, translateY: -10, transition: { duration: 150 } },
+      exit: { opacity: 0, transition: { duration: 150 } },
       style: StyleSheet.absoluteFill,
     },
   };
