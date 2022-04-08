@@ -37,6 +37,7 @@ const baseStyle = (props: any) => {
       },
       _focus: {
         borderColor: 'primary.600',
+        _hover: { borderColor: 'primary.600' },
         _stack: {
           style: {
             outlineWidth: '1px',
@@ -84,6 +85,7 @@ const baseStyle = (props: any) => {
       },
       _focus: {
         borderColor: 'primary.500',
+        _hover: { borderColor: 'primary.500' },
         _stack: {
           style: {
             outlineWidth: '1px',
