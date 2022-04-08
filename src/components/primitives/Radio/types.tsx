@@ -1,4 +1,5 @@
 import type { IBoxProps } from '../../primitives';
+import type { InterfaceBoxProps } from '../../primitives/Box/types';
 import type { IFormControlContext } from '../../composites';
 import type { AccessibilityRole } from 'react-native';
 import type { RadioGroupState } from '@react-stately/radio';
@@ -10,7 +11,7 @@ import type { CustomProps } from '../../types';
 
 export type IRadioGroupOnChangeHandler = (value: IRadioValue) => any;
 
-export interface InterfaceRadioProps extends IBoxProps<IRadioProps> {
+export interface InterfaceRadioProps extends InterfaceBoxProps<IRadioProps> {
   /**
    * The value to be used in the radio input. This is the value that will be returned on form submission
    */
