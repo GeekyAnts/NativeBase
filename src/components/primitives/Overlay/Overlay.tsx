@@ -15,6 +15,7 @@ interface IOverlayProps {
   isKeyboardDismissable?: boolean;
   animationPreset?: 'fade' | 'slide' | 'none';
   style?: ViewStyle;
+  unmountOnExit?: boolean;
 }
 
 export function Overlay({
@@ -26,6 +27,7 @@ export function Overlay({
   animationPreset = 'fade',
   onRequestClose,
   style,
+  unmountOnExit,
 }: IOverlayProps) {
   const [exited, setExited] = React.useState(!isOpen);
 
@@ -54,6 +56,10 @@ export function Overlay({
         </Modal>
       </ExitAnimationContext.Provider>
     );
+  }
+
+  if (unmountOnExit && !isOpen && exited) {
+    return null;
   }
 
   return (

@@ -74,35 +74,34 @@ const Menu = (
   return (
     <>
       {updatedTrigger()}
-      {isOpen && (
-        <Overlay
-          isOpen={isOpen}
-          onRequestClose={handleClose}
-          useRNModalOnAndroid
-        >
-          <PresenceTransition visible={isOpen} {...transition}>
-            <Popper
-              triggerRef={triggerRef}
-              onClose={handleClose}
-              placement={placement}
-              {...props}
-            >
-              <Backdrop bg="transparent" onPress={handleClose} />
-              <Popper.Content>
-                <MenuContext.Provider
-                  value={{ closeOnSelect, onClose: handleClose }}
-                >
-                  <FocusScope contain restoreFocus autoFocus>
-                    <MenuContent menuRef={ref} {...resolvedProps}>
-                      {children}
-                    </MenuContent>
-                  </FocusScope>
-                </MenuContext.Provider>
-              </Popper.Content>
-            </Popper>
-          </PresenceTransition>
-        </Overlay>
-      )}
+      <Overlay
+        isOpen={isOpen}
+        onRequestClose={handleClose}
+        useRNModalOnAndroid
+        unmountOnExit
+      >
+        <PresenceTransition visible={isOpen} {...transition}>
+          <Popper
+            triggerRef={triggerRef}
+            onClose={handleClose}
+            placement={placement}
+            {...props}
+          >
+            <Backdrop bg="transparent" onPress={handleClose} />
+            <Popper.Content>
+              <MenuContext.Provider
+                value={{ closeOnSelect, onClose: handleClose }}
+              >
+                <FocusScope contain restoreFocus autoFocus>
+                  <MenuContent menuRef={ref} {...resolvedProps}>
+                    {children}
+                  </MenuContent>
+                </FocusScope>
+              </MenuContext.Provider>
+            </Popper.Content>
+          </Popper>
+        </PresenceTransition>
+      </Overlay>
     </>
   );
 };
