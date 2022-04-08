@@ -62,9 +62,9 @@ export const Example = () => {
           <Box
             borderBottomWidth="1"
             _dark={{
-              borderColor: 'gray.600',
+              borderColor: 'muted.50',
             }}
-            borderColor="coolGray.200"
+            borderColor="muted.800"
             pl="4"
             pr="5"
             py="2"
