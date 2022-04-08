@@ -48,16 +48,6 @@ const baseStyle = (props: any) => {
       _invalid: {
         borderColor: 'error.600',
         _hover: { borderColor: 'error.600' },
-        _focus: {
-          borderColor: 'error.600',
-          _stack: {
-            style: {
-              outlineWidth: '1px',
-              outlineColor: `${props.inValidOutlineColor || error[600]}`,
-              outlineStyle: 'solid',
-            },
-          },
-        },
         _stack: {
           style: {
             outlineWidth: '1px',
@@ -112,16 +102,6 @@ const baseStyle = (props: any) => {
           },
         },
         _hover: { borderColor: 'error.500' },
-        _focus: {
-          borderColor: 'error.500',
-          _stack: {
-            style: {
-              outlineWidth: '1px',
-              outlineColor: `${props.inValidOutlineColor || error[500]}`,
-              outlineStyle: 'solid',
-            },
-          },
-        },
       },
       _ios: {
         selectionColor: 'warmGray.50',
@@ -230,13 +210,6 @@ function underlinedStyle(props: Record<string, any>) {
             boxShadow: `0 1px 0 0 ${props.focusOutlineColor || primary[600]}`,
           },
         },
-        _invalid: {
-          _stack: {
-            style: {
-              boxShadow: `0 1px 0 0 ${props.inValidOutlineColor || error[600]}`,
-            },
-          },
-        },
       },
       _invalid: {
         _stack: {
@@ -255,14 +228,6 @@ function underlinedStyle(props: Record<string, any>) {
             boxShadow: `0 1px 0 0 ${props.focusOutlineColor || primary[500]}`,
           },
         },
-        _invalid: {
-          _stack: {
-            style: {
-              outlineWidth: 0,
-              boxShadow: `0 1px 0 0 ${props.inValidOutlineColor || error[500]}`,
-            },
-          },
-        },
       },
       _invalid: {
         _stack: {
@@ -273,7 +238,6 @@ function underlinedStyle(props: Record<string, any>) {
         },
       },
     },
-
     borderRadius: 0,
   };
 }
