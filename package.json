@@ -89,7 +89,7 @@
     "release-it": "^13.5.8",
     "rollup": "^2.34.1",
     "rollup-plugin-flow": "^1.1.1",
-    "typescript": "4.6",
+    "typescript": "4.2",
     "visualize-bundle": "^1.4.0"
   },
   "peerDependencies": {
