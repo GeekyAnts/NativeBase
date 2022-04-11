@@ -1,19 +1,7 @@
-import { transparentize, mode } from '../tools';
-
+import { transparentize } from '../tools';
 const baseStyle = (props: any) => {
-  const { primary } = props.theme.colors;
-  const focusRing = mode(
-    {
-      outlineWidth: '1px',
-      outlineColor: `${primary[600]}`,
-      outlineStyle: 'solid',
-    },
-    {
-      outlineWidth: '1px',
-      outlineColor: `${primary[500]}`,
-      outlineStyle: 'solid',
-    }
-  )(props);
+  const { primary, error } = props.theme.colors;
+
   return {
     fontFamily: 'body',
     py: '2',
@@ -49,9 +37,25 @@ const baseStyle = (props: any) => {
       },
       _focus: {
         borderColor: 'primary.600',
+        _hover: { borderColor: 'primary.600' },
+        _stack: {
+          style: {
+            outlineWidth: '1px',
+            outlineColor: `${props.focusOutlineColor || primary[600]}`,
+            outlineStyle: 'solid',
+          },
+        },
       },
       _invalid: {
         borderColor: 'error.600',
+        _hover: { borderColor: 'error.600' },
+        _stack: {
+          style: {
+            outlineWidth: '1px',
+            outlineColor: `${props.inValidOutlineColor || error[600]}`,
+            outlineStyle: 'solid',
+          },
+        },
       },
       _ios: {
         selectionColor: 'coolGray.800',
@@ -70,9 +74,6 @@ const baseStyle = (props: any) => {
         alignItems: 'center',
         // justifyContent: 'space-between',
         overflow: 'hidden',
-        _focus: {
-          style: { ...focusRing },
-        },
       },
     },
     _dark: {
@@ -84,9 +85,25 @@ const baseStyle = (props: any) => {
       },
       _focus: {
         borderColor: 'primary.500',
+        _hover: { borderColor: 'primary.500' },
+        _stack: {
+          style: {
+            outlineWidth: '1px',
+            outlineColor: `${props.focusOutlineColor || primary[500]}`,
+            outlineStyle: 'solid',
+          },
+        },
       },
       _invalid: {
         borderColor: 'error.500',
+        _stack: {
+          style: {
+            outlineWidth: '1px',
+            outlineColor: `${props.inValidOutlineColor || error[500]}`,
+            outlineStyle: 'solid',
+          },
+        },
+        _hover: { borderColor: 'error.500' },
       },
       _ios: {
         selectionColor: 'warmGray.50',
@@ -105,9 +122,6 @@ const baseStyle = (props: any) => {
         alignItems: 'center',
         // justifyContent: 'space-between',
         overflow: 'hidden',
-        _focus: {
-          style: { ...focusRing },
-        },
       },
     },
   };
@@ -121,9 +135,6 @@ function roundedStyle(props: Record<string, any>) {
     _focus: {
       bg: transparentize('primary.600', 0.1)(theme),
     },
-    _invalid: {
-      borderWidth: '2',
-    },
   };
 }
 function outlineStyle(props: Record<string, any>) {
@@ -132,9 +143,6 @@ function outlineStyle(props: Record<string, any>) {
     borderWidth: '1',
     _focus: {
       bg: transparentize('primary.600', 0.1)(theme),
-    },
-    _invalid: {
-      borderWidth: '2',
     },
   };
 }
@@ -150,9 +158,6 @@ function filledStyle(props: Record<string, any>) {
       _disabled: {
         borderWidth: 0,
       },
-    },
-    _invalid: {
-      borderWidth: '2',
     },
     _light: {
       bg: 'muted.100',
@@ -176,6 +181,13 @@ function unstyledStyle() {
     _focus: {
       bg: 'transparent',
     },
+    _invalid: {
+      _stack: {
+        style: {
+          outlineWidth: 0,
+        },
+      },
+    },
     _stack: {
       _focus: {
         style: {
@@ -185,21 +197,48 @@ function unstyledStyle() {
     },
   };
 }
-function underlinedStyle() {
+function underlinedStyle(props: Record<string, any>) {
+  const { primary, error } = props.theme.colors;
+
   return {
     borderWidth: '0',
     pl: '0',
     borderBottomWidth: '1',
-    _stack: {
+    _light: {
       _focus: {
-        style: {
-          outlineWidth: '0',
-          boxShadow: '0 1px 0 0 #0891B2',
+        _stack: {
+          style: {
+            outlineWidth: '0',
+            boxShadow: `0 1px 0 0 ${props.focusOutlineColor || primary[600]}`,
+          },
+        },
+      },
+      _invalid: {
+        _stack: {
+          style: {
+            outlineWidth: 0,
+            boxShadow: `0 1px 0 0 ${props.inValidOutlineColor || error[600]}`,
+          },
         },
       },
     },
-    _invalid: {
-      borderBottomWidth: '2',
+    _dark: {
+      _focus: {
+        _stack: {
+          style: {
+            outlineWidth: '0',
+            boxShadow: `0 1px 0 0 ${props.focusOutlineColor || primary[500]}`,
+          },
+        },
+      },
+      _invalid: {
+        _stack: {
+          style: {
+            outlineWidth: 0,
+            boxShadow: `0 1px 0 0 ${props.focusOutlineColor || error[500]}`,
+          },
+        },
+      },
     },
     borderRadius: 0,
   };

@@ -8,8 +8,7 @@ export const Example = () => {
     <Box alignItems="center">
       <Input
         value={value}
-        w="75%"
-        maxW="300px"
+        w="100%"
         onChangeText={handleChange}
         placeholder="Value Controlled Input"
       />
