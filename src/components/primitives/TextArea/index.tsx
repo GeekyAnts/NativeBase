@@ -52,6 +52,9 @@ const TextArea = (
       onBlur={(e) => {
         handleFocus(false, onBlur ? () => onBlur(e) : () => {});
       }}
+      isDisabled={isDisabled}
+      isInvalid={isInvalid}
+      isReadOnly={isReadOnly}
     />
   );
 };
