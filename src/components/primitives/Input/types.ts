@@ -10,6 +10,7 @@ import type { ResponsiveValue, ColorType } from '../../../components/types';
 import type { ISizes } from '../../../theme/base/sizes';
 import type { CustomProps } from '../../types';
 import type { IStackProps } from '../Stack/Stack';
+import type { MutableRefObject } from 'react';
 
 export interface InterfaceInputProps
   extends PlatformProps<any>,
@@ -110,6 +111,7 @@ export interface InterfaceInputProps
   focusOutlineColor?: ColorType;
   /** This prop allow you to change outlineColor when input is in focused state*/
   inValidOutlineColor?: ColorType;
+  ref?: MutableRefObject<any>;
 }
 
 export interface IInputGroupProps extends InterfaceBoxProps<IInputGroupProps> {
