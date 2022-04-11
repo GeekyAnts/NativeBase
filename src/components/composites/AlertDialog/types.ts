@@ -1,4 +1,4 @@
-import type { IBoxProps } from '../../primitives/Box';
+import type { IBoxProps, InterfaceBoxProps } from '../../primitives/Box';
 import type { IIconButtonProps } from '../IconButton';
 import type { MutableRefObject } from 'react';
 import type { IFadeProps, ISlideProps } from '../Transitions';
@@ -7,7 +7,8 @@ import type {
   ThemeComponentSizeType,
 } from '../../../components/types/utils';
 
-export interface InterfaceAlertDialogProps extends IBoxProps {
+export interface InterfaceAlertDialogProps
+  extends InterfaceBoxProps<IAlertDialogProps> {
   /**
    * If true, the AlertDialog will open. Useful for controllable state behaviour
    */
