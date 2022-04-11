@@ -20,4 +20,8 @@ export interface PlatformProps<T> {
    * Props only for dark mode
    */
   _dark?: Partial<T>;
+  /**
+   * Props with highest specificity
+   */
+  _important?: Partial<T>;
 }
