@@ -2,9 +2,13 @@ import type { InterfacePressableProps } from '../../primitives/Pressable/types';
 import type { IIconProps } from '../../primitives/Icon';
 import type { CustomProps, ResponsiveValue, VariantType } from '../../types';
 import type { ISizes } from '../../../theme/base/sizes';
+import type { PlatformProps } from '../../../components/types';
 
 export interface InterfaceIconButtonProps
-  extends Omit<InterfacePressableProps, 'children' | 'color'>,
+  extends Omit<
+      InterfacePressableProps,
+      'children' | 'color' | '_light' | '_dark' | '_web' | '_android' | '_ios'
+    >,
     Omit<
       IIconProps,
       | 'delayLongPress'
@@ -21,7 +25,8 @@ export interface InterfaceIconButtonProps
       | '_web'
       | '_android'
       | '_ios'
-    > {
+    >,
+    PlatformProps<IIconButtonProps> {
   /**
    * The color of the radio when it's checked. This should be one of the color keys in the theme (e.g."green", "red").
    * @default 'primary'
