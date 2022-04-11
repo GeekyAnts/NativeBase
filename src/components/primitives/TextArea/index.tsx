@@ -5,7 +5,13 @@ import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { useHover } from '@react-native-aria/interactions';
 import { mergeRefs } from '../../../utils';
-export interface ITextAreaProps extends InterfaceInputProps {
+import type { PlatformProps } from '../../../components/types';
+export interface ITextAreaProps
+  extends Omit<
+      InterfaceInputProps,
+      '_web' | '_android' | '_ios' | '_light' | '_dark'
+    >,
+    PlatformProps<ITextAreaProps> {
   /**
    * Maps to react-native TextInput's numberOfLines.
    */

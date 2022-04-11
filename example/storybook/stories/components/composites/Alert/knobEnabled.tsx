@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert, Box, CloseIcon, IconButton } from 'native-base';
+import { Alert, Box, CloseIcon, IconButton, Text } from 'native-base';
 import { select } from '@storybook/addon-knobs';
 
 export const Example = () => {
@@ -21,8 +21,8 @@ export const Example = () => {
         actionProps={{ alignSelf: 'center' }}
       >
         <Alert.Icon />
-        <Alert.Title>Error Alert</Alert.Title>
-        <Alert.Description>Description </Alert.Description>
+        <Text>Error Alert</Text>
+        <Text>Description </Text>
       </Alert>
     </Box>
   );

@@ -12,7 +12,7 @@ import type { CustomProps } from '../../types';
 import type { IStackProps } from '../Stack/Stack';
 
 export interface InterfaceInputProps
-  extends PlatformProps<any>,
+  extends PlatformProps<IInputProps>,
     Omit<TextInputProps, 'textAlign'>,
     StyledProps {
   /**
