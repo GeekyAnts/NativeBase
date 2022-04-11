@@ -70,6 +70,7 @@ const Checkbox = (
   const inputProps = React.useMemo(() => groupItemInputProps, [
     groupItemInputProps.checked,
     groupItemInputProps.disabled,
+    groupItemInputProps,
   ]);
 
   const [contextCombinedProps] = React.useState({
