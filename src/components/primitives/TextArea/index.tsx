@@ -3,7 +3,13 @@ import { Input } from '../Input';
 import type { InterfaceInputProps } from '../Input/types';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-export interface ITextAreaProps extends InterfaceInputProps {
+import type { PlatformProps } from '../../../components/types';
+export interface ITextAreaProps
+  extends Omit<
+      InterfaceInputProps,
+      '_web' | '_android' | '_ios' | '_light' | '_dark'
+    >,
+    PlatformProps<ITextAreaProps> {
   /**
    * Maps to react-native TextInput's numberOfLines.
    */
