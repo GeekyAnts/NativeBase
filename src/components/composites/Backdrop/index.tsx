@@ -10,6 +10,7 @@ const Backdrop = (props: IPressableProps) => {
   return (
     <Pressable
       _web={{
+        //@ts-ignore
         cursor: 'default',
       }}
       position="absolute"
