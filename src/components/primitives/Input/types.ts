@@ -5,14 +5,17 @@ import type { InterfaceBoxProps } from '../Box';
 import type { ResponsiveValue } from '../../../components/types';
 import type { ISizes } from '../../../theme/base/sizes';
 import type {
+  ColorType,
   CustomProps,
   ThemeComponentSizeType,
   VariantType,
 } from '../../../components/types/utils';
 // import type { MutableRefObject } from 'react';
+import type { IStackProps } from '../Stack/Stack';
+import type { MutableRefObject } from 'react';
 
 export interface InterfaceInputProps
-  extends PlatformProps<any>,
+  extends PlatformProps<IInputProps>,
     Omit<TextInputProps, 'textAlign'>,
     StyledProps {
   /**
@@ -98,9 +101,24 @@ export interface InterfaceInputProps
    * Passed props will be applied on invalid state.
    */
   _invalid?: Partial<IInputProps>;
-  // These porps are currently on hold
-  // label?: string;
-  // _label?: ITextProps;
+  /**
+   * props are passed to InputBase component
+   */
+  _input?: Partial<IInputProps>;
+  /**
+   * Props to be passed to the Stack used inside.
+   */
+  _stack?: Partial<IStackProps>;
+  /**
+   * This prop allow you to change outlineColor when input is in focused state
+   */
+  focusOutlineColor?: ColorType;
+  /**
+   *  This prop allow you to change outlineColor when input is in focused state
+   */
+  inValidOutlineColor?: ColorType;
+
+  ref?: MutableRefObject<any>;
 }
 
 export interface IInputGroupProps extends InterfaceBoxProps<IInputGroupProps> {

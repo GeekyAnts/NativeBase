@@ -10,7 +10,7 @@ import type { CustomProps, ThemeComponentSizeType } from '../../types/utils';
 export interface InterfaceIconProps
   extends Omit<
       SvgProps,
-      'opacity' | 'fill' | 'stroke' | 'height' | 'width' | 'transform' | 'color'
+      'opacity' | 'stroke' | 'height' | 'width' | 'transform' | 'color'
     >,
     StyledProps,
     PlatformProps<IIconProps> {

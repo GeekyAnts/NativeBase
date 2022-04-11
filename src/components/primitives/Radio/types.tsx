@@ -100,6 +100,8 @@ export interface InterfaceRadioProps extends InterfaceBoxProps<IRadioProps> {
    * You can style interaction box around the checkbox using this.
    */
   _interactionBox?: Omit<Partial<IRadioProps>, '_interactionBox'>;
+
+  ref?: MutableRefObject<any>;
 }
 export interface IRadioGroupProps extends IBoxProps<IRadioGroupProps> {
   /**

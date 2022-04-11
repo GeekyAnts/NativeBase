@@ -68,6 +68,7 @@ const AlertDialog = (
       onRequestClose={handleClose}
       isKeyboardDismissable={isKeyboardDismissable}
       useRNModalOnAndroid
+      unmountOnExit
     >
       <AlertDialogContext.Provider
         value={{
