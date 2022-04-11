@@ -13,7 +13,7 @@ import type { IStackProps } from '../Stack/Stack';
 import type { MutableRefObject } from 'react';
 
 export interface InterfaceInputProps
-  extends PlatformProps<any>,
+  extends PlatformProps<IInputProps>,
     Omit<TextInputProps, 'textAlign'>,
     StyledProps {
   /**
