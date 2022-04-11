@@ -6,7 +6,7 @@ export function Example() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <Box h="60%" w="100%" alignItems="center">
+    <Box w="100%" alignItems="center">
       <VStack space={6} alignSelf="flex-start" w="100%">
         <Popover
           // @ts-ignore
