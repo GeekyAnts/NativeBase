@@ -15,6 +15,7 @@ export const Example = () => {
         leastDestructiveRef={cancelRef}
         onClose={onClose}
         isOpen={isOpen}
+        isCentered
       >
         <AlertDialog.Content>
           <AlertDialog.CloseButton />
