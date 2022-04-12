@@ -26,7 +26,8 @@ export const SliderTrack = {
 };
 
 export const SliderThumb = {
-  baseStyle: () => {
+  baseStyle: (props: any) => {
+    let { colorScheme } = props;
     return {
       borderRadius: 'full',
       zIndex: 999,
@@ -34,18 +35,27 @@ export const SliderThumb = {
       justifyContent: 'center',
       scaleOnPressed: 1.2,
       _light: {
-        bg: 'primary.600',
+        bg: `${colorScheme}.600`,
       },
       _dark: {
-        bg: 'primary.500',
+        bg: `${colorScheme}.500`,
       },
       shadow: 6,
     };
   },
+  defaultProps: {
+    colorScheme: 'primary',
+  },
 };
 
 export const SliderFilledTrack = {
-  baseStyle: ({ orientation, isReversed, sliderTrackPosition, size }: any) => {
+  baseStyle: ({
+    orientation,
+    isReversed,
+    sliderTrackPosition,
+    size,
+    colorScheme,
+  }: any) => {
     return {
       left: orientation !== 'vertical' && !isReversed ? 0 : undefined,
       bottom: orientation === 'vertical' && !isReversed ? 0 : undefined,
@@ -56,12 +66,15 @@ export const SliderFilledTrack = {
           ? { height: sliderTrackPosition, width: size }
           : { width: sliderTrackPosition, height: size },
       _light: {
-        bg: 'primary.600',
+        bg: `${colorScheme}.600`,
       },
       _dark: {
-        bg: 'primary.500',
+        bg: `${colorScheme}.500`,
       },
     };
+  },
+  defaultProps: {
+    colorScheme: 'primary',
   },
 };
 
