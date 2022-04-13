@@ -3,7 +3,7 @@ import { Input, Stack } from 'native-base';
 
 export const Example = () => {
   return (
-    <Stack space={4} w="75%" maxW="300px">
+    <Stack space={4} w="75%" maxW="300px" mx="auto">
       <Input size="xs" placeholder="xs Input" />
       <Input size="sm" placeholder="sm Input" />
       <Input size="md" placeholder="md Input" />
