@@ -145,7 +145,7 @@ export interface IRadioGroupProps extends IStackProps {
   /**
    * Pass props will be passed to each radio.
    */
-  _radio?: IRadioProps;
+  _radio?: Partial<IRadioProps>;
 }
 export interface IRadioContext extends IFormControlContext {
   colorScheme?: ColorSchemeType;
