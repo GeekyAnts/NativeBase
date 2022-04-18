@@ -33,14 +33,65 @@ export const SliderThumb = {
       zIndex: 999,
       alignItems: 'center',
       justifyContent: 'center',
-      scaleOnPressed: 1.2,
+      scaleOnPressed: 1,
+      _interactionBox: {
+        position: 'absolute',
+        borderRadius: 'full',
+        zIndex: -1,
+        p: '2',
+      },
+      _stack: {
+        direction: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        space: 2,
+      },
       _light: {
         bg: `${colorScheme}.600`,
+        _hover: {
+          _interactionBox: {
+            borderWidth: '4',
+            borderColor: `${colorScheme}.300`,
+          },
+        },
+        _focus: {
+          _interactionBox: {
+            borderWidth: '2',
+            borderColor: `${colorScheme}.400`,
+          },
+        },
+        _pressed: {
+          _interactionBox: {
+            borderWidth: '8',
+            borderColor: `${colorScheme}.300`,
+          },
+        },
       },
       _dark: {
         bg: `${colorScheme}.500`,
+        _hover: {
+          _interactionBox: {
+            borderWidth: '4',
+            borderColor: `${colorScheme}.800`,
+          },
+        },
+        _focus: {
+          _interactionBox: {
+            borderWidth: '2',
+            borderColor: `${colorScheme}.400`,
+          },
+        },
+        _pressed: {
+          _interactionBox: {
+            borderWidth: '8',
+            borderColor: `${colorScheme}.800`,
+          },
+        },
       },
-      shadow: 6,
+      // shadow: 6,
+      _web: {
+        cursor: 'pointer',
+      },
     };
   },
   defaultProps: {
