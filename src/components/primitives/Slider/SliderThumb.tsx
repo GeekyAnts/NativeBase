@@ -8,8 +8,24 @@ import type { ISliderThumbProps } from './types';
 import Box from '../Box';
 import { SliderContext } from './Context';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import { useHover } from '@react-native-aria/interactions';
+import { mergeRefs } from '../../../utils';
+import { extractInObject, stylingProps } from '../../../theme/tools/utils';
+import { Stack } from '../Stack';
+import { Center } from '../../composites/Center';
 
 function SliderThumb(props: ISliderThumbProps, ref: any) {
+  const [isPressed, setIsPressed] = React.useState(false);
+
+  const [isFocused, setIsFocused] = React.useState(false);
+  const handleFocus = (focusState: boolean, callback: any) => {
+    setIsFocused(focusState);
+    callback();
+  };
+
+  const _ref = React.useRef(null);
+  const { isHovered } = useHover({}, _ref);
+
   const {
     state,
     trackLayout,
@@ -19,15 +35,28 @@ function SliderThumb(props: ISliderThumbProps, ref: any) {
     isReadOnly,
     isDisabled,
   } = React.useContext(SliderContext);
-  const resolvedProps = usePropsResolution(
+  const {
+    onFocus,
+    onBlur,
+    _stack,
+    _interactionBox,
+    ...resolvedProps
+  } = usePropsResolution(
     'SliderThumb',
     {
       size: thumbSize,
       colorScheme,
       ...props,
     },
-    { isDisabled, isReadOnly }
+    {
+      isDisabled,
+      isReadOnly,
+      isPressed,
+      isFocused,
+      isHovered,
+    }
   );
+
   const inputRef = React.useRef(null);
   const { thumbProps, inputProps } = useSliderThumb(
     {
@@ -38,6 +67,10 @@ function SliderThumb(props: ISliderThumbProps, ref: any) {
     },
     state
   );
+
+  React.useEffect(() => {
+    setIsPressed(state.isThumbDragging(0));
+  }, [state]);
 
   const thumbAbsoluteSize = useToken('sizes', resolvedProps.size);
 
@@ -59,6 +92,23 @@ function SliderThumb(props: ISliderThumbProps, ref: any) {
   thumbStyles.transform.push({
     scale: state.isThumbDragging(0) ? resolvedProps.scaleOnPressed : 1,
   });
+
+  const [layoutProps, nonLayoutProps] = extractInObject(resolvedProps, [
+    ...stylingProps.margin,
+    ...stylingProps.layout,
+    ...stylingProps.flexbox,
+    ...stylingProps.position,
+    '_text',
+  ]);
+
+  const [
+    accessibilityProps,
+    nonAccessibilityProps,
+  ] = extractInObject(nonLayoutProps, [
+    'accessibilityRole',
+    'accessibilityState',
+  ]);
+
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
@@ -69,17 +119,33 @@ function SliderThumb(props: ISliderThumbProps, ref: any) {
       position="absolute"
       {...thumbProps}
       {...resolvedProps}
-      ref={ref}
+      {...accessibilityProps}
       style={[thumbStyles, props.style]}
+      onFocus={(e: any) => {
+        handleFocus(true, onFocus ? () => onFocus(e) : () => {});
+      }}
+      onBlur={(e: any) => {
+        handleFocus(false, onBlur ? () => onBlur(e) : () => {});
+      }}
       // {...(isReadOnly && _readOnly)}
       // {...(isDisabled && _disabled)}
+      ref={mergeRefs([_ref, ref])}
     >
-      {props.children}
-      {Platform.OS === 'web' && (
-        <VisuallyHidden>
-          <input ref={inputRef} {...inputProps} />
-        </VisuallyHidden>
-      )}
+      <Stack {...layoutProps} {..._stack}>
+        <Center>
+          <Box {..._interactionBox} size={thumbSize} />
+          <Center {...nonAccessibilityProps}>
+            <Box>
+              {props.children}
+              {Platform.OS === 'web' && (
+                <VisuallyHidden>
+                  <input ref={inputRef} {...inputProps} />
+                </VisuallyHidden>
+              )}
+            </Box>
+          </Center>
+        </Center>
+      </Stack>
     </Box>
   );
 }
