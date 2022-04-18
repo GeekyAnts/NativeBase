@@ -1,6 +1,6 @@
 import { createIcon } from '../createIcon';
 
 export const MinusIcon = createIcon({
-  viewBox: '0 0 20 3',
-  d: 'M20 0.5H0V3H20V0.5Z',
+  viewBox: '0 0 24 24',
+  d: 'M22 10.5H2V13H22V10.5Z',
 });

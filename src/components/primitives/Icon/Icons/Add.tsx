@@ -1,6 +1,6 @@
 import { createIcon } from '../createIcon';
 
 export const AddIcon = createIcon({
-  viewBox: '0 0 20 20',
-  d: 'M11.25 8.75V0H8.75V8.75H0V11.25H8.75V20H11.25V11.25H20V8.75H11.25Z',
+  viewBox: '0 0 24 24',
+  d: 'M13.25 10.75V2H10.75V10.75H2V13.25H10.75V22H13.25V13.25H22V10.75H13.25Z',
 });

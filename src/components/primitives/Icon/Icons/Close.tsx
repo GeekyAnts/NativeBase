@@ -3,9 +3,9 @@ import { createIcon } from '../createIcon';
 import { Path } from '../nbSvg';
 
 export const CloseIcon = createIcon({
-  viewBox: '0 0 20 20',
+  viewBox: '0 0 24 24',
   d:
-    'M10 7.77778L2.22222 0L0 2.22222L7.77778 10L0 17.7778L2.22222 20L10 12.2222L17.7778 20L20 17.7778L12.2222 10L20 2.22222L17.7778 0L10 7.77778Z',
+    'M12 9.77778L4.22222 2L2 4.22222L9.77778 12L2 19.7778L4.22222 22L12 14.2222L19.7778 22L22 19.7778L14.2222 12L22 4.22222L19.7778 2L12 9.77778Z',
 });
 
 export const SmallCloseIcon = createIcon({

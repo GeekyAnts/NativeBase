@@ -91,6 +91,7 @@ const Select = (
       setIsOpen(false);
     },
   });
+
   const itemsList: Array<{ label: string; value: string }> = React.Children.map(
     children ?? [],
     (child: any) => {
@@ -100,9 +101,11 @@ const Select = (
       };
     }
   );
+
   const selectedItemArray = itemsList.filter(
     (item: any) => item.value === value
   );
+
   const selectedItem =
     selectedItemArray && selectedItemArray.length ? selectedItemArray[0] : null;
 
@@ -179,7 +182,6 @@ const Select = (
         {...hoverProps}
         ref={mergeRefs([ref, _ref])}
         //@ts-ignore
-        style={_webSelect}
         onChange={(e) => {
           setValue(e.target.value);
         }}
@@ -193,6 +195,7 @@ const Select = (
           setIsFocused(false);
           onClose && onClose();
         }}
+        {..._webSelect}
       >
         <option disabled value={tempFix}>
           {placeholder}

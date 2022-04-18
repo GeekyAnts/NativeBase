@@ -1,5 +1,6 @@
 const baseStyle = (props: Record<string, any>) => {
-  const { colorScheme: c } = props;
+  const { colorScheme: c, theme } = props;
+  const { colors } = theme;
   return {
     borderWidth: 2,
     borderRadius: 'full',
@@ -98,9 +99,6 @@ const baseStyle = (props: Record<string, any>) => {
 
     _disabled: {
       opacity: '0.6',
-      _interactionBox: {
-        bg: 'transparent',
-      },
       _icon: {
         bg: 'transparent',
       },
@@ -109,27 +107,13 @@ const baseStyle = (props: Record<string, any>) => {
       },
     },
 
-    _focus: {
-      _interactionBox: {
-        bg: `${c}.400`,
-        p: '3',
-      },
-    },
-
     _focusVisible: {
-      _interactionBox: {
-        bg: `${c}.400`,
-        p: '3',
-      },
-    },
-
-    _interactionBox: {
-      borderRadius: 'full',
-      position: 'absolute',
-      zIndex: -1,
       _web: {
-        transition: 'height 200ms, width 200ms',
-        pointerEvents: 'none',
+        style: {
+          outlineWidth: '2px',
+          outlineColor: colors[c][400],
+          outlineStyle: 'solid',
+        },
       },
     },
   };
@@ -138,12 +122,10 @@ const baseStyle = (props: Record<string, any>) => {
 const sizes = {
   lg: {
     _icon: { size: 4 },
-    _interactionBox: { size: 8 },
     _text: { fontSize: 'lg' },
   },
   md: {
     _icon: { size: 3 },
-    _interactionBox: { size: 7 },
     _text: { fontSize: 'md' },
   },
   sm: {

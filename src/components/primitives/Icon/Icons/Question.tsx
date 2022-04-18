@@ -8,6 +8,6 @@ export const QuestionIcon = createIcon({
 });
 
 export const QuestionOutlineIcon = createIcon({
-  viewBox: '0 0 20 20',
+  viewBox: '0 0 24 24',
   path: questionOutlineIconPath,
 });

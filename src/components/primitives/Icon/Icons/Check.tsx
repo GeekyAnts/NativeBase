@@ -1,9 +1,9 @@
 import { createIcon } from '../createIcon';
 
 export const CheckIcon = createIcon({
-  viewBox: '0 0 20 15',
+  viewBox: '0 0 24 24',
   d:
-    'M6.53115 11.1856L1.96198 6.744L0 8.6512L6.53115 15L20 1.9072L18.038 0L6.53115 11.1856Z',
+    'M8.53115 15.1856L3.96198 10.744L2 12.6512L8.53115 19L22 5.9072L20.038 4L8.53115 15.1856Z',
 });
 
 export const CheckCircleIcon = createIcon({
