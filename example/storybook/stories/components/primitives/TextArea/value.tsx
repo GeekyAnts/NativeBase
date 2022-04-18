@@ -3,9 +3,6 @@ import { TextArea, Box } from 'native-base';
 
 export const Example = () => {
   const [textAreaValue, setTextAreaValue] = useState('Value Controlled');
-  // const demoValueControlledTextArea = (e: any) => {
-  //   setTextAreaValue(e.currentTarget.value);
-  // };
   return (
     <Box alignItems="center" w="100%">
       <TextArea
