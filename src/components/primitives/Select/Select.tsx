@@ -165,6 +165,7 @@ const Select = (
       editable={false}
       focusable={false}
       isDisabled={isDisabled}
+      pointerEvents="none"
     />
   );
 
