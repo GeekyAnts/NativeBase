@@ -34,6 +34,7 @@ function SliderThumb(props: ISliderThumbProps, ref: any) {
     thumbSize,
     isReadOnly,
     isDisabled,
+    _interactionBox: interactionBoxContext,
   } = React.useContext(SliderContext);
   const {
     onFocus,
@@ -45,6 +46,7 @@ function SliderThumb(props: ISliderThumbProps, ref: any) {
     'SliderThumb',
     {
       size: thumbSize,
+      _interactionBox: interactionBoxContext,
       colorScheme,
       ...props,
     },
@@ -98,7 +100,7 @@ function SliderThumb(props: ISliderThumbProps, ref: any) {
     ...stylingProps.layout,
     ...stylingProps.flexbox,
     ...stylingProps.position,
-    '_text',
+    ...stylingProps.outline,
   ]);
 
   const [
@@ -120,7 +122,8 @@ function SliderThumb(props: ISliderThumbProps, ref: any) {
       {...thumbProps}
       {...resolvedProps}
       {...accessibilityProps}
-      style={[thumbStyles, props.style]}
+      {...layoutProps}
+      style={[thumbStyles, resolvedProps.style]}
       onFocus={(e: any) => {
         handleFocus(true, onFocus ? () => onFocus(e) : () => {});
       }}
@@ -131,19 +134,15 @@ function SliderThumb(props: ISliderThumbProps, ref: any) {
       // {...(isDisabled && _disabled)}
       ref={mergeRefs([_ref, ref])}
     >
-      <Stack {...layoutProps} {..._stack}>
-        <Center>
-          <Box {..._interactionBox} size={thumbSize} />
-          <Center {...nonAccessibilityProps}>
-            <Box>
-              {props.children}
-              {Platform.OS === 'web' && (
-                <VisuallyHidden>
-                  <input ref={inputRef} {...inputProps} />
-                </VisuallyHidden>
-              )}
-            </Box>
-          </Center>
+      <Stack {..._stack}>
+        <Box {..._interactionBox} />
+        <Center {...nonAccessibilityProps}>
+          {props.children}
+          {Platform.OS === 'web' && (
+            <VisuallyHidden>
+              <input ref={inputRef} {...inputProps} />
+            </VisuallyHidden>
+          )}
         </Center>
       </Stack>
     </Box>
