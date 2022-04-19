@@ -55,6 +55,7 @@ const Modal = (
       bottom={avoidKeyboard ? bottomInset + 'px' : undefined}
       {...resolvedProps}
       ref={ref}
+      pointerEvents="box-none"
     >
       {children}
     </Box>
