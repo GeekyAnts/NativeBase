@@ -27,7 +27,8 @@ export const SliderTrack = {
 
 export const SliderThumb = {
   baseStyle: (props: any) => {
-    let { colorScheme } = props;
+    const { colorScheme } = props;
+    const { primary } = props.theme.colors;
     return {
       borderRadius: 'full',
       zIndex: 999,
@@ -38,7 +39,6 @@ export const SliderThumb = {
         position: 'absolute',
         borderRadius: 'full',
         zIndex: -1,
-        p: '2',
       },
       _stack: {
         direction: 'row',
@@ -49,15 +49,17 @@ export const SliderThumb = {
       _light: {
         bg: `${colorScheme}.600`,
         _hover: {
-          _interactionBox: {
-            borderWidth: '4',
-            borderColor: `${colorScheme}.300`,
+          _web: {
+            outlineWidth: '4px',
+            outlineColor: primary[300],
+            outlineStyle: 'solid',
           },
         },
         _focus: {
-          _interactionBox: {
-            borderWidth: '2',
-            borderColor: `${colorScheme}.400`,
+          _web: {
+            outlineWidth: '2px',
+            outlineColor: primary[400],
+            outlineStyle: 'solid',
           },
         },
         _pressed: {
@@ -70,15 +72,17 @@ export const SliderThumb = {
       _dark: {
         bg: `${colorScheme}.500`,
         _hover: {
-          _interactionBox: {
-            borderWidth: '4',
-            borderColor: `${colorScheme}.800`,
+          _web: {
+            outlineWidth: '4px',
+            outlineColor: primary[800],
+            outlineStyle: 'solid',
           },
         },
         _focus: {
-          _interactionBox: {
-            borderWidth: '2',
-            borderColor: `${colorScheme}.400`,
+          _web: {
+            outlineWidth: '2px',
+            outlineColor: primary[400],
+            outlineStyle: 'solid',
           },
         },
         _pressed: {
@@ -96,6 +100,17 @@ export const SliderThumb = {
   },
   defaultProps: {
     colorScheme: 'primary',
+  },
+  sizes: {
+    lg: {
+      _interactionBox: '3',
+    },
+    md: {
+      _interactionBox: '2',
+    },
+    sm: {
+      _interactionBox: '2.5',
+    },
   },
 };
 
@@ -130,9 +145,9 @@ export const SliderFilledTrack = {
 };
 
 const sizes = {
-  lg: { thumbSize: 6, sliderSize: 6 },
-  md: { thumbSize: 5, sliderSize: 5 },
-  sm: { thumbSize: 4, sliderSize: 4 },
+  lg: { thumbSize: 6, sliderTrackHeight: 6, _interactionBox: { p: '3' } },
+  md: { thumbSize: 5, sliderTrackHeight: 5, _interactionBox: { p: '2.5' } },
+  sm: { thumbSize: 4, sliderTrackHeight: 4, _interactionBox: { p: '2' } },
 };
 
 export const Slider = {
