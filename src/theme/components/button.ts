@@ -52,6 +52,8 @@ const baseStyle = (props: Record<string, any>) => {
 
 function variantGhost({ colorScheme }: Record<string, any>) {
   return {
+    borderWidth: '1px',
+    borderColor: 'transparent',
     _light: {
       _text: {
         color: `${colorScheme}.600`,
@@ -134,6 +136,7 @@ function variantOutline({ colorScheme }: Record<string, any>) {
 
 function variantSolid({ colorScheme }: Record<string, any>) {
   return {
+    borderWidth: '1px',
     _text: {
       color: 'text.50',
     },
@@ -146,20 +149,26 @@ function variantSolid({ colorScheme }: Record<string, any>) {
 
     _light: {
       bg: `${colorScheme}.600`,
+      borderColor: `${colorScheme}.600`,
       _hover: {
         bg: `${colorScheme}.700`,
+        borderColor: `${colorScheme}.700`,
       },
       _pressed: {
         bg: `${colorScheme}.800`,
+        borderColor: `${colorScheme}.800`,
       },
     },
     _dark: {
       bg: `${colorScheme}.600`,
+      borderColor: `${colorScheme}.600`,
       _hover: {
         bg: `${colorScheme}.700`,
+        borderColor: `${colorScheme}.700`,
       },
       _pressed: {
         bg: `${colorScheme}.800`,
+        borderColor: `${colorScheme}.800`,
       },
     },
   };
@@ -167,6 +176,7 @@ function variantSolid({ colorScheme }: Record<string, any>) {
 
 function variantSubtle({ colorScheme }: Record<string, any>) {
   return {
+    borderWidth: '1px',
     _text: {
       color: `${colorScheme}.900`,
     },
@@ -179,20 +189,26 @@ function variantSubtle({ colorScheme }: Record<string, any>) {
 
     _light: {
       bg: `${colorScheme}.100`,
+      borderColor: `${colorScheme}.100`,
       _hover: {
         bg: `${colorScheme}.200`,
+        borderColor: `${colorScheme}.200`,
       },
       _pressed: {
         bg: `${colorScheme}.300`,
+        borderColor: `${colorScheme}.300`,
       },
     },
     _dark: {
       bg: `${colorScheme}.300`,
+      borderColor: `${colorScheme}.300`,
       _hover: {
         bg: `${colorScheme}.200`,
+        borderColor: `${colorScheme}.200`,
       },
       _pressed: {
         bg: `${colorScheme}.100`,
+        borderColor: `${colorScheme}.100`,
       },
     },
   };
