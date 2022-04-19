@@ -43,6 +43,10 @@ export function Overlay({
     styleObj.display = exited && !isOpen ? 'none' : 'flex';
   }
 
+  if (unmountOnExit && !isOpen && exited) {
+    return null;
+  }
+
   if (Platform.OS === 'android' && useRNModalOnAndroid) {
     return (
       <ExitAnimationContext.Provider value={{ exited, setExited }}>
@@ -56,10 +60,6 @@ export function Overlay({
         </Modal>
       </ExitAnimationContext.Provider>
     );
-  }
-
-  if (unmountOnExit && !isOpen && exited) {
-    return null;
   }
 
   return (
