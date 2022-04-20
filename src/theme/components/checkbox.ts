@@ -1,6 +1,6 @@
 const baseStyle = (props: Record<string, any>) => {
-  const { colorScheme: c } = props;
-
+  const { colorScheme: c, theme } = props;
+  const { colors } = theme;
   return {
     justifyContent: 'flex-start',
     flexDirection: 'row',
@@ -100,29 +100,17 @@ const baseStyle = (props: Record<string, any>) => {
       ml: 2,
     },
 
-    _focus: {
-      _interactionBox: {
-        bg: `${c}.400`,
-        size: 4,
-      },
-    },
-
     _focusVisible: {
-      _interactionBox: {
-        bg: `${c}.400`,
-        size: 4,
+      _web: {
+        style: {
+          outlineWidth: '2px',
+          outlineColor: colors[c][400],
+          outlineStyle: 'solid',
+        },
       },
-    },
-
-    _interactionBox: {
-      position: 'absolute',
-      borderRadius: 'sm',
     },
 
     _disabled: {
-      _interactionBox: {
-        bg: 'transparent',
-      },
       _web: {
         cursor: 'not-allowed',
       },
