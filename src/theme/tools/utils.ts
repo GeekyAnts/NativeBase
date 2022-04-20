@@ -67,6 +67,7 @@ export const stylingProps = {
     'borderLeftColor',
     'borderX',
     'borderY',
+    'rounded',
   ],
   layout: [
     'width',
