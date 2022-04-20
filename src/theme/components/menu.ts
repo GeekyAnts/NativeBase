@@ -101,6 +101,13 @@ export const MenuItem = {
         color: 'muted.400',
       },
     },
+    _focusVisible: {
+      _web: {
+        outlineWidth: '0',
+        style: { boxShadow: `none` },
+        bg: 'muted.300',
+      },
+    },
     _checked: {
       _icon: {
         opacity: 1,
