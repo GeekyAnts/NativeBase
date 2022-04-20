@@ -566,6 +566,8 @@ export const typography = {
 const extraProps = {
   outline: true,
   outlineWidth: true,
+  outlineColor: true,
+  outlineStyle: true,
   shadow: {
     scale: 'shadows',
   },

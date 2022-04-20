@@ -147,11 +147,7 @@ const CheckboxComponent = React.memo(
         <Stack {..._stack} {...layoutProps}>
           <Center>
             {/* Interaction Box */}
-            <Box
-              {..._interactionBox}
-              h={isFocusVisible || isFocusVisibleProp ? '130%' : '0%'}
-              w={isFocusVisible || isFocusVisibleProp ? '130%' : '0%'}
-            />
+            <Box {..._interactionBox} />
             {/* Checkbox */}
             <Center {...nonLayoutProps}>
               {/* {iconResolver()} */}
@@ -170,10 +166,8 @@ const CheckboxComponent = React.memo(
       _interactionBox,
       icon,
       isChecked,
-      isFocusVisible,
       nonLayoutProps,
       layoutProps,
-      isFocusVisibleProp,
       resolvedProps?.children,
     ]);
 

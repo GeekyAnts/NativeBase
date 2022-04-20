@@ -27,6 +27,7 @@ const baseStyle = (props: any) => {
       bg: 'transparent',
       flex: 1,
       w: '100%',
+      h: '100%',
     },
     _light: {
       placeholderTextColor: 'text.400',

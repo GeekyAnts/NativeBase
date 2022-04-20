@@ -27,24 +27,90 @@ export const SliderTrack = {
 
 export const SliderThumb = {
   baseStyle: (props: any) => {
-    let { colorScheme } = props;
+    const { colorScheme } = props;
+    const { primary } = props.theme.colors;
     return {
       borderRadius: 'full',
       zIndex: 999,
       alignItems: 'center',
       justifyContent: 'center',
-      scaleOnPressed: 1.2,
+      scaleOnPressed: 1,
+      _interactionBox: {
+        position: 'absolute',
+        borderRadius: 'full',
+        zIndex: -1,
+      },
+      _stack: {
+        direction: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        space: 2,
+      },
       _light: {
         bg: `${colorScheme}.600`,
+        _hover: {
+          _web: {
+            outlineWidth: '4px',
+            outlineColor: primary[300],
+            outlineStyle: 'solid',
+          },
+        },
+        _focus: {
+          _web: {
+            outlineWidth: '2px',
+            outlineColor: primary[400],
+            outlineStyle: 'solid',
+          },
+        },
+        _pressed: {
+          _interactionBox: {
+            borderWidth: '8',
+            borderColor: `${colorScheme}.300`,
+          },
+        },
       },
       _dark: {
         bg: `${colorScheme}.500`,
+        _hover: {
+          _web: {
+            outlineWidth: '4px',
+            outlineColor: primary[800],
+            outlineStyle: 'solid',
+          },
+        },
+        _focus: {
+          _web: {
+            outlineWidth: '2px',
+            outlineColor: primary[400],
+            outlineStyle: 'solid',
+          },
+        },
+        _pressed: {
+          _interactionBox: {
+            borderWidth: '8',
+            borderColor: `${colorScheme}.800`,
+          },
+        },
       },
-      shadow: 6,
+      // shadow: 6,
+      _web: {
+        cursor: 'pointer',
+      },
     };
   },
   defaultProps: {
     colorScheme: 'primary',
+  },
+  sizes: {
+    lg: {
+      _interactionBox: '3',
+    },
+    md: {
+      _interactionBox: '2',
+    },
+    sm: {
+      _interactionBox: '2.5',
+    },
   },
 };
 
@@ -79,9 +145,9 @@ export const SliderFilledTrack = {
 };
 
 const sizes = {
-  lg: { thumbSize: 6, sliderSize: 6 },
-  md: { thumbSize: 5, sliderSize: 5 },
-  sm: { thumbSize: 4, sliderSize: 4 },
+  lg: { thumbSize: 6, sliderTrackHeight: 6, _interactionBox: { p: '3' } },
+  md: { thumbSize: 5, sliderTrackHeight: 5, _interactionBox: { p: '2.5' } },
+  sm: { thumbSize: 4, sliderTrackHeight: 4, _interactionBox: { p: '2' } },
 };
 
 export const Slider = {
