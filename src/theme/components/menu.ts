@@ -70,15 +70,25 @@ export const MenuItem = {
           color: 'text.400',
         },
       },
-      _focus: {
+      _hover: {
         bg: 'muted.200',
       },
-      _pressed: {
+      _focus: {
         bg: 'muted.300',
+      },
+      _pressed: {
+        bg: 'muted.400',
       },
 
       _icon: {
         color: 'muted.500',
+      },
+      _focusVisible: {
+        _web: {
+          outlineWidth: '0',
+          style: { boxShadow: `none` },
+          bg: 'muted.300',
+        },
       },
     },
     _dark: {
@@ -90,11 +100,14 @@ export const MenuItem = {
           color: 'text.600',
         },
       },
-      _focus: {
+      _hover: {
         bg: 'muted.700',
       },
-      _pressed: {
+      _focus: {
         bg: 'muted.600',
+      },
+      _pressed: {
+        bg: 'muted.500',
       },
 
       _icon: {
@@ -105,7 +118,7 @@ export const MenuItem = {
       _web: {
         outlineWidth: '0',
         style: { boxShadow: `none` },
-        bg: 'muted.300',
+        bg: 'muted.600',
       },
     },
     _checked: {
