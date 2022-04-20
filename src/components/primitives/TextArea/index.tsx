@@ -19,12 +19,19 @@ export interface ITextAreaProps
 }
 
 const TextArea = (
-  { wrapperRef, isDisabled, isInvalid, isReadOnly, ...props }: ITextAreaProps,
+  {
+    wrapperRef,
+    isDisabled,
+    isInvalid,
+    isReadOnly,
+    isFocused: isFocusedProp,
+    ...props
+  }: ITextAreaProps,
   ref: any
 ) => {
   const _ref = React.useRef(null);
   const { isHovered } = useHover({}, _ref);
-  const [isFocused, setIsFocused] = React.useState(false);
+  const [isFocused, setIsFocused] = React.useState(isFocusedProp);
   const handleFocus = (focusState: boolean, callback: any) => {
     setIsFocused(focusState);
     callback();
