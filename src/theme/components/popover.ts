@@ -82,7 +82,6 @@ export const PopoverContent = {
 
 export const PopoverHeader = {
   baseStyle: () => ({
-    shadow: '6',
     _web: {
       accessibilityRole: 'header',
     },
