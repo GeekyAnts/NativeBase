@@ -70,11 +70,14 @@ export const MenuItem = {
           color: 'text.400',
         },
       },
-      _focus: {
+      _hover: {
         bg: 'muted.200',
       },
-      _pressed: {
+      _focus: {
         bg: 'muted.300',
+      },
+      _pressed: {
+        bg: 'muted.400',
       },
 
       _icon: {
@@ -97,11 +100,14 @@ export const MenuItem = {
           color: 'text.600',
         },
       },
-      _focus: {
+      _hover: {
         bg: 'muted.700',
       },
-      _pressed: {
+      _focus: {
         bg: 'muted.600',
+      },
+      _pressed: {
+        bg: 'muted.500',
       },
 
       _icon: {
