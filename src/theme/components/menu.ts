@@ -80,6 +80,13 @@ export const MenuItem = {
       _icon: {
         color: 'muted.500',
       },
+      _focusVisible: {
+        _web: {
+          outlineWidth: '0',
+          style: { boxShadow: `none` },
+          bg: 'muted.300',
+        },
+      },
     },
     _dark: {
       _text: {
@@ -105,7 +112,7 @@ export const MenuItem = {
       _web: {
         outlineWidth: '0',
         style: { boxShadow: `none` },
-        bg: 'muted.300',
+        bg: 'muted.600',
       },
     },
     _checked: {
