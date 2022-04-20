@@ -7,7 +7,14 @@ import type { ThemeComponentSizeType } from '../../../components/types/utils';
 export interface InterfaceIconButtonProps
   extends Omit<
       InterfacePressableProps,
-      'children' | 'color' | '_light' | '_dark' | '_web' | '_android' | '_ios'
+      | 'children'
+      | 'color'
+      | '_light'
+      | '_dark'
+      | '_web'
+      | '_android'
+      | '_ios'
+      | '_important'
     >,
     Omit<
       IIconProps,
@@ -25,6 +32,7 @@ export interface InterfaceIconButtonProps
       | '_web'
       | '_android'
       | '_ios'
+      | '_important'
     >,
     PlatformProps<IIconButtonProps> {
   /**

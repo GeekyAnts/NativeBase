@@ -73,7 +73,7 @@ export interface InterfaceInputProps
   /**
    * Using the type password, user can mask the input.
    */
-  type?: 'text' | 'password' | string;
+  type?: 'text' | 'password';
   /**
    * Ref to be passed to Icon's wrapper Box
    */

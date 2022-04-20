@@ -9,7 +9,7 @@ import type { PlatformProps } from '../../../components/types';
 export interface ITextAreaProps
   extends Omit<
       InterfaceInputProps,
-      '_web' | '_android' | '_ios' | '_light' | '_dark'
+      '_web' | '_android' | '_ios' | '_light' | '_dark' | '_important'
     >,
     PlatformProps<ITextAreaProps> {
   /**
@@ -25,6 +25,7 @@ const TextArea = (
     isInvalid,
     isReadOnly,
     isFocused: isFocusedProp,
+    isHovered: isHoveredProp,
     ...props
   }: ITextAreaProps,
   ref: any
@@ -39,7 +40,13 @@ const TextArea = (
   const { totalLines, onFocus, onBlur, ...newProps } = usePropsResolution(
     'TextArea',
     props,
-    { isHovered, isDisabled, isFocused, isInvalid, isReadOnly },
+    {
+      isHovered: isHoveredProp || isHovered,
+      isDisabled,
+      isFocused,
+      isInvalid,
+      isReadOnly,
+    },
     { extendTheme: ['Input'] }
   );
   //TODO: refactor for responsive prop

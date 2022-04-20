@@ -67,6 +67,7 @@ export const stylingProps = {
     'borderLeftColor',
     'borderX',
     'borderY',
+    'rounded',
   ],
   layout: [
     'width',
@@ -104,6 +105,7 @@ export const stylingProps = {
     'order',
   ],
   position: ['position', 'zIndex', 'top', 'right', 'bottom', 'left'],
+  outline: ['outlineWidth', 'outlineColor', 'outlineStyle'],
   background: ['bg', 'backgroundColor', 'bgColor'],
 };
 export type Dict = Record<string, any>;
