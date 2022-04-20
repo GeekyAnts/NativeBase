@@ -212,6 +212,11 @@ function variantLink({ colorScheme }: Record<string, any>) {
         textDecorationLine: 'underline',
       },
     },
+    _pressed: {
+      _text: {
+        textDecorationLine: 'underline',
+      },
+    },
     _light: {
       _text: {
         color: `${colorScheme}.600`,
