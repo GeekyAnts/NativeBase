@@ -11,6 +11,7 @@ import {
   SunIcon,
   extendTheme,
   Button,
+  Input,
 } from 'native-base';
 import type { StorageManager } from 'native-base';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -21,8 +22,79 @@ const myTheme = extendTheme({
   space: {
     mySpace: '29px',
   },
+  colors: {
+    blue1: {
+      '100': 'blue',
+    },
+  },
+
   components: {
+    Link: {
+      sizes: {
+        mysize: 10,
+      },
+    },
     Button: {
+      variants: {
+        myBtn: {
+          padding: 10,
+        },
+        myNewButton: ({ myPaddingX }: { myPaddingX: number }) => {
+          return {
+            padding: myPaddingX,
+          };
+        },
+
+        myNewButton1: (props: any) => {
+          return {
+            padding: props.padding,
+          };
+        },
+      },
+      sizes: {
+        newsize: ({ mySize }: { mySize: number }) => {
+          return {
+            padding: mySize,
+          };
+        },
+      },
+    },
+
+    Input: {
+      variants: {
+        newsize: ({ mySize }: { mySize: number }) => {
+          return {
+            padding: mySize,
+          };
+        },
+
+        newsize1: (props: any) => {
+          return {
+            padding: props.padding,
+          };
+        },
+      },
+      sizes: {
+        'my-size': {
+          padding: 2,
+        },
+      },
+    },
+
+    Checkbox: {
+      sizes: {
+        myBtn: {
+          padding: 10,
+        },
+        myNewButton: ({ myPadding }: { myPadding: any }) => {
+          return {
+            padding: myPadding,
+          };
+        },
+      },
+    },
+
+    Box: {
       variants: {
         myBtn: {
           padding: 10,
@@ -64,6 +136,7 @@ function MyWrapper({ children }: any) {
           zIndex={4}
           onPress={toggleColorMode}
           icon={colorMode === 'dark' ? <SunIcon /> : <MoonIcon />}
+          size="lg"
         />
       </Tooltip>
       {children}
@@ -74,8 +147,14 @@ function MyWrapper({ children }: any) {
 export function RenderTestButton() {
   const [state, setState] = React.useState(1);
   return (
-    <Box style={{ position: 'absolute', top: 10, left: 20 }}>
-      <Button title={state.toString()} onPress={() => setState(state + 1)} />
+    <Box style={{ position: 'absolute', top: 10, left: 20 }} m={2} bg="red.100">
+      <Input m={2} size="my-size" />
+      <Button
+        size=""
+        variant={'myNewButton'}
+        // title={state.toString()}
+        onPress={() => setState(state + 1)}
+      />
     </Box>
   );
 }
@@ -83,7 +162,7 @@ export default ({ children, theme }: any) => {
   const colorModeManager: StorageManager = {
     get: async () => {
       try {
-        let val = await AsyncStorage.getItem('@example-wrapper-mode');
+        const val = await AsyncStorage.getItem('@example-wrapper-mode');
         return val === 'dark' ? 'dark' : 'light';
       } catch (e) {
         console.log(e);

@@ -1,13 +1,12 @@
 import React, { memo, forwardRef } from 'react';
-import { default as Box } from '../Box';
+import { default as Box, InterfaceBoxProps } from '../Box';
 import { getSpacedChildren } from '../../../utils';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
-import type { IBoxProps } from '../Box';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-import type { ResponsiveValue, SpaceType } from '../../types';
+import type { CustomProps, ResponsiveValue, SpaceType } from '../../types';
 import { ResponsiveQueryContext } from '../../../utils/useResponsiveQuery/ResponsiveQueryProvider';
 
-export interface IStackProps extends IBoxProps<IStackProps> {
+export interface InterfaceStackProps extends InterfaceBoxProps<IStackProps> {
   /**
    * The divider element to use between elements.
    */
@@ -29,7 +28,29 @@ export interface IStackProps extends IBoxProps<IStackProps> {
   direction?: ResponsiveValue<
     'column' | 'row' | 'column-reverse' | 'row-reverse'
   >;
+  /**
+   * If true, the Stack will be in hovered state.
+   */
+  isHovered?: boolean;
+  /**
+   * If true, the Stack will be focused.
+   */
+  isFocused?: boolean;
+  /**
+   * If true, the Stack will be disabled.
+   */
+  isDisabled?: boolean;
+  /**
+   * If true, the Stack will be invalid.
+   */
+  isInvalid?: boolean;
+  /**
+   * If true, prevents the value of the children from being edited. Used with FormControls.
+   */
+  isReadOnly?: boolean;
 }
+
+export type IStackProps = InterfaceStackProps & CustomProps<'Stack'>;
 
 const Stack = ({ space, ...props }: IStackProps, ref?: any) => {
   const dir = props.direction;
@@ -43,7 +64,13 @@ const Stack = ({ space, ...props }: IStackProps, ref?: any) => {
   }: any = usePropsResolution(
     'Stack',
     { ...props, size: space },
-    {},
+    {
+      isDisabled: props.isDisabled,
+      isHovered: props.isHovered,
+      isFocused: props.isFocused,
+      isInvalid: props.isInvalid,
+      isReadOnly: props.isReadOnly,
+    },
     { resolveResponsively: ['space', 'direction'] }
   );
 

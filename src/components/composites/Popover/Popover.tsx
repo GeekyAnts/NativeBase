@@ -73,7 +73,12 @@ const Popover = (
   return (
     <Box ref={ref}>
       {updatedTrigger()}
-      <Overlay isOpen={isOpen} onRequestClose={handleClose} useRNModalOnAndroid>
+      <Overlay
+        isOpen={isOpen}
+        onRequestClose={handleClose}
+        useRNModalOnAndroid
+        unmountOnExit
+      >
         <PresenceTransition
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, transition: { duration: 150 } }}
@@ -95,6 +100,7 @@ const Popover = (
                 bodyMounted,
                 setBodyMounted,
                 setHeaderMounted,
+                isOpen,
               }}
             >
               <FocusScope contain={trapFocus} restoreFocus autoFocus>

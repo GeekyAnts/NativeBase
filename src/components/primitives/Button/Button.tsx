@@ -50,6 +50,7 @@ const Button = (
     _stack,
     _spinner,
     isLoadingText,
+    _icon,
     ...resolvedProps
   } = usePropsResolution('Button', props, {
     isDisabled,
@@ -77,7 +78,7 @@ const Button = (
       (child: JSX.Element, index: number) => {
         return React.cloneElement(child, {
           key: `button-end-icon-${index}`,
-          ..._text,
+          ..._icon,
           ...child.props,
         });
       }
@@ -89,20 +90,22 @@ const Button = (
       (child: JSX.Element, index: number) => {
         return React.cloneElement(child, {
           key: `button-start-icon-${index}`,
-          ..._text,
+          ..._icon,
           ...child.props,
         });
       }
     );
   }
 
-  const boxChildren = isLoading && isLoadingText ? isLoadingText : children;
-
   const spinnerElement = spinner ? (
     spinner
   ) : (
     <Spinner color={_text?.color} {..._spinner} />
   );
+
+  const boxChildren = (child: any) => {
+    return child ? <Box _text={_text}>{child}</Box> : null;
+  };
 
   return (
     <Pressable
@@ -127,14 +130,15 @@ const Button = (
       {...resolvedProps}
       accessibilityRole={props.accessibilityRole ?? 'button'}
     >
-      <HStack {..._stack}>
+      <HStack {..._stack} test={true}>
         {startIcon && !isLoading ? startIcon : null}
         {isLoading && spinnerPlacement === 'start' ? spinnerElement : null}
-        {boxChildren ? (
-          <Box _text={_text}>
-            {isLoading && isLoadingText ? isLoadingText : children}
-          </Box>
-        ) : null}
+        {isLoading
+          ? isLoadingText
+            ? boxChildren(isLoadingText)
+            : null
+          : boxChildren(children)}
+
         {endIcon && !isLoading ? endIcon : null}
         {isLoading && spinnerPlacement === 'end' ? spinnerElement : null}
       </HStack>

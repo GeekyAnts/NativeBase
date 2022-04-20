@@ -66,6 +66,7 @@ const InputBase = (
     fontFamily,
     fontWeight,
     fontStyle,
+    _webInputBase,
     ...resolvedProps
   } = usePropsResolution(
     'Input',
@@ -138,7 +139,7 @@ const InputBase = (
           }
         : {})}
       ref={mergeRefs([ref, _ref, wrapperRef])}
-      style={Platform.OS === 'web' ? { outline: 'none' } : {}}
+      style={Platform.OS === 'web' ? _webInputBase : {}}
     />
   );
 };

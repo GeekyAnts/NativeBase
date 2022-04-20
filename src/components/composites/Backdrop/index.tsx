@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Pressable, IPressableProps } from '../../primitives/Pressable';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
@@ -10,6 +10,7 @@ const Backdrop = (props: IPressableProps) => {
   return (
     <Pressable
       _web={{
+        //@ts-ignore
         cursor: 'default',
       }}
       position="absolute"
@@ -22,8 +23,8 @@ const Backdrop = (props: IPressableProps) => {
       bg={props.bg || 'rgb(0, 0, 0)'}
       opacity={0.3}
       {...props}
-    ></Pressable>
+    />
   );
 };
 
-export default React.memo(Backdrop);
+export default memo(Backdrop);

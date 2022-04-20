@@ -1,12 +1,11 @@
-import type { IBoxProps } from '../../primitives/Box';
+import type { InterfaceBoxProps } from '../../primitives/Box';
 import type { IIconButtonProps } from '../../composites/IconButton';
 import type { MutableRefObject } from 'react';
-
-import type { ResponsiveValue } from '../../../components/types';
-import type { ISizes } from '../../../theme/base/sizes';
+import type { CustomProps } from '../../../components/types';
 import type { IScrollViewProps } from '../../basic/ScrollView';
-
-export interface IModalProps extends IBoxProps<IModalProps> {
+import type { IFadeProps, ISlideProps } from '../Transitions';
+import type { ThemeComponentSizeType } from '../../../components/types/utils';
+export interface InterfaceModalProps extends InterfaceBoxProps<IModalProps> {
   /**
    * If true, the modal will open. Useful for controllable state behaviour
    */
@@ -22,7 +21,7 @@ export interface IModalProps extends IBoxProps<IModalProps> {
   /**
    * The size of the modal
    */
-  size?: ResponsiveValue<ISizes | (string & {}) | number>;
+  size?: ThemeComponentSizeType<'Modal'>;
   /**
    * The ref of element to receive focus when the modal opens.
    */
@@ -65,6 +64,18 @@ export interface IModalProps extends IBoxProps<IModalProps> {
    * @default "fade"
    */
   animationPreset?: 'fade' | 'slide';
+  /**
+   * Props applied on Overlay Animation.
+   */
+  _backdropFade?: Partial<IFadeProps>;
+  /**
+   * Props applied on Child Fade Animation.
+   */
+  _fade?: Partial<IFadeProps>;
+  /**
+   * Props applied on Child Slide Animation.
+   */
+  _slide?: Partial<ISlideProps>;
 }
 
 export type IModalComponentType = ((
@@ -72,7 +83,9 @@ export type IModalComponentType = ((
 ) => JSX.Element) & {
   Body: React.MemoExoticComponent<
     (
-      props: IBoxProps<IModalProps> & { _scrollview?: IScrollViewProps } & {
+      props: InterfaceBoxProps<IModalProps> & {
+        _scrollview?: IScrollViewProps;
+      } & {
         ref?: MutableRefObject<any>;
       }
     ) => JSX.Element
@@ -82,17 +95,19 @@ export type IModalComponentType = ((
   >;
   Content: React.MemoExoticComponent<
     (
-      props: IBoxProps<IModalProps> & { ref?: MutableRefObject<any> }
+      props: InterfaceBoxProps<IModalProps> & { ref?: MutableRefObject<any> }
     ) => JSX.Element
   >;
   Footer: React.MemoExoticComponent<
     (
-      props: IBoxProps<IModalProps> & { ref?: MutableRefObject<any> }
+      props: InterfaceBoxProps<IModalProps> & { ref?: MutableRefObject<any> }
     ) => JSX.Element
   >;
   Header: React.MemoExoticComponent<
     (
-      props: IBoxProps<IModalProps> & { ref?: MutableRefObject<any> }
+      props: InterfaceBoxProps<IModalProps> & { ref?: MutableRefObject<any> }
     ) => JSX.Element
   >;
 };
+
+export type IModalProps = InterfaceModalProps & CustomProps<'Modal'>;

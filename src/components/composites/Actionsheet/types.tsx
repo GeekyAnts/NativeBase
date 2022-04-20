@@ -1,8 +1,10 @@
-import type { IButtonProps } from '../../primitives/Button';
-import type { IBoxProps } from '../../primitives/Box';
+import type { InterfaceButtonProps } from '../../primitives/Button/types';
+import type { InterfaceBoxProps } from '../../primitives/Box';
 import type { MutableRefObject } from 'react';
+import type { CustomProps } from '../../../components/types';
 
-export interface IActionsheetProps extends IBoxProps<IActionsheetProps> {
+export interface InterfaceActionsheetProps
+  extends InterfaceBoxProps<IActionsheetProps> {
   /**
    * If true, the ActionSheet will open. Useful for controllable state behaviour
    */
@@ -28,12 +30,26 @@ export interface IActionsheetProps extends IBoxProps<IActionsheetProps> {
 }
 
 export interface IActionsheetContentProps
-  extends IBoxProps<IActionsheetContentProps> {}
+  extends InterfaceBoxProps<IActionsheetContentProps> {
+  /**
+   * Props applied on area above actionsheet content
+   */
+  _dragIndicatorWrapperOffSet?: InterfaceBoxProps<IActionsheetContentProps>;
+  /**
+   * Props applied on area around drag indicator
+   */
+  _dragIndicatorWrapper?: InterfaceBoxProps<IActionsheetContentProps>;
+  /**
+   * Props applied on drag indicator
+   */
+  _dragIndicator?: InterfaceBoxProps<IActionsheetContentProps>;
+}
 export interface IActionsheetFooterProps
-  extends IBoxProps<IActionsheetFooterProps> {}
+  extends InterfaceBoxProps<IActionsheetFooterProps> {}
 export interface IActionsheetHeaderProps
-  extends IBoxProps<IActionsheetHeaderProps> {}
-export interface IActionsheetItemProps extends IButtonProps {}
+  extends InterfaceBoxProps<IActionsheetHeaderProps> {}
+export interface IActionsheetItemProps
+  extends Omit<InterfaceButtonProps, 'variant' | 'size' | 'colorScheme'> {}
 
 export type IActionsheetComponentType = ((
   props: IActionsheetProps & { ref?: MutableRefObject<any> }
@@ -48,14 +64,17 @@ export type IActionsheetComponentType = ((
       props: IActionsheetItemProps & { ref?: MutableRefObject<any> }
     ) => JSX.Element
   >;
-  Header: React.MemoExoticComponent<
-    (
-      props: IActionsheetHeaderProps & { ref?: MutableRefObject<any> }
-    ) => JSX.Element
-  >;
-  Footer: React.MemoExoticComponent<
-    (
-      props: IActionsheetFooterProps & { ref?: MutableRefObject<any> }
-    ) => JSX.Element
-  >;
+  // Header: React.MemoExoticComponent<
+  //   (
+  //     props: IActionsheetHeaderProps & { ref?: MutableRefObject<any> }
+  //   ) => JSX.Element
+  // >;
+  // Footer: React.MemoExoticComponent<
+  //   (
+  //     props: IActionsheetFooterProps & { ref?: MutableRefObject<any> }
+  //   ) => JSX.Element
+  // >;
 };
+
+export type IActionsheetProps = InterfaceActionsheetProps &
+  CustomProps<'Actionsheet'>;

@@ -566,11 +566,14 @@ export const typography = {
 const extraProps = {
   outline: true,
   outlineWidth: true,
+  outlineColor: true,
+  outlineStyle: true,
   shadow: {
     scale: 'shadows',
   },
   cursor: true,
   overflow: true,
+  userSelect: { property: 'userSelect' },
 } as const;
 
 export const propConfig = {

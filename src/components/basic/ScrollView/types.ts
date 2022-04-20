@@ -1,8 +1,8 @@
 import type { ScrollViewProps } from 'react-native';
 import type { StyledProps } from '../../../theme/types';
-import type { PlatformProps } from '../../types';
+import type { CustomProps, PlatformProps } from '../../types';
 
-export interface IScrollViewProps
+export interface InterfaceScrollViewProps
   extends ScrollViewProps,
     StyledProps,
     PlatformProps<IScrollViewProps> {
@@ -12,5 +12,8 @@ export interface IScrollViewProps
   /**
    * pass props to contentContainerStyle, and this also resolved NB tokens.
    */
-  _contentContainerStyle?: IScrollViewProps;
+  _contentContainerStyle?: Partial<IScrollViewProps>;
 }
+
+export type IScrollViewProps = InterfaceScrollViewProps &
+  CustomProps<'ScrollView'>;

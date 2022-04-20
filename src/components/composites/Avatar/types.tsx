@@ -1,10 +1,10 @@
-import type { IBoxProps } from '../../primitives/Box';
+import type { InterfaceBoxProps } from '../../primitives/Box';
+import type { IImageProps } from '../../primitives/Image';
 import type { ImageSourcePropType } from 'react-native';
 import type { MutableRefObject } from 'react';
-import type { ResponsiveValue } from '../../../components/types';
-import type { ISizes } from '../../../theme/base/sizes';
-
-export interface IAvatarProps extends IBoxProps<IAvatarProps> {
+import type { CustomProps } from '../../../components/types';
+import type { ThemeComponentSizeType } from '../../../components/types/utils';
+export interface InterfaceAvatarProps extends InterfaceBoxProps<IAvatarProps> {
   /**
    * The image source of the avatar.
    */
@@ -13,14 +13,19 @@ export interface IAvatarProps extends IBoxProps<IAvatarProps> {
    * The size of the avatar
    * @default md
    */
-  size?: ResponsiveValue<ISizes | (string & {}) | number>;
+  size?: ThemeComponentSizeType<'Avatar'>;
+  /**
+   * For providing props to Image component inside Avatar
+   */
+  _image?: Partial<IImageProps>;
   /**
    * ref to be attached to Avatar wrapper
    */
   wrapperRef?: MutableRefObject<any>;
 }
 
-export interface IAvatarBadgeProps extends IBoxProps<IAvatarBadgeProps> {}
+export interface IAvatarBadgeProps
+  extends InterfaceBoxProps<IAvatarBadgeProps> {}
 
 export interface IAvatarGroupProps extends IAvatarProps {
   /**
@@ -33,8 +38,22 @@ export interface IAvatarGroupProps extends IAvatarProps {
   space?: number;
   /**
    * The max number of avatar.
+   * @default -4
    */
   max?: number;
+  /**
+   * Make Avatar.Group render in vertical direction.
+   * @default false
+   */
+  isVertical?: Boolean;
+  /**
+   * For providing props to all Avatar in that Avatar.Group
+   */
+  _avatar?: Partial<IAvatarProps>;
+  /**
+   * For providing props to the Avatar that shows the count of remaining Avatars that are not visible when max is applied.
+   */
+  _hiddenAvatarPlaceholder?: Partial<IAvatarProps>;
 }
 
 export type IAvatarComponentType = ((
@@ -47,3 +66,5 @@ export type IAvatarComponentType = ((
     (props: IAvatarBadgeProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
 };
+
+export type IAvatarProps = InterfaceAvatarProps & CustomProps<'Avatar'>;

@@ -15,6 +15,8 @@ const MenuGroup = (
   if (useHasResponsiveProps({ ...props, title })) {
     return null;
   }
+
+  //TODO: Can be simplified
   return (
     <>
       <Box {...resolvedProps} ref={ref}>

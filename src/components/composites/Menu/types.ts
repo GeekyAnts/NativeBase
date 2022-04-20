@@ -1,9 +1,14 @@
 import type { ITextProps } from '../../primitives/Text';
-import type { IBoxProps } from '../../primitives/Box';
+import type { InterfaceBoxProps } from '../../primitives/Box/types';
 import type { IPressableProps } from '../../primitives/Pressable';
 import type { MutableRefObject } from 'react';
+import type { IPresenceTransitionProps } from '../Transitions/types';
+import type { IIconProps } from '../../../components/primitives/Icon';
+import type { IStackProps } from '../../../components/primitives/Stack';
+import type { IOverlayProps } from '../../../components/primitives/Overlay';
+import type { CustomProps } from '../../../components/types';
 
-export interface IMenuProps extends IBoxProps<IMenuProps> {
+export interface InterfaceMenuProps extends InterfaceBoxProps<IMenuProps> {
   /**
    * Function that returns a React Element. This element will be used as a Trigger for the menu
    */
@@ -64,6 +69,18 @@ export interface IMenuProps extends IBoxProps<IMenuProps> {
    * @default true
    */
   shouldFlip?: boolean;
+  /**
+   * Overlay related props can be passed in _overlay.
+   */
+  _overlay?: Partial<IOverlayProps>;
+  /**
+   * PresenceTransition related props can be passed in _presenceTransition.
+   */
+  _presenceTransition?: Partial<IPresenceTransitionProps>;
+  /**
+   * Backdrop related props can be passed in _backdrop.
+   */
+  _backdrop?: Partial<IPressableProps>;
 }
 
 export interface IMenuItemProps extends IPressableProps {
@@ -78,7 +95,7 @@ export interface IMenuItemProps extends IPressableProps {
   /**
    * Props to be passed to Text
    */
-  _text?: ITextProps;
+  _text?: Partial<ITextProps>;
   /**
    * This value will be available for the typeahead menu feature
    */
@@ -90,6 +107,18 @@ export interface IMenuItemOptionProps extends IMenuItemProps {
    * Value of the Menu Item option.
    */
   value: string | number;
+  /**
+   * Stack related props can be passed in _stack.
+   */
+  _stack?: Partial<IStackProps>;
+  /**
+   * Icon related props can be passed in _icon.
+   */
+  _icon?: Partial<IIconProps>;
+  /**
+   * Text related props can be passed in _text.
+   */
+  _text?: Partial<ITextProps>;
 }
 export interface IMenuGroupProps {
   /**
@@ -103,7 +132,7 @@ export interface IMenuGroupProps {
   /**
    * Props to pass on to Text.
    */
-  _title?: ITextProps;
+  _title?: Partial<ITextProps>;
 }
 
 export interface IMenuOptionGroupProps extends IMenuGroupProps {
@@ -157,3 +186,4 @@ export type IMenuContextProps = {
   open?: boolean;
   closeOnSelect?: boolean;
 };
+export type IMenuProps = InterfaceMenuProps & CustomProps<'Menu'>;

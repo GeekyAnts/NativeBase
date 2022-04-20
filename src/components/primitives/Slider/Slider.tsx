@@ -58,10 +58,6 @@ function Slider({ isDisabled, isReadOnly, ...props }: ISliderProps, ref?: any) {
     trackLayout
   );
 
-  const wrapperStyle = {
-    height: props.orientation === 'vertical' ? '100%' : undefined,
-    width: props.orientation !== 'vertical' ? '100%' : undefined,
-  };
   const contextValue = React.useMemo(() => {
     return {
       trackLayout,
@@ -74,7 +70,8 @@ function Slider({ isDisabled, isReadOnly, ...props }: ISliderProps, ref?: any) {
       isReadOnly: isReadOnly,
       onTrackLayout: onLayout,
       thumbSize: resolvedProps.thumbSize,
-      sliderSize: resolvedProps.sliderSize,
+      sliderSize: resolvedProps.sliderTrackHeight,
+      _interactionBox: resolvedProps._interactionBox,
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
@@ -87,7 +84,7 @@ function Slider({ isDisabled, isReadOnly, ...props }: ISliderProps, ref?: any) {
     isReadOnly,
     onLayout,
     resolvedProps.thumbSize,
-    resolvedProps.sliderSize,
+    resolvedProps.sliderTrackHeight,
   ]);
 
   //TODO: refactor for responsive prop
@@ -97,13 +94,7 @@ function Slider({ isDisabled, isReadOnly, ...props }: ISliderProps, ref?: any) {
 
   return (
     <SliderContext.Provider value={contextValue}>
-      <Box
-        {...wrapperStyle}
-        justifyContent="center"
-        ref={ref}
-        alignItems="center"
-        {...resolvedProps}
-      >
+      <Box {...resolvedProps} ref={ref}>
         {React.Children.map(props.children, (child, index) => {
           if (child.displayName === 'SliderThumb') {
             return React.cloneElement(child as React.ReactElement, {

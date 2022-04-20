@@ -14,7 +14,7 @@ const FormControlLabel = (
   const formControlContext = useFormControlContext();
   const combinedProps = combineContextAndProps(formControlContext, props);
   const _ref = React.useRef<HTMLLabelElement>(null);
-  const { astrickColor, ...reslovedProps } = usePropsResolution(
+  const { _astrick, ...reslovedProps } = usePropsResolution(
     'FormControlLabel',
     combinedProps,
     {
@@ -32,7 +32,7 @@ const FormControlLabel = (
         //@ts-ignore
         accessibilityRole: 'presentation',
       }}
-      color={astrickColor}
+      {..._astrick}
     >
       *
     </Text>
@@ -51,8 +51,6 @@ const FormControlLabel = (
 
   return (
     <Box
-      flexDirection="row"
-      justifyContent="flex-start"
       _web={{
         //@ts-ignore
         accessibilityRole: 'label',

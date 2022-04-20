@@ -9,7 +9,7 @@ import { mergeRefs } from '../../../utils';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const MenuItem = (
-  { children, isDisabled, onPress, style, textValue, ...props }: IMenuItemProps,
+  { children, isDisabled, onPress, textValue, ...props }: IMenuItemProps,
   ref: any
 ) => {
   const { closeOnSelect, onClose } = React.useContext(MenuContext);
@@ -47,9 +47,7 @@ const MenuItem = (
       {...menuItemProps}
       {...resolvedProps}
       ref={mergedRef}
-      style={style}
       disabled={isDisabled}
-      // TouchableHighlight doesn't announce disabled, even if disabled prop is set
       accessibilityState={{
         disabled: isDisabled,
       }}

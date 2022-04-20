@@ -5,7 +5,7 @@ import { AlertDialogContext } from './Context';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const AlertDialogContent = (props: IBoxProps, ref?: any) => {
-  const { ...newProps } = usePropsResolution('AlertDialogContent', props);
+  const newProps = usePropsResolution('AlertDialogContent', props);
   const {
     contentSize,
     initialFocusRef,
@@ -13,7 +13,7 @@ const AlertDialogContent = (props: IBoxProps, ref?: any) => {
     handleClose,
   } = React.useContext(AlertDialogContext);
   React.useEffect(() => {
-    let finalRefVal = finalFocusRef ? finalFocusRef.current : null;
+    const finalRefVal = finalFocusRef ? finalFocusRef.current : null;
     if (initialFocusRef && initialFocusRef.current) {
       //@ts-ignore
       initialFocusRef.current.focus();

@@ -15,6 +15,8 @@ import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 import { combineContextAndProps } from '../../../utils';
 import SizedIcon from './SizedIcon';
+import { Stack } from '../Stack';
+import { wrapStringChild } from '../../../utils/wrapStringChild';
 
 const Checkbox = (
   {
@@ -74,6 +76,7 @@ const Checkbox = (
   const inputProps = React.useMemo(() => groupItemInputProps, [
     groupItemInputProps.checked,
     groupItemInputProps.disabled,
+    groupItemInputProps,
   ]);
 
   const [contextCombinedProps] = React.useState({
@@ -119,6 +122,8 @@ const CheckboxComponent = React.memo(
       icon,
       _interactionBox,
       _icon,
+      _stack,
+      _text,
       ...resolvedProps
     } = usePropsResolution('Checkbox', combinedProps, {
       isInvalid,
@@ -137,41 +142,12 @@ const CheckboxComponent = React.memo(
       ...stylingProps.position,
       '_text',
     ]);
-
     const component = React.useMemo(() => {
       return (
-        <Box
-          {...layoutProps}
-          opacity={isDisabled ? 0.4 : 1}
-          cursor={isDisabled ? 'not-allowed' : 'pointer'}
-        >
+        <Stack {..._stack} {...layoutProps}>
           <Center>
             {/* Interaction Box */}
-            <Box
-              {..._interactionBox}
-              style={{
-                // @ts-ignore - only for web"
-                transition: 'height 200ms, width 200ms',
-              }}
-              h={
-                isFocusVisible ||
-                isFocusVisibleProp ||
-                isHovered ||
-                isHoveredProp
-                  ? '200%'
-                  : '0%'
-              }
-              w={
-                isFocusVisible ||
-                isFocusVisibleProp ||
-                isHovered ||
-                isHoveredProp
-                  ? '200%'
-                  : '0%'
-              }
-              pointerEvents="none"
-              zIndex={-1}
-            />
+            <Box {..._interactionBox} />
             {/* Checkbox */}
             <Center {...nonLayoutProps}>
               {/* {iconResolver()} */}
@@ -179,21 +155,19 @@ const CheckboxComponent = React.memo(
             </Center>
           </Center>
           {/* Label */}
-          {resolvedProps?.children}
-        </Box>
+          {/* {resolvedProps?.children} */}
+          {wrapStringChild(resolvedProps?.children, _text)}
+        </Stack>
       );
     }, [
       _icon,
+      _stack,
+      _text,
       _interactionBox,
       icon,
       isChecked,
-      isDisabled,
-      isFocusVisible,
-      isHovered,
-      layoutProps,
       nonLayoutProps,
-      isHoveredProp,
-      isFocusVisibleProp,
+      layoutProps,
       resolvedProps?.children,
     ]);
 

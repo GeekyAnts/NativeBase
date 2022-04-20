@@ -1,11 +1,6 @@
-import React from 'react';
 import { createIcon } from '../createIcon';
-import { G, Rect } from '../nbSvg';
 
 export const MinusIcon = createIcon({
-  path: (
-    <G fill="currentColor">
-      <Rect height="4" width="20" x="2" y="10" />
-    </G>
-  ),
+  viewBox: '0 0 24 24',
+  d: 'M22 10.5H2V13H22V10.5Z',
 });

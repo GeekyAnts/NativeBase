@@ -19,17 +19,6 @@ import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import type { ISelectItemProps } from './types';
 import { Pressable } from '../Pressable';
 
-const unstyledSelecWebtStyles = {
-  appearance: 'none',
-  WebkitAppearance: 'none',
-  MozAppearance: 'none',
-  position: 'absolute',
-  width: '100%',
-  height: '100%',
-  opacity: 0,
-  zIndex: 1,
-};
-
 export const SelectContext = React.createContext({
   onValueChange: (() => {}) as any,
   selectedValue: null as any,
@@ -79,6 +68,8 @@ const Select = (
     optimized,
     customDropdownIconProps,
     _actionSheetContent,
+    _actionSheetBody,
+    _webSelect,
     ...resolvedProps
   } = usePropsResolution(
     'Select',
@@ -100,6 +91,7 @@ const Select = (
       setIsOpen(false);
     },
   });
+
   const itemsList: Array<{ label: string; value: string }> = React.Children.map(
     children ?? [],
     (child: any) => {
@@ -109,9 +101,11 @@ const Select = (
       };
     }
   );
+
   const selectedItemArray = itemsList.filter(
     (item: any) => item.value === value
   );
+
   const selectedItem =
     selectedItemArray && selectedItemArray.length ? selectedItemArray[0] : null;
 
@@ -189,7 +183,6 @@ const Select = (
         {...hoverProps}
         ref={mergeRefs([ref, _ref])}
         //@ts-ignore
-        style={unstyledSelecWebtStyles}
         onChange={(e) => {
           setValue(e.target.value);
         }}
@@ -203,6 +196,7 @@ const Select = (
           setIsFocused(false);
           onClose && onClose();
         }}
+        {..._webSelect}
       >
         <option disabled value={tempFix}>
           {placeholder}
@@ -233,10 +227,11 @@ const Select = (
           {/* TODO: Replace ScrollVeiw with FlatList */}
           {optimized ? (
             <FlatList
-              w="100%"
+              {..._actionSheetBody}
               data={flatListData}
+              // eslint-disable-next-line no-shadow
               keyExtractor={(_item, index) => index.toString()}
-              renderItem={({ item }) => {
+              renderItem={({ item }: any) => {
                 const isSelected = selectedValue === item.value;
                 return (
                   <Actionsheet.Item
@@ -256,7 +251,7 @@ const Select = (
               }}
             />
           ) : (
-            <ScrollView width="100%">
+            <ScrollView {..._actionSheetBody}>
               <SelectContext.Provider value={contextValue}>
                 {children}
               </SelectContext.Provider>

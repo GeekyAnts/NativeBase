@@ -2,7 +2,7 @@ import React, { memo, forwardRef } from 'react';
 import { Pressable, IPressableProps } from '../Pressable';
 import { Center } from '../../composites/Center';
 import Box from '../Box';
-import { HStack } from '../Stack';
+import { Stack } from '../Stack';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { wrapStringChild } from '../../../utils/wrapStringChild';
 import type { IRadioProps } from './types';
@@ -97,6 +97,7 @@ const RadioComponent = memo(
 
       return (
         <Pressable
+          disabled={isDisabled}
           {...pressableProps}
           {...(cleanInputProps as IPressableProps)}
           ref={mergeRefs([ref, wrapperRef])}
@@ -121,10 +122,10 @@ const RadioComponent = memo(
             // focusRingProps.onBlur
           )}
         >
-          <HStack {..._stack}>
+          <Stack {..._stack}>
             <Center>
               {/* Interaction Wrapper */}
-              <Box position="absolute" zIndex={-1} {..._interactionBox} />
+              <Box {..._interactionBox} />
               {/* radio */}
               <Center {...resolvedProps}>
                 {icon && sizedIcon && isChecked ? (
@@ -136,7 +137,7 @@ const RadioComponent = memo(
             </Center>
             {/* Label */}
             {wrapStringChild(children, _text)}
-          </HStack>
+          </Stack>
         </Pressable>
       );
     }

@@ -24,9 +24,6 @@ const Actionsheet = (
     <Modal
       isOpen={isOpen}
       onClose={onClose}
-      justifyContent="flex-end"
-      //@ts-ignore - internal use only
-      animationPreset="slide"
       {...resolvedProps}
       overlayVisible={disableOverlay ? false : true}
       closeOnOverlayClick={disableOverlay ? false : true}

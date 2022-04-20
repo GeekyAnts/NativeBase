@@ -17,24 +17,17 @@ const SliderTrack = ({ children, ...props }: ISliderTrackProps, ref?: any) => {
     isDisabled,
   } = React.useContext(SliderContext);
 
-  const resolvedProps = usePropsResolution(
+  const isVertical = orientation === 'vertical';
+
+  const { _pressable, ...resolvedProps } = usePropsResolution(
     'SliderTrack',
     {
       size: sliderSize,
       colorScheme,
+      isVertical,
       ...props,
     },
     { isReadOnly, isDisabled }
-  );
-
-  const isVertical = orientation === 'vertical';
-
-  const trackStyle = React.useMemo(
-    () => ({
-      height: isVertical ? '100%' : resolvedProps.size,
-      width: !isVertical ? '100%' : resolvedProps.size,
-    }),
-    [isVertical, resolvedProps.size]
   );
 
   //TODO: refactor for responsive prop
@@ -47,15 +40,9 @@ const SliderTrack = ({ children, ...props }: ISliderTrackProps, ref?: any) => {
       onLayout={onTrackLayout}
       ref={ref}
       {...trackProps}
-      {...trackStyle}
-      paddingY={!isVertical ? '12px' : undefined}
-      paddingX={isVertical ? '12px' : undefined}
-      justifyContent="center"
-      alignItems="center"
+      {..._pressable}
     >
-      <Box {...resolvedProps} style={trackStyle}>
-        {children}
-      </Box>
+      <Box {...resolvedProps}>{children}</Box>
     </Pressable>
   );
 };

@@ -29,7 +29,9 @@ export const Example = () => {
             </HStack>
             <IconButton
               variant="unstyled"
-              icon={<CloseIcon size="3" color="coolGray.600" />}
+              _focus={{ borderWidth: 0 }}
+              icon={<CloseIcon size="3" />}
+              _icon={{ color: 'coolGray.600' }}
             />
           </HStack>
           <Box pl="6" _text={{ color: 'coolGray.600' }}>

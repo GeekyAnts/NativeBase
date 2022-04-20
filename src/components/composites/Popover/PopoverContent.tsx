@@ -21,6 +21,7 @@ export const PopoverContent = React.forwardRef(
       bodyMounted,
       bodyId,
       headerId,
+      isOpen,
     } = React.useContext(PopoverContext);
     const resolvedProps = usePropsResolution('PopoverContent', props);
 
@@ -80,8 +81,8 @@ export const PopoverContent = React.forwardRef(
         nativeID={popoverContentId}
         {...accessibilityProps}
         {...resolvedProps}
-        {...props}
         ref={ref}
+        isOpen={isOpen}
       >
         {arrowElement}
         {restChildren}

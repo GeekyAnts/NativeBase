@@ -1,6 +1,7 @@
-import type { IButtonProps } from '../../primitives/Button/types';
+import type { CustomProps } from '../../../components/types/utils';
+import type { InterfaceButtonProps } from '../../primitives/Button/types';
 
-export interface IFabProps extends IButtonProps {
+export interface InterfaceFabProps extends InterfaceButtonProps {
   /**
    * Placement of the Fab
    * @default bottom-right
@@ -22,3 +23,5 @@ export interface IFabProps extends IButtonProps {
    */
   renderInPortal?: boolean;
 }
+
+export type IFabProps = InterfaceFabProps & CustomProps<'FAB'>;

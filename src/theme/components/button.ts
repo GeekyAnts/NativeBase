@@ -1,44 +1,47 @@
-import { Dict, mode, transparentize } from './../tools';
-import { Platform } from 'react-native';
-const disabledTextColor = (props: any) => mode(`muted.500`, `muted.300`)(props);
+import { mode } from './../tools';
 
-const baseStyle = (props: any) => {
+const baseStyle = (props: Record<string, any>) => {
   const { primary } = props.theme.colors;
-  const focusRing =
-    Platform.OS === 'web'
-      ? mode(
-          { boxShadow: `${primary[400]} 0px 0px 0px 2px`, zIndex: 1 },
-          { boxShadow: `${primary[500]} 0px 0px 0px 2px`, zIndex: 1 }
-        )(props)
-      : {};
+  const focusRing = mode(
+    {
+      boxShadow: `${primary[400]} 0px 0px 0px 2px`,
+    },
+    {
+      boxShadow: `${primary[500]} 0px 0px 0px 2px`,
+    }
+  )(props);
 
   return {
-    borderRadius: 'sm',
+    borderRadius: 'sm', // '4px'
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+
     _web: {
-      cursor: props.isDisabled
-        ? 'not-allowed'
-        : props.isLoading
-        ? 'default'
-        : 'pointer',
-    },
-    _text: {
-      fontWeight: 'medium',
+      _disabled: {
+        cursor: 'not-allowed',
+      },
+      _loading: {
+        cursor: 'not-allowed',
+      },
+      cursor: 'pointer',
+      userSelect: 'none',
     },
     _focusVisible: {
-      style: props.variant !== 'unstyled' ? { ...focusRing } : {},
+      _web: {
+        outlineWidth: '0',
+        style: { ...focusRing },
+      },
     },
     _stack: {
-      space: 2,
+      space: '1.5',
       alignItems: 'center',
     },
     _loading: {
-      opacity: '80',
+      opacity: '40',
     },
     _disabled: {
-      opacity: '50',
+      opacity: '40',
     },
     _spinner: {
       size: 'sm',
@@ -47,178 +50,194 @@ const baseStyle = (props: any) => {
   };
 };
 
-function variantGhost(props: Dict) {
-  const { colorScheme: c } = props;
-  if (c === 'muted') {
-    return {
+function variantGhost({ colorScheme }: Record<string, any>) {
+  return {
+    _light: {
       _text: {
-        color: disabledTextColor(props),
+        color: `${colorScheme}.600`,
       },
-    };
-  }
+      _icon: {
+        color: `${colorScheme}.600`,
+      },
+      _spinner: {
+        color: `${colorScheme}.600`,
+      },
+      _hover: {
+        bg: `${colorScheme}.600:alpha.10`,
+      },
+      _pressed: {
+        bg: `${colorScheme}.600:alpha.20`,
+      },
+    },
+    _dark: {
+      _text: {
+        color: `${colorScheme}.500`,
+      },
+      _icon: {
+        color: `${colorScheme}.500`,
+      },
+      _spinner: {
+        color: `${colorScheme}.500`,
+      },
+      _hover: {
+        bg: `${colorScheme}.500:alpha.10`,
+      },
+      _pressed: {
+        bg: `${colorScheme}.500:alpha.20`,
+      },
+    },
+  };
+}
 
+function variantOutline({ colorScheme }: Record<string, any>) {
+  return {
+    borderWidth: '1px',
+
+    _light: {
+      borderColor: 'muted.300',
+      _text: {
+        color: `${colorScheme}.600`,
+      },
+      _icon: {
+        color: `${colorScheme}.600`,
+      },
+      _spinner: {
+        color: `${colorScheme}.600`,
+      },
+      _hover: {
+        bg: `${colorScheme}.600:alpha.10`,
+      },
+      _pressed: {
+        bg: `${colorScheme}.600:alpha.20`,
+      },
+    },
+    _dark: {
+      borderColor: 'muted.700',
+      _text: {
+        color: `${colorScheme}.500`,
+      },
+      _icon: {
+        color: `${colorScheme}.500`,
+      },
+      _spinner: {
+        color: `${colorScheme}.500`,
+      },
+      _hover: {
+        bg: `${colorScheme}.500:alpha.10`,
+      },
+      _pressed: {
+        bg: `${colorScheme}.500:alpha.20`,
+      },
+    },
+  };
+}
+
+function variantSolid({ colorScheme }: Record<string, any>) {
   return {
     _text: {
-      color: props.isDisabled
-        ? disabledTextColor(props)
-        : mode(`${c}.500`, `${c}.300`)(props),
+      color: 'text.50',
     },
-    bg: 'transparent',
-    _web: {
-      outlineWidth: '0',
-    },
-    _hover: {
-      borderColor: mode(`${c}.500`, `${c}.200`)(props),
-      bg: transparentize(mode(`${c}.200`, `${c}.400`)(props), 0.5)(props.theme),
-    },
-    _focusVisible: {
-      borderColor: mode(`${c}.700`, `${c}.200`)(props),
-      bg: transparentize(mode(`${c}.200`, `${c}.400`)(props), 0.5)(props.theme),
-    },
-    _pressed: {
-      borderColor: mode(`${c}.600`, `${c}.200`)(props),
-      bg: transparentize(mode(`${c}.300`, `${c}.500`)(props), 0.5)(props.theme),
+    _icon: {
+      color: 'text.50',
     },
     _spinner: {
-      size: 'sm',
+      color: 'text.50',
     },
-  };
-}
 
-function variantOutline(props: Dict) {
-  const { colorScheme: c } = props;
-  const borderColor = mode(`muted.200`, `muted.500`)(props);
-  return {
-    borderWidth: '1',
-    borderColor:
-      c === 'muted'
-        ? borderColor
-        : props.isDisabled
-        ? disabledTextColor(props)
-        : mode(`${c}.300`, `${c}.300`)(props),
-    ...variantGhost(props),
-  };
-}
-
-function variantSolid(props: Dict) {
-  const { colorScheme: c } = props;
-  let bg = `${c}.500`;
-  if (props.isDisabled) {
-    bg = mode(`muted.300`, `muted.500`)(props);
-  }
-
-  const styleObject = {
-    _web: {
-      outlineWidth: '0',
-    },
-    bg,
-    _hover: {
-      bg: `${c}.600`,
-    },
-    _pressed: {
-      bg: `${c}.700`,
-    },
-    _focus: {
-      bg: `${c}.600`,
-    },
-    _loading: {
-      bg: mode(`warmGray.50`, `${c}.300`)(props),
-      opacity: '50',
-    },
-    _disabled: { bg: mode(`trueGray.300`, `trueGray.600`)(props) },
-  };
-
-  return styleObject;
-}
-
-// function getBg(props: Record<string, any>) {
-//   const { theme, status, variant } = props;
-//   let { colorScheme } = props;
-
-//   colorScheme = getColorScheme(
-//     props,
-//     colorScheme !== 'primary' ? colorScheme : status
-//   );
-//   const lightBg =
-//     variant === 'solid'
-//       ? getColor(theme, `${colorScheme}.400`, colorScheme)
-//       : getColor(theme, `${colorScheme}.100`, colorScheme);
-
-//   const darkBg =
-//     variant === 'solid'
-//       ? getColor(theme, `${colorScheme}.700`, colorScheme)
-//       : getColor(theme, `${colorScheme}.400`, colorScheme);
-//   return mode(lightBg, darkBg)(props);
-// }
-
-function variantSubtle(props: Dict) {
-  const { colorScheme: c } = props;
-  let bg = `${c}.100`;
-  bg = mode(bg, `${c}.200`)(props);
-  let color;
-  if (props.isDisabled) {
-    bg = mode(`muted.300`, `muted.500`)(props);
-  } else {
-    color = mode(`${c}.500`, `${c}.600`)(props);
-  }
-  const styleObject = {
-    _text: {
-      color: color,
-    },
-    _web: {
-      outlineWidth: '0',
-    },
-    bg,
-    _hover: {
-      _text: { color: mode(`${c}.600`, `${c}.700`)(props) },
-      bg: mode(`${c}.200`, `${c}.300`)(props),
-    },
-    _pressed: {
-      _text: { color: mode(`${c}.700`, `${c}.800`)(props) },
-      bg: mode(`${c}.300`, `${c}.400`)(props),
-    },
-  };
-
-  return styleObject;
-}
-
-function variantLink(props: Dict) {
-  const { colorScheme: c } = props;
-
-  return {
-    ...variantGhost(props),
-    _text: {
-      textDecorationLine: Platform.select({
-        ios: 'underline',
-        web: 'underline',
-      }),
-      color:
-        c === 'muted'
-          ? mode(`muted.800`, `${c}.200`)(props)
-          : props.isDisabled
-          ? disabledTextColor(props)
-          : mode(`${c}.500`, `${c}.300`)(props),
-    },
-    _hover: {
-      _text: {
-        color: mode(`${c}.600`, `${c}.400`)(props),
-        textDecorationLine: 'underline',
+    _light: {
+      bg: `${colorScheme}.600`,
+      _hover: {
+        bg: `${colorScheme}.700`,
+      },
+      _pressed: {
+        bg: `${colorScheme}.800`,
       },
     },
-    _focusVisible: {
+    _dark: {
+      bg: `${colorScheme}.600`,
+      _hover: {
+        bg: `${colorScheme}.700`,
+      },
+      _pressed: {
+        bg: `${colorScheme}.800`,
+      },
+    },
+  };
+}
+
+function variantSubtle({ colorScheme }: Record<string, any>) {
+  return {
+    _text: {
+      color: `${colorScheme}.900`,
+    },
+    _icon: {
+      color: `${colorScheme}.900`,
+    },
+    _spinner: {
+      color: `${colorScheme}.900`,
+    },
+
+    _light: {
+      bg: `${colorScheme}.100`,
+      _hover: {
+        bg: `${colorScheme}.200`,
+      },
+      _pressed: {
+        bg: `${colorScheme}.300`,
+      },
+    },
+    _dark: {
+      bg: `${colorScheme}.300`,
+      _hover: {
+        bg: `${colorScheme}.200`,
+      },
+      _pressed: {
+        bg: `${colorScheme}.100`,
+      },
+    },
+  };
+}
+
+function variantLink({ colorScheme }: Record<string, any>) {
+  return {
+    _icon: {
+      color: `${colorScheme}.600`,
+    },
+    _spinner: {
+      color: `${colorScheme}.600`,
+    },
+
+    _hover: {
       _text: {
-        color: mode(`${c}.600`, `${c}.400`)(props),
         textDecorationLine: 'underline',
       },
     },
     _pressed: {
-      _text: { color: mode(`${c}.700`, `${c}.500`)(props) },
+      _text: {
+        textDecorationLine: 'underline',
+      },
+    },
+    _light: {
+      _text: {
+        color: `${colorScheme}.600`,
+      },
+      _pressed: {
+        _text: {
+          color: `${colorScheme}.800`,
+        },
+      },
+    },
+    _dark: {
+      _text: {
+        color: `${colorScheme}.500`,
+      },
+      _pressed: {
+        _text: {
+          color: `${colorScheme}.300`,
+        },
+      },
     },
   };
-}
-
-function variantUnstyled() {
-  return {};
 }
 
 const variants = {
@@ -227,36 +246,48 @@ const variants = {
   solid: variantSolid,
   subtle: variantSubtle,
   link: variantLink,
-  unstyled: variantUnstyled,
+  unstyled: {},
 };
 
 const sizes = {
   lg: {
-    px: '4',
-    py: '2',
+    px: '3',
+    py: '3',
     _text: {
       fontSize: 'md',
+    },
+    _icon: {
+      size: 'md',
     },
   },
   md: {
     px: '3',
-    py: '2',
+    py: '2.5',
     _text: {
       fontSize: 'sm',
     },
+    _icon: {
+      size: 'sm',
+    },
   },
   sm: {
-    px: '2',
+    px: '3',
     py: '2',
     _text: {
       fontSize: 'xs',
     },
+    _icon: {
+      size: 'sm',
+    },
   },
   xs: {
-    px: '2',
+    px: '3',
     py: '2',
     _text: {
       fontSize: '2xs',
+    },
+    _icon: {
+      size: 'xs',
     },
   },
 };
