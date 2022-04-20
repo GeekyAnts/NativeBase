@@ -9,7 +9,7 @@ import type { PlatformProps } from '../../../components/types';
 export interface ITextAreaProps
   extends Omit<
       InterfaceInputProps,
-      '_web' | '_android' | '_ios' | '_light' | '_dark'
+      '_web' | '_android' | '_ios' | '_light' | '_dark' | '_important'
     >,
     PlatformProps<ITextAreaProps> {
   /**
