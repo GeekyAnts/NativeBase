@@ -251,8 +251,8 @@ const variants = {
 
 const sizes = {
   lg: {
-    px: '4',
-    py: '2',
+    px: '3',
+    py: '3',
     _text: {
       fontSize: 'md',
     },
@@ -262,7 +262,7 @@ const sizes = {
   },
   md: {
     px: '3',
-    py: '2',
+    py: '2.5',
     _text: {
       fontSize: 'sm',
     },
@@ -271,7 +271,7 @@ const sizes = {
     },
   },
   sm: {
-    px: '2',
+    px: '3',
     py: '2',
     _text: {
       fontSize: 'xs',
