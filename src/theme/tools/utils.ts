@@ -104,6 +104,7 @@ export const stylingProps = {
     'order',
   ],
   position: ['position', 'zIndex', 'top', 'right', 'bottom', 'left'],
+  outline: ['outlineWidth', 'outlineColor', 'outlineStyle'],
   background: ['bg', 'backgroundColor', 'bgColor'],
 };
 export type Dict = Record<string, any>;

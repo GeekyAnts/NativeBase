@@ -70,7 +70,8 @@ function Slider({ isDisabled, isReadOnly, ...props }: ISliderProps, ref?: any) {
       isReadOnly: isReadOnly,
       onTrackLayout: onLayout,
       thumbSize: resolvedProps.thumbSize,
-      sliderSize: resolvedProps.sliderSize,
+      sliderSize: resolvedProps.sliderTrackHeight,
+      _interactionBox: resolvedProps._interactionBox,
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
@@ -83,7 +84,7 @@ function Slider({ isDisabled, isReadOnly, ...props }: ISliderProps, ref?: any) {
     isReadOnly,
     onLayout,
     resolvedProps.thumbSize,
-    resolvedProps.sliderSize,
+    resolvedProps.sliderTrackHeight,
   ]);
 
   //TODO: refactor for responsive prop
