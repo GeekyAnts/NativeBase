@@ -19,12 +19,20 @@ export interface ITextAreaProps
 }
 
 const TextArea = (
-  { wrapperRef, isDisabled, isInvalid, isReadOnly, ...props }: ITextAreaProps,
+  {
+    wrapperRef,
+    isDisabled,
+    isInvalid,
+    isReadOnly,
+    isFocused: isFocusedProp,
+    isHovered: isHoveredProp,
+    ...props
+  }: ITextAreaProps,
   ref: any
 ) => {
   const _ref = React.useRef(null);
   const { isHovered } = useHover({}, _ref);
-  const [isFocused, setIsFocused] = React.useState(false);
+  const [isFocused, setIsFocused] = React.useState(isFocusedProp);
   const handleFocus = (focusState: boolean, callback: any) => {
     setIsFocused(focusState);
     callback();
@@ -32,7 +40,13 @@ const TextArea = (
   const { totalLines, onFocus, onBlur, ...newProps } = usePropsResolution(
     'TextArea',
     props,
-    { isHovered, isDisabled, isFocused, isInvalid, isReadOnly },
+    {
+      isHovered: isHoveredProp || isHovered,
+      isDisabled,
+      isFocused,
+      isInvalid,
+      isReadOnly,
+    },
     { extendTheme: ['Input'] }
   );
   //TODO: refactor for responsive prop
