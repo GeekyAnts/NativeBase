@@ -4,6 +4,7 @@ import { withKnobs } from '@storybook/addon-knobs';
 import Wrapper from './../../Wrapper';
 import { Example as Basic } from './Basic';
 
+console.log(React);
 storiesOf('ScrollView', module)
   .addDecorator(withKnobs)
   .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)

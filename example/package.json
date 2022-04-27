@@ -13,6 +13,7 @@
     "build-storybook": "build-storybook",
     "postinstall": "patch-package",
     "test": "bash scripts/test.sh",
+    "test:dev": "bash scripts/newtest.sh",
     "update-test": "yarn test -u"
   },
   "dependencies": {
@@ -42,7 +43,7 @@
     "@storybook/addon-links": "^5.3",
     "@storybook/addon-ondevice-actions": "^5.3.23",
     "@storybook/addon-ondevice-knobs": "^5.3.23",
-    "@storybook/addon-storyshots": "^6.3.4",
+    "@storybook/addon-storyshots": "6.3",
     "@storybook/react-native": "^5.3.23",
     "@storybook/react-native-server": "^5.3.23",
     "@types/react": "~17.0.21",
@@ -57,7 +58,7 @@
     "patch-package": "^6.2.2",
     "postinstall-postinstall": "^2.1.0",
     "react-dom": "17.0.1",
-    "react-test-renderer": "^17.0.2",
+    "react-test-renderer": "17.0.1",
     "typescript": "~4.3.5"
   },
   "private": false
