@@ -1,4 +1,4 @@
-import React, { forwardRef, memo } from 'react';
+import React, { forwardRef, memo, useMemo, useCallback } from 'react';
 import type { ISelectProps } from './types';
 import { Platform, Keyboard } from 'react-native';
 import { Actionsheet } from '../../composites/Actionsheet';
@@ -26,6 +26,39 @@ export const SelectContext = React.createContext({
   _item: {} as IButtonProps,
 });
 
+const SelectItem = memo(({ item, setValue, _item, isDisabled, isSelected, _selectedItem }) => {
+  return (<Actionsheet.Item
+    onPress={() => {
+      if (!isDisabled) {
+        setValue(item.value);
+      }
+    }}
+    accessibilityState={{ selected: isSelected }}
+    {...item}
+    {..._item}
+    {...(isSelected && _selectedItem)}
+  >
+    {item.label}
+  </Actionsheet.Item>)
+});
+
+const SelectItemRender = memo((props: any) => {
+  const {item, setValue, isDisabled, isSelected, _item, _selectedItem} = props;
+  return (<Actionsheet.Item
+    onPress={() => {
+      if (!isDisabled) {
+        setValue(item.value);
+      }
+    }}
+    accessibilityState={{ selected: isSelected }}
+    {...item}
+    {..._item}
+    {...(isSelected && _selectedItem)}
+  >
+    {item.label}
+  </Actionsheet.Item>)
+});
+
 const Select = (
   {
     isHovered: isHoveredProp,
@@ -39,7 +72,6 @@ const Select = (
     isDisabled: props.isDisabled,
     nativeID: props.nativeID,
   });
-  const flatListData: ISelectItemProps[] = [];
 
   const isDisabled = selectProps.disabled;
   const tempFix = '__NativebasePlaceholder__';
@@ -70,6 +102,7 @@ const Select = (
     _actionSheetContent,
     _actionSheetBody,
     _webSelect,
+    _flatList,
     ...resolvedProps
   } = usePropsResolution(
     'Select',
@@ -139,11 +172,12 @@ const Select = (
     onClose && onClose();
   };
 
-  if (optimized) {
-    React.Children.map(children, (child: any) => {
-      flatListData.push(child.props);
-    });
-  }
+  const flatListData: ISelectItemProps[] = useMemo(() => {
+    if (optimized) {
+      return React.Children.map(children, (child: any) => child.props);
+    }
+    return [];
+  }, [optimized, children]);
 
   const [layoutProps] = extractInObject(resolvedProps, [
     ...stylingProps.margin,
@@ -152,6 +186,22 @@ const Select = (
     'shadow',
     'opacity',
   ]);
+
+  const renderItem = useCallback(({ item }: any) => {
+    const isSelected = selectedValue === item.value;
+    return (
+      <SelectItemRender
+        item={item}
+        setValue={setValue}
+        isDisabled={isDisabled}
+        isSelected={isSelected}
+        _item={_item}
+        _selectedItem={_selectedItem}
+      />
+    );
+  }, [selectedValue, isDisabled, _selectedItem, _item, setValue]);
+
+  const keyExtractor = useCallback((_item, index) => index.toString(), []);
 
   const commonInput = (
     <Input
@@ -230,25 +280,9 @@ const Select = (
               {..._actionSheetBody}
               data={flatListData}
               // eslint-disable-next-line no-shadow
-              keyExtractor={(_item, index) => index.toString()}
-              renderItem={({ item }: any) => {
-                const isSelected = selectedValue === item.value;
-                return (
-                  <Actionsheet.Item
-                    onPress={() => {
-                      if (!isDisabled) {
-                        setValue(item.value);
-                      }
-                    }}
-                    accessibilityState={{ selected: isSelected }}
-                    {...item}
-                    {..._item}
-                    {...(isSelected && _selectedItem)}
-                  >
-                    {item.label}
-                  </Actionsheet.Item>
-                );
-              }}
+              keyExtractor={keyExtractor}
+              renderItem={renderItem}
+              {..._flatList}
             />
           ) : (
             <ScrollView {..._actionSheetBody}>

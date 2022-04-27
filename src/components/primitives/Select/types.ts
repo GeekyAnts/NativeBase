@@ -90,6 +90,10 @@ export interface InterfaceSelectProps extends InterfaceBoxProps<ISelectProps> {
    */
   _actionSheetBody?: Partial<IFlatListProps<any>>;
   /**
+   * props passed here will be passed to FlatList component.
+   */
+  _flatList?: IFlatListProps<any>;
+  /**
    * Ref to be attached to the Select wrapper
    */
   wrapperRef?: MutableRefObject<any>;
