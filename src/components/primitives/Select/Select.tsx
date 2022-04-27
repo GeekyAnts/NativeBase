@@ -26,7 +26,8 @@ export const SelectContext = React.createContext({
   _item: {} as IButtonProps,
 });
 
-const SelectItem = memo(({ item, setValue, _item, isDisabled, isSelected, _selectedItem }) => {
+const SelectItem = memo((props: any) => {
+  const {item, setValue, isDisabled, isSelected, _item, _selectedItem} = props;
   return (<Actionsheet.Item
     onPress={() => {
       if (!isDisabled) {
