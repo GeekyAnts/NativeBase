@@ -9636,6 +9636,371 @@ exports[`Storyshots Badge Composition 1`] = `
 </RNCSafeAreaProvider>
 `;
 
+exports[`Storyshots Badge Icon 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    Array [
+      Object {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    dataSet={Object {}}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#fafafa",
+        "flex": 1,
+        "justifyContent": "center",
+        "paddingLeft": 12,
+        "paddingRight": 12,
+      }
+    }
+  >
+    <View
+      accessibilityRole="button"
+      accessible={true}
+      colorScheme="primary"
+      dataSet={Object {}}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onHoverIn={[Function]}
+      onHoverOut={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "borderRadius": 4,
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "paddingBottom": 12,
+          "paddingLeft": 12,
+          "paddingRight": 12,
+          "paddingTop": 12,
+          "position": "absolute",
+          "right": 32,
+          "top": 48,
+          "zIndex": 4,
+        }
+      }
+    >
+      <RNSVGSvgView
+        accessibilityRole="image"
+        align="xMidYMid"
+        bbHeight={24}
+        bbWidth={24}
+        color={4278751666}
+        dataSet={Object {}}
+        focusable={false}
+        meetOrSlice={0}
+        minX={0}
+        minY={0}
+        stroke=""
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderWidth": 0,
+            },
+            Object {
+              "color": "#0891b2",
+              "height": 24,
+              "width": 24,
+            },
+            Object {
+              "flex": 0,
+              "height": 24,
+              "width": 24,
+            },
+          ]
+        }
+        tintColor={4278751666}
+        vbHeight={24}
+        vbWidth={24}
+      >
+        <RNSVGGroup
+          propList={
+            Array [
+              "stroke",
+            ]
+          }
+          stroke={null}
+        >
+          <RNSVGGroup>
+            <RNSVGPath
+              d="M20.8562 13.4434C20.1167 13.6274 19.3772 13.7194 18.6378 13.7194C14.0162 13.7194 10.3189 10.0391 10.3189 5.43876C10.3189 4.7027 10.4113 3.96665 10.5962 3.23059C10.6886 2.95457 10.5962 2.58654 10.3189 2.31052C10.0416 2.0345 9.7643 1.9425 9.39457 2.0345C5.05026 3.3226 2 7.3709 2 11.8792C2 17.4917 6.52917 22 12.1675 22C16.6967 22 20.7637 18.9638 21.9653 14.5474C22.0578 14.2714 21.9653 13.9034 21.688 13.6274C21.5032 13.4434 21.1334 13.3514 20.8562 13.4434Z"
+              fill={
+                Array [
+                  2,
+                ]
+              }
+              propList={
+                Array [
+                  "fill",
+                  "stroke",
+                ]
+              }
+              stroke={null}
+            />
+          </RNSVGGroup>
+        </RNSVGGroup>
+      </RNSVGSvgView>
+    </View>
+    <View
+      dataSet={Object {}}
+      style={
+        Object {
+          "flexDirection": "column",
+        }
+      }
+    >
+      <View
+        colorScheme="success"
+        dataSet={Object {}}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#dcfce7",
+            "borderColor": "transparent",
+            "borderRadius": 2,
+            "borderWidth": 1,
+            "flexDirection": "row",
+            "paddingBottom": 2,
+            "paddingLeft": 8,
+            "paddingRight": 8,
+            "paddingTop": 2,
+          }
+        }
+      >
+        <View
+          dataSet={Object {}}
+          style={Object {}}
+        >
+          <Text
+            dataSet={Object {}}
+            style={
+              Object {
+                "backgroundColor": undefined,
+                "color": "#14532d",
+                "fontFamily": undefined,
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "500",
+                "letterSpacing": 0,
+                "lineHeight": 18,
+                "textDecorationLine": undefined,
+              }
+            }
+          >
+            SUCCESS
+          </Text>
+        </View>
+        <View
+          dataSet={Object {}}
+          style={
+            Object {
+              "width": 4,
+            }
+          }
+        />
+        <RNSVGSvgView
+          accessibilityRole="image"
+          align="xMidYMid"
+          bbHeight={8}
+          bbWidth={8}
+          color={4279522093}
+          dataSet={Object {}}
+          focusable={false}
+          meetOrSlice={0}
+          minX={0}
+          minY={0}
+          stroke=""
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+                "borderWidth": 0,
+              },
+              Object {
+                "color": "#14532d",
+                "height": 8,
+                "width": 8,
+              },
+              Object {
+                "flex": 0,
+                "height": 8,
+                "width": 8,
+              },
+            ]
+          }
+          tintColor={4279522093}
+          vbHeight={24}
+          vbWidth={24}
+        >
+          <RNSVGGroup
+            propList={
+              Array [
+                "stroke",
+              ]
+            }
+            stroke={null}
+          >
+            <RNSVGGroup>
+              <RNSVGPath
+                d="M13.25 10.75V2H10.75V10.75H2V13.25H10.75V22H13.25V13.25H22V10.75H13.25Z"
+                fill={
+                  Array [
+                    2,
+                  ]
+                }
+                propList={
+                  Array [
+                    "fill",
+                    "stroke",
+                  ]
+                }
+                stroke={null}
+              />
+            </RNSVGGroup>
+          </RNSVGGroup>
+        </RNSVGSvgView>
+      </View>
+      <View
+        dataSet={Object {}}
+        style={
+          Object {
+            "height": 16,
+          }
+        }
+      />
+      <View
+        colorScheme="warning"
+        dataSet={Object {}}
+        style={
+          Object {
+            "alignItems": "center",
+            "borderColor": "#ea580c",
+            "borderRadius": 2,
+            "borderWidth": 1,
+            "flexDirection": "row",
+            "paddingBottom": 2,
+            "paddingLeft": 8,
+            "paddingRight": 8,
+            "paddingTop": 2,
+          }
+        }
+      >
+        <RNSVGSvgView
+          accessibilityRole="image"
+          align="xMidYMid"
+          bbHeight={8}
+          bbWidth={8}
+          color={4293548044}
+          dataSet={Object {}}
+          focusable={false}
+          meetOrSlice={0}
+          minX={0}
+          minY={0}
+          stroke=""
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+                "borderWidth": 0,
+              },
+              Object {
+                "color": "#ea580c",
+                "height": 8,
+                "width": 8,
+              },
+              Object {
+                "flex": 0,
+                "height": 8,
+                "width": 8,
+              },
+            ]
+          }
+          tintColor={4293548044}
+          vbHeight={24}
+          vbWidth={24}
+        >
+          <RNSVGGroup
+            propList={
+              Array [
+                "stroke",
+              ]
+            }
+            stroke={null}
+          >
+            <RNSVGGroup>
+              <RNSVGPath
+                d="M13.25 10.75V2H10.75V10.75H2V13.25H10.75V22H13.25V13.25H22V10.75H13.25Z"
+                fill={
+                  Array [
+                    2,
+                  ]
+                }
+                propList={
+                  Array [
+                    "fill",
+                    "stroke",
+                  ]
+                }
+                stroke={null}
+              />
+            </RNSVGGroup>
+          </RNSVGGroup>
+        </RNSVGSvgView>
+        <View
+          dataSet={Object {}}
+          style={
+            Object {
+              "width": 4,
+            }
+          }
+        />
+        <View
+          dataSet={Object {}}
+          style={Object {}}
+        >
+          <Text
+            dataSet={Object {}}
+            style={
+              Object {
+                "backgroundColor": undefined,
+                "color": "#ea580c",
+                "fontFamily": undefined,
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "500",
+                "letterSpacing": 0,
+                "lineHeight": 18,
+                "textDecorationLine": undefined,
+              }
+            }
+          >
+            SUCCESS
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
 exports[`Storyshots Badge Playground 1`] = `
 <RNCSafeAreaProvider
   onInsetsChange={[Function]}
@@ -82841,6 +83206,437 @@ exports[`Storyshots Toast Status 1`] = `
 </RNCSafeAreaProvider>
 `;
 
+exports[`Storyshots Toast Status Recipies 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    Array [
+      Object {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    dataSet={Object {}}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#fafafa",
+        "flex": 1,
+        "justifyContent": "center",
+        "paddingLeft": 12,
+        "paddingRight": 12,
+      }
+    }
+  >
+    <View
+      accessibilityRole="button"
+      accessible={true}
+      colorScheme="primary"
+      dataSet={Object {}}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onHoverIn={[Function]}
+      onHoverOut={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "borderRadius": 4,
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "paddingBottom": 12,
+          "paddingLeft": 12,
+          "paddingRight": 12,
+          "paddingTop": 12,
+          "position": "absolute",
+          "right": 32,
+          "top": 48,
+          "zIndex": 4,
+        }
+      }
+    >
+      <RNSVGSvgView
+        accessibilityRole="image"
+        align="xMidYMid"
+        bbHeight={24}
+        bbWidth={24}
+        color={4278751666}
+        dataSet={Object {}}
+        focusable={false}
+        meetOrSlice={0}
+        minX={0}
+        minY={0}
+        stroke=""
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderWidth": 0,
+            },
+            Object {
+              "color": "#0891b2",
+              "height": 24,
+              "width": 24,
+            },
+            Object {
+              "flex": 0,
+              "height": 24,
+              "width": 24,
+            },
+          ]
+        }
+        tintColor={4278751666}
+        vbHeight={24}
+        vbWidth={24}
+      >
+        <RNSVGGroup
+          propList={
+            Array [
+              "stroke",
+            ]
+          }
+          stroke={null}
+        >
+          <RNSVGGroup>
+            <RNSVGPath
+              d="M20.8562 13.4434C20.1167 13.6274 19.3772 13.7194 18.6378 13.7194C14.0162 13.7194 10.3189 10.0391 10.3189 5.43876C10.3189 4.7027 10.4113 3.96665 10.5962 3.23059C10.6886 2.95457 10.5962 2.58654 10.3189 2.31052C10.0416 2.0345 9.7643 1.9425 9.39457 2.0345C5.05026 3.3226 2 7.3709 2 11.8792C2 17.4917 6.52917 22 12.1675 22C16.6967 22 20.7637 18.9638 21.9653 14.5474C22.0578 14.2714 21.9653 13.9034 21.688 13.6274C21.5032 13.4434 21.1334 13.3514 20.8562 13.4434Z"
+              fill={
+                Array [
+                  2,
+                ]
+              }
+              propList={
+                Array [
+                  "fill",
+                  "stroke",
+                ]
+              }
+              stroke={null}
+            />
+          </RNSVGGroup>
+        </RNSVGGroup>
+      </RNSVGSvgView>
+    </View>
+    <View
+      dataSet={Object {}}
+      style={
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <View
+        dataSet={Object {}}
+        style={Object {}}
+      >
+        <View
+          accessibilityRole="button"
+          accessible={true}
+          colorScheme="success"
+          dataSet={Object {}}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onHoverIn={[Function]}
+          onHoverOut={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#16a34a",
+              "borderRadius": 4,
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "paddingBottom": 10,
+              "paddingLeft": 12,
+              "paddingRight": 12,
+              "paddingTop": 10,
+            }
+          }
+        >
+          <View
+            dataSet={Object {}}
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+              }
+            }
+            test={true}
+          >
+            <View
+              dataSet={Object {}}
+              style={Object {}}
+            >
+              <Text
+                dataSet={Object {}}
+                style={
+                  Object {
+                    "backgroundColor": undefined,
+                    "color": "#fafafa",
+                    "fontFamily": undefined,
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "400",
+                    "letterSpacing": 0,
+                    "lineHeight": 21,
+                    "textDecorationLine": undefined,
+                  }
+                }
+              >
+                success
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          dataSet={Object {}}
+          style={
+            Object {
+              "height": 8,
+            }
+          }
+        />
+        <View
+          accessibilityRole="button"
+          accessible={true}
+          colorScheme="error"
+          dataSet={Object {}}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onHoverIn={[Function]}
+          onHoverOut={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#dc2626",
+              "borderRadius": 4,
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "paddingBottom": 10,
+              "paddingLeft": 12,
+              "paddingRight": 12,
+              "paddingTop": 10,
+            }
+          }
+        >
+          <View
+            dataSet={Object {}}
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+              }
+            }
+            test={true}
+          >
+            <View
+              dataSet={Object {}}
+              style={Object {}}
+            >
+              <Text
+                dataSet={Object {}}
+                style={
+                  Object {
+                    "backgroundColor": undefined,
+                    "color": "#fafafa",
+                    "fontFamily": undefined,
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "400",
+                    "letterSpacing": 0,
+                    "lineHeight": 21,
+                    "textDecorationLine": undefined,
+                  }
+                }
+              >
+                error
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          dataSet={Object {}}
+          style={
+            Object {
+              "height": 8,
+            }
+          }
+        />
+        <View
+          accessibilityRole="button"
+          accessible={true}
+          colorScheme="info"
+          dataSet={Object {}}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onHoverIn={[Function]}
+          onHoverOut={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#0284c7",
+              "borderRadius": 4,
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "paddingBottom": 10,
+              "paddingLeft": 12,
+              "paddingRight": 12,
+              "paddingTop": 10,
+            }
+          }
+        >
+          <View
+            dataSet={Object {}}
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+              }
+            }
+            test={true}
+          >
+            <View
+              dataSet={Object {}}
+              style={Object {}}
+            >
+              <Text
+                dataSet={Object {}}
+                style={
+                  Object {
+                    "backgroundColor": undefined,
+                    "color": "#fafafa",
+                    "fontFamily": undefined,
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "400",
+                    "letterSpacing": 0,
+                    "lineHeight": 21,
+                    "textDecorationLine": undefined,
+                  }
+                }
+              >
+                info
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          dataSet={Object {}}
+          style={
+            Object {
+              "height": 8,
+            }
+          }
+        />
+        <View
+          accessibilityRole="button"
+          accessible={true}
+          colorScheme="warning"
+          dataSet={Object {}}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onHoverIn={[Function]}
+          onHoverOut={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#ea580c",
+              "borderRadius": 4,
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "paddingBottom": 10,
+              "paddingLeft": 12,
+              "paddingRight": 12,
+              "paddingTop": 10,
+            }
+          }
+        >
+          <View
+            dataSet={Object {}}
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+              }
+            }
+            test={true}
+          >
+            <View
+              dataSet={Object {}}
+              style={Object {}}
+            >
+              <Text
+                dataSet={Object {}}
+                style={
+                  Object {
+                    "backgroundColor": undefined,
+                    "color": "#fafafa",
+                    "fontFamily": undefined,
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "400",
+                    "letterSpacing": 0,
+                    "lineHeight": 21,
+                    "textDecorationLine": undefined,
+                  }
+                }
+              >
+                warning
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
 exports[`Storyshots Toast Toast Positions 1`] = `
 <RNCSafeAreaProvider
   onInsetsChange={[Function]}
@@ -84152,6 +84948,511 @@ exports[`Storyshots Toast Toast Variants 1`] = `
             >
               Show outline toast
             </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
+exports[`Storyshots Toast Variants Recipies 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    Array [
+      Object {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    dataSet={Object {}}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#fafafa",
+        "flex": 1,
+        "justifyContent": "center",
+        "paddingLeft": 12,
+        "paddingRight": 12,
+      }
+    }
+  >
+    <View
+      accessibilityRole="button"
+      accessible={true}
+      colorScheme="primary"
+      dataSet={Object {}}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onHoverIn={[Function]}
+      onHoverOut={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "borderRadius": 4,
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "paddingBottom": 12,
+          "paddingLeft": 12,
+          "paddingRight": 12,
+          "paddingTop": 12,
+          "position": "absolute",
+          "right": 32,
+          "top": 48,
+          "zIndex": 4,
+        }
+      }
+    >
+      <RNSVGSvgView
+        accessibilityRole="image"
+        align="xMidYMid"
+        bbHeight={24}
+        bbWidth={24}
+        color={4278751666}
+        dataSet={Object {}}
+        focusable={false}
+        meetOrSlice={0}
+        minX={0}
+        minY={0}
+        stroke=""
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderWidth": 0,
+            },
+            Object {
+              "color": "#0891b2",
+              "height": 24,
+              "width": 24,
+            },
+            Object {
+              "flex": 0,
+              "height": 24,
+              "width": 24,
+            },
+          ]
+        }
+        tintColor={4278751666}
+        vbHeight={24}
+        vbWidth={24}
+      >
+        <RNSVGGroup
+          propList={
+            Array [
+              "stroke",
+            ]
+          }
+          stroke={null}
+        >
+          <RNSVGGroup>
+            <RNSVGPath
+              d="M20.8562 13.4434C20.1167 13.6274 19.3772 13.7194 18.6378 13.7194C14.0162 13.7194 10.3189 10.0391 10.3189 5.43876C10.3189 4.7027 10.4113 3.96665 10.5962 3.23059C10.6886 2.95457 10.5962 2.58654 10.3189 2.31052C10.0416 2.0345 9.7643 1.9425 9.39457 2.0345C5.05026 3.3226 2 7.3709 2 11.8792C2 17.4917 6.52917 22 12.1675 22C16.6967 22 20.7637 18.9638 21.9653 14.5474C22.0578 14.2714 21.9653 13.9034 21.688 13.6274C21.5032 13.4434 21.1334 13.3514 20.8562 13.4434Z"
+              fill={
+                Array [
+                  2,
+                ]
+              }
+              propList={
+                Array [
+                  "fill",
+                  "stroke",
+                ]
+              }
+              stroke={null}
+            />
+          </RNSVGGroup>
+        </RNSVGGroup>
+      </RNSVGSvgView>
+    </View>
+    <View
+      dataSet={Object {}}
+      style={
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <View
+        dataSet={Object {}}
+        style={Object {}}
+      >
+        <View
+          accessibilityRole="button"
+          accessible={true}
+          colorScheme="primary"
+          dataSet={Object {}}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onHoverIn={[Function]}
+          onHoverOut={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#0891b2",
+              "borderRadius": 4,
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "paddingBottom": 10,
+              "paddingLeft": 12,
+              "paddingRight": 12,
+              "paddingTop": 10,
+            }
+          }
+        >
+          <View
+            dataSet={Object {}}
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+              }
+            }
+            test={true}
+          >
+            <View
+              dataSet={Object {}}
+              style={Object {}}
+            >
+              <Text
+                dataSet={Object {}}
+                style={
+                  Object {
+                    "backgroundColor": undefined,
+                    "color": "#fafafa",
+                    "fontFamily": undefined,
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "400",
+                    "letterSpacing": 0,
+                    "lineHeight": 21,
+                    "textDecorationLine": undefined,
+                  }
+                }
+              >
+                solid
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          dataSet={Object {}}
+          style={
+            Object {
+              "height": 8,
+            }
+          }
+        />
+        <View
+          accessibilityRole="button"
+          accessible={true}
+          colorScheme="primary"
+          dataSet={Object {}}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onHoverIn={[Function]}
+          onHoverOut={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#0891b2",
+              "borderRadius": 4,
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "paddingBottom": 10,
+              "paddingLeft": 12,
+              "paddingRight": 12,
+              "paddingTop": 10,
+            }
+          }
+        >
+          <View
+            dataSet={Object {}}
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+              }
+            }
+            test={true}
+          >
+            <View
+              dataSet={Object {}}
+              style={Object {}}
+            >
+              <Text
+                dataSet={Object {}}
+                style={
+                  Object {
+                    "backgroundColor": undefined,
+                    "color": "#fafafa",
+                    "fontFamily": undefined,
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "400",
+                    "letterSpacing": 0,
+                    "lineHeight": 21,
+                    "textDecorationLine": undefined,
+                  }
+                }
+              >
+                subtle
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          dataSet={Object {}}
+          style={
+            Object {
+              "height": 8,
+            }
+          }
+        />
+        <View
+          accessibilityRole="button"
+          accessible={true}
+          colorScheme="primary"
+          dataSet={Object {}}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onHoverIn={[Function]}
+          onHoverOut={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#0891b2",
+              "borderRadius": 4,
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "paddingBottom": 10,
+              "paddingLeft": 12,
+              "paddingRight": 12,
+              "paddingTop": 10,
+            }
+          }
+        >
+          <View
+            dataSet={Object {}}
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+              }
+            }
+            test={true}
+          >
+            <View
+              dataSet={Object {}}
+              style={Object {}}
+            >
+              <Text
+                dataSet={Object {}}
+                style={
+                  Object {
+                    "backgroundColor": undefined,
+                    "color": "#fafafa",
+                    "fontFamily": undefined,
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "400",
+                    "letterSpacing": 0,
+                    "lineHeight": 21,
+                    "textDecorationLine": undefined,
+                  }
+                }
+              >
+                left-accent
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          dataSet={Object {}}
+          style={
+            Object {
+              "height": 8,
+            }
+          }
+        />
+        <View
+          accessibilityRole="button"
+          accessible={true}
+          colorScheme="primary"
+          dataSet={Object {}}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onHoverIn={[Function]}
+          onHoverOut={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#0891b2",
+              "borderRadius": 4,
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "paddingBottom": 10,
+              "paddingLeft": 12,
+              "paddingRight": 12,
+              "paddingTop": 10,
+            }
+          }
+        >
+          <View
+            dataSet={Object {}}
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+              }
+            }
+            test={true}
+          >
+            <View
+              dataSet={Object {}}
+              style={Object {}}
+            >
+              <Text
+                dataSet={Object {}}
+                style={
+                  Object {
+                    "backgroundColor": undefined,
+                    "color": "#fafafa",
+                    "fontFamily": undefined,
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "400",
+                    "letterSpacing": 0,
+                    "lineHeight": 21,
+                    "textDecorationLine": undefined,
+                  }
+                }
+              >
+                top-accent
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          dataSet={Object {}}
+          style={
+            Object {
+              "height": 8,
+            }
+          }
+        />
+        <View
+          accessibilityRole="button"
+          accessible={true}
+          colorScheme="primary"
+          dataSet={Object {}}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onHoverIn={[Function]}
+          onHoverOut={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#0891b2",
+              "borderRadius": 4,
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "paddingBottom": 10,
+              "paddingLeft": 12,
+              "paddingRight": 12,
+              "paddingTop": 10,
+            }
+          }
+        >
+          <View
+            dataSet={Object {}}
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+              }
+            }
+            test={true}
+          >
+            <View
+              dataSet={Object {}}
+              style={Object {}}
+            >
+              <Text
+                dataSet={Object {}}
+                style={
+                  Object {
+                    "backgroundColor": undefined,
+                    "color": "#fafafa",
+                    "fontFamily": undefined,
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "400",
+                    "letterSpacing": 0,
+                    "lineHeight": 21,
+                    "textDecorationLine": undefined,
+                  }
+                }
+              >
+                outline
+              </Text>
+            </View>
           </View>
         </View>
       </View>
