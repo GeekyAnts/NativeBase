@@ -13,7 +13,6 @@
     "build-storybook": "build-storybook",
     "postinstall": "patch-package",
     "test": "bash scripts/test.sh",
-    "test:dev": "bash scripts/newtest.sh",
     "update-test": "yarn test -u"
   },
   "dependencies": {
