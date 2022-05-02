@@ -252,7 +252,7 @@ describe('props resolution', () => {
       width: defaultTheme.space['20'],
     });
 
-    expect(spinner.props.style).toEqual(undefined);
+    expect(spinner.props.style).toEqual([[{}, { dataSet: {} }], undefined]);
   });
 
   it('resolves base style and variants, sizes and default props with props', () => {
@@ -513,7 +513,8 @@ describe('props resolution', () => {
     const { getByTestId } = render(
       <Provider>
         <Input
-          testID="test"
+          _stack={{ testID: 'StackTest' }}
+          _input={{ testID: 'test' }}
           w="100%"
           mx={3}
           placeholder="Default Input"
@@ -522,15 +523,15 @@ describe('props resolution', () => {
       </Provider>
     );
     const inputElement = getByTestId('test');
-    expect(inputElement.props.style[0].width).toBe('100%');
-
+    const inputElementStack = getByTestId('StackTest');
+    expect(inputElement.props.style.width).toBe('100%');
     expect(inputElement.props.placeholderTextColor).toBe(
       defaultTheme.colors.blueGray['400']
     );
-    expect(inputElement.props.style[0].marginLeft).toBe(
+    expect(inputElementStack.props.style.marginLeft).toBe(
       defaultTheme.space['3']
     );
-    expect(inputElement.props.style[0].marginRight).toBe(
+    expect(inputElementStack.props.style.marginRight).toBe(
       defaultTheme.space['3']
     );
   });
@@ -542,7 +543,7 @@ describe('props resolution', () => {
     const { getByTestId } = render(
       <Provider theme={newTheme}>
         <Input
-          testID="test"
+          _input={{ testID: 'test' }}
           _light={{
             placeholderTextColor: 'blueGray.400',
           }}
@@ -565,7 +566,7 @@ describe('props resolution', () => {
     const { getByTestId } = render(
       <Provider theme={newTheme}>
         <Input
-          testID="test"
+          _input={{ testID: 'test' }}
           size="sm"
           variant="outline"
           _dark={{
@@ -575,19 +576,17 @@ describe('props resolution', () => {
       </Provider>
     );
     const inputElement = getByTestId('test');
-    expect(inputElement.props.style[0].fontSize).toBe(
-      defaultTheme.fontSizes.sm
-    );
+    expect(inputElement.props.style.fontSize).toBe(defaultTheme.fontSizes.sm);
   });
 
   it('Input: variant', () => {
     const { getByTestId } = render(
       <Provider>
-        <Input testID="test" variant="underlined" />
+        <Input _stack={{ testID: 'test' }} variant="underlined" />
       </Provider>
     );
     const inputElement = getByTestId('test');
-    expect(inputElement.props.style[0].borderBottomWidth).toBe(1);
+    expect(inputElement.props.style.borderBottomWidth).toBe(1);
   });
 
   // it('Input: inputElements', () => {
@@ -615,7 +614,8 @@ describe('props resolution', () => {
     const { getByTestId } = render(
       <Provider theme={newTheme}>
         <Input
-          testID="test"
+          _stack={{ testID: 'stackTest' }}
+          _input={{ testID: 'test' }}
           _ios={{ _dark: { variant: 'underlined', size: 'sm' } }}
           variant="outline"
           size="lg"
@@ -623,11 +623,10 @@ describe('props resolution', () => {
       </Provider>
     );
     const inputElement = getByTestId('test');
-    expect(inputElement.props.style[0].borderBottomWidth).toBe(1);
+    const inputElementStack = getByTestId('stackTest');
+    expect(inputElementStack.props.style.borderBottomWidth).toBe(1);
     // as input of 'sm' size is mapped to 'xs' fontsize
-    expect(inputElement.props.style[0].fontSize).toBe(
-      defaultTheme.fontSizes.xs
-    );
+    expect(inputElement.props.style.fontSize).toBe(defaultTheme.fontSizes.xs);
   });
 
   // it('Input: inputElemets', () => {
@@ -652,7 +651,7 @@ describe('props resolution', () => {
     const { getByTestId } = render(
       <Provider>
         <Input
-          testID="test"
+          _input={{ testID: 'test' }}
           type="password"
           isDisabled={true}
           isRequired={true}

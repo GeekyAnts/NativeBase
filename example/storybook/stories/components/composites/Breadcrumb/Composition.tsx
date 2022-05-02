@@ -13,7 +13,7 @@ export const Example = () => {
       <Breadcrumb spacing={2} _button={{ bg: 'transparent' }}>
         <Breadcrumb.Item>
           <Breadcrumb.Link>
-            <HStack>
+            <HStack justifyContent="center" alignItems="center">
               <Breadcrumb.Icon
                 as={<MaterialIcons name="home" />}
                 mr={1}
@@ -27,14 +27,16 @@ export const Example = () => {
         </Breadcrumb.Item>
         <Breadcrumb.Item>
           <Breadcrumb.Link href="https://alpha.nativebase.io/" isExternal>
-            <Breadcrumb.Icon
-              fontWeight={'bold'}
-              as={MaterialCommunityIcons}
-              name="file-document"
-              mr={1}
-              size="xs"
-            />
-            <Breadcrumb.Text>Docs</Breadcrumb.Text>
+            <HStack justifyContent="center" alignItems="center">
+              <Breadcrumb.Icon
+                fontWeight={'bold'}
+                as={MaterialCommunityIcons}
+                name="file-document"
+                mr={1}
+                size="xs"
+              />
+              <Breadcrumb.Text>Docs</Breadcrumb.Text>
+            </HStack>
           </Breadcrumb.Link>
         </Breadcrumb.Item>
         <Breadcrumb.Item isCurrent>
@@ -42,7 +44,7 @@ export const Example = () => {
             href="https://github.com/GeekyAnts/nativebase"
             isExternal
           >
-            <HStack>
+            <HStack justifyContent="center" alignItems="center">
               <Breadcrumb.Icon
                 as={<AntDesign name="github" />}
                 mr={1}
