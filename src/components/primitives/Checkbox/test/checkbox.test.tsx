@@ -140,40 +140,38 @@ describe('CheckBoxGroup', () => {
     expect(checkbox[0].props.accessibilityState.checked).toBe(true);
   });
 
-  /****   inDeterminant is not yet implemented in checkbox ****/
+  it('inDeterminant on checkBoxGroup', () => {
+    const { getAllByRole } = render(
+      <NativeBaseProvider
+        initialWindowMetrics={{
+          frame: { x: 0, y: 0, width: 0, height: 0 },
+          insets: { top: 0, left: 0, right: 0, bottom: 0 },
+        }}
+      >
+        <CheckBox group={true} />
+      </NativeBaseProvider>
+    );
+    const checkbox = getAllByRole('checkbox');
+    expect(checkbox.length).toBe(2);
+    expect(checkbox[1].props.accessibilityState.checked).toBe('mixed');
+  });
 
-  // it('inDeterminant on checkBoxGroup', () => {
-  //   const { getAllByRole } = render(
-  //     <NativeBaseProvider
-  //       initialWindowMetrics={{
-  //         frame: { x: 0, y: 0, width: 0, height: 0 },
-  //         insets: { top: 0, left: 0, right: 0, bottom: 0 },
-  //       }}
-  //     >
-  //       <CheckBox group={true} />
-  //     </NativeBaseProvider>
-  //   );
-  //   const checkbox = getAllByRole('checkbox');
-  //   expect(checkbox.length).toBe(2);
-  //   expect(checkbox[1].props.accessibilityState.checked).toBe('mixed');
-  // });
-
-  // it('inDeterminant on checkBox', () => {
-  //   const { getAllByRole } = render(
-  //     <NativeBaseProvider
-  //       initialWindowMetrics={{
-  //         frame: { x: 0, y: 0, width: 0, height: 0 },
-  //         insets: { top: 0, left: 0, right: 0, bottom: 0 },
-  //       }}
-  //     >
-  //       <CheckBox group={false} />
-  //     </NativeBaseProvider>
-  //   );
-  //   const checkbox = getAllByRole('checkbox');
-  //   expect(checkbox.length).toBe(2);
-  //   fireEvent.press(checkbox[1]);
-  //   expect(checkbox[1].props.accessibilityState.checked).toBe('mixed');
-  // });
+  it('inDeterminant on checkBox', () => {
+    const { getAllByRole } = render(
+      <NativeBaseProvider
+        initialWindowMetrics={{
+          frame: { x: 0, y: 0, width: 0, height: 0 },
+          insets: { top: 0, left: 0, right: 0, bottom: 0 },
+        }}
+      >
+        <CheckBox group={false} />
+      </NativeBaseProvider>
+    );
+    const checkbox = getAllByRole('checkbox');
+    expect(checkbox.length).toBe(2);
+    fireEvent.press(checkbox[1]);
+    expect(checkbox[1].props.accessibilityState.checked).toBe('mixed');
+  });
 
   it('onChange on checkBox', () => {
     const { getAllByRole } = render(

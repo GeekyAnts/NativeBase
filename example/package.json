@@ -18,7 +18,7 @@
   "dependencies": {
     "@expo/vector-icons": "^12.0.0",
     "@react-native-aria/overlays": "^0.2.9",
-    "@react-native-async-storage/async-storage": "^1.17.3",
+    "@react-native-async-storage/async-storage": "~1.15.0",
     "expo": "^44.0.0",
     "expo-font": "~10.0.4",
     "expo-linear-gradient": "~11.0.3",
@@ -42,7 +42,7 @@
     "@storybook/addon-links": "^5.3",
     "@storybook/addon-ondevice-actions": "^5.3.23",
     "@storybook/addon-ondevice-knobs": "^5.3.23",
-    "@storybook/addon-storyshots": "6.3",
+    "@storybook/addon-storyshots": "^6.3.4",
     "@storybook/react-native": "^5.3.23",
     "@storybook/react-native-server": "^5.3.23",
     "@types/react": "~17.0.21",
@@ -57,7 +57,7 @@
     "patch-package": "^6.2.2",
     "postinstall-postinstall": "^2.1.0",
     "react-dom": "17.0.1",
-    "react-test-renderer": "17.0.1",
+    "react-test-renderer": "^17.0.2",
     "typescript": "~4.3.5"
   },
   "private": false

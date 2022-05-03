@@ -6,11 +6,7 @@ export const Example = () => {
       <Heading mb={4}>Breadcrumb with String Separator</Heading>
       <Breadcrumb separator={'-'}>
         <Breadcrumb.Item isCurrent>
-          <Breadcrumb.Link>
-            <Breadcrumb.Text _current={{ color: 'red.500' }}>
-              Home (This is currently active)
-            </Breadcrumb.Text>
-          </Breadcrumb.Link>
+          <Breadcrumb.Link>Home (This is currently active)</Breadcrumb.Link>
         </Breadcrumb.Item>
         <Breadcrumb.Item>
           <Breadcrumb.Link href="https://alpha.nativebase.io/" isExternal>

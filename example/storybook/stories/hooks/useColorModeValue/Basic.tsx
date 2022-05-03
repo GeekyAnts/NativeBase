@@ -19,8 +19,6 @@ function UseColorMode() {
         bg={useColorModeValue('warmGray.50', 'coolGray.800')}
         maxW="300"
         w="100%"
-        mt={10}
-        safeArea
       >
         <Text fontSize="lg" display="flex" mb={20}>
           The active color mode is{' '}
@@ -28,9 +26,7 @@ function UseColorMode() {
             {useColorModeValue('Light', 'Dark')}
           </Text>
         </Text>
-        <Button onPress={toggleColorMode} h={10}>
-          Toggle
-        </Button>
+        <Button onPress={toggleColorMode}>Toggle</Button>
       </Box>
     </Center>
   );
