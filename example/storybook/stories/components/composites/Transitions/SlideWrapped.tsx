@@ -56,7 +56,6 @@ export const Example = () => {
             _dark={{
               bg: 'emerald.200',
             }}
-            safeArea
           >
             <HStack space={2}>
               <CheckIcon

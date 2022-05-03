@@ -20,7 +20,6 @@ const Item = ({ title }: { title: String }) => (
     px={4}
     py={2}
     my={2}
-    width={32}
   >
     {title}
   </List.Item>

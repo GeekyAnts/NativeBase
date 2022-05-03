@@ -58,7 +58,7 @@ export const Example = () => {
         <FormControl.Label>Select Color</FormControl.Label>
         <Select
           selectedValue={value}
-          minWidth="100"
+          minWidth="200"
           accessibilityLabel="Select a Color"
           placeholder="Select a Color"
           onValueChange={(itemValue) => {
