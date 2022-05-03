@@ -13,7 +13,7 @@ export const Example = () => {
   return (
     <Box h="32" w="300">
       <Slide in={isOpenTop} placement="top">
-        <Alert justifyContent="center" status="error">
+        <Alert justifyContent="center" status="error" safeAreaTop={8}>
           <Alert.Icon />
           <Text color="error.600" fontWeight="medium">
             No Internet Connection

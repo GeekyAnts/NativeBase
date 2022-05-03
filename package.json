@@ -79,8 +79,8 @@
     "pod-install": "^0.1.0",
     "postinstall-postinstall": "^2.1.0",
     "prettier": "^2.0.5",
-    "react": "16.11.0",
-    "react-dom": "^17.0.2",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
     "react-native": "0.63.2",
     "react-native-safe-area-context": "^3.1.9",
     "react-native-svg": "^12.1.0",
@@ -111,7 +111,7 @@
       "<rootDir>/lib/"
     ],
     "transformIgnorePatterns": [
-      "node_modules/(?!(react-native|expo-asset|expo-constants|@unimodules|react-native-unimodules|expo-font|react-native-svg|@expo/vector-icons|react-native-vector-icons|@react-native-aria/checkbox|@react-native-aria/interactions|@react-native-aria/button|@react-native-aria/switch|@react-native-aria/toggle|@react-native-aria/utils|@react-native-aria/*))"
+      "node_modules/(?!(@react-native|react-native|expo-asset|expo-constants|@unimodules|react-native-unimodules|expo-font|react-native-svg|@expo/vector-icons|react-native-vector-icons|@react-native-aria/checkbox|@react-native-aria/interactions|@react-native-aria/button|@react-native-aria/switch|@react-native-aria/toggle|@react-native-aria/utils|@react-native-aria/*))"
     ],
     "setupFiles": [
       "<rootDir>/src/jest/mock.ts"
