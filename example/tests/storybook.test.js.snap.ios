@@ -39346,8 +39346,8 @@ exports[`Storyshots Icon All Icons 1`] = `
                   <RNSVGSvgView
                     accessibilityRole="image"
                     align="xMidYMid"
-                    bbHeight={12}
-                    bbWidth={12}
+                    bbHeight={16}
+                    bbWidth={16}
                     color={4285756275}
                     dataSet={Object {}}
                     focusable={false}
@@ -39363,13 +39363,13 @@ exports[`Storyshots Icon All Icons 1`] = `
                         },
                         Object {
                           "color": "#737373",
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                         Object {
                           "flex": 0,
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                       ]
                     }
@@ -39457,8 +39457,8 @@ exports[`Storyshots Icon All Icons 1`] = `
                   <RNSVGSvgView
                     accessibilityRole="image"
                     align="xMidYMid"
-                    bbHeight={12}
-                    bbWidth={12}
+                    bbHeight={16}
+                    bbWidth={16}
                     color={4285756275}
                     dataSet={Object {}}
                     focusable={false}
@@ -39474,13 +39474,13 @@ exports[`Storyshots Icon All Icons 1`] = `
                         },
                         Object {
                           "color": "#737373",
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                         Object {
                           "flex": 0,
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                       ]
                     }
@@ -39581,8 +39581,8 @@ exports[`Storyshots Icon All Icons 1`] = `
                   <RNSVGSvgView
                     accessibilityRole="image"
                     align="xMidYMid"
-                    bbHeight={12}
-                    bbWidth={12}
+                    bbHeight={16}
+                    bbWidth={16}
                     color={4285756275}
                     dataSet={Object {}}
                     focusable={false}
@@ -39598,13 +39598,13 @@ exports[`Storyshots Icon All Icons 1`] = `
                         },
                         Object {
                           "color": "#737373",
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                         Object {
                           "flex": 0,
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                       ]
                     }
@@ -39705,8 +39705,8 @@ exports[`Storyshots Icon All Icons 1`] = `
                   <RNSVGSvgView
                     accessibilityRole="image"
                     align="xMidYMid"
-                    bbHeight={12}
-                    bbWidth={12}
+                    bbHeight={16}
+                    bbWidth={16}
                     color={4285756275}
                     dataSet={Object {}}
                     focusable={false}
@@ -39722,13 +39722,13 @@ exports[`Storyshots Icon All Icons 1`] = `
                         },
                         Object {
                           "color": "#737373",
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                         Object {
                           "flex": 0,
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                       ]
                     }
@@ -39842,8 +39842,8 @@ exports[`Storyshots Icon All Icons 1`] = `
                   <RNSVGSvgView
                     accessibilityRole="image"
                     align="xMidYMid"
-                    bbHeight={12}
-                    bbWidth={12}
+                    bbHeight={16}
+                    bbWidth={16}
                     color={4285756275}
                     dataSet={Object {}}
                     focusable={false}
@@ -39859,13 +39859,13 @@ exports[`Storyshots Icon All Icons 1`] = `
                         },
                         Object {
                           "color": "#737373",
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                         Object {
                           "flex": 0,
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                       ]
                     }
@@ -39966,8 +39966,8 @@ exports[`Storyshots Icon All Icons 1`] = `
                   <RNSVGSvgView
                     accessibilityRole="image"
                     align="xMidYMid"
-                    bbHeight={12}
-                    bbWidth={12}
+                    bbHeight={16}
+                    bbWidth={16}
                     color={4285756275}
                     dataSet={Object {}}
                     focusable={false}
@@ -39983,13 +39983,13 @@ exports[`Storyshots Icon All Icons 1`] = `
                         },
                         Object {
                           "color": "#737373",
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                         Object {
                           "flex": 0,
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                       ]
                     }
@@ -40077,8 +40077,8 @@ exports[`Storyshots Icon All Icons 1`] = `
                   <RNSVGSvgView
                     accessibilityRole="image"
                     align="xMidYMid"
-                    bbHeight={12}
-                    bbWidth={12}
+                    bbHeight={16}
+                    bbWidth={16}
                     color={4285756275}
                     dataSet={Object {}}
                     focusable={false}
@@ -40094,13 +40094,13 @@ exports[`Storyshots Icon All Icons 1`] = `
                         },
                         Object {
                           "color": "#737373",
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                         Object {
                           "flex": 0,
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                       ]
                     }
@@ -40188,8 +40188,8 @@ exports[`Storyshots Icon All Icons 1`] = `
                   <RNSVGSvgView
                     accessibilityRole="image"
                     align="xMidYMid"
-                    bbHeight={12}
-                    bbWidth={12}
+                    bbHeight={16}
+                    bbWidth={16}
                     color={4285756275}
                     dataSet={Object {}}
                     focusable={false}
@@ -40205,13 +40205,13 @@ exports[`Storyshots Icon All Icons 1`] = `
                         },
                         Object {
                           "color": "#737373",
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                         Object {
                           "flex": 0,
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                       ]
                     }
@@ -40312,8 +40312,8 @@ exports[`Storyshots Icon All Icons 1`] = `
                   <RNSVGSvgView
                     accessibilityRole="image"
                     align="xMidYMid"
-                    bbHeight={12}
-                    bbWidth={12}
+                    bbHeight={16}
+                    bbWidth={16}
                     color={4285756275}
                     dataSet={Object {}}
                     focusable={false}
@@ -40329,13 +40329,13 @@ exports[`Storyshots Icon All Icons 1`] = `
                         },
                         Object {
                           "color": "#737373",
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                         Object {
                           "flex": 0,
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                       ]
                     }
@@ -40423,8 +40423,8 @@ exports[`Storyshots Icon All Icons 1`] = `
                   <RNSVGSvgView
                     accessibilityRole="image"
                     align="xMidYMid"
-                    bbHeight={12}
-                    bbWidth={12}
+                    bbHeight={16}
+                    bbWidth={16}
                     color={4285756275}
                     dataSet={Object {}}
                     focusable={false}
@@ -40440,13 +40440,13 @@ exports[`Storyshots Icon All Icons 1`] = `
                         },
                         Object {
                           "color": "#737373",
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                         Object {
                           "flex": 0,
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                       ]
                     }
@@ -40534,8 +40534,8 @@ exports[`Storyshots Icon All Icons 1`] = `
                   <RNSVGSvgView
                     accessibilityRole="image"
                     align="xMidYMid"
-                    bbHeight={12}
-                    bbWidth={12}
+                    bbHeight={16}
+                    bbWidth={16}
                     color={4285756275}
                     dataSet={Object {}}
                     focusable={false}
@@ -40551,13 +40551,13 @@ exports[`Storyshots Icon All Icons 1`] = `
                         },
                         Object {
                           "color": "#737373",
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                         Object {
                           "flex": 0,
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                       ]
                     }
@@ -40645,8 +40645,8 @@ exports[`Storyshots Icon All Icons 1`] = `
                   <RNSVGSvgView
                     accessibilityRole="image"
                     align="xMidYMid"
-                    bbHeight={12}
-                    bbWidth={12}
+                    bbHeight={16}
+                    bbWidth={16}
                     color={4285756275}
                     dataSet={Object {}}
                     focusable={false}
@@ -40662,13 +40662,13 @@ exports[`Storyshots Icon All Icons 1`] = `
                         },
                         Object {
                           "color": "#737373",
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                         Object {
                           "flex": 0,
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                       ]
                     }
@@ -40769,8 +40769,8 @@ exports[`Storyshots Icon All Icons 1`] = `
                   <RNSVGSvgView
                     accessibilityRole="image"
                     align="xMidYMid"
-                    bbHeight={12}
-                    bbWidth={12}
+                    bbHeight={16}
+                    bbWidth={16}
                     color={4285756275}
                     dataSet={Object {}}
                     focusable={false}
@@ -40786,13 +40786,13 @@ exports[`Storyshots Icon All Icons 1`] = `
                         },
                         Object {
                           "color": "#737373",
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                         Object {
                           "flex": 0,
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                       ]
                     }
@@ -40880,8 +40880,8 @@ exports[`Storyshots Icon All Icons 1`] = `
                   <RNSVGSvgView
                     accessibilityRole="image"
                     align="xMidYMid"
-                    bbHeight={12}
-                    bbWidth={12}
+                    bbHeight={16}
+                    bbWidth={16}
                     color={4285756275}
                     dataSet={Object {}}
                     focusable={false}
@@ -40897,13 +40897,13 @@ exports[`Storyshots Icon All Icons 1`] = `
                         },
                         Object {
                           "color": "#737373",
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                         Object {
                           "flex": 0,
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                       ]
                     }
@@ -40993,8 +40993,8 @@ exports[`Storyshots Icon All Icons 1`] = `
                   <RNSVGSvgView
                     accessibilityRole="image"
                     align="xMidYMid"
-                    bbHeight={12}
-                    bbWidth={12}
+                    bbHeight={16}
+                    bbWidth={16}
                     color={4285756275}
                     dataSet={Object {}}
                     focusable={false}
@@ -41010,13 +41010,13 @@ exports[`Storyshots Icon All Icons 1`] = `
                         },
                         Object {
                           "color": "#737373",
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                         Object {
                           "flex": 0,
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                       ]
                     }
@@ -41104,8 +41104,8 @@ exports[`Storyshots Icon All Icons 1`] = `
                   <RNSVGSvgView
                     accessibilityRole="image"
                     align="xMidYMid"
-                    bbHeight={12}
-                    bbWidth={12}
+                    bbHeight={16}
+                    bbWidth={16}
                     color={4285756275}
                     dataSet={Object {}}
                     focusable={false}
@@ -41121,13 +41121,13 @@ exports[`Storyshots Icon All Icons 1`] = `
                         },
                         Object {
                           "color": "#737373",
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                         Object {
                           "flex": 0,
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                       ]
                     }
@@ -41228,8 +41228,8 @@ exports[`Storyshots Icon All Icons 1`] = `
                   <RNSVGSvgView
                     accessibilityRole="image"
                     align="xMidYMid"
-                    bbHeight={12}
-                    bbWidth={12}
+                    bbHeight={16}
+                    bbWidth={16}
                     color={4285756275}
                     dataSet={Object {}}
                     focusable={false}
@@ -41245,13 +41245,13 @@ exports[`Storyshots Icon All Icons 1`] = `
                         },
                         Object {
                           "color": "#737373",
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                         Object {
                           "flex": 0,
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                       ]
                     }
@@ -41348,8 +41348,8 @@ exports[`Storyshots Icon All Icons 1`] = `
                   <RNSVGSvgView
                     accessibilityRole="image"
                     align="xMidYMid"
-                    bbHeight={12}
-                    bbWidth={12}
+                    bbHeight={16}
+                    bbWidth={16}
                     color={4285756275}
                     dataSet={Object {}}
                     focusable={false}
@@ -41365,13 +41365,13 @@ exports[`Storyshots Icon All Icons 1`] = `
                         },
                         Object {
                           "color": "#737373",
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                         Object {
                           "flex": 0,
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                       ]
                     }
@@ -41459,8 +41459,8 @@ exports[`Storyshots Icon All Icons 1`] = `
                   <RNSVGSvgView
                     accessibilityRole="image"
                     align="xMidYMid"
-                    bbHeight={12}
-                    bbWidth={12}
+                    bbHeight={16}
+                    bbWidth={16}
                     color={4285756275}
                     dataSet={Object {}}
                     focusable={false}
@@ -41476,13 +41476,13 @@ exports[`Storyshots Icon All Icons 1`] = `
                         },
                         Object {
                           "color": "#737373",
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                         Object {
                           "flex": 0,
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                       ]
                     }
@@ -41570,8 +41570,8 @@ exports[`Storyshots Icon All Icons 1`] = `
                   <RNSVGSvgView
                     accessibilityRole="image"
                     align="xMidYMid"
-                    bbHeight={12}
-                    bbWidth={12}
+                    bbHeight={16}
+                    bbWidth={16}
                     color={4285756275}
                     dataSet={Object {}}
                     focusable={false}
@@ -41587,13 +41587,13 @@ exports[`Storyshots Icon All Icons 1`] = `
                         },
                         Object {
                           "color": "#737373",
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                         Object {
                           "flex": 0,
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                       ]
                     }
@@ -41694,8 +41694,8 @@ exports[`Storyshots Icon All Icons 1`] = `
                   <RNSVGSvgView
                     accessibilityRole="image"
                     align="xMidYMid"
-                    bbHeight={12}
-                    bbWidth={12}
+                    bbHeight={16}
+                    bbWidth={16}
                     color={4285756275}
                     dataSet={Object {}}
                     focusable={false}
@@ -41711,13 +41711,13 @@ exports[`Storyshots Icon All Icons 1`] = `
                         },
                         Object {
                           "color": "#737373",
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                         Object {
                           "flex": 0,
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                       ]
                     }
@@ -41811,8 +41811,8 @@ exports[`Storyshots Icon All Icons 1`] = `
                   <RNSVGSvgView
                     accessibilityRole="image"
                     align="xMidYMid"
-                    bbHeight={12}
-                    bbWidth={12}
+                    bbHeight={16}
+                    bbWidth={16}
                     color={4285756275}
                     dataSet={Object {}}
                     focusable={false}
@@ -41828,13 +41828,13 @@ exports[`Storyshots Icon All Icons 1`] = `
                         },
                         Object {
                           "color": "#737373",
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                         Object {
                           "flex": 0,
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                       ]
                     }
@@ -41922,8 +41922,8 @@ exports[`Storyshots Icon All Icons 1`] = `
                   <RNSVGSvgView
                     accessibilityRole="image"
                     align="xMidYMid"
-                    bbHeight={12}
-                    bbWidth={12}
+                    bbHeight={16}
+                    bbWidth={16}
                     color={4285756275}
                     dataSet={Object {}}
                     focusable={false}
@@ -41939,13 +41939,13 @@ exports[`Storyshots Icon All Icons 1`] = `
                         },
                         Object {
                           "color": "#737373",
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                         Object {
                           "flex": 0,
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                       ]
                     }
@@ -42060,8 +42060,8 @@ exports[`Storyshots Icon All Icons 1`] = `
                   <RNSVGSvgView
                     accessibilityRole="image"
                     align="xMidYMid"
-                    bbHeight={12}
-                    bbWidth={12}
+                    bbHeight={16}
+                    bbWidth={16}
                     color={4285756275}
                     dataSet={Object {}}
                     focusable={false}
@@ -42077,13 +42077,13 @@ exports[`Storyshots Icon All Icons 1`] = `
                         },
                         Object {
                           "color": "#737373",
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                         Object {
                           "flex": 0,
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                       ]
                     }
@@ -42184,8 +42184,8 @@ exports[`Storyshots Icon All Icons 1`] = `
                   <RNSVGSvgView
                     accessibilityRole="image"
                     align="xMidYMid"
-                    bbHeight={12}
-                    bbWidth={12}
+                    bbHeight={16}
+                    bbWidth={16}
                     color={4285756275}
                     dataSet={Object {}}
                     focusable={false}
@@ -42201,13 +42201,13 @@ exports[`Storyshots Icon All Icons 1`] = `
                         },
                         Object {
                           "color": "#737373",
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                         Object {
                           "flex": 0,
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                       ]
                     }
@@ -42308,8 +42308,8 @@ exports[`Storyshots Icon All Icons 1`] = `
                   <RNSVGSvgView
                     accessibilityRole="image"
                     align="xMidYMid"
-                    bbHeight={12}
-                    bbWidth={12}
+                    bbHeight={16}
+                    bbWidth={16}
                     color={4285756275}
                     dataSet={Object {}}
                     focusable={false}
@@ -42325,13 +42325,13 @@ exports[`Storyshots Icon All Icons 1`] = `
                         },
                         Object {
                           "color": "#737373",
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                         Object {
                           "flex": 0,
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                       ]
                     }
@@ -42419,8 +42419,8 @@ exports[`Storyshots Icon All Icons 1`] = `
                   <RNSVGSvgView
                     accessibilityRole="image"
                     align="xMidYMid"
-                    bbHeight={12}
-                    bbWidth={12}
+                    bbHeight={16}
+                    bbWidth={16}
                     color={4285756275}
                     dataSet={Object {}}
                     focusable={false}
@@ -42436,13 +42436,13 @@ exports[`Storyshots Icon All Icons 1`] = `
                         },
                         Object {
                           "color": "#737373",
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                         Object {
                           "flex": 0,
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                       ]
                     }
@@ -42533,8 +42533,8 @@ exports[`Storyshots Icon All Icons 1`] = `
                   <RNSVGSvgView
                     accessibilityRole="image"
                     align="xMidYMid"
-                    bbHeight={12}
-                    bbWidth={12}
+                    bbHeight={16}
+                    bbWidth={16}
                     color={4285756275}
                     dataSet={Object {}}
                     focusable={false}
@@ -42550,13 +42550,13 @@ exports[`Storyshots Icon All Icons 1`] = `
                         },
                         Object {
                           "color": "#737373",
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                         Object {
                           "flex": 0,
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                       ]
                     }
@@ -42657,8 +42657,8 @@ exports[`Storyshots Icon All Icons 1`] = `
                   <RNSVGSvgView
                     accessibilityRole="image"
                     align="xMidYMid"
-                    bbHeight={12}
-                    bbWidth={12}
+                    bbHeight={16}
+                    bbWidth={16}
                     color={4285756275}
                     dataSet={Object {}}
                     focusable={false}
@@ -42674,13 +42674,13 @@ exports[`Storyshots Icon All Icons 1`] = `
                         },
                         Object {
                           "color": "#737373",
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                         Object {
                           "flex": 0,
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                       ]
                     }
@@ -42768,8 +42768,8 @@ exports[`Storyshots Icon All Icons 1`] = `
                   <RNSVGSvgView
                     accessibilityRole="image"
                     align="xMidYMid"
-                    bbHeight={12}
-                    bbWidth={12}
+                    bbHeight={16}
+                    bbWidth={16}
                     color={4285756275}
                     dataSet={Object {}}
                     focusable={false}
@@ -42785,13 +42785,13 @@ exports[`Storyshots Icon All Icons 1`] = `
                         },
                         Object {
                           "color": "#737373",
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                         Object {
                           "flex": 0,
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                       ]
                     }
@@ -42879,8 +42879,8 @@ exports[`Storyshots Icon All Icons 1`] = `
                   <RNSVGSvgView
                     accessibilityRole="image"
                     align="xMidYMid"
-                    bbHeight={12}
-                    bbWidth={12}
+                    bbHeight={16}
+                    bbWidth={16}
                     color={4285756275}
                     dataSet={Object {}}
                     focusable={false}
@@ -42896,13 +42896,13 @@ exports[`Storyshots Icon All Icons 1`] = `
                         },
                         Object {
                           "color": "#737373",
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                         Object {
                           "flex": 0,
-                          "height": 12,
-                          "width": 12,
+                          "height": 16,
+                          "width": 16,
                         },
                       ]
                     }
@@ -43819,10 +43819,10 @@ exports[`Storyshots Icon Integration with Third Party Icons 1`] = `
               },
               Object {
                 "color": "#1f2937",
-                "fontSize": 12,
-                "height": 12,
-                "lineHeight": 12,
-                "width": 12,
+                "fontSize": 16,
+                "height": 16,
+                "lineHeight": 16,
+                "width": 16,
               },
               Object {
                 "fontFamily": "anticon",
@@ -43863,10 +43863,10 @@ exports[`Storyshots Icon Integration with Third Party Icons 1`] = `
               },
               Object {
                 "color": "#1f2937",
-                "fontSize": 12,
-                "height": 12,
-                "lineHeight": 12,
-                "width": 12,
+                "fontSize": 16,
+                "height": 16,
+                "lineHeight": 16,
+                "width": 16,
               },
               Object {
                 "fontFamily": "material-community",
@@ -53834,8 +53834,8 @@ exports[`Storyshots Menu Basic 1`] = `
         <RNSVGSvgView
           accessibilityRole="image"
           align="xMidYMid"
-          bbHeight={12}
-          bbWidth={12}
+          bbHeight={16}
+          bbWidth={16}
           color={4285756275}
           dataSet={Object {}}
           focusable={false}
@@ -53851,13 +53851,13 @@ exports[`Storyshots Menu Basic 1`] = `
               },
               Object {
                 "color": "#737373",
-                "height": 12,
-                "width": 12,
+                "height": 16,
+                "width": 16,
               },
               Object {
                 "flex": 0,
-                "height": 12,
-                "width": 12,
+                "height": 16,
+                "width": 16,
               },
             ]
           }
@@ -54053,8 +54053,8 @@ exports[`Storyshots Menu Group 1`] = `
         <RNSVGSvgView
           accessibilityRole="image"
           align="xMidYMid"
-          bbHeight={12}
-          bbWidth={12}
+          bbHeight={16}
+          bbWidth={16}
           color={4285756275}
           dataSet={Object {}}
           focusable={false}
@@ -54070,13 +54070,13 @@ exports[`Storyshots Menu Group 1`] = `
               },
               Object {
                 "color": "#737373",
-                "height": 12,
-                "width": 12,
+                "height": 16,
+                "width": 16,
               },
               Object {
                 "flex": 0,
-                "height": 12,
-                "width": 12,
+                "height": 16,
+                "width": 16,
               },
             ]
           }
@@ -54410,8 +54410,8 @@ exports[`Storyshots Menu Menu positions 1`] = `
           <RNSVGSvgView
             accessibilityRole="image"
             align="xMidYMid"
-            bbHeight={12}
-            bbWidth={12}
+            bbHeight={16}
+            bbWidth={16}
             color={4285756275}
             dataSet={Object {}}
             focusable={false}
@@ -54427,14 +54427,14 @@ exports[`Storyshots Menu Menu positions 1`] = `
                 },
                 Object {
                   "color": "#737373",
-                  "height": 12,
+                  "height": 16,
                   "marginRight": 12,
-                  "width": 12,
+                  "width": 16,
                 },
                 Object {
                   "flex": 0,
-                  "height": 12,
-                  "width": 12,
+                  "height": 16,
+                  "width": 16,
                 },
               ]
             }
@@ -54631,8 +54631,8 @@ exports[`Storyshots Menu MenuOptionsGroup 1`] = `
         <RNSVGSvgView
           accessibilityRole="image"
           align="xMidYMid"
-          bbHeight={12}
-          bbWidth={12}
+          bbHeight={16}
+          bbWidth={16}
           color={4285756275}
           dataSet={Object {}}
           focusable={false}
@@ -54648,13 +54648,13 @@ exports[`Storyshots Menu MenuOptionsGroup 1`] = `
               },
               Object {
                 "color": "#737373",
-                "height": 12,
-                "width": 12,
+                "height": 16,
+                "width": 16,
               },
               Object {
                 "flex": 0,
-                "height": 12,
-                "width": 12,
+                "height": 16,
+                "width": 16,
               },
             ]
           }
@@ -57678,8 +57678,8 @@ exports[`Storyshots Popover Popover positions 1`] = `
             <RNSVGSvgView
               accessibilityRole="image"
               align="xMidYMid"
-              bbHeight={12}
-              bbWidth={12}
+              bbHeight={16}
+              bbWidth={16}
               color={4285756275}
               dataSet={Object {}}
               focusable={false}
@@ -57695,14 +57695,14 @@ exports[`Storyshots Popover Popover positions 1`] = `
                   },
                   Object {
                     "color": "#737373",
-                    "height": 12,
+                    "height": 16,
                     "marginRight": 12,
-                    "width": 12,
+                    "width": 16,
                   },
                   Object {
                     "flex": 0,
-                    "height": 12,
-                    "width": 12,
+                    "height": 16,
+                    "width": 16,
                   },
                 ]
               }
@@ -69830,8 +69830,8 @@ exports[`Storyshots Select Basic 1`] = `
             <RNSVGSvgView
               accessibilityRole="image"
               align="xMidYMid"
-              bbHeight={12}
-              bbWidth={12}
+              bbHeight={16}
+              bbWidth={16}
               color={4285756275}
               dataSet={Object {}}
               focusable={false}
@@ -69847,14 +69847,14 @@ exports[`Storyshots Select Basic 1`] = `
                   },
                   Object {
                     "color": "#737373",
-                    "height": 12,
+                    "height": 16,
                     "marginRight": 12,
-                    "width": 12,
+                    "width": 16,
                   },
                   Object {
                     "flex": 0,
-                    "height": 12,
-                    "width": 12,
+                    "height": 16,
+                    "width": 16,
                   },
                 ]
               }
@@ -70198,8 +70198,8 @@ exports[`Storyshots Select FormControlled 1`] = `
             <RNSVGSvgView
               accessibilityRole="image"
               align="xMidYMid"
-              bbHeight={12}
-              bbWidth={12}
+              bbHeight={16}
+              bbWidth={16}
               color={4285756275}
               dataSet={Object {}}
               focusable={false}
@@ -70215,14 +70215,14 @@ exports[`Storyshots Select FormControlled 1`] = `
                   },
                   Object {
                     "color": "#737373",
-                    "height": 12,
+                    "height": 16,
                     "marginRight": 12,
-                    "width": 12,
+                    "width": 16,
                   },
                   Object {
                     "flex": 0,
-                    "height": 12,
-                    "width": 12,
+                    "height": 16,
+                    "width": 16,
                   },
                 ]
               }
@@ -70658,8 +70658,8 @@ exports[`Storyshots Select Select Long list 1`] = `
             <RNSVGSvgView
               accessibilityRole="image"
               align="xMidYMid"
-              bbHeight={12}
-              bbWidth={12}
+              bbHeight={16}
+              bbWidth={16}
               color={4285756275}
               dataSet={Object {}}
               focusable={false}
@@ -70675,14 +70675,14 @@ exports[`Storyshots Select Select Long list 1`] = `
                   },
                   Object {
                     "color": "#737373",
-                    "height": 12,
+                    "height": 16,
                     "marginRight": 12,
-                    "width": 12,
+                    "width": 16,
                   },
                   Object {
                     "flex": 0,
-                    "height": 12,
-                    "width": 12,
+                    "height": 16,
+                    "width": 16,
                   },
                 ]
               }
@@ -86286,8 +86286,8 @@ exports[`Storyshots Tooltip Tooltip Positions 1`] = `
           <RNSVGSvgView
             accessibilityRole="image"
             align="xMidYMid"
-            bbHeight={12}
-            bbWidth={12}
+            bbHeight={16}
+            bbWidth={16}
             color={4285756275}
             dataSet={Object {}}
             focusable={false}
@@ -86303,14 +86303,14 @@ exports[`Storyshots Tooltip Tooltip Positions 1`] = `
                 },
                 Object {
                   "color": "#737373",
-                  "height": 12,
+                  "height": 16,
                   "marginRight": 12,
-                  "width": 12,
+                  "width": 16,
                 },
                 Object {
                   "flex": 0,
-                  "height": 12,
-                  "width": 12,
+                  "height": 16,
+                  "width": 16,
                 },
               ]
             }
