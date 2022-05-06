@@ -59,7 +59,7 @@ export const AlertDialog = {
 export const AlertDialogContent = {
   baseStyle: () => {
     return {
-      shadow: 1,
+      shadow: 6,
       rounded: 'lg',
       maxHeight: `${Dimensions.get('window').height - 150}px`,
       overflow: 'hidden',
