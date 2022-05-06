@@ -1,15 +1,11 @@
 import React from 'react';
 import { SliderContext } from './Context';
-import { StyleSheet } from 'react-native';
 import Box from '../Box';
 import type { ISliderTrackFilledProps } from './types';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
-const SliderFilledTrack = (
-  { style, ...props }: ISliderTrackFilledProps,
-  ref?: any
-) => {
+const SliderFilledTrack = (props: ISliderTrackFilledProps, ref?: any) => {
   const {
     isReversed,
     colorScheme,
@@ -32,21 +28,14 @@ const SliderFilledTrack = (
     {
       size: sliderSize,
       colorScheme,
+      isReversed,
+      orientation,
+      sliderTrackPosition,
       ...props,
     },
     { isDisabled, isReadOnly }
   );
-  // NOTE: Required for WEB compatibility
-  const customStyle = StyleSheet.create({
-    verticalStyle: {
-      height: sliderTrackPosition,
-      width: sliderSize,
-    },
-    horizontalStyle: {
-      width: sliderTrackPosition,
-      height: sliderSize,
-    },
-  });
+
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
@@ -56,16 +45,6 @@ const SliderFilledTrack = (
     <Box
       position="absolute"
       {...resolvedProps}
-      left={orientation !== 'vertical' && !isReversed ? 0 : undefined}
-      bottom={orientation === 'vertical' && !isReversed ? 0 : undefined}
-      right={orientation !== 'vertical' && isReversed ? 0 : undefined}
-      top={orientation === 'vertical' && isReversed ? 0 : undefined}
-      style={[
-        style,
-        orientation === 'vertical'
-          ? customStyle.verticalStyle
-          : customStyle.horizontalStyle,
-      ]}
       ref={ref}
       // {...(isReadOnly && _readOnly)}
       // {...(isDisabled && _disabled)}

@@ -33,4 +33,35 @@ type AllProps<T extends StyledPropConfig> = {
     : unknown;
 };
 
-export type StyledProps = AllProps<StyledPropConfig>;
+export type StyledProps = Omit<
+  AllProps<StyledPropConfig>,
+  | 'gap'
+  | 'verticalAlign'
+  | 'borderBottom'
+  | 'borderTop'
+  | 'borderLeft'
+  | 'borderRight'
+  | 'wordBreak'
+  | 'justifySelf'
+  | 'overflowWrap'
+  | 'textOverflow'
+  | 'whiteSpace'
+  | 'outline'
+  | 'outlineWidth'
+  | 'cursor'
+  | 'userSelect'
+  | 'order'
+  | 'backgroundSize'
+  | 'backgroundPosition'
+  | 'backgroundRepeat'
+  | 'backgroundAttachment'
+  | 'backgroundBlendMode'
+  | 'bgSize'
+  | 'bgPosition'
+  | 'bgRepeat'
+  | 'bgAttachment'
+  | 'bgBlendMode'
+  | 'bgImage'
+  | 'bgImg'
+  | 'bgPos'
+>;

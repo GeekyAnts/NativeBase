@@ -6,8 +6,16 @@ export function Example() {
   const myRef = React.useRef(null);
 
   React.useEffect(() => {
-    if (myRef.current && myRef.current.setNativeProps)
-      myRef.current?.setNativeProps({ borderWidth: 10, opacity: 0.5 });
+    if (myRef.current && myRef.current.setNativeProps) {
+      const styleObj = {
+        borderWidth: 4,
+        borderRadius: 4,
+        borderColor: '#22D3EE',
+      };
+      myRef?.current?.setNativeProps({
+        style: styleObj,
+      });
+    }
   }, [myRef]);
 
   return (

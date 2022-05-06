@@ -252,7 +252,7 @@ describe('props resolution', () => {
       width: defaultTheme.space['20'],
     });
 
-    expect(spinner.props.style).toEqual(undefined);
+    expect(spinner.props.style).toEqual([[{}, { dataSet: {} }], undefined]);
   });
 
   it('resolves base style and variants, sizes and default props with props', () => {
@@ -513,7 +513,8 @@ describe('props resolution', () => {
     const { getByTestId } = render(
       <Provider>
         <Input
-          testID="test"
+          _stack={{ testID: 'StackTest' }}
+          _input={{ testID: 'test' }}
           w="100%"
           mx={3}
           placeholder="Default Input"
@@ -522,13 +523,17 @@ describe('props resolution', () => {
       </Provider>
     );
     const inputElement = getByTestId('test');
+    const inputElementStack = getByTestId('StackTest');
     expect(inputElement.props.style.width).toBe('100%');
-
     expect(inputElement.props.placeholderTextColor).toBe(
       defaultTheme.colors.blueGray['400']
     );
-    expect(inputElement.props.style.marginLeft).toBe(defaultTheme.space['3']);
-    expect(inputElement.props.style.marginRight).toBe(defaultTheme.space['3']);
+    expect(inputElementStack.props.style.marginLeft).toBe(
+      defaultTheme.space['3']
+    );
+    expect(inputElementStack.props.style.marginRight).toBe(
+      defaultTheme.space['3']
+    );
   });
 
   it('Input: color mode', () => {
@@ -538,7 +543,7 @@ describe('props resolution', () => {
     const { getByTestId } = render(
       <Provider theme={newTheme}>
         <Input
-          testID="test"
+          _input={{ testID: 'test' }}
           _light={{
             placeholderTextColor: 'blueGray.400',
           }}
@@ -561,7 +566,7 @@ describe('props resolution', () => {
     const { getByTestId } = render(
       <Provider theme={newTheme}>
         <Input
-          testID="test"
+          _input={{ testID: 'test' }}
           size="sm"
           variant="outline"
           _dark={{
@@ -577,7 +582,7 @@ describe('props resolution', () => {
   it('Input: variant', () => {
     const { getByTestId } = render(
       <Provider>
-        <Input testID="test" variant="underlined" />
+        <Input _stack={{ testID: 'test' }} variant="underlined" />
       </Provider>
     );
     const inputElement = getByTestId('test');
@@ -609,7 +614,8 @@ describe('props resolution', () => {
     const { getByTestId } = render(
       <Provider theme={newTheme}>
         <Input
-          testID="test"
+          _stack={{ testID: 'stackTest' }}
+          _input={{ testID: 'test' }}
           _ios={{ _dark: { variant: 'underlined', size: 'sm' } }}
           variant="outline"
           size="lg"
@@ -617,7 +623,8 @@ describe('props resolution', () => {
       </Provider>
     );
     const inputElement = getByTestId('test');
-    expect(inputElement.props.style.borderBottomWidth).toBe(1);
+    const inputElementStack = getByTestId('stackTest');
+    expect(inputElementStack.props.style.borderBottomWidth).toBe(1);
     // as input of 'sm' size is mapped to 'xs' fontsize
     expect(inputElement.props.style.fontSize).toBe(defaultTheme.fontSizes.xs);
   });
@@ -644,7 +651,7 @@ describe('props resolution', () => {
     const { getByTestId } = render(
       <Provider>
         <Input
-          testID="test"
+          _input={{ testID: 'test' }}
           type="password"
           isDisabled={true}
           isRequired={true}
@@ -1157,6 +1164,97 @@ describe('props resolution', () => {
     const heading = getByTestId('test');
     expect(heading.props.style.lineHeight).toBe(37.5);
     expect(heading.props.style.letterSpacing).toBe(0.375);
+  });
+
+  it('Pseudo props test: importatnt on Button', () => {
+    const newTheme = extendTheme({
+      config: { initialColorMode: 'dark' },
+      components: {
+        Button: {
+          baseStyle: {
+            _important: {
+              bg: 'green.400',
+            },
+          },
+        },
+      },
+    });
+    const { getByTestId } = render(
+      <Provider theme={newTheme}>
+        <Button bg="amber.500" testID="test">
+          Button
+        </Button>
+      </Provider>
+    );
+    const button = getByTestId('test');
+    expect(button.props.style.backgroundColor).toBe(
+      defaultTheme.colors.green['400']
+    );
+  });
+
+  it('Pseudo props test: normal prop on light and dark', () => {
+    const newTheme = extendTheme({
+      config: { initialColorMode: 'dark' },
+      components: {
+        Button: {
+          baseStyle: {
+            _light: {
+              bg: 'green.700',
+            },
+            _dark: {
+              bg: 'green.100',
+            },
+          },
+        },
+      },
+    });
+    const { getByTestId } = render(
+      <Provider theme={newTheme}>
+        <Button bg="amber.500" testID="test">
+          Button
+        </Button>
+      </Provider>
+    );
+    const button = getByTestId('test');
+    expect(button.props.style.backgroundColor).toBe(
+      defaultTheme.colors.amber['500']
+    );
+  });
+
+  it('Pseudo props test: _important overrided', () => {
+    const newTheme = extendTheme({
+      config: { initialColorMode: 'dark' },
+      components: {
+        Button: {
+          baseStyle: {
+            _important: {
+              bg: 'green.400',
+            },
+          },
+          variants: {
+            solid: {
+              _important: {
+                bg: 'emerald.800',
+                _text: {
+                  color: 'white',
+                },
+              },
+            },
+          },
+        },
+      },
+    });
+    const { getByTestId } = render(
+      <Provider theme={newTheme}>
+        <Button bg="amber.500" testID="test">
+          Button
+        </Button>
+      </Provider>
+    );
+    const button = getByTestId('test');
+    expect(button.props.style.backgroundColor).toBe(
+      defaultTheme.colors.emerald['800']
+    );
   });
 });
 

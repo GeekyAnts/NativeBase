@@ -1,6 +1,9 @@
 import type { MutableRefObject } from 'react';
 import type { CustomProps } from '../../../components/types';
 import type { InterfaceBoxProps } from '../Box';
+import type { ColorSchemeType } from '../../../components/types';
+import type { ResponsiveValue } from '../../types';
+import type { ISizes } from '../../../theme/base/sizes';
 
 export interface InterfaceSliderProps extends InterfaceBoxProps<ISliderProps> {
   /** The current value of the Slider */
@@ -12,7 +15,7 @@ export interface InterfaceSliderProps extends InterfaceBoxProps<ISliderProps> {
   /**
    * Color scheme of the slider
    */
-  colorScheme?: string;
+  colorScheme?: ColorSchemeType;
   /**
    * Text description of slider. This will be announced by screen reader/
    */
@@ -51,6 +54,14 @@ export interface InterfaceSliderProps extends InterfaceBoxProps<ISliderProps> {
   _disabled?: any;
   /** Props applied if isReadOnly is true. */
   _readOnly?: any;
+  /** Prop applied to change slider track height */
+  sliderTrackHeight?: ResponsiveValue<ISizes | (string & {}) | number>;
+  /**Prop applied to change size of slider thumb */
+  thumbSize?: ResponsiveValue<ISizes | (string & {}) | number>;
+  /**
+   * You can style interaction box around the checkbox using this.
+   */
+  _interactionBox?: Omit<Partial<ISliderThumbProps>, '_interactionBox'>;
 }
 
 export interface ISliderTrackProps
@@ -61,6 +72,8 @@ export interface ISliderTrackProps
   _disabled?: any;
   /** Props applied if isReadOnly is true. */
   _readOnly?: any;
+  /** Wrapper style for SliderTrack */
+  _pressable?: {};
 }
 
 export interface ISliderTrackFilledProps
@@ -88,6 +101,18 @@ export interface ISliderThumbProps
   _disabled?: any;
   /** Props applied if isReadOnly is true. */
   _readOnly?: any;
+  /**
+   * Props to be passed to the slider thumb when button is hovered.
+   */
+  _hover?: Omit<Partial<ISliderThumbProps>, '_hover'>;
+  /**
+   * Props to be passed to the slider thumb when button is pressed.
+   */
+  _pressed?: Omit<Partial<ISliderThumbProps>, '_pressed'>;
+  /**
+   * Props to be passed to the slider thumb when button is focused.
+   */
+  _focus?: Omit<Partial<ISliderThumbProps>, '_focus'>;
 }
 
 export type ISliderComponentType = ((

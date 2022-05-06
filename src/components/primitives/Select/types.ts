@@ -4,6 +4,7 @@ import type { IActionsheetContentProps } from '../../composites/Actionsheet/type
 import type { MutableRefObject } from 'react';
 import type { CustomProps, ResponsiveValue } from '../../../components/types';
 import type { IColors } from '../../../theme/base/colors';
+import type { IFlatListProps } from '../../../components/basic/FlatList';
 import type { InterfaceButtonProps } from '../Button/types';
 
 export interface InterfaceSelectProps extends InterfaceBoxProps<ISelectProps> {
@@ -22,11 +23,11 @@ export interface InterfaceSelectProps extends InterfaceBoxProps<ISelectProps> {
   /**
    * Item props passed here will be passed to each Select.Item component.
    */
-  _item?: IButtonProps;
+  _item?: Partial<IButtonProps>;
   /**
    * Item props passed here will be passed to the selected Select.Item component.
    */
-  _selectedItem?: IButtonProps;
+  _selectedItem?: Partial<IButtonProps>;
   /**
    * Currently selected value. Useful for controlling the Select state
    */
@@ -83,7 +84,11 @@ export interface InterfaceSelectProps extends InterfaceBoxProps<ISelectProps> {
   /**
    * props to be passed to underlying ActionSheet.Content. Select uses ActionSheet underneath.
    */
-  _actionSheetContent?: IActionsheetContentProps;
+  _actionSheetContent?: Partial<IActionsheetContentProps>;
+  /**
+   * props to be passed to underlying Flatlist in ActionSheet.Content.
+   */
+  _actionSheetBody?: Partial<IFlatListProps<any>>;
   /**
    * Ref to be attached to the Select wrapper
    */

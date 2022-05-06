@@ -1,4 +1,4 @@
-import type { IBoxProps } from '../../primitives';
+import type { IStackProps } from '../../primitives/Stack';
 import type { InterfaceBoxProps } from '../../primitives/Box/types';
 import type { IFormControlContext } from '../../composites';
 import type { AccessibilityRole } from 'react-native';
@@ -7,7 +7,9 @@ import type { MutableRefObject } from 'react';
 import type { ResponsiveValue } from '../../../components/types';
 import type { ISizes } from '../../../theme/base/sizes';
 export type IRadioValue = string;
-import type { CustomProps } from '../../types';
+import type { CustomProps, ThemeComponentSizeType } from '../../types';
+import type { IIconProps } from '../Icon';
+import type { ColorSchemeType } from '../../../components/types';
 
 export type IRadioGroupOnChangeHandler = (value: IRadioValue) => any;
 
@@ -20,7 +22,7 @@ export interface InterfaceRadioProps extends InterfaceBoxProps<IRadioProps> {
    * The color of the radio. This should be one of the color keys in the theme (e.g."green", "red").
    * @default 'primary'
    */
-  colorScheme?: string | 'default';
+  colorScheme?: ColorSchemeType & ResponsiveValue<'default'>;
   /**
    * 	If true, the radio will be disabled
    */
@@ -49,7 +51,7 @@ export interface InterfaceRadioProps extends InterfaceBoxProps<IRadioProps> {
    * 	The size (width and height) of the radio.
    */
 
-  size?: ResponsiveValue<ISizes | (string & {}) | number>;
+  size?: ThemeComponentSizeType<'Radio'>;
 
   /**
    * If given, will use this icon instead of the default.
@@ -59,6 +61,10 @@ export interface InterfaceRadioProps extends InterfaceBoxProps<IRadioProps> {
    * Ref to be passed to Icon's wrapper Box
    */
   wrapperRef?: any;
+  /**
+   * Props to be passed to the Stack used inside.
+   */
+  _stack?: Partial<IStackProps>;
 
   /**
    * Passed props wilICheckboxGroupPropsl be applied on disabled state.
@@ -91,7 +97,7 @@ export interface InterfaceRadioProps extends InterfaceBoxProps<IRadioProps> {
   /**
    * Icon related props can be passed in _icon.
    */
-  _icon?: Partial<IRadioProps>;
+  _icon?: Partial<IIconProps>;
   /**
    * Passed props will be applied on readonly state.
    */
@@ -103,7 +109,7 @@ export interface InterfaceRadioProps extends InterfaceBoxProps<IRadioProps> {
 
   ref?: MutableRefObject<any>;
 }
-export interface IRadioGroupProps extends IBoxProps<IRadioGroupProps> {
+export interface IRadioGroupProps extends IStackProps {
   /**
    * The value of the radio group.
    */
@@ -120,7 +126,7 @@ export interface IRadioGroupProps extends IBoxProps<IRadioGroupProps> {
    * The color of the radios. This should be one of the color keys in the theme (e.g."green", "red").
    * @default 'primary'
    */
-  colorScheme?: string;
+  colorScheme?: ColorSchemeType;
   /**
    * 	The size (width and height) of the radio.
    */
@@ -139,10 +145,10 @@ export interface IRadioGroupProps extends IBoxProps<IRadioGroupProps> {
   /**
    * Pass props will be passed to each radio.
    */
-  _radio?: IRadioProps;
+  _radio?: Partial<IRadioProps>;
 }
 export interface IRadioContext extends IFormControlContext {
-  colorScheme?: string;
+  colorScheme?: ColorSchemeType;
   size?: ResponsiveValue<ISizes | (string & {}) | number>;
   state: RadioGroupState;
 }

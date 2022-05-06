@@ -50,6 +50,7 @@ const Button = (
     _stack,
     _spinner,
     isLoadingText,
+    _icon,
     ...resolvedProps
   } = usePropsResolution('Button', props, {
     isDisabled,
@@ -77,7 +78,7 @@ const Button = (
       (child: JSX.Element, index: number) => {
         return React.cloneElement(child, {
           key: `button-end-icon-${index}`,
-          ..._text,
+          ..._icon,
           ...child.props,
         });
       }
@@ -89,7 +90,7 @@ const Button = (
       (child: JSX.Element, index: number) => {
         return React.cloneElement(child, {
           key: `button-start-icon-${index}`,
-          ..._text,
+          ..._icon,
           ...child.props,
         });
       }
@@ -103,7 +104,7 @@ const Button = (
   );
 
   const boxChildren = (child: any) => {
-    return <Box _text={_text}>{child}</Box>;
+    return child ? <Box _text={_text}>{child}</Box> : null;
   };
 
   return (

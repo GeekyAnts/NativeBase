@@ -28,6 +28,26 @@ export interface InterfaceStackProps extends InterfaceBoxProps<IStackProps> {
   direction?: ResponsiveValue<
     'column' | 'row' | 'column-reverse' | 'row-reverse'
   >;
+  /**
+   * If true, the Stack will be in hovered state.
+   */
+  isHovered?: boolean;
+  /**
+   * If true, the Stack will be focused.
+   */
+  isFocused?: boolean;
+  /**
+   * If true, the Stack will be disabled.
+   */
+  isDisabled?: boolean;
+  /**
+   * If true, the Stack will be invalid.
+   */
+  isInvalid?: boolean;
+  /**
+   * If true, prevents the value of the children from being edited. Used with FormControls.
+   */
+  isReadOnly?: boolean;
 }
 
 export type IStackProps = InterfaceStackProps & CustomProps<'Stack'>;
@@ -44,7 +64,13 @@ const Stack = ({ space, ...props }: IStackProps, ref?: any) => {
   }: any = usePropsResolution(
     'Stack',
     { ...props, size: space },
-    {},
+    {
+      isDisabled: props.isDisabled,
+      isHovered: props.isHovered,
+      isFocused: props.isFocused,
+      isInvalid: props.isInvalid,
+      isReadOnly: props.isReadOnly,
+    },
     { resolveResponsively: ['space', 'direction'] }
   );
 

@@ -3,8 +3,11 @@ import { Box } from '../../primitives';
 import type { InterfaceBoxProps } from '../../primitives/Box';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-import type { CustomProps, ResponsiveValue } from '../../../components/types';
-import type { ISizes } from '../../../theme/base/sizes';
+import type { ColorSchemeType } from '../../../components/types';
+import type {
+  CustomProps,
+  ThemeComponentSizeType,
+} from '../../../components/types';
 
 export interface InterfaceProgressProps
   extends InterfaceBoxProps<IProgressProps> {
@@ -17,13 +20,13 @@ export interface InterfaceProgressProps
    * Defines height of Progress
    * @default sm
    */
-  size?: ResponsiveValue<ISizes | (string & {}) | number>;
+  size?: ThemeComponentSizeType<'Progress'>;
 
   /**
    * The color scheme of the progress. This should be one of the color keys in the theme (e.g."green", "red").
    * @default primary
    */
-  colorScheme?: string;
+  colorScheme?: ColorSchemeType;
   // /**
   //  * Whether progress is indeterminate
   //  * @default false
@@ -61,6 +64,13 @@ const Progress = (props: IProgressProps, ref?: any) => {
     return null;
   }
 
+  let valueWidth =
+    value < max && value > min
+      ? ((value - min) / (max - min)) * 100
+      : value > min
+      ? 100
+      : 0;
+
   return (
     <Box
       {...resolvedProps}
@@ -70,25 +80,10 @@ const Progress = (props: IProgressProps, ref?: any) => {
       accessibilityValue={{
         min: min,
         max: max,
-        now:
-          value < max && value > min
-            ? ((value - min) / (max - min)) * 100
-            : value > min
-            ? 100
-            : 0,
+        now: valueWidth,
       }}
     >
-      <Box
-        // {...resolvedProps}
-        {..._filledTrack}
-        w={
-          value < max && value > min
-            ? ((value - min) / (max - min)) * 100 + '%'
-            : value > min
-            ? '100%'
-            : '0%'
-        }
-      >
+      <Box w={`${valueWidth}%`} {..._filledTrack}>
         {children}
       </Box>
     </Box>

@@ -2,15 +2,13 @@ import type { TextInputProps } from 'react-native';
 import type { StyledProps } from '../../../theme/types';
 import type { PlatformProps } from '../../types';
 import type { InterfaceBoxProps } from '../Box';
-import type { ResponsiveValue } from '../../../components/types';
 import type { ISizes } from '../../../theme/base/sizes';
 import type {
-  ColorType,
   CustomProps,
   ThemeComponentSizeType,
   VariantType,
-} from '../../../components/types/utils';
-// import type { MutableRefObject } from 'react';
+} from '../../types';
+import type { ResponsiveValue, ColorType } from '../../../components/types';
 import type { IStackProps } from '../Stack/Stack';
 import type { MutableRefObject } from 'react';
 
@@ -75,7 +73,7 @@ export interface InterfaceInputProps
   /**
    * Using the type password, user can mask the input.
    */
-  type?: 'text' | 'password' | string;
+  type?: 'text' | 'password';
   /**
    * Ref to be passed to Icon's wrapper Box
    */
@@ -109,15 +107,10 @@ export interface InterfaceInputProps
    * Props to be passed to the Stack used inside.
    */
   _stack?: Partial<IStackProps>;
-  /**
-   * This prop allow you to change outlineColor when input is in focused state
-   */
+  /** This prop allow you to change outlineColor when input is in focused state*/
   focusOutlineColor?: ColorType;
-  /**
-   *  This prop allow you to change outlineColor when input is in focused state
-   */
+  /** This prop allow you to change outlineColor when input is in focused state*/
   inValidOutlineColor?: ColorType;
-
   ref?: MutableRefObject<any>;
 }
 

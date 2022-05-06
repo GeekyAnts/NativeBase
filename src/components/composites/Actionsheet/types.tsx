@@ -48,7 +48,8 @@ export interface IActionsheetFooterProps
   extends InterfaceBoxProps<IActionsheetFooterProps> {}
 export interface IActionsheetHeaderProps
   extends InterfaceBoxProps<IActionsheetHeaderProps> {}
-export interface IActionsheetItemProps extends InterfaceButtonProps {}
+export interface IActionsheetItemProps
+  extends Omit<InterfaceButtonProps, 'variant' | 'size' | 'colorScheme'> {}
 
 export type IActionsheetComponentType = ((
   props: IActionsheetProps & { ref?: MutableRefObject<any> }
@@ -63,16 +64,16 @@ export type IActionsheetComponentType = ((
       props: IActionsheetItemProps & { ref?: MutableRefObject<any> }
     ) => JSX.Element
   >;
-  Header: React.MemoExoticComponent<
-    (
-      props: IActionsheetHeaderProps & { ref?: MutableRefObject<any> }
-    ) => JSX.Element
-  >;
-  Footer: React.MemoExoticComponent<
-    (
-      props: IActionsheetFooterProps & { ref?: MutableRefObject<any> }
-    ) => JSX.Element
-  >;
+  // Header: React.MemoExoticComponent<
+  //   (
+  //     props: IActionsheetHeaderProps & { ref?: MutableRefObject<any> }
+  //   ) => JSX.Element
+  // >;
+  // Footer: React.MemoExoticComponent<
+  //   (
+  //     props: IActionsheetFooterProps & { ref?: MutableRefObject<any> }
+  //   ) => JSX.Element
+  // >;
 };
 
 export type IActionsheetProps = InterfaceActionsheetProps &

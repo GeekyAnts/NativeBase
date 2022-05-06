@@ -4,7 +4,7 @@ import { Popover, Button, Input, FormControl, Box } from 'native-base';
 export function Example() {
   const initialFocusRef = React.useRef(null);
   return (
-    <Box h="60%" w="100%" alignItems="center">
+    <Box w="100%" alignItems="center">
       <Popover
         initialFocusRef={initialFocusRef}
         trigger={(triggerProps) => {

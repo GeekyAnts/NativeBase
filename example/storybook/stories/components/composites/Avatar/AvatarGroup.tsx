@@ -4,7 +4,7 @@ import { Avatar, Center } from 'native-base';
 export const Example = () => {
   return (
     <Center>
-      <Avatar.Group size="lg" max={3}>
+      <Avatar.Group _avatar={{ size: 'lg' }} max={3}>
         <Avatar
           bg="green.500"
           source={{

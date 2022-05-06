@@ -4,11 +4,13 @@ import type { TouchableOpacityProps } from 'react-native';
 import type { IFormControlContext } from '../../composites/FormControl';
 import type { InterfaceBoxProps } from '../Box';
 import type { IIconProps } from '../Icon';
+import type { IStackProps } from '../../primitives/Stack';
 import type {
   CustomProps,
   ResponsiveValue,
   ThemeComponentSizeType,
 } from '../../../components/types';
+import type { ColorSchemeType } from '../../../components/types';
 
 export type ICheckboxValue = string;
 
@@ -28,7 +30,7 @@ export interface InterfaceCheckbox extends InterfaceBoxProps<ICheckboxProps> {
   /**
    * The color of the radio when it's checked. This should be one of the color keys in the theme (e.g."green", "red").
    */
-  colorScheme?: string | 'default';
+  colorScheme?: ColorSchemeType & ResponsiveValue<'default'>;
   /**
    * If true, the checkbox will be initially checked. (use defaultValue prop if using it inside Checkbox.Group)
    */
@@ -41,10 +43,10 @@ export interface InterfaceCheckbox extends InterfaceBoxProps<ICheckboxProps> {
    * If true, the checkbox will be indeterminate. This only affects the icon shown inside checkbox.
    */
   isIndeterminate?: boolean;
+  // isFullWidth?: boolean;
   /**
    * If true, the checkbox will be disabled.
    */
-  // isFullWidth?: boolean;
   isDisabled?: boolean;
   /**
    * If true, the checkbox is marked as invalid.
@@ -74,9 +76,7 @@ export interface InterfaceCheckbox extends InterfaceBoxProps<ICheckboxProps> {
    * The size (width and height) of the checkbox.
    * @default 'md'
    */
-  size?:
-    | ResponsiveValue<'sm' | 'md' | 'lg'>
-    | ThemeComponentSizeType<'Checkbox'>;
+  size?: ThemeComponentSizeType<'Checkbox'>;
   /**
    * If given, will use this icon instead of the default.
    */
@@ -116,11 +116,15 @@ export interface InterfaceCheckbox extends InterfaceBoxProps<ICheckboxProps> {
   /**
    * Icon related props can be passed in _icon.
    */
-  _icon?: IIconProps;
+  _icon?: Partial<IIconProps>;
   /**
    * You can style interaction box around the checkbox using this.
    */
   _interactionBox?: Omit<Partial<ICheckboxProps>, '_interactionBox'>;
+  /**
+   * Props to be passed to the Stack used inside.
+   */
+  _stack?: Partial<IStackProps>;
   /**
    * Function called when the state of the checkbox changes.
    */
@@ -151,7 +155,7 @@ export interface ICheckboxGroupProps
   /**
    * The color of the radio when it's checked. This should be one of the color keys in the theme (e.g."green", "red").
    */
-  colorScheme?: string;
+  colorScheme?: ColorSchemeType;
   /**
    * The size (width and height) of the checkbox.
    */
@@ -163,10 +167,10 @@ export interface ICheckboxGroupProps
   /**
    * Pass props will be passed to each checkbox.
    */
-  _checkbox?: ICheckboxProps;
+  _checkbox?: Partial<ICheckboxProps>;
 }
 export interface ICheckboxContext extends IFormControlContext {
-  colorScheme?: string;
+  colorScheme?: ColorSchemeType;
   size?: ResponsiveValue<'sm' | 'md' | 'lg'>;
   state: CheckboxGroupState;
 }
