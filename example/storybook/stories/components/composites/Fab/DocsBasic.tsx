@@ -7,7 +7,7 @@ export const Example = () => {
     <Center>
       <Box
         height="200"
-        w="400"
+        w={[200, 300, 400]}
         shadow="2"
         rounded="lg"
         _dark={{ bg: 'coolGray.200:alpha.20' }}
