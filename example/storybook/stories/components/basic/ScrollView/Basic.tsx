@@ -4,13 +4,13 @@ export const Example = () => {
   const { colors } = useTheme();
   return (
     <ScrollView
-      maxW="300"
+      w={['200', '300']}
       h="80"
-      _contentContainerStyle={{
-        px: '20px',
-        mb: '4',
-        minW: '72',
-      }}
+      // _contentContainerStyle={{
+      //   px: '20px',
+      //   mb: '4',
+      //   minW: '72',
+      // }}
     >
       <Center mt="3" mb="4">
         <Heading fontSize="xl">Cyan</Heading>
