@@ -11,7 +11,7 @@ export const Example = () => {
   const [isOpenTop, setIsOpenTop] = React.useState(false);
   const str = `${isOpenTop ? 'Hide' : 'Check Internet Connection'}`;
   return (
-    <Center h="full">
+    <Center h="32">
       <Slide in={isOpenTop} placement="top">
         <Alert justifyContent="center" status="error" safeAreaTop={8}>
           <Alert.Icon />
