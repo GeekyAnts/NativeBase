@@ -40,7 +40,7 @@ const Input = (
   //@ts-ignore
   props.focusOutlineColor = useToken('colors', props.focusOutlineColor);
   //@ts-ignore
-  props.inValidOutlineColor = useToken('colors', props.inValidOutlineColor);
+  props.invalidOutlineColor = useToken('colors', props.invalidOutlineColor);
 
   const _ref = React.useRef(null);
   const { isHovered } = useHover({}, _ref);

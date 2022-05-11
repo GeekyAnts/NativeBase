@@ -110,7 +110,7 @@ export interface InterfaceInputProps
   /** This prop allow you to change outlineColor when input is in focused state*/
   focusOutlineColor?: ColorType;
   /** This prop allow you to change outlineColor when input is in focused state*/
-  inValidOutlineColor?: ColorType;
+  invalidOutlineColor?: ColorType;
   ref?: MutableRefObject<any>;
 }
 
