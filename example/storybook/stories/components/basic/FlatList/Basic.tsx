@@ -103,6 +103,7 @@ export const Example = () => {
                 }}
                 color="coolGray.800"
                 alignSelf="flex-start"
+                display={['none', 'initial']}
               >
                 {item.timeStamp}
               </Text>
