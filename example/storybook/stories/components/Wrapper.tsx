@@ -158,7 +158,7 @@ export function RenderTestButton() {
     </Box>
   );
 }
-export default ({ children, theme }: any) => {
+export default ({ children }: any) => {
   const colorModeManager: StorageManager = {
     get: async () => {
       try {
@@ -179,7 +179,7 @@ export default ({ children, theme }: any) => {
   };
   return (
     <NativeBaseProvider
-      theme={theme}
+      theme={myTheme}
       config={Config}
       colorModeManager={colorModeManager}
       initialWindowMetrics={{
