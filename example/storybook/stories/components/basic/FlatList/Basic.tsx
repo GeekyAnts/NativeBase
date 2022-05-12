@@ -65,8 +65,8 @@ export const Example = () => {
               borderColor: 'muted.50',
             }}
             borderColor="muted.800"
-            pl="4"
-            pr="5"
+            pl={['2', '4']}
+            pr={['0', '5']}
             py="2"
           >
             <HStack space={3} justifyContent="space-between">
@@ -103,7 +103,6 @@ export const Example = () => {
                 }}
                 color="coolGray.800"
                 alignSelf="flex-start"
-                display={['none', 'initial']}
               >
                 {item.timeStamp}
               </Text>
