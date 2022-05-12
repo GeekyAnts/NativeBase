@@ -57,7 +57,7 @@ const Badge = (
   }
 
   return (
-    <HStack {...newProps} ref={ref}>
+    <HStack {...newProps} ref={ref} justifyContent="center">
       {startIcon ? startIcon : null}
       <Box _text={_text}>{children}</Box>
       {endIcon ? endIcon : null}
