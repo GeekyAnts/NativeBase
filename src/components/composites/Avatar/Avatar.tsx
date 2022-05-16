@@ -3,6 +3,7 @@ import { Box, Image } from '../../primitives';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IAvatarProps } from './types';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import { isEmptyObj } from '../../../utils';
 
 const Avatar = ({ children, ...props }: IAvatarProps, ref: any) => {
   const [error, setError] = React.useState(false);
@@ -32,7 +33,10 @@ const Avatar = ({ children, ...props }: IAvatarProps, ref: any) => {
 
   return (
     <Box {...resolvedProps}>
-      {!!source?.uri && !error ? (
+      {((typeof source === 'object' && !isEmptyObj(source)) ||
+        !!source?.uri ||
+        source) &&
+      !error ? (
         <Image
           source={source}
           onError={() => {
