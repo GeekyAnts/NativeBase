@@ -35,7 +35,8 @@ const Avatar = ({ children, ...props }: IAvatarProps, ref: any) => {
     <Box {...resolvedProps}>
       {((typeof source === 'object' && !isEmptyObj(source)) ||
         !!source?.uri ||
-        source) &&
+        typeof source === 'string' ||
+        typeof source === 'number') &&
       !error ? (
         <Image
           source={source}
