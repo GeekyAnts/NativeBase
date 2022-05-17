@@ -35,6 +35,8 @@ android.iml
 # Cocoapods
 #
 RNBareExample/ios/Pods
+*.iml
+*.hprof
 
 # node.js
 #
@@ -57,6 +59,10 @@ lib/
 src/jest/mock.ts
 node_modules
 
-# personal 
+# personal
 .env
 .npmrc
+
+# Ruby / CocoaPods
+/ios/Pods/
+/vendor/bundle/
