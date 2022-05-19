@@ -53,7 +53,7 @@ const baseStyle = (props: any) => {
         _stack: {
           style: {
             outlineWidth: '1px',
-            outlineColor: `${props.inValidOutlineColor || error[600]}`,
+            outlineColor: `${props.invalidOutlineColor || error[600]}`,
             outlineStyle: 'solid',
           },
         },
@@ -100,7 +100,7 @@ const baseStyle = (props: any) => {
         _stack: {
           style: {
             outlineWidth: '1px',
-            outlineColor: `${props.inValidOutlineColor || error[500]}`,
+            outlineColor: `${props.invalidOutlineColor || error[500]}`,
             outlineStyle: 'solid',
           },
         },
@@ -212,7 +212,7 @@ function underlinedStyle(props: Record<string, any>) {
         _stack: {
           style: {
             outlineWidth: 0,
-            boxShadow: `0 1px 0 0 ${props.inValidOutlineColor || error[600]}`,
+            boxShadow: `0 1px 0 0 ${props.invalidOutlineColor || error[600]}`,
           },
         },
       },
