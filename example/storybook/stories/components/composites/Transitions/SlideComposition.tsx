@@ -20,7 +20,7 @@ export const Example = () => {
   });
   return (
     <Center>
-      <Box w="300">
+      <Box w={['250', '300']}>
         <Box w="100%" alignItems="flex-start" justifyContent="center">
           <VStack space={3} w="100%">
             <HStack alignItems="flex-end">
