@@ -3,6 +3,8 @@ import { baseFontSize } from '../../theme/tools/utils';
 import type { SafeAreaProps } from './../../components/types/ExtraProps';
 import isNil from 'lodash.isnil';
 
+import { useMemo } from 'react';
+
 export function calculatePaddingProps(
   safeAreaProps: SafeAreaProps,
   paddingProps: any,
@@ -233,37 +235,62 @@ export function calculatePaddingRight(
 function getRelatedPaddingProps(props: any, relatedKeys: Array<any>) {
   return Object.keys(props).filter((key) => relatedKeys.includes(key));
 }
-export function getSortedProps(props: any) {
-  let [
-    safeAreaProps,
-    sansSafeAreaProps,
-  ] = themeTools.orderedExtractInObject(props, [
-    'safeArea',
-    'safeAreaX',
-    'safeAreaY',
-    'safeAreaTop',
-    'safeAreaBottom',
-    'safeAreaLeft',
-    'safeAreaRight',
+export function useSortedProps(props: any) {
+  return useMemo(() => {
+    let [
+      safeAreaProps,
+      sansSafeAreaProps,
+    ] = themeTools.orderedExtractInObject(props, [
+      'safeArea',
+      'safeAreaX',
+      'safeAreaY',
+      'safeAreaTop',
+      'safeAreaBottom',
+      'safeAreaLeft',
+      'safeAreaRight',
+    ]);
+
+    let [
+      paddingProps,
+      sansPaddingProps,
+    ] = themeTools.orderedExtractInObject(sansSafeAreaProps, [
+      'p',
+      'padding',
+      'pt',
+      'paddingTop',
+      'pr',
+      'paddingRight',
+      'pb',
+      'paddingBottom',
+      'pl',
+      'paddingLeft',
+      'px',
+      'paddingX',
+      'py',
+      'paddingY',
+    ]);
+    return { safeAreaProps, paddingProps, sansPaddingProps };
+  }, [
+    props.safeArea,
+    props.safeAreaX,
+    props.safeAreaY,
+    props.safeAreaTop,
+    props.safeAreaBottom,
+    props.safeAreaLeft,
+    props.safeAreaRight,
+    props.p,
+    props.padding,
+    props.pt,
+    props.paddingTop,
+    props.pr,
+    props.paddingRight,
+    props.pb,
+    props.paddingBottom,
+    props.pl,
+    props.paddingLeft,
+    props.px,
+    props.paddingX,
+    props.py,
+    props.paddingY,
   ]);
-  let [
-    paddingProps,
-    sansPaddingProps,
-  ] = themeTools.orderedExtractInObject(sansSafeAreaProps, [
-    'p',
-    'padding',
-    'pt',
-    'paddingTop',
-    'pr',
-    'paddingRight',
-    'pb',
-    'paddingBottom',
-    'pl',
-    'paddingLeft',
-    'px',
-    'paddingX',
-    'py',
-    'paddingY',
-  ]);
-  return { safeAreaProps, paddingProps, sansPaddingProps };
 }

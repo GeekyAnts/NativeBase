@@ -6,7 +6,7 @@ import type { IIconProps } from './types';
 import { questionOutlineIconPath } from './Icons/questionIconPath';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
-const SVG = makeStyledComponent(Svg);
+const SVG = makeStyledComponent(Svg, 'Icon');
 
 const SVGIcon = ({ children, ...props }: IIconProps, ref: any) => {
   const {

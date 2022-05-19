@@ -40,7 +40,7 @@ export const useIsPressed = () => {
   };
 };
 
-const StyledPressable = makeStyledComponent(RNPressable);
+const StyledPressable = makeStyledComponent(RNPressable, 'Pressable');
 
 const Pressable = (
   {

@@ -6,7 +6,8 @@ import type { IKeyboardAvoidingViewProps } from './types';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const StyledKeyboardAvoidingView: any = makeStyledComponent(
-  RNKeyboardAvoidingView
+  RNKeyboardAvoidingView,
+  'KeyboardAvoidingView'
 );
 
 export const KeyboardAvoidingView = forwardRef(

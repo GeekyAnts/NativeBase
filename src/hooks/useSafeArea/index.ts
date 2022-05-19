@@ -1,21 +1,39 @@
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { getSortedProps, calculatePaddingProps } from './utils';
+import { useSortedProps, calculatePaddingProps } from './utils';
 import { useTheme } from './../useTheme';
+import stableHash from 'stable-hash';
+
+import { useMemo } from 'react';
+import { isEmptyObj } from '../../utils';
 
 export function useSafeArea(props: any) {
-  const insets = useSafeAreaInsets();
-  const sizes = useTheme().sizes;
-  const { safeAreaProps, paddingProps, sansPaddingProps } = getSortedProps(
+  const { safeAreaProps, paddingProps, sansPaddingProps } = useSortedProps(
     props
   );
-  if (!Object.keys(safeAreaProps).length) {
-    return props;
-  }
-  let calcualtedPaddingProps = calculatePaddingProps(
-    safeAreaProps,
-    paddingProps,
-    insets,
-    sizes
-  );
-  return { ...sansPaddingProps, ...paddingProps, ...calcualtedPaddingProps };
+
+  const insets = useSafeAreaInsets();
+  const sizes = useTheme().sizes;
+
+  const result = useMemo(() => {
+    if (isEmptyObj(safeAreaProps)) {
+      return props;
+    }
+
+    let calcualtedPaddingProps = calculatePaddingProps(
+      safeAreaProps,
+      paddingProps,
+      insets,
+      sizes
+    );
+
+    return { ...sansPaddingProps, ...paddingProps, ...calcualtedPaddingProps };
+  }, [
+    stableHash(safeAreaProps),
+    stableHash(paddingProps),
+    stableHash(sansPaddingProps),
+  ]);
+
+  // const { style, dataSet } = React.useMemo(() => {});
+
+  return result;
 }

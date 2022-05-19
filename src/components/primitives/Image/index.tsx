@@ -6,7 +6,7 @@ import type { IImageProps } from './types';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { makeStyledComponent } from '../../../utils/styled';
 
-const StyledImage = makeStyledComponent(RNImage);
+const StyledImage = makeStyledComponent(RNImage, 'Image');
 
 const Image = memo(
   forwardRef((props: IImageProps, ref: any) => {

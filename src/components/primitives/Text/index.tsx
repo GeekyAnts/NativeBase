@@ -8,7 +8,7 @@ import { useResolvedFontFamily } from '../../../hooks/useResolvedFontFamily';
 import { Text as NativeText } from 'react-native';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
-const StyledText = makeStyledComponent(NativeText);
+const StyledText = makeStyledComponent(NativeText, 'Text');
 // To have a RN compatible behaviour, we'll inherit parent text styles as base style
 const TextAncestorContext = React.createContext(false);
 

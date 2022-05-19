@@ -8,7 +8,7 @@ import { makeStyledComponent } from '../../../utils/styled';
 import type { IScrollViewProps } from './types';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
-const StyledScrollView: any = makeStyledComponent(RNScrollView);
+const StyledScrollView: any = makeStyledComponent(RNScrollView, 'ScrollView');
 
 export const ScrollView = forwardRef((props: IScrollViewProps, ref: any) => {
   const {

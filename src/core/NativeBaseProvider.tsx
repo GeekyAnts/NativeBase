@@ -86,19 +86,19 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
           initialWindowMetrics ?? defaultInitialWindowMetricsBasedOnPlatform
         }
       >
-        <ResponsiveQueryProvider disableCSSMediaQueries={!isSSR}>
-          <HybridProvider
-            colorModeManager={colorModeManager}
-            options={theme.config}
-          >
-            <OverlayProvider>
-              <ToastProvider>
-                <InitializeToastRef />
-                <SSRProvider>{children}</SSRProvider>
-              </ToastProvider>
-            </OverlayProvider>
-          </HybridProvider>
-        </ResponsiveQueryProvider>
+        {/* <ResponsiveQueryProvider disableCSSMediaQueries={!isSSR}> */}
+        <HybridProvider
+          colorModeManager={colorModeManager}
+          options={theme.config}
+        >
+          <OverlayProvider>
+            <ToastProvider>
+              <InitializeToastRef />
+              <SSRProvider>{children}</SSRProvider>
+            </ToastProvider>
+          </OverlayProvider>
+        </HybridProvider>
+        {/* </ResponsiveQueryProvider> */}
       </SafeAreaProvider>
     </NativeBaseConfigProvider>
   );

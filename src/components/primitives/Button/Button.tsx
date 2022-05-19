@@ -1,6 +1,8 @@
-import React, { memo, forwardRef } from 'react';
+import React, { memo, forwardRef, useEffect } from 'react';
+import { Platform, StyleSheet } from 'react-native';
 import Spinner from '../Spinner';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
+import { useTimer } from '../../../hooks/useTimer';
 import { default as Box, IBoxProps } from '../Box';
 import HStack from '../Stack/HStack';
 import { Pressable } from '../Pressable';
@@ -13,7 +15,33 @@ import {
 } from '../../primitives/Pressable/Pressable';
 import { useFocusRing } from '@react-native-aria/focus';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import get from 'lodash.get';
+import { resolveComponentThemeStyle } from '../../../utils/styled';
+window['pseudoPropComponentMap'] = {
+  _spinner: 'Spinner',
+  _stack: 'Stack',
+  _text: 'Text',
+  _icon: 'Icon',
+};
 
+const buttonStyleObj = resolveComponentThemeStyle('Button', 'light', {});
+
+const internalComponentStyles = {};
+// buttonStyleObj.internalPseudoProps._stack = {};
+for (let property in buttonStyleObj.internalPseudoProps) {
+  internalComponentStyles[property] = resolveComponentThemeStyle(
+    window['pseudoPropComponentMap'][property],
+    'light',
+    buttonStyleObj.internalPseudoProps[property]
+  );
+}
+
+// console.log(
+//   "styledObj",
+//   styleObj
+//   // StyleSheet.flatten(styleObj.style),
+//   // StyleSheet.flatten(styleObjSpinner.style)
+// );
 const Button = (
   {
     //@ts-ignore
@@ -34,6 +62,35 @@ const Button = (
   }: IButtonProps & IBoxProps,
   ref: any
 ) => {
+  // const Timer = useTimer();
+  // console.log(Timer.startLog("Button"));
+
+  // if (Platform.OS === "ios") {
+  //   // console.log('IOS');
+  // }
+  // if (Platform.OS === "android") {
+  //   // console.log('ANDROID');
+  // }
+  // Timer.startLog("Button");
+  // start = Date.now();
+
+  // MessageQueue.spy((data) => {
+  //   let start = 0;
+  //   let end = 0;
+  //   if (data.module === "UIManager" && data.method === "updateView") {
+  //     if (data.args[2].backgroundColor === -15376779) {
+  //       start = Date.now();
+  //       console.log("Pressed", start);
+  //     }
+
+  //     if (data.args[2].backgroundColor === -16215630) {
+  //       end = Date.now();
+  //       console.log("UnPressed", end);
+  //       // console.log("UnPressed",end - start);
+  //     }
+  //   }
+  // });
+  // console.log("Start", start);
   const { hoverProps, isHovered } = useHover();
   const { pressableProps, isPressed } = useIsPressed();
   const { focusProps, isFocused } = useFocus();
@@ -61,6 +118,20 @@ const Button = (
     isFocusVisible: isFocusVisibleProp || isFocusVisible,
   });
 
+  // console.log(_stack, "styled");
+  let stackStyle = {};
+
+  if (_stack) {
+    // const { ...style, } = _stack;
+    //TODO: refactor
+    stackStyle = _stack.style;
+  }
+
+  // useEffect(() => {
+  //   end = Date.now();
+  //   // console.log("End", end);
+  //   console.log("Nativebase Button Diff", end - start);
+  // });
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
@@ -106,9 +177,21 @@ const Button = (
   const boxChildren = (child: any) => {
     return child ? <Box _text={_text}>{child}</Box> : null;
   };
+  // Process End Log ----------------------------------------------------------------------------------------------------
+  // console.log(
+  //   "Process End Log --------------------------------------------------------------"
+  // );
 
+  // Timer.endLog("Button");
+
+  // console.log(
+  //   StyleSheet.flatten(internalComponentStyles._stack.style),
+  //   buttonStyleObj.internalPseudoProps,
+  //   "styled"
+  // );
   return (
     <Pressable
+      style={buttonStyleObj.style}
       disabled={isDisabled || isLoading}
       ref={ref}
       onPressIn={composeEventHandlers(onPressIn, pressableProps.onPressIn)}
@@ -130,7 +213,11 @@ const Button = (
       {...resolvedProps}
       accessibilityRole={props.accessibilityRole ?? 'button'}
     >
-      <HStack {..._stack} test={true}>
+      <HStack
+        {..._stack}
+        test={true}
+        style={[stackStyle, internalComponentStyles._stack.style]}
+      >
         {startIcon && !isLoading ? startIcon : null}
         {isLoading && spinnerPlacement === 'start' ? spinnerElement : null}
         {isLoading

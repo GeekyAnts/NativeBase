@@ -5,6 +5,7 @@ import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import type { CustomProps, ResponsiveValue, SpaceType } from '../../types';
 import { ResponsiveQueryContext } from '../../../utils/useResponsiveQuery/ResponsiveQueryProvider';
+import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
 
 export interface InterfaceStackProps extends InterfaceBoxProps<IStackProps> {
   /**
@@ -74,8 +75,8 @@ const Stack = ({ space, ...props }: IStackProps, ref?: any) => {
     { resolveResponsively: ['space', 'direction'] }
   );
 
-  const responsiveQueryContext = React.useContext(ResponsiveQueryContext);
-  const disableCSSMediaQueries = responsiveQueryContext.disableCSSMediaQueries;
+  const isSSR = useNativeBaseConfig('NativeBase').isSSR;
+  const disableCSSMediaQueries = !isSSR;
 
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
