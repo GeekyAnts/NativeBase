@@ -29,6 +29,8 @@ export function Example() {
                   },
                 ],
               }}
+              p="3"
+              rounded="8"
             >
               <HStack alignItems="center">
                 <Badge
