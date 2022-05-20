@@ -37,7 +37,7 @@ for (let property in buttonStyleObj.internalPseudoProps) {
 }
 
 // console.log(
-//   "styledObj",
+//   'styledObj',
 //   styleObj
 //   // StyleSheet.flatten(styleObj.style),
 //   // StyleSheet.flatten(styleObjSpinner.style)

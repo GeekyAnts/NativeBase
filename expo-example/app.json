@@ -1,32 +1,19 @@
 {
+  "name": "NativeBaseExpoExample",
+  "displayName": "NativeBase Expo Example",
+  "packagerOpts": {
+    "config": "metro.config.js"
+  },
   "expo": {
-    "name": "NativebasePerformanceTestGround",
-    "slug": "NativebasePerformanceTestGround",
+    "name": "NativeBase Expo Example",
+    "slug": "native-base-expo-example",
+    "description": "Example app for Nativebase",
+    "privacy": "public",
     "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "platforms": ["ios", "android", "web"],
     "ios": {
       "supportsTablet": true
     },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      }
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    }
+    "assetBundlePatterns": ["**/*"]
   }
 }

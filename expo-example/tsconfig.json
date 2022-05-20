@@ -1,37 +1,22 @@
 {
-  "extends": "expo/tsconfig.base",
-  "include": [
-    "./../src"
-  ],
   "compilerOptions": {
     "baseUrl": ".",
-    "declaration": true,
     "paths": {
       "native-base": [
-        "./../src/index"
+        "../src/index"
       ]
     },
-    "allowUnreachableCode": false,
-    "allowUnusedLabels": false,
-    "esModuleInterop": true,
-    "importsNotUsedAsValues": "error",
-    "forceConsistentCasingInFileNames": true,
-    "jsx": "react",
+    "allowSyntheticDefaultImports": true,
+    "jsx": "react-native",
     "lib": [
-      "esnext",
-      "dom"
+      "dom",
+      "esnext"
     ],
-    "module": "esnext",
     "moduleResolution": "node",
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitReturns": true,
-    "noImplicitUseStrict": false,
-    "noStrictGenericChecks": false,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "resolveJsonModule": true,
+    "noEmit": true,
     "skipLibCheck": true,
-    "strict": true,
-    "target": "esnext"
+    "resolveJsonModule": true,
+    "strict": true
   },
+  "extends": "expo/tsconfig.base"
 }

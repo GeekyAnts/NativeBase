@@ -1,7 +1,7 @@
 import get from 'lodash.get';
 import merge from 'lodash.merge';
 import isEmpty from 'lodash.isempty';
-import memoize from 'lodash.memoize';
+// import memoize from 'lodash.memoize';
 import { Platform } from 'react-native';
 import { useNativeBase } from '../useNativeBase';
 import { useColorMode } from '../../core/color-mode';
@@ -19,9 +19,6 @@ import type { ComponentTheme } from '../../theme';
 import { useNativeBaseConfig } from '../../core/NativeBaseContext';
 import { isEmptyObj } from '../../utils';
 
-const memoizedMerge = memoize(() => {
-  return merge;
-});
 const SPREAD_PROP_SPECIFICITY_ORDER = [
   'p',
   'padding',

@@ -8,7 +8,7 @@ import { makeStyledComponent } from '../../../utils/styled';
 import type { IFlatListProps } from './types';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
-const StyledFlatList: any = makeStyledComponent(RNFlatList, "FlatList");
+const StyledFlatList: any = makeStyledComponent(RNFlatList, 'FlatList');
 
 const FlatListComponent = <ItemT extends any>(
   props: IFlatListProps<ItemT>,
@@ -37,11 +37,7 @@ const FlatListComponent = <ItemT extends any>(
   );
 };
 
-export const  FlatList = forwardRef(FlatListComponent) as <ItemT>(
+export const FlatList = forwardRef(FlatListComponent) as <ItemT>(
   props: IFlatListProps<ItemT>,
   ref?: any
 ) => any;
-
-const MyComponent = (props: IFlatListProps) => {
-  return <FlatList ref>;
-};
