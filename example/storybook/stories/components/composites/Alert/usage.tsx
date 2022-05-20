@@ -12,7 +12,7 @@ import {
 export function Example() {
   return (
     <Center>
-      <Alert w="90%" maxW="400" status="info" colorScheme="info">
+      <Alert maxW="400" status="info" colorScheme="info">
         <VStack space={2} flexShrink={1} w="100%">
           <HStack
             flexShrink={1}
