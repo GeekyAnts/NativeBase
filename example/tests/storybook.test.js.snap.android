@@ -4042,7 +4042,6 @@ exports[`Storyshots Alert Basic 1`] = `
             "paddingLeft": 12,
             "paddingRight": 12,
             "paddingTop": 12,
-            "width": "90%",
           }
         }
       >
@@ -4210,8 +4209,8 @@ exports[`Storyshots Alert Basic 1`] = `
               <RNSVGSvgView
                 accessibilityRole="image"
                 align="xMidYMid"
-                bbHeight={12}
-                bbWidth={12}
+                bbHeight={20}
+                bbWidth={20}
                 color={-11840157}
                 dataSet={Object {}}
                 focusable={false}
@@ -4227,13 +4226,13 @@ exports[`Storyshots Alert Basic 1`] = `
                     },
                     Object {
                       "color": "#4b5563",
-                      "height": 12,
-                      "width": 12,
+                      "height": 20,
+                      "width": 20,
                     },
                     Object {
                       "flex": 0,
-                      "height": 12,
-                      "width": 12,
+                      "height": 20,
+                      "width": 20,
                     },
                   ]
                 }
@@ -4626,8 +4625,8 @@ exports[`Storyshots Alert ColorScheme 1`] = `
               <RNSVGSvgView
                 accessibilityRole="image"
                 align="xMidYMid"
-                bbHeight={12}
-                bbWidth={12}
+                bbHeight={20}
+                bbWidth={20}
                 color={-11840157}
                 dataSet={Object {}}
                 focusable={false}
@@ -4643,13 +4642,13 @@ exports[`Storyshots Alert ColorScheme 1`] = `
                     },
                     Object {
                       "color": "#4b5563",
-                      "height": 12,
-                      "width": 12,
+                      "height": 20,
+                      "width": 20,
                     },
                     Object {
                       "flex": 0,
-                      "height": 12,
-                      "width": 12,
+                      "height": 20,
+                      "width": 20,
                     },
                   ]
                 }
@@ -4912,8 +4911,8 @@ exports[`Storyshots Alert ColorScheme 1`] = `
               <RNSVGSvgView
                 accessibilityRole="image"
                 align="xMidYMid"
-                bbHeight={12}
-                bbWidth={12}
+                bbHeight={20}
+                bbWidth={20}
                 color={-11840157}
                 dataSet={Object {}}
                 focusable={false}
@@ -4929,13 +4928,13 @@ exports[`Storyshots Alert ColorScheme 1`] = `
                     },
                     Object {
                       "color": "#4b5563",
-                      "height": 12,
-                      "width": 12,
+                      "height": 20,
+                      "width": 20,
                     },
                     Object {
                       "flex": 0,
-                      "height": 12,
-                      "width": 12,
+                      "height": 20,
+                      "width": 20,
                     },
                   ]
                 }
@@ -5198,8 +5197,8 @@ exports[`Storyshots Alert ColorScheme 1`] = `
               <RNSVGSvgView
                 accessibilityRole="image"
                 align="xMidYMid"
-                bbHeight={12}
-                bbWidth={12}
+                bbHeight={20}
+                bbWidth={20}
                 color={-11840157}
                 dataSet={Object {}}
                 focusable={false}
@@ -5215,13 +5214,13 @@ exports[`Storyshots Alert ColorScheme 1`] = `
                     },
                     Object {
                       "color": "#4b5563",
-                      "height": 12,
-                      "width": 12,
+                      "height": 20,
+                      "width": 20,
                     },
                     Object {
                       "flex": 0,
-                      "height": 12,
-                      "width": 12,
+                      "height": 20,
+                      "width": 20,
                     },
                   ]
                 }
@@ -5622,8 +5621,8 @@ exports[`Storyshots Alert Composition 1`] = `
                 <RNSVGSvgView
                   accessibilityRole="image"
                   align="xMidYMid"
-                  bbHeight={12}
-                  bbWidth={12}
+                  bbHeight={20}
+                  bbWidth={20}
                   color={-11840157}
                   dataSet={Object {}}
                   focusable={false}
@@ -5639,13 +5638,13 @@ exports[`Storyshots Alert Composition 1`] = `
                       },
                       Object {
                         "color": "#4b5563",
-                        "height": 12,
-                        "width": 12,
+                        "height": 20,
+                        "width": 20,
                       },
                       Object {
                         "flex": 0,
-                        "height": 12,
-                        "width": 12,
+                        "height": 20,
+                        "width": 20,
                       },
                     ]
                   }
@@ -6013,34 +6012,33 @@ exports[`Storyshots Alert Status 1`] = `
       dataSet={Object {}}
       style={
         Object {
-          "alignItems": "center",
-          "display": "flex",
-          "justifyContent": "center",
+          "maxWidth": 400,
+          "width": "100%",
         }
       }
     >
       <View
         dataSet={Object {}}
+        space={3}
         style={
           Object {
-            "maxWidth": 400,
-            "width": "90%",
+            "alignItems": "center",
+            "backgroundColor": "#bbf7d0",
+            "borderRadius": 4,
+            "justifyContent": "flex-start",
+            "paddingBottom": 12,
+            "paddingLeft": 12,
+            "paddingRight": 12,
+            "paddingTop": 12,
+            "width": "100%",
           }
         }
       >
         <View
           dataSet={Object {}}
-          space={3}
           style={
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#bbf7d0",
-              "borderRadius": 4,
-              "justifyContent": "flex-start",
-              "paddingBottom": 12,
-              "paddingLeft": 12,
-              "paddingRight": 12,
-              "paddingTop": 12,
+              "flexShrink": 1,
               "width": "100%",
             }
           }
@@ -6049,8 +6047,9 @@ exports[`Storyshots Alert Status 1`] = `
             dataSet={Object {}}
             style={
               Object {
+                "flexDirection": "row",
                 "flexShrink": 1,
-                "width": "100%",
+                "justifyContent": "space-between",
               }
             }
           >
@@ -6060,157 +6059,19 @@ exports[`Storyshots Alert Status 1`] = `
                 Object {
                   "flexDirection": "row",
                   "flexShrink": 1,
-                  "justifyContent": "space-between",
                 }
               }
             >
               <View
                 dataSet={Object {}}
-                style={
-                  Object {
-                    "flexDirection": "row",
-                    "flexShrink": 1,
-                  }
-                }
-              >
-                <View
-                  dataSet={Object {}}
-                  style={Object {}}
-                >
-                  <RNSVGSvgView
-                    accessibilityRole="image"
-                    align="xMidYMid"
-                    bbHeight={16}
-                    bbWidth={16}
-                    color={-15368131}
-                    dataSet={Object {}}
-                    focusable={false}
-                    meetOrSlice={0}
-                    minX={0}
-                    minY={0}
-                    stroke=""
-                    style={
-                      Array [
-                        Object {
-                          "backgroundColor": "transparent",
-                          "borderWidth": 0,
-                        },
-                        Object {
-                          "color": "#15803d",
-                          "height": 16,
-                          "marginTop": 4,
-                          "width": 16,
-                        },
-                        Object {
-                          "flex": 0,
-                          "height": 16,
-                          "width": 16,
-                        },
-                      ]
-                    }
-                    tintColor={-15368131}
-                    vbHeight={24}
-                    vbWidth={24}
-                  >
-                    <RNSVGGroup
-                      propList={
-                        Array [
-                          "stroke",
-                        ]
-                      }
-                      stroke={null}
-                    >
-                      <RNSVGGroup>
-                        <RNSVGPath
-                          d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24ZM7.17719 11.2464L9.91869 13.9114L16.8228 7.2L18 8.34432L9.91869 16.2L6 12.3907L7.17719 11.2464Z"
-                          fill={
-                            Array [
-                              2,
-                            ]
-                          }
-                          propList={
-                            Array [
-                              "fill",
-                              "stroke",
-                            ]
-                          }
-                          stroke={null}
-                        />
-                      </RNSVGGroup>
-                    </RNSVGGroup>
-                  </RNSVGSvgView>
-                </View>
-                <View
-                  dataSet={Object {}}
-                  style={
-                    Object {
-                      "width": 8,
-                    }
-                  }
-                />
-                <Text
-                  dataSet={Object {}}
-                  style={
-                    Object {
-                      "backgroundColor": undefined,
-                      "color": "#1f2937",
-                      "fontFamily": undefined,
-                      "fontSize": 16,
-                      "fontStyle": "normal",
-                      "fontWeight": "400",
-                      "letterSpacing": 0,
-                      "lineHeight": 24,
-                      "textDecorationLine": undefined,
-                    }
-                  }
-                >
-                  Selection successfully moved!
-                </Text>
-              </View>
-              <View
-                dataSet={Object {}}
-                style={
-                  Object {
-                    "width": 8,
-                  }
-                }
-              />
-              <View
-                accessibilityRole="button"
-                accessible={true}
-                colorScheme="primary"
-                dataSet={Object {}}
-                focusable={true}
-                onBlur={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onHoverIn={[Function]}
-                onHoverOut={[Function]}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "borderRadius": 4,
-                    "flexDirection": "row",
-                    "justifyContent": "center",
-                    "paddingBottom": 10,
-                    "paddingLeft": 10,
-                    "paddingRight": 10,
-                    "paddingTop": 10,
-                  }
-                }
+                style={Object {}}
               >
                 <RNSVGSvgView
                   accessibilityRole="image"
                   align="xMidYMid"
-                  bbHeight={12}
-                  bbWidth={12}
-                  color={-11840157}
+                  bbHeight={16}
+                  bbWidth={16}
+                  color={-15368131}
                   dataSet={Object {}}
                   focusable={false}
                   meetOrSlice={0}
@@ -6224,18 +6085,19 @@ exports[`Storyshots Alert Status 1`] = `
                         "borderWidth": 0,
                       },
                       Object {
-                        "color": "#4b5563",
-                        "height": 12,
-                        "width": 12,
+                        "color": "#15803d",
+                        "height": 16,
+                        "marginTop": 4,
+                        "width": 16,
                       },
                       Object {
                         "flex": 0,
-                        "height": 12,
-                        "width": 12,
+                        "height": 16,
+                        "width": 16,
                       },
                     ]
                   }
-                  tintColor={-11840157}
+                  tintColor={-15368131}
                   vbHeight={24}
                   vbWidth={24}
                 >
@@ -6249,7 +6111,7 @@ exports[`Storyshots Alert Status 1`] = `
                   >
                     <RNSVGGroup>
                       <RNSVGPath
-                        d="M12 9.77778L4.22222 2L2 4.22222L9.77778 12L2 19.7778L4.22222 22L12 14.2222L19.7778 22L22 19.7778L14.2222 12L22 4.22222L19.7778 2L12 9.77778Z"
+                        d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24ZM7.17719 11.2464L9.91869 13.9114L16.8228 7.2L18 8.34432L9.91869 16.2L6 12.3907L7.17719 11.2464Z"
                         fill={
                           Array [
                             2,
@@ -6267,30 +6129,166 @@ exports[`Storyshots Alert Status 1`] = `
                   </RNSVGGroup>
                 </RNSVGSvgView>
               </View>
+              <View
+                dataSet={Object {}}
+                style={
+                  Object {
+                    "width": 8,
+                  }
+                }
+              />
+              <Text
+                dataSet={Object {}}
+                style={
+                  Object {
+                    "backgroundColor": undefined,
+                    "color": "#1f2937",
+                    "fontFamily": undefined,
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "400",
+                    "letterSpacing": 0,
+                    "lineHeight": 24,
+                    "textDecorationLine": undefined,
+                  }
+                }
+              >
+                Selection successfully moved!
+              </Text>
+            </View>
+            <View
+              dataSet={Object {}}
+              style={
+                Object {
+                  "width": 8,
+                }
+              }
+            />
+            <View
+              accessibilityRole="button"
+              accessible={true}
+              colorScheme="primary"
+              dataSet={Object {}}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onHoverIn={[Function]}
+              onHoverOut={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "alignItems": "center",
+                  "borderRadius": 4,
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                  "paddingBottom": 10,
+                  "paddingLeft": 10,
+                  "paddingRight": 10,
+                  "paddingTop": 10,
+                }
+              }
+            >
+              <RNSVGSvgView
+                accessibilityRole="image"
+                align="xMidYMid"
+                bbHeight={20}
+                bbWidth={20}
+                color={-11840157}
+                dataSet={Object {}}
+                focusable={false}
+                meetOrSlice={0}
+                minX={0}
+                minY={0}
+                stroke=""
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                      "borderWidth": 0,
+                    },
+                    Object {
+                      "color": "#4b5563",
+                      "height": 20,
+                      "width": 20,
+                    },
+                    Object {
+                      "flex": 0,
+                      "height": 20,
+                      "width": 20,
+                    },
+                  ]
+                }
+                tintColor={-11840157}
+                vbHeight={24}
+                vbWidth={24}
+              >
+                <RNSVGGroup
+                  propList={
+                    Array [
+                      "stroke",
+                    ]
+                  }
+                  stroke={null}
+                >
+                  <RNSVGGroup>
+                    <RNSVGPath
+                      d="M12 9.77778L4.22222 2L2 4.22222L9.77778 12L2 19.7778L4.22222 22L12 14.2222L19.7778 22L22 19.7778L14.2222 12L22 4.22222L19.7778 2L12 9.77778Z"
+                      fill={
+                        Array [
+                          2,
+                        ]
+                      }
+                      propList={
+                        Array [
+                          "fill",
+                          "stroke",
+                        ]
+                      }
+                      stroke={null}
+                    />
+                  </RNSVGGroup>
+                </RNSVGGroup>
+              </RNSVGSvgView>
             </View>
           </View>
         </View>
-        <View
-          dataSet={Object {}}
-          style={
-            Object {
-              "height": 12,
-            }
+      </View>
+      <View
+        dataSet={Object {}}
+        style={
+          Object {
+            "height": 12,
           }
-        />
+        }
+      />
+      <View
+        dataSet={Object {}}
+        space={3}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#fecaca",
+            "borderRadius": 4,
+            "justifyContent": "flex-start",
+            "paddingBottom": 12,
+            "paddingLeft": 12,
+            "paddingRight": 12,
+            "paddingTop": 12,
+            "width": "100%",
+          }
+        }
+      >
         <View
           dataSet={Object {}}
-          space={3}
           style={
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#fecaca",
-              "borderRadius": 4,
-              "justifyContent": "flex-start",
-              "paddingBottom": 12,
-              "paddingLeft": 12,
-              "paddingRight": 12,
-              "paddingTop": 12,
+              "flexShrink": 1,
               "width": "100%",
             }
           }
@@ -6299,8 +6297,9 @@ exports[`Storyshots Alert Status 1`] = `
             dataSet={Object {}}
             style={
               Object {
+                "flexDirection": "row",
                 "flexShrink": 1,
-                "width": "100%",
+                "justifyContent": "space-between",
               }
             }
           >
@@ -6310,170 +6309,19 @@ exports[`Storyshots Alert Status 1`] = `
                 Object {
                   "flexDirection": "row",
                   "flexShrink": 1,
-                  "justifyContent": "space-between",
                 }
               }
             >
               <View
                 dataSet={Object {}}
-                style={
-                  Object {
-                    "flexDirection": "row",
-                    "flexShrink": 1,
-                  }
-                }
-              >
-                <View
-                  dataSet={Object {}}
-                  style={Object {}}
-                >
-                  <RNSVGSvgView
-                    accessibilityRole="image"
-                    align="xMidYMid"
-                    bbHeight={16}
-                    bbWidth={16}
-                    color={-4645860}
-                    dataSet={Object {}}
-                    focusable={false}
-                    meetOrSlice={0}
-                    minX={0}
-                    minY={0}
-                    stroke=""
-                    style={
-                      Array [
-                        Object {
-                          "backgroundColor": "transparent",
-                          "borderWidth": 0,
-                        },
-                        Object {
-                          "color": "#b91c1c",
-                          "height": 16,
-                          "marginTop": 4,
-                          "width": 16,
-                        },
-                        Object {
-                          "flex": 0,
-                          "height": 16,
-                          "width": 16,
-                        },
-                      ]
-                    }
-                    tintColor={-4645860}
-                    vbHeight={24}
-                    vbWidth={24}
-                  >
-                    <RNSVGGroup
-                      propList={
-                        Array [
-                          "stroke",
-                        ]
-                      }
-                      stroke={null}
-                    >
-                      <RNSVGGroup>
-                        <RNSVGGroup
-                          fill={
-                            Array [
-                              2,
-                            ]
-                          }
-                          propList={
-                            Array [
-                              "fill",
-                              "stroke",
-                            ]
-                          }
-                          stroke={null}
-                        >
-                          <RNSVGPath
-                            d="M13.9193 18.4271C13.8992 17.9392 13.6816 17.4813 13.3178 17.1478C12.9545 16.8148 12.4731 16.631 11.975 16.6304H11.9746H11.945V16.6304L11.9392 16.6305C11.6898 16.6348 11.4434 16.6864 11.2142 16.7827L11.333 17.0655L11.2142 16.7827C10.9851 16.879 10.7773 17.0183 10.6035 17.1931C10.4296 17.368 10.2932 17.5751 10.2031 17.8026C10.113 18.0302 10.0712 18.2732 10.0806 18.5171L10.0807 18.5176C10.1001 19.0055 10.3169 19.4638 10.6802 19.7979C11.043 20.1315 11.5241 20.3162 12.0222 20.3177H12.0233H12.0529V20.3178L12.058 20.3177C12.3081 20.3138 12.5552 20.2624 12.785 20.1661C13.0148 20.0698 13.2232 19.9303 13.3974 19.7549C13.5716 19.5795 13.7081 19.3718 13.7981 19.1436C13.8881 18.9153 13.9295 18.6716 13.9193 18.4271ZM13.9193 18.4271L13.5863 18.4408M13.9193 18.4271C13.9193 18.4271 13.9193 18.4271 13.9193 18.427L13.5863 18.4408M13.5863 18.4408C13.5945 18.6386 13.5611 18.836 13.488 19.0213C13.415 19.2066 13.3037 19.3762 13.1609 19.52C13.018 19.6638 12.8464 19.779 12.6561 19.8587C12.4658 19.9385 12.2607 19.9812 12.0529 19.9844H12.0233C11.6062 19.9831 11.2058 19.8284 10.9059 19.5525C10.6059 19.2767 10.4296 18.9011 10.4137 18.5043C10.4061 18.3069 10.4399 18.1101 10.513 17.9254C10.5862 17.7406 10.6973 17.5715 10.8399 17.4281C10.9824 17.2847 11.1536 17.1698 11.3434 17.09C11.5331 17.0103 11.7376 16.9674 11.945 16.9638H11.9746C12.3916 16.9642 12.7922 17.1182 13.0926 17.3936C13.393 17.6689 13.5699 18.0442 13.5863 18.4408ZM23.4665 20.2125L23.4665 20.2125C23.6068 20.4676 23.6751 20.7517 23.6658 21.0376C23.6566 21.3234 23.57 21.6033 23.4131 21.8501C23.2562 22.097 23.0337 22.3031 22.7658 22.4469C22.4978 22.5907 22.1942 22.6667 21.8847 22.6667H21.8846H2.11538H2.11533C1.80576 22.6667 1.50222 22.5907 1.23422 22.4469C0.96631 22.3031 0.743845 22.097 0.586879 21.8501L0.305565 22.0289L0.586879 21.8501C0.429998 21.6033 0.343434 21.3234 0.334166 21.0376C0.324898 20.7517 0.393165 20.4676 0.533517 20.2125L0.53353 20.2125L10.4192 2.23977C10.5681 1.96911 10.7933 1.74021 11.0721 1.5796C11.3511 1.41893 11.6722 1.33333 12.0005 1.33333C12.3289 1.33333 12.65 1.41893 12.9289 1.5796C13.2078 1.74021 13.4329 1.96911 13.5819 2.23977L23.4665 20.2125ZM11.0224 7.44182C10.7599 7.69176 10.6091 8.03434 10.6091 8.39521V14.4365C10.6091 14.7974 10.7599 15.1399 11.0224 15.3899C11.2843 15.6393 11.6363 15.7767 12 15.7767C12.3637 15.7767 12.7157 15.6393 12.9776 15.3899C13.2401 15.1399 13.3909 14.7974 13.3909 14.4365V8.39521C13.3909 8.03434 13.2401 7.69176 12.9776 7.44182C12.7157 7.19242 12.3637 7.05499 12 7.05499C11.6363 7.05499 11.2843 7.19242 11.0224 7.44182Z"
-                            propList={
-                              Array [
-                                "stroke",
-                              ]
-                            }
-                            stroke={
-                              Array [
-                                2,
-                              ]
-                            }
-                          />
-                        </RNSVGGroup>
-                      </RNSVGGroup>
-                    </RNSVGGroup>
-                  </RNSVGSvgView>
-                </View>
-                <View
-                  dataSet={Object {}}
-                  style={
-                    Object {
-                      "width": 8,
-                    }
-                  }
-                />
-                <Text
-                  dataSet={Object {}}
-                  style={
-                    Object {
-                      "backgroundColor": undefined,
-                      "color": "#1f2937",
-                      "fontFamily": undefined,
-                      "fontSize": 16,
-                      "fontStyle": "normal",
-                      "fontWeight": "400",
-                      "letterSpacing": 0,
-                      "lineHeight": 24,
-                      "textDecorationLine": undefined,
-                    }
-                  }
-                >
-                  Please try again later!
-                </Text>
-              </View>
-              <View
-                dataSet={Object {}}
-                style={
-                  Object {
-                    "width": 8,
-                  }
-                }
-              />
-              <View
-                accessibilityRole="button"
-                accessible={true}
-                colorScheme="primary"
-                dataSet={Object {}}
-                focusable={true}
-                onBlur={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onHoverIn={[Function]}
-                onHoverOut={[Function]}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "borderRadius": 4,
-                    "flexDirection": "row",
-                    "justifyContent": "center",
-                    "paddingBottom": 10,
-                    "paddingLeft": 10,
-                    "paddingRight": 10,
-                    "paddingTop": 10,
-                  }
-                }
+                style={Object {}}
               >
                 <RNSVGSvgView
                   accessibilityRole="image"
                   align="xMidYMid"
-                  bbHeight={12}
-                  bbWidth={12}
-                  color={-11840157}
+                  bbHeight={16}
+                  bbWidth={16}
+                  color={-4645860}
                   dataSet={Object {}}
                   focusable={false}
                   meetOrSlice={0}
@@ -6487,18 +6335,19 @@ exports[`Storyshots Alert Status 1`] = `
                         "borderWidth": 0,
                       },
                       Object {
-                        "color": "#4b5563",
-                        "height": 12,
-                        "width": 12,
+                        "color": "#b91c1c",
+                        "height": 16,
+                        "marginTop": 4,
+                        "width": 16,
                       },
                       Object {
                         "flex": 0,
-                        "height": 12,
-                        "width": 12,
+                        "height": 16,
+                        "width": 16,
                       },
                     ]
                   }
-                  tintColor={-11840157}
+                  tintColor={-4645860}
                   vbHeight={24}
                   vbWidth={24}
                 >
@@ -6511,8 +6360,7 @@ exports[`Storyshots Alert Status 1`] = `
                     stroke={null}
                   >
                     <RNSVGGroup>
-                      <RNSVGPath
-                        d="M12 9.77778L4.22222 2L2 4.22222L9.77778 12L2 19.7778L4.22222 22L12 14.2222L19.7778 22L22 19.7778L14.2222 12L22 4.22222L19.7778 2L12 9.77778Z"
+                      <RNSVGGroup
                         fill={
                           Array [
                             2,
@@ -6525,160 +6373,26 @@ exports[`Storyshots Alert Status 1`] = `
                           ]
                         }
                         stroke={null}
-                      />
-                    </RNSVGGroup>
-                  </RNSVGGroup>
-                </RNSVGSvgView>
-              </View>
-            </View>
-          </View>
-        </View>
-        <View
-          dataSet={Object {}}
-          style={
-            Object {
-              "height": 12,
-            }
-          }
-        />
-        <View
-          dataSet={Object {}}
-          space={3}
-          style={
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#bae6fd",
-              "borderRadius": 4,
-              "justifyContent": "flex-start",
-              "paddingBottom": 12,
-              "paddingLeft": 12,
-              "paddingRight": 12,
-              "paddingTop": 12,
-              "width": "100%",
-            }
-          }
-        >
-          <View
-            dataSet={Object {}}
-            style={
-              Object {
-                "flexShrink": 1,
-                "width": "100%",
-              }
-            }
-          >
-            <View
-              dataSet={Object {}}
-              style={
-                Object {
-                  "flexDirection": "row",
-                  "flexShrink": 1,
-                  "justifyContent": "space-between",
-                }
-              }
-            >
-              <View
-                dataSet={Object {}}
-                style={
-                  Object {
-                    "flexDirection": "row",
-                    "flexShrink": 1,
-                  }
-                }
-              >
-                <View
-                  dataSet={Object {}}
-                  style={Object {}}
-                >
-                  <RNSVGSvgView
-                    accessibilityRole="image"
-                    align="xMidYMid"
-                    bbHeight={16}
-                    bbWidth={16}
-                    color={-16553567}
-                    dataSet={Object {}}
-                    focusable={false}
-                    meetOrSlice={0}
-                    minX={0}
-                    minY={0}
-                    stroke=""
-                    style={
-                      Array [
-                        Object {
-                          "backgroundColor": "transparent",
-                          "borderWidth": 0,
-                        },
-                        Object {
-                          "color": "#0369a1",
-                          "height": 16,
-                          "marginTop": 4,
-                          "width": 16,
-                        },
-                        Object {
-                          "flex": 0,
-                          "height": 16,
-                          "width": 16,
-                        },
-                      ]
-                    }
-                    tintColor={-16553567}
-                    vbHeight={24}
-                    vbWidth={24}
-                  >
-                    <RNSVGGroup
-                      propList={
-                        Array [
-                          "stroke",
-                        ]
-                      }
-                      stroke={null}
-                    >
-                      <RNSVGGroup>
+                      >
                         <RNSVGPath
-                          d="M12 0C9.62663 0 7.30655 0.703788 5.33316 2.02236C3.35977 3.34094 1.8217 5.21509 0.913451 7.4078C0.00519948 9.60051 -0.232441 12.0133 0.230582 14.3411C0.693605 16.6689 1.83649 18.807 3.51472 20.4853C5.19295 22.1635 7.33115 23.3064 9.65892 23.7694C11.9867 24.2324 14.3995 23.9948 16.5922 23.0865C18.7849 22.1783 20.6591 20.6402 21.9776 18.6668C23.2962 16.6935 24 14.3734 24 12C23.9966 8.81846 22.7312 5.76821 20.4815 3.51852C18.2318 1.26883 15.1815 0.00344108 12 0ZM12.25 5C12.5467 5 12.8367 5.08797 13.0834 5.25279C13.33 5.41762 13.5223 5.65189 13.6358 5.92597C13.7494 6.20006 13.7791 6.50166 13.7212 6.79263C13.6633 7.08361 13.5204 7.35088 13.3107 7.56066C13.1009 7.77044 12.8336 7.9133 12.5426 7.97118C12.2517 8.02905 11.9501 7.99935 11.676 7.88582C11.4019 7.77229 11.1676 7.58003 11.0028 7.33335C10.838 7.08668 10.75 6.79667 10.75 6.5C10.75 6.10217 10.908 5.72064 11.1893 5.43934C11.4706 5.15803 11.8522 5 12.25 5ZM14.5 18.5H10.5C10.2348 18.5 9.98043 18.3946 9.7929 18.2071C9.60536 18.0196 9.5 17.7652 9.5 17.5C9.5 17.2348 9.60536 16.9804 9.7929 16.7929C9.98043 16.6054 10.2348 16.5 10.5 16.5H11.25C11.3163 16.5 11.3799 16.4737 11.4268 16.4268C11.4737 16.3799 11.5 16.3163 11.5 16.25V11.75C11.5 11.6837 11.4737 11.6201 11.4268 11.5732C11.3799 11.5263 11.3163 11.5 11.25 11.5H10.5C10.2348 11.5 9.98043 11.3946 9.7929 11.2071C9.60536 11.0196 9.5 10.7652 9.5 10.5C9.5 10.2348 9.60536 9.98043 9.7929 9.79289C9.98043 9.60536 10.2348 9.5 10.5 9.5H11.5C12.0304 9.5 12.5391 9.71071 12.9142 10.0858C13.2893 10.4609 13.5 10.9696 13.5 11.5V16.25C13.5 16.3163 13.5263 16.3799 13.5732 16.4268C13.6201 16.4737 13.6837 16.5 13.75 16.5H14.5C14.7652 16.5 15.0196 16.6054 15.2071 16.7929C15.3946 16.9804 15.5 17.2348 15.5 17.5C15.5 17.7652 15.3946 18.0196 15.2071 18.2071C15.0196 18.3946 14.7652 18.5 14.5 18.5Z"
-                          fill={
+                          d="M13.9193 18.4271C13.8992 17.9392 13.6816 17.4813 13.3178 17.1478C12.9545 16.8148 12.4731 16.631 11.975 16.6304H11.9746H11.945V16.6304L11.9392 16.6305C11.6898 16.6348 11.4434 16.6864 11.2142 16.7827L11.333 17.0655L11.2142 16.7827C10.9851 16.879 10.7773 17.0183 10.6035 17.1931C10.4296 17.368 10.2932 17.5751 10.2031 17.8026C10.113 18.0302 10.0712 18.2732 10.0806 18.5171L10.0807 18.5176C10.1001 19.0055 10.3169 19.4638 10.6802 19.7979C11.043 20.1315 11.5241 20.3162 12.0222 20.3177H12.0233H12.0529V20.3178L12.058 20.3177C12.3081 20.3138 12.5552 20.2624 12.785 20.1661C13.0148 20.0698 13.2232 19.9303 13.3974 19.7549C13.5716 19.5795 13.7081 19.3718 13.7981 19.1436C13.8881 18.9153 13.9295 18.6716 13.9193 18.4271ZM13.9193 18.4271L13.5863 18.4408M13.9193 18.4271C13.9193 18.4271 13.9193 18.4271 13.9193 18.427L13.5863 18.4408M13.5863 18.4408C13.5945 18.6386 13.5611 18.836 13.488 19.0213C13.415 19.2066 13.3037 19.3762 13.1609 19.52C13.018 19.6638 12.8464 19.779 12.6561 19.8587C12.4658 19.9385 12.2607 19.9812 12.0529 19.9844H12.0233C11.6062 19.9831 11.2058 19.8284 10.9059 19.5525C10.6059 19.2767 10.4296 18.9011 10.4137 18.5043C10.4061 18.3069 10.4399 18.1101 10.513 17.9254C10.5862 17.7406 10.6973 17.5715 10.8399 17.4281C10.9824 17.2847 11.1536 17.1698 11.3434 17.09C11.5331 17.0103 11.7376 16.9674 11.945 16.9638H11.9746C12.3916 16.9642 12.7922 17.1182 13.0926 17.3936C13.393 17.6689 13.5699 18.0442 13.5863 18.4408ZM23.4665 20.2125L23.4665 20.2125C23.6068 20.4676 23.6751 20.7517 23.6658 21.0376C23.6566 21.3234 23.57 21.6033 23.4131 21.8501C23.2562 22.097 23.0337 22.3031 22.7658 22.4469C22.4978 22.5907 22.1942 22.6667 21.8847 22.6667H21.8846H2.11538H2.11533C1.80576 22.6667 1.50222 22.5907 1.23422 22.4469C0.96631 22.3031 0.743845 22.097 0.586879 21.8501L0.305565 22.0289L0.586879 21.8501C0.429998 21.6033 0.343434 21.3234 0.334166 21.0376C0.324898 20.7517 0.393165 20.4676 0.533517 20.2125L0.53353 20.2125L10.4192 2.23977C10.5681 1.96911 10.7933 1.74021 11.0721 1.5796C11.3511 1.41893 11.6722 1.33333 12.0005 1.33333C12.3289 1.33333 12.65 1.41893 12.9289 1.5796C13.2078 1.74021 13.4329 1.96911 13.5819 2.23977L23.4665 20.2125ZM11.0224 7.44182C10.7599 7.69176 10.6091 8.03434 10.6091 8.39521V14.4365C10.6091 14.7974 10.7599 15.1399 11.0224 15.3899C11.2843 15.6393 11.6363 15.7767 12 15.7767C12.3637 15.7767 12.7157 15.6393 12.9776 15.3899C13.2401 15.1399 13.3909 14.7974 13.3909 14.4365V8.39521C13.3909 8.03434 13.2401 7.69176 12.9776 7.44182C12.7157 7.19242 12.3637 7.05499 12 7.05499C11.6363 7.05499 11.2843 7.19242 11.0224 7.44182Z"
+                          propList={
+                            Array [
+                              "stroke",
+                              "strokeWidth",
+                            ]
+                          }
+                          stroke={
                             Array [
                               2,
                             ]
                           }
-                          propList={
-                            Array [
-                              "fill",
-                              "stroke",
-                            ]
-                          }
-                          stroke={null}
+                          strokeWidth="0.666667"
                         />
                       </RNSVGGroup>
                     </RNSVGGroup>
-                  </RNSVGSvgView>
-                </View>
-                <View
-                  dataSet={Object {}}
-                  style={
-                    Object {
-                      "width": 8,
-                    }
-                  }
-                />
-                <Text
-                  dataSet={Object {}}
-                  style={
-                    Object {
-                      "backgroundColor": undefined,
-                      "color": "#1f2937",
-                      "fontFamily": undefined,
-                      "fontSize": 16,
-                      "fontStyle": "normal",
-                      "fontWeight": "400",
-                      "letterSpacing": 0,
-                      "lineHeight": 24,
-                      "textDecorationLine": undefined,
-                    }
-                  }
-                >
-                  We are going live in July!
-                </Text>
+                  </RNSVGGroup>
+                </RNSVGSvgView>
               </View>
               <View
                 dataSet={Object {}}
@@ -6688,122 +6402,158 @@ exports[`Storyshots Alert Status 1`] = `
                   }
                 }
               />
-              <View
-                accessibilityRole="button"
-                accessible={true}
-                colorScheme="primary"
+              <Text
                 dataSet={Object {}}
-                focusable={true}
-                onBlur={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onHoverIn={[Function]}
-                onHoverOut={[Function]}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
                 style={
                   Object {
-                    "alignItems": "center",
-                    "borderRadius": 4,
-                    "flexDirection": "row",
-                    "justifyContent": "center",
-                    "paddingBottom": 10,
-                    "paddingLeft": 10,
-                    "paddingRight": 10,
-                    "paddingTop": 10,
+                    "backgroundColor": undefined,
+                    "color": "#1f2937",
+                    "fontFamily": undefined,
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "400",
+                    "letterSpacing": 0,
+                    "lineHeight": 24,
+                    "textDecorationLine": undefined,
                   }
                 }
               >
-                <RNSVGSvgView
-                  accessibilityRole="image"
-                  align="xMidYMid"
-                  bbHeight={12}
-                  bbWidth={12}
-                  color={-11840157}
-                  dataSet={Object {}}
-                  focusable={false}
-                  meetOrSlice={0}
-                  minX={0}
-                  minY={0}
-                  stroke=""
-                  style={
+                Please try again later!
+              </Text>
+            </View>
+            <View
+              dataSet={Object {}}
+              style={
+                Object {
+                  "width": 8,
+                }
+              }
+            />
+            <View
+              accessibilityRole="button"
+              accessible={true}
+              colorScheme="primary"
+              dataSet={Object {}}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onHoverIn={[Function]}
+              onHoverOut={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "alignItems": "center",
+                  "borderRadius": 4,
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                  "paddingBottom": 10,
+                  "paddingLeft": 10,
+                  "paddingRight": 10,
+                  "paddingTop": 10,
+                }
+              }
+            >
+              <RNSVGSvgView
+                accessibilityRole="image"
+                align="xMidYMid"
+                bbHeight={20}
+                bbWidth={20}
+                color={-11840157}
+                dataSet={Object {}}
+                focusable={false}
+                meetOrSlice={0}
+                minX={0}
+                minY={0}
+                stroke=""
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                      "borderWidth": 0,
+                    },
+                    Object {
+                      "color": "#4b5563",
+                      "height": 20,
+                      "width": 20,
+                    },
+                    Object {
+                      "flex": 0,
+                      "height": 20,
+                      "width": 20,
+                    },
+                  ]
+                }
+                tintColor={-11840157}
+                vbHeight={24}
+                vbWidth={24}
+              >
+                <RNSVGGroup
+                  propList={
                     Array [
-                      Object {
-                        "backgroundColor": "transparent",
-                        "borderWidth": 0,
-                      },
-                      Object {
-                        "color": "#4b5563",
-                        "height": 12,
-                        "width": 12,
-                      },
-                      Object {
-                        "flex": 0,
-                        "height": 12,
-                        "width": 12,
-                      },
+                      "stroke",
                     ]
                   }
-                  tintColor={-11840157}
-                  vbHeight={24}
-                  vbWidth={24}
+                  stroke={null}
                 >
-                  <RNSVGGroup
-                    propList={
-                      Array [
-                        "stroke",
-                      ]
-                    }
-                    stroke={null}
-                  >
-                    <RNSVGGroup>
-                      <RNSVGPath
-                        d="M12 9.77778L4.22222 2L2 4.22222L9.77778 12L2 19.7778L4.22222 22L12 14.2222L19.7778 22L22 19.7778L14.2222 12L22 4.22222L19.7778 2L12 9.77778Z"
-                        fill={
-                          Array [
-                            2,
-                          ]
-                        }
-                        propList={
-                          Array [
-                            "fill",
-                            "stroke",
-                          ]
-                        }
-                        stroke={null}
-                      />
-                    </RNSVGGroup>
+                  <RNSVGGroup>
+                    <RNSVGPath
+                      d="M12 9.77778L4.22222 2L2 4.22222L9.77778 12L2 19.7778L4.22222 22L12 14.2222L19.7778 22L22 19.7778L14.2222 12L22 4.22222L19.7778 2L12 9.77778Z"
+                      fill={
+                        Array [
+                          2,
+                        ]
+                      }
+                      propList={
+                        Array [
+                          "fill",
+                          "stroke",
+                        ]
+                      }
+                      stroke={null}
+                    />
                   </RNSVGGroup>
-                </RNSVGSvgView>
-              </View>
+                </RNSVGGroup>
+              </RNSVGSvgView>
             </View>
           </View>
         </View>
-        <View
-          dataSet={Object {}}
-          style={
-            Object {
-              "height": 12,
-            }
+      </View>
+      <View
+        dataSet={Object {}}
+        style={
+          Object {
+            "height": 12,
           }
-        />
+        }
+      />
+      <View
+        dataSet={Object {}}
+        space={3}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#bae6fd",
+            "borderRadius": 4,
+            "justifyContent": "flex-start",
+            "paddingBottom": 12,
+            "paddingLeft": 12,
+            "paddingRight": 12,
+            "paddingTop": 12,
+            "width": "100%",
+          }
+        }
+      >
         <View
           dataSet={Object {}}
-          space={3}
           style={
             Object {
-              "alignItems": "center",
-              "backgroundColor": "#fed7aa",
-              "borderRadius": 4,
-              "justifyContent": "flex-start",
-              "paddingBottom": 12,
-              "paddingLeft": 12,
-              "paddingRight": 12,
-              "paddingTop": 12,
+              "flexShrink": 1,
               "width": "100%",
             }
           }
@@ -6812,8 +6562,9 @@ exports[`Storyshots Alert Status 1`] = `
             dataSet={Object {}}
             style={
               Object {
+                "flexDirection": "row",
                 "flexShrink": 1,
-                "width": "100%",
+                "justifyContent": "space-between",
               }
             }
           >
@@ -6823,157 +6574,19 @@ exports[`Storyshots Alert Status 1`] = `
                 Object {
                   "flexDirection": "row",
                   "flexShrink": 1,
-                  "justifyContent": "space-between",
                 }
               }
             >
               <View
                 dataSet={Object {}}
-                style={
-                  Object {
-                    "flexDirection": "row",
-                    "flexShrink": 1,
-                  }
-                }
-              >
-                <View
-                  dataSet={Object {}}
-                  style={Object {}}
-                >
-                  <RNSVGSvgView
-                    accessibilityRole="image"
-                    align="xMidYMid"
-                    bbHeight={16}
-                    bbWidth={16}
-                    color={-4046580}
-                    dataSet={Object {}}
-                    focusable={false}
-                    meetOrSlice={0}
-                    minX={0}
-                    minY={0}
-                    stroke=""
-                    style={
-                      Array [
-                        Object {
-                          "backgroundColor": "transparent",
-                          "borderWidth": 0,
-                        },
-                        Object {
-                          "color": "#c2410c",
-                          "height": 16,
-                          "marginTop": 4,
-                          "width": 16,
-                        },
-                        Object {
-                          "flex": 0,
-                          "height": 16,
-                          "width": 16,
-                        },
-                      ]
-                    }
-                    tintColor={-4046580}
-                    vbHeight={24}
-                    vbWidth={24}
-                  >
-                    <RNSVGGroup
-                      propList={
-                        Array [
-                          "stroke",
-                        ]
-                      }
-                      stroke={null}
-                    >
-                      <RNSVGGroup>
-                        <RNSVGPath
-                          d="M11.9836 0.00267822C8.77744 0.0551662 5.72075 1.36728 3.47427 3.65538C2.35024 4.77447 1.46338 6.10869 0.866705 7.57831C0.270027 9.04793 -0.0242179 10.6228 0.00155827 12.2087C-0.000286057 13.7583 0.303697 15.2931 0.896087 16.7251C1.48848 18.1571 2.35763 19.458 3.45373 20.5535C4.54983 21.6489 5.85133 22.5173 7.28365 23.1089C8.71596 23.7004 10.2509 24.0035 11.8006 24.0007H12.0146C15.2217 23.9677 18.2847 22.6638 20.5316 20.3751C22.7785 18.0864 24.0257 14.9999 23.9996 11.7927C24.0033 10.2243 23.6933 8.6709 23.0879 7.22398C22.4825 5.77706 21.5939 4.4658 20.4744 3.36731C19.3548 2.26882 18.0269 1.40527 16.5688 0.827453C15.1106 0.249636 13.5517 -0.0307856 11.9836 0.00267822ZM10.5007 16.5433C10.4935 16.3473 10.5254 16.1517 10.5947 15.9682C10.6639 15.7846 10.7691 15.6167 10.904 15.4742C11.0389 15.3318 11.2009 15.2177 11.3804 15.1386C11.5599 15.0594 11.7534 15.0169 11.9496 15.0135H11.9766C12.3712 15.0142 12.7501 15.1677 13.034 15.4417C13.3179 15.7157 13.4847 16.089 13.4995 16.4833C13.5068 16.6794 13.4749 16.875 13.4057 17.0586C13.3365 17.2423 13.2314 17.4102 13.0965 17.5527C12.9615 17.6952 12.7995 17.8093 12.6199 17.8884C12.4403 17.9674 12.2468 18.0099 12.0506 18.0132H12.0236C11.6291 18.0119 11.2505 17.8583 10.9667 17.5844C10.6829 17.3105 10.5159 16.9375 10.5007 16.5433ZM11.0007 12.5017V6.50215C11.0007 6.23695 11.106 5.98262 11.2935 5.7951C11.481 5.60758 11.7354 5.50223 12.0006 5.50223C12.2658 5.50223 12.5201 5.60758 12.7076 5.7951C12.8951 5.98262 13.0005 6.23695 13.0005 6.50215V12.5017C13.0005 12.7669 12.8951 13.0212 12.7076 13.2087C12.5201 13.3962 12.2658 13.5016 12.0006 13.5016C11.7354 13.5016 11.481 13.3962 11.2935 13.2087C11.106 13.0212 11.0007 12.7669 11.0007 12.5017Z"
-                          fill={
-                            Array [
-                              2,
-                            ]
-                          }
-                          propList={
-                            Array [
-                              "fill",
-                              "stroke",
-                            ]
-                          }
-                          stroke={null}
-                        />
-                      </RNSVGGroup>
-                    </RNSVGGroup>
-                  </RNSVGSvgView>
-                </View>
-                <View
-                  dataSet={Object {}}
-                  style={
-                    Object {
-                      "width": 8,
-                    }
-                  }
-                />
-                <Text
-                  dataSet={Object {}}
-                  style={
-                    Object {
-                      "backgroundColor": undefined,
-                      "color": "#1f2937",
-                      "fontFamily": undefined,
-                      "fontSize": 16,
-                      "fontStyle": "normal",
-                      "fontWeight": "400",
-                      "letterSpacing": 0,
-                      "lineHeight": 24,
-                      "textDecorationLine": undefined,
-                    }
-                  }
-                >
-                  Poor internet connection.
-                </Text>
-              </View>
-              <View
-                dataSet={Object {}}
-                style={
-                  Object {
-                    "width": 8,
-                  }
-                }
-              />
-              <View
-                accessibilityRole="button"
-                accessible={true}
-                colorScheme="primary"
-                dataSet={Object {}}
-                focusable={true}
-                onBlur={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onHoverIn={[Function]}
-                onHoverOut={[Function]}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "borderRadius": 4,
-                    "flexDirection": "row",
-                    "justifyContent": "center",
-                    "paddingBottom": 10,
-                    "paddingLeft": 10,
-                    "paddingRight": 10,
-                    "paddingTop": 10,
-                  }
-                }
+                style={Object {}}
               >
                 <RNSVGSvgView
                   accessibilityRole="image"
                   align="xMidYMid"
-                  bbHeight={12}
-                  bbWidth={12}
-                  color={-11840157}
+                  bbHeight={16}
+                  bbWidth={16}
+                  color={-16553567}
                   dataSet={Object {}}
                   focusable={false}
                   meetOrSlice={0}
@@ -6987,18 +6600,19 @@ exports[`Storyshots Alert Status 1`] = `
                         "borderWidth": 0,
                       },
                       Object {
-                        "color": "#4b5563",
-                        "height": 12,
-                        "width": 12,
+                        "color": "#0369a1",
+                        "height": 16,
+                        "marginTop": 4,
+                        "width": 16,
                       },
                       Object {
                         "flex": 0,
-                        "height": 12,
-                        "width": 12,
+                        "height": 16,
+                        "width": 16,
                       },
                     ]
                   }
-                  tintColor={-11840157}
+                  tintColor={-16553567}
                   vbHeight={24}
                   vbWidth={24}
                 >
@@ -7012,7 +6626,7 @@ exports[`Storyshots Alert Status 1`] = `
                   >
                     <RNSVGGroup>
                       <RNSVGPath
-                        d="M12 9.77778L4.22222 2L2 4.22222L9.77778 12L2 19.7778L4.22222 22L12 14.2222L19.7778 22L22 19.7778L14.2222 12L22 4.22222L19.7778 2L12 9.77778Z"
+                        d="M12 0C9.62663 0 7.30655 0.703788 5.33316 2.02236C3.35977 3.34094 1.8217 5.21509 0.913451 7.4078C0.00519948 9.60051 -0.232441 12.0133 0.230582 14.3411C0.693605 16.6689 1.83649 18.807 3.51472 20.4853C5.19295 22.1635 7.33115 23.3064 9.65892 23.7694C11.9867 24.2324 14.3995 23.9948 16.5922 23.0865C18.7849 22.1783 20.6591 20.6402 21.9776 18.6668C23.2962 16.6935 24 14.3734 24 12C23.9966 8.81846 22.7312 5.76821 20.4815 3.51852C18.2318 1.26883 15.1815 0.00344108 12 0ZM12.25 5C12.5467 5 12.8367 5.08797 13.0834 5.25279C13.33 5.41762 13.5223 5.65189 13.6358 5.92597C13.7494 6.20006 13.7791 6.50166 13.7212 6.79263C13.6633 7.08361 13.5204 7.35088 13.3107 7.56066C13.1009 7.77044 12.8336 7.9133 12.5426 7.97118C12.2517 8.02905 11.9501 7.99935 11.676 7.88582C11.4019 7.77229 11.1676 7.58003 11.0028 7.33335C10.838 7.08668 10.75 6.79667 10.75 6.5C10.75 6.10217 10.908 5.72064 11.1893 5.43934C11.4706 5.15803 11.8522 5 12.25 5ZM14.5 18.5H10.5C10.2348 18.5 9.98043 18.3946 9.7929 18.2071C9.60536 18.0196 9.5 17.7652 9.5 17.5C9.5 17.2348 9.60536 16.9804 9.7929 16.7929C9.98043 16.6054 10.2348 16.5 10.5 16.5H11.25C11.3163 16.5 11.3799 16.4737 11.4268 16.4268C11.4737 16.3799 11.5 16.3163 11.5 16.25V11.75C11.5 11.6837 11.4737 11.6201 11.4268 11.5732C11.3799 11.5263 11.3163 11.5 11.25 11.5H10.5C10.2348 11.5 9.98043 11.3946 9.7929 11.2071C9.60536 11.0196 9.5 10.7652 9.5 10.5C9.5 10.2348 9.60536 9.98043 9.7929 9.79289C9.98043 9.60536 10.2348 9.5 10.5 9.5H11.5C12.0304 9.5 12.5391 9.71071 12.9142 10.0858C13.2893 10.4609 13.5 10.9696 13.5 11.5V16.25C13.5 16.3163 13.5263 16.3799 13.5732 16.4268C13.6201 16.4737 13.6837 16.5 13.75 16.5H14.5C14.7652 16.5 15.0196 16.6054 15.2071 16.7929C15.3946 16.9804 15.5 17.2348 15.5 17.5C15.5 17.7652 15.3946 18.0196 15.2071 18.2071C15.0196 18.3946 14.7652 18.5 14.5 18.5Z"
                         fill={
                           Array [
                             2,
@@ -7030,6 +6644,382 @@ exports[`Storyshots Alert Status 1`] = `
                   </RNSVGGroup>
                 </RNSVGSvgView>
               </View>
+              <View
+                dataSet={Object {}}
+                style={
+                  Object {
+                    "width": 8,
+                  }
+                }
+              />
+              <Text
+                dataSet={Object {}}
+                style={
+                  Object {
+                    "backgroundColor": undefined,
+                    "color": "#1f2937",
+                    "fontFamily": undefined,
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "400",
+                    "letterSpacing": 0,
+                    "lineHeight": 24,
+                    "textDecorationLine": undefined,
+                  }
+                }
+              >
+                We are going live in July!
+              </Text>
+            </View>
+            <View
+              dataSet={Object {}}
+              style={
+                Object {
+                  "width": 8,
+                }
+              }
+            />
+            <View
+              accessibilityRole="button"
+              accessible={true}
+              colorScheme="primary"
+              dataSet={Object {}}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onHoverIn={[Function]}
+              onHoverOut={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "alignItems": "center",
+                  "borderRadius": 4,
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                  "paddingBottom": 10,
+                  "paddingLeft": 10,
+                  "paddingRight": 10,
+                  "paddingTop": 10,
+                }
+              }
+            >
+              <RNSVGSvgView
+                accessibilityRole="image"
+                align="xMidYMid"
+                bbHeight={20}
+                bbWidth={20}
+                color={-11840157}
+                dataSet={Object {}}
+                focusable={false}
+                meetOrSlice={0}
+                minX={0}
+                minY={0}
+                stroke=""
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                      "borderWidth": 0,
+                    },
+                    Object {
+                      "color": "#4b5563",
+                      "height": 20,
+                      "width": 20,
+                    },
+                    Object {
+                      "flex": 0,
+                      "height": 20,
+                      "width": 20,
+                    },
+                  ]
+                }
+                tintColor={-11840157}
+                vbHeight={24}
+                vbWidth={24}
+              >
+                <RNSVGGroup
+                  propList={
+                    Array [
+                      "stroke",
+                    ]
+                  }
+                  stroke={null}
+                >
+                  <RNSVGGroup>
+                    <RNSVGPath
+                      d="M12 9.77778L4.22222 2L2 4.22222L9.77778 12L2 19.7778L4.22222 22L12 14.2222L19.7778 22L22 19.7778L14.2222 12L22 4.22222L19.7778 2L12 9.77778Z"
+                      fill={
+                        Array [
+                          2,
+                        ]
+                      }
+                      propList={
+                        Array [
+                          "fill",
+                          "stroke",
+                        ]
+                      }
+                      stroke={null}
+                    />
+                  </RNSVGGroup>
+                </RNSVGGroup>
+              </RNSVGSvgView>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        dataSet={Object {}}
+        style={
+          Object {
+            "height": 12,
+          }
+        }
+      />
+      <View
+        dataSet={Object {}}
+        space={3}
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#fed7aa",
+            "borderRadius": 4,
+            "justifyContent": "flex-start",
+            "paddingBottom": 12,
+            "paddingLeft": 12,
+            "paddingRight": 12,
+            "paddingTop": 12,
+            "width": "100%",
+          }
+        }
+      >
+        <View
+          dataSet={Object {}}
+          style={
+            Object {
+              "flexShrink": 1,
+              "width": "100%",
+            }
+          }
+        >
+          <View
+            dataSet={Object {}}
+            style={
+              Object {
+                "flexDirection": "row",
+                "flexShrink": 1,
+                "justifyContent": "space-between",
+              }
+            }
+          >
+            <View
+              dataSet={Object {}}
+              style={
+                Object {
+                  "flexDirection": "row",
+                  "flexShrink": 1,
+                }
+              }
+            >
+              <View
+                dataSet={Object {}}
+                style={Object {}}
+              >
+                <RNSVGSvgView
+                  accessibilityRole="image"
+                  align="xMidYMid"
+                  bbHeight={16}
+                  bbWidth={16}
+                  color={-4046580}
+                  dataSet={Object {}}
+                  focusable={false}
+                  meetOrSlice={0}
+                  minX={0}
+                  minY={0}
+                  stroke=""
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "transparent",
+                        "borderWidth": 0,
+                      },
+                      Object {
+                        "color": "#c2410c",
+                        "height": 16,
+                        "marginTop": 4,
+                        "width": 16,
+                      },
+                      Object {
+                        "flex": 0,
+                        "height": 16,
+                        "width": 16,
+                      },
+                    ]
+                  }
+                  tintColor={-4046580}
+                  vbHeight={24}
+                  vbWidth={24}
+                >
+                  <RNSVGGroup
+                    propList={
+                      Array [
+                        "stroke",
+                      ]
+                    }
+                    stroke={null}
+                  >
+                    <RNSVGGroup>
+                      <RNSVGPath
+                        d="M11.9836 0.00267822C8.77744 0.0551662 5.72075 1.36728 3.47427 3.65538C2.35024 4.77447 1.46338 6.10869 0.866705 7.57831C0.270027 9.04793 -0.0242179 10.6228 0.00155827 12.2087C-0.000286057 13.7583 0.303697 15.2931 0.896087 16.7251C1.48848 18.1571 2.35763 19.458 3.45373 20.5535C4.54983 21.6489 5.85133 22.5173 7.28365 23.1089C8.71596 23.7004 10.2509 24.0035 11.8006 24.0007H12.0146C15.2217 23.9677 18.2847 22.6638 20.5316 20.3751C22.7785 18.0864 24.0257 14.9999 23.9996 11.7927C24.0033 10.2243 23.6933 8.6709 23.0879 7.22398C22.4825 5.77706 21.5939 4.4658 20.4744 3.36731C19.3548 2.26882 18.0269 1.40527 16.5688 0.827453C15.1106 0.249636 13.5517 -0.0307856 11.9836 0.00267822ZM10.5007 16.5433C10.4935 16.3473 10.5254 16.1517 10.5947 15.9682C10.6639 15.7846 10.7691 15.6167 10.904 15.4742C11.0389 15.3318 11.2009 15.2177 11.3804 15.1386C11.5599 15.0594 11.7534 15.0169 11.9496 15.0135H11.9766C12.3712 15.0142 12.7501 15.1677 13.034 15.4417C13.3179 15.7157 13.4847 16.089 13.4995 16.4833C13.5068 16.6794 13.4749 16.875 13.4057 17.0586C13.3365 17.2423 13.2314 17.4102 13.0965 17.5527C12.9615 17.6952 12.7995 17.8093 12.6199 17.8884C12.4403 17.9674 12.2468 18.0099 12.0506 18.0132H12.0236C11.6291 18.0119 11.2505 17.8583 10.9667 17.5844C10.6829 17.3105 10.5159 16.9375 10.5007 16.5433ZM11.0007 12.5017V6.50215C11.0007 6.23695 11.106 5.98262 11.2935 5.7951C11.481 5.60758 11.7354 5.50223 12.0006 5.50223C12.2658 5.50223 12.5201 5.60758 12.7076 5.7951C12.8951 5.98262 13.0005 6.23695 13.0005 6.50215V12.5017C13.0005 12.7669 12.8951 13.0212 12.7076 13.2087C12.5201 13.3962 12.2658 13.5016 12.0006 13.5016C11.7354 13.5016 11.481 13.3962 11.2935 13.2087C11.106 13.0212 11.0007 12.7669 11.0007 12.5017Z"
+                        fill={
+                          Array [
+                            2,
+                          ]
+                        }
+                        propList={
+                          Array [
+                            "fill",
+                            "stroke",
+                          ]
+                        }
+                        stroke={null}
+                      />
+                    </RNSVGGroup>
+                  </RNSVGGroup>
+                </RNSVGSvgView>
+              </View>
+              <View
+                dataSet={Object {}}
+                style={
+                  Object {
+                    "width": 8,
+                  }
+                }
+              />
+              <Text
+                dataSet={Object {}}
+                style={
+                  Object {
+                    "backgroundColor": undefined,
+                    "color": "#1f2937",
+                    "fontFamily": undefined,
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "400",
+                    "letterSpacing": 0,
+                    "lineHeight": 24,
+                    "textDecorationLine": undefined,
+                  }
+                }
+              >
+                Poor internet connection.
+              </Text>
+            </View>
+            <View
+              dataSet={Object {}}
+              style={
+                Object {
+                  "width": 8,
+                }
+              }
+            />
+            <View
+              accessibilityRole="button"
+              accessible={true}
+              colorScheme="primary"
+              dataSet={Object {}}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onHoverIn={[Function]}
+              onHoverOut={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "alignItems": "center",
+                  "borderRadius": 4,
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                  "paddingBottom": 10,
+                  "paddingLeft": 10,
+                  "paddingRight": 10,
+                  "paddingTop": 10,
+                }
+              }
+            >
+              <RNSVGSvgView
+                accessibilityRole="image"
+                align="xMidYMid"
+                bbHeight={20}
+                bbWidth={20}
+                color={-11840157}
+                dataSet={Object {}}
+                focusable={false}
+                meetOrSlice={0}
+                minX={0}
+                minY={0}
+                stroke=""
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                      "borderWidth": 0,
+                    },
+                    Object {
+                      "color": "#4b5563",
+                      "height": 20,
+                      "width": 20,
+                    },
+                    Object {
+                      "flex": 0,
+                      "height": 20,
+                      "width": 20,
+                    },
+                  ]
+                }
+                tintColor={-11840157}
+                vbHeight={24}
+                vbWidth={24}
+              >
+                <RNSVGGroup
+                  propList={
+                    Array [
+                      "stroke",
+                    ]
+                  }
+                  stroke={null}
+                >
+                  <RNSVGGroup>
+                    <RNSVGPath
+                      d="M12 9.77778L4.22222 2L2 4.22222L9.77778 12L2 19.7778L4.22222 22L12 14.2222L19.7778 22L22 19.7778L14.2222 12L22 4.22222L19.7778 2L12 9.77778Z"
+                      fill={
+                        Array [
+                          2,
+                        ]
+                      }
+                      propList={
+                        Array [
+                          "fill",
+                          "stroke",
+                        ]
+                      }
+                      stroke={null}
+                    />
+                  </RNSVGGroup>
+                </RNSVGGroup>
+              </RNSVGSvgView>
             </View>
           </View>
         </View>
@@ -7186,7 +7176,6 @@ exports[`Storyshots Alert Usage 1`] = `
             "paddingLeft": 12,
             "paddingRight": 12,
             "paddingTop": 12,
-            "width": "90%",
           }
         }
       >
@@ -7354,8 +7343,8 @@ exports[`Storyshots Alert Usage 1`] = `
               <RNSVGSvgView
                 accessibilityRole="image"
                 align="xMidYMid"
-                bbHeight={12}
-                bbWidth={12}
+                bbHeight={20}
+                bbWidth={20}
                 color={-11840157}
                 dataSet={Object {}}
                 focusable={false}
@@ -7371,13 +7360,13 @@ exports[`Storyshots Alert Usage 1`] = `
                     },
                     Object {
                       "color": "#4b5563",
-                      "height": 12,
-                      "width": 12,
+                      "height": 20,
+                      "width": 20,
                     },
                     Object {
                       "flex": 0,
-                      "height": 12,
-                      "width": 12,
+                      "height": 20,
+                      "width": 20,
                     },
                   ]
                 }
@@ -7605,7 +7594,6 @@ exports[`Storyshots Alert Variant 1`] = `
               "justifyContent": "center",
               "marginRight": 20,
               "maxWidth": 400,
-              "width": "90%",
             }
           }
         >
@@ -8988,7 +8976,6 @@ exports[`Storyshots Alert action 1`] = `
                 "paddingLeft": 12,
                 "paddingRight": 12,
                 "paddingTop": 12,
-                "width": "90%",
               }
             }
           >
@@ -9088,6 +9075,7 @@ exports[`Storyshots Alert action 1`] = `
                               propList={
                                 Array [
                                   "stroke",
+                                  "strokeWidth",
                                 ]
                               }
                               stroke={
@@ -9095,6 +9083,7 @@ exports[`Storyshots Alert action 1`] = `
                                   2,
                                 ]
                               }
+                              strokeWidth="0.666667"
                             />
                           </RNSVGGroup>
                         </RNSVGGroup>
@@ -9169,8 +9158,8 @@ exports[`Storyshots Alert action 1`] = `
                   <RNSVGSvgView
                     accessibilityRole="image"
                     align="xMidYMid"
-                    bbHeight={12}
-                    bbWidth={12}
+                    bbHeight={20}
+                    bbWidth={20}
                     color={-11840157}
                     dataSet={Object {}}
                     focusable={false}
@@ -9186,13 +9175,13 @@ exports[`Storyshots Alert action 1`] = `
                         },
                         Object {
                           "color": "#4b5563",
-                          "height": 12,
-                          "width": 12,
+                          "height": 20,
+                          "width": 20,
                         },
                         Object {
                           "flex": 0,
-                          "height": 12,
-                          "width": 12,
+                          "height": 20,
+                          "width": 20,
                         },
                       ]
                     }
@@ -12235,6 +12224,7 @@ exports[`Storyshots Badge Color 1`] = `
             "borderRadius": 2,
             "borderWidth": 1,
             "flexDirection": "row",
+            "justifyContent": "center",
             "paddingBottom": 2,
             "paddingLeft": 8,
             "paddingRight": 8,
@@ -12285,6 +12275,7 @@ exports[`Storyshots Badge Color 1`] = `
             "borderRadius": 2,
             "borderWidth": 1,
             "flexDirection": "row",
+            "justifyContent": "center",
             "paddingBottom": 2,
             "paddingLeft": 8,
             "paddingRight": 8,
@@ -12335,6 +12326,7 @@ exports[`Storyshots Badge Color 1`] = `
             "borderRadius": 2,
             "borderWidth": 1,
             "flexDirection": "row",
+            "justifyContent": "center",
             "paddingBottom": 2,
             "paddingLeft": 8,
             "paddingRight": 8,
@@ -12385,6 +12377,7 @@ exports[`Storyshots Badge Color 1`] = `
             "borderRadius": 2,
             "borderWidth": 1,
             "flexDirection": "row",
+            "justifyContent": "center",
             "paddingBottom": 2,
             "paddingLeft": 8,
             "paddingRight": 8,
@@ -12568,6 +12561,7 @@ exports[`Storyshots Badge Composition 1`] = `
               "borderRadius": 9999,
               "borderWidth": 1,
               "flexDirection": "row",
+              "justifyContent": "center",
               "marginBottom": -16,
               "marginRight": -16,
               "paddingBottom": 2,
@@ -12822,6 +12816,7 @@ exports[`Storyshots Badge Icon 1`] = `
             "borderRadius": 2,
             "borderWidth": 1,
             "flexDirection": "row",
+            "justifyContent": "center",
             "paddingBottom": 2,
             "paddingLeft": 8,
             "paddingRight": 8,
@@ -12940,6 +12935,7 @@ exports[`Storyshots Badge Icon 1`] = `
             "borderRadius": 2,
             "borderWidth": 1,
             "flexDirection": "row",
+            "justifyContent": "center",
             "paddingBottom": 2,
             "paddingLeft": 8,
             "paddingRight": 8,
@@ -13179,6 +13175,7 @@ exports[`Storyshots Badge Playground 1`] = `
           "borderRadius": 2,
           "borderWidth": 1,
           "flexDirection": "row",
+          "justifyContent": "center",
           "paddingBottom": 2,
           "paddingLeft": 8,
           "paddingRight": 8,
@@ -13356,6 +13353,7 @@ exports[`Storyshots Badge Usage 1`] = `
             "borderRadius": 2,
             "borderWidth": 1,
             "flexDirection": "row",
+            "justifyContent": "center",
             "paddingBottom": 2,
             "paddingLeft": 8,
             "paddingRight": 8,
@@ -13549,6 +13547,7 @@ exports[`Storyshots Badge Variants 1`] = `
                 "borderRadius": 2,
                 "borderWidth": 1,
                 "flexDirection": "row",
+                "justifyContent": "center",
                 "paddingBottom": 2,
                 "paddingLeft": 8,
                 "paddingRight": 8,
@@ -13600,6 +13599,7 @@ exports[`Storyshots Badge Variants 1`] = `
                 "borderRadius": 2,
                 "borderWidth": 1,
                 "flexDirection": "row",
+                "justifyContent": "center",
                 "paddingBottom": 2,
                 "paddingLeft": 8,
                 "paddingRight": 8,
@@ -13651,6 +13651,7 @@ exports[`Storyshots Badge Variants 1`] = `
                 "borderRadius": 2,
                 "borderWidth": 1,
                 "flexDirection": "row",
+                "justifyContent": "center",
                 "paddingBottom": 2,
                 "paddingLeft": 8,
                 "paddingRight": 8,
@@ -13702,6 +13703,7 @@ exports[`Storyshots Badge Variants 1`] = `
                 "borderRadius": 2,
                 "borderWidth": 1,
                 "flexDirection": "row",
+                "justifyContent": "center",
                 "paddingBottom": 2,
                 "paddingLeft": 8,
                 "paddingRight": 8,
@@ -13753,6 +13755,7 @@ exports[`Storyshots Badge Variants 1`] = `
                 "borderRadius": 2,
                 "borderWidth": 1,
                 "flexDirection": "row",
+                "justifyContent": "center",
                 "paddingBottom": 2,
                 "paddingLeft": 8,
                 "paddingRight": 8,
@@ -13808,6 +13811,7 @@ exports[`Storyshots Badge Variants 1`] = `
                 "borderRadius": 2,
                 "borderWidth": 1,
                 "flexDirection": "row",
+                "justifyContent": "center",
                 "paddingBottom": 2,
                 "paddingLeft": 8,
                 "paddingRight": 8,
@@ -13858,6 +13862,7 @@ exports[`Storyshots Badge Variants 1`] = `
                 "borderRadius": 2,
                 "borderWidth": 1,
                 "flexDirection": "row",
+                "justifyContent": "center",
                 "paddingBottom": 2,
                 "paddingLeft": 8,
                 "paddingRight": 8,
@@ -13908,6 +13913,7 @@ exports[`Storyshots Badge Variants 1`] = `
                 "borderRadius": 2,
                 "borderWidth": 1,
                 "flexDirection": "row",
+                "justifyContent": "center",
                 "paddingBottom": 2,
                 "paddingLeft": 8,
                 "paddingRight": 8,
@@ -13958,6 +13964,7 @@ exports[`Storyshots Badge Variants 1`] = `
                 "borderRadius": 2,
                 "borderWidth": 1,
                 "flexDirection": "row",
+                "justifyContent": "center",
                 "paddingBottom": 2,
                 "paddingLeft": 8,
                 "paddingRight": 8,
@@ -14008,6 +14015,7 @@ exports[`Storyshots Badge Variants 1`] = `
                 "borderRadius": 2,
                 "borderWidth": 1,
                 "flexDirection": "row",
+                "justifyContent": "center",
                 "paddingBottom": 2,
                 "paddingLeft": 8,
                 "paddingRight": 8,
@@ -14064,6 +14072,7 @@ exports[`Storyshots Badge Variants 1`] = `
                 "borderRadius": 2,
                 "borderWidth": 1,
                 "flexDirection": "row",
+                "justifyContent": "center",
                 "paddingBottom": 2,
                 "paddingLeft": 8,
                 "paddingRight": 8,
@@ -14115,6 +14124,7 @@ exports[`Storyshots Badge Variants 1`] = `
                 "borderRadius": 2,
                 "borderWidth": 1,
                 "flexDirection": "row",
+                "justifyContent": "center",
                 "paddingBottom": 2,
                 "paddingLeft": 8,
                 "paddingRight": 8,
@@ -14166,6 +14176,7 @@ exports[`Storyshots Badge Variants 1`] = `
                 "borderRadius": 2,
                 "borderWidth": 1,
                 "flexDirection": "row",
+                "justifyContent": "center",
                 "paddingBottom": 2,
                 "paddingLeft": 8,
                 "paddingRight": 8,
@@ -14217,6 +14228,7 @@ exports[`Storyshots Badge Variants 1`] = `
                 "borderRadius": 2,
                 "borderWidth": 1,
                 "flexDirection": "row",
+                "justifyContent": "center",
                 "paddingBottom": 2,
                 "paddingLeft": 8,
                 "paddingRight": 8,
@@ -14268,6 +14280,7 @@ exports[`Storyshots Badge Variants 1`] = `
                 "borderRadius": 2,
                 "borderWidth": 1,
                 "flexDirection": "row",
+                "justifyContent": "center",
                 "paddingBottom": 2,
                 "paddingLeft": 8,
                 "paddingRight": 8,
@@ -35002,11 +35015,11 @@ exports[`Storyshots Examples Todo App 1`] = `
                       "fontSize": 12,
                     },
                     Object {
-                      "color": "#fafaf9",
-                      "fontSize": 16,
-                      "height": 16,
-                      "lineHeight": 16,
-                      "width": 16,
+                      "color": "#fafafa",
+                      "fontSize": 20,
+                      "height": 20,
+                      "lineHeight": 20,
+                      "width": 20,
                     },
                     Object {
                       "fontFamily": "feather",
@@ -35255,11 +35268,11 @@ exports[`Storyshots Examples Todo App 1`] = `
                         "fontSize": 12,
                       },
                       Object {
-                        "color": "#a3a3a3",
-                        "fontSize": 12,
-                        "height": 12,
-                        "lineHeight": 12,
-                        "width": 12,
+                        "color": "#525252",
+                        "fontSize": 16,
+                        "height": 16,
+                        "lineHeight": 16,
+                        "width": 16,
                       },
                       Object {
                         "fontFamily": "entypo",
@@ -35453,11 +35466,11 @@ exports[`Storyshots Examples Todo App 1`] = `
                         "fontSize": 12,
                       },
                       Object {
-                        "color": "#a3a3a3",
-                        "fontSize": 12,
-                        "height": 12,
-                        "lineHeight": 12,
-                        "width": 12,
+                        "color": "#525252",
+                        "fontSize": 16,
+                        "height": 16,
+                        "lineHeight": 16,
+                        "width": 16,
                       },
                       Object {
                         "fontFamily": "entypo",
@@ -35651,11 +35664,11 @@ exports[`Storyshots Examples Todo App 1`] = `
                         "fontSize": 12,
                       },
                       Object {
-                        "color": "#a3a3a3",
-                        "fontSize": 12,
-                        "height": 12,
-                        "lineHeight": 12,
-                        "width": 12,
+                        "color": "#525252",
+                        "fontSize": 16,
+                        "height": 16,
+                        "lineHeight": 16,
+                        "width": 16,
                       },
                       Object {
                         "fontFamily": "entypo",
@@ -35849,11 +35862,11 @@ exports[`Storyshots Examples Todo App 1`] = `
                         "fontSize": 12,
                       },
                       Object {
-                        "color": "#a3a3a3",
-                        "fontSize": 12,
-                        "height": 12,
-                        "lineHeight": 12,
-                        "width": 12,
+                        "color": "#525252",
+                        "fontSize": 16,
+                        "height": 16,
+                        "lineHeight": 16,
+                        "width": 16,
                       },
                       Object {
                         "fontFamily": "entypo",
@@ -45209,6 +45222,7 @@ exports[`Storyshots Icon All Icons 1`] = `
                             propList={
                               Array [
                                 "stroke",
+                                "strokeWidth",
                               ]
                             }
                             stroke={
@@ -45216,6 +45230,7 @@ exports[`Storyshots Icon All Icons 1`] = `
                                 2,
                               ]
                             }
+                            strokeWidth="0.666667"
                           />
                         </RNSVGGroup>
                       </RNSVGGroup>
@@ -47576,9 +47591,9 @@ exports[`Storyshots IconButton SVGIcon 1`] = `
         <RNSVGSvgView
           accessibilityRole="image"
           align="xMidYMid"
-          bbHeight={40}
-          bbWidth={40}
-          color={-16612153}
+          bbHeight={20}
+          bbWidth={20}
+          color={-328966}
           dataSet={Object {}}
           focusable={false}
           meetOrSlice={0}
@@ -47593,18 +47608,18 @@ exports[`Storyshots IconButton SVGIcon 1`] = `
                 "borderWidth": 0,
               },
               Object {
-                "color": "#0284c7",
-                "height": 40,
-                "width": 40,
+                "color": "#fafafa",
+                "height": 20,
+                "width": 20,
               },
               Object {
                 "flex": 0,
-                "height": 40,
-                "width": 40,
+                "height": 20,
+                "width": 20,
               },
             ]
           }
-          tintColor={-16612153}
+          tintColor={-328966}
           vbHeight={100}
           vbWidth={100}
         >
@@ -49171,12 +49186,7 @@ exports[`Storyshots Image Sizes 1`] = `
         ]
       }
       dataSet={Object {}}
-      style={
-        Object {
-          "paddingLeft": 80,
-          "paddingRight": 80,
-        }
-      }
+      style={Object {}}
     >
       <View>
         <View
@@ -52473,7 +52483,6 @@ exports[`Storyshots Link Composite Link Example 1`] = `
               "borderRadius": 8,
               "borderWidth": 1,
               "elevation": 4,
-              "maxWidth": 384,
               "paddingBottom": 20,
               "paddingLeft": 20,
               "paddingRight": 20,
@@ -52485,6 +52494,7 @@ exports[`Storyshots Link Composite Link Example 1`] = `
               },
               "shadowOpacity": 0.23,
               "shadowRadius": 2.62,
+              "width": 384,
             }
           }
         >
@@ -52508,6 +52518,7 @@ exports[`Storyshots Link Composite Link Example 1`] = `
                   "borderRadius": 4,
                   "borderWidth": 1,
                   "flexDirection": "row",
+                  "justifyContent": "center",
                   "paddingBottom": 2,
                   "paddingLeft": 8,
                   "paddingRight": 8,
@@ -69010,6 +69021,7 @@ exports[`Storyshots Pressable Basic 1`] = `
                   "borderRadius": 4,
                   "borderWidth": 1,
                   "flexDirection": "row",
+                  "justifyContent": "center",
                   "paddingBottom": 2,
                   "paddingLeft": 8,
                   "paddingRight": 8,
@@ -69298,22 +69310,7 @@ exports[`Storyshots Pressable Events 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
-            "borderColor": "#d1d5db",
-            "borderRadius": 8,
-            "borderWidth": 1,
-            "elevation": 4,
             "maxWidth": 384,
-            "paddingBottom": 20,
-            "paddingLeft": 20,
-            "paddingRight": 20,
-            "paddingTop": 20,
-            "shadowColor": "#000000",
-            "shadowOffset": Object {
-              "height": 2,
-              "width": 0,
-            },
-            "shadowOpacity": 0.23,
-            "shadowRadius": 2.62,
           }
         }
       >
@@ -69323,6 +69320,21 @@ exports[`Storyshots Pressable Events 1`] = `
             Array [
               Object {
                 "backgroundColor": "#f3f4f6",
+                "borderColor": "#d1d5db",
+                "borderRadius": 8,
+                "borderWidth": 1,
+                "elevation": 4,
+                "paddingBottom": 20,
+                "paddingLeft": 20,
+                "paddingRight": 20,
+                "paddingTop": 20,
+                "shadowColor": "#000000",
+                "shadowOffset": Object {
+                  "height": 2,
+                  "width": 0,
+                },
+                "shadowOpacity": 0.23,
+                "shadowRadius": 2.62,
               },
               Object {
                 "transform": Array [
@@ -69354,6 +69366,7 @@ exports[`Storyshots Pressable Events 1`] = `
                   "borderRadius": 4,
                   "borderWidth": 1,
                   "flexDirection": "row",
+                  "justifyContent": "center",
                   "paddingBottom": 2,
                   "paddingLeft": 8,
                   "paddingRight": 8,
@@ -79452,12 +79465,7 @@ exports[`Storyshots ScrollView Basic 1`] = `
     <RCTScrollView
       contentContainerStyle={
         Array [
-          Object {
-            "marginBottom": 16,
-            "minWidth": 288,
-            "paddingLeft": 20,
-            "paddingRight": 20,
-          },
+          Object {},
           Object {
             "dataSet": Object {},
           },
@@ -79467,7 +79475,7 @@ exports[`Storyshots ScrollView Basic 1`] = `
       style={
         Object {
           "height": 320,
-          "maxWidth": 300,
+          "width": 300,
         }
       }
     >
@@ -80889,6 +80897,7 @@ exports[`Storyshots Select Basic 1`] = `
                 }
               }
               underlineColorAndroid="transparent"
+              value=""
             />
             <View
               dataSet={Object {}}
@@ -81923,6 +81932,7 @@ exports[`Storyshots Select FormControlled 1`] = `
                 }
               }
               underlineColorAndroid="transparent"
+              value=""
             />
             <View
               dataSet={Object {}}
@@ -83049,6 +83059,7 @@ exports[`Storyshots Select Select Long list 1`] = `
                 }
               }
               underlineColorAndroid="transparent"
+              value=""
             />
             <View
               dataSet={Object {}}
@@ -101627,8 +101638,10 @@ exports[`Storyshots Transitions Slide 1`] = `
       dataSet={Object {}}
       style={
         Object {
+          "alignItems": "center",
+          "display": "flex",
           "height": 128,
-          "width": 300,
+          "justifyContent": "center",
         }
       }
     >
@@ -101656,7 +101669,6 @@ exports[`Storyshots Transitions Slide 1`] = `
             "borderRadius": 4,
             "flexDirection": "row",
             "justifyContent": "center",
-            "marginTop": "auto",
             "paddingBottom": 10,
             "paddingLeft": 12,
             "paddingRight": 12,
@@ -102312,6 +102324,706 @@ exports[`Storyshots Transitions Slide wrapped inside parent 1`] = `
 </RNCSafeAreaProvider>
 `;
 
+exports[`Storyshots Transitions SlideComposition 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    Array [
+      Object {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    dataSet={Object {}}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#fafafa",
+        "flex": 1,
+        "justifyContent": "center",
+        "paddingLeft": 12,
+        "paddingRight": 12,
+      }
+    }
+  >
+    <View
+      accessibilityRole="button"
+      accessible={true}
+      colorScheme="primary"
+      dataSet={Object {}}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onHoverIn={[Function]}
+      onHoverOut={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "borderRadius": 4,
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "paddingBottom": 12,
+          "paddingLeft": 12,
+          "paddingRight": 12,
+          "paddingTop": 12,
+          "position": "absolute",
+          "right": 32,
+          "top": 48,
+          "zIndex": 4,
+        }
+      }
+    >
+      <RNSVGSvgView
+        accessibilityRole="image"
+        align="xMidYMid"
+        bbHeight={24}
+        bbWidth={24}
+        color={-16215630}
+        dataSet={Object {}}
+        focusable={false}
+        meetOrSlice={0}
+        minX={0}
+        minY={0}
+        stroke=""
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderWidth": 0,
+            },
+            Object {
+              "color": "#0891b2",
+              "height": 24,
+              "width": 24,
+            },
+            Object {
+              "flex": 0,
+              "height": 24,
+              "width": 24,
+            },
+          ]
+        }
+        tintColor={-16215630}
+        vbHeight={24}
+        vbWidth={24}
+      >
+        <RNSVGGroup
+          propList={
+            Array [
+              "stroke",
+            ]
+          }
+          stroke={null}
+        >
+          <RNSVGGroup>
+            <RNSVGPath
+              d="M20.8562 13.4434C20.1167 13.6274 19.3772 13.7194 18.6378 13.7194C14.0162 13.7194 10.3189 10.0391 10.3189 5.43876C10.3189 4.7027 10.4113 3.96665 10.5962 3.23059C10.6886 2.95457 10.5962 2.58654 10.3189 2.31052C10.0416 2.0345 9.7643 1.9425 9.39457 2.0345C5.05026 3.3226 2 7.3709 2 11.8792C2 17.4917 6.52917 22 12.1675 22C16.6967 22 20.7637 18.9638 21.9653 14.5474C22.0578 14.2714 21.9653 13.9034 21.688 13.6274C21.5032 13.4434 21.1334 13.3514 20.8562 13.4434Z"
+              fill={
+                Array [
+                  2,
+                ]
+              }
+              propList={
+                Array [
+                  "fill",
+                  "stroke",
+                ]
+              }
+              stroke={null}
+            />
+          </RNSVGGroup>
+        </RNSVGGroup>
+      </RNSVGSvgView>
+    </View>
+    <View
+      dataSet={Object {}}
+      style={
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <View
+        dataSet={Object {}}
+        style={
+          Object {
+            "width": 300,
+          }
+        }
+      >
+        <View
+          dataSet={Object {}}
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "justifyContent": "center",
+              "width": "100%",
+            }
+          }
+        >
+          <View
+            dataSet={Object {}}
+            style={
+              Object {
+                "width": "100%",
+              }
+            }
+          >
+            <View
+              dataSet={Object {}}
+              style={
+                Object {
+                  "alignItems": "flex-end",
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <Text
+                dataSet={Object {}}
+                style={
+                  Object {
+                    "backgroundColor": undefined,
+                    "color": "#171717",
+                    "fontFamily": undefined,
+                    "fontSize": null,
+                    "fontStyle": "normal",
+                    "fontWeight": "700",
+                    "letterSpacing": 0,
+                    "lineHeight": 30,
+                    "textDecorationLine": undefined,
+                  }
+                }
+              >
+                Order
+              </Text>
+              <View
+                dataSet={Object {}}
+                style={Object {}}
+              />
+              <View
+                dataSet={Object {}}
+                style={
+                  Object {
+                    "flexGrow": 1,
+                  }
+                }
+              />
+              <View
+                dataSet={Object {}}
+                style={Object {}}
+              />
+              <RNSVGSvgView
+                accessibilityRole="image"
+                align="xMidYMid"
+                bbHeight={12}
+                bbWidth={12}
+                color={-1419252}
+                dataSet={Object {}}
+                focusable={false}
+                meetOrSlice={0}
+                minX={0}
+                minY={0}
+                stroke=""
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                      "borderWidth": 0,
+                    },
+                    Object {
+                      "color": "#ea580c",
+                      "height": 12,
+                      "marginBottom": 6,
+                      "width": 12,
+                    },
+                    Object {
+                      "flex": 0,
+                      "height": 12,
+                      "width": 12,
+                    },
+                  ]
+                }
+                tintColor={-1419252}
+                vbHeight={24}
+                vbWidth={24}
+              >
+                <RNSVGGroup
+                  propList={
+                    Array [
+                      "stroke",
+                    ]
+                  }
+                  stroke={null}
+                >
+                  <RNSVGGroup>
+                    <RNSVGPath
+                      d="M11.9836 0.00267822C8.77744 0.0551662 5.72075 1.36728 3.47427 3.65538C2.35024 4.77447 1.46338 6.10869 0.866705 7.57831C0.270027 9.04793 -0.0242179 10.6228 0.00155827 12.2087C-0.000286057 13.7583 0.303697 15.2931 0.896087 16.7251C1.48848 18.1571 2.35763 19.458 3.45373 20.5535C4.54983 21.6489 5.85133 22.5173 7.28365 23.1089C8.71596 23.7004 10.2509 24.0035 11.8006 24.0007H12.0146C15.2217 23.9677 18.2847 22.6638 20.5316 20.3751C22.7785 18.0864 24.0257 14.9999 23.9996 11.7927C24.0033 10.2243 23.6933 8.6709 23.0879 7.22398C22.4825 5.77706 21.5939 4.4658 20.4744 3.36731C19.3548 2.26882 18.0269 1.40527 16.5688 0.827453C15.1106 0.249636 13.5517 -0.0307856 11.9836 0.00267822ZM10.5007 16.5433C10.4935 16.3473 10.5254 16.1517 10.5947 15.9682C10.6639 15.7846 10.7691 15.6167 10.904 15.4742C11.0389 15.3318 11.2009 15.2177 11.3804 15.1386C11.5599 15.0594 11.7534 15.0169 11.9496 15.0135H11.9766C12.3712 15.0142 12.7501 15.1677 13.034 15.4417C13.3179 15.7157 13.4847 16.089 13.4995 16.4833C13.5068 16.6794 13.4749 16.875 13.4057 17.0586C13.3365 17.2423 13.2314 17.4102 13.0965 17.5527C12.9615 17.6952 12.7995 17.8093 12.6199 17.8884C12.4403 17.9674 12.2468 18.0099 12.0506 18.0132H12.0236C11.6291 18.0119 11.2505 17.8583 10.9667 17.5844C10.6829 17.3105 10.5159 16.9375 10.5007 16.5433ZM11.0007 12.5017V6.50215C11.0007 6.23695 11.106 5.98262 11.2935 5.7951C11.481 5.60758 11.7354 5.50223 12.0006 5.50223C12.2658 5.50223 12.5201 5.60758 12.7076 5.7951C12.8951 5.98262 13.0005 6.23695 13.0005 6.50215V12.5017C13.0005 12.7669 12.8951 13.0212 12.7076 13.2087C12.5201 13.3962 12.2658 13.5016 12.0006 13.5016C11.7354 13.5016 11.481 13.3962 11.2935 13.2087C11.106 13.0212 11.0007 12.7669 11.0007 12.5017Z"
+                      fill={
+                        Array [
+                          2,
+                        ]
+                      }
+                      propList={
+                        Array [
+                          "fill",
+                          "stroke",
+                        ]
+                      }
+                      stroke={null}
+                    />
+                  </RNSVGGroup>
+                </RNSVGGroup>
+              </RNSVGSvgView>
+            </View>
+            <View
+              dataSet={Object {}}
+              style={
+                Object {
+                  "height": 12,
+                }
+              }
+            />
+            <View
+              dataSet={Object {}}
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                }
+              }
+            >
+              <Text
+                dataSet={Object {}}
+                style={
+                  Object {
+                    "backgroundColor": undefined,
+                    "color": "#171717",
+                    "fontFamily": undefined,
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "500",
+                    "letterSpacing": 0,
+                    "lineHeight": 21,
+                    "textDecorationLine": undefined,
+                  }
+                }
+              >
+                Sub Total
+              </Text>
+              <View
+                dataSet={Object {}}
+                style={Object {}}
+              />
+              <Text
+                dataSet={Object {}}
+                style={
+                  Object {
+                    "backgroundColor": undefined,
+                    "color": "#94a3b8",
+                    "fontFamily": undefined,
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "400",
+                    "letterSpacing": 0,
+                    "lineHeight": 21,
+                    "textDecorationLine": undefined,
+                  }
+                }
+              >
+                $298.77
+              </Text>
+            </View>
+            <View
+              dataSet={Object {}}
+              style={
+                Object {
+                  "height": 12,
+                }
+              }
+            />
+            <View
+              dataSet={Object {}}
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                }
+              }
+            >
+              <Text
+                dataSet={Object {}}
+                style={
+                  Object {
+                    "backgroundColor": undefined,
+                    "color": "#171717",
+                    "fontFamily": undefined,
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "500",
+                    "letterSpacing": 0,
+                    "lineHeight": 21,
+                    "textDecorationLine": undefined,
+                  }
+                }
+              >
+                Tax
+              </Text>
+              <View
+                dataSet={Object {}}
+                style={Object {}}
+              />
+              <Text
+                dataSet={Object {}}
+                style={
+                  Object {
+                    "backgroundColor": undefined,
+                    "color": "#94a3b8",
+                    "fontFamily": undefined,
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "400",
+                    "letterSpacing": 0,
+                    "lineHeight": 21,
+                    "textDecorationLine": undefined,
+                  }
+                }
+              >
+                $38.84
+              </Text>
+            </View>
+            <View
+              dataSet={Object {}}
+              style={
+                Object {
+                  "height": 12,
+                }
+              }
+            />
+            <View
+              dataSet={Object {}}
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                }
+              }
+            >
+              <Text
+                dataSet={Object {}}
+                style={
+                  Object {
+                    "backgroundColor": undefined,
+                    "color": "#171717",
+                    "fontFamily": undefined,
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "500",
+                    "letterSpacing": 0,
+                    "lineHeight": 21,
+                    "textDecorationLine": undefined,
+                  }
+                }
+              >
+                Total Amount
+              </Text>
+              <View
+                dataSet={Object {}}
+                style={Object {}}
+              />
+              <Text
+                dataSet={Object {}}
+                style={
+                  Object {
+                    "backgroundColor": undefined,
+                    "color": "#22c55e",
+                    "fontFamily": undefined,
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "400",
+                    "letterSpacing": 0,
+                    "lineHeight": 21,
+                    "textDecorationLine": undefined,
+                  }
+                }
+              >
+                $337.61
+              </Text>
+            </View>
+            <View
+              dataSet={Object {}}
+              style={
+                Object {
+                  "height": 12,
+                }
+              }
+            />
+            <View
+              dataSet={Object {}}
+              style={
+                Object {
+                  "marginTop": 8,
+                }
+              }
+            >
+              <Text
+                dataSet={Object {}}
+                style={
+                  Object {
+                    "backgroundColor": undefined,
+                    "color": "#171717",
+                    "fontFamily": undefined,
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "700",
+                    "letterSpacing": 0,
+                    "lineHeight": 21,
+                    "textDecorationLine": undefined,
+                  }
+                }
+              >
+                Promo Code
+              </Text>
+              <View
+                dataSet={Object {}}
+                style={
+                  Object {
+                    "height": 8,
+                  }
+                }
+              />
+              <View
+                dataSet={Object {}}
+                style={
+                  Object {
+                    "flexDirection": "row",
+                  }
+                }
+              >
+                <View
+                  dataSet={Object {}}
+                  isFocused={false}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "borderColor": "#d4d4d4",
+                      "borderRadius": 4,
+                      "borderWidth": 1,
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "overflow": "hidden",
+                    }
+                  }
+                >
+                  <TextInput
+                    accessible={true}
+                    allowFontScaling={true}
+                    dataSet={Object {}}
+                    editable={true}
+                    onBlur={[Function]}
+                    onFocus={[Function]}
+                    onKeyPress={[Function]}
+                    placeholderTextColor="#a3a3a3"
+                    rejectResponderTermination={true}
+                    secureTextEntry={false}
+                    selectionColor="#1f2937"
+                    style={
+                      Object {
+                        "backgroundColor": "transparent",
+                        "color": "#171717",
+                        "flex": 1,
+                        "fontFamily": undefined,
+                        "fontSize": 12,
+                        "fontStyle": "normal",
+                        "fontWeight": "400",
+                        "height": "100%",
+                        "paddingBottom": 8,
+                        "paddingLeft": 12,
+                        "paddingRight": 12,
+                        "paddingTop": 8,
+                        "width": "100%",
+                      }
+                    }
+                    underlineColorAndroid="transparent"
+                  />
+                </View>
+                <View
+                  dataSet={Object {}}
+                  style={
+                    Object {
+                      "width": 12,
+                    }
+                  }
+                />
+                <View
+                  accessibilityRole="button"
+                  accessible={true}
+                  colorScheme="primary"
+                  dataSet={Object {}}
+                  focusable={true}
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onFocus={[Function]}
+                  onHoverIn={[Function]}
+                  onHoverOut={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "borderColor": "#d4d4d4",
+                      "borderRadius": 4,
+                      "borderWidth": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "center",
+                      "paddingBottom": 10,
+                      "paddingLeft": 12,
+                      "paddingRight": 12,
+                      "paddingTop": 10,
+                    }
+                  }
+                >
+                  <View
+                    dataSet={Object {}}
+                    style={
+                      Object {
+                        "alignItems": "center",
+                        "flexDirection": "row",
+                      }
+                    }
+                    test={true}
+                  >
+                    <View
+                      dataSet={Object {}}
+                      style={Object {}}
+                    >
+                      <Text
+                        dataSet={Object {}}
+                        style={
+                          Object {
+                            "backgroundColor": undefined,
+                            "color": "#0891b2",
+                            "fontFamily": undefined,
+                            "fontSize": 14,
+                            "fontStyle": "normal",
+                            "fontWeight": "400",
+                            "letterSpacing": 0,
+                            "lineHeight": 21,
+                            "textDecorationLine": undefined,
+                          }
+                        }
+                      >
+                        Apply
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </View>
+            <View
+              dataSet={Object {}}
+              style={
+                Object {
+                  "height": 12,
+                }
+              }
+            />
+            <View
+              accessibilityRole="button"
+              accessible={true}
+              colorScheme="primary"
+              dataSet={Object {}}
+              focusable={true}
+              onBlur={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onHoverIn={[Function]}
+              onHoverOut={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#0891b2",
+                  "borderRadius": 4,
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                  "marginBottom": 8,
+                  "marginTop": 8,
+                  "paddingBottom": 10,
+                  "paddingLeft": 12,
+                  "paddingRight": 12,
+                  "paddingTop": 10,
+                }
+              }
+            >
+              <View
+                dataSet={Object {}}
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  }
+                }
+                test={true}
+              >
+                <View
+                  dataSet={Object {}}
+                  style={Object {}}
+                >
+                  <Text
+                    dataSet={Object {}}
+                    style={
+                      Object {
+                        "backgroundColor": undefined,
+                        "color": "#fafafa",
+                        "fontFamily": undefined,
+                        "fontSize": 14,
+                        "fontStyle": "normal",
+                        "fontWeight": "400",
+                        "letterSpacing": 0,
+                        "lineHeight": 21,
+                        "textDecorationLine": undefined,
+                      }
+                    }
+                  >
+                    Place Order
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</RNCSafeAreaProvider>
+`;
+
 exports[`Storyshots Transitions SlideFade 1`] = `
 <RNCSafeAreaProvider
   onInsetsChange={[Function]}
@@ -102787,11 +103499,11 @@ exports[`Storyshots Transitions Stagger 1`] = `
                     "fontSize": 12,
                   },
                   Object {
-                    "color": "#fafaf9",
-                    "fontSize": 24,
-                    "height": 24,
-                    "lineHeight": 24,
-                    "width": 24,
+                    "color": "#fafafa",
+                    "fontSize": 20,
+                    "height": 20,
+                    "lineHeight": 20,
+                    "width": 20,
                   },
                   Object {
                     "fontFamily": "material",
@@ -102876,11 +103588,11 @@ exports[`Storyshots Transitions Stagger 1`] = `
                     "fontSize": 12,
                   },
                   Object {
-                    "color": "#fafaf9",
-                    "fontSize": 24,
-                    "height": 24,
-                    "lineHeight": 24,
-                    "width": 24,
+                    "color": "#fafafa",
+                    "fontSize": 20,
+                    "height": 20,
+                    "lineHeight": 20,
+                    "width": 20,
                   },
                   Object {
                     "fontFamily": "material-community",
@@ -102965,11 +103677,11 @@ exports[`Storyshots Transitions Stagger 1`] = `
                     "fontSize": 12,
                   },
                   Object {
-                    "color": "#fafaf9",
-                    "fontSize": 24,
-                    "height": 24,
-                    "lineHeight": 24,
-                    "width": 24,
+                    "color": "#fafafa",
+                    "fontSize": 20,
+                    "height": 20,
+                    "lineHeight": 20,
+                    "width": 20,
                   },
                   Object {
                     "fontFamily": "material-community",
@@ -103054,11 +103766,11 @@ exports[`Storyshots Transitions Stagger 1`] = `
                     "fontSize": 12,
                   },
                   Object {
-                    "color": "#fafaf9",
-                    "fontSize": 24,
-                    "height": 24,
-                    "lineHeight": 24,
-                    "width": 24,
+                    "color": "#fafafa",
+                    "fontSize": 20,
+                    "height": 20,
+                    "lineHeight": 20,
+                    "width": 20,
                   },
                   Object {
                     "fontFamily": "material",
@@ -103124,7 +103836,7 @@ exports[`Storyshots Transitions Stagger 1`] = `
                   "fontSize": 12,
                 },
                 Object {
-                  "color": "#fafaf9",
+                  "color": "#fafafa",
                   "fontSize": 24,
                   "height": 24,
                   "lineHeight": 24,
