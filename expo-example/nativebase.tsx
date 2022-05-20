@@ -18,9 +18,9 @@ import React, {
   useCallback,
 } from 'react';
 import { View, Button as RNButton } from 'react-native';
-// import { View as DripsyView } from 'dripsy';
-// import { Pressable as DripsyButton } from 'dripsy';
-// import { Text as DripsyText } from 'dripsy';
+import { View as DripsyView } from 'dripsy';
+import { Pressable as DripsyButton } from 'dripsy';
+import { Text as DripsyText } from 'dripsy';
 
 const Example = () => {
   const [showModal, setShowModal] = useState(false);
@@ -218,7 +218,7 @@ export const NativeBaseScreen = () => {
             ))}
           </View>
 
-          {/* <View>
+          <View>
             {new Array(1).fill(' ').map((_, index) => (
               <DripsyButton
                 sx={{ bg: '$primary', p: index }}
@@ -227,7 +227,7 @@ export const NativeBaseScreen = () => {
                 <DripsyText>hello</DripsyText>
               </DripsyButton>
             ))}
-          </View> */}
+          </View>
           {/* <DripsyView
             sx={{
               height: [100],

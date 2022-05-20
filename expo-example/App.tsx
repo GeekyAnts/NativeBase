@@ -4,10 +4,10 @@ import { CustomButtonScreen } from './custompressablescreen';
 import { NativeBaseScreen } from './nativebase';
 import { RNButtonScreen } from './reactnativescreen';
 import { NativeBaseProvider, extendTheme } from 'native-base';
-// import { DripsyProvider, makeTheme } from 'dripsy';
+import { DripsyProvider, makeTheme } from 'dripsy';
 
 console.currentKey = {};
-// const theme = makeTheme({});
+const theme = makeTheme({});
 
 console.startTimeKey = function (key) {
   console.currentKey[key] = Date.now();
@@ -46,9 +46,9 @@ export default function App() {
         <NativeBaseProvider
           theme={extendTheme({ config: { initialColorMode: 'dark' } })}
         >
-          {/* <DripsyProvider theme={theme}> */}
-          <NativeBaseScreen />
-          {/* </DripsyProvider> */}
+          <DripsyProvider theme={theme}>
+            <NativeBaseScreen />
+          </DripsyProvider>
         </NativeBaseProvider>
       </View>
     </>
