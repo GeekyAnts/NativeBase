@@ -1,8 +1,13 @@
 //Fade
+// const fadeDefaultProps = {
+//   entryDuration: 500,
+//   exitDuration: 500,
+// };
+
 export const fadeBaseStyle = {
-  entryDuration: 500,
-  exitDuration: 500,
-  delay: 0,
+  initial: { opacity: 0 },
+  animate: { opacity: 1, transition: { duration: 500 } },
+  exit: { opacity: 0, transition: { duration: 500 } },
 };
 export const Fade = {
   baseStyle: fadeBaseStyle,
