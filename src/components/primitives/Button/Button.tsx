@@ -16,25 +16,11 @@ import {
 import { useFocusRing } from '@react-native-aria/focus';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import get from 'lodash.get';
-import { resolveComponentThemeStyle } from '../../../utils/styled';
-window['pseudoPropComponentMap'] = {
-  _spinner: 'Spinner',
-  _stack: 'Stack',
-  _text: 'Text',
-  _icon: 'Icon',
-};
+import { resolveComponentThemeStyleAndUpdateMap } from '../../../utils/styled';
+import { getResolvedStyleSheet } from '../../../core';
+import { useColorMode } from 'native-base';
 
-const buttonStyleObj = resolveComponentThemeStyle('Button', 'light', {});
-
-const internalComponentStyles = {};
-// buttonStyleObj.internalPseudoProps._stack = {};
-for (let property in buttonStyleObj.internalPseudoProps) {
-  internalComponentStyles[property] = resolveComponentThemeStyle(
-    window['pseudoPropComponentMap'][property],
-    'light',
-    buttonStyleObj.internalPseudoProps[property]
-  );
-}
+resolveComponentThemeStyleAndUpdateMap('Button', {});
 
 // console.log(
 //   'styledObj',
@@ -95,7 +81,7 @@ const Button = (
   const { pressableProps, isPressed } = useIsPressed();
   const { focusProps, isFocused } = useFocus();
   const { isFocusVisible, focusProps: focusRingProps }: any = useFocusRing();
-
+  const { colorMode } = useColorMode();
   const {
     onPressIn,
     onPressOut,
@@ -108,6 +94,7 @@ const Button = (
     _spinner,
     isLoadingText,
     _icon,
+    style: buttonStyle,
     ...resolvedProps
   } = usePropsResolution('Button', props, {
     isDisabled,
@@ -191,7 +178,8 @@ const Button = (
   // );
   return (
     <Pressable
-      style={buttonStyleObj.style}
+      style={[getResolvedStyleSheet('Button', colorMode), buttonStyle]}
+      // style={buttonStyleObj.style}
       disabled={isDisabled || isLoading}
       ref={ref}
       onPressIn={composeEventHandlers(onPressIn, pressableProps.onPressIn)}
@@ -216,7 +204,7 @@ const Button = (
       <HStack
         {..._stack}
         test={true}
-        style={[stackStyle, internalComponentStyles._stack.style]}
+        style={[getResolvedStyleSheet('Button.Stack', colorMode), stackStyle]}
       >
         {startIcon && !isLoading ? startIcon : null}
         {isLoading && spinnerPlacement === 'start' ? spinnerElement : null}

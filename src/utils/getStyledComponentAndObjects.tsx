@@ -12,27 +12,12 @@ import { useColorMode } from '../core';
 import { propsFlattener } from '../hooks/useThemeProps/propsFlattener';
 import { ITheme, theme } from '../theme';
 import { getStyleAndFilteredProps, propConfig } from '../theme/styled-system';
-
 import {
   callPropsFlattener,
   propsSpreader,
 } from '../hooks/useThemeProps/usePropsResolution';
 import { isEmptyObj } from './isEmptyObj';
 import isEmpty from 'lodash.isempty';
-import { getStyledComponent } from './getStyledComponentAndObjects';
-import {
-  get as getResolvedStyleMap,
-  set as setResolvedStyleMap,
-} from '../core';
-
-// TODO: Scalibility issue, might have to shift to a map
-
-const PSEUDO_PROP_COMPONENT_MAP = {
-  _spinner: 'Spinner',
-  _stack: 'Stack',
-  _text: 'Text',
-  _icon: 'Icon',
-};
 
 window['logger'] = {};
 console.batchTime = (key) => {
@@ -61,41 +46,103 @@ console.batchTimeEnd = (key) => {
   }
 };
 
-const resolveComponentThemeStyleAndUpdateMapForColorMode = (
+export const getStyledComponent = (
   name: string,
-  inputProps?: {},
-  colorMode: 'light' | 'dark' = 'light'
-) => {
-  const styledObj: any = getStyledComponent(name, colorMode, inputProps);
-  for (let property in styledObj.internalPseudoProps) {
-    resolveComponentThemeStyleAndUpdateMapForColorMode(
-      `${name}.${PSEUDO_PROP_COMPONENT_MAP[property]}`,
-      styledObj.internalPseudoProps[property],
-      colorMode
-    );
-  }
-
-  setResolvedStyleMap(name, styledObj, colorMode);
-  return styledObj;
-};
-
-export const resolveComponentThemeStyleAndUpdateMap = (
-  name: string,
+  colorMode: 'light' | 'dark',
   inputProps?: {}
 ) => {
-  const lightThemeObj = resolveComponentThemeStyleAndUpdateMapForColorMode(
-    name,
-    inputProps,
-    'light'
+  const componentTheme = get(theme, `components.${name}`, {});
+  const componentStyle = componentTheme.defaultProps?.style;
+
+  const inputWithDefaultProps = {
+    ...componentTheme.defaultProps,
+    ...inputProps,
+  };
+  let flattenProps: any, specificityMap;
+  // console.log("incoming ******", incomingWithDefaultProps);
+  [flattenProps, specificityMap] = propsFlattener(
+    {
+      props: inputWithDefaultProps,
+      platform: Platform.OS,
+      colormode: colorMode,
+      state: {},
+      currentSpecificityMap: {},
+      previouslyFlattenProps: flattenProps || {},
+      cascadePseudoProps: false,
+    },
+    1
   );
-  const darkThemeObj = resolveComponentThemeStyleAndUpdateMapForColorMode(
-    name,
-    inputProps,
-    'dark'
+  // console.log(flattenProps, "********", componentTheme.defaultProps);
+  [flattenProps] = mergeStylesWithSpecificity(
+    componentTheme,
+    flattenProps,
+    specificityMap,
+    colorMode
   );
-  return { lightThemeObj, darkThemeObj };
+
+  if (name == 'Button') {
+    console.log(flattenProps, 'flatten');
+  }
+
+  let internalPseudoProps: any = {};
+  //TODO: refactor
+  for (const property in flattenProps) {
+    if (
+      property.startsWith('_') &&
+      !['_dark', '_light', '_web', '_ios', '_android', '_important'].includes(
+        property
+      )
+    ) {
+      internalPseudoProps[property] = flattenProps[property];
+    }
+  }
+
+  // ["_dark", "_light", "_web", "_ios", "_android", "_important"].includes(
+  //   flattenProps
+  // );
+  const styleObj = resolvePropsToStyle(
+    flattenProps,
+    componentStyle,
+    theme,
+    false,
+    4,
+    false,
+    // getResponsiveStyles,
+    undefined,
+    name
+  );
+
+  styleObj.internalPseudoProps = internalPseudoProps;
+  return styleObj;
 };
 
+const resolveComponentThemeStyle = (
+  incomingProps: any,
+  themeType: Array<string>,
+  providedTheme: any
+): any => {
+  try {
+    if (themeType[1]) {
+      return typeof providedTheme[themeType[0]][themeType[1]] !== 'function'
+        ? providedTheme[themeType[0]][themeType[1]]
+        : providedTheme[themeType[0]][themeType[1]]({
+            theme,
+            ...incomingProps,
+            colorMode: 'light',
+          });
+    } else {
+      return typeof providedTheme[themeType[0]] !== 'function'
+        ? providedTheme[themeType[0]]
+        : providedTheme[themeType[0]]({
+            theme,
+            ...incomingProps,
+            colorMode: 'light',
+          });
+    }
+  } catch {
+    return {};
+  }
+};
 const resolveComponentTheme = (
   incomingProps: any,
   themeType: Array<string>,
@@ -268,10 +315,9 @@ export const makeStyledComponent = (
   componentName: keyof ITheme['components']
 ) => {
   //TODO: component theme
-  // return <> </>;
 
-  const globalLightStyle = getStyledComponent(componentName, 'light');
-  const globalDarkStyle = getStyledComponent(componentName, 'dark');
+  const globalLightStyle = resolveComponentThemeStyle(componentName, 'light');
+  const globalDarkStyle = resolveComponentThemeStyle(componentName, 'dark');
 
   console.log(StyleSheet.flatten(globalLightStyle.style), 'hello style');
   return React.forwardRef(({ debug, ...props }: any, ref: any) => {

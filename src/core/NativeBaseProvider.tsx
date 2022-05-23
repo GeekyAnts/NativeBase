@@ -22,7 +22,9 @@ import {
   platformSpecificSpaceUnits,
 } from '../theme/tools/utils';
 import { ResponsiveQueryProvider } from '../utils/useResponsiveQuery';
+import { init as initResolvedStyleMap } from './ResolvedStyleMap';
 
+initResolvedStyleMap();
 // For SSR to work, we need to pass initial insets as 0 values on web.
 
 // https://github.com/th3rdwave/react-native-safe-area-context/issues/132
