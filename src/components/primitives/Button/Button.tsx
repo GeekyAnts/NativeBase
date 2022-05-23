@@ -21,7 +21,7 @@ import {
   getResolvedStyleSheet,
   log as resolveComponentThemeLog,
 } from '../../../core';
-import { useColorMode } from 'native-base';
+import { useColorMode } from '../../../core/color-mode';
 
 resolveComponentThemeStyleAndUpdateMap('Button', {});
 // resolveComponentThemeLog();

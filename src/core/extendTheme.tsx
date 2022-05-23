@@ -1,5 +1,6 @@
 import { theme as defaultTheme, Theme } from './../theme';
 import mergeWith from 'lodash.mergewith';
+import { resolveComponentThemeStyleAndUpdateMap } from '../utils/styled';
 
 function isFunction(value: any): boolean {
   return typeof value === 'function';
@@ -7,6 +8,13 @@ function isFunction(value: any): boolean {
 
 type ThemeUtil = Theme | (Record<string, any> & {});
 
+function resolveComponentThemeAndUpdateMap(theme: any) {
+  if (theme.components) {
+    Object.keys(theme.components).map((key: string) => {
+      resolveComponentThemeStyleAndUpdateMap(key, theme.components[key]);
+    });
+  }
+}
 export function extendTheme<T extends ThemeUtil>(
   overrides: T,
   ...restOverrides: T[]
@@ -26,6 +34,7 @@ export function extendTheme<T extends ThemeUtil>(
 
   const finalOverrides = [overrides, ...restOverrides].reduce(
     (prevValue, currentValue) => {
+      resolveComponentThemeAndUpdateMap(currentValue);
       return mergeWith({}, prevValue, currentValue, customizer);
     },
     defaultTheme

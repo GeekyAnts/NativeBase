@@ -6,6 +6,8 @@ import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { makeStyledComponent } from '../../../utils/styled';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useFocusRing } from '@react-native-aria/focus';
+import { getResolvedStyleSheet } from '../../../core';
+import { useColorMode } from '../../../core/color-mode';
 
 const StyledPressable = makeStyledComponent(RNPressable, 'Pressable');
 
@@ -51,6 +53,7 @@ const Pressable = (
     isPressed: isPressedProp,
     isFocused: isFocusedProp,
     isFocusVisible: isFocusVisibleProp,
+    style: pressableStyle,
     ...props
   }: IPressableProps,
   ref: any
@@ -59,6 +62,7 @@ const Pressable = (
   const { pressableProps, isPressed } = useIsPressed();
   const { focusProps, isFocused } = useFocus();
   const { isFocusVisible, focusProps: focusRingProps }: any = useFocusRing();
+  const { colorMode } = useColorMode();
 
   const {
     onPressIn,
@@ -83,9 +87,16 @@ const Pressable = (
     return null;
   }
 
+  console.log(
+    getResolvedStyleSheet('Pressable', colorMode),
+    colorMode,
+    'hello 111'
+  );
+
   // TODO: Replace Render props with Context Hook
   return (
     <StyledPressable
+      style={[getResolvedStyleSheet('Pressable', colorMode), pressableStyle]}
       ref={ref}
       onPressIn={composeEventHandlers(onPressIn, pressableProps.onPressIn)}
       onPressOut={composeEventHandlers(onPressOut, pressableProps.onPressOut)}

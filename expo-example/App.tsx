@@ -45,7 +45,7 @@ export default function App() {
         {nativeBaseIsOn && <NativeBaseScreen />} */}
         <NativeBaseProvider
           theme={extendTheme({
-            config: { initialColorMode: 'dark' },
+            // config: { initialColorMode: 'dark' },
             components: {
               Pressable: {
                 bg: 'amber.400',
