@@ -185,7 +185,7 @@ export const NativeBaseScreen = () => {
       {/* {state && <Box background={"red.200"} w="100" h="100" />} */}
       {state && (
         <>
-          <View style={{ backgroundColor: 'red', width: 100, height: 100 }} />
+          {/* <View style={{ backgroundColor: 'red', width: 100, height: 100 }} /> */}
           {/* <Pressable/> */}
           <View>
             {new Array(1).fill(' ').map((_, index) => (
@@ -219,14 +219,14 @@ export const NativeBaseScreen = () => {
           </View>
 
           <View>
-            {new Array(1).fill(' ').map((_, index) => (
+            {/* {new Array(1).fill(' ').map((_, index) => (
               <DripsyButton
                 sx={{ bg: '$primary', p: index }}
                 style={{ backgroundColor: 'red', width: 100, height: 100 }}
               >
-                <DripsyText>hello</DripsyText>
+                <DripsyText>hello dripsy</DripsyText>
               </DripsyButton>
-            ))}
+            ))} */}
           </View>
           {/* <DripsyView
             sx={{

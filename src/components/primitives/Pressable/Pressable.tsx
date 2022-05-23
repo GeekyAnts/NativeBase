@@ -7,6 +7,8 @@ import { makeStyledComponent } from '../../../utils/styled';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useFocusRing } from '@react-native-aria/focus';
 
+const StyledPressable = makeStyledComponent(RNPressable, 'Pressable');
+
 export const useHover = () => {
   const [isHovered, setHovered] = React.useState(false);
   return {
@@ -39,8 +41,6 @@ export const useIsPressed = () => {
     isPressed,
   };
 };
-
-const StyledPressable = makeStyledComponent(RNPressable, 'Pressable');
 
 const Pressable = (
   {
