@@ -189,7 +189,7 @@ export const NativeBaseScreen = () => {
           {/* <Pressable/> */}
           <View>
             {new Array(1).fill(' ').map((_, index) => (
-              <Pressable
+              <Button
                 bg="red.400"
                 // safeAreaX
                 p={2}
@@ -214,7 +214,7 @@ export const NativeBaseScreen = () => {
                 style={{ width: 100, height: 100 }}
               >
                 <Text>Hello</Text>
-              </Pressable>
+              </Button>
             ))}
           </View>
 
