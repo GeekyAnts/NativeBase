@@ -17,11 +17,14 @@ import { useFocusRing } from '@react-native-aria/focus';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import get from 'lodash.get';
 import { resolveComponentThemeStyleAndUpdateMap } from '../../../utils/styled';
-import { getResolvedStyleSheet } from '../../../core';
+import {
+  getResolvedStyleSheet,
+  log as resolveComponentThemeLog,
+} from '../../../core';
 import { useColorMode } from 'native-base';
 
 resolveComponentThemeStyleAndUpdateMap('Button', {});
-
+// resolveComponentThemeLog();
 // console.log(
 //   'styledObj',
 //   styleObj

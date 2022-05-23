@@ -12,7 +12,7 @@ export const get = (key: string) => {
 };
 export const getResolvedStyleSheet = (key: string, colorMode?: ColorMode) => {
   const styleObj: any = get(key);
-  if (!colorMode) {
+  if (!colorMode || !styleObj) {
     return null;
   }
   return styleObj[colorMode]?.style;
