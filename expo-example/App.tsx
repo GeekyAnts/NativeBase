@@ -44,7 +44,14 @@ export default function App() {
         {customIsOn && <CustomButtonScreen />}
         {nativeBaseIsOn && <NativeBaseScreen />} */}
         <NativeBaseProvider
-          theme={extendTheme({ config: { initialColorMode: 'dark' } })}
+          theme={extendTheme({
+            config: { initialColorMode: 'dark' },
+            components: {
+              Pressable: {
+                bg: 'amber.400',
+              },
+            },
+          })}
         >
           <DripsyProvider theme={theme}>
             <NativeBaseScreen />
