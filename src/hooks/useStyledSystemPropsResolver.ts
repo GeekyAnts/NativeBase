@@ -1,6 +1,7 @@
 import { getStyleAndFilteredProps, propConfig } from '../theme/styled-system';
 import { useTheme } from './useTheme';
 import React from 'react';
+import { StyleSheet } from 'react-native';
 import { useNativeBaseConfig } from '../core/NativeBaseContext';
 import { useResponsiveQuery } from '../utils/useResponsiveQuery';
 //@ts-ignore
@@ -10,7 +11,7 @@ const getStyledSystemPropsAndRestProps = (props: any) => {
   const styledSystemProps: any = {};
   const restProps: any = {};
 
-  for (let key in props) {
+  for (const key in props) {
     if (key in propConfig) {
       styledSystemProps[key] = props[key];
     } else {
@@ -29,25 +30,24 @@ export const resolvePropsToStyle = (
   currentBreakpoint: any,
   strictMode: any,
   getResponsiveStyles?: any,
-  name?: string
+  INTERNAL_themeStyle?: any
 ) => {
-  if (name == 'Button') console.log(styledSystemProps, 'flattenprops');
-
   const { styleSheet, dataSet } = getStyleAndFilteredProps({
     styledSystemProps,
     theme,
     debug,
     currentBreakpoint,
     strictMode,
-    // getResponsiveStyles,
+    getResponsiveStyles,
   });
 
-  if (name == 'Button') console.log(styleSheet, 'flattenprops');
-
   if (propStyle) {
-    return { style: [styleSheet.box, propStyle], dataSet };
+    return {
+      style: [INTERNAL_themeStyle, styleSheet.box, propStyle],
+      dataSet,
+    };
   } else {
-    return { style: styleSheet.box, dataSet };
+    return { style: [INTERNAL_themeStyle, styleSheet.box], dataSet };
   }
 };
 export const useStyledSystemPropsResolver = ({
@@ -55,7 +55,6 @@ export const useStyledSystemPropsResolver = ({
   debug,
   ...props
 }: any) => {
-  // console.time("useStyledSystemPropsResolver");
   // console.time("PROP_CONFIG");
 
   const theme = useTheme();
@@ -72,17 +71,27 @@ export const useStyledSystemPropsResolver = ({
     props
   );
 
+  // console.log('useStyledSystemPropsResolver', restProps);
+
   const { style, dataSet } = React.useMemo(() => {
-    return resolvePropsToStyle(
+    const resolvedStyle = resolvePropsToStyle(
       styledSystemProps,
       propStyle,
       theme,
       debug,
       currentBreakpoint,
       strictMode,
-      getResponsiveStyles
+      getResponsiveStyles,
+      restProps.INTERNAL_themeStyle
     );
 
+    // console.log(
+    //   StyleSheet.flatten(resolvedStyle.style),
+    //   styledSystemProps,
+    //   '******'
+    // );
+
+    return resolvedStyle;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     // eslint-disable-next-line react-hooks/exhaustive-deps

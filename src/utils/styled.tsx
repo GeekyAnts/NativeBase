@@ -264,19 +264,21 @@ const mergeStylesWithSpecificity = (
 };
 
 export const makeStyledComponent = (
-  Comp: any,
-  componentName: keyof ITheme['components']
+  Comp: any
+  // componentName: keyof ITheme['components']
 ) => {
   //TODO: component theme
   // return <> </>;
 
-  const globalLightStyle = getStyledComponent(componentName, 'light');
-  const globalDarkStyle = getStyledComponent(componentName, 'dark');
+  // const globalLightStyle = getStyledComponent(componentName, 'light');
+  // const globalDarkStyle = getStyledComponent(componentName, 'dark');
 
-  console.log(StyleSheet.flatten(globalLightStyle.style), 'hello style');
+  // console.log(StyleSheet.flatten(globalLightStyle.style), 'hello style');
   return React.forwardRef(({ debug, ...props }: any, ref: any) => {
     // console.log(props, "hello props **********");
     const [style, restProps] = useStyledSystemPropsResolver(props);
+
+    // console.log(props, 'props here');
     // if (process.env.NODE_ENV === "development" && debug) {
     //   /* eslint-disable-next-line */
     //   console.log(
@@ -302,17 +304,16 @@ export const makeStyledComponent = (
     // check dark / light mode
     // based on color mode pass style
 
-    const { colorMode } = useColorMode();
-    let componentStyle = {};
-    if (colorMode === 'light') {
-      componentStyle = globalLightStyle;
-    } else {
-      componentStyle = globalDarkStyle;
-    }
+    // const { colorMode } = useColorMode();
+    // let componentStyle = {};
+    // if (colorMode === 'light') {
+    //   componentStyle = globalLightStyle;
+    // } else {
+    //   componentStyle = globalDarkStyle;
+    // }
 
-    // console.log(StyleSheet.flatten(componentStyle.style), "hello *********");
     return (
-      <Comp {...restProps} style={[style, componentStyle.style]} ref={ref}>
+      <Comp {...restProps} style={style} ref={ref}>
         {props.children}
       </Comp>
     );

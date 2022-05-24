@@ -53,7 +53,7 @@ const Pressable = (
     isPressed: isPressedProp,
     isFocused: isFocusedProp,
     isFocusVisible: isFocusVisibleProp,
-    style: pressableStyle,
+    // style: pressableStyle,
     ...props
   }: IPressableProps,
   ref: any
@@ -87,16 +87,13 @@ const Pressable = (
     return null;
   }
 
-  console.log(
-    getResolvedStyleSheet('Pressable', colorMode),
-    colorMode,
-    'hello 111'
-  );
+  // console.log(resolvedProps, 'hello 111 &&&');
 
   // TODO: Replace Render props with Context Hook
   return (
     <StyledPressable
-      style={[getResolvedStyleSheet('Pressable', colorMode), pressableStyle]}
+      // style={[, pressableStyle]}
+      INTERNAL_themeStyle={getResolvedStyleSheet('Pressable', colorMode)}
       ref={ref}
       onPressIn={composeEventHandlers(onPressIn, pressableProps.onPressIn)}
       onPressOut={composeEventHandlers(onPressOut, pressableProps.onPressOut)}

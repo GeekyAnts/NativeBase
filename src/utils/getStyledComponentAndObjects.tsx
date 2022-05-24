@@ -8,7 +8,7 @@ import { memoize } from 'lodash';
 import get from 'lodash.get';
 import merge from 'lodash.merge';
 import { View, StyleSheet, Platform } from 'react-native';
-import { useColorMode } from '../core';
+import { ColorMode, useColorMode } from '../core';
 import { propsFlattener } from '../hooks/useThemeProps/propsFlattener';
 import { ITheme, theme } from '../theme';
 import { getStyleAndFilteredProps, propConfig } from '../theme/styled-system';
@@ -48,7 +48,7 @@ console.batchTimeEnd = (key) => {
 
 export const getStyledComponent = (
   name: string,
-  colorMode: 'light' | 'dark',
+  colorMode: ColorMode,
   inputProps?: {}
 ) => {
   const componentTheme = get(theme, `components.${name}`, {});
@@ -108,8 +108,7 @@ export const getStyledComponent = (
     4,
     false,
     // getResponsiveStyles,
-    undefined,
-    name
+    undefined
   );
 
   styleObj.internalPseudoProps = internalPseudoProps;

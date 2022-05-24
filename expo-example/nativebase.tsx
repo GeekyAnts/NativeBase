@@ -188,10 +188,13 @@ export const NativeBaseScreen = () => {
           {/* <View style={{ backgroundColor: 'red', width: 100, height: 100 }} /> */}
           {/* <Pressable/> */}
           <View>
-            {new Array(1).fill(' ').map((_, index) => (
+            {new Array(1).fill('100').map((_, index) => (
               <Pressable
                 // bg="blue.400"
                 // safeAreaX
+                // _hover={{
+                //   bg: 'red.500',
+                // }}
                 p={2}
                 mt={2}
                 borderWidth={1}

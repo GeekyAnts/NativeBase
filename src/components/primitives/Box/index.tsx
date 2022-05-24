@@ -10,6 +10,8 @@ import { useSafeArea } from '../../../hooks/useSafeArea';
 import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { useStyledSystemPropsResolver } from '../../../hooks/';
+import { getResolvedStyleSheet } from '../../../core';
+import { useColorMode } from '../../../core';
 
 const StyledBox = makeStyledComponent(View, 'Box');
 
@@ -160,10 +162,19 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
 };
 
 const BoxComponentWithSafeArea = forwardRef(
-  ({ children, _text, ...props }: IBoxProps, ref: any) => {
+  ({ children, _text, INTERNAL_themeStyle, ...props }: IBoxProps, ref: any) => {
     const safeAreaProps = useSafeArea(props);
+    const { colorMode } = useColorMode();
+
     return (
-      <StyledBox ref={ref} {...safeAreaProps}>
+      <StyledBox
+        ref={ref}
+        {...safeAreaProps}
+        INTERNAL_themeStyle={[
+          INTERNAL_themeStyle,
+          getResolvedStyleSheet('Box', colorMode),
+        ]}
+      >
         {wrapStringChild(children, _text)}
       </StyledBox>
     );
@@ -171,9 +182,19 @@ const BoxComponentWithSafeArea = forwardRef(
 );
 
 const BoxComponentWithoutSafeArea = forwardRef(
-  ({ children, _text, ...props }: IBoxProps, ref: any) => {
+  ({ children, _text, INTERNAL_themeStyle, ...props }: IBoxProps, ref: any) => {
+    const { colorMode } = useColorMode();
+
     return (
-      <StyledBox ref={ref} {...props}>
+      <StyledBox
+        ref={ref}
+        {...props}
+        INTERNAL_themeStyle={[
+          INTERNAL_themeStyle,
+          getResolvedStyleSheet('Box', colorMode),
+        ]}
+        // INTERNAL_themeStyle={getStyledComponent('Box', colorMode)}
+      >
         {wrapStringChild(children, _text)}
       </StyledBox>
     );

@@ -48,7 +48,8 @@ export default function App() {
             // config: { initialColorMode: 'dark' },
             components: {
               Pressable: {
-                bg: 'amber.400',
+                bg: 'blue.400',
+                _hover: 'red.500',
               },
             },
           })}

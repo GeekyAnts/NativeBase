@@ -20,5 +20,9 @@ const baseStyle = (props: any) => {
 
 export default {
   baseStyle,
-  defaultProps: {},
+  defaultProps: {
+    _hover: {
+      bg: 'red.500',
+    },
+  },
 };
