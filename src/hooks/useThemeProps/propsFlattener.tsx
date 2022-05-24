@@ -346,7 +346,7 @@ export const propsFlattener = (
   }: any,
   priority: number
 ) => {
-  let flattenProps: any = {};
+  const flattenProps: any = {};
 
   for (const property in props) {
     if (
@@ -359,6 +359,7 @@ export const propsFlattener = (
   }
 
   const specificityMap = currentSpecificityMap || {};
+  console.log(props, flattenProps, 'state here ****');
 
   // console.log("before simplify", props);
   simplifyProps(

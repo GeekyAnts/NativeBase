@@ -3,13 +3,18 @@ import { Pressable as RNPressable } from 'react-native';
 import { composeEventHandlers } from '../../../utils';
 import type { IPressableProps } from './types';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-import { makeStyledComponent } from '../../../utils/styled';
+import {
+  makeStyledComponent,
+  resolveComponentThemeStyleAndUpdateMap,
+} from '../../../utils/styled';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useFocusRing } from '@react-native-aria/focus';
 import { getResolvedStyleSheet } from '../../../core';
 import { useColorMode } from '../../../core/color-mode';
 
-const StyledPressable = makeStyledComponent(RNPressable, 'Pressable');
+const StyledPressable = makeStyledComponent(RNPressable);
+
+resolveComponentThemeStyleAndUpdateMap('Pressable', {});
 
 export const useHover = () => {
   const [isHovered, setHovered] = React.useState(false);
@@ -93,7 +98,13 @@ const Pressable = (
   return (
     <StyledPressable
       // style={[, pressableStyle]}
-      INTERNAL_themeStyle={getResolvedStyleSheet('Pressable', colorMode)}
+      INTERNAL_themeStyle={getResolvedStyleSheet('Pressable', colorMode, {
+        isPressed: isPressedProp || isPressed,
+        isFocused: isFocusedProp || isFocused,
+        isHovered: isHoveredProp || isHovered,
+        isFocusVisible: isFocusVisibleProp || isFocusVisible,
+        isDisabled: disabled || isDisabled,
+      })}
       ref={ref}
       onPressIn={composeEventHandlers(onPressIn, pressableProps.onPressIn)}
       onPressOut={composeEventHandlers(onPressOut, pressableProps.onPressOut)}

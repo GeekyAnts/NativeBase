@@ -193,16 +193,16 @@ export const NativeBaseScreen = () => {
                 // bg="blue.400"
                 // safeAreaX
                 // _hover={{
-                //   bg: 'red.500',
+                //   bg: 'green.500',
                 // }}
-                p={2}
-                mt={2}
-                borderWidth={1}
-                borderRadius={1}
-                pt={1}
-                pb={1}
-                pr={1}
-                pl={1}
+                // p={2}
+                // mt={2}
+                // borderWidth={1}
+                // borderRadius={1}
+                // pt={1}
+                // pb={1}
+                // pr={1}
+                // pl={1}
                 // borderBottomColor="emerald.100"
                 // bg="red.200"
                 // p={index}
