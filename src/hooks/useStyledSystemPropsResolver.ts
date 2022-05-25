@@ -41,6 +41,10 @@ export const resolvePropsToStyle = (
     getResponsiveStyles,
   });
 
+  // console.log(
+  //   StyleSheet.flatten([INTERNAL_themeStyle, styleSheet.box, propStyle]),
+  //   '3333 style system props'
+  // );
   if (propStyle) {
     return {
       style: [INTERNAL_themeStyle, styleSheet.box, propStyle],

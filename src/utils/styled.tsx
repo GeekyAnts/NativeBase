@@ -62,31 +62,13 @@ console.batchTimeEnd = (key) => {
   }
 };
 
-const resolveComponentThemeStyleAndUpdateMapForColorMode = (
-  name: string,
-  key: string,
-  inputProps?: {},
-  colorMode: 'light' | 'dark' = 'light',
-  resolveForStatePseudoProps: boolean = false
+const resolveForInternalPseudoProps = (
+  name: any,
+  key: any,
+  styledObj: any,
+  colorMode: any
 ) => {
-  // resolve for variant
-  const styledObj: any = getStyledComponent(
-    name,
-    colorMode,
-    inputProps,
-    resolveForStatePseudoProps
-  );
-
-  for (let property in styledObj.internalPseudoProps) {
-    // console.log(
-    //   name,
-    //   key,
-    //   property,
-    //   inputProps,
-    //   styledObj.internalPseudoProps[property],
-    //   'style obje11'
-    // );
-
+  for (const property in styledObj.internalPseudoProps) {
     if (PSEUDO_PROP_COMPONENT_MAP[property]) {
       resolveComponentThemeStyleAndUpdateMapForColorMode(
         PSEUDO_PROP_COMPONENT_MAP[property],
@@ -96,7 +78,7 @@ const resolveComponentThemeStyleAndUpdateMapForColorMode = (
         true
       );
     } else {
-      console.log(key, name, property, 'property here');
+      // console.log(key, name, property, 'property here');
       resolveComponentThemeStyleAndUpdateMapForColorMode(
         name,
         `${key}.${property}`,
@@ -106,7 +88,33 @@ const resolveComponentThemeStyleAndUpdateMapForColorMode = (
       );
     }
   }
+};
 
+const resolveComponentThemeStyleAndUpdateMapForColorMode = (
+  name: string,
+  key: string,
+  inputProps?: {},
+  colorMode: 'light' | 'dark' = 'light',
+  resolveForStatePseudoProps: boolean = false
+) => {
+  const componentTheme = get(theme, `components.${name}`, {});
+  // resolve for variant
+  const styledObj: any = getStyledComponent(
+    componentTheme,
+    name,
+    colorMode,
+    inputProps,
+    resolveForStatePseudoProps
+  );
+
+  // TODO: run only once
+  // // resolve for all variants and sizes
+  // if (!resolveForStatePseudoProps) {
+  //   // const componentTheme = get(theme, `components.${name}`, {});
+
+  // }
+  console.log(key, name, styledObj, '**** variant ****  @@');
+  resolveForInternalPseudoProps(name, key, styledObj, colorMode);
   setResolvedStyleMap(key, styledObj, colorMode);
   return styledObj;
 };
@@ -121,12 +129,51 @@ export const resolveComponentThemeStyleAndUpdateMap = (
     inputProps,
     'light'
   );
-  const darkThemeObj = resolveComponentThemeStyleAndUpdateMapForColorMode(
-    name,
-    name,
-    inputProps,
-    'dark'
-  );
+
+  // resolve for all variants
+  const componentTheme = get(theme, `components.${name}`, {});
+  for (const variant in componentTheme.variants) {
+    resolveComponentThemeStyleAndUpdateMapForColorMode(
+      name,
+      `${name}.${variant}`,
+      { variant: variant },
+      'light',
+      false
+    );
+  }
+
+  // resolve for all sizes
+  for (const size in componentTheme.sizes) {
+    resolveComponentThemeStyleAndUpdateMapForColorMode(
+      name,
+      `${name}.${size}`,
+      { size: size },
+      'light',
+      false
+    );
+  }
+
+  // resolve for all variants and sizes
+
+  for (const variant in componentTheme.variants) {
+    for (const size in componentTheme.sizes) {
+      resolveComponentThemeStyleAndUpdateMapForColorMode(
+        name,
+        `${name}.${variant}.${size}`,
+        { size: size, variant: variant },
+        'light',
+        false
+      );
+    }
+  }
+
+  // const darkThemeObj = resolveComponentThemeStyleAndUpdateMapForColorMode(
+  //   name,
+  //   name,
+  //   inputProps,
+  //   'dark'
+  // );
+  const darkThemeObj = {};
   return { lightThemeObj, darkThemeObj };
 };
 

@@ -190,6 +190,7 @@ export const NativeBaseScreen = () => {
           <View>
             {new Array(1).fill('100').map((_, index) => (
               <Button
+              // variant={'outline'}
               // bg="blue.400"
               // safeAreaX
               // _hover={{

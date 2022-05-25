@@ -23,7 +23,10 @@ import {
 } from '../../../core';
 import { useColorMode } from '../../../core/color-mode';
 
+console.time('resolver');
 resolveComponentThemeStyleAndUpdateMap('Button', {});
+console.timeEnd('resolver');
+
 // resolveComponentThemeLog();
 // console.log(
 //   'styledObj',

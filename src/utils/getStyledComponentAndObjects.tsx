@@ -47,12 +47,12 @@ console.batchTimeEnd = (key) => {
 };
 
 export const getStyledComponent = (
+  componentTheme: any,
   name: string,
   colorMode: ColorMode,
   inputProps?: {},
   resolveForStatePseudoProps: boolean = false
 ) => {
-  let componentTheme = get(theme, `components.${name}`, {});
   let componentStyle = componentTheme.defaultProps?.style;
   if (resolveForStatePseudoProps) {
     componentTheme = {};
@@ -64,7 +64,15 @@ export const getStyledComponent = (
     ...inputProps,
   };
 
+  // console.log(
+  //   inputWithDefaultProps,
+  //   // StyleSheet.flatten(styledObj.style),
+  //   // variant,
+  //   '**** variant ****  @@'
+  // );
+
   let flattenProps: any, specificityMap;
+
   [flattenProps, specificityMap] = propsFlattener(
     {
       props: inputWithDefaultProps,
@@ -78,7 +86,7 @@ export const getStyledComponent = (
     1
   );
 
-  // console.log(flattenProps, inputWithDefaultProps, 'flatten props 111');
+  // console.log(flattenProps, 'flatten props ^^^^^');
 
   [flattenProps] = mergeStylesWithSpecificity(
     componentTheme,
@@ -86,6 +94,8 @@ export const getStyledComponent = (
     specificityMap,
     colorMode
   );
+
+  console.log(flattenProps, 'flatten props ^^^^^');
 
   // console.log(name, flattenProps, inputWithDefaultProps, 'hello input');
 
@@ -98,6 +108,8 @@ export const getStyledComponent = (
 
   //TODO: refactor
 
+  // internalPseudoProps[property] = flattenProps[property];
+
   for (const property in flattenProps) {
     if (
       property.startsWith('_') &&
@@ -106,7 +118,12 @@ export const getStyledComponent = (
       )
     ) {
       internalPseudoProps[property] = flattenProps[property];
+
+      // internalPseudoProps[property] = flattenProps[property];
+    } else {
+      // console.log(property, 'property @@');
     }
+
     // if (property.startsWith('_')) {
     //   internalStatePseudoProps[property] = flattenProps[property];
     // }
@@ -116,6 +133,7 @@ export const getStyledComponent = (
   //   flattenProps
   // );
 
+  // console.log(flattenProps, 'flatten props ^^^^^');
   const styleObj = resolvePropsToStyle(
     flattenProps,
     componentStyle,
@@ -132,8 +150,16 @@ export const getStyledComponent = (
   //
 
   //
+  //
+  //
 
-  console.log(name, internalPseudoProps, 'hello stack stack');
+  //
+
+  // resolve variant styles
+  console.log(name, componentTheme, 'hello stack stack');
+
+  //
+  //
 
   styleObj.internalPseudoProps = internalPseudoProps;
   // styleObj.internalStatePseudoProps = internalStatePseudoProps;
@@ -352,6 +378,8 @@ const mergeStylesWithSpecificity = (
     { ...defaultStyles, ...flattenProps },
     defaultSpecificity
   );
+
+  console.log(flattenProps, '**** ***** *****');
   return [flattenProps];
 };
 

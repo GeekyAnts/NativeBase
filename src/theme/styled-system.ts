@@ -621,7 +621,7 @@ const getRNKeyAndStyleValue = ({
     //@ts-ignore
     const { property, scale, properties, transformer } = config;
     let val = value;
-
+    console.log('zzzz style system props', theme, scale, value, transformer);
     if (transformer) {
       val = transformer(val, theme[scale], theme, styledSystemProps.fontSize);
     } else {
@@ -686,6 +686,7 @@ export const getStyleAndFilteredProps = ({
     Array<any>
   > = null;
 
+  console.log(styledSystemProps, '&&&&&');
   const orderedBreakPoints = Object.entries(
     theme.breakpoints as ITheme['breakpoints']
   ).sort((a, b) => a[1] - b[1]);
@@ -735,6 +736,7 @@ export const getStyleAndFilteredProps = ({
       }
     } else {
       const value = rawValue;
+
       const newStyle = getRNKeyAndStyleValue({
         config,
         value,
@@ -743,13 +745,17 @@ export const getStyleAndFilteredProps = ({
         theme,
         currentBreakpoint,
       });
+      console.log(key, value, newStyle, 'style system props @');
 
       styleFromProps = {
         ...styleFromProps,
         ...newStyle,
       };
+      // if (key === '_light') {
+      // }
     }
   }
+  // console.log(JSON.stringify(styleFromProps), 'style system props 2');
 
   if (responsiveStyles) {
     const query: UseResponsiveQueryParams = { query: [] };

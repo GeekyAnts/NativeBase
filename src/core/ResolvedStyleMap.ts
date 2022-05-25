@@ -25,6 +25,8 @@ const isValidStateKey = (stateKey: string, state: any) => {
 };
 
 const isValidState = (key: string, state: any) => {
+  //TODO:  consider `Button.Spinner._hover._hover`
+  // include only startWith("_")
   const stateKeys = key.split('.');
   stateKeys.shift();
 
