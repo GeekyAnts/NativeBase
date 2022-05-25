@@ -13,6 +13,7 @@ import { propsFlattener } from '../hooks/useThemeProps/propsFlattener';
 import { ITheme, theme } from '../theme';
 import { getStyleAndFilteredProps, propConfig } from '../theme/styled-system';
 
+window['StyleSheet'] = StyleSheet;
 import {
   callPropsFlattener,
   propsSpreader,
@@ -65,19 +66,38 @@ console.batchTimeEnd = (key) => {
 
 const resolveComponentThemeStyleAndUpdateMapForColorMode = (
   name: string,
+  key: string,
   inputProps?: {},
-  colorMode: 'light' | 'dark' = 'light'
+  colorMode: 'light' | 'dark' = 'light',
+  resolveForStatePseudoProps: boolean = false
 ) => {
-  const styledObj: any = getStyledComponent(name, colorMode, inputProps);
+  const styledObj: any = getStyledComponent(
+    name,
+    colorMode,
+    inputProps,
+    resolveForStatePseudoProps
+  );
+
   for (let property in styledObj.internalPseudoProps) {
-    resolveComponentThemeStyleAndUpdateMapForColorMode(
-      `${name}.${PSEUDO_PROP_COMPONENT_MAP[property]}`,
-      styledObj.internalPseudoProps[property],
-      colorMode
-    );
+    if (PSEUDO_PROP_COMPONENT_MAP[property]) {
+      resolveComponentThemeStyleAndUpdateMapForColorMode(
+        PSEUDO_PROP_COMPONENT_MAP[property],
+        `${key}.${PSEUDO_PROP_COMPONENT_MAP[property]}`,
+        styledObj.internalPseudoProps[property],
+        colorMode
+      );
+    } else {
+      resolveComponentThemeStyleAndUpdateMapForColorMode(
+        name,
+        `${key}.${property}`,
+        styledObj.internalPseudoProps[property],
+        colorMode,
+        true
+      );
+    }
   }
 
-  setResolvedStyleMap(name, styledObj, colorMode);
+  setResolvedStyleMap(key, styledObj, colorMode);
   return styledObj;
 };
 
@@ -87,10 +107,12 @@ export const resolveComponentThemeStyleAndUpdateMap = (
 ) => {
   const lightThemeObj = resolveComponentThemeStyleAndUpdateMapForColorMode(
     name,
+    name,
     inputProps,
     'light'
   );
   const darkThemeObj = resolveComponentThemeStyleAndUpdateMapForColorMode(
+    name,
     name,
     inputProps,
     'dark'

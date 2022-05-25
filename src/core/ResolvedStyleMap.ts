@@ -1,9 +1,15 @@
-import { map } from 'lodash';
+import { forEach, map } from 'lodash';
 import type { ColorMode } from './color-mode';
 
 // Adding Map for storing the props and style for the styled component
 let resolvedStyledMap: Map<string, any> = new Map();
-
+const pseudoPropStateMap = {
+  _disabled: 'isDisabled',
+  _focusVisible: 'isFocusVisible',
+  _focus: 'isFocused',
+  _hover: 'isHovered',
+  _pressed: 'isPressed',
+};
 export const init = () => {
   resolvedStyledMap = new Map();
   window['resolvedStyledMap'] = resolvedStyledMap;
@@ -20,15 +26,91 @@ export const getResolvedProps = (key: string, colorMode?: ColorMode) => {
   }
   return styleObj[colorMode]['styleFromProps'];
 };
-export const getResolvedStyleSheet = (key: string, colorMode?: ColorMode) => {
+const isValidStateKey = (stateKey: string, state: any) => {
+  console.log(stateKey, pseudoPropStateMap[stateKey], state, 'is valid');
+  return state[pseudoPropStateMap[stateKey]];
+};
+
+const isValidState = (key: string, state: any) => {
+  const stateKeys = key.split('.');
+  stateKeys.shift();
+
+  const isValid = stateKeys.every((stateKey: any) => {
+    if (isValidStateKey(stateKey, state)) {
+      return true;
+    }
+    return false;
+  });
+  return isValid;
+  // console.log(isValid, 'is valid');
+  // // const initialValue = 0;
+  // // const sumWithInitial = stateKeys.reduce((previousValue, currentValue) => {
+  // //   //
+  // //   if (isValid === false) {
+  // //     return false;
+  // //   }
+  // //   console.log(previousValue, currentValue, 'hello here 11111');
+  // // }, isValid);
+
+  // // forEach(stateKeys, (stateKey: any) => {
+  // //   //
+  // //   if (stateKey === '_hover') {
+  // //     isValid = true;
+  // //   }
+  // //   console.log(stateKey, 'hello state ******');
+  // // });
+  // return false;
+};
+const getPseudoStateStyles = (componentName: string, state: any) => {
+  const styleObj: any = [];
+  const stateStyleArray: any = [];
+  resolvedStyledMap.forEach((value: any, k: string) => {
+    if (k.startsWith(componentName) && k !== componentName) {
+      stateStyleArray.push({ key: k, value: value });
+    }
+  });
+  stateStyleArray.sort(
+    (obj1: any, obj2: any) => obj1.key.length - obj2.key.length
+  );
+
+  stateStyleArray.forEach((item: any) => {
+    if (isValidState(item.key, state)) {
+      styleObj.push(item.value);
+    }
+  });
+
+  return styleObj;
+};
+
+export const getResolvedStyleSheet = (
+  key: string,
+  colorMode?: ColorMode,
+  state?: any
+) => {
   const styleObj: any = resolvedStyledMap.get(key);
 
   if (!colorMode || !styleObj) {
     return null;
   }
 
-  // console.log(map(styleObj[colorMode], 'style'), 'hello 111 style');
+  const styleSheet = map(styleObj[colorMode], 'style');
 
+  const stateStyles = getPseudoStateStyles(key, state);
+
+  // console.log(
+  //   stateStyles,
+  //   map(stateStyles[colorMode], 'style'),
+  //   'hello state ****'
+  // );
+
+  forEach(stateStyles, (stateStyleObj) => {
+    //
+    styleSheet.push(map(stateStyleObj[colorMode], 'style'));
+  });
+  console.log(styleSheet, '8****88***88');
+
+  // console.log(map(styleObj[colorMode], 'style'), 'hello 111 style');
+  return styleSheet;
   return map(styleObj[colorMode], 'style');
 };
 export const set = (key: string, value: any, colorMode: string) => {

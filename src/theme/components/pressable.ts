@@ -22,7 +22,14 @@ export default {
   baseStyle,
   defaultProps: {
     _hover: {
-      bg: 'red.500',
+      bg: 'blue.500',
+      _hover: {
+        bg: 'amber.500',
+      },
+      // _checked: {
+      //   bg: 'amber.500',
+      // },
     },
+    bg: 'red.500',
   },
 };

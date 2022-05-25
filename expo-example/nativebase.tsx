@@ -189,36 +189,35 @@ export const NativeBaseScreen = () => {
           {/* <Pressable/> */}
           <View>
             {new Array(1).fill('100').map((_, index) => (
-              <Checkbox value={`${index}`}>CheckBox {index}</Checkbox>
-              // <Pressable
-              //   // bg="blue.400"
-              //   // safeAreaX
-              //   // _hover={{
-              //   //   bg: 'red.500',
-              //   // }}
-              //   p={2}
-              //   mt={2}
-              //   borderWidth={1}
-              //   borderRadius={1}
-              //   pt={1}
-              //   pb={1}
-              //   pr={1}
-              //   pl={1}
-              //   // borderBottomColor="emerald.100"
-              //   // bg="red.200"
-              //   // p={index}
-              //   // style={{ width: 100, height: 100 }}
-              //   // _text={{
-              //   //   bg: "blue.200",
-              //   // }}
-              //   // _dark={{
-              //   //   bg: "red.100",
-              //   // }}
-              //   // variant="default"
-              //   style={{ width: 100, height: 100 }}
-              // >
-              //   <Text>Hello</Text>
-              // </Pressable>
+              <Pressable
+                // bg="blue.400"
+                // safeAreaX
+                // _hover={{
+                //   bg: 'green.500',
+                // }}
+                // p={2}
+                // mt={2}
+                // borderWidth={1}
+                // borderRadius={1}
+                // pt={1}
+                // pb={1}
+                // pr={1}
+                // pl={1}
+                // borderBottomColor="emerald.100"
+                // bg="red.200"
+                // p={index}
+                // style={{ width: 100, height: 100 }}
+                // _text={{
+                //   bg: "blue.200",
+                // }}
+                // _dark={{
+                //   bg: "red.100",
+                // }}
+                // variant="default"
+                style={{ width: 100, height: 100 }}
+              >
+                <Text>Hello</Text>
+              </Pressable>
             ))}
           </View>
 
