@@ -76,6 +76,10 @@ export interface InterfaceModalProps extends InterfaceBoxProps<IModalProps> {
    * Props applied on Child Slide Animation.
    */
   _slide?: Partial<ISlideProps>;
+  /**
+   * If false, uses Native Base modal on Android.
+   */
+  useRNModalOnAndroid?: boolean;
 }
 
 export type IModalComponentType = ((

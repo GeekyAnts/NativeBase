@@ -13,6 +13,7 @@ const Actionsheet = (
     isOpen,
     disableOverlay,
     onClose,
+    useRNModalOnAndroid,
     ...resolvedProps
   } = usePropsResolution('Actionsheet', props);
 
@@ -24,6 +25,7 @@ const Actionsheet = (
     <Modal
       isOpen={isOpen}
       onClose={onClose}
+      useRNModalonAndroid={useRNModalOnAndroid}
       {...resolvedProps}
       overlayVisible={disableOverlay ? false : true}
       closeOnOverlayClick={disableOverlay ? false : true}

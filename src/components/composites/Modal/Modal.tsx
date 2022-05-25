@@ -26,6 +26,7 @@ const Modal = (
     overlayVisible = true,
     backdropVisible = true,
     animationPreset,
+    useRNModalOnAndroid = true,
     ...rest
   }: IModalProps,
   ref: any
