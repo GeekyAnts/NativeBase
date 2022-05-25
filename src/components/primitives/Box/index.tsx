@@ -1,8 +1,8 @@
 import React, { memo, forwardRef } from 'react';
-import { View } from 'react-native';
+import { Platform, View } from 'react-native';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { getColor } from '../../../theme';
-import { useTheme } from '../../../hooks';
+import { useTheme, useToken } from '../../../hooks';
 import { makeStyledComponent } from '../../../utils/styled';
 import { wrapStringChild } from '../../../utils/wrapStringChild';
 import type { IBoxProps, InterfaceBoxProps } from './types';
@@ -15,32 +15,50 @@ const StyledBox = makeStyledComponent(View);
 let MemoizedGradient: any;
 
 const Box = ({ children, ...props }: IBoxProps, ref: any) => {
-  // const { _text, ...resolvedProps } = useThemeProps('Box', props);
   const theme = useTheme();
   const { _text, ...resolvedProps } = usePropsResolution('Box', props);
   let Gradient = useNativeBaseConfig('NativeBaseConfigProvider').config
     .dependencies?.['linear-gradient'];
 
   const safeAreaProps = useSafeArea(resolvedProps);
+  const lgrad =
+    resolvedProps.bg?.linearGradient ||
+    resolvedProps.background?.linearGradient ||
+    resolvedProps.bgColor?.linearGradient ||
+    resolvedProps.backgroundColor?.linearGradient;
+
+  const gradienColors = useToken('colors', lgrad?.colors);
 
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
   }
 
-  if (
-    resolvedProps.bg?.linearGradient ||
-    resolvedProps.background?.linearGradient ||
-    resolvedProps.bgColor?.linearGradient ||
-    resolvedProps.backgroundColor?.linearGradient
-  ) {
-    const lgrad =
-      resolvedProps.bg?.linearGradient ||
-      resolvedProps.background?.linearGradient ||
-      resolvedProps.bgColor?.linearGradient ||
-      resolvedProps.backgroundColor?.linearGradient;
+  if (lgrad) {
+    if (Platform.OS === 'web') {
+      const theta =
+        (lgrad.end[1] - lgrad.start[1]) / (lgrad.end[0] - lgrad.start[0])
+          ? Math.atan(
+              (lgrad.end[1] - lgrad.start[1]) / (lgrad.end[0] - lgrad.start[0])
+            )
+          : 0;
+      const deg = 90 - theta * (180 / Math.PI);
 
-    if (Gradient) {
+      return (
+        <StyledBox
+          ref={ref}
+          {...safeAreaProps}
+          style={[
+            {
+              background: `linear-gradient(${deg}deg, ${gradienColors})`,
+            },
+            safeAreaProps.style,
+          ]}
+        >
+          {wrapStringChild(children, _text)}
+        </StyledBox>
+      );
+    } else if (Gradient) {
       if (!MemoizedGradient) {
         MemoizedGradient = makeStyledComponent(Gradient);
       }
@@ -84,31 +102,15 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
           end={endObj}
           locations={lgrad.locations}
         >
-          {/* {React.Children.map(children, (child) =>
-            typeof child === 'string' || typeof child === 'number' ? (
-              <Text {..._text}>{child}</Text>
-            ) : (
-              child
-            )
-          )} */}
           {wrapStringChild(children, _text)}
         </Gradient>
       );
+    } else {
+      console.warn('Unable to add Linear Gradient');
     }
   }
   return (
     <StyledBox ref={ref} {...safeAreaProps}>
-      {/* {React.Children.map(children, (child) => {
-        return typeof child === 'string' ||
-          typeof child === 'number' ||
-          (child?.type === React.Fragment &&
-            (typeof child.props?.children === 'string' ||
-              typeof child.props?.children === 'number')) ? (
-          <Text {..._text}>{child}</Text>
-        ) : (
-          child
-        );
-      })} */}
       {wrapStringChild(children, _text)}
     </StyledBox>
   );
