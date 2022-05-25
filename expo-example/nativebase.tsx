@@ -189,40 +189,40 @@ export const NativeBaseScreen = () => {
           {/* <Pressable/> */}
           <View>
             {new Array(1).fill('100').map((_, index) => (
-              <Pressable
-                // bg="blue.400"
-                // safeAreaX
-                // _hover={{
-                //   bg: 'green.500',
-                // }}
-                // p={2}
-                // mt={2}
-                // borderWidth={1}
-                // borderRadius={1}
-                // pt={1}
-                // pb={1}
-                // pr={1}
-                // pl={1}
-                // borderBottomColor="emerald.100"
-                // bg="red.200"
-                // p={index}
-                // style={{ width: 100, height: 100 }}
-                // _text={{
-                //   bg: "blue.200",
-                // }}
-                // _dark={{
-                //   bg: "red.100",
-                // }}
-                // variant="default"
-                style={{ width: 100, height: 100 }}
+              <Button
+              // bg="blue.400"
+              // safeAreaX
+              // _hover={{
+              //   bg: 'green.500',
+              // }}
+              // p={2}
+              // mt={2}
+              // borderWidth={1}
+              // borderRadius={1}
+              // pt={1}
+              // pb={1}
+              // pr={1}
+              // pl={1}
+              // borderBottomColor="emerald.100"
+              // bg="red.200"
+              // p={index}
+              // style={{ width: 100, height: 100 }}
+              // _text={{
+              //   bg: 'blue.200',
+              // }}
+              // _dark={{
+              //   bg: 'red.100',
+              // }}
+              // variant="default"
+              // style={{ width: 100, height: 100 }}
               >
                 <Text>Hello</Text>
-              </Pressable>
+              </Button>
             ))}
           </View>
 
           <View>
-            {/* {new Array(1).fill(' ').map((_, index) => (
+            {/* {new Array(100).fill(' ').map((_, index) => (
               <DripsyButton
                 sx={{ bg: '$primary', p: index }}
                 style={{ backgroundColor: 'red', width: 100, height: 100 }}

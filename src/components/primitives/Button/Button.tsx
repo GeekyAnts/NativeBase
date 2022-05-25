@@ -85,6 +85,14 @@ const Button = (
   const { focusProps, isFocused } = useFocus();
   const { isFocusVisible, focusProps: focusRingProps }: any = useFocusRing();
   const { colorMode } = useColorMode();
+  const state = {
+    isDisabled,
+    isHovered: isHoveredProp || isHovered,
+    isFocused: isFocusedProp || isFocused,
+    isPressed: isPressedProp || isPressed,
+    isLoading,
+    isFocusVisible: isFocusVisibleProp || isFocusVisible,
+  };
   const {
     onPressIn,
     onPressOut,
@@ -97,25 +105,17 @@ const Button = (
     _spinner,
     isLoadingText,
     _icon,
-    style: buttonStyle,
     ...resolvedProps
-  } = usePropsResolution('Button', props, {
-    isDisabled,
-    isHovered: isHoveredProp || isHovered,
-    isFocused: isFocusedProp || isFocused,
-    isPressed: isPressedProp || isPressed,
-    isLoading,
-    isFocusVisible: isFocusVisibleProp || isFocusVisible,
-  });
+  } = usePropsResolution('Button', props, state);
 
-  // console.log(_stack, "styled");
-  let stackStyle = {};
+  // // console.log(_stack, "styled");
+  // let stackStyle = {};
 
-  if (_stack) {
-    // const { ...style, } = _stack;
-    //TODO: refactor
-    stackStyle = _stack.style;
-  }
+  // if (_stack) {
+  //   // const { ...style, } = _stack;
+  //   //TODO: refactor
+  //   stackStyle = _stack.style;
+  // }
 
   // useEffect(() => {
   //   end = Date.now();
@@ -181,7 +181,7 @@ const Button = (
   // );
   return (
     <Pressable
-      style={[getResolvedStyleSheet('Button', colorMode), buttonStyle]}
+      INTERNAL_themeStyle={getResolvedStyleSheet('Button', colorMode, state)}
       // style={buttonStyleObj.style}
       disabled={isDisabled || isLoading}
       ref={ref}
@@ -207,7 +207,7 @@ const Button = (
       <HStack
         {..._stack}
         test={true}
-        style={[getResolvedStyleSheet('Button.Stack', colorMode), stackStyle]}
+        INTERNAL_themeStyle={getResolvedStyleSheet('Button.Stack', colorMode)}
       >
         {startIcon && !isLoading ? startIcon : null}
         {isLoading && spinnerPlacement === 'start' ? spinnerElement : null}

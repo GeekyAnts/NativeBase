@@ -84,26 +84,16 @@ export const getResolvedStyleSheet = (
   if (!colorMode || !styleObj) {
     return null;
   }
-
+  // Theme style
   const styleSheet = map(styleObj[colorMode], 'style');
 
+  // state style
   const stateStyles = getPseudoStateStyles(key, state);
-
-  // console.log(
-  //   stateStyles,
-  //   map(stateStyles[colorMode], 'style'),
-  //   'hello state ****'
-  // );
-
   forEach(stateStyles, (stateStyleObj) => {
-    //
     styleSheet.push(map(stateStyleObj[colorMode], 'style'));
   });
-  console.log(styleSheet, '8****88***88');
 
-  // console.log(map(styleObj[colorMode], 'style'), 'hello 111 style');
   return styleSheet;
-  return map(styleObj[colorMode], 'style');
 };
 export const set = (key: string, value: any, colorMode: string) => {
   const styledMap = resolvedStyledMap.get(key);

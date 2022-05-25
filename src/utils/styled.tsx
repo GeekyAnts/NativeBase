@@ -69,6 +69,7 @@ const resolveComponentThemeStyleAndUpdateMapForColorMode = (
   colorMode: 'light' | 'dark' = 'light',
   resolveForStatePseudoProps: boolean = false
 ) => {
+  // resolve for variant
   const styledObj: any = getStyledComponent(
     name,
     colorMode,
@@ -77,14 +78,25 @@ const resolveComponentThemeStyleAndUpdateMapForColorMode = (
   );
 
   for (let property in styledObj.internalPseudoProps) {
+    // console.log(
+    //   name,
+    //   key,
+    //   property,
+    //   inputProps,
+    //   styledObj.internalPseudoProps[property],
+    //   'style obje11'
+    // );
+
     if (PSEUDO_PROP_COMPONENT_MAP[property]) {
       resolveComponentThemeStyleAndUpdateMapForColorMode(
         PSEUDO_PROP_COMPONENT_MAP[property],
         `${key}.${PSEUDO_PROP_COMPONENT_MAP[property]}`,
         styledObj.internalPseudoProps[property],
-        colorMode
+        colorMode,
+        true
       );
     } else {
+      console.log(key, name, property, 'property here');
       resolveComponentThemeStyleAndUpdateMapForColorMode(
         name,
         `${key}.${property}`,
@@ -297,7 +309,7 @@ export const makeStyledComponent = (
 
   // console.log(StyleSheet.flatten(globalLightStyle.style), 'hello style');
   return React.forwardRef(({ debug, ...props }: any, ref: any) => {
-    // console.log(props, "hello props **********");
+    // console.log(props, 'hello props **********');
     const [style, restProps] = useStyledSystemPropsResolver(props);
 
     // console.log(props, 'props here');

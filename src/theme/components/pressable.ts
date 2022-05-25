@@ -20,16 +20,5 @@ const baseStyle = (props: any) => {
 
 export default {
   baseStyle,
-  defaultProps: {
-    _hover: {
-      bg: 'blue.500',
-      _hover: {
-        bg: 'amber.500',
-      },
-      // _checked: {
-      //   bg: 'amber.500',
-      // },
-    },
-    bg: 'red.500',
-  },
+  defaultProps: {},
 };

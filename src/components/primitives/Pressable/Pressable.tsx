@@ -14,7 +14,7 @@ import { useColorMode } from '../../../core/color-mode';
 
 const StyledPressable = makeStyledComponent(RNPressable);
 
-resolveComponentThemeStyleAndUpdateMap('Pressable', {});
+// resolveComponentThemeStyleAndUpdateMap('Pressable', {});
 
 export const useHover = () => {
   const [isHovered, setHovered] = React.useState(false);

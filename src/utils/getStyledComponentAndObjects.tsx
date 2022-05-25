@@ -52,17 +52,18 @@ export const getStyledComponent = (
   inputProps?: {},
   resolveForStatePseudoProps: boolean = false
 ) => {
-  const componentTheme = get(theme, `components.${name}`, {});
-  const componentStyle = componentTheme.defaultProps?.style;
+  let componentTheme = get(theme, `components.${name}`, {});
+  let componentStyle = componentTheme.defaultProps?.style;
+  if (resolveForStatePseudoProps) {
+    componentTheme = {};
+    componentStyle = {};
+  }
 
-  let inputWithDefaultProps = {
+  const inputWithDefaultProps = {
     ...componentTheme.defaultProps,
     ...inputProps,
   };
 
-  if (resolveForStatePseudoProps) {
-    inputWithDefaultProps = inputProps;
-  }
   let flattenProps: any, specificityMap;
   [flattenProps, specificityMap] = propsFlattener(
     {
@@ -72,7 +73,7 @@ export const getStyledComponent = (
       state: {},
       currentSpecificityMap: {},
       previouslyFlattenProps: flattenProps || {},
-      cascadePseudoProps: false,
+      cascadePseudoProps: true,
     },
     1
   );
@@ -86,6 +87,8 @@ export const getStyledComponent = (
     colorMode
   );
 
+  // console.log(name, flattenProps, inputWithDefaultProps, 'hello input');
+
   // if (name == 'Button') {
   //   console.log(flattenProps, 'flatten');
   // }
@@ -95,20 +98,20 @@ export const getStyledComponent = (
 
   //TODO: refactor
 
-  for (const property in inputWithDefaultProps) {
+  for (const property in flattenProps) {
     if (
       property.startsWith('_') &&
       !['_dark', '_light', '_web', '_ios', '_android', '_important'].includes(
         property
       )
     ) {
-      internalPseudoProps[property] = inputWithDefaultProps[property];
+      internalPseudoProps[property] = flattenProps[property];
     }
     // if (property.startsWith('_')) {
     //   internalStatePseudoProps[property] = flattenProps[property];
     // }
   }
-
+  // console.log(flattenProps, internalPseudoProps, '@@@@@ flatten props');
   // ["_dark", "_light", "_web", "_ios", "_android", "_important"].includes(
   //   flattenProps
   // );
@@ -129,6 +132,8 @@ export const getStyledComponent = (
   //
 
   //
+
+  console.log(name, internalPseudoProps, 'hello stack stack');
 
   styleObj.internalPseudoProps = internalPseudoProps;
   // styleObj.internalStatePseudoProps = internalStatePseudoProps;
@@ -167,6 +172,17 @@ const resolveComponentTheme = (
   themeType: Array<string>,
   providedTheme: any
 ): any => {
+  if (typeof providedTheme[themeType[0]][themeType[1]] === 'function')
+    console.log(
+      themeType,
+      // providedTheme,
+      providedTheme[themeType[0]][themeType[1]]({
+        theme,
+        ...incomingProps,
+        colorMode: 'light',
+      }),
+      'flatten Props 111 ****'
+    );
   try {
     if (themeType[1]) {
       return typeof providedTheme[themeType[0]][themeType[1]] !== 'function'
@@ -225,6 +241,16 @@ const mergeStylesWithSpecificity = (
             extededComponentTheme
           ),
         };
+        console.log(
+          combinedBaseStyle,
+          flattenProps,
+          resolveComponentTheme(
+            flattenProps,
+            ['variants', flattenProps.variant],
+            extededComponentTheme
+          ),
+          'flatten props 111'
+        );
       }
     }
     if (
