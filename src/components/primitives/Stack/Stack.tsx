@@ -53,7 +53,10 @@ export interface InterfaceStackProps extends InterfaceBoxProps<IStackProps> {
 
 export type IStackProps = InterfaceStackProps & CustomProps<'Stack'>;
 
-const Stack = ({ space, ...props }: IStackProps, ref?: any) => {
+const Stack = (
+  { space, INTERNAL_themeStyle, ...props }: IStackProps,
+  ref?: any
+) => {
   const dir = props.direction;
   const {
     children,
@@ -82,6 +85,7 @@ const Stack = ({ space, ...props }: IStackProps, ref?: any) => {
   if (useHasResponsiveProps(props)) {
     return null;
   }
+  // console.log(INTERNAL_themeStyle, 'INTERNAL_themeStyle');
 
   return (
     <Box
@@ -90,6 +94,7 @@ const Stack = ({ space, ...props }: IStackProps, ref?: any) => {
       ref={ref}
       // @ts-ignore
       gap={disableCSSMediaQueries ? undefined : size}
+      INTERNAL_themeStyle={INTERNAL_themeStyle}
     >
       {getSpacedChildren(
         children,

@@ -18,6 +18,7 @@ import {
 } from '../hooks/useThemeProps/usePropsResolution';
 import { isEmptyObj } from './isEmptyObj';
 import isEmpty from 'lodash.isempty';
+import { extractInObject, stylingProps } from '../theme/tools';
 
 window['logger'] = {};
 console.batchTime = (key) => {
@@ -80,10 +81,6 @@ export const getStyledComponent = (
     colorMode
   );
 
-  if (name == 'Button') {
-    console.log(flattenProps, 'flatten');
-  }
-
   let internalPseudoProps: any = {};
   //TODO: refactor
   for (const property in flattenProps) {
@@ -97,9 +94,48 @@ export const getStyledComponent = (
     }
   }
 
-  // ["_dark", "_light", "_web", "_ios", "_android", "_important"].includes(
-  //   flattenProps
-  // );
+  // if (filterArray) {
+  //   const [layoutProps, nonLayoutProps] = extractInObject(
+  //     flattenProps,
+  //     filterArray
+  //   );
+  //   // ["_dark", "_light", "_web", "_ios", "_android", "_important"].includes(
+  //   //   flattenProps
+  //   // );
+
+  //   const layoutStyleObj = resolvePropsToStyle(
+  //     layoutProps,
+  //     componentStyle,
+  //     theme,
+  //     false,
+  //     4,
+  //     false,
+  //     // getResponsiveStyles,
+  //     undefined
+  //   );
+  //   // layoutStyleObj.internalPseudoProps = internalPseudoProps;
+  //   const nonLayoutStyleObj = resolvePropsToStyle(
+  //     nonLayoutProps,
+  //     componentStyle,
+  //     theme,
+  //     false,
+  //     4,
+  //     false,
+  //     // getResponsiveStyles,
+  //     undefined
+  //   );
+  //   // nonLayoutStyleObj.internalPseudoProps = internalPseudoProps;
+  //   const resultObj = {
+  //     layout: [layoutStyleObj],
+  //     nonLayout: [nonLayoutStyleObj],
+  //     internalPseudoProps,
+  //   };
+  //   if (name == 'Checkbox') {
+  //     console.log(resultObj, 'flatten');
+  //   }
+
+  //   return resultObj;
+  // } else {
   const styleObj = resolvePropsToStyle(
     flattenProps,
     componentStyle,
@@ -110,9 +146,9 @@ export const getStyledComponent = (
     // getResponsiveStyles,
     undefined
   );
-
   styleObj.internalPseudoProps = internalPseudoProps;
   return styleObj;
+  // }
 };
 
 const resolveComponentThemeStyle = (

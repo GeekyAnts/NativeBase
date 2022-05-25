@@ -32,6 +32,8 @@ const PSEUDO_PROP_COMPONENT_MAP = {
   _stack: 'Stack',
   _text: 'Text',
   _icon: 'Icon',
+  _checkbox: 'Checkbox',
+  _label: 'Text',
 };
 
 window['logger'] = {};

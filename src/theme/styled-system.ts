@@ -784,6 +784,7 @@ export const getStyleAndFilteredProps = ({
 
   return {
     styleSheet: StyleSheet.create({ box: styleFromProps }),
+    styleFromProps,
     dataSet,
   };
 };

@@ -97,7 +97,6 @@ const Button = (
     _spinner,
     isLoadingText,
     _icon,
-    style: buttonStyle,
     ...resolvedProps
   } = usePropsResolution('Button', props, {
     isDisabled,
@@ -181,7 +180,7 @@ const Button = (
   // );
   return (
     <Pressable
-      style={[getResolvedStyleSheet('Button', colorMode), buttonStyle]}
+      INTERNAL_themeStyle={getResolvedStyleSheet('Button', colorMode)}
       // style={buttonStyleObj.style}
       disabled={isDisabled || isLoading}
       ref={ref}
@@ -207,7 +206,7 @@ const Button = (
       <HStack
         {..._stack}
         test={true}
-        style={[getResolvedStyleSheet('Button.Stack', colorMode), stackStyle]}
+        INTERNAL_themeStyle={getResolvedStyleSheet('Button.Stack', colorMode)}
       >
         {startIcon && !isLoading ? startIcon : null}
         {isLoading && spinnerPlacement === 'start' ? spinnerElement : null}

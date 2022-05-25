@@ -12,6 +12,14 @@ export const init = () => {
 export const get = (key: string) => {
   resolvedStyledMap.get(key);
 };
+export const getResolvedProps = (key: string, colorMode?: ColorMode) => {
+  const styleObj: any = resolvedStyledMap.get(key);
+
+  if (!colorMode || !styleObj) {
+    return null;
+  }
+  return styleObj[colorMode]['styleFromProps'];
+};
 export const getResolvedStyleSheet = (key: string, colorMode?: ColorMode) => {
   const styleObj: any = resolvedStyledMap.get(key);
 

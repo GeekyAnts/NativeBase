@@ -1,4 +1,5 @@
 import React, { memo, forwardRef } from 'react';
+import { StyleSheet } from 'react-native';
 import { mergeRefs } from '../../../utils';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { Center } from '../../composites/Center';
@@ -12,12 +13,36 @@ import { useHover } from '@react-native-aria/interactions';
 import { useCheckbox, useCheckboxGroupItem } from '@react-native-aria/checkbox';
 import { useFocusRing } from '@react-native-aria/focus';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-import { extractInObject, stylingProps } from '../../../theme/tools/utils';
+import {
+  extractInObject,
+  getFilteredStyleSheet,
+  stylingProps,
+} from '../../../theme/tools/utils';
 import { combineContextAndProps } from '../../../utils';
 import SizedIcon from './SizedIcon';
 import { Stack } from '../Stack';
 import { wrapStringChild } from '../../../utils/wrapStringChild';
+import { resolveComponentThemeStyleAndUpdateMap } from '../../../utils/styled';
+import {
+  getResolvedStyleSheet,
+  log as resolveComponentThemeLog,
+  getResolvedProps,
+} from '../../../core';
+import { useColorMode } from '../../../core/color-mode';
+console.log('Kaha hai bhai');
 
+resolveComponentThemeStyleAndUpdateMap('Checkbox', {}, [
+  ...stylingProps.margin,
+  ...stylingProps.layout,
+  ...stylingProps.flexbox,
+  ...stylingProps.position,
+  '_text',
+]);
+console.log(
+  'Abraca Checkbox',
+  StyleSheet.flatten(getResolvedStyleSheet('Checkbox', 'light', 'layout')),
+  StyleSheet.flatten(getResolvedStyleSheet('Checkbox.Stack', 'light'))
+);
 const Checkbox = (
   {
     wrapperRef,
@@ -134,24 +159,55 @@ const CheckboxComponent = React.memo(
       isChecked,
       isHovered: isHovered || isHoveredProp,
     });
-
-    const [layoutProps, nonLayoutProps] = extractInObject(resolvedProps, [
+    const filterProps = [
       ...stylingProps.margin,
       ...stylingProps.layout,
       ...stylingProps.flexbox,
       ...stylingProps.position,
       '_text',
-    ]);
+    ];
+    const { colorMode } = useColorMode();
+    const [layoutProps, nonLayoutProps] = extractInObject(
+      resolvedProps,
+      filterProps
+    );
+
     const component = React.useMemo(() => {
       return (
-        <Stack {..._stack} {...layoutProps}>
+        <Stack
+          {..._stack}
+          INTERNAL_themeStyle={[
+            getResolvedStyleSheet('Checkbox.Stack', colorMode),
+            getFilteredStyleSheet(
+              getResolvedProps('Checkbox', colorMode)[0],
+              filterProps
+            )[0],
+          ]}
+          {...layoutProps}
+        >
           <Center>
             {/* Interaction Box */}
             <Box {..._interactionBox} />
             {/* Checkbox */}
-            <Center {...nonLayoutProps}>
+            <Center
+              INTERNAL_themeStyle={
+                getFilteredStyleSheet(
+                  getResolvedProps('Checkbox', colorMode)[0],
+                  filterProps
+                )[1]
+              }
+              {...nonLayoutProps}
+            >
               {/* {iconResolver()} */}
-              <SizedIcon icon={icon} _icon={_icon} isChecked={isChecked} />
+              <SizedIcon
+                INTERNAL_themeStyle={getResolvedStyleSheet(
+                  'Checkbox.Icon',
+                  colorMode
+                )}
+                icon={icon}
+                _icon={_icon}
+                isChecked={isChecked}
+              />
             </Center>
           </Center>
           {/* Label */}
