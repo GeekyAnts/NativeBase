@@ -24,7 +24,7 @@ import {
 import { useColorMode } from '../../../core/color-mode';
 
 console.time('resolver');
-resolveComponentThemeStyleAndUpdateMap('Button', {});
+resolveComponentThemeStyleAndUpdateMap('Button');
 console.timeEnd('resolver');
 
 // resolveComponentThemeLog();
@@ -184,7 +184,13 @@ const Button = (
   // );
   return (
     <Pressable
-      INTERNAL_themeStyle={getResolvedStyleSheet('Button', colorMode, state)}
+      INTERNAL_themeStyle={getResolvedStyleSheet(
+        'Button',
+        colorMode,
+        props.variant,
+        props.size,
+        state
+      )}
       // style={buttonStyleObj.style}
       disabled={isDisabled || isLoading}
       ref={ref}

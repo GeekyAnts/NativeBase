@@ -31,13 +31,13 @@ import {
 import { useColorMode } from '../../../core/color-mode';
 console.log('Kaha hai bhai');
 
-resolveComponentThemeStyleAndUpdateMap('Checkbox', {}, [
-  ...stylingProps.margin,
-  ...stylingProps.layout,
-  ...stylingProps.flexbox,
-  ...stylingProps.position,
-  '_text',
-]);
+// resolveComponentThemeStyleAndUpdateMap('Checkbox', {}, [
+//   ...stylingProps.margin,
+//   ...stylingProps.layout,
+//   ...stylingProps.flexbox,
+//   ...stylingProps.position,
+//   '_text',
+// ]);
 console.log(
   'Abraca Checkbox',
   StyleSheet.flatten(getResolvedStyleSheet('Checkbox', 'light', 'layout')),

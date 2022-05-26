@@ -96,7 +96,7 @@ export const getStyledComponent = (
     colorMode
   );
 
-  console.log(flattenProps, 'flatten props ^^^^^');
+  console.log(name, inputProps, flattenProps, 'flatten props ^^^^^');
 
   // console.log(name, flattenProps, inputWithDefaultProps, 'hello input');
 
@@ -270,14 +270,15 @@ const mergeStylesWithSpecificity = (
           ),
         };
         console.log(
-          combinedBaseStyle,
-          flattenProps,
+          // combinedBaseStyle,
           resolveComponentTheme(
             flattenProps,
             ['variants', flattenProps.variant],
             extededComponentTheme
           ),
-          'flatten props 111'
+          flattenProps,
+
+          'flatten props 111 $$$'
         );
       }
     }
@@ -307,14 +308,18 @@ const mergeStylesWithSpecificity = (
 
   // console.log(combinedBaseStyle, " ******* ");
   if (!isEmptyObj(combinedBaseStyle)) {
-    [flattenBaseStyle, baseSpecificityMap] = callPropsFlattener(
+    [
+      flattenBaseStyle,
+      baseSpecificityMap,
+    ] = callPropsFlattener(
       combinedBaseStyle,
       specificityMap,
       1,
       {},
       { colorMode: colorMode },
       {},
-      flattenProps
+      flattenProps,
+      { cascadePseudoProps: true }
     );
   }
 
@@ -324,14 +329,18 @@ const mergeStylesWithSpecificity = (
 
   // console.log(combinedVariantStyle, "999999");
   if (!isEmptyObj(combinedVariantStyle)) {
-    [flattenVariantStyle, variantSpecificityMap] = callPropsFlattener(
+    [
+      flattenVariantStyle,
+      variantSpecificityMap,
+    ] = callPropsFlattener(
       combinedVariantStyle,
       baseSpecificityMap || specificityMap,
       1,
       {},
       { colorMode: colorMode },
       {},
-      flattenProps
+      flattenProps,
+      { cascadePseudoProps: true }
     );
 
     // We remove variant from original props if we found it in the componentTheme
@@ -346,14 +355,18 @@ const mergeStylesWithSpecificity = (
 
   // console.log(combinedSizeStyle, "&&&&&&&");
   if (!isEmptyObj(combinedSizeStyle)) {
-    [flattenSizeStyle, sizeSpecificityMap] = callPropsFlattener(
+    [
+      flattenSizeStyle,
+      sizeSpecificityMap,
+    ] = callPropsFlattener(
       combinedSizeStyle,
       variantSpecificityMap || baseSpecificityMap || specificityMap,
       1,
       {},
       { colorMode: colorMode },
       {},
-      flattenProps
+      flattenProps,
+      { cascadePseudoProps: true }
     );
   }
 
@@ -381,7 +394,7 @@ const mergeStylesWithSpecificity = (
     defaultSpecificity
   );
 
-  console.log(flattenProps, '**** ***** *****');
+  console.log(flattenProps, defaultStyles, ')))))))');
   return [flattenProps];
 };
 

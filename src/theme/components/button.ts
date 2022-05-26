@@ -143,10 +143,13 @@ function variantSolid({ colorScheme }: Record<string, any>) {
     _spinner: {
       color: 'text.50',
     },
+    _hover: {
+      bg: `amber.700`,
+    },
 
     _light: {
-      // bg: `${colorScheme}.600`,
-      bg: `green.600`,
+      bg: `${colorScheme}.600`,
+      // bg: `green.600`,
       // _hov
       _hover: {
         bg: `${colorScheme}.700`,
@@ -244,9 +247,9 @@ function variantLink({ colorScheme }: Record<string, any>) {
 
 const variants = {
   // ghost: variantGhost,
-  outline: variantOutline,
+  // outline: variantOutline,
   solid: variantSolid,
-  subtle: variantSubtle,
+  // subtle: variantSubtle,
   // link: variantLink,
   // unstyled: {},
 };
@@ -296,14 +299,11 @@ const sizes = {
 
 const defaultProps = {
   variant: 'solid',
-  size: 'md',
+  // size: 'md',
   colorScheme: 'primary',
-  // _light: {
-  //   bg: 'green.400',
-  //   _hover: {
-  //     bg: 'red.400',
-  //   },
-  // },
+  _hover: {
+    bg: 'red.200',
+  },
 };
 
 export const ButtonGroup = {
@@ -314,6 +314,6 @@ export const ButtonGroup = {
 export default {
   baseStyle,
   variants,
-  sizes,
+  // sizes,
   defaultProps,
 };

@@ -1,5 +1,6 @@
 import { forEach, map } from 'lodash';
 import type { ColorMode } from './color-mode';
+import { StyleSheet } from 'react-native';
 
 // Adding Map for storing the props and style for the styled component
 let resolvedStyledMap: Map<string, any> = new Map();
@@ -9,14 +10,16 @@ const pseudoPropStateMap = {
   _focus: 'isFocused',
   _hover: 'isHovered',
   _pressed: 'isPressed',
+  _checked: 'isChecked',
 };
+
 export const init = () => {
   resolvedStyledMap = new Map();
   window['resolvedStyledMap'] = resolvedStyledMap;
 };
 
 export const get = (key: string) => {
-  resolvedStyledMap.get(key);
+  return resolvedStyledMap.get(key);
 };
 export const getResolvedProps = (key: string, colorMode?: ColorMode) => {
   const styleObj: any = resolvedStyledMap.get(key);
@@ -32,45 +35,37 @@ const isValidStateKey = (stateKey: string, state: any) => {
 };
 
 const isValidState = (key: string, state: any) => {
-  //TODO:  consider `Button.Spinner._hover._hover`
   // include only startWith("_")
   const stateKeys = key.split('.');
-  stateKeys.shift();
-
   const isValid = stateKeys.every((stateKey: any) => {
     if (isValidStateKey(stateKey, state)) {
       return true;
     }
     return false;
   });
-  return isValid;
-  // console.log(isValid, 'is valid');
-  // // const initialValue = 0;
-  // // const sumWithInitial = stateKeys.reduce((previousValue, currentValue) => {
-  // //   //
-  // //   if (isValid === false) {
-  // //     return false;
-  // //   }
-  // //   console.log(previousValue, currentValue, 'hello here 11111');
-  // // }, isValid);
 
-  // // forEach(stateKeys, (stateKey: any) => {
-  // //   //
-  // //   if (stateKey === '_hover') {
-  // //     isValid = true;
-  // //   }
-  // //   console.log(stateKey, 'hello state ******');
-  // // });
-  // return false;
+  console.log(isValid, 'valid here');
+  return isValid;
 };
 const getPseudoStateStyles = (componentName: string, state: any) => {
   const styleObj: any = [];
   const stateStyleArray: any = [];
-  resolvedStyledMap.forEach((value: any, k: string) => {
-    if (k.startsWith(componentName) && k !== componentName) {
+
+  const componentStates = get(componentName);
+
+  // console.log(componentStates, '***** &&&&');
+  for (const k in componentStates) {
+    const value = componentStates[k];
+
+    console.log(componentStates, k, componentName, 'value **&');
+    //get for _hover, _checked
+    if (k.startsWith('_')) {
+      // const pseudoPropKey = k.slice(componentName.length + 1);
       stateStyleArray.push({ key: k, value: value });
     }
-  });
+  }
+
+  // sort for specificity
   stateStyleArray.sort(
     (obj1: any, obj2: any) => obj1.key.length - obj2.key.length
   );
@@ -81,15 +76,29 @@ const getPseudoStateStyles = (componentName: string, state: any) => {
     }
   });
 
+  console.log(styleObj, 'valid state *');
+
   return styleObj;
 };
 
 export const getResolvedStyleSheet = (
-  key: string,
+  componentName: string,
   colorMode?: ColorMode,
+  variant?: any,
+  size?: any,
   state?: any
 ) => {
-  const styleObj: any = resolvedStyledMap.get(key);
+  if (variant && size) {
+    componentName = `${componentName}.${variant}.${size}`;
+  } else if (variant) {
+    componentName = `${componentName}.${variant}`;
+  } else if (size) {
+    componentName = `${componentName}.${size}`;
+  }
+
+  const styleObj: any = resolvedStyledMap.get(componentName);
+
+  console.log(componentName, colorMode, styleObj, 'component name &&&&&');
 
   if (!colorMode || !styleObj) {
     return null;
@@ -98,8 +107,15 @@ export const getResolvedStyleSheet = (
   const styleSheet = map(styleObj[colorMode], 'style');
 
   // state style
-  const stateStyles = getPseudoStateStyles(key, state);
+  const stateStyles = getPseudoStateStyles(componentName, state);
   forEach(stateStyles, (stateStyleObj) => {
+    console.log(
+      componentName,
+      stateStyleObj[colorMode].style,
+      map(stateStyleObj[colorMode], 'style'),
+      'hello component name )))'
+    );
+
     styleSheet.push(map(stateStyleObj[colorMode], 'style'));
   });
 
