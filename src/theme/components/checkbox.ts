@@ -8,7 +8,6 @@ const baseStyle = (props: Record<string, any>) => {
     borderRadius: 'sm',
     opacity: 1,
     p: 0.5,
-
     _light: {
       bg: 'muted.50',
       borderColor: 'muted.400',

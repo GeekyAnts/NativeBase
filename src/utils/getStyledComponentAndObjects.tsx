@@ -18,6 +18,7 @@ import {
 } from '../hooks/useThemeProps/usePropsResolution';
 import { isEmptyObj } from './isEmptyObj';
 import isEmpty from 'lodash.isempty';
+import { extractInObject, stylingProps } from '../theme/tools';
 
 window['logger'] = {};
 console.batchTime = (key) => {
@@ -164,6 +165,7 @@ export const getStyledComponent = (
   styleObj.internalPseudoProps = internalPseudoProps;
   // styleObj.internalStatePseudoProps = internalStatePseudoProps;
   return styleObj;
+  // }
 };
 
 const resolveComponentThemeStyle = (

@@ -4,7 +4,7 @@ import pick from 'lodash.pick';
 import omit from 'lodash.omit';
 import get from 'lodash.get';
 import type { ITheme } from '../index';
-import { Platform } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 
 export const stylingProps = {
   margin: [
@@ -138,6 +138,21 @@ export function orderedExtractInObject(parent: any, values: Array<string>) {
     omitUndefined(omit(parent, values)),
   ];
 }
+
+/**
+ *
+ * @param parent The object from which data needs to extracted
+ * @param values Keys which needs to be extracted
+ * @returns [Stylesheet with extractedStyles, Stylesheet with remainingStyles]
+ */
+export function getFilteredStyleSheet(parent: any, values: Array<string>) {
+  const [filtered, rest] = extractInObject(parent, values);
+  return [
+    StyleSheet.create({ filtered }).filtered,
+    StyleSheet.create({ rest }).rest,
+  ];
+}
+
 /**
  *
  * @param parent The object from which data needs to extracted

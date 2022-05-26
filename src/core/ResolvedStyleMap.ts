@@ -18,7 +18,14 @@ export const init = () => {
 export const get = (key: string) => {
   resolvedStyledMap.get(key);
 };
+export const getResolvedProps = (key: string, colorMode?: ColorMode) => {
+  const styleObj: any = resolvedStyledMap.get(key);
 
+  if (!colorMode || !styleObj) {
+    return null;
+  }
+  return styleObj[colorMode]['styleFromProps'];
+};
 const isValidStateKey = (stateKey: string, state: any) => {
   console.log(stateKey, pseudoPropStateMap[stateKey], state, 'is valid');
   return state[pseudoPropStateMap[stateKey]];
@@ -76,6 +83,7 @@ const getPseudoStateStyles = (componentName: string, state: any) => {
 
   return styleObj;
 };
+
 export const getResolvedStyleSheet = (
   key: string,
   colorMode?: ColorMode,
