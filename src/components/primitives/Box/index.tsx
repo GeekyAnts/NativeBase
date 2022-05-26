@@ -176,8 +176,8 @@ const BoxComponentWithSafeArea = forwardRef(
         ref={ref}
         {...safeAreaProps}
         INTERNAL_themeStyle={[
-          INTERNAL_themeStyle,
           getResolvedStyleSheet('Box', colorMode),
+          INTERNAL_themeStyle,
         ]}
       >
         {wrapStringChild(children, _text)}
@@ -195,8 +195,8 @@ const BoxComponentWithoutSafeArea = forwardRef(
         ref={ref}
         {...props}
         INTERNAL_themeStyle={[
-          INTERNAL_themeStyle,
           getResolvedStyleSheet('Box', colorMode),
+          INTERNAL_themeStyle,
         ]}
         // INTERNAL_themeStyle={getStyledComponent('Box', colorMode)}
       >

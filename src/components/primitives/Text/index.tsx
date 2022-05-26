@@ -10,8 +10,7 @@ import {
 import { useResolvedFontFamily } from '../../../hooks/useResolvedFontFamily';
 import { Text as NativeText } from 'react-native';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-import { getResolvedStyleSheet } from '../../../core';
-import { useColorMode } from '../../../core/color-mode';
+import { getResolvedStyleSheet, useColorMode } from '../../../core';
 
 const StyledText = makeStyledComponent(NativeText);
 resolveComponentThemeStyleAndUpdateMap('Text');
@@ -37,6 +36,7 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
     _hover,
     fontSize,
     numberOfLines,
+    INTERNAL_themeStyle,
     ...reslovedProps
   } = usePropsResolution(
     'Text',
@@ -49,7 +49,14 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
     }
   );
 
+  console.log(
+    INTERNAL_themeStyle,
+    props,
+    reslovedProps,
+    'internal theme styel 1'
+  );
   const _ref = useRef(null);
+  const { colorMode } = useColorMode();
   // TODO: might have to add this condition
   const { isHovered } = useHover({}, _hover ? _ref : null);
   // const { isHovered } = useHover({}, _ref);
@@ -66,8 +73,6 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
   if (resolvedFontFamily) {
     fontFamily = resolvedFontFamily;
   }
-
-  const { colorMode } = useColorMode();
 
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
@@ -97,18 +102,28 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
     ...(isHovered && _hover),
   };
 
+  console.log(INTERNAL_themeStyle, 'internal theme style');
   return hasTextAncestor ? (
     <StyledText
       {...propsToSpread}
-      INTERNAL_themeStyle={getResolvedStyleSheet('Pressable', colorMode, {
-        isHovered,
-      })}
+      INTERNAL_themeStyle={[
+        getResolvedStyleSheet('Text', colorMode),
+        INTERNAL_themeStyle,
+      ]}
     >
       {children}
     </StyledText>
   ) : (
     <TextAncestorContext.Provider value={true}>
-      <StyledText {...propsToSpread}>{children}</StyledText>
+      <StyledText
+        {...propsToSpread}
+        INTERNAL_themeStyle={[
+          getResolvedStyleSheet('Text', colorMode),
+          INTERNAL_themeStyle,
+        ]}
+      >
+        {children}
+      </StyledText>
     </TextAncestorContext.Provider>
   );
 };

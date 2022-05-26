@@ -3,7 +3,7 @@ import Text from '../components/primitives/Text';
 
 export const wrapStringChild = (children: any, textProps: any) => {
   return React.Children.map(children, (child) => {
-    console.log(textProps, 'Text props');
+    console.log(textProps, { ...textProps }, child, 'Text props');
     return typeof child === 'string' ||
       typeof child === 'number' ||
       (child?.type === React.Fragment &&

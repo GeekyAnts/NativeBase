@@ -182,13 +182,13 @@ const Button = (
       <Box
         _text={{
           ..._text,
-          // INTERNAL_themeStyle: getResolvedStyleSheet(
-          //   [`Button`, props.variant, props.size, `Text`],
-          //   colorMode,
-          //   {}
-          //   // props.variant,
-          //   // props.size
-          // ),
+          INTERNAL_themeStyle: getResolvedStyleSheet(
+            [`Button`, props.variant, props.size, `Text`],
+            colorMode,
+            {}
+            // props.variant,
+            // props.size
+          ),
         }}
         // INTERNAL_themeStyle={getResolvedStyleSheet(
         //   [`Button`, props.variant, props.size, `Text`],
