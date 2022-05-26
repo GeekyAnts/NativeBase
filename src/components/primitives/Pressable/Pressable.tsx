@@ -14,7 +14,7 @@ import { useColorMode } from '../../../core/color-mode';
 
 const StyledPressable = makeStyledComponent(RNPressable);
 
-// resolveComponentThemeStyleAndUpdateMap('Pressable', {});
+resolveComponentThemeStyleAndUpdateMap('Pressable');
 
 export const useHover = () => {
   const [isHovered, setHovered] = React.useState(false);
@@ -68,7 +68,13 @@ const Pressable = (
   const { focusProps, isFocused } = useFocus();
   const { isFocusVisible, focusProps: focusRingProps }: any = useFocusRing();
   const { colorMode } = useColorMode();
-
+  const state = {
+    isPressed: isPressedProp || isPressed,
+    isFocused: isFocusedProp || isFocused,
+    isHovered: isHoveredProp || isHovered,
+    isFocusVisible: isFocusVisibleProp || isFocusVisible,
+    isDisabled: disabled || isDisabled,
+  };
   const {
     onPressIn,
     onPressOut,
@@ -77,13 +83,7 @@ const Pressable = (
     onFocus,
     onBlur,
     ...resolvedProps
-  } = usePropsResolution('Pressable', props, {
-    isPressed: isPressedProp || isPressed,
-    isFocused: isFocusedProp || isFocused,
-    isHovered: isHoveredProp || isHovered,
-    isFocusVisible: isFocusVisibleProp || isFocusVisible,
-    isDisabled: disabled || isDisabled,
-  });
+  } = usePropsResolution('Pressable', props, state);
 
   // TODO: Replace Render props with Context Hook
 
@@ -98,13 +98,7 @@ const Pressable = (
   return (
     <StyledPressable
       // style={[, pressableStyle]}
-      INTERNAL_themeStyle={getResolvedStyleSheet('Pressable', colorMode, {
-        isPressed: isPressedProp || isPressed,
-        isFocused: isFocusedProp || isFocused,
-        isHovered: isHoveredProp || isHovered,
-        isFocusVisible: isFocusVisibleProp || isFocusVisible,
-        isDisabled: disabled || isDisabled,
-      })}
+      INTERNAL_themeStyle={getResolvedStyleSheet('Pressable', colorMode, state)}
       ref={ref}
       onPressIn={composeEventHandlers(onPressIn, pressableProps.onPressIn)}
       onPressOut={composeEventHandlers(onPressOut, pressableProps.onPressOut)}

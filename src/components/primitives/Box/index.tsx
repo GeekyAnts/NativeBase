@@ -3,7 +3,10 @@ import { View, StyleSheet } from 'react-native';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { getColor } from '../../../theme';
 import { useTheme } from '../../../hooks';
-import { makeStyledComponent } from '../../../utils/styled';
+import {
+  makeStyledComponent,
+  resolveComponentThemeStyleAndUpdateMap,
+} from '../../../utils/styled';
 import { wrapStringChild } from '../../../utils/wrapStringChild';
 import type { IBoxProps, InterfaceBoxProps } from './types';
 import { useSafeArea } from '../../../hooks/useSafeArea';
@@ -13,7 +16,9 @@ import { useStyledSystemPropsResolver } from '../../../hooks/';
 import { getResolvedStyleSheet } from '../../../core';
 import { useColorMode } from '../../../core';
 
-const StyledBox = makeStyledComponent(View, 'Box');
+const StyledBox = makeStyledComponent(View);
+
+resolveComponentThemeStyleAndUpdateMap('Box');
 
 let MemoizedGradient: any;
 const safeAreaPropsExists = (props: IBoxProps) => {

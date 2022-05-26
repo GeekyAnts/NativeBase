@@ -168,7 +168,39 @@ const Button = (
   );
 
   const boxChildren = (child: any) => {
-    return child ? <Box _text={_text}>{child}</Box> : null;
+    // console.log(
+    //   getResolvedStyleSheet(
+    //     [`Button`, props.variant, props.size, `Text`],
+    //     colorMode,
+    //     {}
+    //     // props.variant,
+    //     // props.size
+    //   ),
+    //   'internal style &&&&&'
+    // );
+    return child ? (
+      <Box
+        _text={{
+          ..._text,
+          // INTERNAL_themeStyle: getResolvedStyleSheet(
+          //   [`Button`, props.variant, props.size, `Text`],
+          //   colorMode,
+          //   {}
+          //   // props.variant,
+          //   // props.size
+          // ),
+        }}
+        // INTERNAL_themeStyle={getResolvedStyleSheet(
+        //   [`Button`, props.variant, props.size, `Text`],
+        //   colorMode,
+        //   {}
+        //   // props.variant,
+        //   // props.size
+        // )}
+      >
+        {child}
+      </Box>
+    ) : null;
   };
   // Process End Log ----------------------------------------------------------------------------------------------------
   // console.log(
@@ -187,9 +219,9 @@ const Button = (
       INTERNAL_themeStyle={getResolvedStyleSheet(
         'Button',
         colorMode,
+        state,
         props.variant,
-        props.size,
-        state
+        props.size
       )}
       // style={buttonStyleObj.style}
       disabled={isDisabled || isLoading}

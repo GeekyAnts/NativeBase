@@ -96,7 +96,7 @@ export const getStyledComponent = (
     colorMode
   );
 
-  console.log(name, inputProps, flattenProps, 'flatten props ^^^^^');
+  // console.log(name, inputProps, flattenProps, 'flatten props ^^^^^');
 
   // console.log(name, flattenProps, inputWithDefaultProps, 'hello input');
 
@@ -157,7 +157,7 @@ export const getStyledComponent = (
   //
 
   // resolve variant styles
-  console.log(name, componentTheme, 'hello stack stack');
+  // console.log(name, componentTheme, 'hello stack stack');
 
   //
   //
@@ -200,17 +200,17 @@ const resolveComponentTheme = (
   themeType: Array<string>,
   providedTheme: any
 ): any => {
-  if (typeof providedTheme[themeType[0]][themeType[1]] === 'function')
-    console.log(
-      themeType,
-      // providedTheme,
-      providedTheme[themeType[0]][themeType[1]]({
-        theme,
-        ...incomingProps,
-        colorMode: 'light',
-      }),
-      'flatten Props 111 ****'
-    );
+  // if (typeof providedTheme[themeType[0]][themeType[1]] === 'function')
+  //   // console.log(
+  //   //   themeType,
+  //   //   // providedTheme,
+  //   //   providedTheme[themeType[0]][themeType[1]]({
+  //   //     theme,
+  //   //     ...incomingProps,
+  //   //     colorMode: 'light',
+  //   //   }),
+  //   //   'flatten Props 111 ****'
+  //   // );
   try {
     if (themeType[1]) {
       return typeof providedTheme[themeType[0]][themeType[1]] !== 'function'
@@ -269,17 +269,17 @@ const mergeStylesWithSpecificity = (
             extededComponentTheme
           ),
         };
-        console.log(
-          // combinedBaseStyle,
-          resolveComponentTheme(
-            flattenProps,
-            ['variants', flattenProps.variant],
-            extededComponentTheme
-          ),
-          flattenProps,
+        // console.log(
+        //   // combinedBaseStyle,
+        //   resolveComponentTheme(
+        //     flattenProps,
+        //     ['variants', flattenProps.variant],
+        //     extededComponentTheme
+        //   ),
+        //   flattenProps,
 
-          'flatten props 111 $$$'
-        );
+        //   'flatten props 111 $$$'
+        // );
       }
     }
     if (
@@ -394,7 +394,6 @@ const mergeStylesWithSpecificity = (
     defaultSpecificity
   );
 
-  console.log(flattenProps, defaultStyles, ')))))))');
   return [flattenProps];
 };
 
@@ -407,7 +406,6 @@ export const makeStyledComponent = (
   const globalLightStyle = resolveComponentThemeStyle(componentName, 'light');
   const globalDarkStyle = resolveComponentThemeStyle(componentName, 'dark');
 
-  console.log(StyleSheet.flatten(globalLightStyle.style), 'hello style');
   return React.forwardRef(({ debug, ...props }: any, ref: any) => {
     // console.log(props, "hello props **********");
     const [style, restProps] = useStyledSystemPropsResolver(props);

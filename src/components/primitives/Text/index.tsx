@@ -3,12 +3,19 @@ import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { ITextProps } from './types';
 import { useHover } from '@react-native-aria/interactions';
 import { mergeRefs } from '../../../utils/mergeRefs';
-import { makeStyledComponent } from '../../../utils/styled';
+import {
+  makeStyledComponent,
+  resolveComponentThemeStyleAndUpdateMap,
+} from '../../../utils/styled';
 import { useResolvedFontFamily } from '../../../hooks/useResolvedFontFamily';
 import { Text as NativeText } from 'react-native';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import { getResolvedStyleSheet } from '../../../core';
+import { useColorMode } from '../../../core/color-mode';
 
-const StyledText = makeStyledComponent(NativeText, 'Text');
+const StyledText = makeStyledComponent(NativeText);
+resolveComponentThemeStyleAndUpdateMap('Text');
+
 // To have a RN compatible behaviour, we'll inherit parent text styles as base style
 const TextAncestorContext = React.createContext(false);
 
@@ -60,6 +67,8 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
     fontFamily = resolvedFontFamily;
   }
 
+  const { colorMode } = useColorMode();
+
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
@@ -89,7 +98,14 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
   };
 
   return hasTextAncestor ? (
-    <StyledText {...propsToSpread}>{children}</StyledText>
+    <StyledText
+      {...propsToSpread}
+      INTERNAL_themeStyle={getResolvedStyleSheet('Pressable', colorMode, {
+        isHovered,
+      })}
+    >
+      {children}
+    </StyledText>
   ) : (
     <TextAncestorContext.Provider value={true}>
       <StyledText {...propsToSpread}>{children}</StyledText>

@@ -82,7 +82,7 @@ const resolveForInternalPseudoProps = (
     } else {
       // console.log(key, name, property, 'property here');
       // resolve for states
-      console.log(name, 'component name *****', colorMode, `${key}`);
+      // console.log(name, 'component name *****', colorMode, `${key}`);
       resolveComponentThemeStyleAndUpdateMapForColorMode(
         name,
         `${key}.${property}`,

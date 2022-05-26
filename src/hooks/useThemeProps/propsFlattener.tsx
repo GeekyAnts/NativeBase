@@ -359,7 +359,7 @@ export const propsFlattener = (
   }
 
   const specificityMap = currentSpecificityMap || {};
-  console.log(props, flattenProps, 'state here ****');
+  // console.log(props, flattenProps, 'state here ****');
 
   // console.log("before simplify", props);
   simplifyProps(
