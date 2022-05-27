@@ -24,9 +24,9 @@ import {
 } from '../../../core';
 import { useColorMode } from '../../../core/color-mode';
 
-console.time('resolver');
+console.time('resolverButton');
 resolveComponentThemeStyleAndUpdateMap('Button');
-console.timeEnd('resolver');
+console.timeEnd('resolverButton');
 
 // resolveComponentThemeLog();
 // console.log(

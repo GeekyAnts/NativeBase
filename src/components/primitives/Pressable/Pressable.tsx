@@ -13,8 +13,10 @@ import { getResolvedStyleSheet } from '../../../core';
 import { useColorMode } from '../../../core/color-mode';
 
 const StyledPressable = makeStyledComponent(RNPressable);
+console.time('resolverPressable');
 
 resolveComponentThemeStyleAndUpdateMap('Pressable');
+console.timeEnd('resolverPressable');
 
 export const useHover = () => {
   const [isHovered, setHovered] = React.useState(false);

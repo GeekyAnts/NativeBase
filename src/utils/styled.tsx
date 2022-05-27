@@ -163,63 +163,63 @@ export const resolveComponentThemeStyleAndUpdateMap = (
     inputProps,
     'light'
   );
-  const darkThemeObj = {};
-  // const darkThemeObj = resolveComponentThemeStyleAndUpdateMapForColorMode(
-  //   name,
-  //   name,
-  //   inputProps,
-  //   'dark'
-  // );
+  // const darkThemeObj = {};
+  const darkThemeObj = resolveComponentThemeStyleAndUpdateMapForColorMode(
+    name,
+    name,
+    inputProps,
+    'dark'
+  );
   // resolve for all variants
   const componentTheme = get(theme, `components.${name}`, {});
   for (const variant in componentTheme.variants) {
-    // resolveComponentThemeStyleAndUpdateMapForColorMode(
-    //   name,
-    //   `${name}.${variant}`,
-    //   { variant: variant },
-    //   'light'
-    //   // true
-    // );
-    // resolveComponentThemeStyleAndUpdateMapForColorMode(
-    //   name,
-    //   `${name}.${variant}`,
-    //   { variant: variant },
-    //   'dark'
-    // );
+    resolveComponentThemeStyleAndUpdateMapForColorMode(
+      name,
+      `${name}.${variant}`,
+      { variant: variant },
+      'light'
+      // true
+    );
+    resolveComponentThemeStyleAndUpdateMapForColorMode(
+      name,
+      `${name}.${variant}`,
+      { variant: variant },
+      'dark'
+    );
   }
 
   // resolve for all sizes
   for (const size in componentTheme.sizes) {
-    // resolveComponentThemeStyleAndUpdateMapForColorMode(
-    //   name,
-    //   `${name}.${size}`,
-    //   { size: size },
-    //   'light'
-    // );
-    // resolveComponentThemeStyleAndUpdateMapForColorMode(
-    //   name,
-    //   `${name}.${size}`,
-    //   { size: size },
-    //   'dark'
-    // );
+    resolveComponentThemeStyleAndUpdateMapForColorMode(
+      name,
+      `${name}.${size}`,
+      { size: size },
+      'light'
+    );
+    resolveComponentThemeStyleAndUpdateMapForColorMode(
+      name,
+      `${name}.${size}`,
+      { size: size },
+      'dark'
+    );
   }
 
   // resolve for all variants and sizes
 
   for (const variant in componentTheme.variants) {
     for (const size in componentTheme.sizes) {
-      // resolveComponentThemeStyleAndUpdateMapForColorMode(
-      //   name,
-      //   `${name}.${variant}.${size}`,
-      //   { size: size, variant: variant },
-      //   'light'
-      // );
-      // resolveComponentThemeStyleAndUpdateMapForColorMode(
-      //   name,
-      //   `${name}.${variant}.${size}`,
-      //   { size: size, variant: variant },
-      //   'dark'
-      // );
+      resolveComponentThemeStyleAndUpdateMapForColorMode(
+        name,
+        `${name}.${variant}.${size}`,
+        { size: size, variant: variant },
+        'light'
+      );
+      resolveComponentThemeStyleAndUpdateMapForColorMode(
+        name,
+        `${name}.${variant}.${size}`,
+        { size: size, variant: variant },
+        'dark'
+      );
     }
   }
 

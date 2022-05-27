@@ -19,7 +19,10 @@ import { getResolvedStyleSheet, getThemeProps } from '../../../core';
 import { useColorMode } from '../../../core';
 
 const StyledBox = makeStyledComponent(View);
+console.time('resolverBox');
+
 resolveComponentThemeStyleAndUpdateMap('Box');
+console.timeEnd('resolverBox');
 
 // console.log('theme ^&^&^&^&^', config);
 let MemoizedGradient: any;
