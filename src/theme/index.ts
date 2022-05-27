@@ -28,7 +28,7 @@ export interface ICustomTheme {}
 
 export interface ITheme extends ICustomTheme, Omit<Theme, keyof ICustomTheme> {}
 
-export { theme, tools as themeTools };
+export { theme, config, tools as themeTools };
 
 export { getColor } from './styled-system';
 export type { StyledProps } from './types';

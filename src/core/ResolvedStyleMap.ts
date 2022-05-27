@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native';
 
 // Adding Map for storing the props and style for the styled component
 let resolvedStyledMap: Map<string, any> = new Map();
-const pseudoPropStateMap = {
+export const pseudoPropStateMap = {
   _disabled: 'isDisabled',
   _focusVisible: 'isFocusVisible',
   _focus: 'isFocused',
@@ -21,6 +21,79 @@ export const init = () => {
 export const get = (key: string) => {
   return resolvedStyledMap.get(key);
 };
+
+export const getThemeProps = (
+  componentName: string | Array<any>,
+  colorMode?: ColorMode,
+  state?: any,
+  variant?: any,
+  size?: any
+) => {
+  //
+  if (typeof componentName !== 'string') {
+    componentName = componentName.filter((item) => item).join('.');
+    // console.log(componentName, 'component name &&&^');
+  } else {
+    if (variant && size) {
+      componentName = `${componentName}.${variant}.${size}`;
+    } else if (variant) {
+      componentName = `${componentName}.${variant}`;
+    } else if (size) {
+      componentName = `${componentName}.${size}`;
+    }
+  }
+
+  const styleObj: any = resolvedStyledMap.get(componentName);
+
+  // console.log(componentName, colorMode, styleObj, 'component name &&&&&');
+
+  if (!colorMode || !styleObj) {
+    return null;
+  }
+  // Theme style
+  let styleSheet = styleObj[colorMode];
+
+  // state style
+  const stateStyles = getPseudoStateStyles(componentName, state);
+
+  forEach(stateStyles, (stateStyleObj) => {
+    styleSheet = styleSheet.concat(stateStyleObj[colorMode]);
+    // console.log(
+    //   styleSheet,
+    //   stateStyleObj[colorMode],
+    //   styleSheet.concat(stateStyleObj[colorMode]),
+    //   'stylesheet 1111'
+    // );
+
+    // console.log(styleSheet, 'stylesheet 1111');
+
+    // styleSheet.concat(stateStyleObj[colorMode]);
+
+    // styleSheet(stateStyleObj[colorMode]);
+  });
+
+  //TODO: refactor
+
+  const unResolvedPropsArray = map(styleSheet, 'unResolvedProps');
+
+  let unResolvedProps = {};
+  for (const props of unResolvedPropsArray) {
+    unResolvedProps = { ...unResolvedProps, ...props };
+  }
+
+  const styleFromPropsArray = map(styleSheet, 'styleFromProps');
+  let styleFromProps = {};
+  for (const props of styleFromPropsArray) {
+    styleFromProps = { ...styleFromProps, ...props };
+  }
+
+  console.log(styleSheet, 'stylesheet here');
+  return {
+    style: map(styleSheet, 'style'),
+    unResolvedProps: unResolvedProps,
+    styleFromProps: styleFromProps,
+  };
+};
 export const getResolvedProps = (key: string, colorMode?: ColorMode) => {
   const styleObj: any = resolvedStyledMap.get(key);
 
@@ -31,7 +104,11 @@ export const getResolvedProps = (key: string, colorMode?: ColorMode) => {
 };
 const isValidStateKey = (stateKey: string, state: any) => {
   // console.log(stateKey, pseudoPropStateMap[stateKey], state, 'is valid');
-  return state[pseudoPropStateMap[stateKey]];
+  try {
+    return state[pseudoPropStateMap[stateKey]];
+  } catch (e: any) {
+    return false;
+  }
 };
 
 const isValidState = (key: string, state: any) => {
@@ -88,44 +165,54 @@ export const getResolvedStyleSheet = (
   variant?: any,
   size?: any
 ) => {
-  if (typeof componentName !== 'string') {
-    componentName = componentName.filter((item) => item).join('.');
-    // console.log(componentName, 'component name &&&^');
-  } else {
-    if (variant && size) {
-      componentName = `${componentName}.${variant}.${size}`;
-    } else if (variant) {
-      componentName = `${componentName}.${variant}`;
-    } else if (size) {
-      componentName = `${componentName}.${size}`;
-    }
-  }
-
-  const styleObj: any = resolvedStyledMap.get(componentName);
-
-  // console.log(componentName, colorMode, styleObj, 'component name &&&&&');
-
-  if (!colorMode || !styleObj) {
-    return null;
-  }
-  // Theme style
-  const styleSheet = map(styleObj[colorMode], 'style');
-
-  // state style
-  const stateStyles = getPseudoStateStyles(componentName, state);
-  forEach(stateStyles, (stateStyleObj) => {
-    // console.log(
-    //   componentName,
-    //   stateStyleObj[colorMode].style,
-    //   map(stateStyleObj[colorMode], 'style'),
-    //   'hello component name )))'
-    // );
-
-    styleSheet.push(map(stateStyleObj[colorMode], 'style'));
-  });
-
-  return styleSheet;
+  return getThemeProps(componentName, colorMode, state, variant, size)?.style;
 };
+
+// export const getResolvedStyleSheet = (
+//   componentName: string | Array<any>,
+//   colorMode?: ColorMode,
+//   state?: any,
+//   variant?: any,
+//   size?: any
+// ) => {
+//   if (typeof componentName !== 'string') {
+//     componentName = componentName.filter((item) => item).join('.');
+//     // console.log(componentName, 'component name &&&^');
+//   } else {
+//     if (variant && size) {
+//       componentName = `${componentName}.${variant}.${size}`;
+//     } else if (variant) {
+//       componentName = `${componentName}.${variant}`;
+//     } else if (size) {
+//       componentName = `${componentName}.${size}`;
+//     }
+//   }
+
+//   const styleObj: any = resolvedStyledMap.get(componentName);
+
+//   // console.log(componentName, colorMode, styleObj, 'component name &&&&&');
+
+//   if (!colorMode || !styleObj) {
+//     return null;
+//   }
+//   // Theme style
+//   const styleSheet = map(styleObj[colorMode], 'style');
+
+//   // state style
+//   const stateStyles = getPseudoStateStyles(componentName, state);
+//   forEach(stateStyles, (stateStyleObj) => {
+//     // console.log(
+//     //   componentName,
+//     //   stateStyleObj[colorMode].style,
+//     //   map(stateStyleObj[colorMode], 'style'),
+//     //   'hello component name )))'
+//     // );
+
+//     styleSheet.push(map(stateStyleObj[colorMode], 'style'));
+//   });
+
+//   return styleSheet;
+// };
 export const set = (key: string, value: any, colorMode: string) => {
   const styledMap = resolvedStyledMap.get(key);
   if (!styledMap) {

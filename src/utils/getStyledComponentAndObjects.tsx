@@ -65,13 +65,6 @@ export const getStyledComponent = (
     ...inputProps,
   };
 
-  // console.log(
-  //   inputWithDefaultProps,
-  //   // StyleSheet.flatten(styledObj.style),
-  //   // variant,
-  //   '**** variant ****  @@'
-  // );
-
   let flattenProps: any, specificityMap;
 
   [flattenProps, specificityMap] = propsFlattener(
@@ -87,7 +80,7 @@ export const getStyledComponent = (
     1
   );
 
-  // console.log(flattenProps, 'flatten props ^^^^^');
+  console.log(flattenProps, 'flatten props ^^^^^ 111');
 
   [flattenProps] = mergeStylesWithSpecificity(
     componentTheme,
@@ -95,6 +88,7 @@ export const getStyledComponent = (
     specificityMap,
     colorMode
   );
+  console.log(flattenProps, 'flatten props ^^^^^');
 
   // console.log(name, inputProps, flattenProps, 'flatten props ^^^^^');
 
@@ -142,7 +136,6 @@ export const getStyledComponent = (
     false,
     4,
     false,
-    // getResponsiveStyles,
     undefined
   );
 
@@ -387,12 +380,19 @@ const mergeStylesWithSpecificity = (
     sizeSpecificityMap
   );
 
-  // console.log(defaultSpecificity, "h3h3h3");
+  // console.log(
+  //   defaultStyles,
+  //   flattenProps,
+  //   { ...defaultStyles, ...flattenProps },
+  //   'h3h3h3'
+  // );
 
   flattenProps = propsSpreader(
-    { ...defaultStyles, ...flattenProps },
+    merge(defaultStyles, flattenProps),
     defaultSpecificity
   );
+
+  // console.log(flattenProps, 'h3h3h3 >>>>>');
 
   return [flattenProps];
 };

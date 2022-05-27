@@ -75,6 +75,10 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
     [windowWidth, newTheme.breakpoints]
   );
 
+  window['currentBreakpoint'] = currentBreakpoint;
+
+  // const getBreakPoint = () => {};
+
   return (
     <NativeBaseConfigProvider
       theme={newTheme}
@@ -82,6 +86,7 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
       currentBreakpoint={currentBreakpoint}
       isSSR={isSSR}
       disableContrastText={disableContrastText}
+      // getBreakPoint={getBreakPoint}
     >
       <SafeAreaProvider
         initialMetrics={

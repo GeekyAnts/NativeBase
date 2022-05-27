@@ -32,7 +32,12 @@ export const resolvePropsToStyle = (
   getResponsiveStyles?: any,
   INTERNAL_themeStyle?: any
 ) => {
-  const { styleSheet, styleFromProps, dataSet } = getStyleAndFilteredProps({
+  const {
+    styleSheet,
+    unResolvedProps,
+    styleFromProps,
+    dataSet,
+  } = getStyleAndFilteredProps({
     styledSystemProps,
     theme,
     debug,
@@ -49,12 +54,14 @@ export const resolvePropsToStyle = (
     return {
       style: [INTERNAL_themeStyle, styleSheet.box, propStyle],
       styleFromProps,
+      unResolvedProps,
       dataSet,
     };
   } else {
     return {
       style: [INTERNAL_themeStyle, styleSheet.box],
       styleFromProps,
+      unResolvedProps,
       dataSet,
     };
   }

@@ -19,6 +19,7 @@ import get from 'lodash.get';
 import { resolveComponentThemeStyleAndUpdateMap } from '../../../utils/styled';
 import {
   getResolvedStyleSheet,
+  getThemeProps,
   log as resolveComponentThemeLog,
 } from '../../../core';
 import { useColorMode } from '../../../core/color-mode';
@@ -96,6 +97,15 @@ const Button = (
     isLoading,
     isFocusVisible: isFocusVisibleProp || isFocusVisible,
   };
+
+  const { style, unResolvedProps } = getThemeProps(
+    'Button',
+    colorMode,
+    state,
+    props.variant,
+    props.size
+  );
+
   const {
     onPressIn,
     onPressOut,
@@ -109,7 +119,7 @@ const Button = (
     isLoadingText,
     _icon,
     ...resolvedProps
-  } = usePropsResolution('Button', props, state);
+  } = usePropsResolution('Button', { ...unResolvedProps, ...props }, state);
 
   // // console.log(_stack, "styled");
   // let stackStyle = {};

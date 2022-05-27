@@ -680,6 +680,7 @@ export const getStyleAndFilteredProps = ({
   styledSystemProps,
 }: any) => {
   let styleFromProps: any = {};
+  let unResolvedProps: any = {};
   let dataSet: any = {};
   let responsiveStyles: null | Record<
     keyof typeof theme.breakpoints,
@@ -695,6 +696,13 @@ export const getStyleAndFilteredProps = ({
     const rawValue = styledSystemProps[key];
 
     const config = propConfig[key as keyof typeof propConfig];
+
+    if (
+      !getResponsiveStyles &&
+      hasValidBreakpointFormat(rawValue, theme.breakpoints)
+    ) {
+      unResolvedProps[key] = rawValue;
+    }
 
     if (hasValidBreakpointFormat(rawValue, theme.breakpoints)) {
       if (!responsiveStyles) responsiveStyles = {};
@@ -758,25 +766,29 @@ export const getStyleAndFilteredProps = ({
   // console.log(JSON.stringify(styleFromProps), 'style system props 2');
 
   if (responsiveStyles) {
-    const query: UseResponsiveQueryParams = { query: [] };
-    orderedBreakPoints.forEach((o) => {
-      const key = o[0];
-      if (key === 'base') {
-        if (responsiveStyles) query.initial = responsiveStyles.base;
-      } else {
-        if (responsiveStyles)
-          if (key in responsiveStyles) {
-            query?.query?.push({
-              minWidth: o[1],
-              style: responsiveStyles[key],
-            });
-          }
-      }
-    });
+    if (getResponsiveStyles) {
+      const query: UseResponsiveQueryParams = { query: [] };
+      orderedBreakPoints.forEach((o) => {
+        const key = o[0];
+        if (key === 'base') {
+          if (responsiveStyles) query.initial = responsiveStyles.base;
+        } else {
+          if (responsiveStyles)
+            if (key in responsiveStyles) {
+              query?.query?.push({
+                minWidth: o[1],
+                style: responsiveStyles[key],
+              });
+            }
+        }
+      });
+      console.log('hello responsive', orderedBreakPoints, responsiveStyles);
 
-    const { dataSet: newDataSet, styles } = getResponsiveStyles(query);
-    dataSet = { ...dataSet, ...newDataSet };
-    styleFromProps = { ...styleFromProps, ...StyleSheet.flatten(styles) };
+      const { dataSet: newDataSet, styles } = getResponsiveStyles(query);
+      dataSet = { ...dataSet, ...newDataSet };
+      styleFromProps = { ...styleFromProps, ...StyleSheet.flatten(styles) };
+    } else {
+    }
   }
 
   if (process.env.NODE_ENV === 'development' && debug) {
@@ -792,6 +804,7 @@ export const getStyleAndFilteredProps = ({
     styleSheet: StyleSheet.create({ box: styleFromProps }),
     styleFromProps,
     dataSet,
+    unResolvedProps,
   };
 };
 

@@ -296,6 +296,12 @@ const defaultProps = {
   variant: 'solid',
   size: 'md',
   colorScheme: 'primary',
+  width: ['10', '100', '500'],
+  // // height: ['10'],
+  _hover: {
+    // width: ['10', '100', '500'],
+    height: ['10'],
+  },
 };
 
 export const ButtonGroup = {
