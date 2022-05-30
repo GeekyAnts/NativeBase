@@ -13,7 +13,7 @@ import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { getResolvedStyleSheet, useColorMode } from '../../../core';
 
 const StyledText = makeStyledComponent(NativeText);
-updateComponentThemeMap('Text');
+// updateComponentThemeMap('Text');
 
 // To have a RN compatible behaviour, we'll inherit parent text styles as base style
 const TextAncestorContext = React.createContext(false);

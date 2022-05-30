@@ -28,6 +28,10 @@ import {
 
 // TODO: Scalibility issue, might have to shift to a map
 
+// for (const key in theme.components) {
+// console.log(key, 'key here ***');
+// }
+
 const PSEUDO_PROP_COMPONENT_MAP = {
   _spinner: 'Spinner',
   _stack: 'Stack',
@@ -150,6 +154,7 @@ export const updateComponentThemeMap = (name: string, inputProps?: {}) => {
 
   // resolve for all variants
   const componentTheme = get(theme, `components.${name}`, {});
+
   for (const variant in componentTheme.variants) {
     updateComponentThemeMapForColorMode(
       name,
@@ -424,3 +429,9 @@ export const makeStyledComponent = (
     );
   });
 };
+
+console.time('resolveTheme>>>>');
+for (const key in theme.components) {
+  updateComponentThemeMap(key);
+}
+console.timeEnd('resolveTheme>>>>');

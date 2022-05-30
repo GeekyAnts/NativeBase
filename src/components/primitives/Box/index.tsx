@@ -19,12 +19,7 @@ import { getResolvedStyleSheet, getThemeProps } from '../../../core';
 import { useColorMode } from '../../../core';
 
 const StyledBox = makeStyledComponent(View);
-console.time('resolverBox');
 
-updateComponentThemeMap('Box');
-console.timeEnd('resolverBox');
-
-// console.log('theme ^&^&^&^&^', config);
 let MemoizedGradient: any;
 
 const safeAreaPropsExists = (props: IBoxProps) => {
