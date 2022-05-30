@@ -67,13 +67,18 @@ export const getThemeProps = (
 ) => {
   //
 
-  if (variant && size) {
-    componentKeyName = `${componentKeyName}.${variant}.${size}`;
-  } else if (variant) {
-    componentKeyName = `${componentKeyName}.${variant}`;
-  } else if (size) {
-    componentKeyName = `${componentKeyName}.${size}`;
+  if (typeof componentKeyName !== 'string') {
+    componentKeyName = componentKeyName.filter((item) => item).join('.');
+  } else {
+    if (variant && size) {
+      componentKeyName = `${componentKeyName}.${variant}.${size}`;
+    } else if (variant) {
+      componentKeyName = `${componentKeyName}.${variant}`;
+    } else if (size) {
+      componentKeyName = `${componentKeyName}.${size}`;
+    }
   }
+
   return getThemeObject(componentKeyName, colorMode, state);
 };
 export const getResolvedProps = (key: string, colorMode?: ColorMode) => {

@@ -226,13 +226,7 @@ const Button = (
   // );
   return (
     <Pressable
-      INTERNAL_themeStyle={getResolvedStyleSheet(
-        'Button',
-        colorMode,
-        state,
-        props.variant,
-        props.size
-      )}
+      INTERNAL_themeStyle={style}
       // style={buttonStyleObj.style}
       disabled={isDisabled || isLoading}
       ref={ref}
