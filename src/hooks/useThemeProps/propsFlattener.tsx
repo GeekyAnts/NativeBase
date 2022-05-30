@@ -311,6 +311,7 @@ const simplifyProps = (
       }
     } else {
       // Can delete unused props
+
       if (!cascadePseudoProps) {
         delete flattenProps[property];
         if (process.env.NODE_ENV === 'development' && props.debug) {
@@ -322,6 +323,7 @@ const simplifyProps = (
           /* eslint-disable-next-line */
           console.log(`%c ${property}`, 'color: #818cf8;', 'cascaded');
         }
+
         mergePsuedoProps(
           props,
           property,

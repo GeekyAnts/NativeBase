@@ -321,6 +321,14 @@ export const usePropsResolutionWithComponentTheme = (
   // );
   const incomingWithDefaultProps = cleanIncomingProps;
 
+  // if (incomingWithDefaultProps.size) {
+  //   incomingWithDefaultProps.size = undefined;
+  // }
+
+  // if (incomingWithDefaultProps.variant) {
+  //   incomingWithDefaultProps.variant = undefined;
+  // }
+
   // STEP 1.5: resolving component theme
 
   // extendedTheme.map((extededComponentTheme: any) => {
@@ -374,7 +382,7 @@ export const usePropsResolutionWithComponentTheme = (
   //           colorModeProps
   //         ),
   //       };
-  //       incomingWithDefaultProps.size = undefined;
+  // incomingWithDefaultProps.size = undefined;
   //     }
   //   }
   // });
@@ -387,6 +395,8 @@ export const usePropsResolutionWithComponentTheme = (
   //     "background: #4b5563; color: #FFF; font-weight: 700; padding: 2px 8px;"
   //   );
   // }
+
+  console.log(incomingWithDefaultProps, 'incoming with default');
   //TODO: hack
   let flattenProps: any, specificityMap;
 

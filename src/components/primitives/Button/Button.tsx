@@ -16,17 +16,8 @@ import {
 import { useFocusRing } from '@react-native-aria/focus';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import get from 'lodash.get';
-import { updateComponentThemeMap } from '../../../utils/styled';
-import {
-  getResolvedStyleSheet,
-  getThemeProps,
-  log as resolveComponentThemeLog,
-} from '../../../core';
+import { getResolvedStyleSheet, getThemeProps } from '../../../core';
 import { useColorMode } from '../../../core/color-mode';
-
-console.time('resolverButton');
-// updateComponentThemeMap('Button');
-console.timeEnd('resolverButton');
 
 // resolveComponentThemeLog();
 // console.log(
@@ -102,8 +93,7 @@ const Button = (
     'Button',
     colorMode,
     state,
-    props.variant,
-    props.size
+    props
   );
 
   const {
@@ -119,7 +109,9 @@ const Button = (
     isLoadingText,
     _icon,
     ...resolvedProps
-  } = usePropsResolution('Button', { ...unResolvedProps, ...props }, state);
+  } = usePropsResolution('Button', { ...{}, ...props }, state);
+
+  console.log(style, unResolvedProps, resolvedProps, 'style here');
 
   // // console.log(_stack, "styled");
   // let stackStyle = {};

@@ -87,22 +87,45 @@ const resolveForInternalPseudoProps = (
         true
       );
     } else {
-      const themeProps = getThemeProps(name, colorMode, {
-        [pseudoPropStateMap[property]]: true,
-      });
+      // const themeProps = getThemeProps(name, colorMode, {
+      //   [pseudoPropStateMap[property]]: true,
+      // });
 
-      if (themeProps) {
-        updateComponentThemeMapForColorMode(
-          name,
-          `${key}.${property}`,
-          {
-            ...themeProps.styleFromProps,
-            ...styledObj.internalPseudoProps[property],
-          },
-          colorMode,
-          true,
-          { path: key }
-        );
+      // if (property === '_hover') {
+      //   console.log(
+      //     // name,
+      //     // property,
+      //     // pseudoPropStateMap[property],
+      //     themeProps,
+      //     {
+      //       ...themeProps.styleFromProps,
+      //       ...styledObj.internalPseudoProps[property],
+      //     },
+      //     'theme props '
+      //   );
+      // }
+
+      const styledObjNestedProp: any = getStyledObject(
+        {},
+        colorMode,
+        styledObj.internalPseudoProps[property]
+      );
+
+      const componentMapPath = key;
+      const componentObj = getResolvedStyleMap(componentMapPath);
+
+      if (componentObj) {
+        // const stateKey = key.slice(componentMapPath.length + 1);
+        const stateKey = property;
+
+        if (componentObj[stateKey]) {
+          if (!componentObj[stateKey][colorMode]) {
+            componentObj[stateKey][colorMode] = [];
+          }
+          componentObj[stateKey][colorMode].push(styledObjNestedProp);
+        } else {
+          componentObj[stateKey] = { [colorMode]: [styledObjNestedProp] };
+        }
       }
     }
   }
@@ -113,8 +136,7 @@ const updateComponentThemeMapForColorMode = (
   key: string,
   inputProps?: {},
   colorMode: 'light' | 'dark' = 'light',
-  resolveForStatePseudoProps: boolean = false,
-  nestedConfig: any = { path: '' }
+  resolveForStatePseudoProps: boolean = false
 ) => {
   let componentTheme = get(theme, `components.${name}`, {});
   // resolve for variant
@@ -122,27 +144,23 @@ const updateComponentThemeMapForColorMode = (
   if (resolveForStatePseudoProps) {
     componentTheme = {};
   }
-  const styledObj: any = getStyledObject(componentTheme, colorMode, inputProps);
+  const styledObj: any = getStyledObject(componentTheme, colorMode, {
+    ...inputProps,
+    extraProp: key,
+  });
 
-  if (!nestedConfig.path) {
-    setResolvedStyleMap(key, styledObj, colorMode);
-  } else {
-    const componentMapPath = nestedConfig.path;
-    const componentObj = getResolvedStyleMap(componentMapPath);
-
-    if (componentObj) {
-      const stateKey = key.slice(componentMapPath.length + 1);
-
-      if (componentObj[stateKey]) {
-        if (!componentObj[stateKey][colorMode]) {
-          componentObj[stateKey][colorMode] = [];
-        }
-        componentObj[stateKey][colorMode].push(styledObj);
-      } else {
-        componentObj[stateKey] = { [colorMode]: [styledObj] };
-      }
-    }
-  }
+  // console.log(
+  //   styledObj.styleFromProps.paddingLeft,
+  //   key,
+  //   'styled obje',
+  //   inputProps,
+  //   componentTheme,
+  //   resolveForStatePseudoProps
+  // );
+  // if (!nestedConfig.path) {
+  setResolvedStyleMap(key, styledObj, colorMode);
+  // } else {
+  // }
   resolveForInternalPseudoProps(name, key, styledObj, colorMode);
 
   return styledObj;
@@ -150,7 +168,7 @@ const updateComponentThemeMapForColorMode = (
 
 export const updateComponentThemeMap = (name: string, inputProps?: {}) => {
   updateComponentThemeMapForColorMode(name, name, inputProps, 'light');
-  updateComponentThemeMapForColorMode(name, name, inputProps, 'dark');
+  // updateComponentThemeMapForColorMode(name, name, inputProps, 'dark');
 
   // resolve for all variants
   const componentTheme = get(theme, `components.${name}`, {});
@@ -430,8 +448,10 @@ export const makeStyledComponent = (
   });
 };
 
-console.time('resolveTheme>>>>');
-for (const key in theme.components) {
-  updateComponentThemeMap(key);
-}
-console.timeEnd('resolveTheme>>>>');
+// console.time('resolveTheme>>>>');
+// for (const key in theme.components) {
+//   updateComponentThemeMap(key);
+// }
+updateComponentThemeMap('Button');
+
+// console.timeEnd('resolveTheme>>>>');

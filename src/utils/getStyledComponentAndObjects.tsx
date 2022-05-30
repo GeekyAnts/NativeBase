@@ -328,12 +328,7 @@ const mergeStylesWithSpecificity = (
     sizeSpecificityMap
   );
 
-  // console.log(
-  //   defaultStyles,
-  //   flattenProps,
-  //   { ...defaultStyles, ...flattenProps },
-  //   'h3h3h3'
-  // );
+  console.log(flattenProps.size, flattenProps, componentTheme, 'h3h3h3');
 
   flattenProps = propsSpreader(
     merge(defaultStyles, flattenProps),

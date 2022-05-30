@@ -11,6 +11,7 @@ export const pseudoPropStateMap = {
   _hover: 'isHovered',
   _pressed: 'isPressed',
   _checked: 'isChecked',
+  _loading: 'isLoading',
 };
 
 export const init = () => {
@@ -22,12 +23,13 @@ export const get = (key: string) => {
   return resolvedStyledMap.get(key);
 };
 
-const getThemeObject = (componentName: any, colorMode?: any, state?: any) => {
+const getThemeObject = (componentName: any, colorMode: any, state?: any) => {
   const styleObj: any = resolvedStyledMap.get(componentName);
 
-  if (!colorMode || !styleObj) {
-    return null;
+  if (!styleObj) {
+    return {};
   }
+
   // Theme style
   let styleSheet = styleObj[colorMode];
 
@@ -59,14 +61,14 @@ const getThemeObject = (componentName: any, colorMode?: any, state?: any) => {
 };
 
 export const getThemeProps = (
-  componentKeyName: string | Array<any>,
-  colorMode?: ColorMode,
+  inputComponentKeyName: string | Array<any>,
+  colorMode: ColorMode,
   state?: any,
-  variant?: any,
-  size?: any
-) => {
+  { variant, size }: any = {}
+): any => {
   //
 
+  let componentKeyName = inputComponentKeyName;
   if (typeof componentKeyName !== 'string') {
     componentKeyName = componentKeyName.filter((item) => item).join('.');
   } else {
@@ -78,8 +80,18 @@ export const getThemeProps = (
       componentKeyName = `${componentKeyName}.${size}`;
     }
   }
+  const themeObj = getThemeObject(componentKeyName, colorMode, state);
 
-  return getThemeObject(componentKeyName, colorMode, state);
+  // if (!themeObj) {
+  //   themeObj = getThemeObject(inputComponentKeyName, colorMode, state);
+  //   // console.log(
+  //   //   themeObj,
+  //   //   'theme object',
+  //   //   inputComponentKeyName,
+  //   //   componentKeyName
+  //   // );
+  // }
+  return themeObj;
 };
 export const getResolvedProps = (key: string, colorMode?: ColorMode) => {
   const styleObj: any = resolvedStyledMap.get(key);
@@ -149,10 +161,9 @@ export const getResolvedStyleSheet = (
   componentName: string | Array<any>,
   colorMode?: ColorMode,
   state?: any,
-  variant?: any,
-  size?: any
+  props?: any
 ) => {
-  return getThemeProps(componentName, colorMode, state, variant, size)?.style;
+  return getThemeProps(componentName, colorMode, state, props)?.style;
 };
 
 // export const getResolvedStyleSheet = (
