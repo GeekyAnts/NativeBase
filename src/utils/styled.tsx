@@ -168,7 +168,7 @@ const updateComponentThemeMapForColorMode = (
 
 export const updateComponentThemeMap = (name: string, inputProps?: {}) => {
   updateComponentThemeMapForColorMode(name, name, inputProps, 'light');
-  // updateComponentThemeMapForColorMode(name, name, inputProps, 'dark');
+  updateComponentThemeMapForColorMode(name, name, inputProps, 'dark');
 
   // resolve for all variants
   const componentTheme = get(theme, `components.${name}`, {});
