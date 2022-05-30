@@ -89,17 +89,19 @@ const resolveForInternalPseudoProps = (
         [pseudoPropStateMap[property]]: true,
       });
 
-      resolveComponentThemeStyleAndUpdateMapForColorMode(
-        name,
-        `${key}.${property}`,
-        {
-          ...themeProps.styleFromProps,
-          ...styledObj.internalPseudoProps[property],
-        },
-        colorMode,
-        true,
-        { key: key }
-      );
+      if (themeProps) {
+        resolveComponentThemeStyleAndUpdateMapForColorMode(
+          name,
+          `${key}.${property}`,
+          {
+            ...themeProps.styleFromProps,
+            ...styledObj.internalPseudoProps[property],
+          },
+          colorMode,
+          true,
+          { key: key }
+        );
+      }
     }
   }
 };

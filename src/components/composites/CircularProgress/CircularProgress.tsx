@@ -9,10 +9,7 @@ import type { ICircularProgressProps } from './types';
 import { themeTools } from '../../../theme';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
-const StyleAnimatedView = makeStyledComponent(
-  Animated.View,
-  'CircularProgress'
-);
+const StyleAnimatedView = makeStyledComponent(Animated.View);
 
 const CircularProgress = (
   { value, isIndeterminate, max, min, ...props }: ICircularProgressProps,

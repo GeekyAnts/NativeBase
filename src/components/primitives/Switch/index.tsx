@@ -12,7 +12,7 @@ import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { useFormControlContext } from '../../composites/FormControl';
 import { combineContextAndProps } from '../../../utils';
 
-const StyledNBSwitch = makeStyledComponent(RNSwitch, 'Switch');
+const StyledNBSwitch = makeStyledComponent(RNSwitch);
 
 // TODO: Needs proper refactor
 const Switch = (

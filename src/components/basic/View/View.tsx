@@ -5,7 +5,7 @@ import { makeStyledComponent } from '../../../utils/styled';
 import type { IViewProps } from './types';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
-const StyledView: any = makeStyledComponent(RNView, 'View');
+const StyledView: any = makeStyledComponent(RNView);
 
 export const View = forwardRef((props: IViewProps, ref: any) => {
   const { ...resolvedProps } = usePropsResolution('View', props);

@@ -87,7 +87,7 @@ export const getThemeProps = (
     styleFromProps = { ...styleFromProps, ...props };
   }
 
-  console.log(styleSheet, 'stylesheet here');
+  // console.log(styleSheet, 'stylesheet here');
   return {
     style: map(styleSheet, 'style'),
     unResolvedProps: unResolvedProps,
@@ -153,7 +153,7 @@ const getPseudoStateStyles = (componentName: string, state: any) => {
     }
   });
 
-  console.log(styleObj, 'valid state *');
+  // console.log(styleObj, 'valid state *');
 
   return styleObj;
 };

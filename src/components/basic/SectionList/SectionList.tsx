@@ -5,10 +5,7 @@ import { makeStyledComponent } from '../../../utils/styled';
 import type { ISectionListProps } from './types';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
-const StyledSectionList: any = makeStyledComponent(
-  RNSectionList,
-  'SectionList'
-);
+const StyledSectionList: any = makeStyledComponent(RNSectionList);
 
 const SectionListComponent = <ItemT extends any, sectionT extends any>(
   props: ISectionListProps<ItemT, sectionT>,

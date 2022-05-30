@@ -9,7 +9,7 @@ import { makeStyledComponent } from '../../../utils/styled';
 import { useResolvedFontFamily } from '../../../hooks/useResolvedFontFamily';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
-const StyledInput = makeStyledComponent(TextInput, 'Input');
+const StyledInput = makeStyledComponent(TextInput);
 
 const InputBase = (
   {

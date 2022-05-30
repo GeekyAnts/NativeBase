@@ -5,7 +5,7 @@ import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { useThemeProps } from '../../../hooks/useThemeProps';
 import { useSafeArea } from '../../../hooks/useSafeArea';
 import type { IViewProps } from './types';
-const StyledView: any = makeStyledComponent(RNView, 'View');
+const StyledView: any = makeStyledComponent(RNView);
 
 const View = (props: IViewProps, ref: any) => {
   const viewProps = useThemeProps('View', props);

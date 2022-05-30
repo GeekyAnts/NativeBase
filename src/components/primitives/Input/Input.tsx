@@ -12,7 +12,7 @@ import { Stack } from '../Stack';
 import { makeStyledComponent } from '../../../utils/styled';
 import { useResolvedFontFamily } from '../../../hooks/useResolvedFontFamily';
 
-const StyledInput = makeStyledComponent(TextInput, 'Input');
+const StyledInput = makeStyledComponent(TextInput);
 
 const Input = (
   {

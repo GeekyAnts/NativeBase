@@ -80,7 +80,7 @@ export const getStyledComponent = (
     1
   );
 
-  console.log(flattenProps, 'flatten props ^^^^^ 111');
+  // console.log(flattenProps, 'flatten props ^^^^^ 111');
 
   [flattenProps] = mergeStylesWithSpecificity(
     componentTheme,
@@ -88,7 +88,7 @@ export const getStyledComponent = (
     specificityMap,
     colorMode
   );
-  console.log(flattenProps, 'flatten props ^^^^^');
+  // console.log(flattenProps, 'flatten props ^^^^^');
 
   // console.log(name, inputProps, flattenProps, 'flatten props ^^^^^');
 

@@ -13,11 +13,7 @@ import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { getResolvedStyleSheet, useColorMode } from '../../../core';
 
 const StyledText = makeStyledComponent(NativeText);
-console.time('hello 11111');
 resolveComponentThemeStyleAndUpdateMap('Text');
-console.timeEnd('hello 11111');
-
-console.log('hello 11111');
 
 // To have a RN compatible behaviour, we'll inherit parent text styles as base style
 const TextAncestorContext = React.createContext(false);
@@ -53,12 +49,12 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
     }
   );
 
-  console.log(
-    INTERNAL_themeStyle,
-    props,
-    reslovedProps,
-    'internal theme styel 1'
-  );
+  // console.log(
+  //   INTERNAL_themeStyle,
+  //   props,
+  //   reslovedProps,
+  //   'internal theme styel 1'
+  // );
   const _ref = useRef(null);
   const { colorMode } = useColorMode();
   // TODO: might have to add this condition
@@ -106,7 +102,7 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
     ...(isHovered && _hover),
   };
 
-  console.log(INTERNAL_themeStyle, 'internal theme style');
+  // console.log(INTERNAL_themeStyle, 'internal theme style');
   return hasTextAncestor ? (
     <StyledText
       {...propsToSpread}
