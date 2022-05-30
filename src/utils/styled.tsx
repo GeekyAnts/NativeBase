@@ -449,9 +449,6 @@ export const makeStyledComponent = (
 };
 
 // console.time('resolveTheme>>>>');
-// for (const key in theme.components) {
-//   updateComponentThemeMap(key);
-// }
-updateComponentThemeMap('Button');
-
-// console.timeEnd('resolveTheme>>>>');
+for (const key in theme.components) {
+  updateComponentThemeMap(key);
+}
