@@ -1,6 +1,6 @@
 import { theme as defaultTheme, Theme } from './../theme';
 import mergeWith from 'lodash.mergewith';
-import { resolveComponentThemeStyleAndUpdateMap } from '../utils/styled';
+import { updateComponentThemeMap } from '../utils/styled';
 
 function isFunction(value: any): boolean {
   return typeof value === 'function';
@@ -11,7 +11,7 @@ type ThemeUtil = Theme | (Record<string, any> & {});
 function resolveComponentThemeAndUpdateMap(theme: any) {
   if (theme.components) {
     Object.keys(theme.components).map((key: string) => {
-      resolveComponentThemeStyleAndUpdateMap(key, theme.components[key]);
+      updateComponentThemeMap(key, theme.components[key]);
     });
   }
 }

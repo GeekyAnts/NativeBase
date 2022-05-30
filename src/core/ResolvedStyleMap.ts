@@ -22,30 +22,8 @@ export const get = (key: string) => {
   return resolvedStyledMap.get(key);
 };
 
-export const getThemeProps = (
-  componentName: string | Array<any>,
-  colorMode?: ColorMode,
-  state?: any,
-  variant?: any,
-  size?: any
-) => {
-  //
-  if (typeof componentName !== 'string') {
-    componentName = componentName.filter((item) => item).join('.');
-    // console.log(componentName, 'component name &&&^');
-  } else {
-    if (variant && size) {
-      componentName = `${componentName}.${variant}.${size}`;
-    } else if (variant) {
-      componentName = `${componentName}.${variant}`;
-    } else if (size) {
-      componentName = `${componentName}.${size}`;
-    }
-  }
-
+const getThemeObject = (componentName: any, colorMode?: any, state?: any) => {
   const styleObj: any = resolvedStyledMap.get(componentName);
-
-  // console.log(componentName, colorMode, styleObj, 'component name &&&&&');
 
   if (!colorMode || !styleObj) {
     return null;
@@ -58,21 +36,7 @@ export const getThemeProps = (
 
   forEach(stateStyles, (stateStyleObj) => {
     styleSheet = styleSheet.concat(stateStyleObj[colorMode]);
-    // console.log(
-    //   styleSheet,
-    //   stateStyleObj[colorMode],
-    //   styleSheet.concat(stateStyleObj[colorMode]),
-    //   'stylesheet 1111'
-    // );
-
-    // console.log(styleSheet, 'stylesheet 1111');
-
-    // styleSheet.concat(stateStyleObj[colorMode]);
-
-    // styleSheet(stateStyleObj[colorMode]);
   });
-
-  //TODO: refactor
 
   const unResolvedPropsArray = map(styleSheet, 'unResolvedProps');
 
@@ -87,12 +51,30 @@ export const getThemeProps = (
     styleFromProps = { ...styleFromProps, ...props };
   }
 
-  // console.log(styleSheet, 'stylesheet here');
   return {
     style: map(styleSheet, 'style'),
     unResolvedProps: unResolvedProps,
     styleFromProps: styleFromProps,
   };
+};
+
+export const getThemeProps = (
+  componentKeyName: string | Array<any>,
+  colorMode?: ColorMode,
+  state?: any,
+  variant?: any,
+  size?: any
+) => {
+  //
+
+  if (variant && size) {
+    componentKeyName = `${componentKeyName}.${variant}.${size}`;
+  } else if (variant) {
+    componentKeyName = `${componentKeyName}.${variant}`;
+  } else if (size) {
+    componentKeyName = `${componentKeyName}.${size}`;
+  }
+  return getThemeObject(componentKeyName, colorMode, state);
 };
 export const getResolvedProps = (key: string, colorMode?: ColorMode) => {
   const styleObj: any = resolvedStyledMap.get(key);

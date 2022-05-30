@@ -22,7 +22,7 @@ import { combineContextAndProps } from '../../../utils';
 import SizedIcon from './SizedIcon';
 import { Stack } from '../Stack';
 import { wrapStringChild } from '../../../utils/wrapStringChild';
-import { resolveComponentThemeStyleAndUpdateMap } from '../../../utils/styled';
+import { updateComponentThemeMap } from '../../../utils/styled';
 import {
   getResolvedStyleSheet,
   log as resolveComponentThemeLog,
@@ -31,7 +31,7 @@ import {
 import { useColorMode } from '../../../core/color-mode';
 console.log('Kaha hai bhai');
 
-// resolveComponentThemeStyleAndUpdateMap('Checkbox', {}, [
+// updateComponentThemeMap('Checkbox', {}, [
 //   ...stylingProps.margin,
 //   ...stylingProps.layout,
 //   ...stylingProps.flexbox,

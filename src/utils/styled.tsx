@@ -20,7 +20,7 @@ import {
 } from '../hooks/useThemeProps/usePropsResolution';
 import { isEmptyObj } from './isEmptyObj';
 import isEmpty from 'lodash.isempty';
-import { getStyledComponent } from './getStyledComponentAndObjects';
+import { getStyledObject } from './getStyledComponentAndObjects';
 import {
   get as getResolvedStyleMap,
   set as setResolvedStyleMap,
@@ -75,7 +75,7 @@ const resolveForInternalPseudoProps = (
   // }
   for (const property in styledObj.internalPseudoProps) {
     if (PSEUDO_PROP_COMPONENT_MAP[property]) {
-      resolveComponentThemeStyleAndUpdateMapForColorMode(
+      updateComponentThemeMapForColorMode(
         PSEUDO_PROP_COMPONENT_MAP[property],
         `${key}.${PSEUDO_PROP_COMPONENT_MAP[property]}`,
         styledObj.internalPseudoProps[property],
@@ -83,14 +83,12 @@ const resolveForInternalPseudoProps = (
         true
       );
     } else {
-      // console.log(key, name, property, 'property here');
-      // resolve for states
       const themeProps = getThemeProps(name, colorMode, {
         [pseudoPropStateMap[property]]: true,
       });
 
       if (themeProps) {
-        resolveComponentThemeStyleAndUpdateMapForColorMode(
+        updateComponentThemeMapForColorMode(
           name,
           `${key}.${property}`,
           {
@@ -99,46 +97,37 @@ const resolveForInternalPseudoProps = (
           },
           colorMode,
           true,
-          { key: key }
+          { path: key }
         );
       }
     }
   }
 };
 
-const resolveComponentThemeStyleAndUpdateMapForColorMode = (
+const updateComponentThemeMapForColorMode = (
   name: string,
   key: string,
   inputProps?: {},
   colorMode: 'light' | 'dark' = 'light',
   resolveForStatePseudoProps: boolean = false,
-  nestedConfig: any = { key: '' }
+  nestedConfig: any = { path: '' }
 ) => {
-  const componentTheme = get(theme, `components.${name}`, {});
+  let componentTheme = get(theme, `components.${name}`, {});
   // resolve for variant
-  const styledObj: any = getStyledComponent(
-    componentTheme,
-    name,
-    colorMode,
-    inputProps,
-    resolveForStatePseudoProps
-  );
 
-  // TODO: run only once
-  // // resolve for all variants and sizes
-  // if (!resolveForStatePseudoProps) {
-  //   // const componentTheme = get(theme, `components.${name}`, {});
+  if (resolveForStatePseudoProps) {
+    componentTheme = {};
+  }
+  const styledObj: any = getStyledObject(componentTheme, colorMode, inputProps);
 
-  // }
-
-  if (!nestedConfig.key) {
+  if (!nestedConfig.path) {
     setResolvedStyleMap(key, styledObj, colorMode);
   } else {
-    const componentName = nestedConfig.key;
-    const componentObj = getResolvedStyleMap(componentName);
+    const componentMapPath = nestedConfig.path;
+    const componentObj = getResolvedStyleMap(componentMapPath);
 
     if (componentObj) {
-      const stateKey = key.slice(componentName.length + 1);
+      const stateKey = key.slice(componentMapPath.length + 1);
 
       if (componentObj[stateKey]) {
         if (!componentObj[stateKey][colorMode]) {
@@ -155,34 +144,21 @@ const resolveComponentThemeStyleAndUpdateMapForColorMode = (
   return styledObj;
 };
 
-export const resolveComponentThemeStyleAndUpdateMap = (
-  name: string,
-  inputProps?: {}
-) => {
-  const lightThemeObj = resolveComponentThemeStyleAndUpdateMapForColorMode(
-    name,
-    name,
-    inputProps,
-    'light'
-  );
-  // const darkThemeObj = {};
-  const darkThemeObj = resolveComponentThemeStyleAndUpdateMapForColorMode(
-    name,
-    name,
-    inputProps,
-    'dark'
-  );
+export const updateComponentThemeMap = (name: string, inputProps?: {}) => {
+  updateComponentThemeMapForColorMode(name, name, inputProps, 'light');
+  updateComponentThemeMapForColorMode(name, name, inputProps, 'dark');
+
   // resolve for all variants
   const componentTheme = get(theme, `components.${name}`, {});
   for (const variant in componentTheme.variants) {
-    resolveComponentThemeStyleAndUpdateMapForColorMode(
+    updateComponentThemeMapForColorMode(
       name,
       `${name}.${variant}`,
       { variant: variant },
       'light'
       // true
     );
-    resolveComponentThemeStyleAndUpdateMapForColorMode(
+    updateComponentThemeMapForColorMode(
       name,
       `${name}.${variant}`,
       { variant: variant },
@@ -192,13 +168,13 @@ export const resolveComponentThemeStyleAndUpdateMap = (
 
   // resolve for all sizes
   for (const size in componentTheme.sizes) {
-    resolveComponentThemeStyleAndUpdateMapForColorMode(
+    updateComponentThemeMapForColorMode(
       name,
       `${name}.${size}`,
       { size: size },
       'light'
     );
-    resolveComponentThemeStyleAndUpdateMapForColorMode(
+    updateComponentThemeMapForColorMode(
       name,
       `${name}.${size}`,
       { size: size },
@@ -207,16 +183,15 @@ export const resolveComponentThemeStyleAndUpdateMap = (
   }
 
   // resolve for all variants and sizes
-
   for (const variant in componentTheme.variants) {
     for (const size in componentTheme.sizes) {
-      resolveComponentThemeStyleAndUpdateMapForColorMode(
+      updateComponentThemeMapForColorMode(
         name,
         `${name}.${variant}.${size}`,
         { size: size, variant: variant },
         'light'
       );
-      resolveComponentThemeStyleAndUpdateMapForColorMode(
+      updateComponentThemeMapForColorMode(
         name,
         `${name}.${variant}.${size}`,
         { size: size, variant: variant },
@@ -224,8 +199,6 @@ export const resolveComponentThemeStyleAndUpdateMap = (
       );
     }
   }
-
-  return { lightThemeObj, darkThemeObj };
 };
 
 const resolveComponentTheme = (

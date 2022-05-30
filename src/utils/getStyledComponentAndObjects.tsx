@@ -20,45 +20,39 @@ import { isEmptyObj } from './isEmptyObj';
 import isEmpty from 'lodash.isempty';
 import { extractInObject, stylingProps } from '../theme/tools';
 
-window['logger'] = {};
-console.batchTime = (key) => {
-  const keyValue = window['logger'][key];
-  if (keyValue) {
-    // keyValue.totalTime = keyValue.totalTime + (Date.now() - keyValue.startTime);
-    keyValue.startTime = window.performance.now();
-  } else {
-    window['logger'][key] = {
-      startTime: window.performance.now(),
-      totalTime: 0,
-    };
-  }
-};
+// window['logger'] = {};
+// console.batchTime = (key) => {
+//   const keyValue = window['logger'][key];
+//   if (keyValue) {
+//     // keyValue.totalTime = keyValue.totalTime + (Date.now() - keyValue.startTime);
+//     keyValue.startTime = window.performance.now();
+//   } else {
+//     window['logger'][key] = {
+//       startTime: window.performance.now(),
+//       totalTime: 0,
+//     };
+//   }
+// };
 
-console.batchTimeEnd = (key) => {
-  const keyValue = window['logger'][key];
-  if (keyValue) {
-    keyValue.totalTime =
-      keyValue.totalTime + (window.performance.now() - keyValue.startTime);
-    // console.log(
-    //   "useStyledSystemPropsResolver 2222",
-    //   keyValue,
-    //   window.performance.now()
-    // );
-  }
-};
+// console.batchTimeEnd = (key) => {
+//   const keyValue = window['logger'][key];
+//   if (keyValue) {
+//     keyValue.totalTime =
+//       keyValue.totalTime + (window.performance.now() - keyValue.startTime);
+//     // console.log(
+//     //   "useStyledSystemPropsResolver 2222",
+//     //   keyValue,
+//     //   window.performance.now()
+//     // );
+//   }
+// };
 
-export const getStyledComponent = (
+export const getStyledObject = (
   componentTheme: any,
-  name: string,
   colorMode: ColorMode,
-  inputProps?: {},
-  resolveForStatePseudoProps: boolean = false
+  inputProps?: {}
 ) => {
-  let componentStyle = componentTheme.defaultProps?.style;
-  if (resolveForStatePseudoProps) {
-    componentTheme = {};
-    componentStyle = {};
-  }
+  const componentStyle = componentTheme?.defaultProps?.style;
 
   const inputWithDefaultProps = {
     ...componentTheme.defaultProps,
@@ -80,30 +74,14 @@ export const getStyledComponent = (
     1
   );
 
-  // console.log(flattenProps, 'flatten props ^^^^^ 111');
-
   [flattenProps] = mergeStylesWithSpecificity(
     componentTheme,
     flattenProps,
     specificityMap,
     colorMode
   );
-  // console.log(flattenProps, 'flatten props ^^^^^');
 
-  // console.log(name, inputProps, flattenProps, 'flatten props ^^^^^');
-
-  // console.log(name, flattenProps, inputWithDefaultProps, 'hello input');
-
-  // if (name == 'Button') {
-  //   console.log(flattenProps, 'flatten');
-  // }
-
-  let internalPseudoProps: any = {};
-  // let internalStatePseudoProps: any = {};
-
-  //TODO: refactor
-
-  // internalPseudoProps[property] = flattenProps[property];
+  const internalPseudoProps: any = {};
 
   for (const property in flattenProps) {
     if (
@@ -113,23 +91,10 @@ export const getStyledComponent = (
       )
     ) {
       internalPseudoProps[property] = flattenProps[property];
-
-      // internalPseudoProps[property] = flattenProps[property];
-    } else {
-      // console.log(property, 'property @@');
     }
-
-    // if (property.startsWith('_')) {
-    //   internalStatePseudoProps[property] = flattenProps[property];
-    // }
   }
-  // console.log(flattenProps, internalPseudoProps, '@@@@@ flatten props');
-  // ["_dark", "_light", "_web", "_ios", "_android", "_important"].includes(
-  //   flattenProps
-  // );
 
-  // console.log(flattenProps, 'flatten props ^^^^^');
-  const styleObj = resolvePropsToStyle(
+  const styleObj: any = resolvePropsToStyle(
     flattenProps,
     componentStyle,
     theme,
@@ -139,26 +104,9 @@ export const getStyledComponent = (
     undefined
   );
 
-  // pseudo prop resolver
-  //
-  //
-
-  //
-  //
-  //
-
-  //
-
-  // resolve variant styles
-  // console.log(name, componentTheme, 'hello stack stack');
-
-  //
-  //
-
   styleObj.internalPseudoProps = internalPseudoProps;
-  // styleObj.internalStatePseudoProps = internalStatePseudoProps;
+
   return styleObj;
-  // }
 };
 
 const resolveComponentThemeStyle = (

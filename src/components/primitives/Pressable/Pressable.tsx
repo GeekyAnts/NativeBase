@@ -5,7 +5,7 @@ import type { IPressableProps } from './types';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import {
   makeStyledComponent,
-  resolveComponentThemeStyleAndUpdateMap,
+  updateComponentThemeMap,
 } from '../../../utils/styled';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useFocusRing } from '@react-native-aria/focus';
@@ -14,7 +14,7 @@ import { useColorMode } from '../../../core/color-mode';
 
 const StyledPressable = makeStyledComponent(RNPressable);
 
-resolveComponentThemeStyleAndUpdateMap('Pressable');
+updateComponentThemeMap('Pressable');
 
 export const useHover = () => {
   const [isHovered, setHovered] = React.useState(false);

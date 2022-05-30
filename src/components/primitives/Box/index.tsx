@@ -5,7 +5,7 @@ import { getColor } from '../../../theme';
 import { useTheme } from '../../../hooks';
 import {
   makeStyledComponent,
-  resolveComponentThemeStyleAndUpdateMap,
+  updateComponentThemeMap,
 } from '../../../utils/styled';
 import { wrapStringChild } from '../../../utils/wrapStringChild';
 import type { IBoxProps, InterfaceBoxProps } from './types';
@@ -21,7 +21,7 @@ import { useColorMode } from '../../../core';
 const StyledBox = makeStyledComponent(View);
 console.time('resolverBox');
 
-resolveComponentThemeStyleAndUpdateMap('Box');
+updateComponentThemeMap('Box');
 console.timeEnd('resolverBox');
 
 // console.log('theme ^&^&^&^&^', config);
