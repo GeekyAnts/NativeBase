@@ -4,6 +4,8 @@ import Box from '../../primitives/Box';
 import type { IBadgeProps } from './types';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import { useColorMode } from '../../../core/color-mode';
+import { getResolvedStyleSheet, getThemeProps } from '../../../core';
 
 const Badge = (
   {
@@ -17,7 +19,23 @@ const Badge = (
   }: IBadgeProps,
   ref: any
 ) => {
-  const { _icon, _text, ...newProps } = usePropsResolution('Badge', props);
+  const { colorMode } = useColorMode();
+
+  const { style, unResolvedProps } = getThemeProps(
+    'Badge',
+    colorMode,
+    {},
+    props
+  );
+
+  const { _icon, _text, ...newProps } = usePropsResolution(
+    'Badge',
+    {
+      ...unResolvedProps,
+      ...props,
+    },
+    {}
+  );
 
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
@@ -57,9 +75,20 @@ const Badge = (
   }
 
   return (
-    <HStack {...newProps} ref={ref}>
+    <HStack INTERNAL_themeStyle={style} {...newProps} ref={ref}>
       {startIcon ? startIcon : null}
-      <Box _text={_text}>{children}</Box>
+      <Box
+        _text={{
+          ..._text,
+          INTERNAL_themeStyle: getResolvedStyleSheet(
+            [`Badge`, props.variant, props.size, `Text`],
+            colorMode,
+            {}
+          ),
+        }}
+      >
+        {children}
+      </Box>
       {endIcon ? endIcon : null}
     </HStack>
   );
