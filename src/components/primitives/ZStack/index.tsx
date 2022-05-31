@@ -4,6 +4,8 @@ import { getAbsoluteChildren } from '../../../utils';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import type { CustomProps } from '../../../components/types';
+import { useColorMode } from '../../../core/color-mode';
+import { getThemeProps } from '../../../core';
 
 export interface InterfaceZStackProps extends InterfaceBoxProps<IZStackProps> {
   /**
@@ -14,13 +16,28 @@ export interface InterfaceZStackProps extends InterfaceBoxProps<IZStackProps> {
 
 export type IZStackProps = InterfaceZStackProps & CustomProps<'ZStack'>;
 const ZStack = ({ children, reversed, ...props }: IZStackProps, ref?: any) => {
-  const resolvedProps = usePropsResolution('ZStack', props);
+  const { colorMode } = useColorMode();
+  const { style, unResolvedProps } = getThemeProps(
+    'ZStack',
+    colorMode,
+    {},
+    props
+  );
+
+  const resolvedProps = usePropsResolution(
+    'ZStack',
+    {
+      ...unResolvedProps,
+      ...props,
+    },
+    {}
+  );
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
   }
   return (
-    <Box {...resolvedProps} ref={ref}>
+    <Box INTERNAL_themeStyle={style} {...resolvedProps} ref={ref}>
       {getAbsoluteChildren(children, reversed)}
     </Box>
   );
