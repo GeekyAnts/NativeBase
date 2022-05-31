@@ -3,8 +3,18 @@ import Box from '../Box';
 import type { IFlexProps } from './types';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import { useColorMode } from '../../../core/color-mode';
+import { getThemeProps } from '../../../core';
 
 const Flex = (props: IFlexProps, ref: any) => {
+  const { colorMode } = useColorMode();
+  const { style, unResolvedProps } = getThemeProps(
+    'Flex',
+    colorMode,
+    {},
+    props
+  );
+
   const {
     align,
     justify,
@@ -14,7 +24,14 @@ const Flex = (props: IFlexProps, ref: any) => {
     shrink,
     direction,
     ...resolvedProps
-  } = usePropsResolution('Flex', props);
+  } = usePropsResolution(
+    'Flex',
+    {
+      ...unResolvedProps,
+      ...props,
+    },
+    {}
+  );
 
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
@@ -23,6 +40,7 @@ const Flex = (props: IFlexProps, ref: any) => {
 
   return (
     <Box
+      INTERNAL_themeStyle={style}
       {...resolvedProps}
       flexDirection={direction || resolvedProps.flexDirection}
       alignItems={align || resolvedProps.alignItems}
@@ -38,9 +56,23 @@ const Flex = (props: IFlexProps, ref: any) => {
 
 //Spacer Component that adds space between components where it is placed
 export const Spacer = (props: any) => {
-  const resolvedProps = usePropsResolution('Spacer', props);
+  const { colorMode } = useColorMode();
+  const { style, unResolvedProps } = getThemeProps(
+    'Spacer',
+    colorMode,
+    {},
+    props
+  );
+  const resolvedProps = usePropsResolution(
+    'Spacer',
+    {
+      ...unResolvedProps,
+      ...props,
+    },
+    {}
+  );
 
-  return <Box {...resolvedProps} />;
+  return <Box INTERNAL_themeStyle={style} {...resolvedProps} />;
 };
 
 export type { IFlexProps };
