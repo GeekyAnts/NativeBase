@@ -4,14 +4,7 @@ import { Pressable, Text, Box, HStack, Spacer, Flex, Badge } from 'native-base';
 export function Example() {
   return (
     <Box alignItems="center">
-      <Pressable
-        maxW="96"
-        borderWidth="1"
-        borderColor="coolGray.300"
-        shadow="3"
-        rounded="8"
-        p="5"
-      >
+      <Pressable maxW="96">
         {({ isHovered, isFocused, isPressed }) => {
           return (
             <Box
@@ -29,6 +22,11 @@ export function Example() {
                   },
                 ],
               }}
+              p="5"
+              rounded="8"
+              shadow={3}
+              borderWidth="1"
+              borderColor="coolGray.300"
             >
               <HStack alignItems="center">
                 <Badge

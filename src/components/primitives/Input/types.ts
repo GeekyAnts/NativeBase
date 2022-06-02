@@ -1,14 +1,14 @@
 import type { TextInputProps } from 'react-native';
 import type { StyledProps } from '../../../theme/types';
+import type { PlatformProps } from '../../types';
+import type { InterfaceBoxProps } from '../Box';
+import type { ISizes } from '../../../theme/base/sizes';
 import type {
-  PlatformProps,
+  CustomProps,
   ThemeComponentSizeType,
   VariantType,
 } from '../../types';
-import type { InterfaceBoxProps } from '../Box';
 import type { ResponsiveValue, ColorType } from '../../../components/types';
-import type { ISizes } from '../../../theme/base/sizes';
-import type { CustomProps } from '../../types';
 import type { IStackProps } from '../Stack/Stack';
 import type { MutableRefObject } from 'react';
 

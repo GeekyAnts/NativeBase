@@ -2,6 +2,7 @@ import { getColorScheme } from '../tools';
 
 const baseStyle = {
   flexDirection: 'row',
+  justifyContent: 'center',
   space: 1,
   px: '2',
   py: '0.5',

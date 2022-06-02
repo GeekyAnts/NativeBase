@@ -52,6 +52,7 @@ const IconButton = (
     clonedIcon = React.cloneElement(icon, {
       ..._icon,
       ...icon?.props,
+      ...props._icon,
     });
   }
 
