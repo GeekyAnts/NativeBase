@@ -5,6 +5,7 @@ import {
   Box,
   Checkbox,
   Center,
+  Badge,
   Modal,
   FormControl,
   Input,
@@ -189,44 +190,48 @@ export const NativeBaseScreen = () => {
           {/* <Pressable/> */}
           <View>
             {new Array(1).fill('100').map((_, index) => (
-              <Button
-              // _hover={{
-              //   height: 20,
-              // }}
-              // variant={'outline'}
-              // _text={{
-              //   color: 'red.500',
-              // }}
-              // bg="amber.400"
-              // _hover={{ bg: 'red.700' }}
-              // bg="blue.400"
-              // safeAreaX
-              // _hover={{
-              //   bg: 'green.500',
-              // }}
-              // p={2}
-              // mt={2}
-              // borderWidth={1}
-              // borderRadius={1}
-              // pt={1}
-              // pb={1}
-              // pr={1}
-              // pl={1}
-              // borderBottomColor="emerald.100"
-              // bg="red.200"
-              // p={index}
-              // style={{ width: 100, height: 100 }}
-              // _text={{
-              //   bg: 'blue.200',
-              // }}
-              // _dark={{
-              //   bg: 'red.100',
-              // }}
-              // variant="default"
-              // style={{ width: 100, height: 100 }}
-              >
-                Hello
-              </Button>
+              <Badge size="sm">NEW FEATURE</Badge> // <Checkbox
+              //   value="test"
+              //   accessibilityLabel="This is a dummy checkbox"
+              // />
+              // <Button
+              // // _hover={{
+              // //   height: 20,
+              // // }}
+              // // variant={'outline'}
+              // // _text={{
+              // //   color: 'red.500',
+              // // }}
+              // // bg="amber.400"
+              // // _hover={{ bg: 'red.700' }}
+              // // bg="blue.400"
+              // // safeAreaX
+              // // _hover={{
+              // //   bg: 'green.500',
+              // // }}
+              // // p={2}
+              // // mt={2}
+              // // borderWidth={1}
+              // // borderRadius={1}
+              // // pt={1}
+              // // pb={1}
+              // // pr={1}
+              // // pl={1}
+              // // borderBottomColor="emerald.100"
+              // // bg="red.200"
+              // // p={index}
+              // // style={{ width: 100, height: 100 }}
+              // // _text={{
+              // //   bg: 'blue.200',
+              // // }}
+              // // _dark={{
+              // //   bg: 'red.100',
+              // // }}
+              // // variant="default"
+              // // style={{ width: 100, height: 100 }}
+              // >
+              //   Hello
+              // </Button>
             ))}
           </View>
 
