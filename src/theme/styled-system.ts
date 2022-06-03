@@ -697,6 +697,8 @@ export const getStyleAndFilteredProps = ({
 
     const config = propConfig[key as keyof typeof propConfig];
 
+    // TODO: refactor
+    // Start: For edge cases
     if (
       !getResponsiveStyles &&
       hasValidBreakpointFormat(rawValue, theme.breakpoints)
@@ -704,9 +706,11 @@ export const getStyleAndFilteredProps = ({
       unResolvedProps[key] = rawValue;
     }
 
+    // TODO: refactor space prop for Stack Component
     if (key === 'space') {
       unResolvedProps[key] = rawValue;
     }
+    // End: For edge cases
 
     if (hasValidBreakpointFormat(rawValue, theme.breakpoints)) {
       if (!responsiveStyles) responsiveStyles = {};
