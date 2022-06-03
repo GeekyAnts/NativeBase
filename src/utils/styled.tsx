@@ -241,6 +241,8 @@ export const makeStyledComponent = (
     // console.log(props, 'hello props **********');
     const [style, restProps] = useStyledSystemPropsResolver(props);
 
+    if (!Comp.displayName)
+      console.log(style, props, Comp.displayName, 'style here &&&&&');
     // console.log(props, 'props here');
     // if (process.env.NODE_ENV === "development" && debug) {
     //   /* eslint-disable-next-line */
@@ -284,10 +286,10 @@ export const makeStyledComponent = (
 };
 
 // // console.time('resolveTheme>>>>');
-for (const key in theme.components) {
-  updateComponentThemeMap(key);
-}
+// for (const key in theme.components) {
+//   updateComponentThemeMap(key);
+// }
 // for (const key in theme.components) {
 // }
 
-// updateComponentThemeMap('Stack');
+updateComponentThemeMap('Icon');

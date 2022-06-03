@@ -228,12 +228,12 @@ const mergeStylesWithSpecificity = (
       }
     }
 
-    // console.log(
-    //   '****>>>>> 1',
-    //   flattenProps.size,
-    //   extededComponentTheme,
-    //   flattenProps
-    // );
+    console.log(
+      '****>>>>> 1',
+      flattenProps.size,
+      extededComponentTheme,
+      flattenProps
+    );
 
     if (
       flattenProps.size &&
@@ -254,10 +254,12 @@ const mergeStylesWithSpecificity = (
             extededComponentTheme
           ),
         };
+        flattenProps.size = undefined;
       }
+    } else {
+      flattenProps.size = undefined;
     }
   });
-  flattenProps.size = undefined;
 
   // console.log('****>>>>> 2', flattenProps);
 

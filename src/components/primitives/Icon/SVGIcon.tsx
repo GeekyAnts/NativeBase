@@ -5,17 +5,32 @@ import { Svg, G } from './nbSvg';
 import type { IIconProps } from './types';
 import { questionOutlineIconPath } from './Icons/questionIconPath';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import { useColorMode } from '../../../core/color-mode';
+import { getThemeProps } from '../../../core';
 
 const SVG = makeStyledComponent(Svg);
 
 const SVGIcon = ({ children, ...props }: IIconProps, ref: any) => {
+  const { colorMode } = useColorMode();
+
+  const { style, unResolvedProps } = getThemeProps(
+    'Icon',
+    colorMode,
+    {},
+    props
+  );
+
   const {
     focusable,
     stroke,
     color,
-    size,
     ...resolvedProps
-  } = usePropsResolution('Icon', props);
+  } = usePropsResolution('Icon', { ...unResolvedProps, ...props });
+
+  // console.log('style here 11', size, resolvedProps);
+
+  // console.log('hello icon render', props);
+
   const strokeHex = useToken('colors', stroke || '');
   const colorHex = useToken('colors', color || '');
   //TODO: refactor for responsive prop
@@ -35,12 +50,13 @@ const SVGIcon = ({ children, ...props }: IIconProps, ref: any) => {
       //     ? parseInt(newProps.size, 10)
       //     : parseInt(newProps.width, 10)
       // }
-      size={size}
+      // size={size}
       color={colorHex}
       stroke={strokeHex}
       focusable={focusable}
       accessibilityRole="image"
       // style={style}
+      INTERNAL_themeStyle={style}
       ref={ref}
     >
       {React.Children.count(children) > 0 ? (
