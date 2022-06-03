@@ -704,6 +704,10 @@ export const getStyleAndFilteredProps = ({
       unResolvedProps[key] = rawValue;
     }
 
+    if (key === 'space') {
+      unResolvedProps[key] = rawValue;
+    }
+
     if (hasValidBreakpointFormat(rawValue, theme.breakpoints)) {
       if (!responsiveStyles) responsiveStyles = {};
 

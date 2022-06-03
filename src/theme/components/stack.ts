@@ -1,5 +1,7 @@
 const baseStyle = {};
-const defaultProps = {};
+const defaultProps = {
+  space: 'md',
+};
 // sizes in stack means the height or width of the spacer elements that get's added between the children, in other
 // words it maps to space prop that user passes.
 const sizes = {

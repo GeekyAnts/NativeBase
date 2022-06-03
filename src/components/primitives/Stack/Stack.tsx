@@ -8,6 +8,7 @@ import { ResponsiveQueryContext } from '../../../utils/useResponsiveQuery/Respon
 import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
 import { getThemeProps } from '../../../core';
 import { useColorMode } from '../../../core/color-mode';
+import { useToken } from '../../../hooks';
 
 export interface InterfaceStackProps extends InterfaceBoxProps<IStackProps> {
   /**
@@ -55,10 +56,7 @@ export interface InterfaceStackProps extends InterfaceBoxProps<IStackProps> {
 
 export type IStackProps = InterfaceStackProps & CustomProps<'Stack'>;
 
-const Stack = (
-  { space, INTERNAL_themeStyle, ...props }: IStackProps,
-  ref?: any
-) => {
+const Stack = ({ INTERNAL_themeStyle, ...props }: IStackProps, ref?: any) => {
   const dir = props.direction;
 
   const state = {
@@ -79,7 +77,7 @@ const Stack = (
     direction,
     reversed,
     divider,
-    size,
+    space,
     ...resolvedProps
   }: any = usePropsResolution(
     'Stack',
@@ -96,6 +94,16 @@ const Stack = (
   const isSSR = useNativeBaseConfig('NativeBase').isSSR;
   const disableCSSMediaQueries = !isSSR;
 
+  const thumbAbsoluteSize = useToken('components.Stack.sizes', space);
+
+  // console.log(
+  //   space,
+  //   'hello size !!!!',
+  //   thumbAbsoluteSize,
+  //   unResolvedProps,
+  //   resolvedProps
+  // );
+
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
@@ -108,12 +116,12 @@ const Stack = (
       {...resolvedProps}
       ref={ref}
       // @ts-ignore
-      gap={disableCSSMediaQueries ? undefined : size}
+      gap={disableCSSMediaQueries ? undefined : thumbAbsoluteSize}
       INTERNAL_themeStyle={[style, INTERNAL_themeStyle]}
     >
       {getSpacedChildren(
         children,
-        space,
+        thumbAbsoluteSize,
         direction === 'row' ? 'X' : 'Y',
         reversed ? 'reverse' : 'normal',
         divider

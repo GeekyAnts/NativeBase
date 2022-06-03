@@ -284,10 +284,10 @@ export const makeStyledComponent = (
 };
 
 // // console.time('resolveTheme>>>>');
-for (const key in theme.components) {
-  updateComponentThemeMap(key);
-}
+// for (const key in theme.components) {
+//   updateComponentThemeMap(key);
+// }
 // for (const key in theme.components) {
 // }
 
-// updateComponentThemeMap('Badge');
+updateComponentThemeMap('Stack');

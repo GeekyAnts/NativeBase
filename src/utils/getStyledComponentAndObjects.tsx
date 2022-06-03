@@ -106,6 +106,8 @@ export const getStyledObject = (
     undefined
   );
 
+  console.log('default props', inputWithDefaultProps, flattenProps, styleObj);
+
   styleObj.internalPseudoProps = internalPseudoProps;
 
   return styleObj;
