@@ -37,10 +37,7 @@ const Badge = (
     {}
   );
 
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
+  // console.log(props, newProps, 'hello props >>>>>');
 
   if (leftIcon) {
     startIcon = leftIcon;
@@ -74,6 +71,7 @@ const Badge = (
     );
   }
 
+  // console.log(style, 'hello props >>>>> 22');
   return (
     <HStack INTERNAL_themeStyle={style} {...newProps} ref={ref}>
       {startIcon ? startIcon : null}

@@ -161,6 +161,8 @@ const updateComponentThemeMapForColorMode = (
   setResolvedStyleMap(key, styledObj, colorMode);
   // } else {
   // }
+
+  // console.log('component ****@@@@', name, styledObj.styleFromProps);
   resolveForInternalPseudoProps(name, key, styledObj, colorMode);
 
   return styledObj;
@@ -224,173 +226,6 @@ export const updateComponentThemeMap = (name: string, inputProps?: {}) => {
   }
 };
 
-const resolveComponentTheme = (
-  incomingProps: any,
-  themeType: Array<string>,
-  providedTheme: any
-): any => {
-  try {
-    if (themeType[1]) {
-      return typeof providedTheme[themeType[0]][themeType[1]] !== 'function'
-        ? providedTheme[themeType[0]][themeType[1]]
-        : providedTheme[themeType[0]][themeType[1]]({
-            theme,
-            ...incomingProps,
-            colorMode: 'light',
-          });
-    } else {
-      return typeof providedTheme[themeType[0]] !== 'function'
-        ? providedTheme[themeType[0]]
-        : providedTheme[themeType[0]]({
-            theme,
-            ...incomingProps,
-            colorMode: 'light',
-          });
-    }
-  } catch {
-    return {};
-  }
-};
-
-const mergeStylesWithSpecificity = (
-  componentTheme: any,
-  flattenProps: any,
-  specificityMap: any,
-  colorMode: any
-) => {
-  let combinedBaseStyle = {};
-  let combinedVariantStyle = {};
-  let combinedSizeStyle = {};
-  let flattenBaseStyle, baseSpecificityMap;
-  const extendedTheme: Array<any> = [];
-
-  if (!isEmpty(componentTheme)) extendedTheme.push(componentTheme);
-
-  extendedTheme.map((extededComponentTheme: any) => {
-    if (extededComponentTheme.baseStyle) {
-      combinedBaseStyle = {
-        ...combinedBaseStyle,
-        ...resolveComponentTheme(
-          flattenProps,
-          ['baseStyle'],
-          extededComponentTheme
-        ),
-      };
-    }
-    if (flattenProps.variant) {
-      if (extededComponentTheme.variants) {
-        combinedVariantStyle = {
-          ...combinedVariantStyle,
-          ...resolveComponentTheme(
-            flattenProps,
-            ['variants', flattenProps.variant],
-            extededComponentTheme
-          ),
-        };
-      }
-    }
-    if (
-      flattenProps.size &&
-      extededComponentTheme?.sizes &&
-      extededComponentTheme?.sizes[flattenProps.size]
-    ) {
-      if (
-        typeof extededComponentTheme.sizes[flattenProps.size] === 'string' ||
-        typeof extededComponentTheme.sizes[flattenProps.size] === 'number'
-      ) {
-        flattenProps.size = extededComponentTheme.sizes[flattenProps.size];
-      } else {
-        combinedSizeStyle = {
-          ...combinedSizeStyle,
-          ...resolveComponentTheme(
-            flattenProps,
-            ['sizes', flattenProps.size],
-            extededComponentTheme
-          ),
-        };
-        flattenProps.size = undefined;
-      }
-    }
-  });
-
-  // console.log(combinedBaseStyle, " ******* ");
-  if (!isEmptyObj(combinedBaseStyle)) {
-    [flattenBaseStyle, baseSpecificityMap] = callPropsFlattener(
-      combinedBaseStyle,
-      specificityMap,
-      1,
-      {},
-      { colorMode: colorMode },
-      {},
-      flattenProps
-    );
-  }
-
-  // NOTE: Resolving variants
-  let flattenVariantStyle, variantSpecificityMap;
-  // Extracting props from variant
-
-  // console.log(combinedVariantStyle, "999999");
-  if (!isEmptyObj(combinedVariantStyle)) {
-    [flattenVariantStyle, variantSpecificityMap] = callPropsFlattener(
-      combinedVariantStyle,
-      baseSpecificityMap || specificityMap,
-      1,
-      {},
-      { colorMode: colorMode },
-      {},
-      flattenProps
-    );
-
-    // We remove variant from original props if we found it in the componentTheme
-    //@ts-ignore
-    flattenProps.variant = undefined;
-  }
-
-  // NOTE: Resolving size
-
-  let flattenSizeStyle, sizeSpecificityMap;
-  // Extracting props from size
-
-  // console.log(combinedSizeStyle, "&&&&&&&");
-  if (!isEmptyObj(combinedSizeStyle)) {
-    [flattenSizeStyle, sizeSpecificityMap] = callPropsFlattener(
-      combinedSizeStyle,
-      variantSpecificityMap || baseSpecificityMap || specificityMap,
-      1,
-      {},
-      { colorMode: colorMode },
-      {},
-      flattenProps
-    );
-  }
-
-  //////
-
-  const defaultStyles = merge(
-    {},
-    flattenBaseStyle,
-    flattenVariantStyle,
-    flattenSizeStyle
-  );
-
-  const defaultSpecificity = merge(
-    {},
-    specificityMap,
-    baseSpecificityMap,
-    variantSpecificityMap,
-    sizeSpecificityMap
-  );
-
-  // console.log(defaultSpecificity, "h3h3h3");
-
-  flattenProps = propsSpreader(
-    { ...defaultStyles, ...flattenProps },
-    defaultSpecificity
-  );
-  return [flattenProps];
-};
-
 export const makeStyledComponent = (
   Comp: any
   // componentName: keyof ITheme['components']
@@ -448,7 +283,11 @@ export const makeStyledComponent = (
   });
 };
 
-// console.time('resolveTheme>>>>');
+// // console.time('resolveTheme>>>>');
 for (const key in theme.components) {
   updateComponentThemeMap(key);
 }
+// for (const key in theme.components) {
+// }
+
+// updateComponentThemeMap('Badge');

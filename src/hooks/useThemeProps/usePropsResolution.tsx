@@ -321,13 +321,13 @@ export const usePropsResolutionWithComponentTheme = (
   // );
   const incomingWithDefaultProps = cleanIncomingProps;
 
-  // if (incomingWithDefaultProps.size) {
-  //   incomingWithDefaultProps.size = undefined;
-  // }
+  if (incomingWithDefaultProps.size) {
+    incomingWithDefaultProps.size = undefined;
+  }
 
-  // if (incomingWithDefaultProps.variant) {
-  //   incomingWithDefaultProps.variant = undefined;
-  // }
+  if (incomingWithDefaultProps.variant) {
+    incomingWithDefaultProps.variant = undefined;
+  }
 
   // STEP 1.5: resolving component theme
 
@@ -396,7 +396,7 @@ export const usePropsResolutionWithComponentTheme = (
   //   );
   // }
 
-  console.log(incomingWithDefaultProps, 'incoming with default');
+  // console.log(incomingWithDefaultProps, 'incoming with default');
   //TODO: hack
   let flattenProps: any, specificityMap;
 

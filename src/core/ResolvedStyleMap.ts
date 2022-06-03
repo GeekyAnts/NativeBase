@@ -1,6 +1,7 @@
 import { forEach, map } from 'lodash';
 import type { ColorMode } from './color-mode';
 import { StyleSheet } from 'react-native';
+import { isEmptyObj } from '../utils';
 
 // Adding Map for storing the props and style for the styled component
 let resolvedStyledMap: Map<string, any> = new Map();
@@ -80,17 +81,11 @@ export const getThemeProps = (
       componentKeyName = `${componentKeyName}.${size}`;
     }
   }
-  const themeObj = getThemeObject(componentKeyName, colorMode, state);
+  let themeObj = getThemeObject(componentKeyName, colorMode, state);
 
-  // if (!themeObj) {
-  //   themeObj = getThemeObject(inputComponentKeyName, colorMode, state);
-  //   // console.log(
-  //   //   themeObj,
-  //   //   'theme object',
-  //   //   inputComponentKeyName,
-  //   //   componentKeyName
-  //   // );
-  // }
+  if (isEmptyObj(themeObj)) {
+    themeObj = getThemeObject(inputComponentKeyName, colorMode, state);
+  }
   return themeObj;
 };
 export const getResolvedProps = (key: string, colorMode?: ColorMode) => {

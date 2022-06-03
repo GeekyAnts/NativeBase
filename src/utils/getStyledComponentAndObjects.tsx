@@ -81,6 +81,8 @@ export const getStyledObject = (
     colorMode
   );
 
+  // console.log(flattenProps, 'hello flatten props');
+
   const internalPseudoProps: any = {};
 
   for (const property in flattenProps) {
@@ -223,6 +225,14 @@ const mergeStylesWithSpecificity = (
         // );
       }
     }
+
+    // console.log(
+    //   '****>>>>> 1',
+    //   flattenProps.size,
+    //   extededComponentTheme,
+    //   flattenProps
+    // );
+
     if (
       flattenProps.size &&
       extededComponentTheme?.sizes &&
@@ -242,10 +252,12 @@ const mergeStylesWithSpecificity = (
             extededComponentTheme
           ),
         };
-        flattenProps.size = undefined;
       }
     }
   });
+  flattenProps.size = undefined;
+
+  // console.log('****>>>>> 2', flattenProps);
 
   // console.log(combinedBaseStyle, " ******* ");
   if (!isEmptyObj(combinedBaseStyle)) {
@@ -328,7 +340,7 @@ const mergeStylesWithSpecificity = (
     sizeSpecificityMap
   );
 
-  console.log(flattenProps.size, flattenProps, componentTheme, 'h3h3h3');
+  // console.log(flattenProps.size, flattenProps, componentTheme, 'h3h3h3');
 
   flattenProps = propsSpreader(
     merge(defaultStyles, flattenProps),

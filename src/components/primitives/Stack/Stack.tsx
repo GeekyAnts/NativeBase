@@ -6,6 +6,8 @@ import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import type { CustomProps, ResponsiveValue, SpaceType } from '../../types';
 import { ResponsiveQueryContext } from '../../../utils/useResponsiveQuery/ResponsiveQueryProvider';
 import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
+import { getThemeProps } from '../../../core';
+import { useColorMode } from '../../../core/color-mode';
 
 export interface InterfaceStackProps extends InterfaceBoxProps<IStackProps> {
   /**
@@ -58,6 +60,20 @@ const Stack = (
   ref?: any
 ) => {
   const dir = props.direction;
+
+  const state = {
+    isDisabled: props.isDisabled,
+    isHovered: props.isHovered,
+    isFocused: props.isFocused,
+    isInvalid: props.isInvalid,
+    isReadOnly: props.isReadOnly,
+  };
+  const { colorMode } = useColorMode();
+
+  const { style, unResolvedProps } = getThemeProps('Stack', colorMode, state, {
+    ...props,
+  });
+
   const {
     children,
     direction,
@@ -67,15 +83,14 @@ const Stack = (
     ...resolvedProps
   }: any = usePropsResolution(
     'Stack',
-    { ...props, size: space },
     {
-      isDisabled: props.isDisabled,
-      isHovered: props.isHovered,
-      isFocused: props.isFocused,
-      isInvalid: props.isInvalid,
-      isReadOnly: props.isReadOnly,
+      ...unResolvedProps,
+      ...props,
     },
-    { resolveResponsively: ['space', 'direction'] }
+    state,
+    {
+      resolveResponsively: ['space', 'direction'],
+    }
   );
 
   const isSSR = useNativeBaseConfig('NativeBase').isSSR;
@@ -85,7 +100,7 @@ const Stack = (
   if (useHasResponsiveProps(props)) {
     return null;
   }
-  // console.log(INTERNAL_themeStyle, 'INTERNAL_themeStyle');
+  // console.log(space, 'INTERNAL_themeStyle');
 
   return (
     <Box
@@ -94,11 +109,11 @@ const Stack = (
       ref={ref}
       // @ts-ignore
       gap={disableCSSMediaQueries ? undefined : size}
-      INTERNAL_themeStyle={INTERNAL_themeStyle}
+      INTERNAL_themeStyle={[style, INTERNAL_themeStyle]}
     >
       {getSpacedChildren(
         children,
-        size,
+        space,
         direction === 'row' ? 'X' : 'Y',
         reversed ? 'reverse' : 'normal',
         divider
