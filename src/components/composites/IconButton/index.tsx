@@ -11,6 +11,8 @@ import {
   useIsPressed,
 } from '../../primitives/Pressable/Pressable';
 import { useFocusRing } from '@react-native-aria/focus';
+import { useColorMode } from '../../../core/color-mode';
+import { getThemeProps } from '../../../core';
 
 const IconButton = (
   {
@@ -30,6 +32,28 @@ const IconButton = (
   const { focusProps, isFocused } = useFocus();
   const { isFocusVisible, focusProps: focusRingProps }: any = useFocusRing();
 
+  const state = {
+    isHovered: isHoveredProp || isHovered,
+    isPressed: isPressedProp || isPressed,
+    isFocused: isFocusedProp || isFocused,
+    isFocusVisible: isFocusVisibleProp || isFocusVisible,
+    isDisabled,
+  };
+  const { colorMode } = useColorMode();
+  const { style, unResolvedProps } = getThemeProps(
+    'IconButton',
+    colorMode,
+    state,
+    props
+  );
+  const {
+    style: iconStyle,
+    styleFromProps,
+    unResolvedProps: iconUnResolvedProps,
+  } = getThemeProps('IconButton.Icon', colorMode, state, props._icon);
+
+  console.log(styleFromProps, props._icon, 'style here 112');
+
   const {
     _icon,
     onPressIn,
@@ -39,19 +63,16 @@ const IconButton = (
     onFocus,
     onBlur,
     ...resolvedProps
-  } = usePropsResolution('IconButton', props, {
-    isHovered: isHoveredProp || isHovered,
-    isPressed: isPressedProp || isPressed,
-    isFocused: isFocusedProp || isFocused,
-    isFocusVisible: isFocusVisibleProp || isFocusVisible,
-    isDisabled,
-  });
+  } = usePropsResolution('IconButton', { ...unResolvedProps, ...props }, state);
 
   let clonedIcon;
   if (icon) {
     clonedIcon = React.cloneElement(icon, {
       ..._icon,
       ...icon?.props,
+      INTERNAL_themeStyle: iconStyle,
+      ...iconUnResolvedProps,
+      styleFromProps,
     });
   }
 
@@ -60,6 +81,7 @@ const IconButton = (
     return null;
   }
 
+  // console.log(clonedIcon, 'ICICICIC');
   return (
     <Pressable
       accessibilityRole="button"
@@ -80,9 +102,20 @@ const IconButton = (
         composeEventHandlers(onBlur, focusProps.onBlur),
         focusRingProps.onBlur
       )}
+      INTERNAL_themeStyle={style}
       {...resolvedProps}
     >
-      {clonedIcon || <Icon {..._icon}>{children}</Icon>}
+      {clonedIcon || (
+        <Icon
+          {..._icon}
+          INTERNAL_themeStyle={iconStyle}
+          styleFromProps={styleFromProps}
+          {...iconUnResolvedProps}
+          myprop="hello"
+        >
+          {children}
+        </Icon>
+      )}
     </Pressable>
   );
 };

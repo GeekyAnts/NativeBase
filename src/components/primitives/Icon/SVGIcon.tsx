@@ -10,7 +10,11 @@ import { getThemeProps } from '../../../core';
 
 const SVG = makeStyledComponent(Svg);
 
-const SVGIcon = ({ children, ...props }: IIconProps, ref: any) => {
+const SVGIcon = (
+  { INTERNAL_themeStyle, children, ...props }: IIconProps,
+  ref: any
+) => {
+  console.log('hello style ^^^^', INTERNAL_themeStyle);
   const { colorMode } = useColorMode();
 
   const { style, unResolvedProps } = getThemeProps(
@@ -50,13 +54,13 @@ const SVGIcon = ({ children, ...props }: IIconProps, ref: any) => {
       //     ? parseInt(newProps.size, 10)
       //     : parseInt(newProps.width, 10)
       // }
-      // size={size}
       color={colorHex}
       stroke={strokeHex}
       focusable={focusable}
       accessibilityRole="image"
+      // size={20}
       // style={style}
-      INTERNAL_themeStyle={style}
+      INTERNAL_themeStyle={[style, INTERNAL_themeStyle]}
       ref={ref}
     >
       {React.Children.count(children) > 0 ? (

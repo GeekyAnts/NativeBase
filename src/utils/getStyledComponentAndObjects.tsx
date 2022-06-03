@@ -106,8 +106,6 @@ export const getStyledObject = (
     undefined
   );
 
-  console.log('default props', inputWithDefaultProps, flattenProps, styleObj);
-
   styleObj.internalPseudoProps = internalPseudoProps;
 
   return styleObj;
@@ -193,6 +191,9 @@ const mergeStylesWithSpecificity = (
 
   if (!isEmpty(componentTheme)) extendedTheme.push(componentTheme);
 
+  // if (flattenProps.extraProp === 'IconButton.Icon') {
+  //   console.log(flattenProps, 'lflflflflf', componentTheme);
+  // }
   extendedTheme.map((extededComponentTheme: any) => {
     if (extededComponentTheme.baseStyle) {
       combinedBaseStyle = {
@@ -228,12 +229,13 @@ const mergeStylesWithSpecificity = (
       }
     }
 
-    console.log(
-      '****>>>>> 1',
-      flattenProps.size,
-      extededComponentTheme,
-      flattenProps
-    );
+    if (flattenProps.extraProp.startsWith('IconButton.Icon'))
+      console.log(
+        '****>>>>> 1',
+        flattenProps.size,
+        extededComponentTheme,
+        flattenProps
+      );
 
     if (
       flattenProps.size &&

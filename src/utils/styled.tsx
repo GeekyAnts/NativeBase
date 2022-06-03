@@ -84,7 +84,7 @@ const resolveForInternalPseudoProps = (
         `${key}.${PSEUDO_PROP_COMPONENT_MAP[property]}`,
         styledObj.internalPseudoProps[property],
         colorMode,
-        true
+        false
       );
     } else {
       // const themeProps = getThemeProps(name, colorMode, {
@@ -144,6 +144,15 @@ const updateComponentThemeMapForColorMode = (
   if (resolveForStatePseudoProps) {
     componentTheme = {};
   }
+
+  // if (key === 'IconButton.Icon')
+  //   console.log(
+  //     key,
+  //     'Key here',
+  //     componentTheme,
+  //     resolveForStatePseudoProps,
+  //     'lflflflflf'
+  //   );
   const styledObj: any = getStyledObject(componentTheme, colorMode, {
     ...inputProps,
     extraProp: key,
@@ -286,10 +295,10 @@ export const makeStyledComponent = (
 };
 
 // // console.time('resolveTheme>>>>');
-// for (const key in theme.components) {
-//   updateComponentThemeMap(key);
-// }
+for (const key in theme.components) {
+  updateComponentThemeMap(key);
+}
 // for (const key in theme.components) {
 // }
 
-updateComponentThemeMap('Icon');
+// updateComponentThemeMap('Icon');

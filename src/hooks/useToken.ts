@@ -19,5 +19,6 @@ export function useToken<T extends string | number>(
   }
 
   const path = `${property}.${token}`;
+  console.log(path, 'path here', theme, fallback);
   return get(theme, path, fallback ?? token);
 }
