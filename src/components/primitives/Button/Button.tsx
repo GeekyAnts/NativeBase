@@ -111,7 +111,7 @@ const Button = (
     ...resolvedProps
   } = usePropsResolution('Button', { ...{}, ...props }, state);
 
-  console.log(style, unResolvedProps, resolvedProps, 'style here');
+  // console.log(style, unResolvedProps, resolvedProps, 'style here');
 
   // // console.log(_stack, "styled");
   // let stackStyle = {};
@@ -185,9 +185,10 @@ const Button = (
         _text={{
           ..._text,
           INTERNAL_themeStyle: getResolvedStyleSheet(
-            [`Button`, props.variant, props.size, `Text`],
+            `Button.Text`,
             colorMode,
-            {}
+            {},
+            props
             // props.variant,
             // props.size
           ),

@@ -50,14 +50,19 @@ import { extractInObject, stylingProps } from '../theme/tools';
 export const getStyledObject = (
   componentTheme: any,
   colorMode: ColorMode,
-  inputProps?: {}
+  inputProps?: {},
+  mergeDefaultProps: boolean = true
 ) => {
   const componentStyle = componentTheme?.defaultProps?.style;
 
-  const inputWithDefaultProps = {
+  let inputWithDefaultProps = {
     ...componentTheme.defaultProps,
     ...inputProps,
   };
+
+  if (!mergeDefaultProps) {
+    inputWithDefaultProps = inputProps;
+  }
 
   let flattenProps: any, specificityMap;
 
@@ -78,7 +83,8 @@ export const getStyledObject = (
     componentTheme,
     flattenProps,
     specificityMap,
-    colorMode
+    colorMode,
+    mergeDefaultProps
   );
 
   // console.log(flattenProps, 'hello flatten props');
@@ -181,7 +187,8 @@ const mergeStylesWithSpecificity = (
   componentTheme: any,
   flattenProps: any,
   specificityMap: any,
-  colorMode: any
+  colorMode: any,
+  mergeDefaultProps: boolean = true
 ) => {
   let combinedBaseStyle = {};
   let combinedVariantStyle = {};
@@ -195,7 +202,7 @@ const mergeStylesWithSpecificity = (
   //   console.log(flattenProps, 'lflflflflf', componentTheme);
   // }
   extendedTheme.map((extededComponentTheme: any) => {
-    if (extededComponentTheme.baseStyle) {
+    if (extededComponentTheme.baseStyle && mergeDefaultProps) {
       combinedBaseStyle = {
         ...combinedBaseStyle,
         ...resolveComponentTheme(
@@ -205,7 +212,7 @@ const mergeStylesWithSpecificity = (
         ),
       };
     }
-    if (flattenProps.variant) {
+    if (flattenProps.variant && mergeDefaultProps) {
       if (extededComponentTheme.variants) {
         combinedVariantStyle = {
           ...combinedVariantStyle,

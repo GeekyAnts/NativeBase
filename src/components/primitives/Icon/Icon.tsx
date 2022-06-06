@@ -19,6 +19,8 @@ const Icon = ({ as, ...props }: IIconProps, ref?: any) => {
   );
 
   const { size, ...resolvedProps } = usePropsResolution('Icon', props);
+
+  //TODO: hack - refactor
   let tokenizedFontSize = props.styleFromProps
     ? props.styleFromProps.width
     : styleFromProps.width;
@@ -27,7 +29,7 @@ const Icon = ({ as, ...props }: IIconProps, ref?: any) => {
   // if (size) {
   // }
 
-  console.log(tokenizedFontSize, 'hello &&&&');
+  // console.log(tokenizedFontSize, 'hello &&&&');
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;

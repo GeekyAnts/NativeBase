@@ -11,17 +11,25 @@ import { getThemeProps } from '../../../core';
 const SVG = makeStyledComponent(Svg);
 
 const SVGIcon = (
-  { INTERNAL_themeStyle, children, ...props }: IIconProps,
+  {
+    INTERNAL_themeStyle,
+    children,
+    ...props
+  }: IIconProps & { stylePropsProps: any },
   ref: any
 ) => {
   const { colorMode } = useColorMode();
 
-  const { style, unResolvedProps } = getThemeProps(
+  const { style, unResolvedProps, styleFromProps } = getThemeProps(
     'Icon',
     colorMode,
     {},
     props
   );
+
+  // let tokenizedFontSize = props.styleFromProps
+  // ? props.styleFromProps.width
+  // : styleFromProps.width;
 
   const {
     focusable,
@@ -30,6 +38,7 @@ const SVGIcon = (
     ...resolvedProps
   } = usePropsResolution('Icon', { ...unResolvedProps, ...props });
 
+  const iconStyleFromProps = { ...styleFromProps, ...props.styleFromProps };
   // console.log('style here 11', size, resolvedProps);
 
   // console.log('hello icon render', props);
@@ -37,7 +46,7 @@ const SVGIcon = (
   const strokeHex = useToken('colors', stroke || '');
   const colorHex = useToken('colors', color || '');
 
-  console.log('resolvedProps ***', color);
+  // console.log('resolvedProps ***', color, styleFromProps);
 
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
@@ -56,8 +65,8 @@ const SVGIcon = (
       //     ? parseInt(newProps.size, 10)
       //     : parseInt(newProps.width, 10)
       // }
-      color={colorHex}
-      stroke={strokeHex}
+      color={colorHex || iconStyleFromProps.color}
+      stroke={strokeHex || iconStyleFromProps.color}
       focusable={focusable}
       accessibilityRole="image"
       // size={20}

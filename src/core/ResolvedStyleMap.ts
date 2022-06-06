@@ -1,7 +1,8 @@
-import { forEach, map } from 'lodash';
+import { forEach, map, get as lodashGet, merge } from 'lodash';
 import type { ColorMode } from './color-mode';
 import { StyleSheet } from 'react-native';
 import { isEmptyObj } from '../utils';
+import { theme } from '../theme';
 
 // Adding Map for storing the props and style for the styled component
 let resolvedStyledMap: Map<string, any> = new Map();
@@ -61,31 +62,93 @@ const getThemeObject = (componentName: any, colorMode: any, state?: any) => {
   };
 };
 
+const getComponentNameKeyFromProps = (
+  componentName: string,
+  { variant, size, colorScheme }: any = {}
+) => {
+  let componentKeyName: string = componentName;
+
+  const componentTheme = lodashGet(theme, `components.${componentName}`, {});
+
+  const colorSchemeKey =
+    colorScheme || componentTheme.defaultProps?.colorScheme;
+
+  if (colorSchemeKey && variant) {
+    componentKeyName = `${componentName}.${colorSchemeKey}.${variant}`;
+  } else if (variant) {
+    componentKeyName = `${componentName}.${variant}`;
+  } else if (colorSchemeKey) {
+    componentKeyName = `${componentName}.${colorSchemeKey}`;
+  }
+
+  return componentKeyName;
+};
+
 export const getThemeProps = (
-  inputComponentKeyName: string | Array<any>,
+  inputComponentKeyName: string,
   colorMode: ColorMode,
   state?: any,
-  { variant, size }: any = {}
+  props: any = {}
 ): any => {
   //
 
-  let componentKeyName = inputComponentKeyName;
-  if (typeof componentKeyName !== 'string') {
-    componentKeyName = componentKeyName.filter((item) => item).join('.');
-  } else {
-    if (variant && size) {
-      componentKeyName = `${componentKeyName}.${variant}.${size}`;
-    } else if (variant) {
-      componentKeyName = `${componentKeyName}.${variant}`;
-    } else if (size) {
-      componentKeyName = `${componentKeyName}.${size}`;
-    }
+  const componentNames = inputComponentKeyName.split('.');
+
+  let rootComponentName = componentNames[0];
+  let pseudoComponentKeyName = componentNames[1];
+
+  let componentKeyName = rootComponentName;
+
+  componentKeyName = getComponentNameKeyFromProps(rootComponentName, props);
+
+  if (pseudoComponentKeyName) {
+    componentKeyName = `${componentKeyName}.${pseudoComponentKeyName}`;
   }
+
   let themeObj = getThemeObject(componentKeyName, colorMode, state);
 
   if (isEmptyObj(themeObj)) {
-    themeObj = getThemeObject(inputComponentKeyName, colorMode, state);
+    themeObj = getThemeObject(rootComponentName, colorMode, state);
   }
+
+  // debugger;
+  if (props.size) {
+    let componentKeyNameForSize = `${rootComponentName}.${props.size}`;
+
+    if (pseudoComponentKeyName) {
+      componentKeyNameForSize = `${componentKeyNameForSize}.${pseudoComponentKeyName}`;
+    }
+    const sizeThemeObj = getThemeObject(
+      `${componentKeyNameForSize}`,
+      colorMode,
+      state
+    );
+
+    if (pseudoComponentKeyName) {
+      console.log(sizeThemeObj, componentKeyNameForSize, 'style them object');
+    }
+
+    const mergedThemeObj = {
+      style: [...themeObj.style, ...sizeThemeObj.style],
+      styleFromProps: merge(
+        {},
+        themeObj.styleFromProps,
+        sizeThemeObj.styleFromProps
+      ),
+      unResolvedProps: merge(
+        {},
+        themeObj.unResolvedProps,
+        sizeThemeObj.unResolvedProps
+      ),
+    };
+    themeObj = mergedThemeObj;
+  }
+
+  if (rootComponentName === 'Text') {
+    console.log(componentKeyName, props.size, themeObj, 'component key here');
+    // debugger;
+  }
+
   return themeObj;
 };
 export const getResolvedProps = (key: string, colorMode?: ColorMode) => {

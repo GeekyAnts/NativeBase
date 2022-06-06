@@ -4,7 +4,13 @@ import { Button, Box } from 'native-base';
 export const Example = () => {
   return (
     <Box alignItems="center">
-      <Button onPress={() => console.log('hello world')}>Click Me</Button>
+      <Button
+        variant="solid"
+        size="lg"
+        onPress={() => console.log('hello world')}
+      >
+        Click Me
+      </Button>
     </Box>
   );
 };

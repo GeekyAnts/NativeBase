@@ -50,7 +50,7 @@ const IconButton = (
     style: iconStyle,
     styleFromProps,
     unResolvedProps: iconUnResolvedProps,
-  } = getThemeProps('IconButton.Icon', colorMode, state, props._icon);
+  } = getThemeProps('IconButton.Icon', colorMode, state, props);
 
   console.log(styleFromProps, props._icon, 'style here 112');
 
@@ -66,6 +66,7 @@ const IconButton = (
   } = usePropsResolution('IconButton', { ...unResolvedProps, ...props }, state);
 
   let clonedIcon;
+
   if (icon) {
     clonedIcon = React.cloneElement(icon, {
       ..._icon,
@@ -81,7 +82,7 @@ const IconButton = (
     return null;
   }
 
-  // console.log(clonedIcon, 'ICICICIC');
+  console.log(_icon, 'ICICICIC');
   return (
     <Pressable
       accessibilityRole="button"
