@@ -111,7 +111,6 @@ const IconButton = (
           INTERNAL_themeStyle={iconStyle}
           styleFromProps={styleFromProps}
           {...iconUnResolvedProps}
-          myprop="hello"
         >
           {children}
         </Icon>

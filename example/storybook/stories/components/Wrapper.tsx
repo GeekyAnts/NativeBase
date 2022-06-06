@@ -113,7 +113,6 @@ function MyWrapper({ children }: any) {
   const { colorMode, toggleColorMode } = useColorMode();
 
   const bgColor = useColorModeValue(`gray.50`, `gray.800`);
-
   return (
     <Box
       flex={1}
@@ -137,6 +136,9 @@ function MyWrapper({ children }: any) {
           onPress={toggleColorMode}
           icon={colorMode === 'dark' ? <SunIcon /> : <MoonIcon />}
           size="lg"
+          // _icon={{
+          //   color: 'red.400',
+          // }}
         />
       </Tooltip>
       {children}

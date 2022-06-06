@@ -14,7 +14,6 @@ const SVGIcon = (
   { INTERNAL_themeStyle, children, ...props }: IIconProps,
   ref: any
 ) => {
-  console.log('hello style ^^^^', INTERNAL_themeStyle);
   const { colorMode } = useColorMode();
 
   const { style, unResolvedProps } = getThemeProps(
@@ -37,6 +36,9 @@ const SVGIcon = (
 
   const strokeHex = useToken('colors', stroke || '');
   const colorHex = useToken('colors', color || '');
+
+  console.log('resolvedProps ***', color);
+
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;

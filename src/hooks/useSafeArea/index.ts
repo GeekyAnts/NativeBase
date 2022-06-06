@@ -15,6 +15,8 @@ export function useSafeArea(props: any) {
   const sizes = useTheme().sizes;
 
   const result = useMemo(() => {
+    console.log(props.bg, sansPaddingProps.bg, '***** ****');
+
     if (isEmptyObj(safeAreaProps)) {
       return props;
     }
@@ -28,8 +30,8 @@ export function useSafeArea(props: any) {
 
     return { ...sansPaddingProps, ...paddingProps, ...calcualtedPaddingProps };
   }, [
-    stableHash(safeAreaProps),
     stableHash(paddingProps),
+    stableHash(safeAreaProps),
     stableHash(sansPaddingProps),
   ]);
 

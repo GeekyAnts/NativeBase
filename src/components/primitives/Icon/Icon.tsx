@@ -32,7 +32,6 @@ const Icon = ({ as, ...props }: IIconProps, ref?: any) => {
   if (useHasResponsiveProps(props)) {
     return null;
   }
-  console.log('resolvedProps ***', resolvedProps);
 
   if (!as) {
     return <SVGIcon size={size} {...resolvedProps} ref={ref} />;

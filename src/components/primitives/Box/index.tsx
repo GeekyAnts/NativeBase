@@ -121,7 +121,6 @@ const GradientBox = forwardRef(
 const Box = ({ children, ...props }: IBoxProps, ref: any) => {
   const { _text, ...resolvedProps } = usePropsResolution('Box', props);
 
-  // console.log(getContext(), 'Contect here');
   if (safeAreaPropsExists(props)) {
     return (
       <BoxComponentWithSafeArea {...resolvedProps} _text={_text} ref={ref}>
@@ -158,6 +157,8 @@ const BoxComponentWithSafeArea = forwardRef(
   ({ children, _text, INTERNAL_themeStyle, ...props }: IBoxProps, ref: any) => {
     const safeAreaProps = useSafeArea(props);
     const { colorMode } = useColorMode();
+
+    // console.log(safeAreaProps, props, 'hello props here');
     if (gradientPropExists(props) && GradientBox) {
       return <GradientBox {...props} {...safeAreaProps} ref={ref} />;
     } else {
