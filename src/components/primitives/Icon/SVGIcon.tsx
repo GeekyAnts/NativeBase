@@ -11,38 +11,22 @@ import { getThemeProps } from '../../../core';
 const SVG = makeStyledComponent(Svg);
 
 const SVGIcon = (
-  {
-    INTERNAL_themeStyle,
-    children,
-    ...props
-  }: IIconProps & { stylePropsProps: any },
+  { children, INTERNAL_themeStyle, ...props }: IIconProps,
   ref: any
 ) => {
   const { colorMode } = useColorMode();
-
-  const { style, unResolvedProps, styleFromProps } = getThemeProps(
-    'Icon',
+  const { unResolvedProps, style } = getThemeProps(
+    'Checkbox',
     colorMode,
     {},
     props
   );
-
-  // let tokenizedFontSize = props.styleFromProps
-  // ? props.styleFromProps.width
-  // : styleFromProps.width;
-
   const {
     focusable,
     stroke,
     color,
     ...resolvedProps
   } = usePropsResolution('Icon', { ...unResolvedProps, ...props });
-
-  const iconStyleFromProps = { ...styleFromProps, ...props.styleFromProps };
-  // console.log('style here 11', size, resolvedProps);
-
-  // console.log('hello icon render', props);
-
   const strokeHex = useToken('colors', stroke || '');
   const colorHex = useToken('colors', color || '');
 
@@ -55,6 +39,7 @@ const SVGIcon = (
   return (
     <SVG
       {...resolvedProps}
+      INTERNAL_themeStyle={[style, INTERNAL_themeStyle]}
       // height={
       //   newProps.size
       //     ? parseInt(newProps.size, 10)

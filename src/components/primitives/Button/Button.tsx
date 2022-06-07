@@ -109,7 +109,7 @@ const Button = (
     isLoadingText,
     _icon,
     ...resolvedProps
-  } = usePropsResolution('Button', { ...{}, ...props }, state);
+  } = usePropsResolution('Button', { ...unResolvedProps, ...props }, state);
 
   // console.log(style, unResolvedProps, resolvedProps, 'style here');
 
