@@ -14,6 +14,7 @@ export const pseudoPropStateMap = {
   _pressed: 'isPressed',
   _checked: 'isChecked',
   _loading: 'isLoading',
+  _invalid: 'isInvalid',
 };
 
 export const init = () => {
@@ -49,6 +50,16 @@ const getThemeObject = (componentName: any, colorMode: any, state?: any) => {
     unResolvedProps = { ...unResolvedProps, ...props };
   }
 
+  const restDefautlPropsArray = map(styleSheet, 'restDefaultProps');
+
+  let restDefaultProps = {};
+  for (const props of restDefautlPropsArray) {
+    restDefaultProps = { ...restDefaultProps, ...props };
+    // if (componentName === 'Actionsheet') {
+    //   console.log(props, restDefaultProps, '**&******&');
+    // }
+  }
+
   const styleFromPropsArray = map(styleSheet, 'styleFromProps');
   let styleFromProps = {};
   for (const props of styleFromPropsArray) {
@@ -59,6 +70,7 @@ const getThemeObject = (componentName: any, colorMode: any, state?: any) => {
     style: map(styleSheet, 'style'),
     unResolvedProps: unResolvedProps,
     styleFromProps: styleFromProps,
+    restDefaultProps: restDefaultProps,
   };
 };
 
@@ -111,6 +123,8 @@ export const getThemeProps = (
     themeObj = getThemeObject(rootComponentName, colorMode, state);
   }
 
+  // console.log(themeObj, 'hello thehem');
+
   // debugger;
   if (props.size) {
     let componentKeyNameForSize = `${rootComponentName}.${props.size}`;
@@ -124,9 +138,9 @@ export const getThemeProps = (
       state
     );
 
-    if (pseudoComponentKeyName) {
-      console.log(sizeThemeObj, componentKeyNameForSize, 'style them object');
-    }
+    // if (pseudoComponentKeyName) {
+    //   console.log(sizeThemeObj, componentKeyNameForSize, 'style them object');
+    // }
 
     const mergedThemeObj = {
       style: [...themeObj.style, ...sizeThemeObj.style],
@@ -144,10 +158,10 @@ export const getThemeProps = (
     themeObj = mergedThemeObj;
   }
 
-  if (rootComponentName === 'Text') {
-    console.log(componentKeyName, props.size, themeObj, 'component key here');
-    // debugger;
-  }
+  // if (rootComponentName === 'Text') {
+  //   console.log(componentKeyName, props.size, themeObj, 'component key here');
+  //   // debugger;
+  // }
 
   return themeObj;
 };

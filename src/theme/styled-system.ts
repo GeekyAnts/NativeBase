@@ -4,6 +4,7 @@ import { resolveValueWithBreakpoint } from '../hooks/useThemeProps/utils';
 import { hasValidBreakpointFormat, transparentize } from './tools';
 import type { ITheme } from '.';
 import type { UseResponsiveQueryParams } from '../utils/useResponsiveQuery';
+import { isEmptyObj } from '../utils/isEmptyObj';
 
 const isNumber = (n: any) => typeof n === 'number' && !isNaN(n);
 
@@ -680,7 +681,8 @@ export const getStyleAndFilteredProps = ({
   styledSystemProps,
 }: any) => {
   let styleFromProps: any = {};
-  let unResolvedProps: any = {};
+  let restDefaultProps: any = {};
+  const unResolvedProps: any = {};
   let dataSet: any = {};
   let responsiveStyles: null | Record<
     keyof typeof theme.breakpoints,
@@ -753,22 +755,47 @@ export const getStyleAndFilteredProps = ({
     } else {
       const value = rawValue;
 
-      const newStyle = getRNKeyAndStyleValue({
-        config,
-        value,
-        key,
-        styledSystemProps,
-        theme,
-        currentBreakpoint,
-      });
-      // console.log(key, value, newStyle, 'style system props @');
+      if (key === 'size') {
+        restDefaultProps = {
+          ...restDefaultProps,
+          [key]: value,
+        };
+      } else {
+        const newStyle = getRNKeyAndStyleValue({
+          config,
+          value,
+          key,
+          styledSystemProps,
+          theme,
+          currentBreakpoint,
+        });
 
-      styleFromProps = {
-        ...styleFromProps,
-        ...newStyle,
-      };
-      // if (key === '_light') {
-      // }
+        // if (styledSystemProps?.extraProp === 'Actionsheet') {
+        //   console.log(styledSystemProps, key, newStyle, 'hello flatten here22');
+        // }
+
+        // TODO: refactor
+        if (
+          isEmptyObj(newStyle) &&
+          !key.startsWith('_') &&
+          key !== 'extraProp' &&
+          key !== 'colorScheme' &&
+          key !== 'style' &&
+          key !== 'variants' &&
+          key !== 'sizes' &&
+          key !== 'variant'
+        ) {
+          restDefaultProps = {
+            ...restDefaultProps,
+            [key]: value,
+          };
+        }
+
+        styleFromProps = {
+          ...styleFromProps,
+          ...newStyle,
+        };
+      }
     }
   }
   // console.log(JSON.stringify(styleFromProps), 'style system props 2');
@@ -799,18 +826,26 @@ export const getStyleAndFilteredProps = ({
     }
   }
 
-  if (process.env.NODE_ENV === 'development' && debug) {
-    /* eslint-disable-next-line */
-    console.log('style ', debug + ' :: ', {
-      styleFromProps,
-      style,
-      styledSystemProps,
-    });
-  }
+  // if (process.env.NODE_ENV === 'development' && debug) {
+  //   /* eslint-disable-next-line */
+  //   console.log('style ', debug + ' :: ', {
+  //     styleFromProps,
+  //     style,
+  //     styledSystemProps,
+  //   });
+  // }
 
+  if (styleFromProps.backgroundColor === 'white.600') {
+    console.log(
+      styleFromProps,
+      styledSystemProps.extraProp,
+      'style from props *****'
+    );
+  }
   return {
     styleSheet: StyleSheet.create({ box: styleFromProps }),
     styleFromProps,
+    restDefaultProps,
     dataSet,
     unResolvedProps,
   };

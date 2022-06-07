@@ -185,6 +185,7 @@ const BoxComponentWithoutSafeArea = forwardRef(
     if (gradientPropExists(props) && GradientBox) {
       return <GradientBox {...props} ref={ref} />;
     } else {
+      // console.log(props, INTERNAL_themeStyle, '*****');
       return (
         <StyledBox
           ref={ref}

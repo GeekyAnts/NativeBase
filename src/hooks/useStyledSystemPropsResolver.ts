@@ -36,6 +36,7 @@ export const resolvePropsToStyle = (
     styleSheet,
     unResolvedProps,
     styleFromProps,
+    restDefaultProps,
     dataSet,
   } = getStyleAndFilteredProps({
     styledSystemProps,
@@ -55,6 +56,8 @@ export const resolvePropsToStyle = (
       style: [INTERNAL_themeStyle, styleSheet.box, propStyle],
       styleFromProps,
       unResolvedProps,
+      restDefaultProps,
+
       dataSet,
     };
   } else {
@@ -62,6 +65,8 @@ export const resolvePropsToStyle = (
       style: [INTERNAL_themeStyle, styleSheet.box],
       styleFromProps,
       unResolvedProps,
+      restDefaultProps,
+
       dataSet,
     };
   }

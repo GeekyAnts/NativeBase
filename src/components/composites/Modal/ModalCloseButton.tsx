@@ -12,12 +12,29 @@ import {
 } from '../../primitives/Pressable/Pressable';
 import { composeEventHandlers } from '../../../utils';
 import { useFocusRing } from '@react-native-aria/focus';
+import { getThemeProps } from '../../../core';
+import { useColorMode } from '../../../core/color-mode';
 
 const ModalCloseButton = (props: IButtonProps, ref?: any) => {
+  const { colorMode } = useColorMode();
+
   const { hoverProps, isHovered } = useHover();
   const { pressableProps, isPressed } = useIsPressed();
   const { focusProps, isFocused } = useFocus();
   const { isFocusVisible, focusProps: focusRingProps }: any = useFocusRing();
+  const state = {
+    isHovered,
+    isPressed,
+    isFocused,
+    isFocusVisible,
+  };
+
+  const { style, unResolvedProps } = getThemeProps(
+    'ModalCloseButton',
+    colorMode,
+    state,
+    props
+  );
 
   const {
     _icon,
@@ -28,12 +45,11 @@ const ModalCloseButton = (props: IButtonProps, ref?: any) => {
     onFocus,
     onBlur,
     ...resolvedProps
-  } = usePropsResolution('ModalCloseButton', props, {
-    isHovered,
-    isPressed,
-    isFocused,
-    isFocusVisible,
-  });
+  } = usePropsResolution(
+    'ModalCloseButton',
+    { ...unResolvedProps, ...props },
+    state
+  );
   const { handleClose } = React.useContext(ModalContext);
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
@@ -61,6 +77,7 @@ const ModalCloseButton = (props: IButtonProps, ref?: any) => {
       )}
       onPress={handleClose}
       {...resolvedProps}
+      INTERNAL_themeStyle={style}
     >
       <CloseIcon {..._icon} />
     </Pressable>

@@ -45,7 +45,7 @@ const baseStyle = (props: Record<string, any>) => {
     },
     _spinner: {
       size: 'sm',
-      focusable: false,
+      // focusable: false,
     },
   };
 };

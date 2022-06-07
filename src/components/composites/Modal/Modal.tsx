@@ -11,6 +11,8 @@ import { Fade } from '../../composites/Transitions';
 import { useKeyboardBottomInset } from '../../../utils';
 import { Overlay } from '../../primitives/Overlay';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import { getThemeProps } from '../../../core';
+import { useColorMode } from '../../../core/color-mode';
 
 const Modal = (
   {
@@ -26,20 +28,39 @@ const Modal = (
     overlayVisible = true,
     backdropVisible = true,
     animationPreset,
+    INTERNAL_themeStyle,
     ...rest
   }: IModalProps,
   ref: any
 ) => {
+  const { colorMode } = useColorMode();
+
+  const {
+    style,
+    unResolvedProps,
+    restDefaultProps,
+    styleFromProps,
+  } = getThemeProps('Modal', colorMode, {}, rest);
+
+  // const { style: backdropFadeStyle } = getThemeProps(
+  //   'Modal.BackdropFade',
+  //   colorMode,
+  //   {},
+  //   rest
+  // );
+
+  // const { style: fadeStyle } = getThemeProps('Modal.Fade', colorMode, {}, rest);
+
   const bottomInset = useKeyboardBottomInset();
   const {
-    contentSize,
     _backdrop,
     _backdropFade,
     _fade,
     _slide,
     ...resolvedProps
-  } = usePropsResolution('Modal', rest);
+  } = usePropsResolution('Modal', { ...unResolvedProps, ...rest });
 
+  // console.log(backdropFadeStyle, fadeStyle, 'hello here');
   const [visible, setVisible] = useControllableState({
     value: isOpen,
     defaultValue: defaultIsOpen,
@@ -50,12 +71,20 @@ const Modal = (
 
   const handleClose = React.useCallback(() => setVisible(false), [setVisible]);
 
+  // console.log(
+  //   StyleSheet.flatten(style),
+  //   resolvedProps,
+  //   contentSize,
+  //   'hello style here 2 2 2 2'
+  // );
   const child = (
     <Box
       bottom={avoidKeyboard ? bottomInset + 'px' : undefined}
       {...resolvedProps}
       ref={ref}
       pointerEvents="box-none"
+      INTERNAL_themeStyle={[style, INTERNAL_themeStyle]}
+      // bg="red.500"
     >
       {children}
     </Box>
@@ -64,18 +93,24 @@ const Modal = (
   const contextValue = React.useMemo(() => {
     return {
       handleClose,
-      contentSize,
+      contentSize: restDefaultProps?.contentSize,
       initialFocusRef,
       finalFocusRef,
       visible,
     };
-  }, [handleClose, contentSize, initialFocusRef, finalFocusRef, visible]);
+  }, [
+    handleClose,
+    restDefaultProps?.contentSize,
+    initialFocusRef,
+    finalFocusRef,
+    visible,
+  ]);
 
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(rest)) {
     return null;
   }
-  // console.log('visible here', visible);
+  // console.log('visible here ****', visible, restDefaultProps);
   return (
     <Overlay
       isOpen={visible}

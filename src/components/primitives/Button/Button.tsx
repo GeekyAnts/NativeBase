@@ -15,7 +15,6 @@ import {
 } from '../../primitives/Pressable/Pressable';
 import { useFocusRing } from '@react-native-aria/focus';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-import get from 'lodash.get';
 import { getResolvedStyleSheet, getThemeProps } from '../../../core';
 import { useColorMode } from '../../../core/color-mode';
 

@@ -84,7 +84,7 @@ const Pressable = (
     props
   );
 
-  console.log(style, 'hello style');
+  // console.log(style, 'hello style');
 
   const {
     onPressIn,
