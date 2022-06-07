@@ -19,24 +19,20 @@ const Actionsheet = (
     styleFromProps,
   } = getThemeProps('Actionsheet', colorMode, {}, props);
 
-  const {
-    isOpen,
-    disableOverlay,
-    onClose,
-    ...resolvedProps
-  } = usePropsResolution('Actionsheet', { ...unResolvedProps, ...props });
+  const { isOpen, disableOverlay, onClose, ...resolvedProps } = {
+    ...restDefaultProps,
+    ...usePropsResolution('Actionsheet', { ...unResolvedProps, ...props }),
+  };
 
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
   }
 
-  console.log(restDefaultProps, isOpen, 'actionsheet here ******');
   return (
     <Modal
       isOpen={isOpen}
       onClose={onClose}
-      {...restDefaultProps}
       {...resolvedProps}
       overlayVisible={disableOverlay ? false : true}
       closeOnOverlayClick={disableOverlay ? false : true}

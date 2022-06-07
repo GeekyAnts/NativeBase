@@ -100,17 +100,19 @@ const Input = (
     wrapperRef,
     _stack,
     _input,
-
     ...resolvedProps
-  } = usePropsResolution(
-    'Input',
-    {
-      ...unResolvedProps,
-      ...inputThemeProps,
-      ...props,
-    },
-    state
-  );
+  } = {
+    ...restDefaultProps,
+    ...usePropsResolution(
+      'Input',
+      {
+        ...unResolvedProps,
+        ...inputThemeProps,
+        ...props,
+      },
+      state
+    ),
+  };
 
   const [layoutProps, nonLayoutProps] = extractInObject(resolvedProps, [
     ...stylingProps.margin,
@@ -151,10 +153,11 @@ const Input = (
     return null;
   }
 
+  console.log(resolvedProps, 'props here');
   return (
     <Stack
       {..._stack}
-      // {...layoutProps}
+      {...layoutProps}
       INTERNAL_themeStyle={[stackStyle, layoutStyle]}
       ref={mergeRefs([_ref, wrapperRef])}
       isFocused={isFocused}
@@ -167,7 +170,7 @@ const Input = (
         accessibilityLabel={ariaLabel || accessibilityLabel}
         editable={isDisabled || isReadOnly ? false : true}
         w={isFullWidth ? '100%' : undefined}
-        // {...nonLayoutProps}
+        {...nonLayoutProps}
         INTERNAL_themeStyle={nonLayoutStyle}
         {...resolvedFontFamily}
         placeholderTextColor={resolvedPlaceholderTextColor}
