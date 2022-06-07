@@ -142,8 +142,15 @@ export const getThemeProps = (
     //   console.log(sizeThemeObj, componentKeyNameForSize, 'style them object');
     // }
 
+    console.log(themeObj.style, sizeThemeObj.style, 'style me rehne ka');
+    console.log(
+      themeObj.style?.concat(sizeThemeObj.style),
+      'style me rehne kan222'
+    );
     const mergedThemeObj = {
-      style: [...themeObj.style, ...sizeThemeObj.style],
+      style: sizeThemeObj?.style
+        ? [...themeObj?.style, ...sizeThemeObj?.style]
+        : themeObj.style,
       styleFromProps: merge(
         {},
         themeObj.styleFromProps,

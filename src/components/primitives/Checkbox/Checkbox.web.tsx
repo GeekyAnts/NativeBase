@@ -29,20 +29,7 @@ import {
   getResolvedProps,
 } from '../../../core';
 import { useColorMode } from '../../../core/color-mode';
-console.log('Kaha hai bhai');
 
-// updateComponentThemeMap('Checkbox', {}, [
-//   ...stylingProps.margin,
-//   ...stylingProps.layout,
-//   ...stylingProps.flexbox,
-//   ...stylingProps.position,
-//   '_text',
-// ]);
-console.log(
-  'Abraca Checkbox',
-  StyleSheet.flatten(getResolvedStyleSheet('Checkbox', 'light', 'layout')),
-  StyleSheet.flatten(getResolvedStyleSheet('Checkbox.Stack', 'light'))
-);
 const Checkbox = (
   {
     wrapperRef,
