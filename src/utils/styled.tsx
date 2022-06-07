@@ -39,6 +39,10 @@ const PSEUDO_PROP_COMPONENT_MAP = {
   _icon: 'Icon',
   _checkbox: 'Checkbox',
   _label: 'Text',
+  // _input: 'Input',
+  // _slide: 'Slide',
+  // _backdropFade: 'BackdropFade',
+  // _fade: 'Fade',
 };
 
 const COLOR_SCHEME_MAP = {
@@ -84,14 +88,14 @@ const resolveForInternalPseudoProps = (
   // }
   for (const property in styledObj.internalPseudoProps) {
     if (PSEUDO_PROP_COMPONENT_MAP[property]) {
-      if (key === 'Button.sm') {
-        console.log(
-          mergeDefaultProps,
-          key,
-          PSEUDO_PROP_COMPONENT_MAP[property],
-          '******'
-        );
-      }
+      // if (key === 'Button.sm') {
+      //   console.log(
+      //     mergeDefaultProps,
+      //     key,
+      //     PSEUDO_PROP_COMPONENT_MAP[property],
+      //     '******'
+      //   );
+      // }
       updateComponentThemeMapForColorMode(
         PSEUDO_PROP_COMPONENT_MAP[property],
         `${key}.${PSEUDO_PROP_COMPONENT_MAP[property]}`,
@@ -130,15 +134,25 @@ const resolveForInternalPseudoProps = (
 
       if (componentObj) {
         // const stateKey = key.slice(componentMapPath.length + 1);
-        const stateKey = property;
-
-        if (componentObj[stateKey]) {
-          if (!componentObj[stateKey][colorMode]) {
-            componentObj[stateKey][colorMode] = [];
+        if (pseudoPropStateMap[property]) {
+          const stateKey = property;
+          if (componentObj[stateKey]) {
+            if (!componentObj[stateKey][colorMode]) {
+              componentObj[stateKey][colorMode] = [];
+            }
+            componentObj[stateKey][colorMode].push(styledObjNestedProp);
+          } else {
+            componentObj[stateKey] = { [colorMode]: [styledObjNestedProp] };
           }
-          componentObj[stateKey][colorMode].push(styledObjNestedProp);
         } else {
-          componentObj[stateKey] = { [colorMode]: [styledObjNestedProp] };
+          // console.log(
+          //   'hello here &&&*',
+          //   styledObj.internalPseudoProps[property]
+          // );
+          componentObj[colorMode][0].unResolvedProps = {
+            ...componentObj[colorMode][0].unResolvedProps,
+            [property]: styledObj.internalPseudoProps[property],
+          };
         }
       }
     }
@@ -160,18 +174,6 @@ const updateComponentThemeMapForColorMode = (
     componentTheme = {};
   }
 
-  // if (key === 'IconButton.Icon')
-  //   console.log(
-  //     key,
-  //     'Key here',
-  //     componentTheme,
-  //     resolveForStatePseudoProps,
-  //     'lflflflflf'
-  //   );
-
-  if (key === 'Button.sm.Text') {
-    console.log(inputProps, componentTheme, '******');
-  }
   const styledObj: any = getStyledObject(
     componentTheme,
     colorMode,
@@ -182,20 +184,8 @@ const updateComponentThemeMapForColorMode = (
     mergeDefaultProps
   );
 
-  // console.log(
-  //   styledObj.styleFromProps.paddingLeft,
-  //   key,
-  //   'styled obje',
-  //   inputProps,
-  //   componentTheme,
-  //   resolveForStatePseudoProps
-  // );
-  // if (!nestedConfig.path) {
   setResolvedStyleMap(key, styledObj, colorMode);
-  // } else {
-  // }
 
-  // console.log('component ****@@@@', name, styledObj.styleFromProps);
   resolveForInternalPseudoProps(
     name,
     key,
@@ -218,7 +208,15 @@ export const updateComponentThemeMap = (name: string, inputProps?: {}) => {
 
   if (COLOR_SCHEME_MAP[name]) {
     for (const color in theme.colors) {
-      if (color !== 'contrastThreshold') {
+      if (
+        ![
+          'white',
+          'black',
+          'lightText',
+          'darkText',
+          'contrastThreshold',
+        ].includes(color)
+      ) {
         updateComponentThemeMapForColorMode(
           name,
           `${name}.${color}`,
@@ -327,8 +325,6 @@ export const makeStyledComponent = (
     // console.log(props, 'hello props **********');
     const [style, restProps] = useStyledSystemPropsResolver(props);
 
-    if (!Comp.displayName)
-      console.log(style, props, Comp.displayName, 'style here &&&&&');
     // console.log(props, 'props here');
     // if (process.env.NODE_ENV === "development" && debug) {
     //   /* eslint-disable-next-line */
@@ -371,11 +367,11 @@ export const makeStyledComponent = (
   });
 };
 
-console.time('resolveTheme>>>>');
+// console.time('resolveTheme>>>>');
 for (const key in theme.components) {
   updateComponentThemeMap(key);
 }
-console.timeEnd('resolveTheme>>>>');
+// console.timeEnd('resolveTheme>>>>');
 
 // for (const key in theme.components) {
 // }

@@ -15,7 +15,6 @@ import {
 } from '../../primitives/Pressable/Pressable';
 import { useFocusRing } from '@react-native-aria/focus';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-import get from 'lodash.get';
 import { getResolvedStyleSheet, getThemeProps } from '../../../core';
 import { useColorMode } from '../../../core/color-mode';
 
@@ -109,7 +108,7 @@ const Button = (
     isLoadingText,
     _icon,
     ...resolvedProps
-  } = usePropsResolution('Button', { ...{}, ...props }, state);
+  } = usePropsResolution('Button', { ...unResolvedProps, ...props }, state);
 
   // console.log(style, unResolvedProps, resolvedProps, 'style here');
 

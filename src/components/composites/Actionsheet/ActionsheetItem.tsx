@@ -6,6 +6,8 @@ import Spinner from '../../primitives/Spinner';
 import { usePropsResolution } from '../../../hooks';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import type { IActionsheetItemProps } from './types';
+import { getThemeProps } from '../../../core';
+import { useColorMode } from '../../../core/color-mode';
 
 const ActionsheetItem = (
   {
@@ -23,6 +25,14 @@ const ActionsheetItem = (
   }: IActionsheetItemProps,
   ref: any
 ) => {
+  const { colorMode } = useColorMode();
+
+  const { style, unResolvedProps, styleFromProps } = getThemeProps(
+    'ActionsheetItem',
+    colorMode,
+    {},
+    props
+  );
   const {
     _text,
     _stack,
@@ -30,9 +40,14 @@ const ActionsheetItem = (
     _spinner,
     isLoadingText,
     ...resolvedProps
-  } = usePropsResolution('ActionsheetItem', props, undefined, {
-    cascadePseudoProps: true,
-  });
+  } = usePropsResolution(
+    'ActionsheetItem',
+    { ...unResolvedProps, ...props },
+    undefined,
+    {
+      cascadePseudoProps: true,
+    }
+  );
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
@@ -79,7 +94,12 @@ const ActionsheetItem = (
   };
 
   return (
-    <Pressable disabled={isDisabled || isLoading} {...resolvedProps} ref={ref}>
+    <Pressable
+      disabled={isDisabled || isLoading}
+      {...resolvedProps}
+      ref={ref}
+      INTERNAL_themeStyle={style}
+    >
       <HStack {..._stack} test={true}>
         {startIcon && !isLoading ? startIcon : null}
         {isLoading && spinnerPlacement === 'start' ? spinnerElement : null}

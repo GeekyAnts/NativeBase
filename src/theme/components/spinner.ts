@@ -7,6 +7,6 @@ export default {
     lg: 'large',
   },
   defaultProps: {
-    size: 'small',
+    size: 'sm',
   },
 };

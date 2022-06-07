@@ -79,6 +79,8 @@ export const getStyledObject = (
     1
   );
 
+  // console.log(inputProps, 'hello flatten here');
+
   [flattenProps] = mergeStylesWithSpecificity(
     componentTheme,
     flattenProps,
@@ -111,6 +113,10 @@ export const getStyledObject = (
     false,
     undefined
   );
+
+  // if (inputProps?.extraProp === 'Actionsheet') {
+  //   console.log(flattenProps, 'hello flatten here');
+  // }
 
   styleObj.internalPseudoProps = internalPseudoProps;
 
@@ -236,14 +242,6 @@ const mergeStylesWithSpecificity = (
       }
     }
 
-    if (flattenProps.extraProp.startsWith('IconButton.Icon'))
-      console.log(
-        '****>>>>> 1',
-        flattenProps.size,
-        extededComponentTheme,
-        flattenProps
-      );
-
     if (
       flattenProps.size &&
       extededComponentTheme?.sizes &&
@@ -263,12 +261,16 @@ const mergeStylesWithSpecificity = (
             extededComponentTheme
           ),
         };
-        flattenProps.size = undefined;
+        delete flattenProps.size;
       }
     } else {
-      flattenProps.size = undefined;
+      // delete flattenProps.size;
     }
   });
+
+  if (flattenProps.extraProp === 'Spinner') {
+    // console.log(combinedSizeStyle, flattenProps, '88878887');
+  }
 
   // console.log('****>>>>> 2', flattenProps);
 

@@ -3,6 +3,8 @@ import type { IButtonGroupProps } from './types';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { Stack } from '../Stack';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import { getThemeProps } from '../../../core';
+import { useColorMode } from '../../../core/color-mode';
 
 export default memo(
   forwardRef(
@@ -10,16 +12,27 @@ export default memo(
       { children, divider, variant, ...props }: IButtonGroupProps,
       ref?: any
     ) => {
+      const { colorMode } = useColorMode();
+
+      const {
+        style,
+        unResolvedProps,
+        restDefaultProps,
+        styleFromProps,
+      } = getThemeProps('ButtonGroup', colorMode, {}, props);
+
       const {
         space,
         direction,
-
         size,
         colorScheme,
         isDisabled,
         isAttached,
         ...newProps
-      } = usePropsResolution('ButtonGroup', props);
+      } = {
+        ...restDefaultProps,
+        ...usePropsResolution('ButtonGroup', { ...unResolvedProps, ...props }),
+      };
 
       const { borderRadius } = usePropsResolution('Button', props);
       let computedChildren: JSX.Element | JSX.Element[];
@@ -84,6 +97,7 @@ export default memo(
           direction={direction}
           {...newProps}
           ref={ref}
+          INTERNAL_themeStyle={style}
         >
           {computedChildren}
         </Stack>

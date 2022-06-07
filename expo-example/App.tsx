@@ -39,7 +39,7 @@ export default function App() {
         onChange={() => setNativeBaseIsOn(!nativeBaseIsOn)}
       />
       <Text>Nativebase Button</Text> */}
-      <View style={styles.container}>
+      <View style={{ flex: 1 }}>
         {/* {rnButtonIsOn && <RNButtonScreen />}
         {customIsOn && <CustomButtonScreen />}
         {nativeBaseIsOn && <NativeBaseScreen />} */}
