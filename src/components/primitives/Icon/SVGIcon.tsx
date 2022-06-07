@@ -11,7 +11,11 @@ import { getThemeProps } from '../../../core';
 const SVG = makeStyledComponent(Svg);
 
 const SVGIcon = (
-  { children, INTERNAL_themeStyle, ...props }: IIconProps,
+  {
+    INTERNAL_themeStyle,
+    children,
+    ...props
+  }: IIconProps & { styleFromProps: any },
   ref: any
 ) => {
   const { colorMode } = useColorMode();
@@ -33,12 +37,12 @@ const SVGIcon = (
     ...usePropsResolution('Icon', { ...unResolvedProps, ...props }),
   };
 
-  // const iconStyleFromProps = { ...styleFromProps, ...props.styleFromProps };
+  const iconStyleFromProps = { ...styleFromProps, ...props.styleFromProps };
 
   const strokeHex = useToken('colors', stroke || '');
   const colorHex = useToken('colors', color || '');
 
-  console.log('resolvedProps ***', strokeHex, color);
+  console.log('resolvedProps *** icon', strokeHex, color, styleFromProps);
 
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
@@ -61,13 +65,14 @@ const SVGIcon = (
       //     ? parseInt(newProps.size, 10)
       //     : parseInt(newProps.width, 10)
       // }
-      color={colorHex}
-      stroke={strokeHex || colorHex}
+      color={colorHex || iconStyleFromProps.color}
+      stroke={strokeHex || colorHex || iconStyleFromProps.color}
       focusable={focusable}
       accessibilityRole="image"
       // size={4}
       // style={style}
-      boxSize={size}
+      // TODO: Hack refactor
+      boxSize={props.size || size}
       // width={16}
       // height={16}
       // INTERNAL_themeStyle={[style, INTERNAL_themeStyle]}

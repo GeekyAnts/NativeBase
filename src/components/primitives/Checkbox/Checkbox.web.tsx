@@ -140,13 +140,16 @@ const CheckboxComponent = React.memo(
       isHovered: isHovered || isHoveredProp,
     };
     const { colorMode } = useColorMode();
-    const { unResolvedProps, styleFromProps } = getThemeProps(
+    const { unResolvedProps, styleFromProps, restDefaultProps } = getThemeProps(
       'Checkbox',
       colorMode,
       state,
       combinedProps
     );
-    console.log('Checkbox log1', styleFromProps, unResolvedProps);
+    const stackDefaultProps = getThemeProps('Checkbox.Stack', colorMode, state);
+    const iconDefaultProps = getThemeProps('Checkbox.Icon', colorMode, state);
+
+    // console.log('Checkbox log1 22222222', iconDefaultProps, stackDefaultProps);
 
     const filterProps = [
       ...stylingProps.margin,
@@ -155,53 +158,44 @@ const CheckboxComponent = React.memo(
       ...stylingProps.position,
       '_text',
     ];
-    const [layoutStyles, nonLayoutStyles] = getFilteredStyleSheet(
+    const [layoutStyles, nonLayoutStyles] = extractInObject(
       styleFromProps,
+
       filterProps
     );
-    const {
-      icon,
-      _interactionBox,
-      _icon,
-      _stack,
-      _text,
-      ...resolvedProps
-    } = usePropsResolution(
-      'Checkbox',
-      { ...unResolvedProps, ...combinedProps },
-      state
-    );
+    // console.log('nonLayoutStyles LayoutStyles', layoutStyles, nonLayoutStyles);
+    const { icon, _interactionBox, _icon, _stack, _text, ...resolvedProps } = {
+      ...restDefaultProps,
+      ...usePropsResolution(
+        'Checkbox',
+        { ...unResolvedProps, ...combinedProps },
+        state
+      ),
+    };
     console.log('Checkbox log2', resolvedProps);
 
     const [layoutProps, nonLayoutProps] = extractInObject(
       resolvedProps,
       filterProps
     );
-
     const component = React.useMemo(() => {
       return (
         <Stack
           {..._stack}
-          INTERNAL_themeStyle={[
-            getResolvedStyleSheet('Checkbox.Stack', colorMode),
-            layoutStyles,
-          ]}
+          INTERNAL_themeStyle={[layoutStyles, stackDefaultProps.style]}
           {...layoutProps}
+          {...stackDefaultProps.restDefaultProps}
         >
           <Center>
-            {/* Interaction Box */}
-            <Box {..._interactionBox} />
-            {/* Checkbox */}
+            {/* <Box {..._interactionBox} /> */}
+
             <Center INTERNAL_themeStyle={nonLayoutStyles} {...nonLayoutProps}>
-              {/* {iconResolver()} */}
               <SizedIcon
                 icon={icon}
                 _icon={{
+                  ...iconDefaultProps.restDefaultProps,
                   ..._icon,
-                  INTERNAL_themeStyle: getResolvedStyleSheet(
-                    'Checkbox.Icon',
-                    colorMode
-                  ),
+                  INTERNAL_themeStyle: iconDefaultProps.style,
                 }}
                 isChecked={isChecked}
               />

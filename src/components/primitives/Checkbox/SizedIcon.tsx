@@ -11,6 +11,8 @@ const SizedIcon = ({
   _icon: any;
   isChecked: boolean;
 }) => {
+  // console.log(_icon, icon, '222222221');
+
   return isChecked ? (
     icon ? (
       React.cloneElement(icon, {
@@ -20,7 +22,7 @@ const SizedIcon = ({
       <CheckIcon {..._icon} />
     )
   ) : (
-    <Box {..._icon} />
+    <Box {..._icon} boxSize={_icon.size} />
   );
 };
 
