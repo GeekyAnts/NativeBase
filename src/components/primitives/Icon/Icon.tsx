@@ -36,8 +36,9 @@ const Icon = ({ as, ...props }: IIconProps, ref?: any) => {
   }
 
   if (!as) {
-    return <SVGIcon size={size} {...resolvedProps} ref={ref} />;
+    return <SVGIcon {...resolvedProps} ref={ref} />;
   }
+
   const isJSX = React.isValidElement(as);
   const StyledAs = Factory(
     isJSX

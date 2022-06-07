@@ -15,31 +15,42 @@ const SVGIcon = (
   ref: any
 ) => {
   const { colorMode } = useColorMode();
-  const { unResolvedProps, style } = getThemeProps(
-    'Checkbox',
-    colorMode,
-    {},
-    props
-  );
   const {
-    focusable,
-    stroke,
-    color,
-    ...resolvedProps
-  } = usePropsResolution('Icon', { ...unResolvedProps, ...props });
+    style,
+    unResolvedProps,
+    styleFromProps,
+    restDefaultProps,
+  } = getThemeProps('Icon', colorMode, {}, props);
+  // return null;
+
+  // let tokenizedFontSize = props.styleFromProps
+  // ? props.styleFromProps.width
+  // : styleFromProps.width;
+  // return 'hello';
+
+  const { focusable, stroke, color, size, ...resolvedProps } = {
+    ...restDefaultProps,
+    ...usePropsResolution('Icon', { ...unResolvedProps, ...props }),
+  };
+
+  // const iconStyleFromProps = { ...styleFromProps, ...props.styleFromProps };
+
   const strokeHex = useToken('colors', stroke || '');
   const colorHex = useToken('colors', color || '');
 
-  // console.log('resolvedProps ***', color, styleFromProps);
+  console.log('resolvedProps ***', strokeHex, color);
 
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
   }
+
+  // return null;
+
   return (
     <SVG
       {...resolvedProps}
-      INTERNAL_themeStyle={[style, INTERNAL_themeStyle]}
+      // viewBox="0 0 24 24"
       // height={
       //   newProps.size
       //     ? parseInt(newProps.size, 10)
@@ -50,13 +61,16 @@ const SVGIcon = (
       //     ? parseInt(newProps.size, 10)
       //     : parseInt(newProps.width, 10)
       // }
-      color={colorHex || iconStyleFromProps.color}
-      stroke={strokeHex || iconStyleFromProps.color}
+      color={colorHex}
+      stroke={strokeHex || colorHex}
       focusable={focusable}
       accessibilityRole="image"
-      // size={20}
+      // size={4}
       // style={style}
-      INTERNAL_themeStyle={[style, INTERNAL_themeStyle]}
+      boxSize={size}
+      // width={16}
+      // height={16}
+      // INTERNAL_themeStyle={[style, INTERNAL_themeStyle]}
       ref={ref}
     >
       {React.Children.count(children) > 0 ? (

@@ -31,14 +31,6 @@ import {
 } from '../../../core';
 import { useColorMode } from '../../../core/color-mode';
 
-// updateComponentThemeMap('Checkbox', {}, [
-//   ...stylingProps.margin,
-//   ...stylingProps.layout,
-//   ...stylingProps.flexbox,
-//   ...stylingProps.position,
-//   '_text',
-// ]);
-
 const Checkbox = (
   {
     wrapperRef,
