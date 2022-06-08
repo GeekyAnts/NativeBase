@@ -152,9 +152,21 @@ export function usePropsResolution(
     { ...componentThemeProps?.unResolvedProps, ...incomingProps },
     theme,
     state,
-    config
+    { ...config, name: component }
   );
 
+  if (component === 'IconButton') {
+    console.log(
+      resolvedProps._icon,
+      // pseudoComponentThemeProps.restDefaultProps.size,
+      // resolvedProps[property].size,
+      // {
+      //   ...pseudoComponentThemeProps.restDefaultProps,
+      //   ...resolvedProps[property],
+      // }.size,
+      'hello here 11'
+    );
+  }
   // console.log(
   //   { ...componentThemeProps?.unResolvedProps, ...incomingProps },
   //   'component thme props 2222'
@@ -295,6 +307,7 @@ export const callPropsFlattener = (
       currentSpecificityMap: latestSpecifictyMap,
       previouslyFlattenProps: flattenProps || {},
       cascadePseudoProps: config?.cascadePseudoProps,
+      name: config?.name,
     },
     specificity
   );
@@ -326,6 +339,7 @@ export const usePropsResolutionWithComponentTheme = (
     ignoreProps?: string[];
     cascadePseudoProps?: boolean;
     extendTheme?: string[];
+    name: string;
   }
 ) => {
   // return incomingProps;
@@ -370,6 +384,7 @@ export const usePropsResolutionWithComponentTheme = (
   //   componentTheme.defaultProps || {},
   //   cleanIncomingProps
   // );
+
   let incomingWithDefaultProps = cleanIncomingProps;
 
   // TODO: size to boxSize conversion in user props
@@ -462,7 +477,6 @@ export const usePropsResolutionWithComponentTheme = (
   //TODO: hack
   let flattenProps: any, specificityMap;
 
-  // console.log("incoming ******", incomingWithDefaultProps);
   [flattenProps, specificityMap] = callPropsFlattener(
     incomingWithDefaultProps,
     {},

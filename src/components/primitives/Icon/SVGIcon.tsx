@@ -5,56 +5,27 @@ import { Svg, G } from './nbSvg';
 import type { IIconProps } from './types';
 import { questionOutlineIconPath } from './Icons/questionIconPath';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-import { useColorMode } from '../../../core/color-mode';
-import { getThemeProps } from '../../../core';
 
 const SVG = makeStyledComponent(Svg);
 
-const SVGIcon = (
-  {
-    INTERNAL_themeStyle,
-    children,
-    ...props
-  }: IIconProps & { styleFromProps: any },
-  ref: any
-) => {
-  const { colorMode } = useColorMode();
+const SVGIcon = ({ children, ...props }: IIconProps, ref: any) => {
   const {
-    style,
-    unResolvedProps,
-    styleFromProps,
-    restDefaultProps,
-  } = getThemeProps('Icon', colorMode, {}, props);
-  // return null;
-
-  // let tokenizedFontSize = props.styleFromProps
-  // ? props.styleFromProps.width
-  // : styleFromProps.width;
-  // return 'hello';
-
-  const { focusable, stroke, color, size, ...resolvedProps } = {
-    ...restDefaultProps,
-    ...usePropsResolution('Icon', { ...unResolvedProps, ...props }),
-  };
-
-  const iconStyleFromProps = { ...styleFromProps, ...props.styleFromProps };
-
+    focusable,
+    stroke,
+    color,
+    size,
+    ...resolvedProps
+  } = usePropsResolution('Icon', props);
   const strokeHex = useToken('colors', stroke || '');
   const colorHex = useToken('colors', color || '');
-
-  // console.log('resolvedProps *** icon', strokeHex, color, styleFromProps);
-
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
   }
 
-  // return null;
-
   return (
     <SVG
       {...resolvedProps}
-      // viewBox="0 0 24 24"
       // height={
       //   newProps.size
       //     ? parseInt(newProps.size, 10)
@@ -65,17 +36,12 @@ const SVGIcon = (
       //     ? parseInt(newProps.size, 10)
       //     : parseInt(newProps.width, 10)
       // }
-      color={colorHex || iconStyleFromProps.color}
-      stroke={strokeHex || colorHex || iconStyleFromProps.color}
+      size={size}
+      color={colorHex}
+      stroke={strokeHex}
       focusable={focusable}
       accessibilityRole="image"
-      // size={4}
       // style={style}
-      // TODO: Hack refactor
-      boxSize={props.size || size}
-      // width={16}
-      // height={16}
-      // INTERNAL_themeStyle={[style, INTERNAL_themeStyle]}
       ref={ref}
     >
       {React.Children.count(children) > 0 ? (

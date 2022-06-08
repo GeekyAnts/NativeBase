@@ -49,6 +49,7 @@ const IconButton = (
     ...resolvedProps
   } = usePropsResolution('IconButton', props, state);
 
+  console.log(_icon.size, 'icon here');
   let clonedIcon;
 
   if (icon) {
