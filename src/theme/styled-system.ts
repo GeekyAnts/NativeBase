@@ -817,7 +817,7 @@ export const getStyleAndFilteredProps = ({
             }
         }
       });
-      console.log('hello responsive', orderedBreakPoints, responsiveStyles);
+      // console.log('hello responsive', orderedBreakPoints, responsiveStyles);
 
       const { dataSet: newDataSet, styles } = getResponsiveStyles(query);
       dataSet = { ...dataSet, ...newDataSet };

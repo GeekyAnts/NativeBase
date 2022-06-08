@@ -14,9 +14,6 @@ import { useResolvedFontFamily } from '../../../hooks/useResolvedFontFamily';
 
 const StyledInput = makeStyledComponent(TextInput);
 
-import { getThemeProps } from '../../../core';
-import { useColorMode } from '../../../core/color-mode';
-
 const Input = (
   {
     isHovered: isHoveredProp,
@@ -54,20 +51,6 @@ const Input = (
     isReadOnly: inputThemeProps.isReadOnly,
   };
 
-  const { colorMode } = useColorMode();
-
-  const {
-    style,
-    unResolvedProps,
-    restDefaultProps,
-    styleFromProps,
-  } = getThemeProps('Input', colorMode, state, props);
-
-  const {
-    style: stackStyle,
-    restDefaultProps: stackRestDefaultProps,
-  } = getThemeProps('Input.Stack', colorMode, state, props);
-
   const handleFocus = (focusState: boolean, callback: any) => {
     setIsFocused(focusState);
     callback();
@@ -101,19 +84,12 @@ const Input = (
     _stack,
     _input,
     ...resolvedProps
-  } = {
-    ...restDefaultProps,
-    ...usePropsResolution(
-      'Input',
-      {
-        ...unResolvedProps,
-        ...inputThemeProps,
-        ...props,
-      },
-      state
-    ),
-  };
+  } = usePropsResolution(
+    'Input',
+    props,
 
+    state
+  );
   const [layoutProps, nonLayoutProps] = extractInObject(resolvedProps, [
     ...stylingProps.margin,
     ...stylingProps.border,
@@ -125,16 +101,16 @@ const Input = (
     'opacity',
   ]);
 
-  const [layoutStyle, nonLayoutStyle] = extractInObject(styleFromProps, [
-    ...stylingProps.margin,
-    ...stylingProps.border,
-    ...stylingProps.layout,
-    ...stylingProps.flexbox,
-    ...stylingProps.position,
-    ...stylingProps.background,
-    'shadow',
-    'opacity',
-  ]);
+  // const [layoutStyle, nonLayoutStyle] = extractInObject(styleFromProps, [
+  //   ...stylingProps.margin,
+  //   ...stylingProps.border,
+  //   ...stylingProps.layout,
+  //   ...stylingProps.flexbox,
+  //   ...stylingProps.position,
+  //   ...stylingProps.background,
+  //   'shadow',
+  //   'opacity',
+  // ]);
 
   // console.log(layoutProps, nonLayoutProps, 'layout props here');
   const resolvedFontFamily = useResolvedFontFamily({
@@ -153,12 +129,11 @@ const Input = (
     return null;
   }
 
-  console.log(resolvedProps, 'props here');
   return (
     <Stack
       {..._stack}
       {...layoutProps}
-      INTERNAL_themeStyle={[stackStyle, layoutStyle]}
+      // INTERNAL_themeStyle={[stackStyle, layoutStyle]}
       ref={mergeRefs([_ref, wrapperRef])}
       isFocused={isFocused}
     >
@@ -171,7 +146,6 @@ const Input = (
         editable={isDisabled || isReadOnly ? false : true}
         w={isFullWidth ? '100%' : undefined}
         {...nonLayoutProps}
-        INTERNAL_themeStyle={nonLayoutStyle}
         {...resolvedFontFamily}
         placeholderTextColor={resolvedPlaceholderTextColor}
         selectionColor={resolvedSelectionColor}

@@ -1,9 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { forwardRef } from 'react';
 import { Animated } from 'react-native';
-import { getResolvedStyleSheet, getThemeProps } from '../../../core';
-
-import { useColorMode } from '../../../core/color-mode';
 
 import type {
   ISupportedTransitions,
@@ -82,14 +79,6 @@ export const Transition = forwardRef(
     }: ITransitionProps,
     ref: any
   ) => {
-    const { colorMode } = useColorMode();
-    const { style: fadeStyle, unResolvedProps } = getThemeProps(
-      'Fade',
-      colorMode,
-      {},
-      rest
-    );
-
     // console.log(fadeStyle, unResolvedProps, rest, 'fade style here');
 
     const animateValue = React.useRef(new Animated.Value(0)).current;
@@ -203,7 +192,7 @@ export const Transition = forwardRef(
         // https://github.com/facebook/react-native/issues/23090#issuecomment-710803743
         // needsOffscreenAlphaCompositing
         // style={[styles]}
-        style={[fadeStyle, styles]}
+        style={[styles]}
         ref={ref}
         {...rest}
       >

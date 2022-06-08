@@ -1,7 +1,5 @@
-import get from 'lodash.get';
 import merge from 'lodash.merge';
-import isEmpty from 'lodash.isempty';
-// import memoize from 'lodash.memoize';
+
 import { Platform, StyleSheet } from 'react-native';
 import { useNativeBase } from '../useNativeBase';
 import { omitUndefined, extractInObject } from '../../theme/tools';
@@ -12,27 +10,12 @@ import {
   IStateProps,
 } from './propsFlattener';
 import { useResponsiveSSRProps } from '../useResponsiveSSRProps';
-import React from 'react';
-import { ResponsiveQueryContext } from '../../utils/useResponsiveQuery/ResponsiveQueryProvider';
 import type { ComponentTheme } from '../../theme';
 import { useNativeBaseConfig } from '../../core/NativeBaseContext';
 import { getThemeProps } from '../../core/ResolvedStyleMap';
 
 import { useColorMode } from '../../core/color-mode';
 import { PSEUDO_PROP_COMPONENT_MAP } from '../../core/ResolvedStyleMap';
-
-// const PSEUDO_PROP_COMPONENT_MAP = {
-//   _spinner: 'Spinner',
-//   _stack: 'Stack',
-//   _text: 'Text',
-//   _icon: 'Icon',
-//   _checkbox: 'Checkbox',
-//   _label: 'Text',
-//   // _input: 'Input',
-//   // _slide: 'Slide',
-//   // _backdropFade: 'BackdropFade',
-//   // _fade: 'Fade',
-// };
 
 const SPREAD_PROP_SPECIFICITY_ORDER = [
   'p',

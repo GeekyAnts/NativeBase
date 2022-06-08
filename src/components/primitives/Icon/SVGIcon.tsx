@@ -42,7 +42,7 @@ const SVGIcon = (
   const strokeHex = useToken('colors', stroke || '');
   const colorHex = useToken('colors', color || '');
 
-  console.log('resolvedProps *** icon', strokeHex, color, styleFromProps);
+  // console.log('resolvedProps *** icon', strokeHex, color, styleFromProps);
 
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {

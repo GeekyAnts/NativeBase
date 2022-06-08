@@ -29,15 +29,6 @@ const Modal = (
   }: IModalProps,
   ref: any
 ) => {
-  // const { style: backdropFadeStyle } = getThemeProps(
-  //   'Modal.BackdropFade',
-  //   colorMode,
-  //   {},
-  //   rest
-  // );
-
-  // const { style: fadeStyle } = getThemeProps('Modal.Fade', colorMode, {}, rest);
-
   const bottomInset = useKeyboardBottomInset();
   const {
     _backdrop,

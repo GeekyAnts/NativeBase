@@ -3,8 +3,6 @@ import StackMain, { InterfaceStackProps } from './Stack';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { CustomProps, ResponsiveValue } from '../../types';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-import { useColorMode } from '../../../core/color-mode';
-import { getThemeProps } from '../../../core';
 
 export interface InterfaceVStackProps extends InterfaceStackProps {
   /**
@@ -19,27 +17,12 @@ export interface InterfaceVStackProps extends InterfaceStackProps {
 export type IVStackProps = InterfaceVStackProps & CustomProps<'VStack'>;
 
 const VStack = (props: IVStackProps, ref?: any) => {
-  const { colorMode } = useColorMode();
-  const { style, unResolvedProps } = getThemeProps(
-    'VStack',
-    colorMode,
-    {},
-    props
-  );
-
-  const resolvedProps = usePropsResolution(
-    'VStack',
-    {
-      ...unResolvedProps,
-      ...props,
-    },
-    {}
-  );
+  const resolvedProps = usePropsResolution('VStack', props, {});
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
   }
-  return <StackMain INTERNAL_themeStyle={style} ref={ref} {...resolvedProps} />;
+  return <StackMain ref={ref} {...resolvedProps} />;
 };
 
 export default memo(forwardRef(VStack));

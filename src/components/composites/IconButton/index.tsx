@@ -11,8 +11,6 @@ import {
   useIsPressed,
 } from '../../primitives/Pressable/Pressable';
 import { useFocusRing } from '@react-native-aria/focus';
-import { useColorMode } from '../../../core/color-mode';
-import { getThemeProps } from '../../../core';
 
 const IconButton = (
   {
@@ -39,20 +37,6 @@ const IconButton = (
     isFocusVisible: isFocusVisibleProp || isFocusVisible,
     isDisabled,
   };
-  const { colorMode } = useColorMode();
-  const { style, unResolvedProps } = getThemeProps(
-    'IconButton',
-    colorMode,
-    state,
-    props
-  );
-  const {
-    style: iconStyle,
-    styleFromProps,
-    unResolvedProps: iconUnResolvedProps,
-  } = getThemeProps('IconButton.Icon', colorMode, state, props);
-
-  console.log(styleFromProps, props._icon, 'style here 112');
 
   const {
     _icon,
@@ -63,7 +47,7 @@ const IconButton = (
     onFocus,
     onBlur,
     ...resolvedProps
-  } = usePropsResolution('IconButton', { ...unResolvedProps, ...props }, state);
+  } = usePropsResolution('IconButton', props, state);
 
   let clonedIcon;
 
@@ -71,9 +55,6 @@ const IconButton = (
     clonedIcon = React.cloneElement(icon, {
       ..._icon,
       ...icon?.props,
-      INTERNAL_themeStyle: iconStyle,
-      ...iconUnResolvedProps,
-      styleFromProps,
     });
   }
 
@@ -82,7 +63,6 @@ const IconButton = (
     return null;
   }
 
-  console.log(_icon, 'ICICICIC');
   return (
     <Pressable
       accessibilityRole="button"
@@ -103,19 +83,9 @@ const IconButton = (
         composeEventHandlers(onBlur, focusProps.onBlur),
         focusRingProps.onBlur
       )}
-      INTERNAL_themeStyle={style}
       {...resolvedProps}
     >
-      {clonedIcon || (
-        <Icon
-          {..._icon}
-          INTERNAL_themeStyle={iconStyle}
-          styleFromProps={styleFromProps}
-          {...iconUnResolvedProps}
-        >
-          {children}
-        </Icon>
-      )}
+      {clonedIcon || <Icon {..._icon}>{children}</Icon>}
     </Pressable>
   );
 };

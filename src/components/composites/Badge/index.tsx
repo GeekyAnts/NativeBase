@@ -3,9 +3,6 @@ import HStack from '../../primitives/Stack/HStack';
 import Box from '../../primitives/Box';
 import type { IBadgeProps } from './types';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-import { useColorMode } from '../../../core/color-mode';
-import { getResolvedStyleSheet, getThemeProps } from '../../../core';
 
 const Badge = (
   {
@@ -19,21 +16,10 @@ const Badge = (
   }: IBadgeProps,
   ref: any
 ) => {
-  const { colorMode } = useColorMode();
-
-  const { style, unResolvedProps } = getThemeProps(
-    'Badge',
-    colorMode,
-    {},
-    props
-  );
-
   const { _icon, _text, ...newProps } = usePropsResolution(
     'Badge',
-    {
-      ...unResolvedProps,
-      ...props,
-    },
+    props,
+
     {}
   );
 
@@ -73,16 +59,11 @@ const Badge = (
 
   // console.log(style, 'hello props >>>>> 22');
   return (
-    <HStack INTERNAL_themeStyle={style} {...newProps} ref={ref}>
+    <HStack {...newProps} ref={ref}>
       {startIcon ? startIcon : null}
       <Box
         _text={{
           ..._text,
-          INTERNAL_themeStyle: getResolvedStyleSheet(
-            [`Badge`, props.variant, props.size, `Text`],
-            colorMode,
-            {}
-          ),
         }}
       >
         {children}

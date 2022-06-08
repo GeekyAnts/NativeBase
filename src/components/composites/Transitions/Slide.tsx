@@ -5,8 +5,6 @@ import PresenceTransition from './PresenceTransition';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { Overlay } from '../../primitives/Overlay';
 import { usePropsResolution } from '../../../hooks/';
-import { getThemeProps } from '../../../core';
-import { useColorMode } from '../../../core/color-mode';
 
 const holderStyle: any = {
   top: {
@@ -33,15 +31,6 @@ const holderStyle: any = {
 
 export const Slide = memo(
   forwardRef(({ children, ...props }: ISlideProps, ref: any) => {
-    const { colorMode } = useColorMode();
-
-    const {
-      style,
-      unResolvedProps,
-      restDefaultProps,
-      styleFromProps,
-    } = getThemeProps('Slide', colorMode, {}, props);
-
     //TODO: perf improvement
     const {
       in: visible,
@@ -50,13 +39,7 @@ export const Slide = memo(
       duration,
       _overlay,
       ...resolvedProps
-    } = {
-      ...restDefaultProps,
-      ...usePropsResolution('Slide', {
-        ...unResolvedProps,
-        ...props,
-      }),
-    };
+    } = usePropsResolution('Slide', props);
 
     const [containerOpacity, setContainerOpacity] = React.useState(0);
     const [size, setSize] = React.useState(0);
@@ -133,7 +116,6 @@ export const Slide = memo(
           opacity={containerOpacity}
           ref={ref}
           onLayout={(e) => provideSize(e.nativeEvent.layout)}
-          INTERNAL_themeStyle={style}
         >
           {children}
         </Box>

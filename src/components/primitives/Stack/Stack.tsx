@@ -4,10 +4,7 @@ import { getSpacedChildren } from '../../../utils';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import type { CustomProps, ResponsiveValue, SpaceType } from '../../types';
-import { ResponsiveQueryContext } from '../../../utils/useResponsiveQuery/ResponsiveQueryProvider';
 import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
-import { getThemeProps } from '../../../core';
-import { useColorMode } from '../../../core/color-mode';
 import { useToken } from '../../../hooks';
 
 export interface InterfaceStackProps extends InterfaceBoxProps<IStackProps> {
@@ -56,7 +53,7 @@ export interface InterfaceStackProps extends InterfaceBoxProps<IStackProps> {
 
 export type IStackProps = InterfaceStackProps & CustomProps<'Stack'>;
 
-const Stack = ({ INTERNAL_themeStyle, ...props }: IStackProps, ref?: any) => {
+const Stack = ({ ...props }: IStackProps, ref?: any) => {
   const dir = props.direction;
 
   const state = {
@@ -66,11 +63,6 @@ const Stack = ({ INTERNAL_themeStyle, ...props }: IStackProps, ref?: any) => {
     isInvalid: props.isInvalid,
     isReadOnly: props.isReadOnly,
   };
-  const { colorMode } = useColorMode();
-
-  const { style, unResolvedProps } = getThemeProps('Stack', colorMode, state, {
-    ...props,
-  });
 
   const {
     children,
@@ -79,17 +71,9 @@ const Stack = ({ INTERNAL_themeStyle, ...props }: IStackProps, ref?: any) => {
     divider,
     space,
     ...resolvedProps
-  }: any = usePropsResolution(
-    'Stack',
-    {
-      ...unResolvedProps,
-      ...props,
-    },
-    state,
-    {
-      resolveResponsively: ['space', 'direction'],
-    }
-  );
+  }: any = usePropsResolution('Stack', props, state, {
+    resolveResponsively: ['space', 'direction'],
+  });
 
   const isSSR = useNativeBaseConfig('NativeBase').isSSR;
   const disableCSSMediaQueries = !isSSR;
@@ -117,7 +101,6 @@ const Stack = ({ INTERNAL_themeStyle, ...props }: IStackProps, ref?: any) => {
       ref={ref}
       // @ts-ignore
       gap={disableCSSMediaQueries ? undefined : thumbAbsoluteSize}
-      INTERNAL_themeStyle={[style, INTERNAL_themeStyle]}
     >
       {getSpacedChildren(
         children,

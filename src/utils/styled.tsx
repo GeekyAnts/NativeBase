@@ -1,54 +1,16 @@
 import React from 'react';
-import {
-  useSafeArea,
-  resolvePropsToStyle,
-  useStyledSystemPropsResolver,
-} from '../hooks/';
-import { memoize } from 'lodash';
+import { useStyledSystemPropsResolver } from '../hooks/';
 import get from 'lodash.get';
-import merge from 'lodash.merge';
-import { View, StyleSheet, Platform } from 'react-native';
-import {
-  useColorMode,
-  getThemeProps,
-  pseudoPropStateMap,
-  PSEUDO_PROP_COMPONENT_MAP,
-} from '../core';
-import { propsFlattener } from '../hooks/useThemeProps/propsFlattener';
-import { ITheme, theme } from '../theme';
-import { getStyleAndFilteredProps, propConfig } from '../theme/styled-system';
+import { StyleSheet } from 'react-native';
+import { pseudoPropStateMap, PSEUDO_PROP_COMPONENT_MAP } from '../core';
 
 window['StyleSheet'] = StyleSheet;
-import {
-  callPropsFlattener,
-  propsSpreader,
-} from '../hooks/useThemeProps/usePropsResolution';
-import { isEmptyObj } from './isEmptyObj';
-import isEmpty from 'lodash.isempty';
 import { getStyledObject } from './getStyledComponentAndObjects';
 import {
   get as getResolvedStyleMap,
   set as setResolvedStyleMap,
 } from '../core';
-
-// TODO: Scalibility issue, might have to shift to a map
-
-// for (const key in theme.components) {
-// console.log(key, 'key here ***');
-// }
-
-// export const PSEUDO_PROP_COMPONENT_MAP = {
-//   _spinner: 'Spinner',
-//   _stack: 'Stack',
-//   _text: 'Text',
-//   _icon: 'Icon',
-//   _checkbox: 'Checkbox',
-//   _label: 'Text',
-//   // _input: 'Input',
-//   // _slide: 'Slide',
-//   // _backdropFade: 'BackdropFade',
-//   // _fade: 'Fade',
-// };
+import { theme } from '../theme';
 
 const COLOR_SCHEME_MAP = {
   Button: true,

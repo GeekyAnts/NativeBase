@@ -1,8 +1,6 @@
-import React, { memo, forwardRef, useEffect } from 'react';
-import { Platform, StyleSheet } from 'react-native';
+import React, { memo, forwardRef } from 'react';
 import Spinner from '../Spinner';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
-import { useTimer } from '../../../hooks/useTimer';
 import { default as Box, IBoxProps } from '../Box';
 import HStack from '../Stack/HStack';
 import { Pressable } from '../Pressable';
@@ -15,16 +13,7 @@ import {
 } from '../../primitives/Pressable/Pressable';
 import { useFocusRing } from '@react-native-aria/focus';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-import { getResolvedStyleSheet, getThemeProps } from '../../../core';
-import { useColorMode } from '../../../core/color-mode';
 
-// resolveComponentThemeLog();
-// console.log(
-//   'styledObj',
-//   styleObj
-//   // StyleSheet.flatten(styleObj.style),
-//   // StyleSheet.flatten(styleObjSpinner.style)
-// );
 const Button = (
   {
     //@ts-ignore
@@ -45,40 +34,10 @@ const Button = (
   }: IButtonProps & IBoxProps,
   ref: any
 ) => {
-  // const Timer = useTimer();
-  // console.log(Timer.startLog("Button"));
-
-  // if (Platform.OS === "ios") {
-  //   // console.log('IOS');
-  // }
-  // if (Platform.OS === "android") {
-  //   // console.log('ANDROID');
-  // }
-  // Timer.startLog("Button");
-  // start = Date.now();
-
-  // MessageQueue.spy((data) => {
-  //   let start = 0;
-  //   let end = 0;
-  //   if (data.module === "UIManager" && data.method === "updateView") {
-  //     if (data.args[2].backgroundColor === -15376779) {
-  //       start = Date.now();
-  //       console.log("Pressed", start);
-  //     }
-
-  //     if (data.args[2].backgroundColor === -16215630) {
-  //       end = Date.now();
-  //       console.log("UnPressed", end);
-  //       // console.log("UnPressed",end - start);
-  //     }
-  //   }
-  // });
-  // console.log("Start", start);
   const { hoverProps, isHovered } = useHover();
   const { pressableProps, isPressed } = useIsPressed();
   const { focusProps, isFocused } = useFocus();
   const { isFocusVisible, focusProps: focusRingProps }: any = useFocusRing();
-  const { colorMode } = useColorMode();
   const state = {
     isDisabled,
     isHovered: isHoveredProp || isHovered,
@@ -87,13 +46,6 @@ const Button = (
     isLoading,
     isFocusVisible: isFocusVisibleProp || isFocusVisible,
   };
-
-  const { style, unResolvedProps } = getThemeProps(
-    'Button',
-    colorMode,
-    state,
-    props
-  );
 
   // console.log(rest, 'rest here');
 
@@ -155,7 +107,6 @@ const Button = (
   );
 
   const boxChildren = (child: any) => {
-    console.log(_text, 'text prop here');
     return child ? <Box _text={_text}>{child}</Box> : null;
   };
   // Process End Log ----------------------------------------------------------------------------------------------------
