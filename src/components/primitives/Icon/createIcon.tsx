@@ -10,7 +10,6 @@ export const createIcon = ({ path, d, ...initialProps }: IcreateIconProps) => {
     if (d && (!path || isEmpty(path))) {
       children = <Path fill="currentColor" d={d} />;
     }
-
     return (
       <SVGIcon children={children} {...initialProps} {...props} ref={ref} />
     );

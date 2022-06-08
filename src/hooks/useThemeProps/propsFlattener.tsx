@@ -165,38 +165,6 @@ const shouldResolvePseudoProp = ({
   }
 };
 
-const mergePsuedoProps = (
-  props: any,
-  property: string,
-  propertySpecity: object,
-  specificityMap: any,
-  flattenProps: any
-) => {
-  if (compareSpecificity(specificityMap[property], propertySpecity, false)) {
-    // if (process.env.NODE_ENV === "development" && props.debug) {
-    //   /* eslint-disable-next-line */
-    //   console.log(
-    //     `%c ${property}`,
-    //     "color: #818cf8;",
-    //     "updated as internal prop with higher specificity"
-    //   );
-    // }
-    specificityMap[property] = propertySpecity;
-    // merging internal props (like, _text, _stack ...)
-    flattenProps[property] = merge({}, flattenProps[property], props[property]);
-  } else {
-    // if (process.env.NODE_ENV === "development" && props.debug) {
-    //   /* eslint-disable-next-line */
-    //   console.log(
-    //     `%c ${property}`,
-    //     "color: #818cf8;",
-    //     "updated as internal prop with lower specificity"
-    //   );
-    // }
-    flattenProps[property] = merge({}, props[property], flattenProps[property]);
-  }
-};
-
 const simplifyProps = (
   {
     props,
@@ -211,6 +179,39 @@ const simplifyProps = (
   specificityMap: any = {},
   priority: number
 ) => {
+  const mergePsuedoProps = (property: string, propertySpecity: object) => {
+    if (compareSpecificity(specificityMap[property], propertySpecity, false)) {
+      if (process.env.NODE_ENV === 'development' && props.debug) {
+        /* eslint-disable-next-line */
+        console.log(
+          `%c ${property}`,
+          'color: #818cf8;',
+          'updated as internal prop with higher specificity'
+        );
+      }
+      specificityMap[property] = propertySpecity;
+      // merging internal props (like, _text, _stack ...)
+      flattenProps[property] = merge(
+        {},
+        flattenProps[property],
+        props[property]
+      );
+    } else {
+      if (process.env.NODE_ENV === 'development' && props.debug) {
+        /* eslint-disable-next-line */
+        console.log(
+          `%c ${property}`,
+          'color: #818cf8;',
+          'updated as internal prop with lower specificity'
+        );
+      }
+      flattenProps[property] = merge(
+        {},
+        props[property],
+        flattenProps[property]
+      );
+    }
+  };
   for (const property in props) {
     // NOTE: the order is important here. Keep in mind while specificity breakpoints.
     const propertySpecity = currentSpecificity
@@ -219,25 +220,6 @@ const simplifyProps = (
           ...INITIAL_PROP_SPECIFICITY,
           [SPECIFICITY_20]: priority,
         };
-
-    if (compareSpecificity(specificityMap[property], propertySpecity, false)) {
-      if (process.env.NODE_ENV === 'development' && props.debug) {
-        /* eslint-disable-next-line */
-        console.log(
-          `%c ${property}`,
-          'color: #818cf8;',
-          'updated as simple prop'
-        );
-      }
-      specificityMap[property] = propertySpecity;
-      // replacing simple props (like, p, m, bg, color, ...)
-      flattenProps[property] = props[property];
-    } else {
-      if (process.env.NODE_ENV === 'development' && props.debug) {
-        /* eslint-disable-next-line */
-        console.log(`%c ${property}`, 'color: #818cf8;', 'ignored');
-      }
-    }
 
     if (
       // @ts-ignore
@@ -276,17 +258,9 @@ const simplifyProps = (
       }
       // @ts-ignore
     } else if (pseudoPropsMap[property] === undefined) {
-      // console.log("****** cascadePseudoProps", cascadePseudoProps);
-
       if (property.startsWith('_')) {
         // NOTE: Handling (internal) props like _text, _stack, ....
-        mergePsuedoProps(
-          props,
-          property,
-          propertySpecity,
-          specificityMap,
-          flattenProps
-        );
+        mergePsuedoProps(property, propertySpecity);
       } else {
         if (
           compareSpecificity(specificityMap[property], propertySpecity, false)
@@ -311,7 +285,6 @@ const simplifyProps = (
       }
     } else {
       // Can delete unused props
-
       if (!cascadePseudoProps) {
         delete flattenProps[property];
         if (process.env.NODE_ENV === 'development' && props.debug) {
@@ -323,14 +296,7 @@ const simplifyProps = (
           /* eslint-disable-next-line */
           console.log(`%c ${property}`, 'color: #818cf8;', 'cascaded');
         }
-
-        mergePsuedoProps(
-          props,
-          property,
-          propertySpecity,
-          specificityMap,
-          flattenProps
-        );
+        mergePsuedoProps(property, propertySpecity);
       }
     }
   }
@@ -362,7 +328,6 @@ export const propsFlattener = (
 
   const specificityMap = currentSpecificityMap || {};
 
-  // console.log("before simplify", props);
   simplifyProps(
     {
       props,
@@ -377,9 +342,6 @@ export const propsFlattener = (
     specificityMap,
     priority
   );
-
-  // flattenProps = props;
-  // console.log("after simplify", flattenProps);
 
   return [flattenProps, specificityMap];
 };
