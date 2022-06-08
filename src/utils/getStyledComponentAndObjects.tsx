@@ -3,7 +3,7 @@ import {
   useSafeArea,
   resolvePropsToStyle,
   useStyledSystemPropsResolver,
-} from '../hooks/';
+} from '../hooks';
 import { memoize } from 'lodash';
 import get from 'lodash.get';
 import merge from 'lodash.merge';

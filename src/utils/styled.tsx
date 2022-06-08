@@ -53,6 +53,7 @@ import {
 const COLOR_SCHEME_MAP = {
   Button: true,
   IconButton: true,
+  Checkbox: true,
 };
 window['logger'] = {};
 console.batchTime = (key) => {

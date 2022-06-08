@@ -4,7 +4,6 @@ import * as tools from './tools';
 import type { StyledProps } from '../theme/types';
 //@ts-ignore
 import type { ColorModeOptions } from './../core/color-mode/types';
-import { updateComponentThemeMap } from '../utils/styled';
 export interface ComponentTheme {
   baseStyle?: ((props: any) => StyledProps) | StyledProps;
   sizes?: Record<string, ((props: any) => StyledProps) | StyledProps>;

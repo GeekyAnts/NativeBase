@@ -127,7 +127,9 @@ export const getThemeProps = (
   let componentKeyName = rootComponentName;
 
   componentKeyName = getComponentNameKeyFromProps(rootComponentName, props);
-
+  if (inputComponentKeyName === 'Checkbox.Stack') {
+    console.log(componentKeyName, 'componentKeyName');
+  }
   if (pseudoComponentKeyName) {
     componentKeyName = `${componentKeyName}.${pseudoComponentKeyName}`;
   }
