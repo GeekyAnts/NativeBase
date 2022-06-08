@@ -71,6 +71,7 @@ const SVGIcon = (
       // height={16}
       // INTERNAL_themeStyle={[style, INTERNAL_themeStyle]}
       ref={ref}
+      overflow="visible"
     >
       {React.Children.count(children) > 0 ? (
         <G>
