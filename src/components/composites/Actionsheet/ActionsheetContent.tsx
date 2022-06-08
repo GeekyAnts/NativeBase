@@ -7,8 +7,6 @@ import { ModalContext } from '../Modal/Context';
 import Box from '../../primitives/Box';
 import { ActionSheetContext } from './ActionSheetContext';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-import { getThemeProps } from '../../../core';
-import { useColorMode } from '../../../core/color-mode';
 
 const Content = memo(
   forwardRef(
@@ -23,23 +21,12 @@ const Content = memo(
       }: any,
       ref: any
     ) => {
-      const { colorMode } = useColorMode();
-
-      const { style, unResolvedProps } = getThemeProps(
-        'ActionsheetContent',
-        colorMode,
-        {},
-        props
-      );
       const {
         _dragIndicator,
         _dragIndicatorWrapperOffSet,
         _dragIndicatorWrapper,
         ...resolvedProps
-      } = usePropsResolution('ActionsheetContent', {
-        ...unResolvedProps,
-        ...props,
-      });
+      } = usePropsResolution('ActionsheetContent', props);
 
       const panResponder = React.useRef(
         PanResponder.create({
@@ -93,12 +80,7 @@ const Content = memo(
             </>
           ) : null}
 
-          <Modal.Content
-            {...resolvedProps}
-            ref={ref}
-            safeAreaBottom
-            INTERNAL_themeStyle={style}
-          >
+          <Modal.Content {...resolvedProps} ref={ref} safeAreaBottom>
             {!hideDragIndicator ? (
               <>
                 {/* Hack. Fix later. Add -2 negative margin to remove the padding added by ActionSheetContent */}

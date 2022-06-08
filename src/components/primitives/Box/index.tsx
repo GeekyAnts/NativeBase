@@ -154,7 +154,7 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
 };
 
 const BoxComponentWithSafeArea = forwardRef(
-  ({ children, _text, INTERNAL_themeStyle, ...props }: IBoxProps, ref: any) => {
+  ({ children, _text, ...props }: IBoxProps, ref: any) => {
     const safeAreaProps = useSafeArea(props);
     const { colorMode } = useColorMode();
 
@@ -166,10 +166,10 @@ const BoxComponentWithSafeArea = forwardRef(
         <StyledBox
           ref={ref}
           {...safeAreaProps}
-          INTERNAL_themeStyle={[
-            getResolvedStyleSheet('Box', colorMode),
-            INTERNAL_themeStyle,
-          ]}
+          // INTERNAL_themeStyle={[
+          //   getResolvedStyleSheet('Box', colorMode),
+          //   INTERNAL_themeStyle,
+          // ]}
         >
           {wrapStringChild(children, _text)}
         </StyledBox>
@@ -179,9 +179,10 @@ const BoxComponentWithSafeArea = forwardRef(
 );
 
 const BoxComponentWithoutSafeArea = forwardRef(
-  ({ children, _text, INTERNAL_themeStyle, ...props }: IBoxProps, ref: any) => {
+  ({ children, _text, ...props }: IBoxProps, ref: any) => {
     const { colorMode } = useColorMode();
 
+    console.log(props, 'props here ****');
     if (gradientPropExists(props) && GradientBox) {
       return <GradientBox {...props} ref={ref} />;
     } else {
@@ -190,10 +191,10 @@ const BoxComponentWithoutSafeArea = forwardRef(
         <StyledBox
           ref={ref}
           {...props}
-          INTERNAL_themeStyle={[
-            getResolvedStyleSheet('Box', colorMode),
-            INTERNAL_themeStyle,
-          ]}
+          // INTERNAL_themeStyle={[
+          //   getResolvedStyleSheet('Box', colorMode),
+          //   INTERNAL_themeStyle,
+          // ]}
           // INTERNAL_themeStyle={getStyledComponent('Box', colorMode)}
         >
           {wrapStringChild(children, _text)}

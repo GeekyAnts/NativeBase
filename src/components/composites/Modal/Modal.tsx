@@ -11,9 +11,6 @@ import { Fade } from '../../composites/Transitions';
 import { useKeyboardBottomInset } from '../../../utils';
 import { Overlay } from '../../primitives/Overlay';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-import { getThemeProps } from '../../../core';
-import { useColorMode } from '../../../core/color-mode';
-
 const Modal = (
   {
     children,
@@ -28,20 +25,10 @@ const Modal = (
     overlayVisible = true,
     backdropVisible = true,
     animationPreset,
-    INTERNAL_themeStyle,
     ...rest
   }: IModalProps,
   ref: any
 ) => {
-  const { colorMode } = useColorMode();
-
-  const {
-    style,
-    unResolvedProps,
-    restDefaultProps,
-    styleFromProps,
-  } = getThemeProps('Modal', colorMode, {}, rest);
-
   // const { style: backdropFadeStyle } = getThemeProps(
   //   'Modal.BackdropFade',
   //   colorMode,
@@ -56,11 +43,11 @@ const Modal = (
     _backdrop,
     _backdropFade,
     _fade,
+    contentSize,
     _slide,
     ...resolvedProps
-  } = usePropsResolution('Modal', { ...unResolvedProps, ...rest });
+  } = usePropsResolution('Modal', rest);
 
-  // console.log(backdropFadeStyle, fadeStyle, 'hello here');
   const [visible, setVisible] = useControllableState({
     value: isOpen,
     defaultValue: defaultIsOpen,
@@ -83,7 +70,6 @@ const Modal = (
       {...resolvedProps}
       ref={ref}
       pointerEvents="box-none"
-      INTERNAL_themeStyle={[style, INTERNAL_themeStyle]}
       // bg="red.500"
     >
       {children}
@@ -93,18 +79,12 @@ const Modal = (
   const contextValue = React.useMemo(() => {
     return {
       handleClose,
-      contentSize: restDefaultProps?.contentSize,
+      contentSize: contentSize,
       initialFocusRef,
       finalFocusRef,
       visible,
     };
-  }, [
-    handleClose,
-    restDefaultProps?.contentSize,
-    initialFocusRef,
-    finalFocusRef,
-    visible,
-  ]);
+  }, [handleClose, contentSize, initialFocusRef, finalFocusRef, visible]);
 
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(rest)) {

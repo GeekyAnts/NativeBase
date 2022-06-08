@@ -8,7 +8,12 @@ import { memoize } from 'lodash';
 import get from 'lodash.get';
 import merge from 'lodash.merge';
 import { View, StyleSheet, Platform } from 'react-native';
-import { useColorMode, getThemeProps, pseudoPropStateMap } from '../core';
+import {
+  useColorMode,
+  getThemeProps,
+  pseudoPropStateMap,
+  PSEUDO_PROP_COMPONENT_MAP,
+} from '../core';
 import { propsFlattener } from '../hooks/useThemeProps/propsFlattener';
 import { ITheme, theme } from '../theme';
 import { getStyleAndFilteredProps, propConfig } from '../theme/styled-system';
@@ -32,18 +37,18 @@ import {
 // console.log(key, 'key here ***');
 // }
 
-const PSEUDO_PROP_COMPONENT_MAP = {
-  _spinner: 'Spinner',
-  _stack: 'Stack',
-  _text: 'Text',
-  _icon: 'Icon',
-  _checkbox: 'Checkbox',
-  _label: 'Text',
-  // _input: 'Input',
-  // _slide: 'Slide',
-  // _backdropFade: 'BackdropFade',
-  // _fade: 'Fade',
-};
+// export const PSEUDO_PROP_COMPONENT_MAP = {
+//   _spinner: 'Spinner',
+//   _stack: 'Stack',
+//   _text: 'Text',
+//   _icon: 'Icon',
+//   _checkbox: 'Checkbox',
+//   _label: 'Text',
+//   // _input: 'Input',
+//   // _slide: 'Slide',
+//   // _backdropFade: 'BackdropFade',
+//   // _fade: 'Fade',
+// };
 
 const COLOR_SCHEME_MAP = {
   Button: true,

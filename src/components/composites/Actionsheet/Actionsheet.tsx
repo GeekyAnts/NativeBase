@@ -4,26 +4,16 @@ import type { IActionsheetProps } from './types';
 import { usePropsResolution } from '../../../hooks';
 import { ActionSheetContext } from './ActionSheetContext';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-import { getThemeProps } from '../../../core';
-import { useColorMode } from '../../../core/color-mode';
 const Actionsheet = (
   { children, hideDragIndicator = false, ...props }: IActionsheetProps,
   ref: any
 ) => {
-  const { colorMode } = useColorMode();
-
   const {
-    style,
-    unResolvedProps,
-    restDefaultProps,
-    styleFromProps,
-  } = getThemeProps('Actionsheet', colorMode, {}, props);
-
-  const { isOpen, disableOverlay, onClose, ...resolvedProps } = {
-    ...restDefaultProps,
-    ...usePropsResolution('Actionsheet', { ...unResolvedProps, ...props }),
-  };
-
+    isOpen,
+    disableOverlay,
+    onClose,
+    ...resolvedProps
+  } = usePropsResolution('Actionsheet', props);
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
@@ -37,7 +27,7 @@ const Actionsheet = (
       overlayVisible={disableOverlay ? false : true}
       closeOnOverlayClick={disableOverlay ? false : true}
       ref={ref}
-      INTERNAL_themeStyle={style}
+      size="full"
     >
       <ActionSheetContext.Provider value={{ hideDragIndicator }}>
         {children}

@@ -1,7 +1,6 @@
 import { forEach, map, get as lodashGet, merge } from 'lodash';
 import type { ColorMode } from './color-mode';
-import { StyleSheet } from 'react-native';
-import { isEmptyObj } from '../utils';
+import { isEmptyObj } from '../utils/isEmptyObj';
 import { theme } from '../theme';
 
 // Adding Map for storing the props and style for the styled component
@@ -15,6 +14,19 @@ export const pseudoPropStateMap = {
   _checked: 'isChecked',
   _loading: 'isLoading',
   _invalid: 'isInvalid',
+};
+
+export const PSEUDO_PROP_COMPONENT_MAP = {
+  _spinner: 'Spinner',
+  _stack: 'Stack',
+  _text: 'Text',
+  _icon: 'Icon',
+  _checkbox: 'Checkbox',
+  _label: 'Text',
+  // _input: 'Input',
+  // _slide: 'Slide',
+  // _backdropFade: 'BackdropFade',
+  // _fade: 'Fade',
 };
 
 export const init = () => {
@@ -50,14 +62,10 @@ const getThemeObject = (componentName: any, colorMode: any, state?: any) => {
     unResolvedProps = { ...unResolvedProps, ...props };
   }
 
-  const restDefautlPropsArray = map(styleSheet, 'restDefaultProps');
-
+  const restDefaultPropsArray = map(styleSheet, 'restDefaultProps');
   let restDefaultProps = {};
-  for (const props of restDefautlPropsArray) {
+  for (const props of restDefaultPropsArray) {
     restDefaultProps = { ...restDefaultProps, ...props };
-    // if (componentName === 'Actionsheet') {
-    //   console.log(props, restDefaultProps, '**&******&');
-    // }
   }
 
   const styleFromPropsArray = map(styleSheet, 'styleFromProps');
@@ -66,11 +74,18 @@ const getThemeObject = (componentName: any, colorMode: any, state?: any) => {
     styleFromProps = { ...styleFromProps, ...props };
   }
 
+  const internalPseudoPropsArray = map(styleSheet, 'internalPseudoProps');
+  let internalPseudoProps = {};
+  for (const props of internalPseudoPropsArray) {
+    internalPseudoProps = { ...internalPseudoProps, ...props };
+  }
+
   return {
     style: map(styleSheet, 'style'),
     unResolvedProps: unResolvedProps,
     styleFromProps: styleFromProps,
     restDefaultProps: restDefaultProps,
+    internalPseudoProps: internalPseudoProps,
   };
 };
 
@@ -119,6 +134,10 @@ export const getThemeProps = (
 
   let themeObj = getThemeObject(componentKeyName, colorMode, state);
 
+  if (inputComponentKeyName === 'Button') {
+    // console.log(componentKeyName, themeObj, '((()))');
+  }
+
   if (isEmptyObj(themeObj)) {
     themeObj = getThemeObject(rootComponentName, colorMode, state);
   }
@@ -142,11 +161,11 @@ export const getThemeProps = (
     //   console.log(sizeThemeObj, componentKeyNameForSize, 'style them object');
     // }
 
-    console.log(themeObj.style, sizeThemeObj.style, 'style me rehne ka');
-    console.log(
-      themeObj.style?.concat(sizeThemeObj.style),
-      'style me rehne kan222'
-    );
+    // console.log(themeObj.style, sizeThemeObj.style, 'style me rehne ka');
+    // console.log(
+    //   themeObj.style?.concat(sizeThemeObj.style),
+    //   'style me rehne kan222'
+    // );
     const mergedThemeObj = {
       style: sizeThemeObj?.style
         ? [...themeObj?.style, ...sizeThemeObj?.style]
@@ -161,6 +180,15 @@ export const getThemeProps = (
         themeObj.unResolvedProps,
         sizeThemeObj.unResolvedProps
       ),
+      internalPseudoProps: merge(
+        {},
+        themeObj.internalPseudoProps,
+        sizeThemeObj.internalPseudoProps
+      ),
+      restDefaultProps: {
+        ...themeObj.restDefaultProps,
+        ...sizeThemeObj.restDefaultProps,
+      },
     };
     themeObj = mergedThemeObj;
   }

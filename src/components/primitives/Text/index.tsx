@@ -36,7 +36,6 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
     _hover,
     fontSize,
     numberOfLines,
-    INTERNAL_themeStyle,
     ...reslovedProps
   } = usePropsResolution(
     'Text',
@@ -49,12 +48,7 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
     }
   );
 
-  // console.log(
-  //   INTERNAL_themeStyle,
-  //   props,
-  //   reslovedProps,
-  //   'internal theme styel 1'
-  // );
+  console.log(reslovedProps, 'internal theme styel 1');
   const _ref = useRef(null);
   const { colorMode } = useColorMode();
   // TODO: might have to add this condition
@@ -106,10 +100,10 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
   return hasTextAncestor ? (
     <StyledText
       {...propsToSpread}
-      INTERNAL_themeStyle={[
-        getResolvedStyleSheet('Text', colorMode),
-        INTERNAL_themeStyle,
-      ]}
+      // INTERNAL_themeStyle={[
+      //   getResolvedStyleSheet('Text', colorMode),
+      //   INTERNAL_themeStyle,
+      // ]}
     >
       {children}
     </StyledText>
@@ -117,10 +111,10 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
     <TextAncestorContext.Provider value={true}>
       <StyledText
         {...propsToSpread}
-        INTERNAL_themeStyle={[
-          getResolvedStyleSheet('Text', colorMode),
-          INTERNAL_themeStyle,
-        ]}
+        // INTERNAL_themeStyle={[
+        //   getResolvedStyleSheet('Text', colorMode),
+        //   INTERNAL_themeStyle,
+        // ]}
       >
         {children}
       </StyledText>

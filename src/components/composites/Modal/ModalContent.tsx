@@ -5,23 +5,9 @@ import { ModalContext } from './Context';
 import { Platform } from 'react-native';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
-import { getThemeProps } from '../../../core';
-import { useColorMode } from '../../../core/color-mode';
 const ModalContent = (props: IBoxProps, ref?: any) => {
-  const { colorMode } = useColorMode();
-
-  const { style, unResolvedProps, styleFromProps } = getThemeProps(
-    'ModalContent',
-    colorMode,
-    {},
-    props
-  );
-
   // console.log(styleFromProps, 'style from props &&&&*&*');
-  const resolvedProps = usePropsResolution('ModalContent', {
-    ...unResolvedProps,
-    ...props,
-  });
+  const resolvedProps = usePropsResolution('ModalContent', props);
   const {
     contentSize,
     initialFocusRef,
@@ -59,7 +45,6 @@ const ModalContent = (props: IBoxProps, ref?: any) => {
       //@ts-ignore - web only
       accessibilityRole={Platform.OS === 'web' ? 'dialog' : undefined}
       accessibilityViewIsModal
-      INTERNAL_themeStyle={[style, props.INTERNAL_themeStyle]}
     />
   );
 };

@@ -95,6 +95,8 @@ const Button = (
     props
   );
 
+  // console.log(rest, 'rest here');
+
   const {
     onPressIn,
     onPressOut,
@@ -108,24 +110,8 @@ const Button = (
     isLoadingText,
     _icon,
     ...resolvedProps
-  } = usePropsResolution('Button', { ...unResolvedProps, ...props }, state);
+  } = usePropsResolution('Button', props, state);
 
-  // console.log(style, unResolvedProps, resolvedProps, 'style here');
-
-  // // console.log(_stack, "styled");
-  // let stackStyle = {};
-
-  // if (_stack) {
-  //   // const { ...style, } = _stack;
-  //   //TODO: refactor
-  //   stackStyle = _stack.style;
-  // }
-
-  // useEffect(() => {
-  //   end = Date.now();
-  //   // console.log("End", end);
-  //   console.log("Nativebase Button Diff", end - start);
-  // });
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
@@ -169,36 +155,11 @@ const Button = (
   );
 
   const boxChildren = (child: any) => {
-    // console.log(
-    //   getResolvedStyleSheet(
-    //     [`Button`, props.variant, props.size, `Text`],
-    //     colorMode,
-    //     {}
-    //     // props.variant,
-    //     // props.size
-    //   ),
-    //   'internal style &&&&&'
-    // );
     return child ? (
       <Box
         _text={{
           ..._text,
-          INTERNAL_themeStyle: getResolvedStyleSheet(
-            `Button.Text`,
-            colorMode,
-            {},
-            props
-            // props.variant,
-            // props.size
-          ),
         }}
-        // INTERNAL_themeStyle={getResolvedStyleSheet(
-        //   [`Button`, props.variant, props.size, `Text`],
-        //   colorMode,
-        //   {}
-        //   // props.variant,
-        //   // props.size
-        // )}
       >
         {child}
       </Box>
@@ -216,10 +177,10 @@ const Button = (
   //   buttonStyleObj.internalPseudoProps,
   //   "styled"
   // );
+
+  // console.log(resolvedProps.INTERNAL_themeStyle, 'internal theme style');
   return (
     <Pressable
-      INTERNAL_themeStyle={style}
-      // style={buttonStyleObj.style}
       disabled={isDisabled || isLoading}
       ref={ref}
       onPressIn={composeEventHandlers(onPressIn, pressableProps.onPressIn)}
@@ -241,11 +202,7 @@ const Button = (
       {...resolvedProps}
       accessibilityRole={props.accessibilityRole ?? 'button'}
     >
-      <HStack
-        {..._stack}
-        test={true}
-        INTERNAL_themeStyle={getResolvedStyleSheet('Button.Stack', colorMode)}
-      >
+      <HStack {..._stack} test={true}>
         {startIcon && !isLoading ? startIcon : null}
         {isLoading && spinnerPlacement === 'start' ? spinnerElement : null}
         {isLoading

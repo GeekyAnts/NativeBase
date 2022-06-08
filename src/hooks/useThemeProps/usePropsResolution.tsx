@@ -2,9 +2,8 @@ import get from 'lodash.get';
 import merge from 'lodash.merge';
 import isEmpty from 'lodash.isempty';
 // import memoize from 'lodash.memoize';
-import { Platform } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 import { useNativeBase } from '../useNativeBase';
-import { useColorMode } from '../../core/color-mode';
 import { omitUndefined, extractInObject } from '../../theme/tools';
 import { useBreakpointResolvedProps } from '../useBreakpointResolvedProps';
 import {
@@ -17,7 +16,23 @@ import React from 'react';
 import { ResponsiveQueryContext } from '../../utils/useResponsiveQuery/ResponsiveQueryProvider';
 import type { ComponentTheme } from '../../theme';
 import { useNativeBaseConfig } from '../../core/NativeBaseContext';
-import { isEmptyObj } from '../../utils';
+import { getThemeProps } from '../../core/ResolvedStyleMap';
+
+import { useColorMode } from '../../core/color-mode';
+import { PSEUDO_PROP_COMPONENT_MAP } from '../../core/ResolvedStyleMap';
+
+// const PSEUDO_PROP_COMPONENT_MAP = {
+//   _spinner: 'Spinner',
+//   _stack: 'Stack',
+//   _text: 'Text',
+//   _icon: 'Icon',
+//   _checkbox: 'Checkbox',
+//   _label: 'Text',
+//   // _input: 'Input',
+//   // _slide: 'Slide',
+//   // _backdropFade: 'BackdropFade',
+//   // _fade: 'Fade',
+// };
 
 const SPREAD_PROP_SPECIFICITY_ORDER = [
   'p',
@@ -128,7 +143,7 @@ export function propsSpreader(incomingProps: any, incomingSpecifity: any) {
  */
 export function usePropsResolution(
   component: string,
-  incomingProps: any,
+  { INTERNAL_themeStyle, ...incomingProps }: any,
   state?: IStateProps,
   config?: {
     componentTheme?: any;
@@ -139,41 +154,27 @@ export function usePropsResolution(
   }
 ) {
   const { theme } = useNativeBase();
+  const { colorMode } = useColorMode();
 
-  // if (process.env.NODE_ENV === "development" && incomingProps.debug) {
-  //   /* eslint-disable-next-line */
-  //   console.log(
-  //     `%c${component}`,
-  //     "background: #d97706; color: #111; font-weight: 700; padding: 2px 8px;"
-  //   );
-  //   /* eslint-disable-next-line */
-  //   console.log(
-  //     `%cusePropsResolution`,
-  //     "background: #4b5563; color: #d97706; font-weight: 700; padding: 2px 8px;"
-  //   );
-  //   /* eslint-disable-next-line */
-  //   console.log(
-  //     "%c incomingProps: ",
-  //     "color: #4ade80; font-weight: 700;",
-  //     incomingProps
-  //   );
-  //   /* eslint-disable-next-line */
-  //   console.log("%c state: ", "color: #4ade80; font-weight: 700;", state);
-  //   /* eslint-disable-next-line */
-  //   console.log(
-  //     "%c componentTheme: ",
-  //     "color: #4ade80; font-weight: 700;",
-  //     componentTheme
-  //   );
-  // }
+  const componentThemeProps = getThemeProps(
+    component,
+    colorMode,
+    state,
+    incomingProps
+  );
 
-  const resolvedProps = usePropsResolutionWithComponentTheme(
+  let resolvedProps = usePropsResolutionWithComponentTheme(
     {},
-    incomingProps,
+    { ...componentThemeProps?.unResolvedProps, ...incomingProps },
     theme,
     state,
     config
   );
+
+  // console.log(
+  //   { ...componentThemeProps?.unResolvedProps, ...incomingProps },
+  //   'component thme props 2222'
+  // );
 
   // Not Resolve theme props and pseudo props
   if (incomingProps?.INTERNAL_notResolveThemeAndPseudoProps) {
@@ -190,6 +191,80 @@ export function usePropsResolution(
   //   );
   // }
   // console.timeEnd(component + "-usePropResolution");
+
+  // if (component === 'Button') {
+
+  // if (component === 'Text') {
+  //   console.log(
+  //     'component thme props 11 ***',
+  //     StyleSheet.flatten(incomingProps.INTERNAL_themeStyle)
+  //   );
+  // }
+  resolvedProps.INTERNAL_themeStyle = INTERNAL_themeStyle
+    ? [...componentThemeProps.style, ...INTERNAL_themeStyle]
+    : componentThemeProps.style;
+  // console.log('component thme props 22', component);
+  if (component === 'Modal') {
+    console.log(
+      // componentThemeProps?.unResolvedProps,
+      componentThemeProps.restDefaultProps,
+      resolvedProps,
+      'hhhhh1111'
+    );
+  }
+  resolvedProps = {
+    ...componentThemeProps.restDefaultProps,
+    ...resolvedProps,
+  };
+
+  for (const property in componentThemeProps.internalPseudoProps) {
+    if (PSEUDO_PROP_COMPONENT_MAP[property]) {
+      const pseudoComponentThemeProps = getThemeProps(
+        `${component}.${PSEUDO_PROP_COMPONENT_MAP[property]}`,
+        colorMode,
+        {},
+        {}
+      );
+
+      resolvedProps[property] = {
+        ...pseudoComponentThemeProps.restDefaultProps,
+        ...resolvedProps[property],
+        INTERNAL_themeStyle: resolvedProps[property]?.INTERNAL_themeStyle
+          ? [
+              ...pseudoComponentThemeProps.style,
+              ...resolvedProps[property].INTERNAL_themeStyle,
+            ]
+          : pseudoComponentThemeProps.style,
+      };
+
+      // if (component === 'Button') {
+      //   console.log(
+      //     'component thme props 22 ***',
+      //     property,
+      //     StyleSheet.flatten(resolvedProps[property].INTERNAL_themeStyle),
+      //     StyleSheet.flatten(pseudoComponentThemeProps.style)
+      //   );
+      // }
+
+      // if (key === 'Button.sm') {
+      //   console.log(
+      //     mergeDefaultProps,
+      //     key,
+      //     PSEUDO_PROP_COMPONENT_MAP[property],
+      //     '******'
+      //   );
+      // }
+      // updateComponentThemeMapForColorMode(
+      //   PSEUDO_PROP_COMPONENT_MAP[property],
+      //   `${key}.${PSEUDO_PROP_COMPONENT_MAP[property]}`,
+      //   styledObj.internalPseudoProps[property],
+      //   colorMode,
+      //   false,
+      //   mergeDefaultProps
+      // );
+    }
+  }
+  // }
 
   return resolvedProps;
 }
