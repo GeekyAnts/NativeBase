@@ -146,9 +146,9 @@ export function usePropsResolution(
     state,
     incomingProps
   );
-
+  const componentTheme = get(theme, `components.${component}`);
   let resolvedProps = usePropsResolutionWithComponentTheme(
-    get(theme, `components.${component}`),
+    componentTheme,
     { ...componentThemeProps?.unResolvedProps, ...incomingProps },
     theme,
     state,
@@ -205,6 +205,19 @@ export function usePropsResolution(
     ...componentThemeProps.restDefaultProps,
     ...resolvedProps,
   };
+  if (resolvedProps.size) {
+    if (
+      !sizesExistsInTheme(componentTheme, resolvedProps.size) &&
+      isLiteral(resolvedProps.size)
+    ) {
+      resolvedProps = {
+        boxSize: resolvedProps.size,
+        ...resolvedProps,
+      };
+    }
+
+    resolvedProps.size = undefined;
+  }
 
   for (const property in componentThemeProps.internalPseudoProps) {
     if (PSEUDO_PROP_COMPONENT_MAP[property]) {
