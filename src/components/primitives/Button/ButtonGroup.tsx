@@ -6,13 +6,12 @@ import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 export default memo(
   forwardRef(
     (
-      { children, divider, variant, ...props }: IButtonGroupProps,
+      { children, divider, size, variant, ...props }: IButtonGroupProps,
       ref?: any
     ) => {
       const {
         space,
         direction,
-        size,
         colorScheme,
         isDisabled,
         isAttached,

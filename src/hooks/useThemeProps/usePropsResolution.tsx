@@ -2,7 +2,7 @@ import merge from 'lodash.merge';
 
 import { Platform, StyleSheet } from 'react-native';
 import { useNativeBase } from '../useNativeBase';
-import { omitUndefined, extractInObject } from '../../theme/tools';
+import { omitUndefined, extractInObject, isLiteral } from '../../theme/tools';
 import { useBreakpointResolvedProps } from '../useBreakpointResolvedProps';
 import {
   propsFlattener,
@@ -16,6 +16,7 @@ import { getThemeProps } from '../../core/ResolvedStyleMap';
 
 import { useColorMode } from '../../core/color-mode';
 import { PSEUDO_PROP_COMPONENT_MAP } from '../../core/ResolvedStyleMap';
+import get from 'lodash.get';
 
 const SPREAD_PROP_SPECIFICITY_ORDER = [
   'p',
@@ -147,7 +148,7 @@ export function usePropsResolution(
   );
 
   let resolvedProps = usePropsResolutionWithComponentTheme(
-    {},
+    get(theme, `components.${component}`),
     { ...componentThemeProps?.unResolvedProps, ...incomingProps },
     theme,
     state,
@@ -299,6 +300,21 @@ export const callPropsFlattener = (
   );
 };
 
+// const isLiteral = (value: any) => {
+//   if (typeof value === 'string' || typeof value === 'number') {
+//     return true;
+//   }
+//   return false;
+// };
+
+const sizesExistsInTheme = (componentTheme: any, size: any) => {
+  if (componentTheme?.sizes) {
+    if (componentTheme.sizes[size]) {
+      return true;
+    }
+  }
+  return false;
+};
 export const usePropsResolutionWithComponentTheme = (
   componentTheme: ComponentTheme,
   incomingProps: any,
@@ -354,9 +370,20 @@ export const usePropsResolutionWithComponentTheme = (
   //   componentTheme.defaultProps || {},
   //   cleanIncomingProps
   // );
-  const incomingWithDefaultProps = cleanIncomingProps;
+  let incomingWithDefaultProps = cleanIncomingProps;
 
+  // TODO: size to boxSize conversion in user props
   if (incomingWithDefaultProps.size) {
+    if (
+      !sizesExistsInTheme(componentTheme, incomingWithDefaultProps.size) &&
+      isLiteral(incomingWithDefaultProps.size)
+    ) {
+      incomingWithDefaultProps = {
+        boxSize: incomingWithDefaultProps.size,
+        ...incomingWithDefaultProps,
+      };
+    }
+
     incomingWithDefaultProps.size = undefined;
   }
 
