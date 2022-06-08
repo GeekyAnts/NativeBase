@@ -3,14 +3,10 @@ import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { ITextProps } from './types';
 import { useHover } from '@react-native-aria/interactions';
 import { mergeRefs } from '../../../utils/mergeRefs';
-import {
-  makeStyledComponent,
-  updateComponentThemeMap,
-} from '../../../utils/styled';
+import { makeStyledComponent } from '../../../utils/styled';
 import { useResolvedFontFamily } from '../../../hooks/useResolvedFontFamily';
 import { Text as NativeText } from 'react-native';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-import { getResolvedStyleSheet, useColorMode } from '../../../core';
 
 const StyledText = makeStyledComponent(NativeText);
 // updateComponentThemeMap('Text');
@@ -48,7 +44,6 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
     }
   );
 
-  console.log(reslovedProps, 'internal theme styel 1');
   const _ref = useRef(null);
   // TODO: might have to add this condition
   const { isHovered } = useHover({}, _hover ? _ref : null);

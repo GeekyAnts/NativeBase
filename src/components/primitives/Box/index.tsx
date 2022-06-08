@@ -3,20 +3,11 @@ import { View } from 'react-native';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { getColor } from '../../../theme';
 import { useTheme } from '../../../hooks';
-import {
-  makeStyledComponent,
-  updateComponentThemeMap,
-} from '../../../utils/styled';
+import { makeStyledComponent } from '../../../utils/styled';
 import { wrapStringChild } from '../../../utils/wrapStringChild';
 import type { IBoxProps, InterfaceBoxProps } from './types';
 import { useSafeArea } from '../../../hooks/useSafeArea';
-import {
-  useNativeBaseConfig,
-  NativeBaseConfigProvider,
-  Context,
-} from '../../../core/NativeBaseContext';
-import { getResolvedStyleSheet, getThemeProps } from '../../../core';
-import { useColorMode } from '../../../core';
+import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
 
 const StyledBox = makeStyledComponent(View);
 
@@ -156,21 +147,12 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
 const BoxComponentWithSafeArea = forwardRef(
   ({ children, _text, ...props }: IBoxProps, ref: any) => {
     const safeAreaProps = useSafeArea(props);
-    const { colorMode } = useColorMode();
 
-    // console.log(safeAreaProps, props, 'hello props here');
     if (gradientPropExists(props) && GradientBox) {
       return <GradientBox {...props} {...safeAreaProps} ref={ref} />;
     } else {
       return (
-        <StyledBox
-          ref={ref}
-          {...safeAreaProps}
-          // INTERNAL_themeStyle={[
-          //   getResolvedStyleSheet('Box', colorMode),
-          //   INTERNAL_themeStyle,
-          // ]}
-        >
+        <StyledBox ref={ref} {...safeAreaProps}>
           {wrapStringChild(children, _text)}
         </StyledBox>
       );
@@ -180,23 +162,11 @@ const BoxComponentWithSafeArea = forwardRef(
 
 const BoxComponentWithoutSafeArea = forwardRef(
   ({ children, _text, ...props }: IBoxProps, ref: any) => {
-    const { colorMode } = useColorMode();
-
-    console.log(props, 'props here ****');
     if (gradientPropExists(props) && GradientBox) {
       return <GradientBox {...props} ref={ref} />;
     } else {
-      // console.log(props, INTERNAL_themeStyle, '*****');
       return (
-        <StyledBox
-          ref={ref}
-          {...props}
-          // INTERNAL_themeStyle={[
-          //   getResolvedStyleSheet('Box', colorMode),
-          //   INTERNAL_themeStyle,
-          // ]}
-          // INTERNAL_themeStyle={getStyledComponent('Box', colorMode)}
-        >
+        <StyledBox ref={ref} {...props}>
           {wrapStringChild(children, _text)}
         </StyledBox>
       );
