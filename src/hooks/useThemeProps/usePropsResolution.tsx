@@ -204,14 +204,7 @@ export function usePropsResolution(
     ? [...componentThemeProps.style, ...INTERNAL_themeStyle]
     : componentThemeProps.style;
   // console.log('component thme props 22', component);
-  if (component === 'Modal') {
-    console.log(
-      // componentThemeProps?.unResolvedProps,
-      componentThemeProps.restDefaultProps,
-      resolvedProps,
-      'hhhhh1111'
-    );
-  }
+
   resolvedProps = {
     ...componentThemeProps.restDefaultProps,
     ...resolvedProps,
@@ -223,8 +216,18 @@ export function usePropsResolution(
         `${component}.${PSEUDO_PROP_COMPONENT_MAP[property]}`,
         colorMode,
         {},
-        {}
+        incomingProps
       );
+
+      // if (component === 'Button') {
+      //   console.log(
+      //     property,
+      //     // componentThemeProps?.unResolvedProps,
+      //     pseudoComponentThemeProps,
+      //     // resolvedProps,
+      //     'hhhhh1111'
+      //   );
+      // }
 
       resolvedProps[property] = {
         ...pseudoComponentThemeProps.restDefaultProps,
@@ -236,32 +239,6 @@ export function usePropsResolution(
             ]
           : pseudoComponentThemeProps.style,
       };
-
-      // if (component === 'Button') {
-      //   console.log(
-      //     'component thme props 22 ***',
-      //     property,
-      //     StyleSheet.flatten(resolvedProps[property].INTERNAL_themeStyle),
-      //     StyleSheet.flatten(pseudoComponentThemeProps.style)
-      //   );
-      // }
-
-      // if (key === 'Button.sm') {
-      //   console.log(
-      //     mergeDefaultProps,
-      //     key,
-      //     PSEUDO_PROP_COMPONENT_MAP[property],
-      //     '******'
-      //   );
-      // }
-      // updateComponentThemeMapForColorMode(
-      //   PSEUDO_PROP_COMPONENT_MAP[property],
-      //   `${key}.${PSEUDO_PROP_COMPONENT_MAP[property]}`,
-      //   styledObj.internalPseudoProps[property],
-      //   colorMode,
-      //   false,
-      //   mergeDefaultProps
-      // );
     }
   }
   // }

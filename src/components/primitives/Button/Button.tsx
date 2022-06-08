@@ -155,15 +155,8 @@ const Button = (
   );
 
   const boxChildren = (child: any) => {
-    return child ? (
-      <Box
-        _text={{
-          ..._text,
-        }}
-      >
-        {child}
-      </Box>
-    ) : null;
+    console.log(_text, 'text prop here');
+    return child ? <Box _text={_text}>{child}</Box> : null;
   };
   // Process End Log ----------------------------------------------------------------------------------------------------
   // console.log(

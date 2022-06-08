@@ -5,8 +5,9 @@ export const Example = () => {
   return (
     <Box alignItems="center">
       <Button
-        variant="solid"
-        size="lg"
+        variant="outline"
+        // size="lg"
+
         onPress={() => console.log('hello world')}
       >
         Click Me

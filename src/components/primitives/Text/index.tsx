@@ -50,7 +50,6 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
 
   console.log(reslovedProps, 'internal theme styel 1');
   const _ref = useRef(null);
-  const { colorMode } = useColorMode();
   // TODO: might have to add this condition
   const { isHovered } = useHover({}, _hover ? _ref : null);
   // const { isHovered } = useHover({}, _ref);
