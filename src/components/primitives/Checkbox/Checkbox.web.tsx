@@ -1,5 +1,4 @@
 import React, { memo, forwardRef } from 'react';
-import { StyleSheet } from 'react-native';
 import { mergeRefs } from '../../../utils';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { Center } from '../../composites/Center';
@@ -13,22 +12,12 @@ import { useHover } from '@react-native-aria/interactions';
 import { useCheckbox, useCheckboxGroupItem } from '@react-native-aria/checkbox';
 import { useFocusRing } from '@react-native-aria/focus';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-import {
-  extractInObject,
-  getFilteredStyleSheet,
-  stylingProps,
-} from '../../../theme/tools/utils';
+import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 import { combineContextAndProps } from '../../../utils';
 import SizedIcon from './SizedIcon';
 import { Stack } from '../Stack';
 import { wrapStringChild } from '../../../utils/wrapStringChild';
-import { updateComponentThemeMap } from '../../../utils/styled';
-import {
-  getResolvedStyleSheet,
-  log as resolveComponentThemeLog,
-  getResolvedProps,
-  getThemeProps,
-} from '../../../core';
+import { getThemeProps } from '../../../core';
 import { useColorMode } from '../../../core/color-mode';
 
 const Checkbox = (
@@ -147,8 +136,6 @@ const CheckboxComponent = React.memo(
       combinedProps
     );
 
-    // console.log('Checkbox log1 22222222', iconDefaultProps, stackDefaultProps);
-
     const filterProps = [
       ...stylingProps.margin,
       ...stylingProps.layout,
@@ -171,17 +158,16 @@ const CheckboxComponent = React.memo(
     } = usePropsResolution(
       'Checkbox',
       {
-        // ...unResolvedProps,
         ...combinedProps,
       },
       state
     );
-    console.log('Checkbox log2', resolvedProps);
 
     const [layoutProps, nonLayoutProps] = extractInObject(
       resolvedProps,
       filterProps
     );
+
     const component = React.useMemo(() => {
       return (
         <Stack
@@ -190,7 +176,7 @@ const CheckboxComponent = React.memo(
           {...layoutProps}
         >
           <Center>
-            {/* <Box {..._interactionBox} /> */}
+            <Box {..._interactionBox} />
 
             <Center {...nonLayoutProps} INTERNAL_themeStyle={[nonLayoutStyles]}>
               <SizedIcon
@@ -207,15 +193,16 @@ const CheckboxComponent = React.memo(
         </Stack>
       );
     }, [
-      _icon,
       _stack,
-      _text,
-      _interactionBox,
-      icon,
-      isChecked,
-      nonLayoutProps,
+      layoutStyles,
       layoutProps,
+      nonLayoutProps,
+      nonLayoutStyles,
+      icon,
+      _icon,
+      isChecked,
       resolvedProps?.children,
+      _text,
     ]);
 
     const mergedWrapperRef = React.useMemo(

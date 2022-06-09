@@ -155,18 +155,18 @@ export function usePropsResolution(
     { ...config, name: component }
   );
 
-  if (component === 'IconButton') {
-    console.log(
-      resolvedProps._icon,
-      // pseudoComponentThemeProps.restDefaultProps.size,
-      // resolvedProps[property].size,
-      // {
-      //   ...pseudoComponentThemeProps.restDefaultProps,
-      //   ...resolvedProps[property],
-      // }.size,
-      'hello here 11'
-    );
-  }
+  // if (component === 'IconButton') {
+  //   console.log(
+  //     resolvedProps._icon,
+  //     // pseudoComponentThemeProps.restDefaultProps.size,
+  //     // resolvedProps[property].size,
+  //     // {
+  //     //   ...pseudoComponentThemeProps.restDefaultProps,
+  //     //   ...resolvedProps[property],
+  //     // }.size,
+  //     'hello here 11'
+  //   );
+  // }
   // console.log(
   //   { ...componentThemeProps?.unResolvedProps, ...incomingProps },
   //   'component thme props 2222'

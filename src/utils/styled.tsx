@@ -92,6 +92,7 @@ const resolveForInternalPseudoProps = (
       // }
 
       const styledObjNestedProp: any = getStyledObject(
+        name,
         {},
         colorMode,
         styledObj.internalPseudoProps[property]
@@ -143,6 +144,7 @@ const updateComponentThemeMapForColorMode = (
   }
 
   const styledObj: any = getStyledObject(
+    name,
     componentTheme,
     colorMode,
     {

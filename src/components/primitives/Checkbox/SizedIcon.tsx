@@ -11,8 +11,7 @@ const SizedIcon = ({
   _icon: any;
   isChecked: boolean;
 }) => {
-  // console.log(_icon, icon, '222222221');
-
+  // console.log(_icon, icon, 'icon prop here');
   return isChecked ? (
     icon ? (
       React.cloneElement(icon, {

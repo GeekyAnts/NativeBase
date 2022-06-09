@@ -1,17 +1,12 @@
 import React from 'react';
-import {
-  useSafeArea,
-  resolvePropsToStyle,
-  useStyledSystemPropsResolver,
-} from '../hooks';
+import { resolvePropsToStyle, useStyledSystemPropsResolver } from '../hooks';
 import { memoize } from 'lodash';
 import get from 'lodash.get';
 import merge from 'lodash.merge';
-import { View, StyleSheet, Platform } from 'react-native';
+import { Platform } from 'react-native';
 import { ColorMode, useColorMode } from '../core';
 import { propsFlattener } from '../hooks/useThemeProps/propsFlattener';
 import { ITheme, theme } from '../theme';
-import { getStyleAndFilteredProps, propConfig } from '../theme/styled-system';
 import {
   callPropsFlattener,
   propsSpreader,
@@ -48,6 +43,7 @@ import { extractInObject, stylingProps } from '../theme/tools';
 // };
 
 export const getStyledObject = (
+  name: string,
   componentTheme: any,
   colorMode: ColorMode,
   inputProps?: {},

@@ -709,9 +709,9 @@ export const getStyleAndFilteredProps = ({
     }
 
     // TODO: refactor space prop for Stack Component
-    if (key === 'space') {
-      unResolvedProps[key] = rawValue;
-    }
+    // if (key === 'space') {
+    //   unResolvedProps[key] = rawValue;
+    // }
     // End: For edge cases
 
     if (hasValidBreakpointFormat(rawValue, theme.breakpoints)) {
@@ -755,7 +755,15 @@ export const getStyleAndFilteredProps = ({
     } else {
       const value = rawValue;
 
-      if (key === 'size') {
+      // if (styledSystemProps?.extraProp?.endsWith('Icon')) {
+      //   console.log(styledSystemProps?.extraProp, 'hello flatten here22');
+      // }
+
+      //TODO: refactor
+      if (
+        key === 'size' ||
+        (styledSystemProps?.extraProp?.endsWith('Icon') && key === 'color')
+      ) {
         restDefaultProps = {
           ...restDefaultProps,
           [key]: value,
@@ -769,10 +777,6 @@ export const getStyleAndFilteredProps = ({
           theme,
           currentBreakpoint,
         });
-
-        // if (styledSystemProps?.extraProp === 'Actionsheet') {
-        //   console.log(styledSystemProps, key, newStyle, 'hello flatten here22');
-        // }
 
         // TODO: refactor
         if (

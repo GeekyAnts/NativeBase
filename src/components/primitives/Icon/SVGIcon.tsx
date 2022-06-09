@@ -27,7 +27,7 @@ const SVGIcon = (
     focusable,
     stroke,
     color,
-    size,
+    // size,
     ...resolvedProps
   } = usePropsResolution('Icon', props);
 
@@ -35,8 +35,6 @@ const SVGIcon = (
 
   const strokeHex = useToken('colors', stroke || '');
   const colorHex = useToken('colors', color || '');
-
-  console.log('resolvedProps *** icon', props, resolvedProps);
 
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
