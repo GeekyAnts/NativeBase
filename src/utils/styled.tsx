@@ -342,6 +342,8 @@ export const makeStyledComponent = (
 for (const key in theme.components) {
   updateComponentThemeMap(key);
 }
+// updateComponentThemeMap('Text');
+
 // console.timeEnd('resolveTheme>>>>');
 
 // for (const key in theme.components) {

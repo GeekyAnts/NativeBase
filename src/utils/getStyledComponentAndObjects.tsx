@@ -71,8 +71,6 @@ export const getStyledObject = (
     1
   );
 
-  // console.log(inputProps, 'hello flatten here');
-
   [flattenProps] = mergeStylesWithSpecificity(
     componentTheme,
     flattenProps,
@@ -80,8 +78,6 @@ export const getStyledObject = (
     colorMode,
     mergeDefaultProps
   );
-
-  // console.log(flattenProps, 'hello flatten props');
 
   const internalPseudoProps: any = {};
 
@@ -160,6 +156,7 @@ const resolveComponentTheme = (
   //   //   }),
   //   //   'flatten Props 111 ****'
   //   // );
+
   try {
     if (themeType[1]) {
       return typeof providedTheme[themeType[0]][themeType[1]] !== 'function'
@@ -170,6 +167,13 @@ const resolveComponentTheme = (
             colorMode: 'light',
           });
     } else {
+      // console.log(
+      //   themeType[1],
+      //   providedTheme[themeType[0]],
+      //   incomingProps,
+      //   'hello flatten here ***'
+      // );
+
       return typeof providedTheme[themeType[0]] !== 'function'
         ? providedTheme[themeType[0]]
         : providedTheme[themeType[0]]({
@@ -355,7 +359,7 @@ const mergeStylesWithSpecificity = (
     merge(defaultStyles, flattenProps),
     defaultSpecificity
   );
-
+  // console.log(flattenProps, defaultStyles, 'hello flatten here ******');
   // console.log(flattenProps, 'h3h3h3 >>>>>');
 
   return [flattenProps];

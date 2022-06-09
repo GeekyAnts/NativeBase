@@ -532,6 +532,10 @@ export const typography = {
   fontFamily: {
     property: 'fontFamily',
     scale: 'fonts',
+    transformer: (val: any, scale: any) => {
+      const value = get(scale, val);
+      return value ? value.toString() : undefined;
+    },
   },
   fontSize: {
     property: 'fontSize',
@@ -613,6 +617,7 @@ const getRNKeyAndStyleValue = ({
   currentBreakpoint,
 }: any) => {
   let style: any = {};
+
   if (config === true) {
     style = {
       ...style,
@@ -623,10 +628,11 @@ const getRNKeyAndStyleValue = ({
     const { property, scale, properties, transformer } = config;
     let val = value;
     // console.log('zzzz style system props', theme, scale, value, transformer);
+
     if (transformer) {
       val = transformer(val, theme[scale], theme, styledSystemProps.fontSize);
     } else {
-      // If a token is not found in the theme
+      // If a transformer is not found in the theme
       val = get(theme[scale], value, value);
     }
 
