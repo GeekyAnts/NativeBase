@@ -1,8 +1,8 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React from 'react';
 import { useNativeBaseConfig } from '../core/NativeBaseContext';
 import { default as Box } from '../components/primitives/Box';
 import type { SpaceType as ThemeSpaceType } from '../components/types';
-import { ResponsiveQueryContext } from './useResponsiveQuery/ResponsiveQueryProvider';
 
 type SpaceType =
   | 'gutter'
@@ -44,8 +44,8 @@ const getSpacedChildren = (
 
   const orientation = axis === 'X' ? 'vertical' : 'horizontal';
 
+  // const responsiveQueryContext = React.useContext(ResponsiveQueryContext);
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const responsiveQueryContext = React.useContext(ResponsiveQueryContext);
 
   const isSSR = useNativeBaseConfig('NativeBase').isSSR;
   const disableCSSMediaQueries = !isSSR;

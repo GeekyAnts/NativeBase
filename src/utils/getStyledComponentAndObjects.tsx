@@ -1,19 +1,14 @@
-import React from 'react';
-import { resolvePropsToStyle, useStyledSystemPropsResolver } from '../hooks';
-import { memoize } from 'lodash';
-import get from 'lodash.get';
+import { resolvePropsToStyle } from '../hooks';
 import merge from 'lodash.merge';
 import { Platform } from 'react-native';
-import { ColorMode, useColorMode } from '../core';
 import { propsFlattener } from '../hooks/useThemeProps/propsFlattener';
-import { ITheme, theme } from '../theme';
+import { theme } from '../theme';
 import {
   callPropsFlattener,
   propsSpreader,
 } from '../hooks/useThemeProps/usePropsResolution';
 import { isEmptyObj } from './isEmptyObj';
 import isEmpty from 'lodash.isempty';
-import { extractInObject, stylingProps } from '../theme/tools';
 
 // window['logger'] = {};
 // console.batchTime = (key) => {
@@ -43,9 +38,10 @@ import { extractInObject, stylingProps } from '../theme/tools';
 // };
 
 export const getStyledObject = (
+  //@ts-ignore
   name: string,
   componentTheme: any,
-  colorMode: ColorMode,
+  colorMode: any,
   inputProps?: {},
   mergeDefaultProps: boolean = true
 ) => {
@@ -118,11 +114,13 @@ export const getStyledObject = (
 
   return styleObj;
 };
+//@ts-ignore
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const resolveComponentThemeStyle = (
   incomingProps: any,
   themeType: Array<string>,
-  providedTheme: any
+  providedTheme?: any
 ): any => {
   try {
     if (themeType[1]) {
@@ -363,56 +361,56 @@ const mergeStylesWithSpecificity = (
   return [flattenProps];
 };
 
-export const makeStyledComponent = (
-  Comp: any,
-  componentName: keyof ITheme['components']
-) => {
-  //TODO: component theme
+// export const makeStyledComponent = (
+//   Comp: any,
+//   componentName: keyof ITheme['components']
+// ) => {
+//   //TODO: component theme
 
-  const globalLightStyle = resolveComponentThemeStyle(componentName, 'light');
-  const globalDarkStyle = resolveComponentThemeStyle(componentName, 'dark');
+//   const globalLightStyle = resolveComponentThemeStyle(componentName, 'light');
+//   const globalDarkStyle = resolveComponentThemeStyle(componentName, 'dark');
 
-  return React.forwardRef(({ debug, ...props }: any, ref: any) => {
-    // console.log(props, "hello props **********");
-    const [style, restProps] = useStyledSystemPropsResolver(props);
-    // if (process.env.NODE_ENV === "development" && debug) {
-    //   /* eslint-disable-next-line */
-    //   console.log(
-    //     `%cstyleSystem`,
-    //     "background: #4b5563; color: #d97706; font-weight: 700; padding: 2px 8px;"
-    //   );
-    //   /* eslint-disable-next-line */
-    //   console.log("%c props: ", "color: #4ade80; font-weight: 700;", props);
-    //   /* eslint-disable-next-line */
-    //   console.log("%c style: ", "color: #22d3ee; font-weight: 700;", style);
-    //   /* eslint-disable-next-line */
-    //   console.log(
-    //     "%c restProps: ",
-    //     "color: #22d3ee; font-weight: 700;",
-    //     restProps
-    //   );
-    // }
+//   return React.forwardRef(({ debug, ...props }: any, ref: any) => {
+//     // console.log(props, "hello props **********");
+//     const [style, restProps] = useStyledSystemPropsResolver(props);
+//     // if (process.env.NODE_ENV === "development" && debug) {
+//     //   /* eslint-disable-next-line */
+//     //   console.log(
+//     //     `%cstyleSystem`,
+//     //     "background: #4b5563; color: #d97706; font-weight: 700; padding: 2px 8px;"
+//     //   );
+//     //   /* eslint-disable-next-line */
+//     //   console.log("%c props: ", "color: #4ade80; font-weight: 700;", props);
+//     //   /* eslint-disable-next-line */
+//     //   console.log("%c style: ", "color: #22d3ee; font-weight: 700;", style);
+//     //   /* eslint-disable-next-line */
+//     //   console.log(
+//     //     "%c restProps: ",
+//     //     "color: #22d3ee; font-weight: 700;",
+//     //     restProps
+//     //   );
+//     // }
 
-    // console.log("box props", props);
-    // const safeAreaProps = useSafeArea(props);
-    // console.timeEnd("useSafeArea");
+//     // console.log("box props", props);
+//     // const safeAreaProps = useSafeArea(props);
+//     // console.timeEnd("useSafeArea");
 
-    // check dark / light mode
-    // based on color mode pass style
+//     // check dark / light mode
+//     // based on color mode pass style
 
-    const { colorMode } = useColorMode();
-    let componentStyle = {};
-    if (colorMode === 'light') {
-      componentStyle = globalLightStyle;
-    } else {
-      componentStyle = globalDarkStyle;
-    }
+//     const { colorMode } = useColorMode();
+//     let componentStyle = {};
+//     if (colorMode === 'light') {
+//       componentStyle = globalLightStyle;
+//     } else {
+//       componentStyle = globalDarkStyle;
+//     }
 
-    // console.log(StyleSheet.flatten(componentStyle.style), "hello *********");
-    return (
-      <Comp {...restProps} style={[style, componentStyle.style]} ref={ref}>
-        {props.children}
-      </Comp>
-    );
-  });
-};
+//     // console.log(StyleSheet.flatten(componentStyle.style), "hello *********");
+//     return (
+//       <Comp {...restProps} style={[style, componentStyle.style]} ref={ref}>
+//         {props.children}
+//       </Comp>
+//     );
+//   });
+// };

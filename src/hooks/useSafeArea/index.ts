@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useSortedProps, calculatePaddingProps } from './utils';
 import { useTheme } from './../useTheme';
@@ -15,13 +16,11 @@ export function useSafeArea(props: any) {
   const sizes = useTheme().sizes;
 
   const result = useMemo(() => {
-    console.log(props.bg, sansPaddingProps.bg, '***** ****');
-
     if (isEmptyObj(safeAreaProps)) {
       return props;
     }
 
-    let calcualtedPaddingProps = calculatePaddingProps(
+    const calcualtedPaddingProps = calculatePaddingProps(
       safeAreaProps,
       paddingProps,
       insets,
@@ -30,6 +29,7 @@ export function useSafeArea(props: any) {
 
     return { ...sansPaddingProps, ...paddingProps, ...calcualtedPaddingProps };
   }, [
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     stableHash(paddingProps),
     stableHash(safeAreaProps),
     stableHash(sansPaddingProps),

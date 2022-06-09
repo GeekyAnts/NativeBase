@@ -1,6 +1,6 @@
 import merge from 'lodash.merge';
 
-import { Platform, StyleSheet } from 'react-native';
+import { Platform } from 'react-native';
 import { useNativeBase } from '../useNativeBase';
 import { omitUndefined, extractInObject, isLiteral } from '../../theme/tools';
 import { useBreakpointResolvedProps } from '../useBreakpointResolvedProps';
@@ -256,6 +256,8 @@ export function usePropsResolution(
 }
 
 /*Resolve all the internal used Pseudo Props*/
+// @ts-ignore
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const resolvePseudoProps = (
   flatPseudoProp: any /** Props coming from Pseudo inside flattenProps */,
   baseStylePseudoProp: any /** Props coming from Pseudo inside defaultStyles(baseStyle) */
@@ -268,7 +270,9 @@ const resolvePseudoProps = (
   }
   return baseStylePseudoProp;
 };
+// @ts-ignore
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const resolveComponentTheme = (
   themeType: Array<string>,
   providedTheme: any,
@@ -344,7 +348,7 @@ const sizesExistsInTheme = (componentTheme: any, size: any) => {
 export const usePropsResolutionWithComponentTheme = (
   componentTheme: ComponentTheme,
   incomingProps: any,
-  theme: any,
+  theme?: any,
   state?: IStateProps,
   config?: {
     componentTheme?: any;
@@ -488,8 +492,10 @@ export const usePropsResolutionWithComponentTheme = (
 
   // console.log(incomingWithDefaultProps, 'incoming with default');
   //TODO: hack
+  //@ts-ignore
   let flattenProps: any, specificityMap;
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   [flattenProps, specificityMap] = callPropsFlattener(
     incomingWithDefaultProps,
     {},

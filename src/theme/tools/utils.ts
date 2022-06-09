@@ -335,6 +335,22 @@ export const platformSpecificSpaceUnits = (theme: ITheme) => {
 
   return newTheme;
 };
+
+export function isResponsiveAnyProp(props: Record<string, any>, theme: any) {
+  if (props) {
+    const keys = Object.keys(props);
+    for (let i = 0; i < keys.length; i++) {
+      if (
+        hasValidBreakpointFormat(props[keys[i]], theme.breakpoints, keys[i])
+      ) {
+        return true;
+      }
+    }
+  }
+
+  return false;
+}
+
 export function isLiteral(value: any) {
   if (typeof value === 'string' || typeof value === 'number') {
     return true;

@@ -177,8 +177,11 @@ const CheckboxComponent = React.memo(
         >
           <Center>
             <Box {..._interactionBox} />
-
-            <Center {...nonLayoutProps} INTERNAL_themeStyle={[nonLayoutStyles]}>
+            <Center
+              {...nonLayoutProps}
+              //@ts-ignore
+              INTERNAL_themeStyle={[nonLayoutStyles]}
+            >
               <SizedIcon
                 icon={icon}
                 _icon={{
@@ -196,6 +199,7 @@ const CheckboxComponent = React.memo(
       _stack,
       layoutStyles,
       layoutProps,
+      _interactionBox,
       nonLayoutProps,
       nonLayoutStyles,
       icon,

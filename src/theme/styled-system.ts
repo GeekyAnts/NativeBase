@@ -830,22 +830,22 @@ export const getStyleAndFilteredProps = ({
     }
   }
 
-  // if (process.env.NODE_ENV === 'development' && debug) {
-  //   /* eslint-disable-next-line */
-  //   console.log('style ', debug + ' :: ', {
-  //     styleFromProps,
-  //     style,
-  //     styledSystemProps,
-  //   });
-  // }
-
-  if (styleFromProps.backgroundColor === 'white.600') {
-    console.log(
+  if (process.env.NODE_ENV === 'development' && debug) {
+    /* eslint-disable-next-line */
+    console.log('style ', debug + ' :: ', {
       styleFromProps,
-      styledSystemProps.extraProp,
-      'style from props *****'
-    );
+      style,
+      styledSystemProps,
+    });
   }
+
+  // if (styleFromProps.backgroundColor === 'white.600') {
+  //   console.log(
+  //     styleFromProps,
+  //     styledSystemProps.extraProp,
+  //     'style from props *****'
+  //   );
+  // }
   return {
     styleSheet: StyleSheet.create({ box: styleFromProps }),
     styleFromProps,

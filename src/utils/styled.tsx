@@ -2,8 +2,13 @@ import React from 'react';
 import { useStyledSystemPropsResolver } from '../hooks/';
 import get from 'lodash.get';
 import { StyleSheet } from 'react-native';
-import { pseudoPropStateMap, PSEUDO_PROP_COMPONENT_MAP } from '../core';
-
+import {
+  COLOR_SCHEME_MAP,
+  pseudoPropStateMap,
+  PSEUDO_PROP_COMPONENT_MAP,
+} from '../core';
+//@ts-ignore
+// eslint-disable-next-line dot-notation
 window['StyleSheet'] = StyleSheet;
 import { getStyledObject } from './getStyledComponentAndObjects';
 import {
@@ -12,37 +17,32 @@ import {
 } from '../core';
 import { theme } from '../theme';
 
-const COLOR_SCHEME_MAP = {
-  Button: true,
-  IconButton: true,
-  Checkbox: true,
-};
-window['logger'] = {};
-console.batchTime = (key) => {
-  const keyValue = window['logger'][key];
-  if (keyValue) {
-    // keyValue.totalTime = keyValue.totalTime + (Date.now() - keyValue.startTime);
-    keyValue.startTime = window.performance.now();
-  } else {
-    window['logger'][key] = {
-      startTime: window.performance.now(),
-      totalTime: 0,
-    };
-  }
-};
+// window['logger'] = {};
+// console.batchTime = (key) => {
+//   const keyValue = window['logger'][key];
+//   if (keyValue) {
+//     // keyValue.totalTime = keyValue.totalTime + (Date.now() - keyValue.startTime);
+//     keyValue.startTime = window.performance.now();
+//   } else {
+//     window['logger'][key] = {
+//       startTime: window.performance.now(),
+//       totalTime: 0,
+//     };
+//   }
+// };
 
-console.batchTimeEnd = (key) => {
-  const keyValue = window['logger'][key];
-  if (keyValue) {
-    keyValue.totalTime =
-      keyValue.totalTime + (window.performance.now() - keyValue.startTime);
-    // console.log(
-    //   "useStyledSystemPropsResolver 2222",
-    //   keyValue,
-    //   window.performance.now()
-    // );
-  }
-};
+// console.batchTimeEnd = (key) => {
+//   const keyValue = window['logger'][key];
+//   if (keyValue) {
+//     keyValue.totalTime =
+//       keyValue.totalTime + (window.performance.now() - keyValue.startTime);
+//     // console.log(
+//     //   "useStyledSystemPropsResolver 2222",
+//     //   keyValue,
+//     //   window.performance.now()
+//     // );
+//   }
+// };
 
 const resolveForInternalPseudoProps = (
   name: any,
@@ -291,6 +291,7 @@ export const makeStyledComponent = (
   // const globalDarkStyle = getStyledComponent(componentName, 'dark');
 
   // console.log(StyleSheet.flatten(globalLightStyle.style), 'hello style');
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   return React.forwardRef(({ debug, ...props }: any, ref: any) => {
     // console.log(props, 'hello props **********');
     const [style, restProps] = useStyledSystemPropsResolver(props);

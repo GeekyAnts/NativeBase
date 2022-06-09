@@ -1,6 +1,6 @@
 import React from 'react';
 import { usePropsWithComponentTheme } from '../hooks/useThemeProps/usePropsWithComponentTheme';
-import type { ComponentTheme } from '../theme';
+import { ComponentTheme, theme } from '../theme';
 import type { FactoryComponentProps } from './types';
 import { makeStyledComponent } from '../utils/styled';
 
@@ -13,7 +13,8 @@ export default function Factory<P>(
       const StyledComponent = makeStyledComponent(Component);
       const calculatedProps = usePropsWithComponentTheme(
         componentTheme ?? {},
-        props
+        props,
+        theme
       );
       return (
         <StyledComponent {...(calculatedProps as P)} ref={ref}>

@@ -5,7 +5,7 @@ import { theme } from '../theme';
 
 // Adding Map for storing the props and style for the styled component
 let resolvedStyledMap: Map<string, any> = new Map();
-export const pseudoPropStateMap = {
+export const pseudoPropStateMap: any = {
   _disabled: 'isDisabled',
   _focusVisible: 'isFocusVisible',
   _focus: 'isFocused',
@@ -16,7 +16,7 @@ export const pseudoPropStateMap = {
   _invalid: 'isInvalid',
 };
 
-export const PSEUDO_PROP_COMPONENT_MAP = {
+export const PSEUDO_PROP_COMPONENT_MAP: any = {
   _spinner: 'Spinner',
   _stack: 'Stack',
   _text: 'Text',
@@ -29,9 +29,18 @@ export const PSEUDO_PROP_COMPONENT_MAP = {
   // _fade: 'Fade',
 };
 
+export const COLOR_SCHEME_MAP: any = {
+  Button: true,
+  IconButton: true,
+  Checkbox: true,
+};
+
 export const init = () => {
   resolvedStyledMap = new Map();
-  window['resolvedStyledMap'] = resolvedStyledMap;
+  if (process.env.NODE_ENV === 'development') {
+    //@ts-ignore
+    window['resolvedStyledMap'] = resolvedStyledMap;
+  }
 };
 
 export const get = (key: string) => {
@@ -91,7 +100,7 @@ const getThemeObject = (componentName: any, colorMode: any, state?: any) => {
 
 const getComponentNameKeyFromProps = (
   componentName: string,
-  { variant, size, colorScheme }: any = {}
+  { variant, colorScheme }: any = {}
 ) => {
   let componentKeyName: string = componentName;
 
@@ -121,20 +130,18 @@ export const getThemeProps = (
 
   const componentNames = inputComponentKeyName.split('.');
 
-  let rootComponentName = componentNames[0];
-  let pseudoComponentKeyName = componentNames[1];
+  const rootComponentName = componentNames[0];
+  const pseudoComponentKeyName = componentNames[1];
 
   let componentKeyName = rootComponentName;
 
   componentKeyName = getComponentNameKeyFromProps(rootComponentName, props);
-  if (inputComponentKeyName === 'Checkbox.Stack') {
-    console.log(componentKeyName, 'componentKeyName');
-  }
+
   if (pseudoComponentKeyName) {
     componentKeyName = `${componentKeyName}.${pseudoComponentKeyName}`;
   }
 
-  let themeObj = getThemeObject(componentKeyName, colorMode, state);
+  let themeObj: any = getThemeObject(componentKeyName, colorMode, state);
 
   if (inputComponentKeyName === 'Button') {
     // console.log(componentKeyName, themeObj, '((()))');
@@ -213,6 +220,7 @@ export const getResolvedProps = (key: string, colorMode?: ColorMode) => {
 const isValidStateKey = (stateKey: string, state: any) => {
   // console.log(stateKey, pseudoPropStateMap[stateKey], state, 'is valid');
   try {
+    //@ts-ignore
     return state[pseudoPropStateMap[stateKey]];
   } catch (e: any) {
     return false;
@@ -267,7 +275,7 @@ const getPseudoStateStyles = (componentName: string, state: any) => {
 };
 
 export const getResolvedStyleSheet = (
-  componentName: string | Array<any>,
+  componentName: string,
   colorMode?: ColorMode,
   state?: any,
   props?: any
@@ -335,5 +343,5 @@ export const set = (key: string, value: any, colorMode: string) => {
 };
 
 export const log = () => {
-  console.log(resolvedStyledMap);
+  // console.log(resolvedStyledMap);
 };

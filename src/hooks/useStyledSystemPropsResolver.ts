@@ -1,7 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { getStyleAndFilteredProps, propConfig } from '../theme/styled-system';
 import { useTheme } from './useTheme';
 import React from 'react';
-import { StyleSheet } from 'react-native';
 import { useNativeBaseConfig } from '../core/NativeBaseContext';
 import { useResponsiveQuery } from '../utils/useResponsiveQuery';
 //@ts-ignore
