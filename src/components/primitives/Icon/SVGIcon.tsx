@@ -60,7 +60,7 @@ const SVGIcon = (
       //     : parseInt(newProps.width, 10)
       // }
       color={colorHex || iconStyleFromProps.color}
-      stroke={strokeHex || colorHex || iconStyleFromProps.color}
+      stroke={strokeHex || iconStyleFromProps.color}
       focusable={focusable}
       accessibilityRole="image"
       // size={4}
