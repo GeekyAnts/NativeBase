@@ -41,21 +41,35 @@ export function useFormControlProvider(props: IFormControlProps) {
    */
   const [hasHelpText, setHasHelpText] = React.useState(false);
 
-  const context = {
-    isRequired: !!isRequired,
-    isInvalid: !!isInvalid,
-    isReadOnly: !!isReadOnly,
-    isDisabled: !!isDisabled,
-    hasFeedbackText,
-    setHasFeedbackText,
-    hasHelpText,
-    setHasHelpText,
-    nativeID,
-    labelId,
+  const context = React.useMemo(() => {
+    return {
+      isRequired: !!isRequired,
+      isInvalid: !!isInvalid,
+      isReadOnly: !!isReadOnly,
+      isDisabled: !!isDisabled,
+      hasFeedbackText,
+      setHasFeedbackText,
+      hasHelpText,
+      setHasHelpText,
+      nativeID,
+      labelId,
+      feedbackId,
+      helpTextId,
+      htmlProps,
+    };
+  }, [
     feedbackId,
+    hasFeedbackText,
+    hasHelpText,
     helpTextId,
     htmlProps,
-  };
+    isDisabled,
+    isInvalid,
+    isReadOnly,
+    isRequired,
+    labelId,
+    nativeID,
+  ]);
 
   return context;
 }

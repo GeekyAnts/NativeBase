@@ -6,11 +6,11 @@ import {
   Checkbox,
   Center,
   Badge,
-  Modal as NBModal,
+  Modal,
   FormControl,
   Input,
-  View,
   Pressable,
+  useToast,
 } from 'native-base';
 import React, {
   forwardRef,
@@ -20,11 +20,11 @@ import React, {
   useCallback,
 } from 'react';
 import {
-  View as RNView,
+  View,
   Button as RNButton,
-  Modal,
-  Pressable as RNPressable,
-  Text as RNText,
+  Modal as RNModal,
+  TextInput,
+  StyleSheet,
 } from 'react-native';
 import { View as DripsyView } from 'dripsy';
 import { Pressable as DripsyButton } from 'dripsy';
@@ -79,38 +79,42 @@ const Example = () => {
   // React.useEffect(() => {
   //   console.endTimeKey('mountmodal', '>>>>>>>>>>>>>>>>>> modal');
   // });
-  const [modalVisible, setModalVisible] = useState(false);
+
+  const toast = useToast();
+  return (
+    <View>
+      <Button
+        mt={100}
+        onPress={() =>
+          toast.show({
+            title: 'Test',
+          })
+        }
+      >
+        hello
+      </Button>
+    </View>
+  );
 
   return (
-    <View style={{ marginTop: 100 }}>
-      {/* <Box mt={100}>Box</Box> */}
-      {/* <Button
+    <View>
+      <Box mt={100}>Box</Box>
+      <Button
         onPress={() => {
           // console.startTimeKey('mountmodal');
-          // setShowModal(true);
-          setModalVisible(!modalVisible);
-        }}
-      >
-        Button
-      </Button> */}
-
-      <Button
-        // style={[styles.button, styles.buttonOpen]}
-        onPress={() => {
           setShowModal(true);
-          setModalVisible(true);
         }}
       >
-        <Text style={styles.textStyle}>Show Modal</Text>
+        Button www
       </Button>
 
-      <Modal
-        // animationType="slide"
+      {/* <RNModal
+        animationType="slide"
         transparent={true}
-        visible={modalVisible}
+        visible={showModal}
         onRequestClose={() => {
-          // Alert.alert('Modal has been closed.');
-          setModalVisible(!modalVisible);
+          // Alert.alert("Modal has been closed.");
+          setShowModal(!showModal);
         }}
       >
         <View style={styles.centeredView}>
@@ -118,170 +122,65 @@ const Example = () => {
             <Text style={styles.modalText}>Hello World!</Text>
             <Pressable
               style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(!modalVisible)}
+              onPress={() => setShowModal(!showModal)}
             >
               <Text style={styles.textStyle}>Hide Modal</Text>
             </Pressable>
-
-            <Text style={styles.modalText}>Hello World!</Text>
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(!modalVisible)}
-            >
-              <Text style={styles.textStyle}>Hide Modal</Text>
-            </Pressable>
-            <Text style={styles.modalText}>Hello World!</Text>
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(!modalVisible)}
-            >
-              <Text style={styles.textStyle}>Hide Modal</Text>
-            </Pressable>
-            <Text style={styles.modalText}>Hello World!</Text>
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(!modalVisible)}
-            >
-              <Text style={styles.textStyle}>Hide Modal</Text>
-            </Pressable>
-            <Text style={styles.modalText}>Hello World!</Text>
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(!modalVisible)}
-            >
-              <Text style={styles.textStyle}>Hide Modal</Text>
-            </Pressable>
-            <Text style={styles.modalText}>Hello World!</Text>
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(!modalVisible)}
-            >
-              <Text style={styles.textStyle}>Hide Modal</Text>
-            </Pressable>
-            <Text style={styles.modalText}>Hello World!</Text>
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(!modalVisible)}
-            >
-              <Text style={styles.textStyle}>Hide Modal</Text>
-            </Pressable>
-            <Text style={styles.modalText}>Hello World!</Text>
-            <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(!modalVisible)}
-            >
-              <Text style={styles.textStyle}>Hide Modal</Text>
-            </Pressable>
-          </View>
-        </View>
-      </Modal>
-
-      {/* <NBModal
-        // animationType="slide"
-        isOpen={modalVisible}
-        onClose={() => setModalVisible(false)}
-      >
-        <NBModal.Content h="800">
-          <View style={styles.centeredView}>
-            <View style={styles.modalView}>
-              <Text style={styles.modalText}>Hello World!</Text>
-              <Pressable
-                style={[styles.button, styles.buttonClose]}
-                onPress={() => setModalVisible(!modalVisible)}
-              >
-                <Text style={styles.textStyle}>Hide Modal</Text>
-              </Pressable>
-
-              <Text style={styles.modalText}>Hello World!</Text>
-              <Pressable
-                style={[styles.button, styles.buttonClose]}
-                onPress={() => setModalVisible(!modalVisible)}
-              >
-                <Text style={styles.textStyle}>Hide Modal</Text>
-              </Pressable>
-              <Text style={styles.modalText}>Hello World!</Text>
-              <Pressable
-                style={[styles.button, styles.buttonClose]}
-                onPress={() => setModalVisible(!modalVisible)}
-              >
-                <Text style={styles.textStyle}>Hide Modal</Text>
-              </Pressable>
-              <Text style={styles.modalText}>Hello World!</Text>
-              <Pressable
-                style={[styles.button, styles.buttonClose]}
-                onPress={() => setModalVisible(!modalVisible)}
-              >
-                <Text style={styles.textStyle}>Hide Modal</Text>
-              </Pressable>
-              <Text style={styles.modalText}>Hello World!</Text>
-              <Pressable
-                style={[styles.button, styles.buttonClose]}
-                onPress={() => setModalVisible(!modalVisible)}
-              >
-                <Text style={styles.textStyle}>Hide Modal</Text>
-              </Pressable>
-              <Text style={styles.modalText}>Hello World!</Text>
-              <Pressable
-                style={[styles.button, styles.buttonClose]}
-                onPress={() => setModalVisible(!modalVisible)}
-              >
-                <Text style={styles.textStyle}>Hide Modal</Text>
-              </Pressable>
-              <Text style={styles.modalText}>Hello World!</Text>
-              <Pressable
-                style={[styles.button, styles.buttonClose]}
-                onPress={() => setModalVisible(!modalVisible)}
-              >
-                <Text style={styles.textStyle}>Hide Modal</Text>
-              </Pressable>
-              <Text style={styles.modalText}>Hello World!</Text>
-              <Pressable
-                style={[styles.button, styles.buttonClose]}
-                onPress={() => setModalVisible(!modalVisible)}
-              >
-                <Text style={styles.textStyle}>Hide Modal</Text>
-              </Pressable>
-            </View>
-          </View>
-        </NBModal.Content>
-      </NBModal> */}
-
-      {/* <NBModal isOpen={showModal} onClose={() => setShowModal(false)}>
-        <NBModal.Content maxWidth="400px">
-          <NBModal.CloseButton />
-          <NBModal.Header>Contact Us</NBModal.Header>
-          <NBModal.Body>
             <FormControl>
               <FormControl.Label>Name</FormControl.Label>
               <Input />
             </FormControl>
-            <FormControl mt="3">
-              <FormControl.Label>Email</FormControl.Label>
+            <FormControl>
+              <FormControl.Label>Name</FormControl.Label>
               <Input />
             </FormControl>
-          </NBModal.Body>
-          <NBModal.Footer>
-            <Button.Group space={2}>
-              <Button
-                variant="ghost"
-                colorScheme="blueGray"
-                onPress={() => {
-                  setShowModal(false);
-                }}
-              >
-                Cancel
-              </Button>
-              <Button
-                onPress={() => {
-                  setShowModal(false);
-                }}
-              >
-                Save
-              </Button>
-            </Button.Group>
-          </NBModal.Footer>
-        </NBModal.Content>
-      </NBModal> */}
+          </View>
+        </View>
+      </RNModal> */}
+
+      <Modal
+        isOpen={showModal}
+        onClose={() => setShowModal(false)}
+        animationPreset="fade"
+      >
+        <Modal.Content maxWidth="400px">
+          <Modal.Body>
+            <View style={styles.centeredView}>
+              <View style={styles.modalView}>
+                <Text style={styles.modalText}>Hello World!</Text>
+                <Pressable
+                  style={[styles.button, styles.buttonClose]}
+                  onPress={() => setShowModal(!showModal)}
+                >
+                  <Text style={styles.textStyle}>Hide Modal</Text>
+                </Pressable>
+
+                <FormControl>
+                  <FormControl.Label>Name</FormControl.Label>
+                  <Input />
+                </FormControl>
+                <FormControl>
+                  <FormControl.Label>Name</FormControl.Label>
+                  <Input />
+                </FormControl>
+
+                <FormControl>
+                  <FormControl.Label>Name</FormControl.Label>
+                  <Input />
+                </FormControl>
+                <FormControl>
+                  <FormControl.Label>Name</FormControl.Label>
+                  <Input />
+                </FormControl>
+                <FormControl>
+                  <FormControl.Label>Name</FormControl.Label>
+                  <Input />
+                </FormControl>
+              </View>
+            </View>
+          </Modal.Body>
+        </Modal.Content>
+      </Modal>
     </View>
   );
 };
@@ -310,15 +209,17 @@ export const NativeBaseScreen = () => {
   // const [groupValues, setGroupValues] = React.useState([]);
   // console.log('NativeBaseScreen', groupValues);
   // console.startTimeKey('Mounted');
-  const [state, setState] = useState(false);
+  // const [state, setState] = useState(false);
   // useEffect(() => {
   //   // setTimeout(() => {
   //   console.endTimeKey('Mounted', 'Mounted');
+
   //   // setTimeout(() => {
   //   //   setState(true);
   //   // }, 3000);
   //   // });
   // }, []);
+
   // return <MyButton color={state} />;
   // return (
   //   <RNButton
@@ -327,7 +228,9 @@ export const NativeBaseScreen = () => {
   //     title="Button"
   //   ></RNButton>
   // );
-  return <Example />;
+
+  // return <Example />;
+
   // return (
   //   <Box backgroundColor={"red.200"} width="100" height="100">
   //     <Box backgroundColor={"red.200"} width="100" height="100">
@@ -345,13 +248,16 @@ export const NativeBaseScreen = () => {
   //     </Box>
   //   </Box>
   // );
+
   // return <Example />;
-  const handlePress = useCallback(() => {
-    setTimeout(() => {
-      console.log('set');
-      setState(!state);
-    }, 0);
-  }, [state]);
+
+  // const handlePress = useCallback(() => {
+  //   setTimeout(() => {
+  //     console.log('set');
+  //     setState(!state);
+  //   }, 0);
+  // }, [state]);
+
   // return (
   //   <DripsyView
   //     sx={{
@@ -362,109 +268,98 @@ export const NativeBaseScreen = () => {
   //     }}
   //   />
   // );
+
   // return <Button>hello</Button>;
-  // return <Example />;
-  return (
-    <>
-      <RNView style={{ marginBottom: 100 }}></RNView>
-      {/* <DripsyView style={{ backgroundColor: "red", width: 100, height: 100 }} /> */}
-      <RNButton
-        onPress={handlePress}
-        // style={{
-        //   marginTop: 100,
-        //   backgroundColor: 'red',
-        //   width: 100,
-        //   height: 100,
-        // }}
-        title="My Button 222"
-      >
-        Hello
-      </RNButton>
-      <Text
-        style={{
-          color: 'red',
-        }}
-      >
-        Hide Modal 222
-      </Text>
+  return <Example />;
+  // return (
+  //   <>
+  //     {/* <Box></Box> */}
+  //     {/* <DripsyView style={{ backgroundColor: "red", width: 100, height: 100 }} /> */}
+  //     <RNButton
+  //       onPress={handlePress}
+  //       style={{
+  //         marginTop: 10,
+  //         backgroundColor: 'red',
+  //         width: 100,
+  //         height: 100,
+  //       }}
+  //       title="My Button"
+  //     >
+  //       Hello
+  //     </RNButton>
 
-      {/* {state && <Box background={"red.200"} w="100" h="100" />} */}
-      {state && (
-        <>
-          {/* <View style={{ backgroundColor: 'red', width: 100, height: 100 }} /> */}
-          {/* <Pressable/> */}
-          <RNView>
-            {new Array(100).fill('100').map((_, index) => (
-              // <Badge size="sm">NEW FEATURE</Badge> // <Checkbox
-              //   value="test"
-              //   accessibilityLabel="This is a dummy checkbox"
-              // />
-              <Text>Hide Modal</Text>
+  //     {/* {state && <Box background={"red.200"} w="100" h="100" />} */}
+  //     {state && (
+  //       <>
+  //         {/* <View style={{ backgroundColor: 'red', width: 100, height: 100 }} /> */}
+  //         {/* <Pressable/> */}
+  //         <View>
+  //           {new Array(1).fill('100').map((_, index) => (
+  //             <Badge size="sm">NEW FEATURE</Badge> // <Checkbox
+  //             //   value="test"
+  //             //   accessibilityLabel="This is a dummy checkbox"
+  //             // />
+  //             // <Button
+  //             // // _hover={{
+  //             // //   height: 20,
+  //             // // }}
+  //             // // variant={'outline'}
+  //             // // _text={{
+  //             // //   color: 'red.500',
+  //             // // }}
+  //             // // bg="amber.400"
+  //             // // _hover={{ bg: 'red.700' }}
+  //             // // bg="blue.400"
+  //             // // safeAreaX
+  //             // // _hover={{
+  //             // //   bg: 'green.500',
+  //             // // }}
+  //             // // p={2}
+  //             // // mt={2}
+  //             // // borderWidth={1}
+  //             // // borderRadius={1}
+  //             // // pt={1}
+  //             // // pb={1}
+  //             // // pr={1}
+  //             // // pl={1}
+  //             // // borderBottomColor="emerald.100"
+  //             // // bg="red.200"
+  //             // // p={index}
+  //             // // style={{ width: 100, height: 100 }}
+  //             // // _text={{
+  //             // //   bg: 'blue.200',
+  //             // // }}
+  //             // // _dark={{
+  //             // //   bg: 'red.100',
+  //             // // }}
+  //             // // variant="default"
+  //             // // style={{ width: 100, height: 100 }}
+  //             // >
+  //             //   Hello
+  //             // </Button>
+  //           ))}
+  //         </View>
 
-              // <Text
-
-              // _hover={{
-              //   height: 20,
-              // }}
-              // variant={'outline'}
-              // _text={{
-              //   color: 'red.500',
-              // }}
-              // bg="amber.400"
-              // _hover={{ bg: 'red.700' }}
-              // bg="blue.400"
-              // safeAreaX
-              // _hover={{
-              //   bg: 'green.500',
-              // }}
-              // p={2}
-              // mt={2}
-              // borderWidth={1}
-              // borderRadius={1}
-              // pt={1}
-              // pb={1}
-              // pr={1}
-              // pl={1}
-              // borderBottomColor="emerald.100"
-              // bg="red.200"
-              // p={index}
-              // style={{ width: 100, height: 100 }}
-              // _text={{
-              //   bg: 'blue.200',
-              // }}
-              // _dark={{
-              //   bg: 'red.100',
-              // }}
-              // variant="default"
-              // style={{ width: 100, height: 100 }}
-              // bg="red.300"
-              // h="100"
-              // w="100"
-              // >
-              //   hello
-              // </Text>
-            ))}
-          </RNView>
-          <RNView>
-            {new Array(100).fill(' ').map((_, index) => (
-              // <DripsyText
-              //   sx={{ bg: '$primary', p: index }}
-              //   style={{ backgroundColor: 'red', width: 100, height: 100 }}
-              // >
-              <DripsyText>hello dripsy</DripsyText>
-              // </DripsyView>
-            ))}
-          </RNView>
-          {/* <DripsyView
-            sx={{
-              height: [100],
-              width: [100],
-              backgroundColor: "red",
-              marginX: 10,
-            }}
-          /> */}
-        </>
-      )}
-    </>
-  );
+  //         <View>
+  //           {/* {new Array(100).fill(' ').map((_, index) => (
+  //             <DripsyButton
+  //               sx={{ bg: '$primary', p: index }}
+  //               style={{ backgroundColor: 'red', width: 100, height: 100 }}
+  //             >
+  //               <DripsyText>hello dripsy</DripsyText>
+  //             </DripsyButton>
+  //           ))} */}
+  //         </View>
+  //         {/* <DripsyView
+  //           sx={{
+  //             height: [100],
+  //             width: [100],
+  //             backgroundColor: "red",
+  //             marginX: 10,
+  //           }}
+  //         /> */}
+  //       </>
+  //     )}
+  //   </>
+  // );
 };

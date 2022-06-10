@@ -6,6 +6,10 @@ import { RNButtonScreen } from './reactnativescreen';
 import { NativeBaseProvider, extendTheme } from 'native-base';
 import { DripsyProvider, makeTheme } from 'dripsy';
 
+import { LogBox } from 'react-native';
+LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
+LogBox.ignoreAllLogs(); //Ignore all log notifications
+
 console.currentKey = {};
 const theme = makeTheme({});
 

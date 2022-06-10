@@ -22,7 +22,7 @@ export const PSEUDO_PROP_COMPONENT_MAP: any = {
   _text: 'Text',
   _icon: 'Icon',
   _checkbox: 'Checkbox',
-  _label: 'Text',
+  // _label: 'Text',
   // _input: 'Input',
   // _slide: 'Slide',
   // _backdropFade: 'BackdropFade',
@@ -33,6 +33,16 @@ export const COLOR_SCHEME_MAP: any = {
   Button: true,
   IconButton: true,
   Checkbox: true,
+  Radio: true,
+  Alert: true,
+  Badge: true,
+  CircularProgress: true,
+  Fab: true,
+  Modal: true,
+  Progress: true,
+  Slider: true,
+  Switch: true,
+  Tag: true,
 };
 
 export const init = () => {

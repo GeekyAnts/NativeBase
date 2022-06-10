@@ -61,7 +61,7 @@ const SVGIcon = (
       stroke={strokeHex || iconStyleFromProps.color}
       focusable={focusable}
       accessibilityRole="image"
-      // size={4}
+      // size={size}
       // style={style}
       // TODO: Hack refactor
       // boxSize={size}
