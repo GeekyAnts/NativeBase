@@ -762,7 +762,7 @@ export const getStyleAndFilteredProps = ({
       //TODO: refactor
       if (
         key === 'size' ||
-        (styledSystemProps?.extraProp?.endsWith('Icon') && key === 'color')
+        (styledSystemProps?.extraProp?.endsWith('.Icon') && key === 'color')
       ) {
         restDefaultProps = {
           ...restDefaultProps,

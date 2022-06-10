@@ -228,6 +228,10 @@ export function usePropsResolution(
         incomingProps
       );
 
+      if (component === 'Radio' && property === '_stack') {
+        // console.log(pseudoComponentThemeProps, incomingProps, 'property here');
+      }
+
       // if (component === 'Button') {
       //   console.log(
       //     property,
