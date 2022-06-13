@@ -111,7 +111,7 @@ export interface InterfaceInputProps
   focusOutlineColor?: ColorType;
   /** This prop allow you to change outlineColor when input is in focused state*/
   invalidOutlineColor?: ColorType;
-  ref?: MutableRefObject<any>;
+  ref?: MutableRefObject<any> | RefCallback;
 }
 
 export interface IInputGroupProps extends InterfaceBoxProps<IInputGroupProps> {
