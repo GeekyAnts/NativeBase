@@ -221,6 +221,10 @@ export function usePropsResolution(
 
   for (const property in componentThemeProps.internalPseudoProps) {
     if (PSEUDO_PROP_COMPONENT_MAP[property]) {
+      // console.log(
+      //   `${component}.${PSEUDO_PROP_COMPONENT_MAP[property]}`,
+      //   '******'
+      // );
       const pseudoComponentThemeProps = getThemeProps(
         `${component}.${PSEUDO_PROP_COMPONENT_MAP[property]}`,
         colorMode,
@@ -228,9 +232,20 @@ export function usePropsResolution(
         incomingProps
       );
 
-      if (component === 'Radio' && property === '_stack') {
-        // console.log(pseudoComponentThemeProps, incomingProps, 'property here');
-      }
+      // if (component === 'Button' && property === '_text') {
+      //   console.log(
+      //     'property ***',
+      //     // incomingProps,
+      //     // componentThemeProps.internalPseudoProps[property]
+      //     // StyleSheet.flatten(pseudoComponentThemeProps.style),
+      //     componentThemeProps.internalPseudoProps
+      //     // resolvedProps[property]
+      //   );
+      // }
+
+      // if (component === 'Radio' && property === '_stack') {
+      //   console.log(incomingProps, 'property here');
+      // }
 
       // if (component === 'Button') {
       //   console.log(
@@ -244,6 +259,7 @@ export function usePropsResolution(
 
       resolvedProps[property] = {
         ...pseudoComponentThemeProps.restDefaultProps,
+        ...componentThemeProps.internalPseudoProps[property],
         ...resolvedProps[property],
         INTERNAL_themeStyle: resolvedProps[property]?.INTERNAL_themeStyle
           ? [
