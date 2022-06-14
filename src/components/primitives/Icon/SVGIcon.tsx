@@ -58,7 +58,7 @@ const SVGIcon = (
       //     : parseInt(newProps.width, 10)
       // }
       color={colorHex || iconStyleFromProps.color}
-      stroke={strokeHex || iconStyleFromProps.color}
+      stroke={strokeHex || ''}
       focusable={focusable}
       accessibilityRole="image"
       // size={size}
@@ -69,7 +69,7 @@ const SVGIcon = (
       // height={16}
       // INTERNAL_themeStyle={[style, INTERNAL_themeStyle]}
       ref={ref}
-      overflow="visible"
+      // overflow="visible"
     >
       {React.Children.count(children) > 0 ? (
         <G>
