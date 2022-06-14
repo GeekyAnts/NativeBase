@@ -13,9 +13,11 @@ import { omitUndefined } from '../../../theme/tools/utils';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const AlertIcon = ({ children, ...props }: IAlertIconProps, ref?: any) => {
-  let newProps = usePropsResolution('AlertIcon', props);
+  let { boxSize, ...newProps } = usePropsResolution('AlertIcon', props);
   newProps = omitUndefined(newProps);
-  const { status, _icon }: IAlertContext = React.useContext(AlertContext);
+
+  let { status, _icon }: IAlertContext = React.useContext(AlertContext);
+  _icon = { ..._icon, size: boxSize };
   const getIcon = () => {
     switch (status) {
       case 'error':
