@@ -32,7 +32,7 @@ function SliderThumb(props: ISliderThumbProps, ref: any) {
     state,
     trackLayout,
     orientation,
-    // colorScheme,
+    colorScheme,
     thumbSize,
     isReadOnly,
     isDisabled,
@@ -48,7 +48,7 @@ function SliderThumb(props: ISliderThumbProps, ref: any) {
     {
       size: thumbSize,
       // _interactionBox: interactionBoxContext,
-      // colorScheme,
+      colorScheme,
       ...props,
     },
     {
@@ -125,7 +125,7 @@ function SliderThumb(props: ISliderThumbProps, ref: any) {
   //   filterProps
   // );
 
-  console.log(_interactionBox, 'resolved props here 111');
+  // console.log(_interactionBox, 'resolved props here 111');
 
   const [
     accessibilityProps,
@@ -135,12 +135,12 @@ function SliderThumb(props: ISliderThumbProps, ref: any) {
     'accessibilityState',
   ]);
 
-  console.log(
-    layoutProps,
-    nonLayoutProps,
-    nonAccessibilityProps,
-    'props here 111'
-  );
+  // console.log(
+  //   layoutProps,
+  //   nonLayoutProps,
+  //   nonAccessibilityProps,
+  //   'props here 111'
+  // );
 
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {

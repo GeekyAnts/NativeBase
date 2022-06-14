@@ -46,11 +46,6 @@ const SliderTrack = ({ children, ...props }: ISliderTrackProps, ref?: any) => {
     return null;
   }
 
-  console.log(
-    StyleSheet.flatten(_pressable.INTERNAL_themeStyle),
-    StyleSheet.flatten(resolvedProps.INTERNAL_themeStyle),
-    'pressable props here &&&***'
-  );
   // console.log(trackProps, 'trackProps props here &&&***');
   // console.log(resolvedProps, 'resolvedProps props here &&&***');
   // resolvedProps.boxSize = undefined;
