@@ -91,7 +91,10 @@ const baseStyle = (props: Record<string, any>) => {
       alignItems: 'center',
       space: 2,
       _web: {
-        cursor: props.isDisabled ? 'not-allowed' : 'pointer',
+        _disabled: {
+          cursor: 'not-allowed',
+        },
+        cursor: 'pointer',
       },
     },
 

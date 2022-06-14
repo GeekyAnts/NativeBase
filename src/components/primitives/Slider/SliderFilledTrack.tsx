@@ -12,13 +12,15 @@ const SliderFilledTrack = (props: ISliderTrackFilledProps, ref?: any) => {
     state,
     trackLayout,
     orientation,
+    variant,
     isDisabled,
     sliderSize,
     isReadOnly,
+    _sliderFilledTrack,
   } = React.useContext(SliderContext);
 
   const sliderTrackPosition = isReversed
-    ? orientation === 'vertical'
+    ? variant === 'vertical'
       ? trackLayout.height - trackLayout.height * state.getThumbPercent(0)
       : trackLayout.width - trackLayout.width * state.getThumbPercent(0)
     : state.getThumbPercent(0) * 100 + '%';
@@ -31,6 +33,7 @@ const SliderFilledTrack = (props: ISliderTrackFilledProps, ref?: any) => {
       isReversed,
       orientation,
       sliderTrackPosition,
+      ..._sliderFilledTrack,
       ...props,
     },
     { isDisabled, isReadOnly }
@@ -41,11 +44,22 @@ const SliderFilledTrack = (props: ISliderTrackFilledProps, ref?: any) => {
     return null;
   }
 
+  console.log(
+    resolvedProps,
+    orientation,
+    variant,
+    'resolved props here &&& >>>>'
+  );
   return (
     <Box
       position="absolute"
       {...resolvedProps}
       ref={ref}
+      size={4}
+      style={{
+        width: variant === 'horizontal' ? sliderTrackPosition : 4,
+        height: variant !== 'horizontal' ? sliderTrackPosition : 4,
+      }}
       // {...(isReadOnly && _readOnly)}
       // {...(isDisabled && _disabled)}
     />

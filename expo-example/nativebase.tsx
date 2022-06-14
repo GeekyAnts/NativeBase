@@ -10,6 +10,7 @@ import {
   FormControl,
   Input,
   Pressable,
+  useToast,
 } from 'native-base';
 import React, {
   forwardRef,
@@ -18,16 +19,83 @@ import React, {
   memo,
   useCallback,
 } from 'react';
-import { View, Button as RNButton } from 'react-native';
+import {
+  View,
+  Button as RNButton,
+  Modal as RNModal,
+  TextInput,
+  StyleSheet,
+} from 'react-native';
 import { View as DripsyView } from 'dripsy';
 import { Pressable as DripsyButton } from 'dripsy';
 import { Text as DripsyText } from 'dripsy';
+
+const styles = StyleSheet.create({
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 22,
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 35,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  button: {
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2,
+  },
+  buttonOpen: {
+    backgroundColor: '#F194FF',
+  },
+  buttonClose: {
+    backgroundColor: '#2196F3',
+  },
+  textStyle: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: 'center',
+  },
+});
 
 const Example = () => {
   const [showModal, setShowModal] = useState(false);
   // React.useEffect(() => {
   //   console.endTimeKey('mountmodal', '>>>>>>>>>>>>>>>>>> modal');
   // });
+
+  const toast = useToast();
+  return (
+    <View>
+      <Button
+        mt={100}
+        onPress={() =>
+          toast.show({
+            title: 'Test',
+          })
+        }
+      >
+        hello
+      </Button>
+    </View>
+  );
+
   return (
     <View>
       <Box mt={100}>Box</Box>
@@ -37,42 +105,80 @@ const Example = () => {
           setShowModal(true);
         }}
       >
-        Button
+        Button www
       </Button>
-      <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
-        <Modal.Content maxWidth="400px">
-          <Modal.CloseButton />
-          <Modal.Header>Contact Us</Modal.Header>
-          <Modal.Body>
+
+      {/* <RNModal
+        animationType="slide"
+        transparent={true}
+        visible={showModal}
+        onRequestClose={() => {
+          // Alert.alert("Modal has been closed.");
+          setShowModal(!showModal);
+        }}
+      >
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Text style={styles.modalText}>Hello World!</Text>
+            <Pressable
+              style={[styles.button, styles.buttonClose]}
+              onPress={() => setShowModal(!showModal)}
+            >
+              <Text style={styles.textStyle}>Hide Modal</Text>
+            </Pressable>
             <FormControl>
               <FormControl.Label>Name</FormControl.Label>
               <Input />
             </FormControl>
-            <FormControl mt="3">
-              <FormControl.Label>Email</FormControl.Label>
+            <FormControl>
+              <FormControl.Label>Name</FormControl.Label>
               <Input />
             </FormControl>
+          </View>
+        </View>
+      </RNModal> */}
+
+      <Modal
+        isOpen={showModal}
+        onClose={() => setShowModal(false)}
+        animationPreset="fade"
+      >
+        <Modal.Content maxWidth="400px">
+          <Modal.Body>
+            <View style={styles.centeredView}>
+              <View style={styles.modalView}>
+                <Text style={styles.modalText}>Hello World!</Text>
+                <Pressable
+                  style={[styles.button, styles.buttonClose]}
+                  onPress={() => setShowModal(!showModal)}
+                >
+                  <Text style={styles.textStyle}>Hide Modal</Text>
+                </Pressable>
+
+                <FormControl>
+                  <FormControl.Label>Name</FormControl.Label>
+                  <Input />
+                </FormControl>
+                <FormControl>
+                  <FormControl.Label>Name</FormControl.Label>
+                  <Input />
+                </FormControl>
+
+                <FormControl>
+                  <FormControl.Label>Name</FormControl.Label>
+                  <Input />
+                </FormControl>
+                <FormControl>
+                  <FormControl.Label>Name</FormControl.Label>
+                  <Input />
+                </FormControl>
+                <FormControl>
+                  <FormControl.Label>Name</FormControl.Label>
+                  <Input />
+                </FormControl>
+              </View>
+            </View>
           </Modal.Body>
-          <Modal.Footer>
-            <Button.Group space={2}>
-              <Button
-                variant="ghost"
-                colorScheme="blueGray"
-                onPress={() => {
-                  setShowModal(false);
-                }}
-              >
-                Cancel
-              </Button>
-              <Button
-                onPress={() => {
-                  setShowModal(false);
-                }}
-              >
-                Save
-              </Button>
-            </Button.Group>
-          </Modal.Footer>
         </Modal.Content>
       </Modal>
     </View>

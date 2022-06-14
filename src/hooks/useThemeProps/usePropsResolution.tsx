@@ -146,6 +146,7 @@ export function usePropsResolution(
     state,
     incomingProps
   );
+
   const componentTheme = get(theme, `components.${component}`);
   let resolvedProps = usePropsResolutionWithComponentTheme(
     componentTheme,
@@ -154,6 +155,10 @@ export function usePropsResolution(
     state,
     { ...config, name: component }
   );
+
+  if (component === 'SliderThumb') {
+    console.log(componentThemeProps, resolvedProps, 'componentThemeProps');
+  }
 
   // if (component === 'IconButton') {
   //   console.log(
@@ -199,7 +204,14 @@ export function usePropsResolution(
   resolvedProps.INTERNAL_themeStyle = INTERNAL_themeStyle
     ? [...componentThemeProps.style, ...INTERNAL_themeStyle]
     : componentThemeProps.style;
-  // console.log('component thme props 22', component);
+
+  // if (component === 'Box') {
+  //   console.log(
+  //     'component thme props 22',
+  //     INTERNAL_themeStyle,
+  //     resolvedProps.INTERNAL_themeStyle
+  //   );
+  // }
 
   resolvedProps = {
     ...componentThemeProps.restDefaultProps,
@@ -219,6 +231,18 @@ export function usePropsResolution(
     resolvedProps.size = undefined;
   }
 
+  // if (component === 'SliderThumb') {
+  //   console.log(
+  //     'property ***',
+  //     property,
+  //     // incomingProps,
+  //     componentThemeProps.internalPseudoProps[property]
+  //     // StyleSheet.flatten(pseudoComponentThemeProps.style),
+  //     // componentThemeProps.internalPseudoProps
+  //     // resolvedProps[property]
+  //   );
+  // }
+
   for (const property in componentThemeProps.internalPseudoProps) {
     if (PSEUDO_PROP_COMPONENT_MAP[property]) {
       const pseudoComponentThemeProps = getThemeProps(
@@ -231,6 +255,9 @@ export function usePropsResolution(
       if (component === 'Radio' && property === '_stack') {
         // console.log(pseudoComponentThemeProps, incomingProps, 'property here');
       }
+      // if (component === 'Radio' && property === '_stack') {
+      //   console.log(incomingProps, 'property here');
+      // }
 
       // if (component === 'Button') {
       //   console.log(
@@ -252,6 +279,15 @@ export function usePropsResolution(
             ]
           : pseudoComponentThemeProps.style,
       };
+
+      if (component === 'SliderTrack') {
+        console.log(
+          '&&&&&',
+          incomingProps,
+          // componentThemeProps.internalPseudoProps[property],
+          resolvedProps[property]
+        );
+      }
     }
   }
   // }

@@ -13,6 +13,8 @@ import { mergeRefs } from '../../../utils';
 import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 import { Stack } from '../Stack';
 import { Center } from '../../composites/Center';
+import { getThemeProps } from '../../../core';
+import { useColorMode } from '../../../core/color-mode';
 
 function SliderThumb(props: ISliderThumbProps, ref: any) {
   const [isPressed, setIsPressed] = React.useState(false);
@@ -30,7 +32,7 @@ function SliderThumb(props: ISliderThumbProps, ref: any) {
     state,
     trackLayout,
     orientation,
-    colorScheme,
+    // colorScheme,
     thumbSize,
     isReadOnly,
     isDisabled,
@@ -46,8 +48,8 @@ function SliderThumb(props: ISliderThumbProps, ref: any) {
     'SliderThumb',
     {
       size: thumbSize,
-      _interactionBox: interactionBoxContext,
-      colorScheme,
+      // _interactionBox: interactionBoxContext,
+      // colorScheme,
       ...props,
     },
     {
@@ -57,6 +59,17 @@ function SliderThumb(props: ISliderThumbProps, ref: any) {
       isFocused,
       isHovered,
     }
+  );
+
+  // console.log('context box', thumbSize);
+
+  const { colorMode } = useColorMode();
+
+  const { styleFromProps } = getThemeProps(
+    'SliderThumb',
+    colorMode,
+    state,
+    resolvedProps
   );
 
   const inputRef = React.useRef(null);
@@ -95,13 +108,23 @@ function SliderThumb(props: ISliderThumbProps, ref: any) {
     scale: state.isThumbDragging(0) ? resolvedProps.scaleOnPressed : 1,
   });
 
-  const [layoutProps, nonLayoutProps] = extractInObject(resolvedProps, [
+  const filterProps = [
     ...stylingProps.margin,
     ...stylingProps.layout,
     ...stylingProps.flexbox,
     ...stylingProps.position,
     ...stylingProps.outline,
-  ]);
+  ];
+
+  const [layoutProps, nonLayoutProps] = extractInObject(
+    resolvedProps,
+    filterProps
+  );
+
+  const [layoutStyles, nonLayoutStyles] = extractInObject(
+    styleFromProps,
+    filterProps
+  );
 
   const [
     accessibilityProps,
@@ -116,6 +139,8 @@ function SliderThumb(props: ISliderThumbProps, ref: any) {
     return null;
   }
 
+  // console.log(_interactionBox, _stack, 'interaction props 111');
+
   return (
     <Box
       position="absolute"
@@ -124,6 +149,8 @@ function SliderThumb(props: ISliderThumbProps, ref: any) {
       {...accessibilityProps}
       {...layoutProps}
       style={[thumbStyles, resolvedProps.style]}
+      // INTERNAL_themeStyle={layoutStyles}
+      // INTERNAL_themeStyle={[layoutStyles, resolvedProps.INTERNAL_themeStyle]}
       onFocus={(e: any) => {
         handleFocus(true, onFocus ? () => onFocus(e) : () => {});
       }}
@@ -136,7 +163,10 @@ function SliderThumb(props: ISliderThumbProps, ref: any) {
     >
       <Stack {..._stack}>
         <Box {..._interactionBox} />
-        <Center {...nonAccessibilityProps}>
+        <Center
+          {...nonAccessibilityProps}
+          // INTERNAL_themeStyle={[nonLayoutStyles]}
+        >
           {props.children}
           {Platform.OS === 'web' && (
             <VisuallyHidden>

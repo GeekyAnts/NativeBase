@@ -14,6 +14,7 @@ export const pseudoPropStateMap: any = {
   _checked: 'isChecked',
   _loading: 'isLoading',
   _invalid: 'isInvalid',
+  _reversed: 'isReversed',
 };
 
 export const PSEUDO_PROP_COMPONENT_MAP: any = {
@@ -22,6 +23,8 @@ export const PSEUDO_PROP_COMPONENT_MAP: any = {
   _text: 'Text',
   _icon: 'Icon',
   _checkbox: 'Checkbox',
+  _radio: 'Radio',
+  _pressable: 'Pressable',
   // _label: 'Text',
   // _input: 'Input',
   // _slide: 'Slide',
@@ -43,6 +46,9 @@ export const COLOR_SCHEME_MAP: any = {
   Slider: true,
   Switch: true,
   Tag: true,
+  SliderThumb: true,
+  // SliderTrack: true,
+  SliderFilledTrack: true,
 };
 
 export const init = () => {
@@ -153,6 +159,9 @@ export const getThemeProps = (
 
   let themeObj: any = getThemeObject(componentKeyName, colorMode, state);
 
+  if (inputComponentKeyName === 'Slider') {
+    console.log('component theme ^^&', themeObj, componentKeyName);
+  }
   if (inputComponentKeyName === 'Button') {
     // console.log(componentKeyName, themeObj, '((()))');
   }

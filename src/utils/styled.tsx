@@ -330,6 +330,10 @@ export const makeStyledComponent = (
     //   componentStyle = globalDarkStyle;
     // }
 
+    if (props.hello) {
+      console.log(props, style, restProps, ' props here &&&*** box component');
+    }
+
     return (
       <Comp {...restProps} style={style} ref={ref}>
         {props.children}
