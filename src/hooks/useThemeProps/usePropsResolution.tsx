@@ -279,6 +279,7 @@ export function usePropsResolution(
 
       resolvedProps[property] = {
         ...pseudoComponentThemeProps.restDefaultProps,
+        ...componentThemeProps.internalPseudoProps[property],
         ...resolvedProps[property],
         INTERNAL_themeStyle: resolvedProps[property]?.INTERNAL_themeStyle
           ? [
@@ -288,6 +289,17 @@ export function usePropsResolution(
           : pseudoComponentThemeProps.style,
       };
 
+      // resolvedProps[property] = {
+      //   ...pseudoComponentThemeProps.restDefaultProps,
+      //   ...resolvedProps[property],
+      //   INTERNAL_themeStyle: resolvedProps[property]?.INTERNAL_themeStyle
+      //     ? [
+      //         ...pseudoComponentThemeProps.style,
+      //         ...resolvedProps[property].INTERNAL_themeStyle,
+      //       ]
+      //     : pseudoComponentThemeProps.style,
+      // };
+
       // if (component === 'SliderTrack') {
       //   console.log(
       //     '&&&&&',
@@ -296,24 +308,26 @@ export function usePropsResolution(
       //     resolvedProps[property]
       //   );
       // }
-    } else if (!pseudoPropStateMap[property]) {
-      console.log(
-        property,
-        componentThemeProps.internalPseudoProps[property],
-        'hello property'
-      );
-
-      resolvedProps[property] = {
-        ...resolvedProps[property],
-        ...componentThemeProps.internalPseudoProps[property],
-        // INTERNAL_themeStyle: resolvedProps[property]?.INTERNAL_themeStyle
-        //   ? [
-        //       ...pseudoComponentThemeProps.style,
-        //       ...resolvedProps[property].INTERNAL_themeStyle,
-        //     ]
-        //   : pseudoComponentThemeProps.style,
-      };
     }
+
+    // else if (!pseudoPropStateMap[property]) {
+    //   console.log(
+    //     property,
+    //     componentThemeProps.internalPseudoProps[property],
+    //     'hello property'
+    //   );
+
+    //   resolvedProps[property] = {
+    //     ...resolvedProps[property],
+    //     ...componentThemeProps.internalPseudoProps[property],
+    //     // INTERNAL_themeStyle: resolvedProps[property]?.INTERNAL_themeStyle
+    //     //   ? [
+    //     //       ...pseudoComponentThemeProps.style,
+    //     //       ...resolvedProps[property].INTERNAL_themeStyle,
+    //     //     ]
+    //     //   : pseudoComponentThemeProps.style,
+    //   };
+    // }
   }
   // }
 

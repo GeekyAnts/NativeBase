@@ -12,7 +12,6 @@ const SliderTrack = ({ children, ...props }: ISliderTrackProps, ref?: any) => {
     // orientation,
     trackProps,
     onTrackLayout,
-    colorScheme,
     sliderSize,
     isReadOnly,
     isDisabled,

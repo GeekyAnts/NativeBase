@@ -788,7 +788,7 @@ export const getStyleAndFilteredProps = ({
           !key.startsWith('_') &&
           key !== 'extraProp' &&
           key !== 'colorScheme' &&
-          key !== 'style' &&
+          // key !== 'style' &&
           key !== 'variants' &&
           key !== 'sizes' &&
           key !== 'variant'
