@@ -25,7 +25,6 @@ const SliderTrack = ({ children, ...props }: ISliderTrackProps, ref?: any) => {
     {
       sliderSize,
       colorScheme,
-      // isVertical,
       variant,
       ...props,
     },
@@ -35,8 +34,9 @@ const SliderTrack = ({ children, ...props }: ISliderTrackProps, ref?: any) => {
   // console.log(
   //   // resolvedProps,
   //   // props,
-  //   _sliderTrack,
-  //   _pressable,
+  //   // _sliderTrack,
+  //   // _pressable,
+  //   resolvedProps,
   //   '&&& resolved props slider track ****'
   // );
 

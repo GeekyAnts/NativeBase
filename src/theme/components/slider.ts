@@ -78,7 +78,7 @@ export const SliderThumb = {
         _pressed: {
           _interactionBox: {
             borderWidth: '8',
-            borderColor: `${colorScheme}.300`,
+            borderColor: `red.300`,
           },
         },
       },
@@ -130,10 +130,6 @@ export const SliderThumb = {
 export const SliderFilledTrack = {
   baseStyle: ({ colorScheme }: any) => {
     return {
-      // style:
-      //   orientation === 'vertical'
-      //     ? { height: sliderTrackPosition, width: size }
-      //     : { width: sliderTrackPosition, height: size },
       _light: {
         bg: `${colorScheme}.600`,
       },
@@ -145,6 +141,25 @@ export const SliderFilledTrack = {
   defaultProps: {
     colorScheme: 'primary',
   },
+
+  variants: {
+    vertical: {
+      // height: '100%',
+      bottom: 0,
+      _reversed: {
+        top: 0,
+        bottom: undefined,
+      },
+    },
+    horizontal: {
+      // height: `4px`,
+      left: 0,
+      _reversed: {
+        right: 0,
+        left: undefined,
+      },
+    },
+  },
 };
 
 const sliderSizes = {
@@ -154,44 +169,11 @@ const sliderSizes = {
 };
 
 const variants = {
-  vertical: () => {
-    return {
-      height: '100%',
-
-      _sliderFilledTrack: {
-        style: {
-          // height: sliderTrackPosition,
-          // width: size,
-        },
-        bottom: 0,
-        _reversed: {
-          top: 0,
-        },
-      },
-    };
+  vertical: {
+    height: '100%',
   },
-  horizontal: () => {
-    return {
-      width: '100%',
-      _sliderFilledTrack: {
-        // style: {
-        //   width: sliderTrackPosition,
-        // },
-        height: `4px`,
-        left: 0,
-        // bottom: undefined,
-        // top: undefined,
-        // right: undefined,
-        _reversed: {
-          right: 0,
-        },
-
-        // left: orientation !== 'vertical' && !isReversed ? 0 : undefined,
-        // bottom: orientation === 'vertical' && !isReversed ? 0 : undefined,
-        // right: orientation !== 'vertical' && isReversed ? 0 : undefined,
-        // top: orientation === 'vertical' && isReversed ? 0 : undefined,
-      },
-    };
+  horizontal: {
+    width: '100%',
   },
 };
 

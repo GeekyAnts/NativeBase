@@ -12,7 +12,7 @@ import {
 import { useResponsiveSSRProps } from '../useResponsiveSSRProps';
 import type { ComponentTheme } from '../../theme';
 import { useNativeBaseConfig } from '../../core/NativeBaseContext';
-import { getThemeProps } from '../../core/ResolvedStyleMap';
+import { getThemeProps, pseudoPropStateMap } from '../../core/ResolvedStyleMap';
 
 import { useColorMode } from '../../core/color-mode';
 import { PSEUDO_PROP_COMPONENT_MAP } from '../../core/ResolvedStyleMap';
@@ -157,7 +157,7 @@ export function usePropsResolution(
   );
 
   if (component === 'SliderThumb') {
-    console.log(componentThemeProps, resolvedProps, 'componentThemeProps');
+    console.log(componentThemeProps, state, 'componentThemeProps');
   }
 
   // if (component === 'IconButton') {
@@ -252,9 +252,9 @@ export function usePropsResolution(
         incomingProps
       );
 
-      if (component === 'Radio' && property === '_stack') {
-        // console.log(pseudoComponentThemeProps, incomingProps, 'property here');
-      }
+      // if (component === 'Radio' && property === '_stack') {
+      //   // console.log(pseudoComponentThemeProps, incomingProps, 'property here');
+      // }
       // if (component === 'Radio' && property === '_stack') {
       //   console.log(incomingProps, 'property here');
       // }
@@ -280,14 +280,31 @@ export function usePropsResolution(
           : pseudoComponentThemeProps.style,
       };
 
-      if (component === 'SliderTrack') {
-        console.log(
-          '&&&&&',
-          incomingProps,
-          // componentThemeProps.internalPseudoProps[property],
-          resolvedProps[property]
-        );
-      }
+      // if (component === 'SliderTrack') {
+      //   console.log(
+      //     '&&&&&',
+      //     incomingProps,
+      //     // componentThemeProps.internalPseudoProps[property],
+      //     resolvedProps[property]
+      //   );
+      // }
+    } else if (!pseudoPropStateMap[property]) {
+      console.log(
+        property,
+        componentThemeProps.internalPseudoProps[property],
+        'hello property'
+      );
+
+      resolvedProps[property] = {
+        ...resolvedProps[property],
+        ...componentThemeProps.internalPseudoProps[property],
+        // INTERNAL_themeStyle: resolvedProps[property]?.INTERNAL_themeStyle
+        //   ? [
+        //       ...pseudoComponentThemeProps.style,
+        //       ...resolvedProps[property].INTERNAL_themeStyle,
+        //     ]
+        //   : pseudoComponentThemeProps.style,
+      };
     }
   }
   // }
