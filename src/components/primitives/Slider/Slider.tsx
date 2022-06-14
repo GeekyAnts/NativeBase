@@ -12,6 +12,8 @@ function Slider({ isDisabled, isReadOnly, ...props }: ISliderProps, ref?: any) {
   const newProps = {
     ...props,
     'aria-label': props.accessibilityLabel ?? 'Slider',
+    // 'orientation': props.orientation || 'horizontal',
+    'variant': props.orientation || 'horizontal',
   };
 
   if (typeof props.value === 'number') {
@@ -52,7 +54,6 @@ function Slider({ isDisabled, isReadOnly, ...props }: ISliderProps, ref?: any) {
     isReadOnly,
   });
 
-  console.log(resolvedProps, 'resolved props here ^^^', props);
   const { trackProps } = useSlider(
     (props as unknown) as any,
     state,
@@ -81,7 +82,7 @@ function Slider({ isDisabled, isReadOnly, ...props }: ISliderProps, ref?: any) {
   }, [
     trackLayout,
     state,
-    props.orientation,
+    // props.orientation,
     isDisabled,
     props.isReversed,
     props.colorScheme,

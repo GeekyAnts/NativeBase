@@ -1,6 +1,7 @@
 import React from 'react';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { Pressable } from '../Pressable';
+import { StyleSheet } from 'react-native';
 import Box from '../Box';
 import { SliderContext } from './Context';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
@@ -24,8 +25,6 @@ const SliderTrack = ({ children, ...props }: ISliderTrackProps, ref?: any) => {
     'SliderTrack',
     {
       sliderSize,
-      colorScheme,
-      // isVertical,
       variant,
       ...props,
     },
@@ -35,8 +34,9 @@ const SliderTrack = ({ children, ...props }: ISliderTrackProps, ref?: any) => {
   // console.log(
   //   // resolvedProps,
   //   // props,
-  //   _sliderTrack,
-  //   _pressable,
+  //   // _sliderTrack,
+  //   // _pressable,
+  //   resolvedProps,
   //   '&&& resolved props slider track ****'
   // );
 
@@ -46,7 +46,6 @@ const SliderTrack = ({ children, ...props }: ISliderTrackProps, ref?: any) => {
     return null;
   }
 
-  // console.log(_pressable, 'pressable props here &&&***');
   // console.log(trackProps, 'trackProps props here &&&***');
   // console.log(resolvedProps, 'resolvedProps props here &&&***');
   // resolvedProps.boxSize = undefined;
