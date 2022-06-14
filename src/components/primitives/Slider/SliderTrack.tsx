@@ -1,6 +1,7 @@
 import React from 'react';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { Pressable } from '../Pressable';
+import { StyleSheet } from 'react-native';
 import Box from '../Box';
 import { SliderContext } from './Context';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
@@ -24,7 +25,6 @@ const SliderTrack = ({ children, ...props }: ISliderTrackProps, ref?: any) => {
     'SliderTrack',
     {
       sliderSize,
-      colorScheme,
       variant,
       ...props,
     },
@@ -46,7 +46,11 @@ const SliderTrack = ({ children, ...props }: ISliderTrackProps, ref?: any) => {
     return null;
   }
 
-  // console.log(_pressable, 'pressable props here &&&***');
+  console.log(
+    StyleSheet.flatten(_pressable.INTERNAL_themeStyle),
+    StyleSheet.flatten(resolvedProps.INTERNAL_themeStyle),
+    'pressable props here &&&***'
+  );
   // console.log(trackProps, 'trackProps props here &&&***');
   // console.log(resolvedProps, 'resolvedProps props here &&&***');
   // resolvedProps.boxSize = undefined;

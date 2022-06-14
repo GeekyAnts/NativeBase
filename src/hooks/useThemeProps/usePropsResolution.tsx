@@ -156,9 +156,9 @@ export function usePropsResolution(
     { ...config, name: component }
   );
 
-  if (component === 'SliderThumb') {
-    console.log(componentThemeProps, state, 'componentThemeProps');
-  }
+  // if (component === 'SliderThumb') {
+  //   console.log(componentThemeProps, state, 'componentThemeProps');
+  // }
 
   // if (component === 'IconButton') {
   //   console.log(
@@ -240,6 +240,14 @@ export function usePropsResolution(
   //     // StyleSheet.flatten(pseudoComponentThemeProps.style),
   //     // componentThemeProps.internalPseudoProps
   //     // resolvedProps[property]
+  //   );
+  // }
+
+  // if (component === 'SliderTrack') {
+  //   console.log(
+  //     componentThemeProps.internalPseudoProps,
+  //     componentThemeProps,
+  //     'incoming props here 111'
   //   );
   // }
 
