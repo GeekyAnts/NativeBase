@@ -8,33 +8,48 @@ import type { ISliderTrackProps } from './types';
 
 const SliderTrack = ({ children, ...props }: ISliderTrackProps, ref?: any) => {
   const {
-    orientation,
+    // orientation,
     trackProps,
     onTrackLayout,
     colorScheme,
     sliderSize,
     isReadOnly,
     isDisabled,
+    variant,
   } = React.useContext(SliderContext);
 
-  const isVertical = orientation === 'vertical';
+  // const isVertical = orientation === 'vertical';
 
   const { _pressable, ...resolvedProps } = usePropsResolution(
     'SliderTrack',
     {
-      size: sliderSize,
+      sliderSize,
       colorScheme,
-      isVertical,
+      // isVertical,
+      variant,
       ...props,
     },
     { isReadOnly, isDisabled }
   );
 
+  // console.log(
+  //   // resolvedProps,
+  //   // props,
+  //   _sliderTrack,
+  //   _pressable,
+  //   '&&& resolved props slider track ****'
+  // );
+
+  // console.log(variant, 'variant here');
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
   }
 
+  // console.log(_pressable, 'pressable props here &&&***');
+  // console.log(trackProps, 'trackProps props here &&&***');
+  // console.log(resolvedProps, 'resolvedProps props here &&&***');
+  // resolvedProps.boxSize = undefined;
   return (
     <Pressable
       onLayout={onTrackLayout}

@@ -1,19 +1,11 @@
 export const SliderTrack = {
-  baseStyle: ({ isVertical, size }: any) => {
+  baseStyle: () => {
     return {
       borderRadius: 'lg',
       overflow: 'hidden',
-      style: {
-        height: isVertical ? '100%' : size,
-        width: !isVertical ? '100%' : size,
-      },
       _pressable: {
         alignItems: 'center',
         justifyContent: 'center',
-        height: isVertical ? '100%' : size,
-        width: !isVertical ? '100%' : size,
-        py: !isVertical ? '3' : undefined,
-        px: isVertical ? '3' : undefined,
       },
       _light: {
         bg: 'muted.200',
@@ -22,6 +14,27 @@ export const SliderTrack = {
         bg: 'muted.700',
       },
     };
+  },
+
+  variants: {
+    horizontal: {
+      px: '3',
+      width: '100%',
+      height: 1,
+      _pressable: {
+        height: 1,
+        width: '100%',
+      },
+    },
+    vertical: {
+      py: '3',
+      height: '100%',
+      width: 1,
+      _pressable: {
+        height: '100%',
+        width: 1,
+      },
+    },
   },
 };
 
@@ -44,7 +57,7 @@ export const SliderThumb = {
         direction: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        space: 2,
+        // space: 2,
       },
       _light: {
         bg: `${colorScheme}.600`,
@@ -103,34 +116,24 @@ export const SliderThumb = {
   },
   sizes: {
     lg: {
-      _interactionBox: '3',
+      _interactionBox: { p: '3' },
     },
     md: {
-      _interactionBox: '2',
+      _interactionBox: { p: '2.5' },
     },
     sm: {
-      _interactionBox: '2.5',
+      _interactionBox: { p: '2' },
     },
   },
 };
 
 export const SliderFilledTrack = {
-  baseStyle: ({
-    orientation,
-    isReversed,
-    sliderTrackPosition,
-    size,
-    colorScheme,
-  }: any) => {
+  baseStyle: ({ colorScheme }: any) => {
     return {
-      left: orientation !== 'vertical' && !isReversed ? 0 : undefined,
-      bottom: orientation === 'vertical' && !isReversed ? 0 : undefined,
-      right: orientation !== 'vertical' && isReversed ? 0 : undefined,
-      top: orientation === 'vertical' && isReversed ? 0 : undefined,
-      style:
-        orientation === 'vertical'
-          ? { height: sliderTrackPosition, width: size }
-          : { width: sliderTrackPosition, height: size },
+      // style:
+      //   orientation === 'vertical'
+      //     ? { height: sliderTrackPosition, width: size }
+      //     : { width: sliderTrackPosition, height: size },
       _light: {
         bg: `${colorScheme}.600`,
       },
@@ -144,29 +147,70 @@ export const SliderFilledTrack = {
   },
 };
 
-const sizes = {
-  lg: { thumbSize: 6, sliderTrackHeight: 6, _interactionBox: { p: '3' } },
-  md: { thumbSize: 5, sliderTrackHeight: 5, _interactionBox: { p: '2.5' } },
-  sm: { thumbSize: 4, sliderTrackHeight: 4, _interactionBox: { p: '2' } },
+const sliderSizes = {
+  lg: { thumbSize: 6, sliderTrackHeight: 6 },
+  md: { thumbSize: 5, sliderTrackHeight: 5 },
+  sm: { thumbSize: 4, sliderTrackHeight: 4 },
 };
 
-export const Slider = {
-  baseStyle: (props: any) => {
+const variants = {
+  vertical: () => {
     return {
-      alignItems: 'center',
-      justifyContent: 'center',
-      height: props.orientation === 'vertical' ? '100%' : undefined,
-      width: props.orientation !== 'vertical' ? '100%' : undefined,
-      _disabled: {
-        opacity: 0.4,
-        _web: {
-          cursor: 'not-allowed',
+      height: '100%',
+
+      _sliderFilledTrack: {
+        style: {
+          // height: sliderTrackPosition,
+          // width: size,
+        },
+        bottom: 0,
+        _reversed: {
+          top: 0,
         },
       },
     };
   },
+  horizontal: () => {
+    return {
+      width: '100%',
+      _sliderFilledTrack: {
+        // style: {
+        //   width: sliderTrackPosition,
+        // },
+        height: `4px`,
+        left: 0,
+        // bottom: undefined,
+        // top: undefined,
+        // right: undefined,
+        _reversed: {
+          right: 0,
+        },
+
+        // left: orientation !== 'vertical' && !isReversed ? 0 : undefined,
+        // bottom: orientation === 'vertical' && !isReversed ? 0 : undefined,
+        // right: orientation !== 'vertical' && isReversed ? 0 : undefined,
+        // top: orientation === 'vertical' && isReversed ? 0 : undefined,
+      },
+    };
+  },
+};
+
+export const Slider = {
+  baseStyle: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    _disabled: {
+      opacity: 0.4,
+      _web: {
+        cursor: 'not-allowed',
+      },
+    },
+  },
   defaultProps: {
     size: 'sm',
+    variant: 'horizontal',
+    colorScheme: 'primary',
   },
-  sizes,
+  sizes: sliderSizes,
+  variants,
 };
