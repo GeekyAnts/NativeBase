@@ -14,7 +14,7 @@ function Slider({ isDisabled, isReadOnly, ...props }: ISliderProps, ref?: any) {
     'aria-label': props.accessibilityLabel ?? 'Slider',
   };
 
-  if (typeof props.value === 'number') {
+  if (typeof props.value === 'number' || typeof props.value === 'string') {
     //@ts-ignore - React Native Aria slider accepts array of values
     newProps.value = [props.value];
   }
