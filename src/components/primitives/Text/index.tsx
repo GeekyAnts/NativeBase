@@ -30,7 +30,7 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
     _hover,
     fontSize,
     numberOfLines,
-    ...reslovedProps
+    ...resolvedProps
   } = usePropsResolution(
     'Text',
     props,
@@ -66,7 +66,7 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
   }
 
   const propsToSpread = {
-    ...reslovedProps,
+    ...resolvedProps,
     numberOfLines:
       numberOfLines || noOfLines
         ? numberOfLines || noOfLines
@@ -74,7 +74,7 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
         ? 1
         : undefined,
     ...resolvedFontFamily,
-    bg: highlight ? 'warning.300' : reslovedProps.bg,
+    bg: highlight ? 'warning.300' : resolvedProps.bg,
     textDecorationLine:
       underline && strikeThrough
         ? 'underline line-through'
@@ -82,7 +82,7 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
         ? 'underline'
         : strikeThrough
         ? 'line-through'
-        : reslovedProps.textDecorationLine,
+        : resolvedProps.textDecorationLine,
     fontSize: sub ? 10 : fontSize,
     ref: mergeRefs([ref, _ref]),
     ...(isHovered && _hover),
