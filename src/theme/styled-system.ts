@@ -24,6 +24,50 @@ export const getColor = (rawValue: any, scale: any, theme: any) => {
   }
 };
 
+//Handle flex Properties for react-native
+
+const flexStart = ['start', 'left', 'self-start'];
+const flexEnd = ['end', 'right', 'self-end'];
+const flexValues = [
+  'normal',
+  'inherit',
+  'initial',
+  'revert',
+  'unset',
+  'auto',
+  '-moz-initial',
+  '-moz-max-content',
+  '-moz-min-content',
+  'content',
+  'max-content',
+  'min-content',
+  'webkit-auto',
+];
+
+const getFlexValue = (
+  rawValue: any,
+  _scale: any,
+  _theme: any,
+  _fontSize: any,
+  property: string
+) => {
+  if (Platform.OS === 'web') return get(_scale, rawValue, rawValue);
+
+  if (flexEnd.includes(rawValue)) rawValue = 'flex-end';
+
+  if (flexStart.includes(rawValue)) rawValue = 'flex-start';
+
+  if (property === 'flexBasis' && rawValue === 'auto') {
+    rawValue = 'auto';
+  } else if (
+    flexValues.includes(rawValue) ||
+    (property === 'justifyContent' && rawValue === 'stretch')
+  ) {
+    rawValue = undefined;
+  }
+  return get(_scale, rawValue, rawValue);
+};
+
 // To handle negative margins
 const getMargin = (n: any, scale: any) => {
   n = convertStringNumberToNumber('margin', n);
@@ -106,22 +150,72 @@ export const layout = {
 } as const;
 
 export const flexbox = {
-  alignItems: true,
-  alignContent: true,
-  justifyItems: true,
-  justifyContent: true,
-  flexWrap: true,
-  flexDirection: true,
+  alignItems: {
+    property: 'alignItems',
+    scale: 'flexbox',
+    transformer: getFlexValue,
+  },
+  alignContent: {
+    property: 'alignContent',
+    scale: 'flexbox',
+    transformer: getFlexValue,
+  },
+  justifyItems: {
+    property: 'justifyItems',
+    scale: 'flexbox',
+    transformer: getFlexValue,
+  },
+  justifyContent: {
+    property: 'justifyContent',
+    scale: 'flexbox',
+    transformer: getFlexValue,
+  },
+  flexWrap: {
+    property: 'flexWrap',
+    scale: 'flexbox',
+    transformer: getFlexValue,
+  },
+  flexDirection: {
+    property: 'flexDirection',
+    scale: 'flexbox',
+    transformer: getFlexValue,
+  },
   flexDir: {
     property: 'flexDirection',
+    scale: 'flexbox',
+    transformer: getFlexValue,
   },
   // item
-  flex: true,
-  flexGrow: true,
-  flexShrink: true,
-  flexBasis: true,
-  justifySelf: true,
-  alignSelf: true,
+  flex: {
+    property: 'flex',
+    scale: 'flexbox',
+    transformer: getFlexValue,
+  },
+  flexGrow: {
+    property: 'flexGrow',
+    scale: 'flexbox',
+    transformer: getFlexValue,
+  },
+  flexShrink: {
+    property: 'flexShrink',
+    scale: 'flexbox',
+    transformer: getFlexValue,
+  },
+  flexBasis: {
+    property: 'flexBasis',
+    scale: 'flexbox',
+    transformer: getFlexValue,
+  },
+  justifySelf: {
+    property: 'justifySelf',
+    scale: 'flexbox',
+    transformer: getFlexValue,
+  },
+  alignSelf: {
+    property: 'alignSelf',
+    scale: 'flexbox',
+    transformer: getFlexValue,
+  },
   order: true,
 } as const;
 
@@ -627,7 +721,13 @@ const getRNKeyAndStyleValue = ({
     let val = value;
 
     if (transformer) {
-      val = transformer(val, theme[scale], theme, styledSystemProps.fontSize);
+      val = transformer(
+        val,
+        theme[scale],
+        theme,
+        styledSystemProps.fontSize,
+        property
+      );
     } else {
       // If a token is not found in the theme
       val = get(theme[scale], value, value);
