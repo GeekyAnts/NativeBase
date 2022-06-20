@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { usePropsWithComponentTheme } from '../hooks/useThemeProps/usePropsWithComponentTheme';
 import type { ComponentTheme } from '../theme';
 import type { FactoryComponentProps } from './types';
@@ -10,7 +10,7 @@ export default function Factory<P>(
 ) {
   return React.forwardRef(
     ({ children, ...props }: P & FactoryComponentProps, ref: any) => {
-      const StyledComponent = makeStyledComponent(Component);
+      const StyledComponent = useMemo(() => makeStyledComponent(Component), []);
       const calculatedProps = usePropsWithComponentTheme(
         componentTheme ?? {},
         props

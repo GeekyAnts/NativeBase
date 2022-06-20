@@ -531,6 +531,10 @@ export const typography = {
   fontFamily: {
     property: 'fontFamily',
     scale: 'fonts',
+    transformer: (val: any, scale: any) => {
+      const value = get(scale, val);
+      return value ? value.toString() : undefined;
+    },
   },
   fontSize: {
     property: 'fontSize',
