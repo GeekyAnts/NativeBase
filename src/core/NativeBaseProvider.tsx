@@ -17,10 +17,8 @@ import {
 } from './NativeBaseContext';
 import { useToast } from '../components/composites/Toast';
 import { Platform, useWindowDimensions } from 'react-native';
-import {
-  getClosestBreakpoint,
-  platformSpecificSpaceUnits,
-} from '../theme/tools/utils';
+import { getClosestBreakpoint } from '../theme/tools/utils';
+import { platformSpecificSpaceUnits } from '../theme/tools/platformSpecificSpaceUnits';
 import { init as initResolvedStyleMap } from './ResolvedStyleMap';
 
 initResolvedStyleMap();

@@ -361,3 +361,16 @@ export type {
 
 export type { StyledProps } from './theme';
 export type { ITheme, ICustomTheme } from './theme';
+
+import preval from 'preval.macro';
+import { init } from './core/ResolvedStyleMap';
+const theme = preval(`
+const fs = require('fs');
+const path = require('path');
+const theme = require("./bundle.js");
+
+module.exports = {
+  resolvedStyledMap: theme.resolvedStyledMap
+};`);
+
+init(theme.resolvedStyledMap);

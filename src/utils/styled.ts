@@ -1,22 +1,20 @@
-import React from 'react';
-import { useStyledSystemPropsResolver } from '../hooks/';
 import get from 'lodash.get';
-import { StyleSheet } from 'react-native';
 import {
   COLOR_SCHEME_MAP,
   pseudoPropStateMap,
   PSEUDO_PROP_COMPONENT_MAP,
-} from '../core';
+} from '../core/ResolvedStyleMap';
 //@ts-ignore
 // eslint-disable-next-line dot-notation
-window['StyleSheet'] = StyleSheet;
+// window['StyleSheet'] = StyleSheet;
 import { getStyledObject } from './getStyledComponentAndObjects';
 import {
   get as getResolvedStyleMap,
   set as setResolvedStyleMap,
-} from '../core';
+} from '../core/ResolvedStyleMap';
 import { theme } from '../theme';
 
+console.log('one here ****');
 // window['logger'] = {};
 // console.batchTime = (key) => {
 //   const keyValue = window['logger'][key];
@@ -176,6 +174,14 @@ export const updateComponentThemeMap = (name: string, inputProps?: {}) => {
 
   // resolve for colors only for button
 
+  // updateComponentThemeMapForColorMode(
+  //   name,
+  //   `${name}.baseStyle`,
+  //   inputProps,
+  //   'light'
+  //   // true
+  // );
+
   if (COLOR_SCHEME_MAP[name]) {
     for (const color in theme.colors) {
       if (
@@ -280,74 +286,16 @@ export const updateComponentThemeMap = (name: string, inputProps?: {}) => {
   // }
 };
 
-export const makeStyledComponent = (
-  Comp: any
-  // componentName: keyof ITheme['components']
-) => {
-  //TODO: component theme
-  // return <> </>;
+console.time('resolveTheme>>>> ALL');
 
-  // const globalLightStyle = getStyledComponent(componentName, 'light');
-  // const globalDarkStyle = getStyledComponent(componentName, 'dark');
-
-  // console.log(StyleSheet.flatten(globalLightStyle.style), 'hello style');
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  return React.forwardRef(({ debug, ...props }: any, ref: any) => {
-    // console.log(props, 'hello props **********');
-    const [style, restProps] = useStyledSystemPropsResolver(props);
-
-    // console.log(props, 'props here');
-    // if (process.env.NODE_ENV === "development" && debug) {
-    //   /* eslint-disable-next-line */
-    //   console.log(
-    //     `%cstyleSystem`,
-    //     "background: #4b5563; color: #d97706; font-weight: 700; padding: 2px 8px;"
-    //   );
-    //   /* eslint-disable-next-line */
-    //   console.log("%c props: ", "color: #4ade80; font-weight: 700;", props);
-    //   /* eslint-disable-next-line */
-    //   console.log("%c style: ", "color: #22d3ee; font-weight: 700;", style);
-    //   /* eslint-disable-next-line */
-    //   console.log(
-    //     "%c restProps: ",
-    //     "color: #22d3ee; font-weight: 700;",
-    //     restProps
-    //   );
-    // }
-
-    // console.log("box props", props);
-    // const safeAreaProps = useSafeArea(props);
-    // console.timeEnd("useSafeArea");
-
-    // check dark / light mode
-    // based on color mode pass style
-
-    // const { colorMode } = useColorMode();
-    // let componentStyle = {};
-    // if (colorMode === 'light') {
-    //   componentStyle = globalLightStyle;
-    // } else {
-    //   componentStyle = globalDarkStyle;
-    // }
-
-    if (props.hello) {
-      console.log(props, style, restProps, ' props here &&&*** box component');
-    }
-
-    return (
-      <Comp {...restProps} style={style} ref={ref}>
-        {props.children}
-      </Comp>
-    );
-  });
-};
-
-// console.time('resolveTheme>>>>');
 for (const key in theme.components) {
+  // console.time('resolveTheme>>>> ' + key);
   updateComponentThemeMap(key);
+  // console.timeEnd('resolveTheme>>>> ' + key);
 }
-// console.timeEnd('resolveTheme>>>>');
+console.timeEnd('resolveTheme>>>> ALL');
 
+export * from '../core/ResolvedStyleMap';
 // for (const key in theme.components) {
 // }
 

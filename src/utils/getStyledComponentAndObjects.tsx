@@ -1,41 +1,13 @@
-import { resolvePropsToStyle } from '../hooks';
 import merge from 'lodash.merge';
-import { Platform } from 'react-native';
-import { propsFlattener } from '../hooks/useThemeProps/propsFlattener';
-import { theme } from '../theme';
 import {
   callPropsFlattener,
+  propsFlattener,
   propsSpreader,
-} from '../hooks/useThemeProps/usePropsResolution';
+  resolvePropsToStyle,
+} from '../hooks/useThemeProps/propsFlattener';
+import { theme } from '../theme';
 import { isEmptyObj } from './isEmptyObj';
 import isEmpty from 'lodash.isempty';
-
-// window['logger'] = {};
-// console.batchTime = (key) => {
-//   const keyValue = window['logger'][key];
-//   if (keyValue) {
-//     // keyValue.totalTime = keyValue.totalTime + (Date.now() - keyValue.startTime);
-//     keyValue.startTime = window.performance.now();
-//   } else {
-//     window['logger'][key] = {
-//       startTime: window.performance.now(),
-//       totalTime: 0,
-//     };
-//   }
-// };
-
-// console.batchTimeEnd = (key) => {
-//   const keyValue = window['logger'][key];
-//   if (keyValue) {
-//     keyValue.totalTime =
-//       keyValue.totalTime + (window.performance.now() - keyValue.startTime);
-//     // console.log(
-//     //   "useStyledSystemPropsResolver 2222",
-//     //   keyValue,
-//     //   window.performance.now()
-//     // );
-//   }
-// };
 
 export const getStyledObject = (
   //@ts-ignore
@@ -61,7 +33,8 @@ export const getStyledObject = (
   [flattenProps, specificityMap] = propsFlattener(
     {
       props: inputWithDefaultProps,
-      platform: Platform.OS,
+      //TODO: build-time
+      platform: 'web', //Platform.OS,
       colormode: colorMode,
       state: {},
       currentSpecificityMap: {},
@@ -360,57 +333,3 @@ const mergeStylesWithSpecificity = (
 
   return [flattenProps];
 };
-
-// export const makeStyledComponent = (
-//   Comp: any,
-//   componentName: keyof ITheme['components']
-// ) => {
-//   //TODO: component theme
-
-//   const globalLightStyle = resolveComponentThemeStyle(componentName, 'light');
-//   const globalDarkStyle = resolveComponentThemeStyle(componentName, 'dark');
-
-//   return React.forwardRef(({ debug, ...props }: any, ref: any) => {
-//     // console.log(props, "hello props **********");
-//     const [style, restProps] = useStyledSystemPropsResolver(props);
-//     // if (process.env.NODE_ENV === "development" && debug) {
-//     //   /* eslint-disable-next-line */
-//     //   console.log(
-//     //     `%cstyleSystem`,
-//     //     "background: #4b5563; color: #d97706; font-weight: 700; padding: 2px 8px;"
-//     //   );
-//     //   /* eslint-disable-next-line */
-//     //   console.log("%c props: ", "color: #4ade80; font-weight: 700;", props);
-//     //   /* eslint-disable-next-line */
-//     //   console.log("%c style: ", "color: #22d3ee; font-weight: 700;", style);
-//     //   /* eslint-disable-next-line */
-//     //   console.log(
-//     //     "%c restProps: ",
-//     //     "color: #22d3ee; font-weight: 700;",
-//     //     restProps
-//     //   );
-//     // }
-
-//     // console.log("box props", props);
-//     // const safeAreaProps = useSafeArea(props);
-//     // console.timeEnd("useSafeArea");
-
-//     // check dark / light mode
-//     // based on color mode pass style
-
-//     const { colorMode } = useColorMode();
-//     let componentStyle = {};
-//     if (colorMode === 'light') {
-//       componentStyle = globalLightStyle;
-//     } else {
-//       componentStyle = globalDarkStyle;
-//     }
-
-//     // console.log(StyleSheet.flatten(componentStyle.style), "hello *********");
-//     return (
-//       <Comp {...restProps} style={[style, componentStyle.style]} ref={ref}>
-//         {props.children}
-//       </Comp>
-//     );
-//   });
-// };

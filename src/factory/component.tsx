@@ -2,7 +2,7 @@ import React from 'react';
 import { usePropsWithComponentTheme } from '../hooks/useThemeProps/usePropsWithComponentTheme';
 import { ComponentTheme, theme } from '../theme';
 import type { FactoryComponentProps } from './types';
-import { makeStyledComponent } from '../utils/styled';
+import { makeStyledComponent } from '../utils/makeStyledComponent';
 
 export default function Factory<P>(
   Component: React.ComponentType<P>,

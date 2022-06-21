@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { getColor } from '../../../theme';
 import { useTheme } from '../../../hooks';
-import { makeStyledComponent } from '../../../utils/styled';
+import { makeStyledComponent } from '../../../utils/makeStyledComponent';
 import { wrapStringChild } from '../../../utils/wrapStringChild';
 import type { IBoxProps, InterfaceBoxProps } from './types';
 import { useSafeArea } from '../../../hooks/useSafeArea';
@@ -112,6 +112,7 @@ const GradientBox = forwardRef(
 const Box = ({ children, ...props }: IBoxProps, ref: any) => {
   const { _text, ...resolvedProps } = usePropsResolution('Box', props);
 
+  console.log(resolvedProps, props, 'resolved props here');
   if (safeAreaPropsExists(props)) {
     return (
       <BoxComponentWithSafeArea {...resolvedProps} _text={_text} ref={ref}>

@@ -3,13 +3,9 @@ import isNil from 'lodash.isnil';
 import mergeWith from 'lodash.mergewith';
 import cloneDeep from 'lodash.clonedeep';
 import { themePropertyMap } from './../../theme/base';
-import {
-  getClosestBreakpoint,
-  findLastValidBreakpoint,
-  hasValidBreakpointFormat,
-  extractInObject,
-} from './../../theme/tools';
+import { getClosestBreakpoint, extractInObject } from './../../theme/tools';
 import { useContrastText } from '../useContrastText';
+import { resolveValueWithBreakpoint } from './propsFlattener';
 
 /*
  Extract props from theme props and omit those from props
@@ -162,20 +158,6 @@ export function mergeUnderscoreProps(newProps: any, props: any) {
  * @param property : property name
  * @returns
  */
-export const resolveValueWithBreakpoint = (
-  values: any,
-  breakpointTheme: any,
-  currentBreakpoint: number,
-  property: any
-) => {
-  if (hasValidBreakpointFormat(values, breakpointTheme, property)) {
-    // Check the last valid breakpoint value from all values
-    // If current breakpoint is `md` and we have `base` then `lg`, then last value will be taken(`base` in this case)
-    return findLastValidBreakpoint(values, breakpointTheme, currentBreakpoint);
-  } else {
-    return values;
-  }
-};
 
 /**
  * Takes all prop related data and returns the props that needs to be applied to the component

@@ -12,6 +12,7 @@ export const Example = () => {
           color: 'warmGray.50',
           letterSpacing: 'lg',
         }}
+        hello
       >
         This is a Box
       </Box>

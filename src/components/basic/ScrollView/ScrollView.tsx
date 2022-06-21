@@ -4,7 +4,7 @@ import {
   usePropsResolution,
   useStyledSystemPropsResolver,
 } from '../../../hooks';
-import { makeStyledComponent } from '../../../utils/styled';
+import { makeStyledComponent } from '../../../utils/makeStyledComponent';
 import type { IScrollViewProps } from './types';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 

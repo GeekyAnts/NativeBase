@@ -1,121 +1,20 @@
 import merge from 'lodash.merge';
 
-import { Platform } from 'react-native';
 import { useNativeBase } from '../useNativeBase';
 import { omitUndefined, extractInObject, isLiteral } from '../../theme/tools';
 import { useBreakpointResolvedProps } from '../useBreakpointResolvedProps';
-import {
-  propsFlattener,
-  compareSpecificity,
-  IStateProps,
-} from './propsFlattener';
+import type { IStateProps } from './propsFlattener';
 import { useResponsiveSSRProps } from '../useResponsiveSSRProps';
 import type { ComponentTheme } from '../../theme';
 import { useNativeBaseConfig } from '../../core/NativeBaseContext';
-import { getThemeProps, pseudoPropStateMap } from '../../core/ResolvedStyleMap';
+import { init, getThemeProps } from '../../core/ResolvedStyleMap';
+import { callPropsFlattener } from './propsFlattener';
 
 import { useColorMode } from '../../core/color-mode';
 import { PSEUDO_PROP_COMPONENT_MAP } from '../../core/ResolvedStyleMap';
 import get from 'lodash.get';
 
-const SPREAD_PROP_SPECIFICITY_ORDER = [
-  'p',
-  'padding',
-  'px',
-  'py',
-  'pt',
-  'pb',
-  'pl',
-  'pr',
-  'paddingTop',
-  'paddingBottom',
-  'paddingLeft',
-  'paddingRight',
-  'm',
-  'margin',
-  'mx',
-  'my',
-  'mt',
-  'mb',
-  'ml',
-  'mr',
-  'marginTop',
-  'marginBottom',
-  'marginLeft',
-  'marginRight',
-];
-
-const FINAL_SPREAD_PROPS = [
-  'paddingTop',
-  'paddingBottom',
-  'paddingLeft',
-  'paddingRight',
-  'marginTop',
-  'marginBottom',
-  'marginLeft',
-  'marginRight',
-];
-
-const MARGIN_MAP: any = {
-  mx: ['marginRight', 'marginLeft'],
-  my: ['marginTop', 'marginBottom'],
-  mt: ['marginTop'],
-  mb: ['marginBottom'],
-  mr: ['marginRight'],
-  ml: ['marginLeft'],
-};
-
-MARGIN_MAP.margin = [...MARGIN_MAP.mx, ...MARGIN_MAP.my];
-MARGIN_MAP.m = MARGIN_MAP.margin;
-MARGIN_MAP.marginTop = MARGIN_MAP.mt;
-MARGIN_MAP.marginBottom = MARGIN_MAP.mb;
-MARGIN_MAP.marginLeft = MARGIN_MAP.ml;
-MARGIN_MAP.marginRight = MARGIN_MAP.mr;
-
-const PADDING_MAP: any = {
-  px: ['paddingRight', 'paddingLeft'],
-  py: ['paddingTop', 'paddingBottom'],
-  pt: ['paddingTop'],
-  pb: ['paddingBottom'],
-  pr: ['paddingRight'],
-  pl: ['paddingLeft'],
-};
-
-PADDING_MAP.padding = [...PADDING_MAP.px, ...PADDING_MAP.py];
-PADDING_MAP.p = PADDING_MAP.padding;
-PADDING_MAP.paddingTop = PADDING_MAP.pt;
-PADDING_MAP.paddingBottom = PADDING_MAP.pb;
-PADDING_MAP.paddingLeft = PADDING_MAP.pl;
-PADDING_MAP.paddingRight = PADDING_MAP.pr;
-
-const SPREAD_PROP_SPECIFICITY_MAP: any = {
-  ...PADDING_MAP,
-  ...MARGIN_MAP,
-};
-
-export function propsSpreader(incomingProps: any, incomingSpecifity: any) {
-  const flattenedDefaultProps: any = { ...incomingProps };
-  const specificity: any = {};
-
-  SPREAD_PROP_SPECIFICITY_ORDER.forEach((prop) => {
-    if (prop in flattenedDefaultProps) {
-      const val = incomingProps[prop] || flattenedDefaultProps[prop];
-      if (!FINAL_SPREAD_PROPS.includes(prop)) {
-        delete flattenedDefaultProps[prop];
-        specificity[prop] = incomingSpecifity[prop];
-      }
-
-      SPREAD_PROP_SPECIFICITY_MAP[prop].forEach((newProp: string) => {
-        if (compareSpecificity(specificity[newProp], specificity[prop])) {
-          specificity[newProp] = incomingSpecifity[prop];
-          flattenedDefaultProps[newProp] = val;
-        }
-      });
-    }
-  });
-
-  return merge({}, flattenedDefaultProps);
-}
+// const getThemeProps = resolvedMap.theme.getThemeProps;
 
 /**
  * @summary Combines provided porps with component's theme props and resloves them.
@@ -148,6 +47,7 @@ export function usePropsResolution(
   );
 
   const componentTheme = get(theme, `components.${component}`);
+
   let resolvedProps = usePropsResolutionWithComponentTheme(
     componentTheme,
     { ...componentThemeProps?.unResolvedProps, ...incomingProps },
@@ -201,9 +101,10 @@ export function usePropsResolution(
   //     StyleSheet.flatten(incomingProps.INTERNAL_themeStyle)
   //   );
   // }
+
   resolvedProps.INTERNAL_themeStyle = INTERNAL_themeStyle
-    ? [...componentThemeProps.style, ...INTERNAL_themeStyle]
-    : componentThemeProps.style;
+    ? [componentThemeProps.styleFromProps, ...INTERNAL_themeStyle]
+    : [componentThemeProps.styleFromProps];
 
   // if (component === 'Box') {
   //   console.log(
@@ -283,10 +184,19 @@ export function usePropsResolution(
         ...resolvedProps[property],
         INTERNAL_themeStyle: resolvedProps[property]?.INTERNAL_themeStyle
           ? [
-              ...pseudoComponentThemeProps.style,
+              pseudoComponentThemeProps.styleFromProps,
               ...resolvedProps[property].INTERNAL_themeStyle,
             ]
-          : pseudoComponentThemeProps.style,
+          : // resolvedProps[property].INTERNAL_themeStyle.unshift(
+            //     pseudoComponentThemeProps.styleFromProps
+            //   )
+            // [
+            //     {
+            //       ...pseudoComponentThemeProps.styleFromProps,
+            //     },
+            //     ...resolvedProps[property].INTERNAL_themeStyle,
+            //   ]
+            [pseudoComponentThemeProps.styleFromProps],
       };
 
       // resolvedProps[property] = {
@@ -380,33 +290,6 @@ const resolveComponentTheme = (
   } catch {
     return {};
   }
-};
-export const callPropsFlattener = (
-  targetProps = {},
-  latestSpecifictyMap = {},
-  specificity = 1,
-  cleanIncomingProps: any,
-  colorModeProps: any,
-  state: any,
-  flattenProps: any,
-  config?: any
-): any => {
-  return propsFlattener(
-    {
-      props:
-        process.env.NODE_ENV === 'development' && cleanIncomingProps.debug
-          ? { ...targetProps, debug: true }
-          : targetProps,
-      platform: Platform.OS,
-      colormode: colorModeProps.colorMode,
-      state: state || {},
-      currentSpecificityMap: latestSpecifictyMap,
-      previouslyFlattenProps: flattenProps || {},
-      cascadePseudoProps: config?.cascadePseudoProps,
-      name: config?.name,
-    },
-    specificity
-  );
 };
 
 // const isLiteral = (value: any) => {
@@ -606,7 +489,11 @@ export const usePropsResolutionWithComponentTheme = (
       responsiveProps[propName] = flattenProps[propName];
     }
   }
-  const responsivelyResolvedProps = useBreakpointResolvedProps(responsiveProps);
+
+  const responsivelyResolvedProps = useBreakpointResolvedProps(
+    responsiveProps,
+    config.name
+  );
 
   flattenProps = {
     ...flattenProps,

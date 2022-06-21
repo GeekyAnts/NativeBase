@@ -1,8 +1,7 @@
-import { Platform, StyleSheet } from 'react-native';
 import get from 'lodash.get';
-import { resolveValueWithBreakpoint } from '../hooks/useThemeProps/utils';
+import { resolveValueWithBreakpoint } from '../hooks/useThemeProps/propsFlattener';
 import { hasValidBreakpointFormat, transparentize } from './tools';
-import type { ITheme } from '.';
+// import type { ITheme } from '.';
 import type { UseResponsiveQueryParams } from '../utils/useResponsiveQuery';
 import { isEmptyObj } from '../utils/isEmptyObj';
 
@@ -637,7 +636,9 @@ const getRNKeyAndStyleValue = ({
     if (typeof val === 'string') {
       if (val.endsWith('px')) {
         val = parseFloat(val);
-      } else if (val.endsWith('em') && Platform.OS !== 'web') {
+        //TODO: build-time
+        // } else if (val.endsWith('em') && Platform.OS !== 'web') {
+      } else if (val.endsWith('em') && 'web' !== 'web') {
         const fontSize = resolveValueWithBreakpoint(
           styledSystemProps.fontSize,
           theme.breakpoints,
@@ -829,7 +830,9 @@ export const getStyleAndFilteredProps = ({
 
       const { dataSet: newDataSet, styles } = getResponsiveStyles(query);
       dataSet = { ...dataSet, ...newDataSet };
-      styleFromProps = { ...styleFromProps, ...StyleSheet.flatten(styles) };
+      // styleFromProps = { ...styleFromProps, ...StyleSheet.flatten(styles) };
+      //TODO: build-time
+      styleFromProps = { ...styleFromProps };
     } else {
     }
   }
@@ -851,7 +854,8 @@ export const getStyleAndFilteredProps = ({
   //   );
   // }
   return {
-    styleSheet: StyleSheet.create({ box: styleFromProps }),
+    //TODO: build-time
+    styleSheet: {}, // StyleSheet.create({ box: styleFromProps }),
     styleFromProps,
     restDefaultProps,
     dataSet,

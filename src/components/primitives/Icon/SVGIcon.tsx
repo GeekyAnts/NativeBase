@@ -1,6 +1,6 @@
 import React, { memo, forwardRef } from 'react';
 import { useToken, usePropsResolution } from '../../../hooks';
-import { makeStyledComponent } from '../../../utils/styled';
+import { makeStyledComponent } from '../../../utils/makeStyledComponent';
 import { Svg, G } from './nbSvg';
 import type { IIconProps } from './types';
 import { questionOutlineIconPath } from './Icons/questionIconPath';

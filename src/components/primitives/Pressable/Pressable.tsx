@@ -3,7 +3,7 @@ import { Pressable as RNPressable } from 'react-native';
 import { composeEventHandlers } from '../../../utils';
 import type { IPressableProps } from './types';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-import { makeStyledComponent } from '../../../utils/styled';
+import { makeStyledComponent } from '../../../utils/makeStyledComponent';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useFocusRing } from '@react-native-aria/focus';
 

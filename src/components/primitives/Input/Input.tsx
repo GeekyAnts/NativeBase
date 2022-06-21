@@ -9,7 +9,7 @@ import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { mergeRefs } from '../../../utils';
 import { Stack } from '../Stack';
-import { makeStyledComponent } from '../../../utils/styled';
+import { makeStyledComponent } from '../../../utils/makeStyledComponent';
 import { useResolvedFontFamily } from '../../../hooks/useResolvedFontFamily';
 
 const StyledInput = makeStyledComponent(TextInput);

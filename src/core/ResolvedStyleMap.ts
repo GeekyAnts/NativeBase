@@ -1,10 +1,10 @@
 import { forEach, map, get as lodashGet, merge } from 'lodash';
-import type { ColorMode } from './color-mode';
+// import type { ColorMode } from './color-mode';
 import { isEmptyObj } from '../utils/isEmptyObj';
 import { theme } from '../theme';
 
 // Adding Map for storing the props and style for the styled component
-let resolvedStyledMap: Map<string, any> = new Map();
+export let resolvedStyledMap: { [key: string]: any } = {};
 export const pseudoPropStateMap: any = {
   _disabled: 'isDisabled',
   _focusVisible: 'isFocusVisible',
@@ -51,20 +51,29 @@ export const COLOR_SCHEME_MAP: any = {
   SliderFilledTrack: true,
 };
 
-export const init = () => {
-  resolvedStyledMap = new Map();
+export const init = (inputResolvedStyledMap?: any) => {
+  // resolvedStyledMap = new Map();
+
+  if (inputResolvedStyledMap) {
+    resolvedStyledMap = inputResolvedStyledMap;
+  }
   if (process.env.NODE_ENV === 'development') {
     //@ts-ignore
     window['resolvedStyledMap'] = resolvedStyledMap;
+    //@ts-ignore
+
+    window['resolvedStyledMap1'] = resolvedStyledMap;
   }
 };
 
 export const get = (key: string) => {
-  return resolvedStyledMap.get(key);
+  // console.log(key, 'key here 111');
+  // console.log(resolvedStyledMap[key], 'key here 111');
+  return resolvedStyledMap[key];
 };
 
 const getThemeObject = (componentName: any, colorMode: any, state?: any) => {
-  const styleObj: any = resolvedStyledMap.get(componentName);
+  const styleObj: any = resolvedStyledMap[componentName];
 
   if (!styleObj) {
     return {};
@@ -138,7 +147,7 @@ const getComponentNameKeyFromProps = (
 
 export const getThemeProps = (
   inputComponentKeyName: string,
-  colorMode: ColorMode,
+  colorMode: any,
   state?: any,
   props: any = {}
 ): any => {
@@ -229,7 +238,7 @@ export const getThemeProps = (
   return themeObj;
 };
 export const getResolvedProps = (key: string, colorMode?: ColorMode) => {
-  const styleObj: any = resolvedStyledMap.get(key);
+  const styleObj: any = resolvedStyledMap[key];
 
   if (!colorMode || !styleObj) {
     return null;
@@ -295,7 +304,7 @@ const getPseudoStateStyles = (componentName: string, state: any) => {
 
 export const getResolvedStyleSheet = (
   componentName: string,
-  colorMode?: ColorMode,
+  colorMode?: any,
   state?: any,
   props?: any
 ) => {
@@ -348,11 +357,11 @@ export const getResolvedStyleSheet = (
 //   return styleSheet;
 // };
 export const set = (key: string, value: any, colorMode: string) => {
-  const styledMap = resolvedStyledMap.get(key);
+  const styledMap = resolvedStyledMap[key];
   if (!styledMap) {
-    resolvedStyledMap.set(key, {
+    resolvedStyledMap[key] = {
       [colorMode]: [value],
-    });
+    };
   } else {
     if (!styledMap[colorMode]) {
       styledMap[colorMode] = [];

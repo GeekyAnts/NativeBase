@@ -21,6 +21,7 @@ const HStack = (props: IHStackProps, ref?: any) => {
   if (useHasResponsiveProps(props)) {
     return null;
   }
+
   return <StackMain ref={ref} direction="row" {...resolvedProps} />;
 };
 

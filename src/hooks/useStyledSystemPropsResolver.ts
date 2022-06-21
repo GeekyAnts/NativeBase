@@ -1,11 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { getStyleAndFilteredProps, propConfig } from '../theme/styled-system';
+import { propConfig } from '../theme/styled-system';
 import { useTheme } from './useTheme';
 import React from 'react';
 import { useNativeBaseConfig } from '../core/NativeBaseContext';
 import { useResponsiveQuery } from '../utils/useResponsiveQuery';
 //@ts-ignore
 import stableHash from 'stable-hash';
+import { resolvePropsToStyle } from './useThemeProps/propsFlattener';
 
 const getStyledSystemPropsAndRestProps = (props: any) => {
   const styledSystemProps: any = {};
@@ -22,55 +23,6 @@ const getStyledSystemPropsAndRestProps = (props: any) => {
   return { styledSystemProps, restProps };
 };
 
-export const resolvePropsToStyle = (
-  styledSystemProps: any,
-  propStyle: any,
-  theme: any,
-  debug: any,
-  currentBreakpoint: any,
-  strictMode: any,
-  getResponsiveStyles?: any,
-  INTERNAL_themeStyle?: any
-) => {
-  const {
-    styleSheet,
-    unResolvedProps,
-    styleFromProps,
-    restDefaultProps,
-    dataSet,
-  } = getStyleAndFilteredProps({
-    styledSystemProps,
-    theme,
-    debug,
-    currentBreakpoint,
-    strictMode,
-    getResponsiveStyles,
-  });
-
-  // console.log(
-  //   StyleSheet.flatten([INTERNAL_themeStyle, styleSheet.box, propStyle]),
-  //   '3333 style system props'
-  // );
-  if (propStyle) {
-    return {
-      style: [INTERNAL_themeStyle, styleSheet.box, propStyle],
-      styleFromProps,
-      unResolvedProps,
-      restDefaultProps,
-
-      dataSet,
-    };
-  } else {
-    return {
-      style: [INTERNAL_themeStyle, styleSheet.box],
-      styleFromProps,
-      unResolvedProps,
-      restDefaultProps,
-
-      dataSet,
-    };
-  }
-};
 export const useStyledSystemPropsResolver = ({
   style: propStyle,
   debug,

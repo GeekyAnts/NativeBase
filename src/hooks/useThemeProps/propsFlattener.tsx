@@ -1,5 +1,13 @@
 import merge from 'lodash.merge';
-
+import {
+  findLastValidBreakpoint,
+  hasValidBreakpointFormat,
+} from '../../theme/tools';
+import { getStyleAndFilteredProps } from '../../theme/styled-system';
+// import {
+//   findLastValidBreakpoint,
+//   hasValidBreakpointFormat,
+// } from './../../theme/tools';
 const SPECIFICITY_1000 = 1000;
 const SPECIFICITY_110 = 110;
 const SPECIFICITY_100 = 100;
@@ -106,6 +114,81 @@ const pseudoPropsMap = {
   },
 } as const;
 
+const SPREAD_PROP_SPECIFICITY_ORDER = [
+  'p',
+  'padding',
+  'px',
+  'py',
+  'pt',
+  'pb',
+  'pl',
+  'pr',
+  'paddingTop',
+  'paddingBottom',
+  'paddingLeft',
+  'paddingRight',
+  'm',
+  'margin',
+  'mx',
+  'my',
+  'mt',
+  'mb',
+  'ml',
+  'mr',
+  'marginTop',
+  'marginBottom',
+  'marginLeft',
+  'marginRight',
+];
+
+const FINAL_SPREAD_PROPS = [
+  'paddingTop',
+  'paddingBottom',
+  'paddingLeft',
+  'paddingRight',
+  'marginTop',
+  'marginBottom',
+  'marginLeft',
+  'marginRight',
+];
+
+const MARGIN_MAP: any = {
+  mx: ['marginRight', 'marginLeft'],
+  my: ['marginTop', 'marginBottom'],
+  mt: ['marginTop'],
+  mb: ['marginBottom'],
+  mr: ['marginRight'],
+  ml: ['marginLeft'],
+};
+
+MARGIN_MAP.margin = [...MARGIN_MAP.mx, ...MARGIN_MAP.my];
+MARGIN_MAP.m = MARGIN_MAP.margin;
+MARGIN_MAP.marginTop = MARGIN_MAP.mt;
+MARGIN_MAP.marginBottom = MARGIN_MAP.mb;
+MARGIN_MAP.marginLeft = MARGIN_MAP.ml;
+MARGIN_MAP.marginRight = MARGIN_MAP.mr;
+
+const PADDING_MAP: any = {
+  px: ['paddingRight', 'paddingLeft'],
+  py: ['paddingTop', 'paddingBottom'],
+  pt: ['paddingTop'],
+  pb: ['paddingBottom'],
+  pr: ['paddingRight'],
+  pl: ['paddingLeft'],
+};
+
+PADDING_MAP.padding = [...PADDING_MAP.px, ...PADDING_MAP.py];
+PADDING_MAP.p = PADDING_MAP.padding;
+PADDING_MAP.paddingTop = PADDING_MAP.pt;
+PADDING_MAP.paddingBottom = PADDING_MAP.pb;
+PADDING_MAP.paddingLeft = PADDING_MAP.pl;
+PADDING_MAP.paddingRight = PADDING_MAP.pr;
+
+const SPREAD_PROP_SPECIFICITY_MAP: any = {
+  ...PADDING_MAP,
+  ...MARGIN_MAP,
+};
+
 type IPseudoPropsMap = typeof pseudoPropsMap;
 type ExtractState<T extends IPseudoPropsMap> = {
   // @ts-ignore
@@ -113,6 +196,29 @@ type ExtractState<T extends IPseudoPropsMap> = {
 };
 export type IStateProps = ExtractState<IPseudoPropsMap>;
 
+export function propsSpreader(incomingProps: any, incomingSpecifity: any) {
+  const flattenedDefaultProps: any = { ...incomingProps };
+  const specificity: any = {};
+
+  SPREAD_PROP_SPECIFICITY_ORDER.forEach((prop) => {
+    if (prop in flattenedDefaultProps) {
+      const val = incomingProps[prop] || flattenedDefaultProps[prop];
+      if (!FINAL_SPREAD_PROPS.includes(prop)) {
+        delete flattenedDefaultProps[prop];
+        specificity[prop] = incomingSpecifity[prop];
+      }
+
+      SPREAD_PROP_SPECIFICITY_MAP[prop].forEach((newProp: string) => {
+        if (compareSpecificity(specificity[newProp], specificity[prop])) {
+          specificity[newProp] = incomingSpecifity[prop];
+          flattenedDefaultProps[newProp] = val;
+        }
+      });
+    }
+  });
+
+  return merge({}, flattenedDefaultProps);
+}
 export const compareSpecificity = (
   exisiting: any,
   upcoming: any,
@@ -344,4 +450,99 @@ export const propsFlattener = (
   );
 
   return [flattenProps, specificityMap];
+};
+
+export const callPropsFlattener = (
+  targetProps = {},
+  latestSpecifictyMap = {},
+  specificity = 1,
+  cleanIncomingProps: any,
+  colorModeProps: any,
+  state: any,
+  flattenProps: any,
+  config?: any
+): any => {
+  return propsFlattener(
+    {
+      props:
+        process.env.NODE_ENV === 'development' && cleanIncomingProps.debug
+          ? { ...targetProps, debug: true }
+          : targetProps,
+      //TODO: build-time
+      platform: 'web',
+      // platform: Platform.OS,
+      colormode: colorModeProps.colorMode,
+      state: state || {},
+      currentSpecificityMap: latestSpecifictyMap,
+      previouslyFlattenProps: flattenProps || {},
+      cascadePseudoProps: config?.cascadePseudoProps,
+      name: config?.name,
+    },
+    specificity
+  );
+};
+
+export const resolvePropsToStyle = (
+  styledSystemProps: any,
+  propStyle: any,
+  theme: any,
+  debug: any,
+  currentBreakpoint: any,
+  strictMode: any,
+  getResponsiveStyles?: any,
+  INTERNAL_themeStyle?: any
+) => {
+  const {
+    styleSheet,
+    unResolvedProps,
+    styleFromProps,
+    restDefaultProps,
+    dataSet,
+  } = getStyleAndFilteredProps({
+    styledSystemProps,
+    theme,
+    debug,
+    currentBreakpoint,
+    strictMode,
+    getResponsiveStyles,
+  });
+
+  // console.log(
+  //   StyleSheet.flatten([INTERNAL_themeStyle, styleSheet.box, propStyle]),
+  //   '3333 style system props'
+  // );
+  if (propStyle) {
+    return {
+      style: [INTERNAL_themeStyle, styleFromProps, propStyle],
+      styleFromProps,
+      unResolvedProps,
+      restDefaultProps,
+
+      dataSet,
+    };
+  } else {
+    return {
+      style: [INTERNAL_themeStyle, styleFromProps],
+      styleFromProps,
+      unResolvedProps,
+      restDefaultProps,
+
+      dataSet,
+    };
+  }
+};
+
+export const resolveValueWithBreakpoint = (
+  values: any,
+  breakpointTheme: any,
+  currentBreakpoint: number,
+  property: any
+) => {
+  if (hasValidBreakpointFormat(values, breakpointTheme, property)) {
+    // Check the last valid breakpoint value from all values
+    // If current breakpoint is `md` and we have `base` then `lg`, then last value will be taken(`base` in this case)
+    return findLastValidBreakpoint(values, breakpointTheme, currentBreakpoint);
+  } else {
+    return values;
+  }
 };

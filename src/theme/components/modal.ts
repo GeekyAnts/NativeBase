@@ -1,5 +1,3 @@
-import { Dimensions } from 'react-native';
-
 const sizes = {
   xs: {
     contentSize: {
@@ -60,7 +58,8 @@ export const ModalContent = {
   baseStyle: {
     shadow: 1,
     rounded: 'lg',
-    maxHeight: `${Dimensions.get('window').height - 150}px`,
+    //TODO: build-time
+    // maxHeight: `${Dimensions.get('window').height - 150}px`,
     overflow: 'hidden',
     _light: {
       bg: 'muted.50',

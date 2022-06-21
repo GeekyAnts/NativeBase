@@ -15,6 +15,9 @@ module.exports = function (api) {
           },
         },
       ],
+      'macros',
+      // 'preval',
+      // 'codegen',
     ],
   };
 };
