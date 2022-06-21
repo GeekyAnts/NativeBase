@@ -9,7 +9,7 @@ export const useKeyboardBottomInset = () => {
     function onKeyboardChange(e: KeyboardEvent) {
       if (
         e.startCoordinates &&
-        e.endCoordinates.screenY < e.startCoordinates.screenY
+        e.endCoordinates.screenY <= e.startCoordinates.screenY
       )
         setBottom(e.endCoordinates.height / 2);
       else setBottom(0);
