@@ -15,7 +15,7 @@ module.exports = function (api) {
           },
         },
       ],
-      'macros',
+      // 'macros',
       // 'preval',
       // 'codegen',
     ],

@@ -3,6 +3,7 @@ import {
   COLOR_SCHEME_MAP,
   pseudoPropStateMap,
   PSEUDO_PROP_COMPONENT_MAP,
+  resolvedStyledMap,
 } from '../core/ResolvedStyleMap';
 //@ts-ignore
 // eslint-disable-next-line dot-notation
@@ -165,6 +166,13 @@ const updateComponentThemeMapForColorMode = (
   return styledObj;
 };
 
+export const resolveDefaultTheme = () => {
+  for (const key in theme.components) {
+    updateComponentThemeMap(key);
+  }
+  return resolvedStyledMap;
+};
+
 export const updateComponentThemeMap = (name: string, inputProps?: {}) => {
   updateComponentThemeMapForColorMode(name, name, inputProps, 'light');
   updateComponentThemeMapForColorMode(name, name, inputProps, 'dark');
@@ -288,11 +296,6 @@ export const updateComponentThemeMap = (name: string, inputProps?: {}) => {
 
 console.time('resolveTheme>>>> ALL');
 
-for (const key in theme.components) {
-  // console.time('resolveTheme>>>> ' + key);
-  updateComponentThemeMap(key);
-  // console.timeEnd('resolveTheme>>>> ' + key);
-}
 console.timeEnd('resolveTheme>>>> ALL');
 
 export * from '../core/ResolvedStyleMap';

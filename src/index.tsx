@@ -364,7 +364,11 @@ export type { ITheme, ICustomTheme } from './theme';
 
 import preval from 'preval.macro';
 import { init } from './core/ResolvedStyleMap';
-const theme = preval(`
+import { resolveDefaultTheme } from './utils/styled';
+
+console.time('startresolve');
+try {
+  const theme = preval(`
 const fs = require('fs');
 const path = require('path');
 const theme = require("./bundle.js");
@@ -372,5 +376,11 @@ const theme = require("./bundle.js");
 module.exports = {
   resolvedStyledMap: theme.resolvedStyledMap
 };`);
+  init(theme.resolvedStyledMap);
+} catch (e) {
+  console.log('hello catch');
+  // const resolvedStyledMap = resolveDefaultTheme();
+  // init(resolvedStyledMap);
+}
 
-init(theme.resolvedStyledMap);
+console.timeEnd('startresolve');
