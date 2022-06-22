@@ -13,12 +13,13 @@ export const getStyledObject = (
   //@ts-ignore
   name: string,
   componentTheme: any,
-  colorMode: any,
+  config: any,
   inputProps?: {},
   mergeDefaultProps: boolean = true
 ) => {
   const componentStyle = componentTheme?.defaultProps?.style;
 
+  // console.log(config, 'config here');
   let inputWithDefaultProps = {
     ...componentTheme.defaultProps,
     ...inputProps,
@@ -34,8 +35,8 @@ export const getStyledObject = (
     {
       props: inputWithDefaultProps,
       //TODO: build-time
-      platform: 'web', //Platform.OS,
-      colormode: colorMode,
+      platform: config.platform, //Platform.OS,
+      colormode: config.colorMode,
       state: {},
       currentSpecificityMap: {},
       previouslyFlattenProps: flattenProps || {},
@@ -50,8 +51,9 @@ export const getStyledObject = (
     componentTheme,
     flattenProps,
     specificityMap,
-    colorMode,
-    mergeDefaultProps
+    config.colorMode,
+    mergeDefaultProps,
+    config
   );
 
   // console.log(flattenProps, 'hello flatten props');
@@ -73,6 +75,7 @@ export const getStyledObject = (
     flattenProps,
     componentStyle,
     theme,
+    config.platform,
     false,
     4,
     false,
@@ -161,7 +164,8 @@ const mergeStylesWithSpecificity = (
   flattenProps: any,
   specificityMap: any,
   colorMode: any,
-  mergeDefaultProps: boolean = true
+  mergeDefaultProps: boolean = true,
+  config: any
 ) => {
   let combinedBaseStyle = {};
   let combinedVariantStyle = {};
@@ -254,7 +258,7 @@ const mergeStylesWithSpecificity = (
       { colorMode: colorMode },
       {},
       flattenProps,
-      { cascadePseudoProps: true }
+      { ...config, cascadePseudoProps: true }
     );
   }
 
@@ -275,7 +279,7 @@ const mergeStylesWithSpecificity = (
       { colorMode: colorMode },
       {},
       flattenProps,
-      { cascadePseudoProps: true }
+      { ...config, cascadePseudoProps: true }
     );
 
     // We remove variant from original props if we found it in the componentTheme
@@ -301,7 +305,7 @@ const mergeStylesWithSpecificity = (
       { colorMode: colorMode },
       {},
       flattenProps,
-      { cascadePseudoProps: true }
+      { ...config, cascadePseudoProps: true }
     );
   }
 

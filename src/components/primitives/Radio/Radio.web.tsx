@@ -50,14 +50,6 @@ const RadioComponent = memo(
         isHovered: isHoveredProp || isHovered,
       };
 
-      // const { colorMode } = useColorMode();
-      // const { style, styleFromProps } = getThemeProps(
-      //   'Radio',
-      //   colorMode,
-      //   state,
-      //   combinedProps
-      // );
-
       const {
         _interactionBox,
         _icon,

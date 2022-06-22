@@ -47,7 +47,7 @@ const resolveForInternalPseudoProps = (
   name: any,
   key: any,
   styledObj: any,
-  colorMode: any,
+  config: any,
   mergeDefaultProps: boolean = true
 ) => {
   // if (name !== 'Button') {
@@ -67,7 +67,7 @@ const resolveForInternalPseudoProps = (
         PSEUDO_PROP_COMPONENT_MAP[property],
         `${key}.${PSEUDO_PROP_COMPONENT_MAP[property]}`,
         styledObj.internalPseudoProps[property],
-        colorMode,
+        config.colorMode,
         false,
         mergeDefaultProps
       );
@@ -93,7 +93,7 @@ const resolveForInternalPseudoProps = (
       const styledObjNestedProp: any = getStyledObject(
         name,
         {},
-        colorMode,
+        config,
         styledObj.internalPseudoProps[property]
       );
 
@@ -105,20 +105,22 @@ const resolveForInternalPseudoProps = (
         if (pseudoPropStateMap[property]) {
           const stateKey = property;
           if (componentObj[stateKey]) {
-            if (!componentObj[stateKey][colorMode]) {
-              componentObj[stateKey][colorMode] = [];
+            if (!componentObj[stateKey][config.colorMode]) {
+              componentObj[stateKey][config.colorMode] = [];
             }
-            componentObj[stateKey][colorMode].push(styledObjNestedProp);
+            componentObj[stateKey][config.colorMode].push(styledObjNestedProp);
           } else {
-            componentObj[stateKey] = { [colorMode]: [styledObjNestedProp] };
+            componentObj[stateKey] = {
+              [config.colorMode]: [styledObjNestedProp],
+            };
           }
         } else {
           // console.log(
           //   'hello here &&&*',
           //   styledObj.internalPseudoProps[property]
           // );
-          componentObj[colorMode][0].unResolvedProps = {
-            ...componentObj[colorMode][0].unResolvedProps,
+          componentObj[config.colorMode][0].unResolvedProps = {
+            ...componentObj[config.colorMode][0].unResolvedProps,
             [property]: styledObj.internalPseudoProps[property],
           };
         }
@@ -131,7 +133,10 @@ const updateComponentThemeMapForColorMode = (
   name: string,
   key: string,
   inputProps?: {},
-  colorMode: 'light' | 'dark' = 'light',
+  config: any = {
+    colorMode: 'light',
+    platform: 'web',
+  },
   resolveForStatePseudoProps: boolean = false,
   mergeDefaultProps: boolean = true
 ) => {
@@ -145,7 +150,7 @@ const updateComponentThemeMapForColorMode = (
   const styledObj: any = getStyledObject(
     name,
     componentTheme,
-    colorMode,
+    config,
     {
       ...inputProps,
       extraProp: key,
@@ -153,29 +158,39 @@ const updateComponentThemeMapForColorMode = (
     mergeDefaultProps
   );
 
-  setResolvedStyleMap(key, styledObj, colorMode);
+  setResolvedStyleMap(key, styledObj, config.colorMode);
 
   resolveForInternalPseudoProps(
     name,
     key,
     styledObj,
-    colorMode,
+    config,
     mergeDefaultProps
   );
 
   return styledObj;
 };
 
-export const resolveDefaultTheme = () => {
+export const resolveDefaultTheme = (platform?: string) => {
   for (const key in theme.components) {
-    updateComponentThemeMap(key);
+    updateComponentThemeMap(key, {}, platform);
   }
   return resolvedStyledMap;
 };
 
-export const updateComponentThemeMap = (name: string, inputProps?: {}) => {
-  updateComponentThemeMapForColorMode(name, name, inputProps, 'light');
-  updateComponentThemeMapForColorMode(name, name, inputProps, 'dark');
+export const updateComponentThemeMap = (
+  name: string,
+  inputProps?: {},
+  platform?: string
+) => {
+  updateComponentThemeMapForColorMode(name, name, inputProps, {
+    colorMode: 'light',
+    platform,
+  });
+  updateComponentThemeMapForColorMode(name, name, inputProps, {
+    colorMode: 'dark',
+    platform,
+  });
 
   // resolve for all variants
   const componentTheme = get(theme, `components.${name}`, {});
@@ -205,7 +220,10 @@ export const updateComponentThemeMap = (name: string, inputProps?: {}) => {
           name,
           `${name}.${color}`,
           { colorScheme: color },
-          'light'
+          {
+            colorMode: 'light',
+            platform,
+          }
           // true
         );
 
@@ -213,7 +231,10 @@ export const updateComponentThemeMap = (name: string, inputProps?: {}) => {
           name,
           `${name}.${color}`,
           { colorScheme: color },
-          'dark'
+          {
+            colorMode: 'dark',
+            platform,
+          }
           // true
         );
 
@@ -222,7 +243,10 @@ export const updateComponentThemeMap = (name: string, inputProps?: {}) => {
             name,
             `${name}.${color}.${variant}`,
             { variant: variant, colorScheme: color },
-            'light'
+            {
+              colorMode: 'light',
+              platform,
+            }
             // true
           );
 
@@ -230,7 +254,10 @@ export const updateComponentThemeMap = (name: string, inputProps?: {}) => {
             name,
             `${name}.${color}.${variant}`,
             { variant: variant, colorScheme: color },
-            'dark'
+            {
+              colorMode: 'dark',
+              platform,
+            }
             // true
           );
         }
@@ -243,14 +270,20 @@ export const updateComponentThemeMap = (name: string, inputProps?: {}) => {
         name,
         `${name}.${variant}`,
         { variant: variant },
-        'light'
+        {
+          colorMode: 'light',
+          platform,
+        }
         // true
       );
       updateComponentThemeMapForColorMode(
         name,
         `${name}.${variant}`,
         { variant: variant },
-        'dark'
+        {
+          colorMode: 'dark',
+          platform,
+        }
       );
     }
   }
@@ -261,7 +294,10 @@ export const updateComponentThemeMap = (name: string, inputProps?: {}) => {
       name,
       `${name}.${size}`,
       { size: size },
-      'light',
+      {
+        colorMode: 'light',
+        platform,
+      },
       false,
       false
     );
@@ -269,7 +305,10 @@ export const updateComponentThemeMap = (name: string, inputProps?: {}) => {
       name,
       `${name}.${size}`,
       { size: size },
-      'dark',
+      {
+        colorMode: 'dark',
+        platform,
+      },
       false,
       false
     );

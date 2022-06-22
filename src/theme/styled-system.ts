@@ -614,6 +614,7 @@ const getRNKeyAndStyleValue = ({
   theme,
   styledSystemProps,
   currentBreakpoint,
+  platform,
 }: any) => {
   let style: any = {};
   if (config === true) {
@@ -638,7 +639,7 @@ const getRNKeyAndStyleValue = ({
         val = parseFloat(val);
         //TODO: build-time
         // } else if (val.endsWith('em') && Platform.OS !== 'web') {
-      } else if (val.endsWith('em') && 'web' !== 'web') {
+      } else if (val.endsWith('em') && platform !== 'web') {
         const fontSize = resolveValueWithBreakpoint(
           styledSystemProps.fontSize,
           theme.breakpoints,
@@ -684,6 +685,7 @@ export const getStyleAndFilteredProps = ({
   currentBreakpoint,
   getResponsiveStyles,
   styledSystemProps,
+  platform,
 }: any) => {
   let styleFromProps: any = {};
   let restDefaultProps: any = {};
@@ -737,6 +739,7 @@ export const getStyleAndFilteredProps = ({
             styledSystemProps,
             theme,
             currentBreakpoint,
+            platform,
           });
           //@ts-ignore
           responsiveStyles[orderedBreakPoints[i][0]].push(newStyle);
@@ -750,6 +753,7 @@ export const getStyleAndFilteredProps = ({
             styledSystemProps,
             theme,
             currentBreakpoint,
+            platform,
           });
           if (!responsiveStyles[k]) {
             responsiveStyles[k] = [];
@@ -781,6 +785,7 @@ export const getStyleAndFilteredProps = ({
           styledSystemProps,
           theme,
           currentBreakpoint,
+          platform,
         });
 
         // TODO: refactor

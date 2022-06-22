@@ -112,7 +112,7 @@ const GradientBox = forwardRef(
 const Box = ({ children, ...props }: IBoxProps, ref: any) => {
   const { _text, ...resolvedProps } = usePropsResolution('Box', props);
 
-  console.log(resolvedProps, props, 'resolved props here');
+  // console.log(resolvedProps, props, 'resolved props here');
   if (safeAreaPropsExists(props)) {
     return (
       <BoxComponentWithSafeArea {...resolvedProps} _text={_text} ref={ref}>

@@ -7,6 +7,7 @@ import { useResponsiveQuery } from '../utils/useResponsiveQuery';
 //@ts-ignore
 import stableHash from 'stable-hash';
 import { resolvePropsToStyle } from './useThemeProps/propsFlattener';
+import { Platform } from 'react-native';
 
 const getStyledSystemPropsAndRestProps = (props: any) => {
   const styledSystemProps: any = {};
@@ -51,6 +52,7 @@ export const useStyledSystemPropsResolver = ({
       styledSystemProps,
       propStyle,
       theme,
+      Platform.OS,
       debug,
       currentBreakpoint,
       strictMode,

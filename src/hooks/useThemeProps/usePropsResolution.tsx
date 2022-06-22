@@ -13,6 +13,7 @@ import { callPropsFlattener } from './propsFlattener';
 import { useColorMode } from '../../core/color-mode';
 import { PSEUDO_PROP_COMPONENT_MAP } from '../../core/ResolvedStyleMap';
 import get from 'lodash.get';
+import { Platform } from 'react-native';
 
 // const getThemeProps = resolvedMap.theme.getThemeProps;
 
@@ -41,7 +42,7 @@ export function usePropsResolution(
 
   const componentThemeProps = getThemeProps(
     component,
-    colorMode,
+    { colorMode, platform: Platform.OS },
     state,
     incomingProps
   );
@@ -240,6 +241,8 @@ export function usePropsResolution(
     // }
   }
   // }
+
+  // console.log(componentThemeProps, component, resolvedProps, 'theme props');
 
   return resolvedProps;
 }
@@ -466,7 +469,7 @@ export const usePropsResolutionWithComponentTheme = (
     colorModeProps,
     state,
     flattenProps,
-    config
+    { ...config, platform: Platform.OS }
   );
 
   // console.log(specificityMap, "*****");
@@ -492,7 +495,7 @@ export const usePropsResolutionWithComponentTheme = (
 
   const responsivelyResolvedProps = useBreakpointResolvedProps(
     responsiveProps,
-    config.name
+    config?.name
   );
 
   flattenProps = {

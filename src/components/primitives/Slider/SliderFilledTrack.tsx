@@ -58,13 +58,13 @@ const SliderFilledTrack = (props: ISliderTrackFilledProps, ref?: any) => {
     return null;
   }
 
-  console.log(
-    // resolvedProps,
-    // orientation,
-    sliderTrackPosition,
-    variant,
-    'resolved props here &&& >>>>'
-  );
+  // console.log(
+  //   // resolvedProps,
+  //   // orientation,
+  //   sliderTrackPosition,
+  //   variant,
+  //   'resolved props here &&& >>>>'
+  // );
   return (
     <Box
       position="absolute"

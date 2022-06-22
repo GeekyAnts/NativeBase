@@ -148,7 +148,7 @@ const getComponentNameKeyFromProps = (
 
 export const getThemeProps = (
   inputComponentKeyName: string,
-  colorMode: any,
+  config: any,
   state?: any,
   props: any = {}
 ): any => {
@@ -167,7 +167,7 @@ export const getThemeProps = (
     componentKeyName = `${componentKeyName}.${pseudoComponentKeyName}`;
   }
 
-  let themeObj: any = getThemeObject(componentKeyName, colorMode, state);
+  let themeObj: any = getThemeObject(componentKeyName, config.colorMode, state);
 
   if (inputComponentKeyName === 'Slider') {
     console.log('component theme ^^&', themeObj, componentKeyName);
@@ -177,13 +177,17 @@ export const getThemeProps = (
   }
 
   if (isEmptyObj(themeObj)) {
-    themeObj = getThemeObject(rootComponentName, colorMode, state);
+    themeObj = getThemeObject(rootComponentName, config.colorMode, state);
+  }
+
+  if (inputComponentKeyName === 'Icon') {
+    console.log(componentKeyName, themeObj, ' *****theme object');
   }
 
   // console.log(themeObj, 'hello thehem');
 
   // debugger;
-  if (props.size) {
+  if (!isEmptyObj(themeObj) && props.size) {
     let componentKeyNameForSize = `${rootComponentName}.${props.size}`;
 
     if (pseudoComponentKeyName) {
@@ -191,7 +195,7 @@ export const getThemeProps = (
     }
     const sizeThemeObj = getThemeObject(
       `${componentKeyNameForSize}`,
-      colorMode,
+      config.colorMode,
       state
     );
 
@@ -237,10 +241,11 @@ export const getThemeProps = (
   // }
   // console.log('theme obje', themeObj, inputComponentKeyName);
 
-  // if (isEmptyObj(themeObj)) {
-  //   updateComponentThemeMap(inputComponentKeyName, {});
-  //   return getThemeProps(inputComponentKeyName, colorMode, state, props);
-  // }
+  // console.log(themeObj, inputComponentKeyName, 'theme object');
+  if (isEmptyObj(themeObj)) {
+    updateComponentThemeMap(inputComponentKeyName, {}, config.platform);
+    return getThemeProps(inputComponentKeyName, config.colorMode, state, props);
+  }
   return themeObj;
 };
 export const getResolvedProps = (key: string, colorMode?: ColorMode) => {

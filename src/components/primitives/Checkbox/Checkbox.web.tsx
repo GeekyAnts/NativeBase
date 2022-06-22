@@ -19,6 +19,7 @@ import { Stack } from '../Stack';
 import { wrapStringChild } from '../../../utils/wrapStringChild';
 import { getThemeProps } from '../../../core';
 import { useColorMode } from '../../../core/color-mode';
+import { Platform } from 'react-native';
 
 const Checkbox = (
   {
@@ -131,7 +132,7 @@ const CheckboxComponent = React.memo(
     const { colorMode } = useColorMode();
     const { styleFromProps } = getThemeProps(
       'Checkbox',
-      colorMode,
+      { colorMode, platform: Platform.OS },
       state,
       combinedProps
     );

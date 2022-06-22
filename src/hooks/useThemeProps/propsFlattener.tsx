@@ -469,7 +469,7 @@ export const callPropsFlattener = (
           ? { ...targetProps, debug: true }
           : targetProps,
       //TODO: build-time
-      platform: 'web',
+      platform: config.platform,
       // platform: Platform.OS,
       colormode: colorModeProps.colorMode,
       state: state || {},
@@ -486,6 +486,7 @@ export const resolvePropsToStyle = (
   styledSystemProps: any,
   propStyle: any,
   theme: any,
+  platform: any,
   debug: any,
   currentBreakpoint: any,
   strictMode: any,
@@ -505,6 +506,7 @@ export const resolvePropsToStyle = (
     currentBreakpoint,
     strictMode,
     getResponsiveStyles,
+    platform,
   });
 
   // console.log(

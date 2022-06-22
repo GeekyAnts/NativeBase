@@ -7,6 +7,7 @@ import { questionOutlineIconPath } from './Icons/questionIconPath';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { useColorMode } from '../../../core/color-mode';
 import { getThemeProps } from '../../../core';
+import { Platform } from 'react-native';
 
 const SVG = makeStyledComponent(Svg);
 
@@ -15,7 +16,12 @@ const SVGIcon = (
   ref: any
 ) => {
   const { colorMode } = useColorMode();
-  const { styleFromProps } = getThemeProps('Icon', colorMode, {}, props);
+  const { styleFromProps } = getThemeProps(
+    'Icon',
+    { colorMode, platform: Platform.OS },
+    {},
+    props
+  );
   // return null;
 
   // let tokenizedFontSize = props.styleFromProps
