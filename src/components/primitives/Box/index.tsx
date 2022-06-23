@@ -45,9 +45,9 @@ const gradientPropExists = (props: any) => {
 };
 
 const GradientBox = forwardRef(
-  ({ children, safeAreaProps, _text, ...props }: any, ref: any) => {
+  ({ children, _text, ...props }: any, ref: any) => {
     const theme = useTheme();
-
+    // return null;
     const lgrad =
       props.bg?.linearGradient ||
       props.background?.linearGradient ||
@@ -71,21 +71,24 @@ const GradientBox = forwardRef(
         y: lgrad.end[1],
       };
     }
+
     const backgroundColorProps = [
       'bg',
       'bgColor',
       'background',
       'backgroundColor',
     ];
-    backgroundColorProps.forEach((backgroundColorProp) => {
-      if (backgroundColorProp in safeAreaProps)
-        delete safeAreaProps[backgroundColorProp];
-    });
+    // backgroundColorProps.forEach((backgroundColorProp) => {
+    //   if (backgroundColorProp in safeAreaProps)
+    //     delete safeAreaProps[backgroundColorProp];
+    // });
+
+    // return 'hello';
 
     return (
       <MemoizedGradient
         ref={ref}
-        {...safeAreaProps}
+        {...props}
         colors={lgrad.colors}
         start={startObj}
         end={endObj}
@@ -150,7 +153,11 @@ const BoxComponentWithSafeArea = forwardRef(
     const safeAreaProps = useSafeArea(props);
 
     if (gradientPropExists(props) && GradientBox) {
-      return <GradientBox {...props} {...safeAreaProps} ref={ref} />;
+      return (
+        <GradientBox {...props} {...safeAreaProps} _text={_text} ref={ref}>
+          {children}
+        </GradientBox>
+      );
     } else {
       return (
         <StyledBox ref={ref} {...safeAreaProps}>
@@ -164,7 +171,11 @@ const BoxComponentWithSafeArea = forwardRef(
 const BoxComponentWithoutSafeArea = forwardRef(
   ({ children, _text, ...props }: IBoxProps, ref: any) => {
     if (gradientPropExists(props) && GradientBox) {
-      return <GradientBox {...props} ref={ref} />;
+      return (
+        <GradientBox {...props} ref={ref} _text={_text}>
+          {children}
+        </GradientBox>
+      );
     } else {
       return (
         <StyledBox ref={ref} {...props}>

@@ -87,7 +87,11 @@ const getThemeObject = (componentName: any, colorMode: any, state?: any) => {
   const stateStyles = getPseudoStateStyles(componentName, state);
 
   forEach(stateStyles, (stateStyleObj) => {
-    styleSheet = styleSheet.concat(stateStyleObj[colorMode]);
+    console.log(stateStyleObj[colorMode], 'state styles here');
+
+    if (stateStyleObj[colorMode]) {
+      styleSheet = styleSheet.concat(stateStyleObj[colorMode]);
+    }
   });
 
   const unResolvedPropsArray = map(styleSheet, 'unResolvedProps');
