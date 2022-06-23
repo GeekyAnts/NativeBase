@@ -87,8 +87,6 @@ const getThemeObject = (componentName: any, colorMode: any, state?: any) => {
   const stateStyles = getPseudoStateStyles(componentName, state);
 
   forEach(stateStyles, (stateStyleObj) => {
-    console.log(stateStyleObj[colorMode], 'state styles here');
-
     if (stateStyleObj[colorMode]) {
       styleSheet = styleSheet.concat(stateStyleObj[colorMode]);
     }

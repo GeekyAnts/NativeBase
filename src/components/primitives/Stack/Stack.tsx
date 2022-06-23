@@ -92,7 +92,7 @@ const Stack = ({ ...props }: IStackProps, ref?: any) => {
   if (useHasResponsiveProps(props)) {
     return null;
   }
-  // console.log(space, 'INTERNAL_themeStyle');
+  // console.log(direction, 'INTERNAL_themeStyle ***');
 
   return (
     <Box
