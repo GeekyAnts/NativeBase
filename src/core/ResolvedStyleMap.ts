@@ -62,8 +62,6 @@ export const init = (inputResolvedStyledMap?: any) => {
     //@ts-ignore
     window['resolvedStyledMap'] = resolvedStyledMap;
     //@ts-ignore
-
-    window['resolvedStyledMap1'] = resolvedStyledMap;
   }
 };
 
@@ -87,7 +85,9 @@ const getThemeObject = (componentName: any, colorMode: any, state?: any) => {
   const stateStyles = getPseudoStateStyles(componentName, state);
 
   forEach(stateStyles, (stateStyleObj) => {
-    styleSheet = styleSheet.concat(stateStyleObj[colorMode]);
+    if (stateStyleObj[colorMode]) {
+      styleSheet = styleSheet.concat(stateStyleObj[colorMode]);
+    }
   });
 
   const unResolvedPropsArray = map(styleSheet, 'unResolvedProps');
@@ -169,9 +169,9 @@ export const getThemeProps = (
 
   let themeObj: any = getThemeObject(componentKeyName, config.colorMode, state);
 
-  if (inputComponentKeyName === 'Slider') {
-    console.log('component theme ^^&', themeObj, componentKeyName);
-  }
+  // if (inputComponentKeyName === 'Slider') {
+  //   console.log('component theme ^^&', themeObj, componentKeyName);
+  // }
   if (inputComponentKeyName === 'Button') {
     // console.log(componentKeyName, themeObj, '((()))');
   }
@@ -180,9 +180,9 @@ export const getThemeProps = (
     themeObj = getThemeObject(rootComponentName, config.colorMode, state);
   }
 
-  if (inputComponentKeyName === 'Icon') {
-    console.log(componentKeyName, themeObj, ' *****theme object');
-  }
+  // if (inputComponentKeyName === 'Icon') {
+  //   console.log(componentKeyName, themeObj, ' *****theme object');
+  // }
 
   // console.log(themeObj, 'hello thehem');
 

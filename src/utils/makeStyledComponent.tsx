@@ -17,16 +17,6 @@ export const makeStyledComponent = (
     // console.log(props, 'hello props **********');
     const [style, restProps] = useStyledSystemPropsResolver(props);
 
-    if (props.hello) {
-      console.log(
-        props,
-        style,
-        // restProps,
-        // Comp,
-        ' props here &&&*** box component'
-      );
-    }
-
     return (
       <Comp {...restProps} style={style} ref={ref}>
         {props.children}

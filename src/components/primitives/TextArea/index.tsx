@@ -56,7 +56,7 @@ const TextArea = (
   return (
     <Input
       {...newProps}
-      INTERNAL_notResolveThemeAndPseudoProps
+      // INTERNAL_notResolveThemeAndPseudoProps
       numberOfLines={totalLines}
       wrapperRef={wrapperRef}
       ref={mergeRefs([_ref, ref])}

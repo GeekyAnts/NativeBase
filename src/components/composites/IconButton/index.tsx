@@ -1,6 +1,5 @@
 import React, { memo, forwardRef } from 'react';
 import { Pressable } from '../../primitives/Pressable';
-import { Icon } from '../../primitives/Icon';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { composeEventHandlers } from '../../../utils';
@@ -15,7 +14,7 @@ import { useFocusRing } from '@react-native-aria/focus';
 const IconButton = (
   {
     icon,
-    children,
+    children: _children,
     isHovered: isHoveredProp,
     isPressed: isPressedProp,
     isFocused: isFocusedProp,
@@ -85,7 +84,7 @@ const IconButton = (
       )}
       {...resolvedProps}
     >
-      {clonedIcon || <Icon {..._icon}>{children}</Icon>}
+      {clonedIcon}
     </Pressable>
   );
 };

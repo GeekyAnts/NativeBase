@@ -1,6 +1,6 @@
 import React, { memo, forwardRef } from 'react';
 import type { IInputProps } from './types';
-import { TextInput } from 'react-native';
+import { Platform, TextInput } from 'react-native';
 import { useToken } from '../../../hooks';
 import { useFormControl } from '../../composites/FormControl';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
@@ -11,6 +11,8 @@ import { mergeRefs } from '../../../utils';
 import { Stack } from '../Stack';
 import { makeStyledComponent } from '../../../utils/makeStyledComponent';
 import { useResolvedFontFamily } from '../../../hooks/useResolvedFontFamily';
+import { getThemeProps } from '../../../core/ResolvedStyleMap';
+import { useColorMode } from '../../../core/color-mode';
 
 const StyledInput = makeStyledComponent(TextInput);
 
@@ -84,13 +86,23 @@ const Input = (
     _stack,
     _input,
     ...resolvedProps
-  } = usePropsResolution(
-    'Input',
-    props,
+  } = usePropsResolution('Input', props, state);
 
-    state
+  // console.log(
+  //   nonLayoutProps.INTERNAL_themeStyle[0].backgroundColor,
+  //   _input,
+  //   'resolved props 222'
+  // );
+  const { colorMode } = useColorMode();
+
+  const { styleFromProps } = getThemeProps(
+    'Input',
+    { colorMode, platform: Platform.OS },
+    state,
+    props
   );
-  const [layoutProps, nonLayoutProps] = extractInObject(resolvedProps, [
+
+  const filterProps = [
     ...stylingProps.margin,
     ...stylingProps.border,
     ...stylingProps.layout,
@@ -99,18 +111,16 @@ const Input = (
     ...stylingProps.background,
     'shadow',
     'opacity',
-  ]);
+  ];
+  const [layoutStyles, nonLayoutStyles] = extractInObject(
+    styleFromProps,
+    filterProps
+  );
 
-  // const [layoutStyle, nonLayoutStyle] = extractInObject(styleFromProps, [
-  //   ...stylingProps.margin,
-  //   ...stylingProps.border,
-  //   ...stylingProps.layout,
-  //   ...stylingProps.flexbox,
-  //   ...stylingProps.position,
-  //   ...stylingProps.background,
-  //   'shadow',
-  //   'opacity',
-  // ]);
+  const [layoutProps, nonLayoutProps] = extractInObject(
+    resolvedProps,
+    filterProps
+  );
 
   // console.log(layoutProps, nonLayoutProps, 'layout props here');
   const resolvedFontFamily = useResolvedFontFamily({
@@ -124,16 +134,23 @@ const Input = (
     'colors',
     underlineColorAndroid
   );
+
+  // console.log('INTERNAL_themeStyle', resolvedProps, layoutProps);
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
   }
 
+  // console.log(
+  //   nonLayoutProps.INTERNAL_themeStyle,
+  //   INTERNAL_themeStyle,
+  //   'layout styles'
+  // );
   return (
     <Stack
       {..._stack}
       {...layoutProps}
-      // INTERNAL_themeStyle={[stackStyle, layoutStyle]}
+      INTERNAL_themeStyle={[layoutStyles, _stack?.INTERNAL_themeStyle]}
       ref={mergeRefs([_ref, wrapperRef])}
       isFocused={isFocused}
     >
@@ -147,6 +164,7 @@ const Input = (
         w={isFullWidth ? '100%' : undefined}
         {...nonLayoutProps}
         {...resolvedFontFamily}
+        INTERNAL_themeStyle={[nonLayoutStyles]}
         placeholderTextColor={resolvedPlaceholderTextColor}
         selectionColor={resolvedSelectionColor}
         underlineColorAndroid={resolvedUnderlineColorAndroid}

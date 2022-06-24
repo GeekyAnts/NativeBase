@@ -1,5 +1,3 @@
-import merge from 'lodash.merge';
-
 import { useNativeBase } from '../useNativeBase';
 import { omitUndefined, extractInObject, isLiteral } from '../../theme/tools';
 import { useBreakpointResolvedProps } from '../useBreakpointResolvedProps';
@@ -7,7 +5,7 @@ import type { IStateProps } from './propsFlattener';
 import { useResponsiveSSRProps } from '../useResponsiveSSRProps';
 import type { ComponentTheme } from '../../theme';
 import { useNativeBaseConfig } from '../../core/NativeBaseContext';
-import { init, getThemeProps } from '../../core/ResolvedStyleMap';
+import { getThemeProps } from '../../core/ResolvedStyleMap';
 import { callPropsFlattener } from './propsFlattener';
 
 import { useColorMode } from '../../core/color-mode';
@@ -47,8 +45,37 @@ export function usePropsResolution(
     incomingProps
   );
 
-  const componentTheme = get(theme, `components.${component}`);
+  if (config?.extendTheme) {
+    config.extendTheme.forEach((extendedComponent) => {
+      const extendedThemeProps = getThemeProps(
+        extendedComponent,
+        { colorMode, platform: Platform.OS },
+        state,
+        incomingProps
+      );
 
+      // if (component === 'TextArea') {
+      //   console.log(
+      //     extendedThemeProps.styleFromProps,
+      //     'extended theme props 11'
+      //   );
+      // }
+      componentThemeProps.style = [
+        ...componentThemeProps.style,
+        ...extendedThemeProps.style,
+      ];
+      componentThemeProps.styleFromProps = {
+        ...componentThemeProps.styleFromProps,
+        ...extendedThemeProps.styleFromProps,
+      };
+      componentThemeProps.unResolvedProps = {
+        ...componentThemeProps.unResolvedProps,
+        ...extendedThemeProps.unResolvedProps,
+      };
+    });
+  }
+
+  const componentTheme = get(theme, `components.${component}`);
   let resolvedProps = usePropsResolutionWithComponentTheme(
     componentTheme,
     { ...componentThemeProps?.unResolvedProps, ...incomingProps },
@@ -79,10 +106,10 @@ export function usePropsResolution(
   // );
 
   // Not Resolve theme props and pseudo props
-  if (incomingProps?.INTERNAL_notResolveThemeAndPseudoProps) {
-    delete incomingProps.INTERNAL_notResolveThemeAndPseudoProps;
-    return incomingProps;
-  }
+  // if (incomingProps?.INTERNAL_notResolveThemeAndPseudoProps) {
+  //   delete incomingProps.INTERNAL_notResolveThemeAndPseudoProps;
+  //   return incomingProps;
+  // }
 
   // if (process.env.NODE_ENV === "development" && incomingProps.debug) {
   //   /* eslint-disable-next-line */
@@ -243,6 +270,9 @@ export function usePropsResolution(
   // }
 
   // console.log(componentThemeProps, component, resolvedProps, 'theme props');
+  // if (component === 'TextArea') {
+  //   console.log(resolvedProps, 'extended theme props');
+  // }
 
   return resolvedProps;
 }
@@ -352,9 +382,9 @@ export const usePropsResolutionWithComponentTheme = (
 
   // const extendedTheme: Array<any> = [];
   // if (config?.extendTheme) {
-  //   config?.extendTheme.map((componentName: string) => {
-  //     extendedTheme.push(get(theme, `components.${componentName}`, {}));
-  //   });
+  // config?.extendTheme.map((componentName: string) => {
+  //   extendedTheme.push(get(theme, `components.${componentName}`, {}));
+  // });
   // }
 
   // if (!isEmpty(componentTheme)) extendedTheme.push(componentTheme);

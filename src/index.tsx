@@ -174,7 +174,6 @@ import {
   Overlay,
   IOverlayProps,
 } from './components/primitives';
-
 export * from './components/basic';
 export * from './components/primitives/Icon/Icons';
 export * from './theme';
@@ -182,6 +181,7 @@ export * from './core';
 export * from './hooks';
 export * from './factory';
 export * from './theme/v3-compatible-theme';
+export * from './theme/v33x-theme';
 
 export {
   // AppBar,

@@ -24,7 +24,6 @@ const baseStyle = (props: any) => {
     },
 
     _input: {
-      bg: 'transparent',
       flex: 1,
       w: '100%',
       h: '100%',
@@ -142,6 +141,7 @@ function outlineStyle(props: Record<string, any>) {
   const { theme } = props;
   return {
     borderWidth: '1',
+    // bg: 'red.400',
     _focus: {
       bg: transparentize('primary.600', 0.1)(theme),
     },

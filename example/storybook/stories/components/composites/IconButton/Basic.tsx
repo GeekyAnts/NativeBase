@@ -11,7 +11,6 @@ export const Example = () => {
         _icon={{
           color: 'blue.500',
           size: 'md',
-          padding: 5,
         }}
         _hover={{
           bg: 'orange.600:alpha.20',
@@ -21,20 +20,7 @@ export const Example = () => {
           _icon: {
             color: 'red.400',
             name: 'emoji-flirt',
-            padding: 5,
-
-            // size: 'lg',
           },
-          //   _ios: {
-          //     _icon: {
-          //       size: '2xl',
-          //     },
-          //   },
-          // }}
-          // _ios={{
-          //   _icon: {
-          //     size: '2xl',
-          //   },
         }}
       />
     </Box>
