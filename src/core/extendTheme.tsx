@@ -10,9 +10,9 @@ type ThemeUtil = Theme | (Record<string, any> & {});
 
 function resolveComponentThemeAndUpdateMap(theme: any) {
   if (theme.components) {
-    Object.keys(theme.components).map((key: string) => {
-      // updateComponentThemeMap(key, theme.components[key]);
-    });
+    // Object.keys(theme.components).map((key?: string) => {
+    //   // updateComponentThemeMap(key, theme.components[key]);
+    // });
   }
 }
 export function extendTheme<T extends ThemeUtil>(

@@ -12,7 +12,7 @@ import { Platform } from 'react-native';
 const SVG = makeStyledComponent(Svg);
 
 const SVGIcon = (
-  { children, ...props }: IIconProps & { styleFromProps: any },
+  { children, ...props }: IIconProps & { styleFromProps?: any },
   ref: any
 ) => {
   const { colorMode } = useColorMode();

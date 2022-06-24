@@ -57,6 +57,9 @@ lib/
 src/jest/mock.ts
 node_modules
 
+
 # personal 
 .env
 .npmrc
+
+src/bundle.js

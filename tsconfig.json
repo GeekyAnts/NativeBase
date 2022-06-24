@@ -26,5 +26,5 @@
     "strict": true,
     "target": "esnext"
   },
-  "exclude": ["./bundleGenerator.js"]
+  "exclude": ["./bundleGenerator.js", "./src/bundle.js"]
 }
