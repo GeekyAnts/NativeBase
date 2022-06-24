@@ -1137,7 +1137,6 @@ exports[`Storyshots Alert Basic 1`] = `
             "paddingLeft": "12px",
             "paddingRight": "12px",
             "paddingTop": "12px",
-            "width": "90%",
           }
         }
       >
@@ -1299,8 +1298,8 @@ exports[`Storyshots Alert Basic 1`] = `
                 style={
                   Object {
                     "color": "rgba(75,85,99,1.00)",
-                    "height": "12px",
-                    "width": "12px",
+                    "height": "20px",
+                    "width": "20px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -1649,8 +1648,8 @@ exports[`Storyshots Alert ColorScheme 1`] = `
                 style={
                   Object {
                     "color": "rgba(75,85,99,1.00)",
-                    "height": "12px",
-                    "width": "12px",
+                    "height": "20px",
+                    "width": "20px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -1891,8 +1890,8 @@ exports[`Storyshots Alert ColorScheme 1`] = `
                 style={
                   Object {
                     "color": "rgba(75,85,99,1.00)",
-                    "height": "12px",
-                    "width": "12px",
+                    "height": "20px",
+                    "width": "20px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -2133,8 +2132,8 @@ exports[`Storyshots Alert ColorScheme 1`] = `
                 style={
                   Object {
                     "color": "rgba(75,85,99,1.00)",
-                    "height": "12px",
-                    "width": "12px",
+                    "height": "20px",
+                    "width": "20px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -2497,8 +2496,8 @@ exports[`Storyshots Alert Composition 1`] = `
                   style={
                     Object {
                       "color": "rgba(75,85,99,1.00)",
-                      "height": "12px",
-                      "width": "12px",
+                      "height": "20px",
+                      "width": "20px",
                     }
                   }
                   viewBox="0 0 24 24"
@@ -2786,15 +2785,8 @@ exports[`Storyshots Alert Status 1`] = `
       className="css-view-1dbjc4n"
       style={
         Object {
-          "WebkitAlignItems": "center",
-          "WebkitBoxAlign": "center",
-          "WebkitBoxPack": "center",
-          "WebkitJustifyContent": "center",
-          "alignItems": "center",
-          "display": "flex",
-          "justifyContent": "center",
-          "msFlexAlign": "center",
-          "msFlexPack": "center",
+          "maxWidth": "400px",
+          "width": "100%",
         }
       }
     >
@@ -2802,8 +2794,24 @@ exports[`Storyshots Alert Status 1`] = `
         className="css-view-1dbjc4n"
         style={
           Object {
-            "maxWidth": "400px",
-            "width": "90%",
+            "WebkitAlignItems": "center",
+            "WebkitBoxAlign": "center",
+            "WebkitBoxPack": "start",
+            "WebkitJustifyContent": "flex-start",
+            "alignItems": "center",
+            "backgroundColor": "rgba(187,247,208,1.00)",
+            "borderBottomLeftRadius": "4px",
+            "borderBottomRightRadius": "4px",
+            "borderTopLeftRadius": "4px",
+            "borderTopRightRadius": "4px",
+            "justifyContent": "flex-start",
+            "msFlexAlign": "center",
+            "msFlexPack": "start",
+            "paddingBottom": "12px",
+            "paddingLeft": "12px",
+            "paddingRight": "12px",
+            "paddingTop": "12px",
+            "width": "100%",
           }
         }
       >
@@ -2811,23 +2819,9 @@ exports[`Storyshots Alert Status 1`] = `
           className="css-view-1dbjc4n"
           style={
             Object {
-              "WebkitAlignItems": "center",
-              "WebkitBoxAlign": "center",
-              "WebkitBoxPack": "start",
-              "WebkitJustifyContent": "flex-start",
-              "alignItems": "center",
-              "backgroundColor": "rgba(187,247,208,1.00)",
-              "borderBottomLeftRadius": "4px",
-              "borderBottomRightRadius": "4px",
-              "borderTopLeftRadius": "4px",
-              "borderTopRightRadius": "4px",
-              "justifyContent": "flex-start",
-              "msFlexAlign": "center",
-              "msFlexPack": "start",
-              "paddingBottom": "12px",
-              "paddingLeft": "12px",
-              "paddingRight": "12px",
-              "paddingTop": "12px",
+              "WebkitFlexShrink": 1,
+              "flexShrink": 1,
+              "msFlexNegative": 1,
               "width": "100%",
             }
           }
@@ -2836,10 +2830,18 @@ exports[`Storyshots Alert Status 1`] = `
             className="css-view-1dbjc4n"
             style={
               Object {
+                "WebkitBoxDirection": "normal",
+                "WebkitBoxOrient": "horizontal",
+                "WebkitBoxPack": "justify",
+                "WebkitFlexDirection": "row",
                 "WebkitFlexShrink": 1,
+                "WebkitJustifyContent": "space-between",
+                "flexDirection": "row",
                 "flexShrink": 1,
+                "justifyContent": "space-between",
+                "msFlexDirection": "row",
                 "msFlexNegative": 1,
-                "width": "100%",
+                "msFlexPack": "justify",
               }
             }
           >
@@ -2849,83 +2851,39 @@ exports[`Storyshots Alert Status 1`] = `
                 Object {
                   "WebkitBoxDirection": "normal",
                   "WebkitBoxOrient": "horizontal",
-                  "WebkitBoxPack": "justify",
                   "WebkitFlexDirection": "row",
                   "WebkitFlexShrink": 1,
-                  "WebkitJustifyContent": "space-between",
                   "flexDirection": "row",
                   "flexShrink": 1,
-                  "justifyContent": "space-between",
                   "msFlexDirection": "row",
                   "msFlexNegative": 1,
-                  "msFlexPack": "justify",
                 }
               }
             >
               <div
                 className="css-view-1dbjc4n"
-                style={
-                  Object {
-                    "WebkitBoxDirection": "normal",
-                    "WebkitBoxOrient": "horizontal",
-                    "WebkitFlexDirection": "row",
-                    "WebkitFlexShrink": 1,
-                    "flexDirection": "row",
-                    "flexShrink": 1,
-                    "msFlexDirection": "row",
-                    "msFlexNegative": 1,
-                  }
-                }
               >
-                <div
-                  className="css-view-1dbjc4n"
-                >
-                  <svg
-                    role="img"
-                    stroke=""
-                    style={
-                      Object {
-                        "color": "rgba(21,128,61,1.00)",
-                        "height": "16px",
-                        "marginTop": "4px",
-                        "width": "16px",
-                      }
-                    }
-                    viewBox="0 0 24 24"
-                  >
-                    <g>
-                      <path
-                        d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24ZM7.17719 11.2464L9.91869 13.9114L16.8228 7.2L18 8.34432L9.91869 16.2L6 12.3907L7.17719 11.2464Z"
-                        fill="currentColor"
-                        stroke=""
-                      />
-                    </g>
-                  </svg>
-                </div>
-                <div
-                  className="css-view-1dbjc4n"
+                <svg
+                  role="img"
+                  stroke=""
                   style={
                     Object {
-                      "width": "8px",
+                      "color": "rgba(21,128,61,1.00)",
+                      "height": "16px",
+                      "marginTop": "4px",
+                      "width": "16px",
                     }
                   }
-                />
-                <div
-                  className="css-text-901oao"
-                  dir="auto"
-                  style={
-                    Object {
-                      "color": "rgba(31,41,55,1.00)",
-                      "fontSize": "16px",
-                      "fontStyle": "normal",
-                      "fontWeight": "400",
-                      "letterSpacing": "0px",
-                      "lineHeight": "1.5em",
-                    }
-                  }
+                  viewBox="0 0 24 24"
                 >
-                  Selection successfully moved!
-                </div>
+                  <g>
+                    <path
+                      d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24ZM7.17719 11.2464L9.91869 13.9114L16.8228 7.2L18 8.34432L9.91869 16.2L6 12.3907L7.17719 11.2464Z"
+                      fill="currentColor"
+                      stroke=""
+                    />
+                  </g>
+                </svg>
               </div>
               <div
                 className="css-view-1dbjc4n"
@@ -2936,100 +2894,136 @@ exports[`Storyshots Alert Status 1`] = `
                 }
               />
               <div
-                className="css-cursor-18t94o4 css-view-1dbjc4n"
-                onBlur={[Function]}
-                onClick={[Function]}
-                onContextMenu={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                role="button"
+                className="css-text-901oao"
+                dir="auto"
                 style={
                   Object {
-                    "MozUserSelect": "none",
-                    "WebkitAlignItems": "center",
-                    "WebkitBoxAlign": "center",
-                    "WebkitBoxDirection": "normal",
-                    "WebkitBoxOrient": "horizontal",
-                    "WebkitBoxPack": "center",
-                    "WebkitFlexDirection": "row",
-                    "WebkitJustifyContent": "center",
-                    "WebkitUserSelect": "none",
-                    "alignItems": "center",
-                    "borderBottomLeftRadius": "4px",
-                    "borderBottomRightRadius": "4px",
-                    "borderTopLeftRadius": "4px",
-                    "borderTopRightRadius": "4px",
-                    "cursor": "pointer",
-                    "flexDirection": "row",
-                    "justifyContent": "center",
-                    "msFlexAlign": "center",
-                    "msFlexDirection": "row",
-                    "msFlexPack": "center",
-                    "msTouchAction": "manipulation",
-                    "msUserSelect": "none",
-                    "paddingBottom": "10px",
-                    "paddingLeft": "10px",
-                    "paddingRight": "10px",
-                    "paddingTop": "10px",
-                    "touchAction": "manipulation",
-                    "userSelect": "none",
+                    "color": "rgba(31,41,55,1.00)",
+                    "fontSize": "16px",
+                    "fontStyle": "normal",
+                    "fontWeight": "400",
+                    "letterSpacing": "0px",
+                    "lineHeight": "1.5em",
                   }
                 }
-                tabIndex="0"
               >
-                <svg
-                  role="img"
-                  stroke=""
-                  style={
-                    Object {
-                      "color": "rgba(75,85,99,1.00)",
-                      "height": "12px",
-                      "width": "12px",
-                    }
-                  }
-                  viewBox="0 0 24 24"
-                >
-                  <g>
-                    <path
-                      d="M12 9.77778L4.22222 2L2 4.22222L9.77778 12L2 19.7778L4.22222 22L12 14.2222L19.7778 22L22 19.7778L14.2222 12L22 4.22222L19.7778 2L12 9.77778Z"
-                      fill="currentColor"
-                      stroke=""
-                    />
-                  </g>
-                </svg>
+                Selection successfully moved!
               </div>
+            </div>
+            <div
+              className="css-view-1dbjc4n"
+              style={
+                Object {
+                  "width": "8px",
+                }
+              }
+            />
+            <div
+              className="css-cursor-18t94o4 css-view-1dbjc4n"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onContextMenu={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              role="button"
+              style={
+                Object {
+                  "MozUserSelect": "none",
+                  "WebkitAlignItems": "center",
+                  "WebkitBoxAlign": "center",
+                  "WebkitBoxDirection": "normal",
+                  "WebkitBoxOrient": "horizontal",
+                  "WebkitBoxPack": "center",
+                  "WebkitFlexDirection": "row",
+                  "WebkitJustifyContent": "center",
+                  "WebkitUserSelect": "none",
+                  "alignItems": "center",
+                  "borderBottomLeftRadius": "4px",
+                  "borderBottomRightRadius": "4px",
+                  "borderTopLeftRadius": "4px",
+                  "borderTopRightRadius": "4px",
+                  "cursor": "pointer",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                  "msFlexAlign": "center",
+                  "msFlexDirection": "row",
+                  "msFlexPack": "center",
+                  "msTouchAction": "manipulation",
+                  "msUserSelect": "none",
+                  "paddingBottom": "10px",
+                  "paddingLeft": "10px",
+                  "paddingRight": "10px",
+                  "paddingTop": "10px",
+                  "touchAction": "manipulation",
+                  "userSelect": "none",
+                }
+              }
+              tabIndex="0"
+            >
+              <svg
+                role="img"
+                stroke=""
+                style={
+                  Object {
+                    "color": "rgba(75,85,99,1.00)",
+                    "height": "20px",
+                    "width": "20px",
+                  }
+                }
+                viewBox="0 0 24 24"
+              >
+                <g>
+                  <path
+                    d="M12 9.77778L4.22222 2L2 4.22222L9.77778 12L2 19.7778L4.22222 22L12 14.2222L19.7778 22L22 19.7778L14.2222 12L22 4.22222L19.7778 2L12 9.77778Z"
+                    fill="currentColor"
+                    stroke=""
+                  />
+                </g>
+              </svg>
             </div>
           </div>
         </div>
-        <div
-          className="css-view-1dbjc4n"
-          style={
-            Object {
-              "height": "12px",
-            }
+      </div>
+      <div
+        className="css-view-1dbjc4n"
+        style={
+          Object {
+            "height": "12px",
           }
-        />
+        }
+      />
+      <div
+        className="css-view-1dbjc4n"
+        style={
+          Object {
+            "WebkitAlignItems": "center",
+            "WebkitBoxAlign": "center",
+            "WebkitBoxPack": "start",
+            "WebkitJustifyContent": "flex-start",
+            "alignItems": "center",
+            "backgroundColor": "rgba(254,202,202,1.00)",
+            "borderBottomLeftRadius": "4px",
+            "borderBottomRightRadius": "4px",
+            "borderTopLeftRadius": "4px",
+            "borderTopRightRadius": "4px",
+            "justifyContent": "flex-start",
+            "msFlexAlign": "center",
+            "msFlexPack": "start",
+            "paddingBottom": "12px",
+            "paddingLeft": "12px",
+            "paddingRight": "12px",
+            "paddingTop": "12px",
+            "width": "100%",
+          }
+        }
+      >
         <div
           className="css-view-1dbjc4n"
           style={
             Object {
-              "WebkitAlignItems": "center",
-              "WebkitBoxAlign": "center",
-              "WebkitBoxPack": "start",
-              "WebkitJustifyContent": "flex-start",
-              "alignItems": "center",
-              "backgroundColor": "rgba(254,202,202,1.00)",
-              "borderBottomLeftRadius": "4px",
-              "borderBottomRightRadius": "4px",
-              "borderTopLeftRadius": "4px",
-              "borderTopRightRadius": "4px",
-              "justifyContent": "flex-start",
-              "msFlexAlign": "center",
-              "msFlexPack": "start",
-              "paddingBottom": "12px",
-              "paddingLeft": "12px",
-              "paddingRight": "12px",
-              "paddingTop": "12px",
+              "WebkitFlexShrink": 1,
+              "flexShrink": 1,
+              "msFlexNegative": 1,
               "width": "100%",
             }
           }
@@ -3038,10 +3032,18 @@ exports[`Storyshots Alert Status 1`] = `
             className="css-view-1dbjc4n"
             style={
               Object {
+                "WebkitBoxDirection": "normal",
+                "WebkitBoxOrient": "horizontal",
+                "WebkitBoxPack": "justify",
+                "WebkitFlexDirection": "row",
                 "WebkitFlexShrink": 1,
+                "WebkitJustifyContent": "space-between",
+                "flexDirection": "row",
                 "flexShrink": 1,
+                "justifyContent": "space-between",
+                "msFlexDirection": "row",
                 "msFlexNegative": 1,
-                "width": "100%",
+                "msFlexPack": "justify",
               }
             }
           >
@@ -3051,88 +3053,44 @@ exports[`Storyshots Alert Status 1`] = `
                 Object {
                   "WebkitBoxDirection": "normal",
                   "WebkitBoxOrient": "horizontal",
-                  "WebkitBoxPack": "justify",
                   "WebkitFlexDirection": "row",
                   "WebkitFlexShrink": 1,
-                  "WebkitJustifyContent": "space-between",
                   "flexDirection": "row",
                   "flexShrink": 1,
-                  "justifyContent": "space-between",
                   "msFlexDirection": "row",
                   "msFlexNegative": 1,
-                  "msFlexPack": "justify",
                 }
               }
             >
               <div
                 className="css-view-1dbjc4n"
-                style={
-                  Object {
-                    "WebkitBoxDirection": "normal",
-                    "WebkitBoxOrient": "horizontal",
-                    "WebkitFlexDirection": "row",
-                    "WebkitFlexShrink": 1,
-                    "flexDirection": "row",
-                    "flexShrink": 1,
-                    "msFlexDirection": "row",
-                    "msFlexNegative": 1,
-                  }
-                }
               >
-                <div
-                  className="css-view-1dbjc4n"
-                >
-                  <svg
-                    role="img"
-                    stroke=""
-                    style={
-                      Object {
-                        "color": "rgba(185,28,28,1.00)",
-                        "height": "16px",
-                        "marginTop": "4px",
-                        "width": "16px",
-                      }
+                <svg
+                  role="img"
+                  stroke=""
+                  style={
+                    Object {
+                      "color": "rgba(185,28,28,1.00)",
+                      "height": "16px",
+                      "marginTop": "4px",
+                      "width": "16px",
                     }
-                    viewBox="0 0 24 24"
-                  >
-                    <g>
-                      <g
-                        fill="currentColor"
-                        stroke=""
-                      >
-                        <path
-                          d="M13.9193 18.4271C13.8992 17.9392 13.6816 17.4813 13.3178 17.1478C12.9545 16.8148 12.4731 16.631 11.975 16.6304H11.9746H11.945V16.6304L11.9392 16.6305C11.6898 16.6348 11.4434 16.6864 11.2142 16.7827L11.333 17.0655L11.2142 16.7827C10.9851 16.879 10.7773 17.0183 10.6035 17.1931C10.4296 17.368 10.2932 17.5751 10.2031 17.8026C10.113 18.0302 10.0712 18.2732 10.0806 18.5171L10.0807 18.5176C10.1001 19.0055 10.3169 19.4638 10.6802 19.7979C11.043 20.1315 11.5241 20.3162 12.0222 20.3177H12.0233H12.0529V20.3178L12.058 20.3177C12.3081 20.3138 12.5552 20.2624 12.785 20.1661C13.0148 20.0698 13.2232 19.9303 13.3974 19.7549C13.5716 19.5795 13.7081 19.3718 13.7981 19.1436C13.8881 18.9153 13.9295 18.6716 13.9193 18.4271ZM13.9193 18.4271L13.5863 18.4408M13.9193 18.4271C13.9193 18.4271 13.9193 18.4271 13.9193 18.427L13.5863 18.4408M13.5863 18.4408C13.5945 18.6386 13.5611 18.836 13.488 19.0213C13.415 19.2066 13.3037 19.3762 13.1609 19.52C13.018 19.6638 12.8464 19.779 12.6561 19.8587C12.4658 19.9385 12.2607 19.9812 12.0529 19.9844H12.0233C11.6062 19.9831 11.2058 19.8284 10.9059 19.5525C10.6059 19.2767 10.4296 18.9011 10.4137 18.5043C10.4061 18.3069 10.4399 18.1101 10.513 17.9254C10.5862 17.7406 10.6973 17.5715 10.8399 17.4281C10.9824 17.2847 11.1536 17.1698 11.3434 17.09C11.5331 17.0103 11.7376 16.9674 11.945 16.9638H11.9746C12.3916 16.9642 12.7922 17.1182 13.0926 17.3936C13.393 17.6689 13.5699 18.0442 13.5863 18.4408ZM23.4665 20.2125L23.4665 20.2125C23.6068 20.4676 23.6751 20.7517 23.6658 21.0376C23.6566 21.3234 23.57 21.6033 23.4131 21.8501C23.2562 22.097 23.0337 22.3031 22.7658 22.4469C22.4978 22.5907 22.1942 22.6667 21.8847 22.6667H21.8846H2.11538H2.11533C1.80576 22.6667 1.50222 22.5907 1.23422 22.4469C0.96631 22.3031 0.743845 22.097 0.586879 21.8501L0.305565 22.0289L0.586879 21.8501C0.429998 21.6033 0.343434 21.3234 0.334166 21.0376C0.324898 20.7517 0.393165 20.4676 0.533517 20.2125L0.53353 20.2125L10.4192 2.23977C10.5681 1.96911 10.7933 1.74021 11.0721 1.5796C11.3511 1.41893 11.6722 1.33333 12.0005 1.33333C12.3289 1.33333 12.65 1.41893 12.9289 1.5796C13.2078 1.74021 13.4329 1.96911 13.5819 2.23977L23.4665 20.2125ZM11.0224 7.44182C10.7599 7.69176 10.6091 8.03434 10.6091 8.39521V14.4365C10.6091 14.7974 10.7599 15.1399 11.0224 15.3899C11.2843 15.6393 11.6363 15.7767 12 15.7767C12.3637 15.7767 12.7157 15.6393 12.9776 15.3899C13.2401 15.1399 13.3909 14.7974 13.3909 14.4365V8.39521C13.3909 8.03434 13.2401 7.69176 12.9776 7.44182C12.7157 7.19242 12.3637 7.05499 12 7.05499C11.6363 7.05499 11.2843 7.19242 11.0224 7.44182Z"
-                          stroke="currentColor"
-                          stroke-width="0.666667"
-                        />
-                      </g>
+                  }
+                  viewBox="0 0 24 24"
+                >
+                  <g>
+                    <g
+                      fill="currentColor"
+                      stroke=""
+                    >
+                      <path
+                        d="M13.9193 18.4271C13.8992 17.9392 13.6816 17.4813 13.3178 17.1478C12.9545 16.8148 12.4731 16.631 11.975 16.6304H11.9746H11.945V16.6304L11.9392 16.6305C11.6898 16.6348 11.4434 16.6864 11.2142 16.7827L11.333 17.0655L11.2142 16.7827C10.9851 16.879 10.7773 17.0183 10.6035 17.1931C10.4296 17.368 10.2932 17.5751 10.2031 17.8026C10.113 18.0302 10.0712 18.2732 10.0806 18.5171L10.0807 18.5176C10.1001 19.0055 10.3169 19.4638 10.6802 19.7979C11.043 20.1315 11.5241 20.3162 12.0222 20.3177H12.0233H12.0529V20.3178L12.058 20.3177C12.3081 20.3138 12.5552 20.2624 12.785 20.1661C13.0148 20.0698 13.2232 19.9303 13.3974 19.7549C13.5716 19.5795 13.7081 19.3718 13.7981 19.1436C13.8881 18.9153 13.9295 18.6716 13.9193 18.4271ZM13.9193 18.4271L13.5863 18.4408M13.9193 18.4271C13.9193 18.4271 13.9193 18.4271 13.9193 18.427L13.5863 18.4408M13.5863 18.4408C13.5945 18.6386 13.5611 18.836 13.488 19.0213C13.415 19.2066 13.3037 19.3762 13.1609 19.52C13.018 19.6638 12.8464 19.779 12.6561 19.8587C12.4658 19.9385 12.2607 19.9812 12.0529 19.9844H12.0233C11.6062 19.9831 11.2058 19.8284 10.9059 19.5525C10.6059 19.2767 10.4296 18.9011 10.4137 18.5043C10.4061 18.3069 10.4399 18.1101 10.513 17.9254C10.5862 17.7406 10.6973 17.5715 10.8399 17.4281C10.9824 17.2847 11.1536 17.1698 11.3434 17.09C11.5331 17.0103 11.7376 16.9674 11.945 16.9638H11.9746C12.3916 16.9642 12.7922 17.1182 13.0926 17.3936C13.393 17.6689 13.5699 18.0442 13.5863 18.4408ZM23.4665 20.2125L23.4665 20.2125C23.6068 20.4676 23.6751 20.7517 23.6658 21.0376C23.6566 21.3234 23.57 21.6033 23.4131 21.8501C23.2562 22.097 23.0337 22.3031 22.7658 22.4469C22.4978 22.5907 22.1942 22.6667 21.8847 22.6667H21.8846H2.11538H2.11533C1.80576 22.6667 1.50222 22.5907 1.23422 22.4469C0.96631 22.3031 0.743845 22.097 0.586879 21.8501L0.305565 22.0289L0.586879 21.8501C0.429998 21.6033 0.343434 21.3234 0.334166 21.0376C0.324898 20.7517 0.393165 20.4676 0.533517 20.2125L0.53353 20.2125L10.4192 2.23977C10.5681 1.96911 10.7933 1.74021 11.0721 1.5796C11.3511 1.41893 11.6722 1.33333 12.0005 1.33333C12.3289 1.33333 12.65 1.41893 12.9289 1.5796C13.2078 1.74021 13.4329 1.96911 13.5819 2.23977L23.4665 20.2125ZM11.0224 7.44182C10.7599 7.69176 10.6091 8.03434 10.6091 8.39521V14.4365C10.6091 14.7974 10.7599 15.1399 11.0224 15.3899C11.2843 15.6393 11.6363 15.7767 12 15.7767C12.3637 15.7767 12.7157 15.6393 12.9776 15.3899C13.2401 15.1399 13.3909 14.7974 13.3909 14.4365V8.39521C13.3909 8.03434 13.2401 7.69176 12.9776 7.44182C12.7157 7.19242 12.3637 7.05499 12 7.05499C11.6363 7.05499 11.2843 7.19242 11.0224 7.44182Z"
+                        stroke="currentColor"
+                        strokeWidth="0.666667"
+                      />
                     </g>
-                  </svg>
-                </div>
-                <div
-                  className="css-view-1dbjc4n"
-                  style={
-                    Object {
-                      "width": "8px",
-                    }
-                  }
-                />
-                <div
-                  className="css-text-901oao"
-                  dir="auto"
-                  style={
-                    Object {
-                      "color": "rgba(31,41,55,1.00)",
-                      "fontSize": "16px",
-                      "fontStyle": "normal",
-                      "fontWeight": "400",
-                      "letterSpacing": "0px",
-                      "lineHeight": "1.5em",
-                    }
-                  }
-                >
-                  Please try again later!
-                </div>
+                  </g>
+                </svg>
               </div>
               <div
                 className="css-view-1dbjc4n"
@@ -3143,100 +3101,136 @@ exports[`Storyshots Alert Status 1`] = `
                 }
               />
               <div
-                className="css-cursor-18t94o4 css-view-1dbjc4n"
-                onBlur={[Function]}
-                onClick={[Function]}
-                onContextMenu={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                role="button"
+                className="css-text-901oao"
+                dir="auto"
                 style={
                   Object {
-                    "MozUserSelect": "none",
-                    "WebkitAlignItems": "center",
-                    "WebkitBoxAlign": "center",
-                    "WebkitBoxDirection": "normal",
-                    "WebkitBoxOrient": "horizontal",
-                    "WebkitBoxPack": "center",
-                    "WebkitFlexDirection": "row",
-                    "WebkitJustifyContent": "center",
-                    "WebkitUserSelect": "none",
-                    "alignItems": "center",
-                    "borderBottomLeftRadius": "4px",
-                    "borderBottomRightRadius": "4px",
-                    "borderTopLeftRadius": "4px",
-                    "borderTopRightRadius": "4px",
-                    "cursor": "pointer",
-                    "flexDirection": "row",
-                    "justifyContent": "center",
-                    "msFlexAlign": "center",
-                    "msFlexDirection": "row",
-                    "msFlexPack": "center",
-                    "msTouchAction": "manipulation",
-                    "msUserSelect": "none",
-                    "paddingBottom": "10px",
-                    "paddingLeft": "10px",
-                    "paddingRight": "10px",
-                    "paddingTop": "10px",
-                    "touchAction": "manipulation",
-                    "userSelect": "none",
+                    "color": "rgba(31,41,55,1.00)",
+                    "fontSize": "16px",
+                    "fontStyle": "normal",
+                    "fontWeight": "400",
+                    "letterSpacing": "0px",
+                    "lineHeight": "1.5em",
                   }
                 }
-                tabIndex="0"
               >
-                <svg
-                  role="img"
-                  stroke=""
-                  style={
-                    Object {
-                      "color": "rgba(75,85,99,1.00)",
-                      "height": "12px",
-                      "width": "12px",
-                    }
-                  }
-                  viewBox="0 0 24 24"
-                >
-                  <g>
-                    <path
-                      d="M12 9.77778L4.22222 2L2 4.22222L9.77778 12L2 19.7778L4.22222 22L12 14.2222L19.7778 22L22 19.7778L14.2222 12L22 4.22222L19.7778 2L12 9.77778Z"
-                      fill="currentColor"
-                      stroke=""
-                    />
-                  </g>
-                </svg>
+                Please try again later!
               </div>
+            </div>
+            <div
+              className="css-view-1dbjc4n"
+              style={
+                Object {
+                  "width": "8px",
+                }
+              }
+            />
+            <div
+              className="css-cursor-18t94o4 css-view-1dbjc4n"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onContextMenu={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              role="button"
+              style={
+                Object {
+                  "MozUserSelect": "none",
+                  "WebkitAlignItems": "center",
+                  "WebkitBoxAlign": "center",
+                  "WebkitBoxDirection": "normal",
+                  "WebkitBoxOrient": "horizontal",
+                  "WebkitBoxPack": "center",
+                  "WebkitFlexDirection": "row",
+                  "WebkitJustifyContent": "center",
+                  "WebkitUserSelect": "none",
+                  "alignItems": "center",
+                  "borderBottomLeftRadius": "4px",
+                  "borderBottomRightRadius": "4px",
+                  "borderTopLeftRadius": "4px",
+                  "borderTopRightRadius": "4px",
+                  "cursor": "pointer",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                  "msFlexAlign": "center",
+                  "msFlexDirection": "row",
+                  "msFlexPack": "center",
+                  "msTouchAction": "manipulation",
+                  "msUserSelect": "none",
+                  "paddingBottom": "10px",
+                  "paddingLeft": "10px",
+                  "paddingRight": "10px",
+                  "paddingTop": "10px",
+                  "touchAction": "manipulation",
+                  "userSelect": "none",
+                }
+              }
+              tabIndex="0"
+            >
+              <svg
+                role="img"
+                stroke=""
+                style={
+                  Object {
+                    "color": "rgba(75,85,99,1.00)",
+                    "height": "20px",
+                    "width": "20px",
+                  }
+                }
+                viewBox="0 0 24 24"
+              >
+                <g>
+                  <path
+                    d="M12 9.77778L4.22222 2L2 4.22222L9.77778 12L2 19.7778L4.22222 22L12 14.2222L19.7778 22L22 19.7778L14.2222 12L22 4.22222L19.7778 2L12 9.77778Z"
+                    fill="currentColor"
+                    stroke=""
+                  />
+                </g>
+              </svg>
             </div>
           </div>
         </div>
-        <div
-          className="css-view-1dbjc4n"
-          style={
-            Object {
-              "height": "12px",
-            }
+      </div>
+      <div
+        className="css-view-1dbjc4n"
+        style={
+          Object {
+            "height": "12px",
           }
-        />
+        }
+      />
+      <div
+        className="css-view-1dbjc4n"
+        style={
+          Object {
+            "WebkitAlignItems": "center",
+            "WebkitBoxAlign": "center",
+            "WebkitBoxPack": "start",
+            "WebkitJustifyContent": "flex-start",
+            "alignItems": "center",
+            "backgroundColor": "rgba(186,230,253,1.00)",
+            "borderBottomLeftRadius": "4px",
+            "borderBottomRightRadius": "4px",
+            "borderTopLeftRadius": "4px",
+            "borderTopRightRadius": "4px",
+            "justifyContent": "flex-start",
+            "msFlexAlign": "center",
+            "msFlexPack": "start",
+            "paddingBottom": "12px",
+            "paddingLeft": "12px",
+            "paddingRight": "12px",
+            "paddingTop": "12px",
+            "width": "100%",
+          }
+        }
+      >
         <div
           className="css-view-1dbjc4n"
           style={
             Object {
-              "WebkitAlignItems": "center",
-              "WebkitBoxAlign": "center",
-              "WebkitBoxPack": "start",
-              "WebkitJustifyContent": "flex-start",
-              "alignItems": "center",
-              "backgroundColor": "rgba(186,230,253,1.00)",
-              "borderBottomLeftRadius": "4px",
-              "borderBottomRightRadius": "4px",
-              "borderTopLeftRadius": "4px",
-              "borderTopRightRadius": "4px",
-              "justifyContent": "flex-start",
-              "msFlexAlign": "center",
-              "msFlexPack": "start",
-              "paddingBottom": "12px",
-              "paddingLeft": "12px",
-              "paddingRight": "12px",
-              "paddingTop": "12px",
+              "WebkitFlexShrink": 1,
+              "flexShrink": 1,
+              "msFlexNegative": 1,
               "width": "100%",
             }
           }
@@ -3245,10 +3239,18 @@ exports[`Storyshots Alert Status 1`] = `
             className="css-view-1dbjc4n"
             style={
               Object {
+                "WebkitBoxDirection": "normal",
+                "WebkitBoxOrient": "horizontal",
+                "WebkitBoxPack": "justify",
+                "WebkitFlexDirection": "row",
                 "WebkitFlexShrink": 1,
+                "WebkitJustifyContent": "space-between",
+                "flexDirection": "row",
                 "flexShrink": 1,
+                "justifyContent": "space-between",
+                "msFlexDirection": "row",
                 "msFlexNegative": 1,
-                "width": "100%",
+                "msFlexPack": "justify",
               }
             }
           >
@@ -3258,83 +3260,39 @@ exports[`Storyshots Alert Status 1`] = `
                 Object {
                   "WebkitBoxDirection": "normal",
                   "WebkitBoxOrient": "horizontal",
-                  "WebkitBoxPack": "justify",
                   "WebkitFlexDirection": "row",
                   "WebkitFlexShrink": 1,
-                  "WebkitJustifyContent": "space-between",
                   "flexDirection": "row",
                   "flexShrink": 1,
-                  "justifyContent": "space-between",
                   "msFlexDirection": "row",
                   "msFlexNegative": 1,
-                  "msFlexPack": "justify",
                 }
               }
             >
               <div
                 className="css-view-1dbjc4n"
-                style={
-                  Object {
-                    "WebkitBoxDirection": "normal",
-                    "WebkitBoxOrient": "horizontal",
-                    "WebkitFlexDirection": "row",
-                    "WebkitFlexShrink": 1,
-                    "flexDirection": "row",
-                    "flexShrink": 1,
-                    "msFlexDirection": "row",
-                    "msFlexNegative": 1,
-                  }
-                }
               >
-                <div
-                  className="css-view-1dbjc4n"
-                >
-                  <svg
-                    role="img"
-                    stroke=""
-                    style={
-                      Object {
-                        "color": "rgba(3,105,161,1.00)",
-                        "height": "16px",
-                        "marginTop": "4px",
-                        "width": "16px",
-                      }
-                    }
-                    viewBox="0 0 24 24"
-                  >
-                    <g>
-                      <path
-                        d="M12 0C9.62663 0 7.30655 0.703788 5.33316 2.02236C3.35977 3.34094 1.8217 5.21509 0.913451 7.4078C0.00519948 9.60051 -0.232441 12.0133 0.230582 14.3411C0.693605 16.6689 1.83649 18.807 3.51472 20.4853C5.19295 22.1635 7.33115 23.3064 9.65892 23.7694C11.9867 24.2324 14.3995 23.9948 16.5922 23.0865C18.7849 22.1783 20.6591 20.6402 21.9776 18.6668C23.2962 16.6935 24 14.3734 24 12C23.9966 8.81846 22.7312 5.76821 20.4815 3.51852C18.2318 1.26883 15.1815 0.00344108 12 0ZM12.25 5C12.5467 5 12.8367 5.08797 13.0834 5.25279C13.33 5.41762 13.5223 5.65189 13.6358 5.92597C13.7494 6.20006 13.7791 6.50166 13.7212 6.79263C13.6633 7.08361 13.5204 7.35088 13.3107 7.56066C13.1009 7.77044 12.8336 7.9133 12.5426 7.97118C12.2517 8.02905 11.9501 7.99935 11.676 7.88582C11.4019 7.77229 11.1676 7.58003 11.0028 7.33335C10.838 7.08668 10.75 6.79667 10.75 6.5C10.75 6.10217 10.908 5.72064 11.1893 5.43934C11.4706 5.15803 11.8522 5 12.25 5ZM14.5 18.5H10.5C10.2348 18.5 9.98043 18.3946 9.7929 18.2071C9.60536 18.0196 9.5 17.7652 9.5 17.5C9.5 17.2348 9.60536 16.9804 9.7929 16.7929C9.98043 16.6054 10.2348 16.5 10.5 16.5H11.25C11.3163 16.5 11.3799 16.4737 11.4268 16.4268C11.4737 16.3799 11.5 16.3163 11.5 16.25V11.75C11.5 11.6837 11.4737 11.6201 11.4268 11.5732C11.3799 11.5263 11.3163 11.5 11.25 11.5H10.5C10.2348 11.5 9.98043 11.3946 9.7929 11.2071C9.60536 11.0196 9.5 10.7652 9.5 10.5C9.5 10.2348 9.60536 9.98043 9.7929 9.79289C9.98043 9.60536 10.2348 9.5 10.5 9.5H11.5C12.0304 9.5 12.5391 9.71071 12.9142 10.0858C13.2893 10.4609 13.5 10.9696 13.5 11.5V16.25C13.5 16.3163 13.5263 16.3799 13.5732 16.4268C13.6201 16.4737 13.6837 16.5 13.75 16.5H14.5C14.7652 16.5 15.0196 16.6054 15.2071 16.7929C15.3946 16.9804 15.5 17.2348 15.5 17.5C15.5 17.7652 15.3946 18.0196 15.2071 18.2071C15.0196 18.3946 14.7652 18.5 14.5 18.5Z"
-                        fill="currentColor"
-                        stroke=""
-                      />
-                    </g>
-                  </svg>
-                </div>
-                <div
-                  className="css-view-1dbjc4n"
+                <svg
+                  role="img"
+                  stroke=""
                   style={
                     Object {
-                      "width": "8px",
+                      "color": "rgba(3,105,161,1.00)",
+                      "height": "16px",
+                      "marginTop": "4px",
+                      "width": "16px",
                     }
                   }
-                />
-                <div
-                  className="css-text-901oao"
-                  dir="auto"
-                  style={
-                    Object {
-                      "color": "rgba(31,41,55,1.00)",
-                      "fontSize": "16px",
-                      "fontStyle": "normal",
-                      "fontWeight": "400",
-                      "letterSpacing": "0px",
-                      "lineHeight": "1.5em",
-                    }
-                  }
+                  viewBox="0 0 24 24"
                 >
-                  We are going live in July!
-                </div>
+                  <g>
+                    <path
+                      d="M12 0C9.62663 0 7.30655 0.703788 5.33316 2.02236C3.35977 3.34094 1.8217 5.21509 0.913451 7.4078C0.00519948 9.60051 -0.232441 12.0133 0.230582 14.3411C0.693605 16.6689 1.83649 18.807 3.51472 20.4853C5.19295 22.1635 7.33115 23.3064 9.65892 23.7694C11.9867 24.2324 14.3995 23.9948 16.5922 23.0865C18.7849 22.1783 20.6591 20.6402 21.9776 18.6668C23.2962 16.6935 24 14.3734 24 12C23.9966 8.81846 22.7312 5.76821 20.4815 3.51852C18.2318 1.26883 15.1815 0.00344108 12 0ZM12.25 5C12.5467 5 12.8367 5.08797 13.0834 5.25279C13.33 5.41762 13.5223 5.65189 13.6358 5.92597C13.7494 6.20006 13.7791 6.50166 13.7212 6.79263C13.6633 7.08361 13.5204 7.35088 13.3107 7.56066C13.1009 7.77044 12.8336 7.9133 12.5426 7.97118C12.2517 8.02905 11.9501 7.99935 11.676 7.88582C11.4019 7.77229 11.1676 7.58003 11.0028 7.33335C10.838 7.08668 10.75 6.79667 10.75 6.5C10.75 6.10217 10.908 5.72064 11.1893 5.43934C11.4706 5.15803 11.8522 5 12.25 5ZM14.5 18.5H10.5C10.2348 18.5 9.98043 18.3946 9.7929 18.2071C9.60536 18.0196 9.5 17.7652 9.5 17.5C9.5 17.2348 9.60536 16.9804 9.7929 16.7929C9.98043 16.6054 10.2348 16.5 10.5 16.5H11.25C11.3163 16.5 11.3799 16.4737 11.4268 16.4268C11.4737 16.3799 11.5 16.3163 11.5 16.25V11.75C11.5 11.6837 11.4737 11.6201 11.4268 11.5732C11.3799 11.5263 11.3163 11.5 11.25 11.5H10.5C10.2348 11.5 9.98043 11.3946 9.7929 11.2071C9.60536 11.0196 9.5 10.7652 9.5 10.5C9.5 10.2348 9.60536 9.98043 9.7929 9.79289C9.98043 9.60536 10.2348 9.5 10.5 9.5H11.5C12.0304 9.5 12.5391 9.71071 12.9142 10.0858C13.2893 10.4609 13.5 10.9696 13.5 11.5V16.25C13.5 16.3163 13.5263 16.3799 13.5732 16.4268C13.6201 16.4737 13.6837 16.5 13.75 16.5H14.5C14.7652 16.5 15.0196 16.6054 15.2071 16.7929C15.3946 16.9804 15.5 17.2348 15.5 17.5C15.5 17.7652 15.3946 18.0196 15.2071 18.2071C15.0196 18.3946 14.7652 18.5 14.5 18.5Z"
+                      fill="currentColor"
+                      stroke=""
+                    />
+                  </g>
+                </svg>
               </div>
               <div
                 className="css-view-1dbjc4n"
@@ -3345,100 +3303,136 @@ exports[`Storyshots Alert Status 1`] = `
                 }
               />
               <div
-                className="css-cursor-18t94o4 css-view-1dbjc4n"
-                onBlur={[Function]}
-                onClick={[Function]}
-                onContextMenu={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                role="button"
+                className="css-text-901oao"
+                dir="auto"
                 style={
                   Object {
-                    "MozUserSelect": "none",
-                    "WebkitAlignItems": "center",
-                    "WebkitBoxAlign": "center",
-                    "WebkitBoxDirection": "normal",
-                    "WebkitBoxOrient": "horizontal",
-                    "WebkitBoxPack": "center",
-                    "WebkitFlexDirection": "row",
-                    "WebkitJustifyContent": "center",
-                    "WebkitUserSelect": "none",
-                    "alignItems": "center",
-                    "borderBottomLeftRadius": "4px",
-                    "borderBottomRightRadius": "4px",
-                    "borderTopLeftRadius": "4px",
-                    "borderTopRightRadius": "4px",
-                    "cursor": "pointer",
-                    "flexDirection": "row",
-                    "justifyContent": "center",
-                    "msFlexAlign": "center",
-                    "msFlexDirection": "row",
-                    "msFlexPack": "center",
-                    "msTouchAction": "manipulation",
-                    "msUserSelect": "none",
-                    "paddingBottom": "10px",
-                    "paddingLeft": "10px",
-                    "paddingRight": "10px",
-                    "paddingTop": "10px",
-                    "touchAction": "manipulation",
-                    "userSelect": "none",
+                    "color": "rgba(31,41,55,1.00)",
+                    "fontSize": "16px",
+                    "fontStyle": "normal",
+                    "fontWeight": "400",
+                    "letterSpacing": "0px",
+                    "lineHeight": "1.5em",
                   }
                 }
-                tabIndex="0"
               >
-                <svg
-                  role="img"
-                  stroke=""
-                  style={
-                    Object {
-                      "color": "rgba(75,85,99,1.00)",
-                      "height": "12px",
-                      "width": "12px",
-                    }
-                  }
-                  viewBox="0 0 24 24"
-                >
-                  <g>
-                    <path
-                      d="M12 9.77778L4.22222 2L2 4.22222L9.77778 12L2 19.7778L4.22222 22L12 14.2222L19.7778 22L22 19.7778L14.2222 12L22 4.22222L19.7778 2L12 9.77778Z"
-                      fill="currentColor"
-                      stroke=""
-                    />
-                  </g>
-                </svg>
+                We are going live in July!
               </div>
+            </div>
+            <div
+              className="css-view-1dbjc4n"
+              style={
+                Object {
+                  "width": "8px",
+                }
+              }
+            />
+            <div
+              className="css-cursor-18t94o4 css-view-1dbjc4n"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onContextMenu={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              role="button"
+              style={
+                Object {
+                  "MozUserSelect": "none",
+                  "WebkitAlignItems": "center",
+                  "WebkitBoxAlign": "center",
+                  "WebkitBoxDirection": "normal",
+                  "WebkitBoxOrient": "horizontal",
+                  "WebkitBoxPack": "center",
+                  "WebkitFlexDirection": "row",
+                  "WebkitJustifyContent": "center",
+                  "WebkitUserSelect": "none",
+                  "alignItems": "center",
+                  "borderBottomLeftRadius": "4px",
+                  "borderBottomRightRadius": "4px",
+                  "borderTopLeftRadius": "4px",
+                  "borderTopRightRadius": "4px",
+                  "cursor": "pointer",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                  "msFlexAlign": "center",
+                  "msFlexDirection": "row",
+                  "msFlexPack": "center",
+                  "msTouchAction": "manipulation",
+                  "msUserSelect": "none",
+                  "paddingBottom": "10px",
+                  "paddingLeft": "10px",
+                  "paddingRight": "10px",
+                  "paddingTop": "10px",
+                  "touchAction": "manipulation",
+                  "userSelect": "none",
+                }
+              }
+              tabIndex="0"
+            >
+              <svg
+                role="img"
+                stroke=""
+                style={
+                  Object {
+                    "color": "rgba(75,85,99,1.00)",
+                    "height": "20px",
+                    "width": "20px",
+                  }
+                }
+                viewBox="0 0 24 24"
+              >
+                <g>
+                  <path
+                    d="M12 9.77778L4.22222 2L2 4.22222L9.77778 12L2 19.7778L4.22222 22L12 14.2222L19.7778 22L22 19.7778L14.2222 12L22 4.22222L19.7778 2L12 9.77778Z"
+                    fill="currentColor"
+                    stroke=""
+                  />
+                </g>
+              </svg>
             </div>
           </div>
         </div>
-        <div
-          className="css-view-1dbjc4n"
-          style={
-            Object {
-              "height": "12px",
-            }
+      </div>
+      <div
+        className="css-view-1dbjc4n"
+        style={
+          Object {
+            "height": "12px",
           }
-        />
+        }
+      />
+      <div
+        className="css-view-1dbjc4n"
+        style={
+          Object {
+            "WebkitAlignItems": "center",
+            "WebkitBoxAlign": "center",
+            "WebkitBoxPack": "start",
+            "WebkitJustifyContent": "flex-start",
+            "alignItems": "center",
+            "backgroundColor": "rgba(254,215,170,1.00)",
+            "borderBottomLeftRadius": "4px",
+            "borderBottomRightRadius": "4px",
+            "borderTopLeftRadius": "4px",
+            "borderTopRightRadius": "4px",
+            "justifyContent": "flex-start",
+            "msFlexAlign": "center",
+            "msFlexPack": "start",
+            "paddingBottom": "12px",
+            "paddingLeft": "12px",
+            "paddingRight": "12px",
+            "paddingTop": "12px",
+            "width": "100%",
+          }
+        }
+      >
         <div
           className="css-view-1dbjc4n"
           style={
             Object {
-              "WebkitAlignItems": "center",
-              "WebkitBoxAlign": "center",
-              "WebkitBoxPack": "start",
-              "WebkitJustifyContent": "flex-start",
-              "alignItems": "center",
-              "backgroundColor": "rgba(254,215,170,1.00)",
-              "borderBottomLeftRadius": "4px",
-              "borderBottomRightRadius": "4px",
-              "borderTopLeftRadius": "4px",
-              "borderTopRightRadius": "4px",
-              "justifyContent": "flex-start",
-              "msFlexAlign": "center",
-              "msFlexPack": "start",
-              "paddingBottom": "12px",
-              "paddingLeft": "12px",
-              "paddingRight": "12px",
-              "paddingTop": "12px",
+              "WebkitFlexShrink": 1,
+              "flexShrink": 1,
+              "msFlexNegative": 1,
               "width": "100%",
             }
           }
@@ -3447,10 +3441,18 @@ exports[`Storyshots Alert Status 1`] = `
             className="css-view-1dbjc4n"
             style={
               Object {
+                "WebkitBoxDirection": "normal",
+                "WebkitBoxOrient": "horizontal",
+                "WebkitBoxPack": "justify",
+                "WebkitFlexDirection": "row",
                 "WebkitFlexShrink": 1,
+                "WebkitJustifyContent": "space-between",
+                "flexDirection": "row",
                 "flexShrink": 1,
+                "justifyContent": "space-between",
+                "msFlexDirection": "row",
                 "msFlexNegative": 1,
-                "width": "100%",
+                "msFlexPack": "justify",
               }
             }
           >
@@ -3460,83 +3462,39 @@ exports[`Storyshots Alert Status 1`] = `
                 Object {
                   "WebkitBoxDirection": "normal",
                   "WebkitBoxOrient": "horizontal",
-                  "WebkitBoxPack": "justify",
                   "WebkitFlexDirection": "row",
                   "WebkitFlexShrink": 1,
-                  "WebkitJustifyContent": "space-between",
                   "flexDirection": "row",
                   "flexShrink": 1,
-                  "justifyContent": "space-between",
                   "msFlexDirection": "row",
                   "msFlexNegative": 1,
-                  "msFlexPack": "justify",
                 }
               }
             >
               <div
                 className="css-view-1dbjc4n"
-                style={
-                  Object {
-                    "WebkitBoxDirection": "normal",
-                    "WebkitBoxOrient": "horizontal",
-                    "WebkitFlexDirection": "row",
-                    "WebkitFlexShrink": 1,
-                    "flexDirection": "row",
-                    "flexShrink": 1,
-                    "msFlexDirection": "row",
-                    "msFlexNegative": 1,
-                  }
-                }
               >
-                <div
-                  className="css-view-1dbjc4n"
-                >
-                  <svg
-                    role="img"
-                    stroke=""
-                    style={
-                      Object {
-                        "color": "rgba(194,65,12,1.00)",
-                        "height": "16px",
-                        "marginTop": "4px",
-                        "width": "16px",
-                      }
-                    }
-                    viewBox="0 0 24 24"
-                  >
-                    <g>
-                      <path
-                        d="M11.9836 0.00267822C8.77744 0.0551662 5.72075 1.36728 3.47427 3.65538C2.35024 4.77447 1.46338 6.10869 0.866705 7.57831C0.270027 9.04793 -0.0242179 10.6228 0.00155827 12.2087C-0.000286057 13.7583 0.303697 15.2931 0.896087 16.7251C1.48848 18.1571 2.35763 19.458 3.45373 20.5535C4.54983 21.6489 5.85133 22.5173 7.28365 23.1089C8.71596 23.7004 10.2509 24.0035 11.8006 24.0007H12.0146C15.2217 23.9677 18.2847 22.6638 20.5316 20.3751C22.7785 18.0864 24.0257 14.9999 23.9996 11.7927C24.0033 10.2243 23.6933 8.6709 23.0879 7.22398C22.4825 5.77706 21.5939 4.4658 20.4744 3.36731C19.3548 2.26882 18.0269 1.40527 16.5688 0.827453C15.1106 0.249636 13.5517 -0.0307856 11.9836 0.00267822ZM10.5007 16.5433C10.4935 16.3473 10.5254 16.1517 10.5947 15.9682C10.6639 15.7846 10.7691 15.6167 10.904 15.4742C11.0389 15.3318 11.2009 15.2177 11.3804 15.1386C11.5599 15.0594 11.7534 15.0169 11.9496 15.0135H11.9766C12.3712 15.0142 12.7501 15.1677 13.034 15.4417C13.3179 15.7157 13.4847 16.089 13.4995 16.4833C13.5068 16.6794 13.4749 16.875 13.4057 17.0586C13.3365 17.2423 13.2314 17.4102 13.0965 17.5527C12.9615 17.6952 12.7995 17.8093 12.6199 17.8884C12.4403 17.9674 12.2468 18.0099 12.0506 18.0132H12.0236C11.6291 18.0119 11.2505 17.8583 10.9667 17.5844C10.6829 17.3105 10.5159 16.9375 10.5007 16.5433ZM11.0007 12.5017V6.50215C11.0007 6.23695 11.106 5.98262 11.2935 5.7951C11.481 5.60758 11.7354 5.50223 12.0006 5.50223C12.2658 5.50223 12.5201 5.60758 12.7076 5.7951C12.8951 5.98262 13.0005 6.23695 13.0005 6.50215V12.5017C13.0005 12.7669 12.8951 13.0212 12.7076 13.2087C12.5201 13.3962 12.2658 13.5016 12.0006 13.5016C11.7354 13.5016 11.481 13.3962 11.2935 13.2087C11.106 13.0212 11.0007 12.7669 11.0007 12.5017Z"
-                        fill="currentColor"
-                        stroke=""
-                      />
-                    </g>
-                  </svg>
-                </div>
-                <div
-                  className="css-view-1dbjc4n"
+                <svg
+                  role="img"
+                  stroke=""
                   style={
                     Object {
-                      "width": "8px",
+                      "color": "rgba(194,65,12,1.00)",
+                      "height": "16px",
+                      "marginTop": "4px",
+                      "width": "16px",
                     }
                   }
-                />
-                <div
-                  className="css-text-901oao"
-                  dir="auto"
-                  style={
-                    Object {
-                      "color": "rgba(31,41,55,1.00)",
-                      "fontSize": "16px",
-                      "fontStyle": "normal",
-                      "fontWeight": "400",
-                      "letterSpacing": "0px",
-                      "lineHeight": "1.5em",
-                    }
-                  }
+                  viewBox="0 0 24 24"
                 >
-                  Poor internet connection.
-                </div>
+                  <g>
+                    <path
+                      d="M11.9836 0.00267822C8.77744 0.0551662 5.72075 1.36728 3.47427 3.65538C2.35024 4.77447 1.46338 6.10869 0.866705 7.57831C0.270027 9.04793 -0.0242179 10.6228 0.00155827 12.2087C-0.000286057 13.7583 0.303697 15.2931 0.896087 16.7251C1.48848 18.1571 2.35763 19.458 3.45373 20.5535C4.54983 21.6489 5.85133 22.5173 7.28365 23.1089C8.71596 23.7004 10.2509 24.0035 11.8006 24.0007H12.0146C15.2217 23.9677 18.2847 22.6638 20.5316 20.3751C22.7785 18.0864 24.0257 14.9999 23.9996 11.7927C24.0033 10.2243 23.6933 8.6709 23.0879 7.22398C22.4825 5.77706 21.5939 4.4658 20.4744 3.36731C19.3548 2.26882 18.0269 1.40527 16.5688 0.827453C15.1106 0.249636 13.5517 -0.0307856 11.9836 0.00267822ZM10.5007 16.5433C10.4935 16.3473 10.5254 16.1517 10.5947 15.9682C10.6639 15.7846 10.7691 15.6167 10.904 15.4742C11.0389 15.3318 11.2009 15.2177 11.3804 15.1386C11.5599 15.0594 11.7534 15.0169 11.9496 15.0135H11.9766C12.3712 15.0142 12.7501 15.1677 13.034 15.4417C13.3179 15.7157 13.4847 16.089 13.4995 16.4833C13.5068 16.6794 13.4749 16.875 13.4057 17.0586C13.3365 17.2423 13.2314 17.4102 13.0965 17.5527C12.9615 17.6952 12.7995 17.8093 12.6199 17.8884C12.4403 17.9674 12.2468 18.0099 12.0506 18.0132H12.0236C11.6291 18.0119 11.2505 17.8583 10.9667 17.5844C10.6829 17.3105 10.5159 16.9375 10.5007 16.5433ZM11.0007 12.5017V6.50215C11.0007 6.23695 11.106 5.98262 11.2935 5.7951C11.481 5.60758 11.7354 5.50223 12.0006 5.50223C12.2658 5.50223 12.5201 5.60758 12.7076 5.7951C12.8951 5.98262 13.0005 6.23695 13.0005 6.50215V12.5017C13.0005 12.7669 12.8951 13.0212 12.7076 13.2087C12.5201 13.3962 12.2658 13.5016 12.0006 13.5016C11.7354 13.5016 11.481 13.3962 11.2935 13.2087C11.106 13.0212 11.0007 12.7669 11.0007 12.5017Z"
+                      fill="currentColor"
+                      stroke=""
+                    />
+                  </g>
+                </svg>
               </div>
               <div
                 className="css-view-1dbjc4n"
@@ -3547,68 +3505,92 @@ exports[`Storyshots Alert Status 1`] = `
                 }
               />
               <div
-                className="css-cursor-18t94o4 css-view-1dbjc4n"
-                onBlur={[Function]}
-                onClick={[Function]}
-                onContextMenu={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                role="button"
+                className="css-text-901oao"
+                dir="auto"
                 style={
                   Object {
-                    "MozUserSelect": "none",
-                    "WebkitAlignItems": "center",
-                    "WebkitBoxAlign": "center",
-                    "WebkitBoxDirection": "normal",
-                    "WebkitBoxOrient": "horizontal",
-                    "WebkitBoxPack": "center",
-                    "WebkitFlexDirection": "row",
-                    "WebkitJustifyContent": "center",
-                    "WebkitUserSelect": "none",
-                    "alignItems": "center",
-                    "borderBottomLeftRadius": "4px",
-                    "borderBottomRightRadius": "4px",
-                    "borderTopLeftRadius": "4px",
-                    "borderTopRightRadius": "4px",
-                    "cursor": "pointer",
-                    "flexDirection": "row",
-                    "justifyContent": "center",
-                    "msFlexAlign": "center",
-                    "msFlexDirection": "row",
-                    "msFlexPack": "center",
-                    "msTouchAction": "manipulation",
-                    "msUserSelect": "none",
-                    "paddingBottom": "10px",
-                    "paddingLeft": "10px",
-                    "paddingRight": "10px",
-                    "paddingTop": "10px",
-                    "touchAction": "manipulation",
-                    "userSelect": "none",
+                    "color": "rgba(31,41,55,1.00)",
+                    "fontSize": "16px",
+                    "fontStyle": "normal",
+                    "fontWeight": "400",
+                    "letterSpacing": "0px",
+                    "lineHeight": "1.5em",
                   }
                 }
-                tabIndex="0"
               >
-                <svg
-                  role="img"
-                  stroke=""
-                  style={
-                    Object {
-                      "color": "rgba(75,85,99,1.00)",
-                      "height": "12px",
-                      "width": "12px",
-                    }
-                  }
-                  viewBox="0 0 24 24"
-                >
-                  <g>
-                    <path
-                      d="M12 9.77778L4.22222 2L2 4.22222L9.77778 12L2 19.7778L4.22222 22L12 14.2222L19.7778 22L22 19.7778L14.2222 12L22 4.22222L19.7778 2L12 9.77778Z"
-                      fill="currentColor"
-                      stroke=""
-                    />
-                  </g>
-                </svg>
+                Poor internet connection.
               </div>
+            </div>
+            <div
+              className="css-view-1dbjc4n"
+              style={
+                Object {
+                  "width": "8px",
+                }
+              }
+            />
+            <div
+              className="css-cursor-18t94o4 css-view-1dbjc4n"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onContextMenu={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              role="button"
+              style={
+                Object {
+                  "MozUserSelect": "none",
+                  "WebkitAlignItems": "center",
+                  "WebkitBoxAlign": "center",
+                  "WebkitBoxDirection": "normal",
+                  "WebkitBoxOrient": "horizontal",
+                  "WebkitBoxPack": "center",
+                  "WebkitFlexDirection": "row",
+                  "WebkitJustifyContent": "center",
+                  "WebkitUserSelect": "none",
+                  "alignItems": "center",
+                  "borderBottomLeftRadius": "4px",
+                  "borderBottomRightRadius": "4px",
+                  "borderTopLeftRadius": "4px",
+                  "borderTopRightRadius": "4px",
+                  "cursor": "pointer",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                  "msFlexAlign": "center",
+                  "msFlexDirection": "row",
+                  "msFlexPack": "center",
+                  "msTouchAction": "manipulation",
+                  "msUserSelect": "none",
+                  "paddingBottom": "10px",
+                  "paddingLeft": "10px",
+                  "paddingRight": "10px",
+                  "paddingTop": "10px",
+                  "touchAction": "manipulation",
+                  "userSelect": "none",
+                }
+              }
+              tabIndex="0"
+            >
+              <svg
+                role="img"
+                stroke=""
+                style={
+                  Object {
+                    "color": "rgba(75,85,99,1.00)",
+                    "height": "20px",
+                    "width": "20px",
+                  }
+                }
+                viewBox="0 0 24 24"
+              >
+                <g>
+                  <path
+                    d="M12 9.77778L4.22222 2L2 4.22222L9.77778 12L2 19.7778L4.22222 22L12 14.2222L19.7778 22L22 19.7778L14.2222 12L22 4.22222L19.7778 2L12 9.77778Z"
+                    fill="currentColor"
+                    stroke=""
+                  />
+                </g>
+              </svg>
             </div>
           </div>
         </div>
@@ -3757,7 +3739,6 @@ exports[`Storyshots Alert Usage 1`] = `
             "paddingLeft": "12px",
             "paddingRight": "12px",
             "paddingTop": "12px",
-            "width": "90%",
           }
         }
       >
@@ -3919,8 +3900,8 @@ exports[`Storyshots Alert Usage 1`] = `
                 style={
                   Object {
                     "color": "rgba(75,85,99,1.00)",
-                    "height": "12px",
-                    "width": "12px",
+                    "height": "20px",
+                    "width": "20px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -4133,7 +4114,6 @@ exports[`Storyshots Alert Variant 1`] = `
               "msFlexAlign": "center",
               "msFlexDirection": "column",
               "msFlexPack": "center",
-              "width": "90%",
             }
           }
         >
@@ -5427,7 +5407,6 @@ exports[`Storyshots Alert action 1`] = `
                 "paddingLeft": "12px",
                 "paddingRight": "12px",
                 "paddingTop": "12px",
-                "width": "90%",
               }
             }
           >
@@ -5507,7 +5486,7 @@ exports[`Storyshots Alert action 1`] = `
                           <path
                             d="M13.9193 18.4271C13.8992 17.9392 13.6816 17.4813 13.3178 17.1478C12.9545 16.8148 12.4731 16.631 11.975 16.6304H11.9746H11.945V16.6304L11.9392 16.6305C11.6898 16.6348 11.4434 16.6864 11.2142 16.7827L11.333 17.0655L11.2142 16.7827C10.9851 16.879 10.7773 17.0183 10.6035 17.1931C10.4296 17.368 10.2932 17.5751 10.2031 17.8026C10.113 18.0302 10.0712 18.2732 10.0806 18.5171L10.0807 18.5176C10.1001 19.0055 10.3169 19.4638 10.6802 19.7979C11.043 20.1315 11.5241 20.3162 12.0222 20.3177H12.0233H12.0529V20.3178L12.058 20.3177C12.3081 20.3138 12.5552 20.2624 12.785 20.1661C13.0148 20.0698 13.2232 19.9303 13.3974 19.7549C13.5716 19.5795 13.7081 19.3718 13.7981 19.1436C13.8881 18.9153 13.9295 18.6716 13.9193 18.4271ZM13.9193 18.4271L13.5863 18.4408M13.9193 18.4271C13.9193 18.4271 13.9193 18.4271 13.9193 18.427L13.5863 18.4408M13.5863 18.4408C13.5945 18.6386 13.5611 18.836 13.488 19.0213C13.415 19.2066 13.3037 19.3762 13.1609 19.52C13.018 19.6638 12.8464 19.779 12.6561 19.8587C12.4658 19.9385 12.2607 19.9812 12.0529 19.9844H12.0233C11.6062 19.9831 11.2058 19.8284 10.9059 19.5525C10.6059 19.2767 10.4296 18.9011 10.4137 18.5043C10.4061 18.3069 10.4399 18.1101 10.513 17.9254C10.5862 17.7406 10.6973 17.5715 10.8399 17.4281C10.9824 17.2847 11.1536 17.1698 11.3434 17.09C11.5331 17.0103 11.7376 16.9674 11.945 16.9638H11.9746C12.3916 16.9642 12.7922 17.1182 13.0926 17.3936C13.393 17.6689 13.5699 18.0442 13.5863 18.4408ZM23.4665 20.2125L23.4665 20.2125C23.6068 20.4676 23.6751 20.7517 23.6658 21.0376C23.6566 21.3234 23.57 21.6033 23.4131 21.8501C23.2562 22.097 23.0337 22.3031 22.7658 22.4469C22.4978 22.5907 22.1942 22.6667 21.8847 22.6667H21.8846H2.11538H2.11533C1.80576 22.6667 1.50222 22.5907 1.23422 22.4469C0.96631 22.3031 0.743845 22.097 0.586879 21.8501L0.305565 22.0289L0.586879 21.8501C0.429998 21.6033 0.343434 21.3234 0.334166 21.0376C0.324898 20.7517 0.393165 20.4676 0.533517 20.2125L0.53353 20.2125L10.4192 2.23977C10.5681 1.96911 10.7933 1.74021 11.0721 1.5796C11.3511 1.41893 11.6722 1.33333 12.0005 1.33333C12.3289 1.33333 12.65 1.41893 12.9289 1.5796C13.2078 1.74021 13.4329 1.96911 13.5819 2.23977L23.4665 20.2125ZM11.0224 7.44182C10.7599 7.69176 10.6091 8.03434 10.6091 8.39521V14.4365C10.6091 14.7974 10.7599 15.1399 11.0224 15.3899C11.2843 15.6393 11.6363 15.7767 12 15.7767C12.3637 15.7767 12.7157 15.6393 12.9776 15.3899C13.2401 15.1399 13.3909 14.7974 13.3909 14.4365V8.39521C13.3909 8.03434 13.2401 7.69176 12.9776 7.44182C12.7157 7.19242 12.3637 7.05499 12 7.05499C11.6363 7.05499 11.2843 7.19242 11.0224 7.44182Z"
                             stroke="currentColor"
-                            stroke-width="0.666667"
+                            strokeWidth="0.666667"
                           />
                         </g>
                       </g>
@@ -5594,8 +5573,8 @@ exports[`Storyshots Alert action 1`] = `
                     style={
                       Object {
                         "color": "rgba(75,85,99,1.00)",
-                        "height": "12px",
-                        "width": "12px",
+                        "height": "20px",
+                        "width": "20px",
                       }
                     }
                     viewBox="0 0 24 24"
@@ -9284,7 +9263,9 @@ exports[`Storyshots Badge Color 1`] = `
             "WebkitBoxAlign": "center",
             "WebkitBoxDirection": "normal",
             "WebkitBoxOrient": "horizontal",
+            "WebkitBoxPack": "center",
             "WebkitFlexDirection": "row",
+            "WebkitJustifyContent": "center",
             "alignItems": "center",
             "backgroundColor": "rgba(220,252,231,1.00)",
             "borderBottomColor": "rgba(0,0,0,0.00)",
@@ -9300,8 +9281,10 @@ exports[`Storyshots Badge Color 1`] = `
             "borderTopRightRadius": "2px",
             "borderTopWidth": "1px",
             "flexDirection": "row",
+            "justifyContent": "center",
             "msFlexAlign": "center",
             "msFlexDirection": "row",
+            "msFlexPack": "center",
             "paddingBottom": "2px",
             "paddingLeft": "8px",
             "paddingRight": "8px",
@@ -9346,7 +9329,9 @@ exports[`Storyshots Badge Color 1`] = `
             "WebkitBoxAlign": "center",
             "WebkitBoxDirection": "normal",
             "WebkitBoxOrient": "horizontal",
+            "WebkitBoxPack": "center",
             "WebkitFlexDirection": "row",
+            "WebkitJustifyContent": "center",
             "alignItems": "center",
             "backgroundColor": "rgba(255,228,230,1.00)",
             "borderBottomColor": "rgba(0,0,0,0.00)",
@@ -9362,8 +9347,10 @@ exports[`Storyshots Badge Color 1`] = `
             "borderTopRightRadius": "2px",
             "borderTopWidth": "1px",
             "flexDirection": "row",
+            "justifyContent": "center",
             "msFlexAlign": "center",
             "msFlexDirection": "row",
+            "msFlexPack": "center",
             "paddingBottom": "2px",
             "paddingLeft": "8px",
             "paddingRight": "8px",
@@ -9408,7 +9395,9 @@ exports[`Storyshots Badge Color 1`] = `
             "WebkitBoxAlign": "center",
             "WebkitBoxDirection": "normal",
             "WebkitBoxOrient": "horizontal",
+            "WebkitBoxPack": "center",
             "WebkitFlexDirection": "row",
+            "WebkitJustifyContent": "center",
             "alignItems": "center",
             "backgroundColor": "rgba(224,242,254,1.00)",
             "borderBottomColor": "rgba(0,0,0,0.00)",
@@ -9424,8 +9413,10 @@ exports[`Storyshots Badge Color 1`] = `
             "borderTopRightRadius": "2px",
             "borderTopWidth": "1px",
             "flexDirection": "row",
+            "justifyContent": "center",
             "msFlexAlign": "center",
             "msFlexDirection": "row",
+            "msFlexPack": "center",
             "paddingBottom": "2px",
             "paddingLeft": "8px",
             "paddingRight": "8px",
@@ -9470,7 +9461,9 @@ exports[`Storyshots Badge Color 1`] = `
             "WebkitBoxAlign": "center",
             "WebkitBoxDirection": "normal",
             "WebkitBoxOrient": "horizontal",
+            "WebkitBoxPack": "center",
             "WebkitFlexDirection": "row",
+            "WebkitJustifyContent": "center",
             "alignItems": "center",
             "backgroundColor": "rgba(243,244,246,1.00)",
             "borderBottomColor": "rgba(0,0,0,0.00)",
@@ -9486,8 +9479,10 @@ exports[`Storyshots Badge Color 1`] = `
             "borderTopRightRadius": "2px",
             "borderTopWidth": "1px",
             "flexDirection": "row",
+            "justifyContent": "center",
             "msFlexAlign": "center",
             "msFlexDirection": "row",
+            "msFlexPack": "center",
             "paddingBottom": "2px",
             "paddingLeft": "8px",
             "paddingRight": "8px",
@@ -9645,7 +9640,9 @@ exports[`Storyshots Badge Composition 1`] = `
               "WebkitBoxAlign": "center",
               "WebkitBoxDirection": "normal",
               "WebkitBoxOrient": "horizontal",
+              "WebkitBoxPack": "center",
               "WebkitFlexDirection": "row",
+              "WebkitJustifyContent": "center",
               "alignItems": "center",
               "alignSelf": "flex-end",
               "backgroundColor": "rgba(225,29,72,1.00)",
@@ -9662,11 +9659,13 @@ exports[`Storyshots Badge Composition 1`] = `
               "borderTopRightRadius": "9999px",
               "borderTopWidth": "1px",
               "flexDirection": "row",
+              "justifyContent": "center",
               "marginBottom": "-16px",
               "marginRight": "-16px",
               "msFlexAlign": "center",
               "msFlexDirection": "row",
               "msFlexItemAlign": "end",
+              "msFlexPack": "center",
               "paddingBottom": "2px",
               "paddingLeft": "8px",
               "paddingRight": "8px",
@@ -9909,7 +9908,9 @@ exports[`Storyshots Badge Icon 1`] = `
             "WebkitBoxAlign": "center",
             "WebkitBoxDirection": "normal",
             "WebkitBoxOrient": "horizontal",
+            "WebkitBoxPack": "center",
             "WebkitFlexDirection": "row",
+            "WebkitJustifyContent": "center",
             "alignItems": "center",
             "backgroundColor": "rgba(220,252,231,1.00)",
             "borderBottomColor": "rgba(0,0,0,0.00)",
@@ -9925,8 +9926,10 @@ exports[`Storyshots Badge Icon 1`] = `
             "borderTopRightRadius": "2px",
             "borderTopWidth": "1px",
             "flexDirection": "row",
+            "justifyContent": "center",
             "msFlexAlign": "center",
             "msFlexDirection": "row",
+            "msFlexPack": "center",
             "paddingBottom": "2px",
             "paddingLeft": "8px",
             "paddingRight": "8px",
@@ -9999,7 +10002,9 @@ exports[`Storyshots Badge Icon 1`] = `
             "WebkitBoxAlign": "center",
             "WebkitBoxDirection": "normal",
             "WebkitBoxOrient": "horizontal",
+            "WebkitBoxPack": "center",
             "WebkitFlexDirection": "row",
+            "WebkitJustifyContent": "center",
             "alignItems": "center",
             "borderBottomColor": "rgba(234,88,12,1.00)",
             "borderBottomLeftRadius": "2px",
@@ -10014,8 +10019,10 @@ exports[`Storyshots Badge Icon 1`] = `
             "borderTopRightRadius": "2px",
             "borderTopWidth": "1px",
             "flexDirection": "row",
+            "justifyContent": "center",
             "msFlexAlign": "center",
             "msFlexDirection": "row",
+            "msFlexPack": "center",
             "paddingBottom": "2px",
             "paddingLeft": "8px",
             "paddingRight": "8px",
@@ -10186,7 +10193,9 @@ exports[`Storyshots Badge Playground 1`] = `
           "WebkitBoxAlign": "center",
           "WebkitBoxDirection": "normal",
           "WebkitBoxOrient": "horizontal",
+          "WebkitBoxPack": "center",
           "WebkitFlexDirection": "row",
+          "WebkitJustifyContent": "center",
           "alignItems": "center",
           "backgroundColor": "rgba(22,163,74,1.00)",
           "borderBottomColor": "rgba(0,0,0,0.00)",
@@ -10202,8 +10211,10 @@ exports[`Storyshots Badge Playground 1`] = `
           "borderTopRightRadius": "2px",
           "borderTopWidth": "1px",
           "flexDirection": "row",
+          "justifyContent": "center",
           "msFlexAlign": "center",
           "msFlexDirection": "row",
+          "msFlexPack": "center",
           "paddingBottom": "2px",
           "paddingLeft": "8px",
           "paddingRight": "8px",
@@ -10356,7 +10367,9 @@ exports[`Storyshots Badge Usage 1`] = `
             "WebkitBoxAlign": "center",
             "WebkitBoxDirection": "normal",
             "WebkitBoxOrient": "horizontal",
+            "WebkitBoxPack": "center",
             "WebkitFlexDirection": "row",
+            "WebkitJustifyContent": "center",
             "alignItems": "center",
             "backgroundColor": "rgba(245,245,245,1.00)",
             "borderBottomColor": "rgba(0,0,0,0.00)",
@@ -10372,8 +10385,10 @@ exports[`Storyshots Badge Usage 1`] = `
             "borderTopRightRadius": "2px",
             "borderTopWidth": "1px",
             "flexDirection": "row",
+            "justifyContent": "center",
             "msFlexAlign": "center",
             "msFlexDirection": "row",
+            "msFlexPack": "center",
             "paddingBottom": "2px",
             "paddingLeft": "8px",
             "paddingRight": "8px",
@@ -10545,7 +10560,9 @@ exports[`Storyshots Badge Variants 1`] = `
                 "WebkitBoxAlign": "center",
                 "WebkitBoxDirection": "normal",
                 "WebkitBoxOrient": "horizontal",
+                "WebkitBoxPack": "center",
                 "WebkitFlexDirection": "row",
+                "WebkitJustifyContent": "center",
                 "alignItems": "center",
                 "alignSelf": "center",
                 "backgroundColor": "rgba(82,82,82,1.00)",
@@ -10562,9 +10579,11 @@ exports[`Storyshots Badge Variants 1`] = `
                 "borderTopRightRadius": "2px",
                 "borderTopWidth": "1px",
                 "flexDirection": "row",
+                "justifyContent": "center",
                 "msFlexAlign": "center",
                 "msFlexDirection": "row",
                 "msFlexItemAlign": "center",
+                "msFlexPack": "center",
                 "msGridRowAlign": "center",
                 "paddingBottom": "2px",
                 "paddingLeft": "8px",
@@ -10611,7 +10630,9 @@ exports[`Storyshots Badge Variants 1`] = `
                 "WebkitBoxAlign": "center",
                 "WebkitBoxDirection": "normal",
                 "WebkitBoxOrient": "horizontal",
+                "WebkitBoxPack": "center",
                 "WebkitFlexDirection": "row",
+                "WebkitJustifyContent": "center",
                 "alignItems": "center",
                 "alignSelf": "center",
                 "backgroundColor": "rgba(22,163,74,1.00)",
@@ -10628,9 +10649,11 @@ exports[`Storyshots Badge Variants 1`] = `
                 "borderTopRightRadius": "2px",
                 "borderTopWidth": "1px",
                 "flexDirection": "row",
+                "justifyContent": "center",
                 "msFlexAlign": "center",
                 "msFlexDirection": "row",
                 "msFlexItemAlign": "center",
+                "msFlexPack": "center",
                 "msGridRowAlign": "center",
                 "paddingBottom": "2px",
                 "paddingLeft": "8px",
@@ -10677,7 +10700,9 @@ exports[`Storyshots Badge Variants 1`] = `
                 "WebkitBoxAlign": "center",
                 "WebkitBoxDirection": "normal",
                 "WebkitBoxOrient": "horizontal",
+                "WebkitBoxPack": "center",
                 "WebkitFlexDirection": "row",
+                "WebkitJustifyContent": "center",
                 "alignItems": "center",
                 "alignSelf": "center",
                 "backgroundColor": "rgba(220,38,38,1.00)",
@@ -10694,9 +10719,11 @@ exports[`Storyshots Badge Variants 1`] = `
                 "borderTopRightRadius": "2px",
                 "borderTopWidth": "1px",
                 "flexDirection": "row",
+                "justifyContent": "center",
                 "msFlexAlign": "center",
                 "msFlexDirection": "row",
                 "msFlexItemAlign": "center",
+                "msFlexPack": "center",
                 "msGridRowAlign": "center",
                 "paddingBottom": "2px",
                 "paddingLeft": "8px",
@@ -10743,7 +10770,9 @@ exports[`Storyshots Badge Variants 1`] = `
                 "WebkitBoxAlign": "center",
                 "WebkitBoxDirection": "normal",
                 "WebkitBoxOrient": "horizontal",
+                "WebkitBoxPack": "center",
                 "WebkitFlexDirection": "row",
+                "WebkitJustifyContent": "center",
                 "alignItems": "center",
                 "alignSelf": "center",
                 "backgroundColor": "rgba(2,132,199,1.00)",
@@ -10760,9 +10789,11 @@ exports[`Storyshots Badge Variants 1`] = `
                 "borderTopRightRadius": "2px",
                 "borderTopWidth": "1px",
                 "flexDirection": "row",
+                "justifyContent": "center",
                 "msFlexAlign": "center",
                 "msFlexDirection": "row",
                 "msFlexItemAlign": "center",
+                "msFlexPack": "center",
                 "msGridRowAlign": "center",
                 "paddingBottom": "2px",
                 "paddingLeft": "8px",
@@ -10809,7 +10840,9 @@ exports[`Storyshots Badge Variants 1`] = `
                 "WebkitBoxAlign": "center",
                 "WebkitBoxDirection": "normal",
                 "WebkitBoxOrient": "horizontal",
+                "WebkitBoxPack": "center",
                 "WebkitFlexDirection": "row",
+                "WebkitJustifyContent": "center",
                 "alignItems": "center",
                 "alignSelf": "center",
                 "backgroundColor": "rgba(234,88,12,1.00)",
@@ -10826,9 +10859,11 @@ exports[`Storyshots Badge Variants 1`] = `
                 "borderTopRightRadius": "2px",
                 "borderTopWidth": "1px",
                 "flexDirection": "row",
+                "justifyContent": "center",
                 "msFlexAlign": "center",
                 "msFlexDirection": "row",
                 "msFlexItemAlign": "center",
+                "msFlexPack": "center",
                 "msGridRowAlign": "center",
                 "paddingBottom": "2px",
                 "paddingLeft": "8px",
@@ -10879,7 +10914,9 @@ exports[`Storyshots Badge Variants 1`] = `
                 "WebkitBoxAlign": "center",
                 "WebkitBoxDirection": "normal",
                 "WebkitBoxOrient": "horizontal",
+                "WebkitBoxPack": "center",
                 "WebkitFlexDirection": "row",
+                "WebkitJustifyContent": "center",
                 "alignItems": "center",
                 "alignSelf": "center",
                 "borderBottomColor": "rgba(82,82,82,1.00)",
@@ -10895,9 +10932,11 @@ exports[`Storyshots Badge Variants 1`] = `
                 "borderTopRightRadius": "2px",
                 "borderTopWidth": "1px",
                 "flexDirection": "row",
+                "justifyContent": "center",
                 "msFlexAlign": "center",
                 "msFlexDirection": "row",
                 "msFlexItemAlign": "center",
+                "msFlexPack": "center",
                 "msGridRowAlign": "center",
                 "paddingBottom": "2px",
                 "paddingLeft": "8px",
@@ -10944,7 +10983,9 @@ exports[`Storyshots Badge Variants 1`] = `
                 "WebkitBoxAlign": "center",
                 "WebkitBoxDirection": "normal",
                 "WebkitBoxOrient": "horizontal",
+                "WebkitBoxPack": "center",
                 "WebkitFlexDirection": "row",
+                "WebkitJustifyContent": "center",
                 "alignItems": "center",
                 "alignSelf": "center",
                 "borderBottomColor": "rgba(22,163,74,1.00)",
@@ -10960,9 +11001,11 @@ exports[`Storyshots Badge Variants 1`] = `
                 "borderTopRightRadius": "2px",
                 "borderTopWidth": "1px",
                 "flexDirection": "row",
+                "justifyContent": "center",
                 "msFlexAlign": "center",
                 "msFlexDirection": "row",
                 "msFlexItemAlign": "center",
+                "msFlexPack": "center",
                 "msGridRowAlign": "center",
                 "paddingBottom": "2px",
                 "paddingLeft": "8px",
@@ -11009,7 +11052,9 @@ exports[`Storyshots Badge Variants 1`] = `
                 "WebkitBoxAlign": "center",
                 "WebkitBoxDirection": "normal",
                 "WebkitBoxOrient": "horizontal",
+                "WebkitBoxPack": "center",
                 "WebkitFlexDirection": "row",
+                "WebkitJustifyContent": "center",
                 "alignItems": "center",
                 "alignSelf": "center",
                 "borderBottomColor": "rgba(220,38,38,1.00)",
@@ -11025,9 +11070,11 @@ exports[`Storyshots Badge Variants 1`] = `
                 "borderTopRightRadius": "2px",
                 "borderTopWidth": "1px",
                 "flexDirection": "row",
+                "justifyContent": "center",
                 "msFlexAlign": "center",
                 "msFlexDirection": "row",
                 "msFlexItemAlign": "center",
+                "msFlexPack": "center",
                 "msGridRowAlign": "center",
                 "paddingBottom": "2px",
                 "paddingLeft": "8px",
@@ -11074,7 +11121,9 @@ exports[`Storyshots Badge Variants 1`] = `
                 "WebkitBoxAlign": "center",
                 "WebkitBoxDirection": "normal",
                 "WebkitBoxOrient": "horizontal",
+                "WebkitBoxPack": "center",
                 "WebkitFlexDirection": "row",
+                "WebkitJustifyContent": "center",
                 "alignItems": "center",
                 "alignSelf": "center",
                 "borderBottomColor": "rgba(2,132,199,1.00)",
@@ -11090,9 +11139,11 @@ exports[`Storyshots Badge Variants 1`] = `
                 "borderTopRightRadius": "2px",
                 "borderTopWidth": "1px",
                 "flexDirection": "row",
+                "justifyContent": "center",
                 "msFlexAlign": "center",
                 "msFlexDirection": "row",
                 "msFlexItemAlign": "center",
+                "msFlexPack": "center",
                 "msGridRowAlign": "center",
                 "paddingBottom": "2px",
                 "paddingLeft": "8px",
@@ -11139,7 +11190,9 @@ exports[`Storyshots Badge Variants 1`] = `
                 "WebkitBoxAlign": "center",
                 "WebkitBoxDirection": "normal",
                 "WebkitBoxOrient": "horizontal",
+                "WebkitBoxPack": "center",
                 "WebkitFlexDirection": "row",
+                "WebkitJustifyContent": "center",
                 "alignItems": "center",
                 "alignSelf": "center",
                 "borderBottomColor": "rgba(234,88,12,1.00)",
@@ -11155,9 +11208,11 @@ exports[`Storyshots Badge Variants 1`] = `
                 "borderTopRightRadius": "2px",
                 "borderTopWidth": "1px",
                 "flexDirection": "row",
+                "justifyContent": "center",
                 "msFlexAlign": "center",
                 "msFlexDirection": "row",
                 "msFlexItemAlign": "center",
+                "msFlexPack": "center",
                 "msGridRowAlign": "center",
                 "paddingBottom": "2px",
                 "paddingLeft": "8px",
@@ -11208,7 +11263,9 @@ exports[`Storyshots Badge Variants 1`] = `
                 "WebkitBoxAlign": "center",
                 "WebkitBoxDirection": "normal",
                 "WebkitBoxOrient": "horizontal",
+                "WebkitBoxPack": "center",
                 "WebkitFlexDirection": "row",
+                "WebkitJustifyContent": "center",
                 "alignItems": "center",
                 "alignSelf": "center",
                 "backgroundColor": "rgba(245,245,245,1.00)",
@@ -11225,9 +11282,11 @@ exports[`Storyshots Badge Variants 1`] = `
                 "borderTopRightRadius": "2px",
                 "borderTopWidth": "1px",
                 "flexDirection": "row",
+                "justifyContent": "center",
                 "msFlexAlign": "center",
                 "msFlexDirection": "row",
                 "msFlexItemAlign": "center",
+                "msFlexPack": "center",
                 "msGridRowAlign": "center",
                 "paddingBottom": "2px",
                 "paddingLeft": "8px",
@@ -11274,7 +11333,9 @@ exports[`Storyshots Badge Variants 1`] = `
                 "WebkitBoxAlign": "center",
                 "WebkitBoxDirection": "normal",
                 "WebkitBoxOrient": "horizontal",
+                "WebkitBoxPack": "center",
                 "WebkitFlexDirection": "row",
+                "WebkitJustifyContent": "center",
                 "alignItems": "center",
                 "alignSelf": "center",
                 "backgroundColor": "rgba(220,252,231,1.00)",
@@ -11291,9 +11352,11 @@ exports[`Storyshots Badge Variants 1`] = `
                 "borderTopRightRadius": "2px",
                 "borderTopWidth": "1px",
                 "flexDirection": "row",
+                "justifyContent": "center",
                 "msFlexAlign": "center",
                 "msFlexDirection": "row",
                 "msFlexItemAlign": "center",
+                "msFlexPack": "center",
                 "msGridRowAlign": "center",
                 "paddingBottom": "2px",
                 "paddingLeft": "8px",
@@ -11340,7 +11403,9 @@ exports[`Storyshots Badge Variants 1`] = `
                 "WebkitBoxAlign": "center",
                 "WebkitBoxDirection": "normal",
                 "WebkitBoxOrient": "horizontal",
+                "WebkitBoxPack": "center",
                 "WebkitFlexDirection": "row",
+                "WebkitJustifyContent": "center",
                 "alignItems": "center",
                 "alignSelf": "center",
                 "backgroundColor": "rgba(254,226,226,1.00)",
@@ -11357,9 +11422,11 @@ exports[`Storyshots Badge Variants 1`] = `
                 "borderTopRightRadius": "2px",
                 "borderTopWidth": "1px",
                 "flexDirection": "row",
+                "justifyContent": "center",
                 "msFlexAlign": "center",
                 "msFlexDirection": "row",
                 "msFlexItemAlign": "center",
+                "msFlexPack": "center",
                 "msGridRowAlign": "center",
                 "paddingBottom": "2px",
                 "paddingLeft": "8px",
@@ -11406,7 +11473,9 @@ exports[`Storyshots Badge Variants 1`] = `
                 "WebkitBoxAlign": "center",
                 "WebkitBoxDirection": "normal",
                 "WebkitBoxOrient": "horizontal",
+                "WebkitBoxPack": "center",
                 "WebkitFlexDirection": "row",
+                "WebkitJustifyContent": "center",
                 "alignItems": "center",
                 "alignSelf": "center",
                 "backgroundColor": "rgba(224,242,254,1.00)",
@@ -11423,9 +11492,11 @@ exports[`Storyshots Badge Variants 1`] = `
                 "borderTopRightRadius": "2px",
                 "borderTopWidth": "1px",
                 "flexDirection": "row",
+                "justifyContent": "center",
                 "msFlexAlign": "center",
                 "msFlexDirection": "row",
                 "msFlexItemAlign": "center",
+                "msFlexPack": "center",
                 "msGridRowAlign": "center",
                 "paddingBottom": "2px",
                 "paddingLeft": "8px",
@@ -11472,7 +11543,9 @@ exports[`Storyshots Badge Variants 1`] = `
                 "WebkitBoxAlign": "center",
                 "WebkitBoxDirection": "normal",
                 "WebkitBoxOrient": "horizontal",
+                "WebkitBoxPack": "center",
                 "WebkitFlexDirection": "row",
+                "WebkitJustifyContent": "center",
                 "alignItems": "center",
                 "alignSelf": "center",
                 "backgroundColor": "rgba(255,237,213,1.00)",
@@ -11489,9 +11562,11 @@ exports[`Storyshots Badge Variants 1`] = `
                 "borderTopRightRadius": "2px",
                 "borderTopWidth": "1px",
                 "flexDirection": "row",
+                "justifyContent": "center",
                 "msFlexAlign": "center",
                 "msFlexDirection": "row",
                 "msFlexItemAlign": "center",
+                "msFlexPack": "center",
                 "msGridRowAlign": "center",
                 "paddingBottom": "2px",
                 "paddingLeft": "8px",
@@ -35987,8 +36062,8 @@ exports[`Storyshots FlatList Basic 1`] = `
                   "borderRightColor": "rgba(38,38,38,1.00)",
                   "borderTopColor": "rgba(38,38,38,1.00)",
                   "paddingBottom": "8px",
-                  "paddingLeft": "16px",
-                  "paddingRight": "20px",
+                  "paddingLeft": "0px",
+                  "paddingRight": "0px",
                   "paddingTop": "8px",
                 }
               }
@@ -36083,7 +36158,7 @@ exports[`Storyshots FlatList Basic 1`] = `
                   className="css-view-1dbjc4n"
                   style={
                     Object {
-                      "width": "12px",
+                      "width": "8px",
                     }
                   }
                 />
@@ -36130,7 +36205,7 @@ exports[`Storyshots FlatList Basic 1`] = `
                   className="css-view-1dbjc4n"
                   style={
                     Object {
-                      "width": "12px",
+                      "width": "8px",
                     }
                   }
                 />
@@ -36149,7 +36224,7 @@ exports[`Storyshots FlatList Basic 1`] = `
                   className="css-view-1dbjc4n"
                   style={
                     Object {
-                      "width": "12px",
+                      "width": "8px",
                     }
                   }
                 />
@@ -36188,8 +36263,8 @@ exports[`Storyshots FlatList Basic 1`] = `
                   "borderRightColor": "rgba(38,38,38,1.00)",
                   "borderTopColor": "rgba(38,38,38,1.00)",
                   "paddingBottom": "8px",
-                  "paddingLeft": "16px",
-                  "paddingRight": "20px",
+                  "paddingLeft": "0px",
+                  "paddingRight": "0px",
                   "paddingTop": "8px",
                 }
               }
@@ -36284,7 +36359,7 @@ exports[`Storyshots FlatList Basic 1`] = `
                   className="css-view-1dbjc4n"
                   style={
                     Object {
-                      "width": "12px",
+                      "width": "8px",
                     }
                   }
                 />
@@ -36331,7 +36406,7 @@ exports[`Storyshots FlatList Basic 1`] = `
                   className="css-view-1dbjc4n"
                   style={
                     Object {
-                      "width": "12px",
+                      "width": "8px",
                     }
                   }
                 />
@@ -36350,7 +36425,7 @@ exports[`Storyshots FlatList Basic 1`] = `
                   className="css-view-1dbjc4n"
                   style={
                     Object {
-                      "width": "12px",
+                      "width": "8px",
                     }
                   }
                 />
@@ -36389,8 +36464,8 @@ exports[`Storyshots FlatList Basic 1`] = `
                   "borderRightColor": "rgba(38,38,38,1.00)",
                   "borderTopColor": "rgba(38,38,38,1.00)",
                   "paddingBottom": "8px",
-                  "paddingLeft": "16px",
-                  "paddingRight": "20px",
+                  "paddingLeft": "0px",
+                  "paddingRight": "0px",
                   "paddingTop": "8px",
                 }
               }
@@ -36485,7 +36560,7 @@ exports[`Storyshots FlatList Basic 1`] = `
                   className="css-view-1dbjc4n"
                   style={
                     Object {
-                      "width": "12px",
+                      "width": "8px",
                     }
                   }
                 />
@@ -36532,7 +36607,7 @@ exports[`Storyshots FlatList Basic 1`] = `
                   className="css-view-1dbjc4n"
                   style={
                     Object {
-                      "width": "12px",
+                      "width": "8px",
                     }
                   }
                 />
@@ -36551,7 +36626,7 @@ exports[`Storyshots FlatList Basic 1`] = `
                   className="css-view-1dbjc4n"
                   style={
                     Object {
-                      "width": "12px",
+                      "width": "8px",
                     }
                   }
                 />
@@ -36590,8 +36665,8 @@ exports[`Storyshots FlatList Basic 1`] = `
                   "borderRightColor": "rgba(38,38,38,1.00)",
                   "borderTopColor": "rgba(38,38,38,1.00)",
                   "paddingBottom": "8px",
-                  "paddingLeft": "16px",
-                  "paddingRight": "20px",
+                  "paddingLeft": "0px",
+                  "paddingRight": "0px",
                   "paddingTop": "8px",
                 }
               }
@@ -36686,7 +36761,7 @@ exports[`Storyshots FlatList Basic 1`] = `
                   className="css-view-1dbjc4n"
                   style={
                     Object {
-                      "width": "12px",
+                      "width": "8px",
                     }
                   }
                 />
@@ -36733,7 +36808,7 @@ exports[`Storyshots FlatList Basic 1`] = `
                   className="css-view-1dbjc4n"
                   style={
                     Object {
-                      "width": "12px",
+                      "width": "8px",
                     }
                   }
                 />
@@ -36752,7 +36827,7 @@ exports[`Storyshots FlatList Basic 1`] = `
                   className="css-view-1dbjc4n"
                   style={
                     Object {
-                      "width": "12px",
+                      "width": "8px",
                     }
                   }
                 />
@@ -36791,8 +36866,8 @@ exports[`Storyshots FlatList Basic 1`] = `
                   "borderRightColor": "rgba(38,38,38,1.00)",
                   "borderTopColor": "rgba(38,38,38,1.00)",
                   "paddingBottom": "8px",
-                  "paddingLeft": "16px",
-                  "paddingRight": "20px",
+                  "paddingLeft": "0px",
+                  "paddingRight": "0px",
                   "paddingTop": "8px",
                 }
               }
@@ -36887,7 +36962,7 @@ exports[`Storyshots FlatList Basic 1`] = `
                   className="css-view-1dbjc4n"
                   style={
                     Object {
-                      "width": "12px",
+                      "width": "8px",
                     }
                   }
                 />
@@ -36934,7 +37009,7 @@ exports[`Storyshots FlatList Basic 1`] = `
                   className="css-view-1dbjc4n"
                   style={
                     Object {
-                      "width": "12px",
+                      "width": "8px",
                     }
                   }
                 />
@@ -36953,7 +37028,7 @@ exports[`Storyshots FlatList Basic 1`] = `
                   className="css-view-1dbjc4n"
                   style={
                     Object {
-                      "width": "12px",
+                      "width": "8px",
                     }
                   }
                 />
@@ -43602,7 +43677,7 @@ exports[`Storyshots Icon All Icons 1`] = `
                         <path
                           d="M13.9193 18.4271C13.8992 17.9392 13.6816 17.4813 13.3178 17.1478C12.9545 16.8148 12.4731 16.631 11.975 16.6304H11.9746H11.945V16.6304L11.9392 16.6305C11.6898 16.6348 11.4434 16.6864 11.2142 16.7827L11.333 17.0655L11.2142 16.7827C10.9851 16.879 10.7773 17.0183 10.6035 17.1931C10.4296 17.368 10.2932 17.5751 10.2031 17.8026C10.113 18.0302 10.0712 18.2732 10.0806 18.5171L10.0807 18.5176C10.1001 19.0055 10.3169 19.4638 10.6802 19.7979C11.043 20.1315 11.5241 20.3162 12.0222 20.3177H12.0233H12.0529V20.3178L12.058 20.3177C12.3081 20.3138 12.5552 20.2624 12.785 20.1661C13.0148 20.0698 13.2232 19.9303 13.3974 19.7549C13.5716 19.5795 13.7081 19.3718 13.7981 19.1436C13.8881 18.9153 13.9295 18.6716 13.9193 18.4271ZM13.9193 18.4271L13.5863 18.4408M13.9193 18.4271C13.9193 18.4271 13.9193 18.4271 13.9193 18.427L13.5863 18.4408M13.5863 18.4408C13.5945 18.6386 13.5611 18.836 13.488 19.0213C13.415 19.2066 13.3037 19.3762 13.1609 19.52C13.018 19.6638 12.8464 19.779 12.6561 19.8587C12.4658 19.9385 12.2607 19.9812 12.0529 19.9844H12.0233C11.6062 19.9831 11.2058 19.8284 10.9059 19.5525C10.6059 19.2767 10.4296 18.9011 10.4137 18.5043C10.4061 18.3069 10.4399 18.1101 10.513 17.9254C10.5862 17.7406 10.6973 17.5715 10.8399 17.4281C10.9824 17.2847 11.1536 17.1698 11.3434 17.09C11.5331 17.0103 11.7376 16.9674 11.945 16.9638H11.9746C12.3916 16.9642 12.7922 17.1182 13.0926 17.3936C13.393 17.6689 13.5699 18.0442 13.5863 18.4408ZM23.4665 20.2125L23.4665 20.2125C23.6068 20.4676 23.6751 20.7517 23.6658 21.0376C23.6566 21.3234 23.57 21.6033 23.4131 21.8501C23.2562 22.097 23.0337 22.3031 22.7658 22.4469C22.4978 22.5907 22.1942 22.6667 21.8847 22.6667H21.8846H2.11538H2.11533C1.80576 22.6667 1.50222 22.5907 1.23422 22.4469C0.96631 22.3031 0.743845 22.097 0.586879 21.8501L0.305565 22.0289L0.586879 21.8501C0.429998 21.6033 0.343434 21.3234 0.334166 21.0376C0.324898 20.7517 0.393165 20.4676 0.533517 20.2125L0.53353 20.2125L10.4192 2.23977C10.5681 1.96911 10.7933 1.74021 11.0721 1.5796C11.3511 1.41893 11.6722 1.33333 12.0005 1.33333C12.3289 1.33333 12.65 1.41893 12.9289 1.5796C13.2078 1.74021 13.4329 1.96911 13.5819 2.23977L23.4665 20.2125ZM11.0224 7.44182C10.7599 7.69176 10.6091 8.03434 10.6091 8.39521V14.4365C10.6091 14.7974 10.7599 15.1399 11.0224 15.3899C11.2843 15.6393 11.6363 15.7767 12 15.7767C12.3637 15.7767 12.7157 15.6393 12.9776 15.3899C13.2401 15.1399 13.3909 14.7974 13.3909 14.4365V8.39521C13.3909 8.03434 13.2401 7.69176 12.9776 7.44182C12.7157 7.19242 12.3637 7.05499 12 7.05499C11.6363 7.05499 11.2843 7.19242 11.0224 7.44182Z"
                           stroke="currentColor"
-                          stroke-width="0.666667"
+                          strokeWidth="0.666667"
                         />
                       </g>
                     </g>
@@ -45236,9 +45311,9 @@ exports[`Storyshots IconButton SVGIcon 1`] = `
           strokeWidth="10"
           style={
             Object {
-              "color": "rgba(2,132,199,1.00)",
-              "height": "40px",
-              "width": "40px",
+              "color": "rgba(250,250,250,1.00)",
+              "height": "20px",
+              "width": "20px",
             }
           }
           viewBox="0 0 100 100"
@@ -46704,8 +46779,6 @@ exports[`Storyshots Image Sizes 1`] = `
           "msFlexPositive": 1,
           "overflowX": "hidden",
           "overflowY": "auto",
-          "paddingLeft": "80px",
-          "paddingRight": "80px",
           "transform": "translateZ(0px)",
         }
       }
@@ -50277,11 +50350,11 @@ exports[`Storyshots Link Composite Link Example 1`] = `
               "borderTopRightRadius": "8px",
               "borderTopWidth": "1px",
               "boxShadow": "0px 2px 2.62px rgba(0,0,0,0.23)",
-              "maxWidth": "384px",
               "paddingBottom": "20px",
               "paddingLeft": "20px",
               "paddingRight": "20px",
               "paddingTop": "20px",
+              "width": "256px",
             }
           }
         >
@@ -50309,7 +50382,9 @@ exports[`Storyshots Link Composite Link Example 1`] = `
                   "WebkitBoxAlign": "center",
                   "WebkitBoxDirection": "normal",
                   "WebkitBoxOrient": "horizontal",
+                  "WebkitBoxPack": "center",
                   "WebkitFlexDirection": "row",
+                  "WebkitJustifyContent": "center",
                   "alignItems": "center",
                   "backgroundColor": "rgba(0,93,180,1.00)",
                   "borderBottomColor": "rgba(0,0,0,0.00)",
@@ -50325,8 +50400,10 @@ exports[`Storyshots Link Composite Link Example 1`] = `
                   "borderTopRightRadius": "4px",
                   "borderTopWidth": "1px",
                   "flexDirection": "row",
+                  "justifyContent": "center",
                   "msFlexAlign": "center",
                   "msFlexDirection": "row",
+                  "msFlexPack": "center",
                   "paddingBottom": "2px",
                   "paddingLeft": "8px",
                   "paddingRight": "8px",
@@ -59872,7 +59949,9 @@ exports[`Storyshots Pressable Basic 1`] = `
                   "WebkitBoxAlign": "center",
                   "WebkitBoxDirection": "normal",
                   "WebkitBoxOrient": "horizontal",
+                  "WebkitBoxPack": "center",
                   "WebkitFlexDirection": "row",
+                  "WebkitJustifyContent": "center",
                   "alignItems": "center",
                   "backgroundColor": "rgba(0,93,180,1.00)",
                   "borderBottomColor": "rgba(0,0,0,0.00)",
@@ -59888,8 +59967,10 @@ exports[`Storyshots Pressable Basic 1`] = `
                   "borderTopRightRadius": "4px",
                   "borderTopWidth": "1px",
                   "flexDirection": "row",
+                  "justifyContent": "center",
                   "msFlexAlign": "center",
                   "msFlexDirection": "row",
+                  "msFlexPack": "center",
                   "paddingBottom": "2px",
                   "paddingLeft": "8px",
                   "paddingRight": "8px",
@@ -60145,26 +60226,9 @@ exports[`Storyshots Pressable Events 1`] = `
         onKeyDown={[Function]}
         style={
           Object {
-            "borderBottomColor": "rgba(209,213,219,1.00)",
-            "borderBottomLeftRadius": "8px",
-            "borderBottomRightRadius": "8px",
-            "borderBottomWidth": "1px",
-            "borderLeftColor": "rgba(209,213,219,1.00)",
-            "borderLeftWidth": "1px",
-            "borderRightColor": "rgba(209,213,219,1.00)",
-            "borderRightWidth": "1px",
-            "borderTopColor": "rgba(209,213,219,1.00)",
-            "borderTopLeftRadius": "8px",
-            "borderTopRightRadius": "8px",
-            "borderTopWidth": "1px",
-            "boxShadow": "0px 2px 2.62px rgba(0,0,0,0.23)",
             "cursor": "pointer",
             "maxWidth": "384px",
             "msTouchAction": "manipulation",
-            "paddingBottom": "20px",
-            "paddingLeft": "20px",
-            "paddingRight": "20px",
-            "paddingTop": "20px",
             "touchAction": "manipulation",
           }
         }
@@ -60176,6 +60240,23 @@ exports[`Storyshots Pressable Events 1`] = `
             Object {
               "WebkitTransform": "scale(1)",
               "backgroundColor": "rgba(243,244,246,1.00)",
+              "borderBottomColor": "rgba(209,213,219,1.00)",
+              "borderBottomLeftRadius": "8px",
+              "borderBottomRightRadius": "8px",
+              "borderBottomWidth": "1px",
+              "borderLeftColor": "rgba(209,213,219,1.00)",
+              "borderLeftWidth": "1px",
+              "borderRightColor": "rgba(209,213,219,1.00)",
+              "borderRightWidth": "1px",
+              "borderTopColor": "rgba(209,213,219,1.00)",
+              "borderTopLeftRadius": "8px",
+              "borderTopRightRadius": "8px",
+              "borderTopWidth": "1px",
+              "boxShadow": "0px 2px 2.62px rgba(0,0,0,0.23)",
+              "paddingBottom": "20px",
+              "paddingLeft": "20px",
+              "paddingRight": "20px",
+              "paddingTop": "20px",
               "transform": "scale(1)",
             }
           }
@@ -60204,7 +60285,9 @@ exports[`Storyshots Pressable Events 1`] = `
                   "WebkitBoxAlign": "center",
                   "WebkitBoxDirection": "normal",
                   "WebkitBoxOrient": "horizontal",
+                  "WebkitBoxPack": "center",
                   "WebkitFlexDirection": "row",
+                  "WebkitJustifyContent": "center",
                   "alignItems": "center",
                   "backgroundColor": "rgba(0,93,180,1.00)",
                   "borderBottomColor": "rgba(0,0,0,0.00)",
@@ -60220,8 +60303,10 @@ exports[`Storyshots Pressable Events 1`] = `
                   "borderTopRightRadius": "4px",
                   "borderTopWidth": "1px",
                   "flexDirection": "row",
+                  "justifyContent": "center",
                   "msFlexAlign": "center",
                   "msFlexDirection": "row",
+                  "msFlexPack": "center",
                   "paddingBottom": "2px",
                   "paddingLeft": "8px",
                   "paddingRight": "8px",
@@ -69319,13 +69404,13 @@ exports[`Storyshots ScrollView Basic 1`] = `
           "flexGrow": 1,
           "flexShrink": 1,
           "height": "320px",
-          "maxWidth": "300px",
           "msFlexDirection": "column",
           "msFlexNegative": 1,
           "msFlexPositive": 1,
           "overflowX": "hidden",
           "overflowY": "auto",
           "transform": "translateZ(0px)",
+          "width": "200px",
         }
       }
     >
@@ -69334,10 +69419,6 @@ exports[`Storyshots ScrollView Basic 1`] = `
         style={
           Object {
             "dataSet": Object {},
-            "marginBottom": "16px",
-            "minWidth": "288px",
-            "paddingLeft": "20px",
-            "paddingRight": "20px",
           }
         }
       >
@@ -70844,6 +70925,7 @@ exports[`Storyshots Select Basic 1`] = `
               }
               tabIndex="-1"
               type="text"
+              value=""
             />
             <div
               className="css-view-1dbjc4n"
@@ -71196,6 +71278,7 @@ exports[`Storyshots Select FormControlled 1`] = `
               }
               tabIndex="-1"
               type="text"
+              value=""
             />
             <div
               className="css-view-1dbjc4n"
@@ -71801,6 +71884,7 @@ exports[`Storyshots Select Select Long list 1`] = `
               }
               tabIndex="-1"
               type="text"
+              value=""
             />
             <div
               className="css-view-1dbjc4n"
@@ -89403,8 +89487,16 @@ exports[`Storyshots Transitions Slide 1`] = `
       className="css-view-1dbjc4n"
       style={
         Object {
+          "WebkitAlignItems": "center",
+          "WebkitBoxAlign": "center",
+          "WebkitBoxPack": "center",
+          "WebkitJustifyContent": "center",
+          "alignItems": "center",
+          "display": "flex",
           "height": "128px",
-          "width": "300px",
+          "justifyContent": "center",
+          "msFlexAlign": "center",
+          "msFlexPack": "center",
         }
       }
     >
@@ -89436,7 +89528,6 @@ exports[`Storyshots Transitions Slide 1`] = `
             "cursor": "pointer",
             "flexDirection": "row",
             "justifyContent": "center",
-            "marginTop": "auto",
             "msFlexAlign": "center",
             "msFlexDirection": "row",
             "msFlexPack": "center",
@@ -89620,7 +89711,7 @@ exports[`Storyshots Transitions Slide wrapped inside parent 1`] = `
             "WebkitJustifyContent": "center",
             "justifyContent": "center",
             "msFlexPack": "center",
-            "width": "300px",
+            "width": "250px",
           }
         }
       >
@@ -90160,6 +90251,738 @@ exports[`Storyshots Transitions Slide wrapped inside parent 1`] = `
                   }
                 >
                   Place Order
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Transitions SlideComposition 1`] = `
+<div
+  className="css-view-1dbjc4n"
+  style={
+    Object {
+      "WebkitFlex": 1,
+      "flex": 1,
+      "msFlex": "1 1 0%",
+    }
+  }
+>
+  <div
+    className="css-view-1dbjc4n"
+    style={
+      Object {
+        "WebkitAlignItems": "center",
+        "WebkitBoxAlign": "center",
+        "WebkitBoxPack": "center",
+        "WebkitFlex": 1,
+        "WebkitJustifyContent": "center",
+        "alignItems": "center",
+        "backgroundColor": "rgba(250,250,250,1.00)",
+        "flex": 1,
+        "justifyContent": "center",
+        "msFlex": "1 1 0%",
+        "msFlexAlign": "center",
+        "msFlexPack": "center",
+        "paddingLeft": "12px",
+        "paddingRight": "12px",
+      }
+    }
+  >
+    <div
+      className="css-cursor-18t94o4 css-view-1dbjc4n"
+      onBlur={[Function]}
+      onClick={[Function]}
+      onContextMenu={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      role="button"
+      style={
+        Object {
+          "MozUserSelect": "none",
+          "WebkitAlignItems": "center",
+          "WebkitBoxAlign": "center",
+          "WebkitBoxDirection": "normal",
+          "WebkitBoxOrient": "horizontal",
+          "WebkitBoxPack": "center",
+          "WebkitFlexDirection": "row",
+          "WebkitJustifyContent": "center",
+          "WebkitUserSelect": "none",
+          "alignItems": "center",
+          "borderBottomLeftRadius": "4px",
+          "borderBottomRightRadius": "4px",
+          "borderTopLeftRadius": "4px",
+          "borderTopRightRadius": "4px",
+          "cursor": "pointer",
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "msFlexAlign": "center",
+          "msFlexDirection": "row",
+          "msFlexPack": "center",
+          "msTouchAction": "manipulation",
+          "msUserSelect": "none",
+          "paddingBottom": "12px",
+          "paddingLeft": "12px",
+          "paddingRight": "12px",
+          "paddingTop": "12px",
+          "position": "absolute",
+          "right": "32px",
+          "top": "48px",
+          "touchAction": "manipulation",
+          "userSelect": "none",
+          "zIndex": 4,
+        }
+      }
+      tabIndex="0"
+    >
+      <svg
+        role="img"
+        stroke=""
+        style={
+          Object {
+            "color": "rgba(8,145,178,1.00)",
+            "height": "24px",
+            "width": "24px",
+          }
+        }
+        viewBox="0 0 24 24"
+      >
+        <g>
+          <path
+            d="M20.8562 13.4434C20.1167 13.6274 19.3772 13.7194 18.6378 13.7194C14.0162 13.7194 10.3189 10.0391 10.3189 5.43876C10.3189 4.7027 10.4113 3.96665 10.5962 3.23059C10.6886 2.95457 10.5962 2.58654 10.3189 2.31052C10.0416 2.0345 9.7643 1.9425 9.39457 2.0345C5.05026 3.3226 2 7.3709 2 11.8792C2 17.4917 6.52917 22 12.1675 22C16.6967 22 20.7637 18.9638 21.9653 14.5474C22.0578 14.2714 21.9653 13.9034 21.688 13.6274C21.5032 13.4434 21.1334 13.3514 20.8562 13.4434Z"
+            fill="currentColor"
+            stroke=""
+          />
+        </g>
+      </svg>
+    </div>
+    <div
+      className="css-view-1dbjc4n"
+      style={
+        Object {
+          "WebkitAlignItems": "center",
+          "WebkitBoxAlign": "center",
+          "WebkitBoxPack": "center",
+          "WebkitJustifyContent": "center",
+          "alignItems": "center",
+          "display": "flex",
+          "justifyContent": "center",
+          "msFlexAlign": "center",
+          "msFlexPack": "center",
+        }
+      }
+    >
+      <div
+        className="css-view-1dbjc4n"
+        style={
+          Object {
+            "width": "250px",
+          }
+        }
+      >
+        <div
+          className="css-view-1dbjc4n"
+          style={
+            Object {
+              "WebkitAlignItems": "flex-start",
+              "WebkitBoxAlign": "start",
+              "WebkitBoxPack": "center",
+              "WebkitJustifyContent": "center",
+              "alignItems": "flex-start",
+              "justifyContent": "center",
+              "msFlexAlign": "start",
+              "msFlexPack": "center",
+              "width": "100%",
+            }
+          }
+        >
+          <div
+            className="css-view-1dbjc4n"
+            style={
+              Object {
+                "width": "100%",
+              }
+            }
+          >
+            <div
+              className="css-view-1dbjc4n"
+              style={
+                Object {
+                  "WebkitAlignItems": "flex-end",
+                  "WebkitBoxAlign": "end",
+                  "WebkitBoxDirection": "normal",
+                  "WebkitBoxOrient": "horizontal",
+                  "WebkitFlexDirection": "row",
+                  "alignItems": "flex-end",
+                  "flexDirection": "row",
+                  "msFlexAlign": "end",
+                  "msFlexDirection": "row",
+                }
+              }
+            >
+              <div
+                className="css-text-901oao"
+                dir="auto"
+                style={
+                  Object {
+                    "color": "rgba(23,23,23,1.00)",
+                    "fontSize": "24px",
+                    "fontStyle": "normal",
+                    "fontWeight": "700",
+                    "letterSpacing": "0px",
+                    "lineHeight": "1.25em",
+                  }
+                }
+              >
+                Order
+              </div>
+              <div
+                className="css-view-1dbjc4n"
+              />
+              <div
+                className="css-view-1dbjc4n"
+                style={
+                  Object {
+                    "WebkitBoxFlex": 1,
+                    "WebkitFlexGrow": 1,
+                    "flexGrow": 1,
+                    "msFlexPositive": 1,
+                  }
+                }
+              />
+              <div
+                className="css-view-1dbjc4n"
+              />
+              <svg
+                role="img"
+                stroke=""
+                style={
+                  Object {
+                    "color": "rgba(234,88,12,1.00)",
+                    "height": "12px",
+                    "marginBottom": "6px",
+                    "width": "12px",
+                  }
+                }
+                viewBox="0 0 24 24"
+              >
+                <g>
+                  <path
+                    d="M11.9836 0.00267822C8.77744 0.0551662 5.72075 1.36728 3.47427 3.65538C2.35024 4.77447 1.46338 6.10869 0.866705 7.57831C0.270027 9.04793 -0.0242179 10.6228 0.00155827 12.2087C-0.000286057 13.7583 0.303697 15.2931 0.896087 16.7251C1.48848 18.1571 2.35763 19.458 3.45373 20.5535C4.54983 21.6489 5.85133 22.5173 7.28365 23.1089C8.71596 23.7004 10.2509 24.0035 11.8006 24.0007H12.0146C15.2217 23.9677 18.2847 22.6638 20.5316 20.3751C22.7785 18.0864 24.0257 14.9999 23.9996 11.7927C24.0033 10.2243 23.6933 8.6709 23.0879 7.22398C22.4825 5.77706 21.5939 4.4658 20.4744 3.36731C19.3548 2.26882 18.0269 1.40527 16.5688 0.827453C15.1106 0.249636 13.5517 -0.0307856 11.9836 0.00267822ZM10.5007 16.5433C10.4935 16.3473 10.5254 16.1517 10.5947 15.9682C10.6639 15.7846 10.7691 15.6167 10.904 15.4742C11.0389 15.3318 11.2009 15.2177 11.3804 15.1386C11.5599 15.0594 11.7534 15.0169 11.9496 15.0135H11.9766C12.3712 15.0142 12.7501 15.1677 13.034 15.4417C13.3179 15.7157 13.4847 16.089 13.4995 16.4833C13.5068 16.6794 13.4749 16.875 13.4057 17.0586C13.3365 17.2423 13.2314 17.4102 13.0965 17.5527C12.9615 17.6952 12.7995 17.8093 12.6199 17.8884C12.4403 17.9674 12.2468 18.0099 12.0506 18.0132H12.0236C11.6291 18.0119 11.2505 17.8583 10.9667 17.5844C10.6829 17.3105 10.5159 16.9375 10.5007 16.5433ZM11.0007 12.5017V6.50215C11.0007 6.23695 11.106 5.98262 11.2935 5.7951C11.481 5.60758 11.7354 5.50223 12.0006 5.50223C12.2658 5.50223 12.5201 5.60758 12.7076 5.7951C12.8951 5.98262 13.0005 6.23695 13.0005 6.50215V12.5017C13.0005 12.7669 12.8951 13.0212 12.7076 13.2087C12.5201 13.3962 12.2658 13.5016 12.0006 13.5016C11.7354 13.5016 11.481 13.3962 11.2935 13.2087C11.106 13.0212 11.0007 12.7669 11.0007 12.5017Z"
+                    fill="currentColor"
+                    stroke=""
+                  />
+                </g>
+              </svg>
+            </div>
+            <div
+              className="css-view-1dbjc4n"
+              style={
+                Object {
+                  "height": "12px",
+                }
+              }
+            />
+            <div
+              className="css-view-1dbjc4n"
+              style={
+                Object {
+                  "WebkitAlignItems": "center",
+                  "WebkitBoxAlign": "center",
+                  "WebkitBoxDirection": "normal",
+                  "WebkitBoxOrient": "horizontal",
+                  "WebkitBoxPack": "justify",
+                  "WebkitFlexDirection": "row",
+                  "WebkitJustifyContent": "space-between",
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                  "msFlexAlign": "center",
+                  "msFlexDirection": "row",
+                  "msFlexPack": "justify",
+                }
+              }
+            >
+              <div
+                className="css-text-901oao"
+                dir="auto"
+                style={
+                  Object {
+                    "color": "rgba(23,23,23,1.00)",
+                    "fontSize": "14px",
+                    "fontStyle": "normal",
+                    "fontWeight": "500",
+                    "letterSpacing": "0px",
+                    "lineHeight": "1.5em",
+                  }
+                }
+              >
+                Sub Total
+              </div>
+              <div
+                className="css-view-1dbjc4n"
+              />
+              <div
+                className="css-text-901oao"
+                dir="auto"
+                style={
+                  Object {
+                    "color": "rgba(148,163,184,1.00)",
+                    "fontSize": "14px",
+                    "fontStyle": "normal",
+                    "fontWeight": "400",
+                    "letterSpacing": "0px",
+                    "lineHeight": "1.5em",
+                  }
+                }
+              >
+                $298.77
+              </div>
+            </div>
+            <div
+              className="css-view-1dbjc4n"
+              style={
+                Object {
+                  "height": "12px",
+                }
+              }
+            />
+            <div
+              className="css-view-1dbjc4n"
+              style={
+                Object {
+                  "WebkitAlignItems": "center",
+                  "WebkitBoxAlign": "center",
+                  "WebkitBoxDirection": "normal",
+                  "WebkitBoxOrient": "horizontal",
+                  "WebkitBoxPack": "justify",
+                  "WebkitFlexDirection": "row",
+                  "WebkitJustifyContent": "space-between",
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                  "msFlexAlign": "center",
+                  "msFlexDirection": "row",
+                  "msFlexPack": "justify",
+                }
+              }
+            >
+              <div
+                className="css-text-901oao"
+                dir="auto"
+                style={
+                  Object {
+                    "color": "rgba(23,23,23,1.00)",
+                    "fontSize": "14px",
+                    "fontStyle": "normal",
+                    "fontWeight": "500",
+                    "letterSpacing": "0px",
+                    "lineHeight": "1.5em",
+                  }
+                }
+              >
+                Tax
+              </div>
+              <div
+                className="css-view-1dbjc4n"
+              />
+              <div
+                className="css-text-901oao"
+                dir="auto"
+                style={
+                  Object {
+                    "color": "rgba(148,163,184,1.00)",
+                    "fontSize": "14px",
+                    "fontStyle": "normal",
+                    "fontWeight": "400",
+                    "letterSpacing": "0px",
+                    "lineHeight": "1.5em",
+                  }
+                }
+              >
+                $38.84
+              </div>
+            </div>
+            <div
+              className="css-view-1dbjc4n"
+              style={
+                Object {
+                  "height": "12px",
+                }
+              }
+            />
+            <div
+              className="css-view-1dbjc4n"
+              style={
+                Object {
+                  "WebkitAlignItems": "center",
+                  "WebkitBoxAlign": "center",
+                  "WebkitBoxDirection": "normal",
+                  "WebkitBoxOrient": "horizontal",
+                  "WebkitBoxPack": "justify",
+                  "WebkitFlexDirection": "row",
+                  "WebkitJustifyContent": "space-between",
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                  "msFlexAlign": "center",
+                  "msFlexDirection": "row",
+                  "msFlexPack": "justify",
+                }
+              }
+            >
+              <div
+                className="css-text-901oao"
+                dir="auto"
+                style={
+                  Object {
+                    "color": "rgba(23,23,23,1.00)",
+                    "fontSize": "14px",
+                    "fontStyle": "normal",
+                    "fontWeight": "500",
+                    "letterSpacing": "0px",
+                    "lineHeight": "1.5em",
+                  }
+                }
+              >
+                Total Amount
+              </div>
+              <div
+                className="css-view-1dbjc4n"
+              />
+              <div
+                className="css-text-901oao"
+                dir="auto"
+                style={
+                  Object {
+                    "color": "rgba(34,197,94,1.00)",
+                    "fontSize": "14px",
+                    "fontStyle": "normal",
+                    "fontWeight": "400",
+                    "letterSpacing": "0px",
+                    "lineHeight": "1.5em",
+                  }
+                }
+              >
+                $337.61
+              </div>
+            </div>
+            <div
+              className="css-view-1dbjc4n"
+              style={
+                Object {
+                  "height": "12px",
+                }
+              }
+            />
+            <div
+              className="css-view-1dbjc4n"
+              style={
+                Object {
+                  "marginTop": "8px",
+                }
+              }
+            >
+              <div
+                className="css-text-901oao"
+                dir="auto"
+                style={
+                  Object {
+                    "color": "rgba(23,23,23,1.00)",
+                    "fontSize": "14px",
+                    "fontStyle": "normal",
+                    "fontWeight": "700",
+                    "letterSpacing": "0px",
+                    "lineHeight": "1.5em",
+                  }
+                }
+              >
+                Promo Code
+              </div>
+              <div
+                className="css-view-1dbjc4n"
+                style={
+                  Object {
+                    "height": "8px",
+                  }
+                }
+              />
+              <div
+                className="css-view-1dbjc4n"
+                style={
+                  Object {
+                    "WebkitBoxDirection": "normal",
+                    "WebkitBoxOrient": "horizontal",
+                    "WebkitFlexDirection": "row",
+                    "flexDirection": "row",
+                    "msFlexDirection": "row",
+                  }
+                }
+              >
+                <div
+                  className="css-view-1dbjc4n"
+                  style={
+                    Object {
+                      "WebkitAlignItems": "center",
+                      "WebkitBoxAlign": "center",
+                      "WebkitBoxDirection": "normal",
+                      "WebkitBoxOrient": "horizontal",
+                      "WebkitFlex": 1,
+                      "WebkitFlexDirection": "row",
+                      "alignItems": "center",
+                      "borderBottomColor": "rgba(212,212,212,1.00)",
+                      "borderBottomLeftRadius": "4px",
+                      "borderBottomRightRadius": "4px",
+                      "borderBottomWidth": "1px",
+                      "borderLeftColor": "rgba(212,212,212,1.00)",
+                      "borderLeftWidth": "1px",
+                      "borderRightColor": "rgba(212,212,212,1.00)",
+                      "borderRightWidth": "1px",
+                      "borderTopColor": "rgba(212,212,212,1.00)",
+                      "borderTopLeftRadius": "4px",
+                      "borderTopRightRadius": "4px",
+                      "borderTopWidth": "1px",
+                      "flex": 1,
+                      "flexDirection": "row",
+                      "msFlex": "1 1 0%",
+                      "msFlexAlign": "center",
+                      "msFlexDirection": "row",
+                      "overflowX": "auto",
+                      "overflowY": "auto",
+                    }
+                  }
+                >
+                  <input
+                    autoCapitalize="sentences"
+                    autoComplete="on"
+                    autoCorrect="on"
+                    className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
+                    dir="auto"
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    onSelect={[Function]}
+                    readOnly={false}
+                    spellCheck={true}
+                    style={
+                      Object {
+                        "WebkitFlex": 1,
+                        "backgroundColor": "rgba(0,0,0,0.00)",
+                        "color": "rgba(23,23,23,1.00)",
+                        "cursor": "auto",
+                        "flex": 1,
+                        "fontSize": "12px",
+                        "fontStyle": "normal",
+                        "fontWeight": "400",
+                        "height": "100%",
+                        "lineHeight": "1.5em",
+                        "msFlex": "1 1 0%",
+                        "outline": "none",
+                        "outlineWidth": "0px",
+                        "paddingBottom": "8px",
+                        "paddingLeft": "12px",
+                        "paddingRight": "12px",
+                        "paddingTop": "8px",
+                        "width": "100%",
+                      }
+                    }
+                    type="text"
+                  />
+                </div>
+                <div
+                  className="css-view-1dbjc4n"
+                  style={
+                    Object {
+                      "width": "12px",
+                    }
+                  }
+                />
+                <div
+                  className="css-cursor-18t94o4 css-view-1dbjc4n"
+                  onBlur={[Function]}
+                  onClick={[Function]}
+                  onContextMenu={[Function]}
+                  onFocus={[Function]}
+                  onKeyDown={[Function]}
+                  role="button"
+                  style={
+                    Object {
+                      "MozUserSelect": "none",
+                      "WebkitAlignItems": "center",
+                      "WebkitBoxAlign": "center",
+                      "WebkitBoxDirection": "normal",
+                      "WebkitBoxOrient": "horizontal",
+                      "WebkitBoxPack": "center",
+                      "WebkitFlexDirection": "row",
+                      "WebkitJustifyContent": "center",
+                      "WebkitUserSelect": "none",
+                      "alignItems": "center",
+                      "borderBottomColor": "rgba(212,212,212,1.00)",
+                      "borderBottomLeftRadius": "4px",
+                      "borderBottomRightRadius": "4px",
+                      "borderBottomWidth": "1px",
+                      "borderLeftColor": "rgba(212,212,212,1.00)",
+                      "borderLeftWidth": "1px",
+                      "borderRightColor": "rgba(212,212,212,1.00)",
+                      "borderRightWidth": "1px",
+                      "borderTopColor": "rgba(212,212,212,1.00)",
+                      "borderTopLeftRadius": "4px",
+                      "borderTopRightRadius": "4px",
+                      "borderTopWidth": "1px",
+                      "cursor": "pointer",
+                      "flexDirection": "row",
+                      "justifyContent": "center",
+                      "msFlexAlign": "center",
+                      "msFlexDirection": "row",
+                      "msFlexPack": "center",
+                      "msTouchAction": "manipulation",
+                      "msUserSelect": "none",
+                      "paddingBottom": "10px",
+                      "paddingLeft": "12px",
+                      "paddingRight": "12px",
+                      "paddingTop": "10px",
+                      "touchAction": "manipulation",
+                      "userSelect": "none",
+                    }
+                  }
+                  tabIndex="0"
+                >
+                  <div
+                    className="css-view-1dbjc4n"
+                    style={
+                      Object {
+                        "WebkitAlignItems": "center",
+                        "WebkitBoxAlign": "center",
+                        "WebkitBoxDirection": "normal",
+                        "WebkitBoxOrient": "horizontal",
+                        "WebkitFlexDirection": "row",
+                        "alignItems": "center",
+                        "flexDirection": "row",
+                        "msFlexAlign": "center",
+                        "msFlexDirection": "row",
+                      }
+                    }
+                  >
+                    <div
+                      className="css-view-1dbjc4n"
+                    >
+                      <div
+                        className="css-text-901oao"
+                        dir="auto"
+                        style={
+                          Object {
+                            "color": "rgba(8,145,178,1.00)",
+                            "fontSize": "14px",
+                            "fontStyle": "normal",
+                            "fontWeight": "400",
+                            "letterSpacing": "0px",
+                            "lineHeight": "1.5em",
+                          }
+                        }
+                      >
+                        Apply
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              className="css-view-1dbjc4n"
+              style={
+                Object {
+                  "height": "12px",
+                }
+              }
+            />
+            <div
+              className="css-cursor-18t94o4 css-view-1dbjc4n"
+              onBlur={[Function]}
+              onClick={[Function]}
+              onContextMenu={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              role="button"
+              style={
+                Object {
+                  "MozUserSelect": "none",
+                  "WebkitAlignItems": "center",
+                  "WebkitBoxAlign": "center",
+                  "WebkitBoxDirection": "normal",
+                  "WebkitBoxOrient": "horizontal",
+                  "WebkitBoxPack": "center",
+                  "WebkitFlexDirection": "row",
+                  "WebkitJustifyContent": "center",
+                  "WebkitUserSelect": "none",
+                  "alignItems": "center",
+                  "backgroundColor": "rgba(8,145,178,1.00)",
+                  "borderBottomLeftRadius": "4px",
+                  "borderBottomRightRadius": "4px",
+                  "borderTopLeftRadius": "4px",
+                  "borderTopRightRadius": "4px",
+                  "cursor": "pointer",
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                  "marginBottom": "8px",
+                  "marginTop": "8px",
+                  "msFlexAlign": "center",
+                  "msFlexDirection": "row",
+                  "msFlexPack": "center",
+                  "msTouchAction": "manipulation",
+                  "msUserSelect": "none",
+                  "paddingBottom": "10px",
+                  "paddingLeft": "12px",
+                  "paddingRight": "12px",
+                  "paddingTop": "10px",
+                  "touchAction": "manipulation",
+                  "userSelect": "none",
+                }
+              }
+              tabIndex="0"
+            >
+              <div
+                className="css-view-1dbjc4n"
+                style={
+                  Object {
+                    "WebkitAlignItems": "center",
+                    "WebkitBoxAlign": "center",
+                    "WebkitBoxDirection": "normal",
+                    "WebkitBoxOrient": "horizontal",
+                    "WebkitFlexDirection": "row",
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "msFlexAlign": "center",
+                    "msFlexDirection": "row",
+                  }
+                }
+              >
+                <div
+                  className="css-view-1dbjc4n"
+                >
+                  <div
+                    className="css-text-901oao"
+                    dir="auto"
+                    style={
+                      Object {
+                        "color": "rgba(250,250,250,1.00)",
+                        "fontSize": "14px",
+                        "fontStyle": "normal",
+                        "fontWeight": "400",
+                        "letterSpacing": "0px",
+                        "lineHeight": "1.5em",
+                      }
+                    }
+                  >
+                    Place Order
+                  </div>
                 </div>
               </div>
             </div>
@@ -91722,10 +92545,10 @@ exports[`Storyshots useAccessibleColors Basic 1`] = `
         style={
           Object {
             "WebkitBoxDirection": "normal",
-            "WebkitBoxOrient": "horizontal",
-            "WebkitFlexDirection": "row",
-            "flexDirection": "row",
-            "msFlexDirection": "row",
+            "WebkitBoxOrient": "vertical",
+            "WebkitFlexDirection": "column",
+            "flexDirection": "column",
+            "msFlexDirection": "column",
           }
         }
       >
@@ -91832,7 +92655,7 @@ exports[`Storyshots useAccessibleColors Basic 1`] = `
           className="css-view-1dbjc4n"
           style={
             Object {
-              "width": "12px",
+              "height": "12px",
             }
           }
         />
@@ -91939,7 +92762,7 @@ exports[`Storyshots useAccessibleColors Basic 1`] = `
           className="css-view-1dbjc4n"
           style={
             Object {
-              "width": "12px",
+              "height": "12px",
             }
           }
         />
@@ -92046,7 +92869,7 @@ exports[`Storyshots useAccessibleColors Basic 1`] = `
           className="css-view-1dbjc4n"
           style={
             Object {
-              "width": "12px",
+              "height": "12px",
             }
           }
         />
@@ -92153,7 +92976,7 @@ exports[`Storyshots useAccessibleColors Basic 1`] = `
           className="css-view-1dbjc4n"
           style={
             Object {
-              "width": "12px",
+              "height": "12px",
             }
           }
         />
@@ -92260,7 +93083,7 @@ exports[`Storyshots useAccessibleColors Basic 1`] = `
           className="css-view-1dbjc4n"
           style={
             Object {
-              "width": "12px",
+              "height": "12px",
             }
           }
         />

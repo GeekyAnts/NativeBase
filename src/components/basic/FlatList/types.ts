@@ -11,7 +11,6 @@ export interface InterfaceFlatListProps<ItemT>
    * pass props to contentContainerStyle, and this also resolved NB tokens.
    */
   _contentContainerStyle?: Partial<IFlatListProps<ItemT>>;
-
   ref?: MutableRefObject<any>;
 }
 

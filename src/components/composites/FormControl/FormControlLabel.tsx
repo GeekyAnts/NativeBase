@@ -14,7 +14,7 @@ const FormControlLabel = (
   const formControlContext = useFormControlContext();
   const combinedProps = combineContextAndProps(formControlContext, props);
   const _ref = React.useRef<HTMLLabelElement>(null);
-  const { _astrick, ...reslovedProps } = usePropsResolution(
+  const { _astrick, ...resolvedProps } = usePropsResolution(
     'FormControlLabel',
     combinedProps,
     {
@@ -43,11 +43,11 @@ const FormControlLabel = (
       // RN web doesn't support htmlFor for Label element yet
       if (props.htmlFor) {
         _ref.current.htmlFor = props.htmlFor;
-      } else if (reslovedProps?.nativeID) {
-        _ref.current.htmlFor = reslovedProps.nativeID;
+      } else if (resolvedProps?.nativeID) {
+        _ref.current.htmlFor = resolvedProps.nativeID;
       }
     }
-  }, [reslovedProps?.nativeID, props.htmlFor]);
+  }, [resolvedProps?.nativeID, props.htmlFor]);
 
   return (
     <Box
@@ -55,12 +55,12 @@ const FormControlLabel = (
         //@ts-ignore
         accessibilityRole: 'label',
       }}
-      {...reslovedProps}
-      nativeID={reslovedProps?.labelId}
+      {...resolvedProps}
+      nativeID={resolvedProps?.labelId}
       ref={mergedRef}
     >
       {children}
-      {reslovedProps?.isRequired && requiredAsterisk()}
+      {resolvedProps?.isRequired && requiredAsterisk()}
     </Box>
   );
 };
