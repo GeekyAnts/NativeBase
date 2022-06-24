@@ -270,9 +270,6 @@ export function usePropsResolution(
   // }
 
   // console.log(componentThemeProps, component, resolvedProps, 'theme props');
-  // if (component === 'TextArea') {
-  //   console.log(resolvedProps, 'extended theme props');
-  // }
 
   return resolvedProps;
 }

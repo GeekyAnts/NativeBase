@@ -92,26 +92,10 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
 
   // console.log(INTERNAL_themeStyle, 'internal theme style');
   return hasTextAncestor ? (
-    <StyledText
-      {...propsToSpread}
-      // INTERNAL_themeStyle={[
-      //   getResolvedStyleSheet('Text', colorMode),
-      //   INTERNAL_themeStyle,
-      // ]}
-    >
-      {children}
-    </StyledText>
+    <StyledText {...propsToSpread}>{children}</StyledText>
   ) : (
     <TextAncestorContext.Provider value={true}>
-      <StyledText
-        {...propsToSpread}
-        // INTERNAL_themeStyle={[
-        //   getResolvedStyleSheet('Text', colorMode),
-        //   INTERNAL_themeStyle,
-        // ]}
-      >
-        {children}
-      </StyledText>
+      <StyledText {...propsToSpread}>{children}</StyledText>
     </TextAncestorContext.Provider>
   );
 };
