@@ -3,12 +3,14 @@ import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { ITextProps } from './types';
 import { useHover } from '@react-native-aria/interactions';
 import { mergeRefs } from '../../../utils/mergeRefs';
-import { makeStyledComponent } from '../../../utils/styled';
+import { makeStyledComponent } from '../../../utils/makeStyledComponent';
 import { useResolvedFontFamily } from '../../../hooks/useResolvedFontFamily';
 import { Text as NativeText } from 'react-native';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const StyledText = makeStyledComponent(NativeText);
+// updateComponentThemeMap('Text');
+
 // To have a RN compatible behaviour, we'll inherit parent text styles as base style
 const TextAncestorContext = React.createContext(false);
 
@@ -30,7 +32,7 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
     _hover,
     fontSize,
     numberOfLines,
-    ...reslovedProps
+    ...resolvedProps
   } = usePropsResolution(
     'Text',
     props,
@@ -66,7 +68,7 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
   }
 
   const propsToSpread = {
-    ...reslovedProps,
+    ...resolvedProps,
     numberOfLines:
       numberOfLines || noOfLines
         ? numberOfLines || noOfLines
@@ -74,7 +76,7 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
         ? 1
         : undefined,
     ...resolvedFontFamily,
-    bg: highlight ? 'warning.300' : reslovedProps.bg,
+    bg: highlight ? 'warning.300' : resolvedProps.bg,
     textDecorationLine:
       underline && strikeThrough
         ? 'underline line-through'
@@ -82,12 +84,13 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
         ? 'underline'
         : strikeThrough
         ? 'line-through'
-        : reslovedProps.textDecorationLine,
+        : resolvedProps.textDecorationLine,
     fontSize: sub ? 10 : fontSize,
     ref: mergeRefs([ref, _ref]),
     ...(isHovered && _hover),
   };
 
+  // console.log(INTERNAL_themeStyle, 'internal theme style');
   return hasTextAncestor ? (
     <StyledText {...propsToSpread}>{children}</StyledText>
   ) : (

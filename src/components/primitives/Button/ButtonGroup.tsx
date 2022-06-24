@@ -3,18 +3,15 @@ import type { IButtonGroupProps } from './types';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { Stack } from '../Stack';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-
 export default memo(
   forwardRef(
     (
-      { children, divider, variant, ...props }: IButtonGroupProps,
+      { children, divider, size, variant, ...props }: IButtonGroupProps,
       ref?: any
     ) => {
       const {
         space,
         direction,
-
-        size,
         colorScheme,
         isDisabled,
         isAttached,
@@ -77,6 +74,7 @@ export default memo(
       if (useHasResponsiveProps(props)) {
         return null;
       }
+
       return (
         <Stack
           divider={divider}

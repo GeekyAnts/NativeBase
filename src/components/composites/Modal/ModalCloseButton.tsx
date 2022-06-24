@@ -12,12 +12,17 @@ import {
 } from '../../primitives/Pressable/Pressable';
 import { composeEventHandlers } from '../../../utils';
 import { useFocusRing } from '@react-native-aria/focus';
-
 const ModalCloseButton = (props: IButtonProps, ref?: any) => {
   const { hoverProps, isHovered } = useHover();
   const { pressableProps, isPressed } = useIsPressed();
   const { focusProps, isFocused } = useFocus();
   const { isFocusVisible, focusProps: focusRingProps }: any = useFocusRing();
+  const state = {
+    isHovered,
+    isPressed,
+    isFocused,
+    isFocusVisible,
+  };
 
   const {
     _icon,
@@ -28,12 +33,7 @@ const ModalCloseButton = (props: IButtonProps, ref?: any) => {
     onFocus,
     onBlur,
     ...resolvedProps
-  } = usePropsResolution('ModalCloseButton', props, {
-    isHovered,
-    isPressed,
-    isFocused,
-    isFocusVisible,
-  });
+  } = usePropsResolution('ModalCloseButton', props, state);
   const { handleClose } = React.useContext(ModalContext);
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {

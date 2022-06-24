@@ -17,12 +17,11 @@ import {
 } from './NativeBaseContext';
 import { useToast } from '../components/composites/Toast';
 import { Platform, useWindowDimensions } from 'react-native';
-import {
-  getClosestBreakpoint,
-  platformSpecificSpaceUnits,
-} from '../theme/tools/utils';
-import { ResponsiveQueryProvider } from '../utils/useResponsiveQuery';
+import { getClosestBreakpoint } from '../theme/tools/utils';
+import { platformSpecificSpaceUnits } from '../theme/tools/platformSpecificSpaceUnits';
+import { init as initResolvedStyleMap } from './ResolvedStyleMap';
 
+initResolvedStyleMap();
 // For SSR to work, we need to pass initial insets as 0 values on web.
 
 // https://github.com/th3rdwave/react-native-safe-area-context/issues/132
@@ -86,19 +85,19 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
           initialWindowMetrics ?? defaultInitialWindowMetricsBasedOnPlatform
         }
       >
-        <ResponsiveQueryProvider disableCSSMediaQueries={!isSSR}>
-          <HybridProvider
-            colorModeManager={colorModeManager}
-            options={theme.config}
-          >
-            <OverlayProvider>
-              <ToastProvider>
-                <InitializeToastRef />
-                <SSRProvider>{children}</SSRProvider>
-              </ToastProvider>
-            </OverlayProvider>
-          </HybridProvider>
-        </ResponsiveQueryProvider>
+        {/* <ResponsiveQueryProvider disableCSSMediaQueries={!isSSR}> */}
+        <HybridProvider
+          colorModeManager={colorModeManager}
+          options={theme.config}
+        >
+          <OverlayProvider>
+            <ToastProvider>
+              <InitializeToastRef />
+              <SSRProvider>{children}</SSRProvider>
+            </ToastProvider>
+          </OverlayProvider>
+        </HybridProvider>
+        {/* </ResponsiveQueryProvider> */}
       </SafeAreaProvider>
     </NativeBaseConfigProvider>
   );

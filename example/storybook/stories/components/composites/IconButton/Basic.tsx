@@ -9,7 +9,7 @@ export const Example = () => {
         icon={<Icon as={Entypo} name="emoji-happy" />}
         borderRadius="full"
         _icon={{
-          color: 'orange.500',
+          color: 'blue.500',
           size: 'md',
         }}
         _hover={{
@@ -18,17 +18,8 @@ export const Example = () => {
         _pressed={{
           bg: 'orange.600:alpha.20',
           _icon: {
+            color: 'red.400',
             name: 'emoji-flirt',
-          },
-          _ios: {
-            _icon: {
-              size: '2xl',
-            },
-          },
-        }}
-        _ios={{
-          _icon: {
-            size: '2xl',
           },
         }}
       />

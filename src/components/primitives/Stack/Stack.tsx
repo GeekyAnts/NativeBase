@@ -4,7 +4,8 @@ import { getSpacedChildren } from '../../../utils';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import type { CustomProps, ResponsiveValue, SpaceType } from '../../types';
-import { ResponsiveQueryContext } from '../../../utils/useResponsiveQuery/ResponsiveQueryProvider';
+import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
+import { useToken } from '../../../hooks';
 
 export interface InterfaceStackProps extends InterfaceBoxProps<IStackProps> {
   /**
@@ -52,35 +53,46 @@ export interface InterfaceStackProps extends InterfaceBoxProps<IStackProps> {
 
 export type IStackProps = InterfaceStackProps & CustomProps<'Stack'>;
 
-const Stack = ({ space, ...props }: IStackProps, ref?: any) => {
+const Stack = ({ ...props }: IStackProps, ref?: any) => {
   const dir = props.direction;
+
+  const state = {
+    isDisabled: props.isDisabled,
+    isHovered: props.isHovered,
+    isFocused: props.isFocused,
+    isInvalid: props.isInvalid,
+    isReadOnly: props.isReadOnly,
+  };
+
   const {
     children,
     direction,
     reversed,
     divider,
-    size,
+    space,
     ...resolvedProps
-  }: any = usePropsResolution(
-    'Stack',
-    { ...props, size: space },
-    {
-      isDisabled: props.isDisabled,
-      isHovered: props.isHovered,
-      isFocused: props.isFocused,
-      isInvalid: props.isInvalid,
-      isReadOnly: props.isReadOnly,
-    },
-    { resolveResponsively: ['space', 'direction'] }
-  );
+  }: any = usePropsResolution('Stack', props, state, {
+    resolveResponsively: ['space', 'direction'],
+  });
 
-  const responsiveQueryContext = React.useContext(ResponsiveQueryContext);
-  const disableCSSMediaQueries = responsiveQueryContext.disableCSSMediaQueries;
+  const isSSR = useNativeBaseConfig('NativeBase').isSSR;
+  const disableCSSMediaQueries = !isSSR;
+
+  const thumbAbsoluteSize = useToken('components.Stack.sizes', space);
+
+  // console.log(
+  //   space,
+  //   'hello size !!!!',
+  //   thumbAbsoluteSize,
+  //   unResolvedProps,
+  //   resolvedProps
+  // );
 
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
   }
+  // console.log(direction, 'INTERNAL_themeStyle ***');
 
   return (
     <Box
@@ -88,11 +100,11 @@ const Stack = ({ space, ...props }: IStackProps, ref?: any) => {
       {...resolvedProps}
       ref={ref}
       // @ts-ignore
-      gap={disableCSSMediaQueries ? undefined : size}
+      gap={disableCSSMediaQueries ? undefined : thumbAbsoluteSize}
     >
       {getSpacedChildren(
         children,
-        size,
+        thumbAbsoluteSize,
         direction === 'row' ? 'X' : 'Y',
         reversed ? 'reverse' : 'normal',
         divider

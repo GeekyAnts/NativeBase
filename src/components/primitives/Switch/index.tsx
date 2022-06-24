@@ -4,7 +4,7 @@ import { Switch as RNSwitch } from 'react-native';
 import isNil from 'lodash.isnil';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useToken } from '../../../hooks';
-import { makeStyledComponent } from '../../../utils/styled';
+import { makeStyledComponent } from '../../../utils/makeStyledComponent';
 import type { ISwitchProps } from './types';
 import { mergeRefs } from '../../../utils';
 import { useHover } from '@react-native-aria/interactions';
@@ -55,6 +55,8 @@ const Switch = (
     isInvalid: isInvalid || combinedProps.isInvalid,
     isChecked: checked,
   });
+
+  console.log(resolvedProps, 'switch props');
 
   const onTrackColor = useToken('colors', _onTrackColor);
   const offTrackColor = useToken('colors', _offTrackColor);

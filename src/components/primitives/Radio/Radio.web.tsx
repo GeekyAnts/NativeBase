@@ -15,6 +15,8 @@ import { CircleIcon } from '../Icon/Icons';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { combineContextAndProps, isEmptyObj } from '../../../utils';
 import { useFormControlContext } from '../../composites/FormControl';
+// import { getThemeProps } from '../../../core/ResolvedStyleMap';
+// import { useColorMode } from '../../../core/color-mode';
 
 const RadioComponent = memo(
   forwardRef(
@@ -38,13 +40,7 @@ const RadioComponent = memo(
       const mergedRefs = mergeRefs([_ref, wrapperRef]);
       const { focusProps, isFocusVisible } = useFocusRing();
 
-      const {
-        _interactionBox,
-        _icon,
-        _stack,
-        _text,
-        ...resolvedProps
-      } = usePropsResolution('Radio', combinedProps, {
+      const state = {
         isInvalid,
         isReadOnly,
         isFocusVisible: isFocusVisibleProp || isFocusVisible,
@@ -52,7 +48,15 @@ const RadioComponent = memo(
         isIndeterminate,
         isChecked,
         isHovered: isHoveredProp || isHovered,
-      });
+      };
+
+      const {
+        _interactionBox,
+        _icon,
+        _stack,
+        _text,
+        ...resolvedProps
+      } = usePropsResolution('Radio', combinedProps, state);
 
       // only calling below function when icon exist.
       const sizedIcon = () =>

@@ -31,6 +31,7 @@ const holderStyle: any = {
 
 export const Slide = memo(
   forwardRef(({ children, ...props }: ISlideProps, ref: any) => {
+    //TODO: perf improvement
     const {
       in: visible,
       placement,
@@ -39,6 +40,7 @@ export const Slide = memo(
       _overlay,
       ...resolvedProps
     } = usePropsResolution('Slide', props);
+
     const [containerOpacity, setContainerOpacity] = React.useState(0);
     const [size, setSize] = React.useState(0);
     const provideSize = (layoutSize: any) => {
@@ -109,6 +111,7 @@ export const Slide = memo(
         ]}
       >
         <Box
+          // {...restDefaultProps}
           {...resolvedProps}
           opacity={containerOpacity}
           ref={ref}

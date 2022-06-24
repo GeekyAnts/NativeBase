@@ -113,7 +113,6 @@ function MyWrapper({ children }: any) {
   const { colorMode, toggleColorMode } = useColorMode();
 
   const bgColor = useColorModeValue(`gray.50`, `gray.800`);
-
   return (
     <Box
       flex={1}

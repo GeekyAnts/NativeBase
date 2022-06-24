@@ -14,13 +14,14 @@ const Flex = (props: IFlexProps, ref: any) => {
     shrink,
     direction,
     ...resolvedProps
-  } = usePropsResolution('Flex', props);
+  } = usePropsResolution('Flex', props, {});
 
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
   }
 
+  console.log(resolvedProps, 'resolved props her');
   return (
     <Box
       {...resolvedProps}
@@ -38,7 +39,7 @@ const Flex = (props: IFlexProps, ref: any) => {
 
 //Spacer Component that adds space between components where it is placed
 export const Spacer = (props: any) => {
-  const resolvedProps = usePropsResolution('Spacer', props);
+  const resolvedProps = usePropsResolution('Spacer', props, {});
 
   return <Box {...resolvedProps} />;
 };

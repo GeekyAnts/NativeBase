@@ -6,6 +6,7 @@ import { Platform } from 'react-native';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const ModalContent = (props: IBoxProps, ref?: any) => {
+  // console.log(styleFromProps, 'style from props &&&&*&*');
   const resolvedProps = usePropsResolution('ModalContent', props);
   const {
     contentSize,

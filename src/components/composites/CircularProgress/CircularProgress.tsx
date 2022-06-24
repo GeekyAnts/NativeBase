@@ -1,7 +1,7 @@
 import get from 'lodash.get';
 import React from 'react';
 import { Animated, Easing, StyleSheet } from 'react-native';
-import { makeStyledComponent } from '../../../utils/styled';
+import { makeStyledComponent } from '../../../utils/makeStyledComponent';
 import { useTheme, useThemeProps } from '../../../hooks';
 import { canUseDom } from '../../../utils';
 import { default as Box } from '../../primitives/Box';

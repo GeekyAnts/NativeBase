@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import { KeyboardAvoidingView as RNKeyboardAvoidingView } from 'react-native';
 import { usePropsResolution } from '../../../hooks';
-import { makeStyledComponent } from '../../../utils/styled';
+import { makeStyledComponent } from '../../../utils/makeStyledComponent';
 import type { IKeyboardAvoidingViewProps } from './types';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 

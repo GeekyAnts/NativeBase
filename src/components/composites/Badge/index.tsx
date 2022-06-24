@@ -3,7 +3,6 @@ import HStack from '../../primitives/Stack/HStack';
 import Box from '../../primitives/Box';
 import type { IBadgeProps } from './types';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const Badge = (
   {
@@ -17,12 +16,12 @@ const Badge = (
   }: IBadgeProps,
   ref: any
 ) => {
-  const { _icon, _text, ...newProps } = usePropsResolution('Badge', props);
+  const { _icon, _text, ...newProps } = usePropsResolution(
+    'Badge',
+    props,
 
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
+    {}
+  );
 
   if (leftIcon) {
     startIcon = leftIcon;
@@ -59,11 +58,19 @@ const Badge = (
   return (
     <HStack {...newProps} ref={ref}>
       {startIcon ? startIcon : null}
-      <Box _text={_text}>{children}</Box>
+      <Box
+        _text={{
+          ..._text,
+        }}
+      >
+        {children}
+      </Box>
       {endIcon ? endIcon : null}
     </HStack>
   );
 };
 
-export default memo(forwardRef(Badge));
+export type IBadgeComponentType = (props: IBadgeProps) => JSX.Element;
+
+export default memo(forwardRef(Badge)) as IBadgeComponentType;
 export type { IBadgeProps };

@@ -7,7 +7,15 @@ import {
 } from '@expo/vector-icons';
 export const Example = () => {
   return (
-    <Box p={5} rounded="xl" shadow={4} w="100%">
+    <Box
+      p={5}
+      rounded="xl"
+      _ios={{ shadow: 4 }}
+      _android={{ borderWidth: 1 }}
+      _light={{ borderColor: 'gray.300' }}
+      _dark={{ borderColor: 'gray.400' }}
+      w="100%"
+    >
       <Stack space={6}>
         <HStack justifyContent="space-between" alignItems="center">
           <Avatar

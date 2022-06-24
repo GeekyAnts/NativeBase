@@ -4,7 +4,7 @@ import {
   usePropsResolution,
   useStyledSystemPropsResolver,
 } from '../../../hooks';
-import { makeStyledComponent } from '../../../utils/styled';
+import { makeStyledComponent } from '../../../utils/makeStyledComponent';
 import type { IScrollViewProps } from './types';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
@@ -19,6 +19,7 @@ export const ScrollView = forwardRef((props: IScrollViewProps, ref: any) => {
   const resolved_ContentContainerStyle = useStyledSystemPropsResolver(
     _contentContainerStyle || {}
   );
+
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;

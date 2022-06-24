@@ -4,7 +4,6 @@ import type { IActionsheetProps } from './types';
 import { usePropsResolution } from '../../../hooks';
 import { ActionSheetContext } from './ActionSheetContext';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-
 const Actionsheet = (
   { children, hideDragIndicator = false, ...props }: IActionsheetProps,
   ref: any
@@ -15,11 +14,11 @@ const Actionsheet = (
     onClose,
     ...resolvedProps
   } = usePropsResolution('Actionsheet', props);
-
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
   }
+
   return (
     <Modal
       isOpen={isOpen}
@@ -28,6 +27,7 @@ const Actionsheet = (
       overlayVisible={disableOverlay ? false : true}
       closeOnOverlayClick={disableOverlay ? false : true}
       ref={ref}
+      size="full"
     >
       <ActionSheetContext.Provider value={{ hideDragIndicator }}>
         {children}

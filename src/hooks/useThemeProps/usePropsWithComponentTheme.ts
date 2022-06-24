@@ -3,7 +3,8 @@ import type { ComponentTheme } from '../../theme';
 
 export function usePropsWithComponentTheme(
   localTheme: ComponentTheme,
-  propsReceived: any
+  propsReceived: any,
+  theme: any
 ) {
-  return usePropsResolutionWithComponentTheme(localTheme, propsReceived);
+  return usePropsResolutionWithComponentTheme(localTheme, propsReceived, theme);
 }

@@ -8,7 +8,6 @@ const baseStyle = (props: Record<string, any>) => {
     borderRadius: 'sm',
     opacity: 1,
     p: 0.5,
-
     _light: {
       bg: 'muted.50',
       borderColor: 'muted.400',
@@ -92,7 +91,10 @@ const baseStyle = (props: Record<string, any>) => {
       alignItems: 'center',
       space: 2,
       _web: {
-        cursor: props.isDisabled ? 'not-allowed' : 'pointer',
+        _disabled: {
+          cursor: 'not-allowed',
+        },
+        cursor: 'pointer',
       },
     },
 

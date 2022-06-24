@@ -1,7 +1,8 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React from 'react';
+import { useNativeBaseConfig } from '../core/NativeBaseContext';
 import { default as Box } from '../components/primitives/Box';
 import type { SpaceType as ThemeSpaceType } from '../components/types';
-import { ResponsiveQueryContext } from './useResponsiveQuery/ResponsiveQueryProvider';
 
 type SpaceType =
   | 'gutter'
@@ -43,9 +44,13 @@ const getSpacedChildren = (
 
   const orientation = axis === 'X' ? 'vertical' : 'horizontal';
 
+  // const responsiveQueryContext = React.useContext(ResponsiveQueryContext);
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const responsiveQueryContext = React.useContext(ResponsiveQueryContext);
-  const disableCSSMediaQueries = responsiveQueryContext.disableCSSMediaQueries;
+
+  const isSSR = useNativeBaseConfig('NativeBase').isSSR;
+  const disableCSSMediaQueries = !isSSR;
+
+  // const disableCSSMediaQueries = responsiveQueryContext.disableCSSMediaQueries;
 
   // If there's a divider, we wrap it with a Box and apply vertical and horizontal margins else we add a spacer Box with height or width
   if (divider) {
@@ -70,6 +75,9 @@ const getSpacedChildren = (
     const spacingProp: object = {
       ...(axis === 'X' ? { width: space } : { height: space }),
     };
+
+    // console.log(space, spacingProp, 'hello space');
+
     childrenArray = childrenArray.map((child: any, index: number) => {
       return (
         <React.Fragment key={child.key ?? `spaced-child-${index}`}>

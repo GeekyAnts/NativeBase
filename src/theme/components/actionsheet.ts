@@ -9,7 +9,7 @@ export const Actionsheet = {
 
 // ActionsheetContent
 export const ActionsheetContent = {
-  baseStyle: () => ({
+  baseStyle: {
     alignItems: 'center',
     px: 2,
     py: 2,
@@ -42,12 +42,12 @@ export const ActionsheetContent = {
       py: 2,
       collapsable: false,
     },
-  }),
+  },
 };
 
 // ActionsheetItem
 export const ActionsheetItem = {
-  baseStyle: () => ({
+  baseStyle: {
     width: '100%',
     justifyContent: 'flex-start',
     _stack: {
@@ -106,5 +106,5 @@ export const ActionsheetItem = {
         },
       },
     },
-  }),
+  },
 };

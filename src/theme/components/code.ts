@@ -1,11 +1,10 @@
 import Badge from './badge';
-import { Platform } from 'react-native';
 
 const { variants, defaultProps } = Badge;
 
 const baseStyle = {
   _text: {
-    fontFamily: Platform.OS === 'ios' ? 'Courier' : 'monospace',
+    fontFamily: 'monospace',
     fontSize: 'sm',
   },
   borderRadius: 'sm',

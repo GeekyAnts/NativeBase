@@ -172,8 +172,8 @@ const PopperArrow = React.forwardRef(
       //@ts-ignore - Will be passed by React.cloneElement from PopperContent
       actualPlacement,
       style,
-      borderColor = '#52525b',
-      backgroundColor = 'black',
+      borderColor,
+      backgroundColor,
       ...rest
     }: IPopoverArrowProps & IBoxProps<IPopoverArrowProps>,
     ref: any

@@ -1,14 +1,17 @@
 import { useEffect, useState } from 'react';
-import { useTheme } from '../hooks/useTheme';
 import { useNativeBaseConfig } from '../core/NativeBaseContext';
 import { isResponsiveAnyProp } from '../theme/tools';
 
-export function useResponsiveSSRProps(incomingProps: any) {
+export function useResponsiveSSRProps(incomingProps: any, theme: any) {
   const [modified, setModified] = useState(false);
-  const theme = useTheme();
+  // const theme = useTheme();
 
-  const responsivePropsExists = isResponsiveAnyProp(incomingProps, theme);
-  const isSSR = useNativeBaseConfig('useBreakpointResolvedProps').isSSR;
+  const isSSR = useNativeBaseConfig('NativeBase').isSSR;
+
+  let responsivePropsExists = false;
+  if (isSSR) {
+    responsivePropsExists = isResponsiveAnyProp(incomingProps, theme);
+  }
 
   let modifiedProps = incomingProps;
   if (responsivePropsExists && isSSR && !modified) {
