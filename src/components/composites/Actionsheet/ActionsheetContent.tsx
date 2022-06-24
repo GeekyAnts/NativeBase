@@ -51,12 +51,12 @@ const Content = memo(
               }).start(handleClose);
 
               setTimeout(() => {
-                Animated.spring(pan, {
+                Animated.timing(pan, {
                   toValue: { x: 0, y: 0 },
-                  overshootClamping: true,
+                  duration: 150,
                   useNativeDriver: true,
                 }).start();
-              });
+              }, 300);
             } else {
               Animated.spring(pan, {
                 toValue: { x: 0, y: 0 },

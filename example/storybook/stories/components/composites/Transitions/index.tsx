@@ -8,6 +8,7 @@ import { Example as Slide } from './Slide';
 import { Example as SlideWrapped } from './SlideWrapped';
 import { Example as SlideFade } from './SlideFade';
 import { Example as Stagger } from './Stagger';
+import { Example as SlideComposition } from './SlideComposition';
 
 storiesOf('Transitions', module)
   .addDecorator(withKnobs)
@@ -17,4 +18,5 @@ storiesOf('Transitions', module)
   .add('Slide', () => <Slide />)
   .add('Slide wrapped inside parent', () => <SlideWrapped />)
   .add('SlideFade', () => <SlideFade />)
+  .add('SlideComposition', () => <SlideComposition />)
   .add('Stagger', () => <Stagger />);

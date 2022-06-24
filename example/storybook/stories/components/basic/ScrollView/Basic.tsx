@@ -3,15 +3,7 @@ import { ScrollView, VStack, Center, useTheme, Heading } from 'native-base';
 export const Example = () => {
   const { colors } = useTheme();
   return (
-    <ScrollView
-      maxW="300"
-      h="80"
-      _contentContainerStyle={{
-        px: '20px',
-        mb: '4',
-        minW: '72',
-      }}
-    >
+    <ScrollView w={['200', '300']} h="80">
       <Center mt="3" mb="4">
         <Heading fontSize="xl">Cyan</Heading>
       </Center>

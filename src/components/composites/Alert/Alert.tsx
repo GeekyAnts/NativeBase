@@ -13,11 +13,16 @@ const Alert = ({ children, ...props }: IAlertProps, ref?: any) => {
     _icon,
     colorScheme,
     ...newProps
-  } = usePropsResolution('Alert', props);
+  } = usePropsResolution('Alert', {
+    ...props,
+    colorScheme: props.status ? props.status : props.colorScheme,
+  });
+
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
   }
+  // console.log(newProps, colorScheme, 'props here');
   return (
     <AlertContext.Provider
       value={{

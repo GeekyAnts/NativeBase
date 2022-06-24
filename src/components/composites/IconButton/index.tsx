@@ -10,11 +10,12 @@ import {
   useIsPressed,
 } from '../../primitives/Pressable/Pressable';
 import { useFocusRing } from '@react-native-aria/focus';
+import { Icon } from '../../primitives/Icon';
 
 const IconButton = (
   {
     icon,
-    children: _children,
+    children,
     isHovered: isHoveredProp,
     isPressed: isPressedProp,
     isFocused: isFocusedProp,
@@ -54,6 +55,7 @@ const IconButton = (
     clonedIcon = React.cloneElement(icon, {
       ..._icon,
       ...icon?.props,
+      ...props._icon,
     });
   }
 
@@ -84,7 +86,7 @@ const IconButton = (
       )}
       {...resolvedProps}
     >
-      {clonedIcon}
+      {clonedIcon || <Icon {..._icon}>{children}</Icon>}
     </Pressable>
   );
 };

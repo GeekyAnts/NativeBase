@@ -120,6 +120,7 @@ function MyWrapper({ children }: any) {
       justifyContent="center"
       alignItems="center"
       bg={bgColor}
+      // bg="red.400"
       safeAreaY
     >
       <Tooltip
