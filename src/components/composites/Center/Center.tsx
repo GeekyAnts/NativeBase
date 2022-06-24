@@ -7,6 +7,8 @@ import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 const Center = (props: ICenterProps, ref: any) => {
   const reslovedProps = usePropsResolution('Center', props, {});
   //TODO: refactor for responsive prop
+
+  console.log(reslovedProps, 'resolved props here');
   if (useHasResponsiveProps(props)) {
     return null;
   }

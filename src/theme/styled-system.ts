@@ -744,7 +744,10 @@ export const getStyleAndFilteredProps = ({
           //@ts-ignore
           responsiveStyles[orderedBreakPoints[i][0]].push(newStyle);
         });
+
+        console.log('hello 111222', key, value, responsiveStyles);
       } else {
+        // console.log('hello 111222', key, value);
         for (const k in value) {
           const newStyle = getRNKeyAndStyleValue({
             config,
@@ -760,6 +763,7 @@ export const getStyleAndFilteredProps = ({
           }
           responsiveStyles[k].push(newStyle);
         }
+        console.log('hello 111222', key, value, responsiveStyles);
       }
     } else {
       const value = rawValue;
@@ -812,7 +816,6 @@ export const getStyleAndFilteredProps = ({
       }
     }
   }
-  // console.log(JSON.stringify(styleFromProps), 'style system props 2');
 
   if (responsiveStyles) {
     if (getResponsiveStyles) {
@@ -835,9 +838,11 @@ export const getStyleAndFilteredProps = ({
 
       const { dataSet: newDataSet, styles } = getResponsiveStyles(query);
       dataSet = { ...dataSet, ...newDataSet };
-      // styleFromProps = { ...styleFromProps, ...StyleSheet.flatten(styles) };
+
+      styleFromProps = { ...styleFromProps, ...styles };
+
       //TODO: build-time
-      styleFromProps = { ...styleFromProps };
+      // styleFromProps = { ...styleFromProps };
     } else {
     }
   }

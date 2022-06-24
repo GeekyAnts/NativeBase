@@ -33,9 +33,9 @@ export const useBreakpointResolvedProps = (props: IProps, name?: string) => {
     }
     return newProps;
   }, [props, currentBreakpoint, theme.breakpoints]);
-  if (name === 'Stack') {
-    // console.log(key, value, 'component theme');
-    return {};
-  }
+  // if (name === 'Stack') {
+  //   // console.log(key, value, 'component theme');
+  //   return {};
+  // }
   return newProps;
 };

@@ -45,6 +45,8 @@ export const useStyledSystemPropsResolver = ({
     props
   );
 
+  // console.log('** use prop resolution ***', props, getResponsiveStyles);
+
   // console.log('useStyledSystemPropsResolver', restProps);
 
   const { style, dataSet } = React.useMemo(() => {
@@ -84,6 +86,7 @@ export const useStyledSystemPropsResolver = ({
   //   /* eslint-disable-next-line */
   //   console.log("style,resprops", currentBreakpoint);
   // }
+  // console.log('** use prop resolution 2', restProps);
 
   restProps.dataSet = dataSet;
   // console.timeEnd("useStyledSystemPropsResolver");

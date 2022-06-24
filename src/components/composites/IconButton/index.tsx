@@ -85,7 +85,7 @@ const IconButton = (
       )}
       {...resolvedProps}
     >
-      {clonedIcon}
+      {clonedIcon || <Icon {..._icon}>{children}</Icon>}
     </Pressable>
   );
 };

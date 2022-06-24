@@ -13,7 +13,7 @@ import {
 export const Example = () => {
   return (
     <Center>
-      <Alert w="90%" maxW="400" colorScheme="info">
+      <Alert maxW="400" colorScheme="info">
         <VStack space={1} flexShrink={1} w="100%">
           <HStack
             flexShrink={1}
