@@ -20,8 +20,7 @@ import hash from './hash';
 // import type { GetResponsiveStylesReturnType } from './types';
 import { useStableMemo } from './useStableMemo';
 import { getResponsiveStylesImpl, useDimensionsWithEnable } from './common';
-import { ResponsiveQueryContext } from './ResponsiveQueryProvider';
-import React from 'react';
+import { useNativeBaseConfig } from '../../core/NativeBaseContext';
 
 // 1. i18nStyle - Does swapping of ltr styles if enabled by user
 
@@ -51,10 +50,11 @@ const MEDIA_QUERY_STYLESHEET_GROUP = 3;
 export const useResponsiveQuery = (
   queries?: UseResponsiveQueryParams
 ): UseResponsiveQueryReturnType => {
-  const responsiveQueryContext = React.useContext(ResponsiveQueryContext);
-  const disableCSSMediaQueries =
-    queries?.disableCSSMediaQueries ??
-    responsiveQueryContext.disableCSSMediaQueries;
+  const isSSR = useNativeBaseConfig('NativeBase').isSSR;
+  const disableCSSMediaQueries = !isSSR;
+  // const disableCSSMediaQueries =
+  //   queries?.disableCSSMediaQueries ??
+  //   responsiveQueryContext.disableCSSMediaQueries;
 
   // Only attaches listener if disableCSSMediaQueries is true
   const windowWidth = useDimensionsWithEnable({
@@ -63,6 +63,7 @@ export const useResponsiveQuery = (
 
   const values = useStableMemo(() => {
     // Use the non-media query responsive styling
+
     if (disableCSSMediaQueries) {
       const getResponsiveStyles = getResponsiveStylesImpl(windowWidth);
       if (queries) {
@@ -117,12 +118,7 @@ const getResponsiveStyles = (queries: GetResponsiveStylesParams): any => {
   const queryString = stableHash(queries.query);
   const queriesHash = hash(queryString);
 
-  const styles = queries.initial
-    ? [
-        StyleSheet.create({ initial: StyleSheet.flatten(queries.initial) })
-          .initial,
-      ]
-    : undefined;
+  const styles = queries.initial ? [queries.initial] : undefined;
 
   let dataSet: DataSet = {};
 
@@ -137,9 +133,10 @@ const getResponsiveStyles = (queries: GetResponsiveStylesParams): any => {
 
         let mediaRules = '';
 
-        const flattenQueryStyle = StyleSheet.flatten(queryRule.style);
+        const flattenQueryStyle = queryRule.style;
         const newStyle = createCompileableStyle(i18nStyle(flattenQueryStyle));
         const results = atomic(newStyle);
+        console.log(styles, newStyle, '***** query');
 
         Object.keys(results).forEach((key) => {
           const oldIdentifier = results[key].identifier;
@@ -170,5 +167,6 @@ const getResponsiveStyles = (queries: GetResponsiveStylesParams): any => {
       }
     });
   }
+
   return { styles: StyleSheet.flatten(styles), dataSet };
 };

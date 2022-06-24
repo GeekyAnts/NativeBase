@@ -744,8 +744,6 @@ export const getStyleAndFilteredProps = ({
           //@ts-ignore
           responsiveStyles[orderedBreakPoints[i][0]].push(newStyle);
         });
-
-        // console.log('hello 111222', key, value, responsiveStyles);
       } else {
         // console.log('hello 111222', key, value);
         for (const k in value) {
@@ -838,6 +836,7 @@ export const getStyleAndFilteredProps = ({
 
       const { dataSet: newDataSet, styles } = getResponsiveStyles(query);
       dataSet = { ...dataSet, ...newDataSet };
+      console.log('hello 111222', query, styles);
 
       styleFromProps = { ...styleFromProps, ...styles };
 

@@ -10,6 +10,7 @@ const AvatarBadge = forwardRef((props: IAvatarBadgeProps, ref?: any) => {
   if (useHasResponsiveProps(props)) {
     return null;
   }
+
   return <Box {...resolvedProps} ref={ref} />;
 });
 

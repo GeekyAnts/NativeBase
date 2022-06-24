@@ -16,7 +16,6 @@ export const makeStyledComponent = (
   return React.forwardRef(({ debug, ...props }: any, ref: any) => {
     // console.log(props, 'hello props **********');
     const [style, restProps] = useStyledSystemPropsResolver(props);
-
     return (
       <Comp {...restProps} style={style} ref={ref}>
         {props.children}
