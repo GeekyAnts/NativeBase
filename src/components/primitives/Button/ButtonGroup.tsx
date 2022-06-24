@@ -17,6 +17,7 @@ export default memo(
         isAttached,
         ...newProps
       } = usePropsResolution('ButtonGroup', props);
+
       const { borderRadius } = usePropsResolution('Button', props);
       let computedChildren: JSX.Element | JSX.Element[];
 
@@ -73,6 +74,8 @@ export default memo(
       if (useHasResponsiveProps(props)) {
         return null;
       }
+
+      console.log(newProps, direction, 'chal toh raha hai!');
       return (
         <Stack
           divider={divider}

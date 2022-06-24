@@ -272,7 +272,6 @@ export function usePropsResolution(
   // }
 
   // console.log(componentThemeProps, component, resolvedProps, 'theme props');
-  console.log('use prop resolution', component, resolvedProps);
 
   return resolvedProps;
 }

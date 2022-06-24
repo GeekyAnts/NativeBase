@@ -745,7 +745,7 @@ export const getStyleAndFilteredProps = ({
           responsiveStyles[orderedBreakPoints[i][0]].push(newStyle);
         });
 
-        console.log('hello 111222', key, value, responsiveStyles);
+        // console.log('hello 111222', key, value, responsiveStyles);
       } else {
         // console.log('hello 111222', key, value);
         for (const k in value) {
@@ -763,7 +763,7 @@ export const getStyleAndFilteredProps = ({
           }
           responsiveStyles[k].push(newStyle);
         }
-        console.log('hello 111222', key, value, responsiveStyles);
+        // console.log('hello 111222', key, value, responsiveStyles);
       }
     } else {
       const value = rawValue;
