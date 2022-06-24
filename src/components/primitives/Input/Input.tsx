@@ -1,6 +1,6 @@
 import React, { memo, forwardRef } from 'react';
 import type { IInputProps } from './types';
-import { TextInput } from 'react-native';
+import { Platform, TextInput } from 'react-native';
 import { useToken } from '../../../hooks';
 import { useFormControl } from '../../composites/FormControl';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
@@ -9,8 +9,10 @@ import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { mergeRefs } from '../../../utils';
 import { Stack } from '../Stack';
-import { makeStyledComponent } from '../../../utils/styled';
+import { makeStyledComponent } from '../../../utils/makeStyledComponent';
 import { useResolvedFontFamily } from '../../../hooks/useResolvedFontFamily';
+import { getThemeProps } from '../../../core/ResolvedStyleMap';
+import { useColorMode } from '../../../core/color-mode';
 
 const StyledInput = makeStyledComponent(TextInput);
 
@@ -30,20 +32,6 @@ const Input = (
     isRequired: props.isRequired,
     nativeID: props.nativeID,
   });
-  const [isFocused, setIsFocused] = React.useState(false);
-  const handleFocus = (focusState: boolean, callback: any) => {
-    setIsFocused(focusState);
-    callback();
-  };
-
-  /**Converting into Hash Color Code */
-  //@ts-ignore
-  props.focusOutlineColor = useToken('colors', props.focusOutlineColor);
-  //@ts-ignore
-  props.invalidOutlineColor = useToken('colors', props.invalidOutlineColor);
-
-  const _ref = React.useRef(null);
-  const { isHovered } = useHover({}, _ref);
 
   const inputThemeProps = {
     isDisabled: inputProps.disabled,
@@ -51,6 +39,29 @@ const Input = (
     isReadOnly: inputProps.accessibilityReadOnly,
     isRequired: inputProps.required,
   };
+  const [isFocused, setIsFocused] = React.useState(false);
+
+  const _ref = React.useRef(null);
+
+  const { isHovered } = useHover({}, _ref);
+
+  const state = {
+    isDisabled: inputThemeProps.isDisabled,
+    isHovered: isHoveredProp || isHovered,
+    isFocused: isFocusedProp || isFocused,
+    isInvalid: inputThemeProps.isInvalid,
+    isReadOnly: inputThemeProps.isReadOnly,
+  };
+
+  const handleFocus = (focusState: boolean, callback: any) => {
+    setIsFocused(focusState);
+    callback();
+  };
+  /**Converting into Hash Color Code */
+  //@ts-ignore
+  props.focusOutlineColor = useToken('colors', props.focusOutlineColor);
+  //@ts-ignore
+  props.invalidOutlineColor = useToken('colors', props.invalidOutlineColor);
 
   const {
     ariaLabel,
@@ -74,24 +85,24 @@ const Input = (
     wrapperRef,
     _stack,
     _input,
-
     ...resolvedProps
-  } = usePropsResolution(
+  } = usePropsResolution('Input', props, state);
+
+  // console.log(
+  //   nonLayoutProps.INTERNAL_themeStyle[0].backgroundColor,
+  //   _input,
+  //   'resolved props 222'
+  // );
+  const { colorMode } = useColorMode();
+
+  const { styleFromProps } = getThemeProps(
     'Input',
-    {
-      ...inputThemeProps,
-      ...props,
-    },
-    {
-      isDisabled: inputThemeProps.isDisabled,
-      isHovered: isHoveredProp || isHovered,
-      isFocused: isFocusedProp || isFocused,
-      isInvalid: inputThemeProps.isInvalid,
-      isReadOnly: inputThemeProps.isReadOnly,
-    }
+    { colorMode, platform: Platform.OS },
+    state,
+    props
   );
 
-  const [layoutProps, nonLayoutProps] = extractInObject(resolvedProps, [
+  const filterProps = [
     ...stylingProps.margin,
     ...stylingProps.border,
     ...stylingProps.layout,
@@ -100,8 +111,18 @@ const Input = (
     ...stylingProps.background,
     'shadow',
     'opacity',
-  ]);
+  ];
+  const [layoutStyles, nonLayoutStyles] = extractInObject(
+    styleFromProps,
+    filterProps
+  );
 
+  const [layoutProps, nonLayoutProps] = extractInObject(
+    resolvedProps,
+    filterProps
+  );
+
+  // console.log(layoutProps, nonLayoutProps, 'layout props here');
   const resolvedFontFamily = useResolvedFontFamily({
     fontFamily,
     fontWeight: fontWeight ?? 400,
@@ -113,15 +134,23 @@ const Input = (
     'colors',
     underlineColorAndroid
   );
+
+  // console.log('INTERNAL_themeStyle', resolvedProps, layoutProps);
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
   }
 
+  // console.log(
+  //   nonLayoutProps.INTERNAL_themeStyle,
+  //   INTERNAL_themeStyle,
+  //   'layout styles'
+  // );
   return (
     <Stack
       {..._stack}
       {...layoutProps}
+      INTERNAL_themeStyle={[layoutStyles, _stack?.INTERNAL_themeStyle]}
       ref={mergeRefs([_ref, wrapperRef])}
       isFocused={isFocused}
     >
@@ -135,6 +164,7 @@ const Input = (
         w={isFullWidth ? '100%' : undefined}
         {...nonLayoutProps}
         {...resolvedFontFamily}
+        INTERNAL_themeStyle={[nonLayoutStyles]}
         placeholderTextColor={resolvedPlaceholderTextColor}
         selectionColor={resolvedSelectionColor}
         underlineColorAndroid={resolvedUnderlineColorAndroid}

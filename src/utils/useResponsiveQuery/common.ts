@@ -1,13 +1,13 @@
 import type {
   GetResponsiveStylesParams,
-  GetResponsiveStylesReturnType,
+  // GetResponsiveStylesReturnType,
 } from './types';
 import { Dimensions, ScaledSize, StyleSheet } from 'react-native';
 import React from 'react';
 
 export const getResponsiveStylesImpl = (width: number) => (
   queries: GetResponsiveStylesParams
-): GetResponsiveStylesReturnType => {
+): any => {
   if (typeof width === 'number') {
     let styles = queries.initial
       ? [
@@ -47,7 +47,8 @@ export const getResponsiveStylesImpl = (width: number) => (
           }
         }
       });
-      return { styles };
+
+      return { styles: StyleSheet.flatten(styles) };
     }
   }
 

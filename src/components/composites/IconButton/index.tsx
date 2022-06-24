@@ -1,6 +1,5 @@
 import React, { memo, forwardRef } from 'react';
 import { Pressable } from '../../primitives/Pressable';
-import { Icon } from '../../primitives/Icon';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { composeEventHandlers } from '../../../utils';
@@ -11,6 +10,7 @@ import {
   useIsPressed,
 } from '../../primitives/Pressable/Pressable';
 import { useFocusRing } from '@react-native-aria/focus';
+import { Icon } from '../../primitives/Icon';
 
 const IconButton = (
   {
@@ -30,6 +30,14 @@ const IconButton = (
   const { focusProps, isFocused } = useFocus();
   const { isFocusVisible, focusProps: focusRingProps }: any = useFocusRing();
 
+  const state = {
+    isHovered: isHoveredProp || isHovered,
+    isPressed: isPressedProp || isPressed,
+    isFocused: isFocusedProp || isFocused,
+    isFocusVisible: isFocusVisibleProp || isFocusVisible,
+    isDisabled,
+  };
+
   const {
     _icon,
     onPressIn,
@@ -39,15 +47,10 @@ const IconButton = (
     onFocus,
     onBlur,
     ...resolvedProps
-  } = usePropsResolution('IconButton', props, {
-    isHovered: isHoveredProp || isHovered,
-    isPressed: isPressedProp || isPressed,
-    isFocused: isFocusedProp || isFocused,
-    isFocusVisible: isFocusVisibleProp || isFocusVisible,
-    isDisabled,
-  });
+  } = usePropsResolution('IconButton', props, state);
 
   let clonedIcon;
+
   if (icon) {
     clonedIcon = React.cloneElement(icon, {
       ..._icon,

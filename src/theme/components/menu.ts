@@ -1,5 +1,3 @@
-import { StyleSheet } from 'react-native';
-
 const baseStyle = {
   py: 2,
   borderRadius: 'sm',
@@ -18,7 +16,8 @@ const baseStyle = {
       transition: { duration: 200 },
     },
     exit: { opacity: 0, transition: { duration: 150 } },
-    style: StyleSheet.absoluteFill,
+    //TODO: build-time
+    // style: StyleSheet.absoluteFill,
   },
   _overlay: {},
   _backdrop: {

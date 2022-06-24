@@ -174,7 +174,7 @@ import {
   Overlay,
   IOverlayProps,
 } from './components/primitives';
-
+import { resolveDefaultTheme } from './utils/styled';
 export * from './components/basic';
 export * from './components/primitives/Icon/Icons';
 export * from './theme';
@@ -182,6 +182,7 @@ export * from './core';
 export * from './hooks';
 export * from './factory';
 export * from './theme/v3-compatible-theme';
+export * from './theme/v33x-theme';
 
 export {
   // AppBar,
@@ -359,5 +360,7 @@ export type {
   IWrapProps,
 };
 
-export { StyledProps } from './theme';
+export type { StyledProps } from './theme';
 export type { ITheme, ICustomTheme } from './theme';
+
+// resolveDefaultTheme('web');

@@ -11,7 +11,6 @@ import { Fade } from '../../composites/Transitions';
 import { useKeyboardBottomInset } from '../../../utils';
 import { Overlay } from '../../primitives/Overlay';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-
 const Modal = (
   {
     children,
@@ -32,10 +31,10 @@ const Modal = (
 ) => {
   const bottomInset = useKeyboardBottomInset();
   const {
-    contentSize,
     _backdrop,
     _backdropFade,
     _fade,
+    contentSize,
     _slide,
     ...resolvedProps
   } = usePropsResolution('Modal', rest);
@@ -50,12 +49,19 @@ const Modal = (
 
   const handleClose = React.useCallback(() => setVisible(false), [setVisible]);
 
+  // console.log(
+  //   StyleSheet.flatten(style),
+  //   resolvedProps,
+  //   contentSize,
+  //   'hello style here 2 2 2 2'
+  // );
   const child = (
     <Box
       bottom={avoidKeyboard ? bottomInset + 'px' : undefined}
       {...resolvedProps}
       ref={ref}
       pointerEvents="box-none"
+      // bg="red.500"
     >
       {children}
     </Box>
@@ -64,7 +70,7 @@ const Modal = (
   const contextValue = React.useMemo(() => {
     return {
       handleClose,
-      contentSize,
+      contentSize: contentSize,
       initialFocusRef,
       finalFocusRef,
       visible,
@@ -75,7 +81,7 @@ const Modal = (
   if (useHasResponsiveProps(rest)) {
     return null;
   }
-  // console.log('visible here', visible);
+  // console.log('visible here ****', visible, restDefaultProps);
   return (
     <Overlay
       isOpen={visible}

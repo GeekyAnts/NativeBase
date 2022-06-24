@@ -13,6 +13,7 @@ const Fade = ({ children, ...props }: IFadeProps, ref?: any) => {
   if (useHasResponsiveProps(props)) {
     return null;
   }
+
   return (
     <PresenceTransition visible={animationState} {...resolvedProps} ref={ref}>
       {children}

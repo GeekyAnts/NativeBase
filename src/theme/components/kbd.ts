@@ -1,5 +1,4 @@
 import { mode } from '../tools';
-import { Platform } from 'react-native';
 
 function baseStyle(props: Record<string, any>) {
   return {
@@ -13,7 +12,7 @@ function baseStyle(props: Record<string, any>) {
     _text: {
       fontSize: 'sm',
       fontWeight: 'bold',
-      fontFamily: Platform.OS === 'ios' ? 'Courier' : 'monospace',
+      fontFamily: 'monospace',
     },
   };
 }

@@ -1,4 +1,4 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, memo } from 'react';
 import { useSliderState } from '@react-stately/slider';
 import { useLayout } from '../../../hooks';
 import { usePropsResolution } from '../../../hooks';
@@ -12,6 +12,8 @@ function Slider({ isDisabled, isReadOnly, ...props }: ISliderProps, ref?: any) {
   const newProps = {
     ...props,
     'aria-label': props.accessibilityLabel ?? 'Slider',
+    // 'orientation': props.orientation || 'horizontal',
+    'variant': props.orientation || 'horizontal',
   };
 
   if (typeof props.value === 'number') {
@@ -72,21 +74,28 @@ function Slider({ isDisabled, isReadOnly, ...props }: ISliderProps, ref?: any) {
       thumbSize: resolvedProps.thumbSize,
       sliderSize: resolvedProps.sliderTrackHeight,
       _interactionBox: resolvedProps._interactionBox,
+      // _sliderTrack: resolvedProps._sliderTrack,
+      _sliderFilledTrack: resolvedProps._sliderFilledTrack,
+      variant: props.variant,
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     trackLayout,
     state,
-    props.orientation,
+    // props.orientation,
     isDisabled,
     props.isReversed,
     props.colorScheme,
     isReadOnly,
     onLayout,
+    props.variant,
     resolvedProps.thumbSize,
     resolvedProps.sliderTrackHeight,
+    // resolvedProps._sliderTrack,
+    resolvedProps._sliderFilledTrack,
   ]);
 
+  // console.log(resolvedProps.variant, props, 'variant here');
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
@@ -109,4 +118,4 @@ function Slider({ isDisabled, isReadOnly, ...props }: ISliderProps, ref?: any) {
   );
 }
 
-export default forwardRef(Slider);
+export default memo(forwardRef(Slider));

@@ -22,14 +22,17 @@ const theme = {
   config,
 };
 
+// console.log(components, 'components ******');
+
+// console.log('component theme >>>>');
+
 export type Theme = typeof theme & { fontConfig: any };
 
 export interface ICustomTheme {}
 
 export interface ITheme extends ICustomTheme, Omit<Theme, keyof ICustomTheme> {}
 
-export { theme, tools as themeTools };
+export { theme, config, tools as themeTools };
 
 export { getColor } from './styled-system';
-export { StyledProps } from './types';
-export * from './v33x-theme';
+export type { StyledProps } from './types';

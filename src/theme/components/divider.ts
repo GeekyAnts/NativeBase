@@ -1,16 +1,4 @@
-function baseStyle(props: Record<string, any>) {
-  const { orientation, thickness } = props;
-  const orientationProps =
-    orientation === 'vertical'
-      ? {
-          width: `${thickness}px`, // handle for web : To be discussed
-          height: '100%',
-        }
-      : {
-          width: '100%',
-          height: `${thickness}px`,
-        };
-
+function baseStyle() {
   return {
     _light: {
       bg: 'muted.300',
@@ -18,7 +6,6 @@ function baseStyle(props: Record<string, any>) {
     _dark: {
       bg: 'muted.600',
     },
-    ...orientationProps,
   };
 }
 

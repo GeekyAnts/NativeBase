@@ -1,16 +1,19 @@
-import { getStyleAndFilteredProps, propConfig } from '../theme/styled-system';
+/* eslint-disable react-hooks/exhaustive-deps */
+import { propConfig } from '../theme/styled-system';
 import { useTheme } from './useTheme';
 import React from 'react';
 import { useNativeBaseConfig } from '../core/NativeBaseContext';
 import { useResponsiveQuery } from '../utils/useResponsiveQuery';
 //@ts-ignore
 import stableHash from 'stable-hash';
+import { resolvePropsToStyle } from './useThemeProps/propsFlattener';
+import { Platform } from 'react-native';
 
 const getStyledSystemPropsAndRestProps = (props: any) => {
   const styledSystemProps: any = {};
   const restProps: any = {};
 
-  for (let key in props) {
+  for (const key in props) {
     if (key in propConfig) {
       styledSystemProps[key] = props[key];
     } else {
@@ -26,50 +29,67 @@ export const useStyledSystemPropsResolver = ({
   debug,
   ...props
 }: any) => {
+  // console.time("PROP_CONFIG");
+
   const theme = useTheme();
+
   const { currentBreakpoint, config } = useNativeBaseConfig(
     'makeStyledComponent'
   );
   const strictMode = config.strictMode;
 
   const { getResponsiveStyles } = useResponsiveQuery();
+  // console.timeEnd("PROP_CONFIG");
 
   const { styledSystemProps, restProps } = getStyledSystemPropsAndRestProps(
     props
   );
 
+  // console.log('** use prop resolution ***', props, getResponsiveStyles);
+
+  // console.log('useStyledSystemPropsResolver', restProps);
+
   const { style, dataSet } = React.useMemo(() => {
-    const { styleSheet, dataSet } = getStyleAndFilteredProps({
+    const resolvedStyle = resolvePropsToStyle(
       styledSystemProps,
+      propStyle,
       theme,
+      Platform.OS,
       debug,
       currentBreakpoint,
       strictMode,
       getResponsiveStyles,
-    });
-    if (propStyle) {
-      return { style: [styleSheet.box, propStyle], dataSet };
-    } else {
-      return { style: styleSheet.box, dataSet };
-    }
+      restProps.INTERNAL_themeStyle
+    );
+
+    // console.log(
+    //   StyleSheet.flatten(resolvedStyle.style),
+    //   styledSystemProps,
+    //   '******'
+    // );
+
+    return resolvedStyle;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     // eslint-disable-next-line react-hooks/exhaustive-deps
     stableHash(styledSystemProps),
     theme,
-    debug,
     currentBreakpoint,
+    debug,
     strictMode,
-    propStyle,
+    stableHash(propStyle),
     getResponsiveStyles,
-    props,
+    stableHash(props),
   ]);
-  if (process.env.NODE_ENV === 'development' && debug) {
-    /* eslint-disable-next-line */
-    console.log('style,resprops', currentBreakpoint);
-  }
+
+  // if (process.env.NODE_ENV === "development" && debug) {
+  //   /* eslint-disable-next-line */
+  //   console.log("style,resprops", currentBreakpoint);
+  // }
+  // console.log('** use prop resolution 2', restProps);
 
   restProps.dataSet = dataSet;
+  // console.timeEnd("useStyledSystemPropsResolver");
 
   return [style, restProps];
 };

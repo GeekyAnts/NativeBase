@@ -38,6 +38,16 @@ const Button = (
   const { pressableProps, isPressed } = useIsPressed();
   const { focusProps, isFocused } = useFocus();
   const { isFocusVisible, focusProps: focusRingProps }: any = useFocusRing();
+  const state = {
+    isDisabled,
+    isHovered: isHoveredProp || isHovered,
+    isFocused: isFocusedProp || isFocused,
+    isPressed: isPressedProp || isPressed,
+    isLoading,
+    isFocusVisible: isFocusVisibleProp || isFocusVisible,
+  };
+
+  // console.log(rest, 'rest here');
 
   const {
     onPressIn,
@@ -52,14 +62,7 @@ const Button = (
     isLoadingText,
     _icon,
     ...resolvedProps
-  } = usePropsResolution('Button', props, {
-    isDisabled,
-    isHovered: isHoveredProp || isHovered,
-    isFocused: isFocusedProp || isFocused,
-    isPressed: isPressedProp || isPressed,
-    isLoading,
-    isFocusVisible: isFocusVisibleProp || isFocusVisible,
-  });
+  } = usePropsResolution('Button', props, state);
 
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
@@ -106,7 +109,20 @@ const Button = (
   const boxChildren = (child: any) => {
     return child ? <Box _text={_text}>{child}</Box> : null;
   };
+  // Process End Log ----------------------------------------------------------------------------------------------------
+  // console.log(
+  //   "Process End Log --------------------------------------------------------------"
+  // );
 
+  // Timer.endLog("Button");
+
+  // console.log(
+  //   StyleSheet.flatten(internalComponentStyles._stack.style),
+  //   buttonStyleObj.internalPseudoProps,
+  //   "styled"
+  // );
+
+  // console.log(resolvedProps.INTERNAL_themeStyle, 'internal theme style');
   return (
     <Pressable
       disabled={isDisabled || isLoading}

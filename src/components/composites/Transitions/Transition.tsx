@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { forwardRef } from 'react';
 import { Animated } from 'react-native';
+
 import type {
   ISupportedTransitions,
   ITransitionConfig,
@@ -78,6 +79,8 @@ export const Transition = forwardRef(
     }: ITransitionProps,
     ref: any
   ) => {
+    // console.log(fadeStyle, unResolvedProps, rest, 'fade style here');
+
     const animateValue = React.useRef(new Animated.Value(0)).current;
 
     const Component = React.useMemo(() => {

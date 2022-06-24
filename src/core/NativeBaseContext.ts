@@ -17,7 +17,11 @@ export const defaultConfig: INativebaseConfig = {
   strictMode: 'off',
 };
 
-export const [NativeBaseConfigProvider, useNativeBaseConfig] = createContext<{
+export const [
+  NativeBaseConfigProvider,
+  useNativeBaseConfig,
+  Context,
+] = createContext<{
   config: INativebaseConfig;
   currentBreakpoint: number;
   isSSR?: boolean;

@@ -2,6 +2,9 @@ import { themeTools } from '../../theme';
 import { baseFontSize } from '../../theme/tools/utils';
 import type { SafeAreaProps } from './../../components/types/ExtraProps';
 import isNil from 'lodash.isnil';
+import stableHash from 'stable-hash';
+
+import { useMemo } from 'react';
 
 export function calculatePaddingProps(
   safeAreaProps: SafeAreaProps,
@@ -233,6 +236,7 @@ export function calculatePaddingRight(
 function getRelatedPaddingProps(props: any, relatedKeys: Array<any>) {
   return Object.keys(props).filter((key) => relatedKeys.includes(key));
 }
+
 export function getSortedProps(props: any) {
   let [
     safeAreaProps,
@@ -266,4 +270,42 @@ export function getSortedProps(props: any) {
     'paddingY',
   ]);
   return { safeAreaProps, paddingProps, sansPaddingProps };
+}
+
+export function useSortedProps(props: any) {
+  return useMemo(() => {
+    let [
+      safeAreaProps,
+      sansSafeAreaProps,
+    ] = themeTools.orderedExtractInObject(props, [
+      'safeArea',
+      'safeAreaX',
+      'safeAreaY',
+      'safeAreaTop',
+      'safeAreaBottom',
+      'safeAreaLeft',
+      'safeAreaRight',
+    ]);
+
+    let [
+      paddingProps,
+      sansPaddingProps,
+    ] = themeTools.orderedExtractInObject(sansSafeAreaProps, [
+      'p',
+      'padding',
+      'pt',
+      'paddingTop',
+      'pr',
+      'paddingRight',
+      'pb',
+      'paddingBottom',
+      'pl',
+      'paddingLeft',
+      'px',
+      'paddingX',
+      'py',
+      'paddingY',
+    ]);
+    return { safeAreaProps, paddingProps, sansPaddingProps };
+  }, [stableHash(props)]);
 }

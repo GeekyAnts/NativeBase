@@ -3,12 +3,14 @@ import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { ITextProps } from './types';
 import { useHover } from '@react-native-aria/interactions';
 import { mergeRefs } from '../../../utils/mergeRefs';
-import { makeStyledComponent } from '../../../utils/styled';
+import { makeStyledComponent } from '../../../utils/makeStyledComponent';
 import { useResolvedFontFamily } from '../../../hooks/useResolvedFontFamily';
 import { Text as NativeText } from 'react-native';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const StyledText = makeStyledComponent(NativeText);
+// updateComponentThemeMap('Text');
+
 // To have a RN compatible behaviour, we'll inherit parent text styles as base style
 const TextAncestorContext = React.createContext(false);
 
@@ -88,6 +90,7 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
     ...(isHovered && _hover),
   };
 
+  // console.log(INTERNAL_themeStyle, 'internal theme style');
   return hasTextAncestor ? (
     <StyledText {...propsToSpread}>{children}</StyledText>
   ) : (

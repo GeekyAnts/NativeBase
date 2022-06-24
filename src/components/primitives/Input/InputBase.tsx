@@ -5,7 +5,7 @@ import { useToken } from '../../../hooks';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useHover } from '@react-native-aria/interactions';
 import { mergeRefs } from '../../../utils';
-import { makeStyledComponent } from '../../../utils/styled';
+import { makeStyledComponent } from '../../../utils/makeStyledComponent';
 import { useResolvedFontFamily } from '../../../hooks/useResolvedFontFamily';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 

@@ -3,9 +3,13 @@ import { Pressable as RNPressable } from 'react-native';
 import { composeEventHandlers } from '../../../utils';
 import type { IPressableProps } from './types';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-import { makeStyledComponent } from '../../../utils/styled';
+import { makeStyledComponent } from '../../../utils/makeStyledComponent';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useFocusRing } from '@react-native-aria/focus';
+
+const StyledPressable = makeStyledComponent(RNPressable);
+
+// updateComponentThemeMap('Pressable');
 
 export const useHover = () => {
   const [isHovered, setHovered] = React.useState(false);
@@ -40,8 +44,6 @@ export const useIsPressed = () => {
   };
 };
 
-const StyledPressable = makeStyledComponent(RNPressable);
-
 const Pressable = (
   {
     children,
@@ -51,6 +53,7 @@ const Pressable = (
     isPressed: isPressedProp,
     isFocused: isFocusedProp,
     isFocusVisible: isFocusVisibleProp,
+    // style: pressableStyle,
     ...props
   }: IPressableProps,
   ref: any
@@ -59,6 +62,15 @@ const Pressable = (
   const { pressableProps, isPressed } = useIsPressed();
   const { focusProps, isFocused } = useFocus();
   const { isFocusVisible, focusProps: focusRingProps }: any = useFocusRing();
+  const state = {
+    isPressed: isPressedProp || isPressed,
+    isFocused: isFocusedProp || isFocused,
+    isHovered: isHoveredProp || isHovered,
+    isFocusVisible: isFocusVisibleProp || isFocusVisible,
+    isDisabled: disabled || isDisabled,
+  };
+
+  // console.log(style, 'hello style');
 
   const {
     onPressIn,
@@ -68,13 +80,7 @@ const Pressable = (
     onFocus,
     onBlur,
     ...resolvedProps
-  } = usePropsResolution('Pressable', props, {
-    isPressed: isPressedProp || isPressed,
-    isFocused: isFocusedProp || isFocused,
-    isHovered: isHoveredProp || isHovered,
-    isFocusVisible: isFocusVisibleProp || isFocusVisible,
-    isDisabled: disabled || isDisabled,
-  });
+  } = usePropsResolution('Pressable', props, state);
 
   // TODO: Replace Render props with Context Hook
 
@@ -83,9 +89,12 @@ const Pressable = (
     return null;
   }
 
+  // console.log(resolvedProps, 'hello 111 &&&');
+
   // TODO: Replace Render props with Context Hook
   return (
     <StyledPressable
+      // style={[, pressableStyle]}
       ref={ref}
       onPressIn={composeEventHandlers(onPressIn, pressableProps.onPressIn)}
       onPressOut={composeEventHandlers(onPressOut, pressableProps.onPressOut)}

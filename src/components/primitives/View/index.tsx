@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyledComponent } from '../../../utils/styled';
+import { makeStyledComponent } from '../../../utils/makeStyledComponent';
 import { View as RNView } from 'react-native';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { useThemeProps } from '../../../hooks/useThemeProps';

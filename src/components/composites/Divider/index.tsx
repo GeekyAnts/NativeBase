@@ -16,9 +16,22 @@ const Divider = (props: IDividerProps, ref?: any) => {
   if (useHasResponsiveProps(props)) {
     return null;
   }
+
+  const orientationProps =
+    orientation === 'vertical'
+      ? {
+          width: `${resolvedProps.thickness}px`, // handle for web : To be discussed
+          height: '100%',
+        }
+      : {
+          width: '100%',
+          height: `${resolvedProps.thickness}px`,
+        };
+
   return (
     <Box
       {...resolvedProps}
+      {...orientationProps}
       ref={ref}
       aria-orientation={orientation}
       //@ts-ignore web only role

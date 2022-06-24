@@ -7,7 +7,7 @@ import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const Icon = (props: IIconProps, ref?: any) => {
   const { as, size, ...resolvedProps } = usePropsResolution('Icon', props);
-  const tokenizedFontSize = useToken('space', size);
+  const tokenizedFontSize = useToken('space', size || resolvedProps.boxSize);
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
@@ -15,7 +15,9 @@ const Icon = (props: IIconProps, ref?: any) => {
   if (!as) {
     return <SVGIcon size={size} {...resolvedProps} ref={ref} />;
   }
+
   const isJSX = React.isValidElement(as);
+
   const StyledAs = Factory(
     isJSX
       ? (resolvedProps) =>

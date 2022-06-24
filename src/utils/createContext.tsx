@@ -27,7 +27,7 @@ function createContext<ContextValueType extends object>(
   }
 
   Provider.displayName = rootComponentName + 'Provider';
-  return [Provider, useContext] as const;
+  return [Provider, useContext, Context] as const;
 }
 
 export { createContext };

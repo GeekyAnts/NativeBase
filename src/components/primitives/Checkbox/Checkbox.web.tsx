@@ -17,6 +17,9 @@ import { combineContextAndProps } from '../../../utils';
 import SizedIcon from './SizedIcon';
 import { Stack } from '../Stack';
 import { wrapStringChild } from '../../../utils/wrapStringChild';
+import { getThemeProps } from '../../../core';
+import { useColorMode } from '../../../core/color-mode';
+import { Platform } from 'react-native';
 
 const Checkbox = (
   {
@@ -117,15 +120,7 @@ const CheckboxComponent = React.memo(
     const { checked: isChecked, disabled: isDisabled } = inputProps;
 
     const { focusProps, isFocusVisible } = useFocusRing();
-
-    const {
-      icon,
-      _interactionBox,
-      _icon,
-      _stack,
-      _text,
-      ...resolvedProps
-    } = usePropsResolution('Checkbox', combinedProps, {
+    const state = {
       isInvalid,
       isReadOnly,
       isFocusVisible: isFocusVisibleProp || isFocusVisible,
@@ -133,42 +128,86 @@ const CheckboxComponent = React.memo(
       isIndeterminate,
       isChecked,
       isHovered: isHovered || isHoveredProp,
-    });
+    };
+    const { colorMode } = useColorMode();
+    const { styleFromProps } = getThemeProps(
+      'Checkbox',
+      { colorMode, platform: Platform.OS },
+      state,
+      combinedProps
+    );
 
-    const [layoutProps, nonLayoutProps] = extractInObject(resolvedProps, [
+    const filterProps = [
       ...stylingProps.margin,
       ...stylingProps.layout,
       ...stylingProps.flexbox,
       ...stylingProps.position,
       '_text',
-    ]);
+    ];
+    const [layoutStyles, nonLayoutStyles] = extractInObject(
+      styleFromProps,
+      filterProps
+    );
+    // console.log('nonLayoutStyles LayoutStyles', layoutStyles, nonLayoutStyles);
+    const {
+      icon,
+      _interactionBox,
+      _icon,
+      _stack,
+      _text,
+      ...resolvedProps
+    } = usePropsResolution(
+      'Checkbox',
+      {
+        ...combinedProps,
+      },
+      state
+    );
+
+    const [layoutProps, nonLayoutProps] = extractInObject(
+      resolvedProps,
+      filterProps
+    );
+
     const component = React.useMemo(() => {
       return (
-        <Stack {..._stack} {...layoutProps}>
+        <Stack
+          {..._stack}
+          INTERNAL_themeStyle={[layoutStyles, _stack.INTERNAL_themeStyle]}
+          {...layoutProps}
+        >
           <Center>
-            {/* Interaction Box */}
             <Box {..._interactionBox} />
-            {/* Checkbox */}
-            <Center {...nonLayoutProps}>
-              {/* {iconResolver()} */}
-              <SizedIcon icon={icon} _icon={_icon} isChecked={isChecked} />
+            <Center
+              {...nonLayoutProps}
+              //@ts-ignore
+              INTERNAL_themeStyle={[nonLayoutStyles]}
+            >
+              <SizedIcon
+                icon={icon}
+                _icon={{
+                  ..._icon,
+                }}
+                isChecked={isChecked}
+              />
             </Center>
           </Center>
           {/* Label */}
-          {/* {resolvedProps?.children} */}
           {wrapStringChild(resolvedProps?.children, _text)}
         </Stack>
       );
     }, [
-      _icon,
       _stack,
-      _text,
-      _interactionBox,
-      icon,
-      isChecked,
-      nonLayoutProps,
+      layoutStyles,
       layoutProps,
+      _interactionBox,
+      nonLayoutProps,
+      nonLayoutStyles,
+      icon,
+      _icon,
+      isChecked,
       resolvedProps?.children,
+      _text,
     ]);
 
     const mergedWrapperRef = React.useMemo(

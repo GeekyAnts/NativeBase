@@ -1,9 +1,9 @@
-import { Platform, StyleSheet } from 'react-native';
 import get from 'lodash.get';
-import { resolveValueWithBreakpoint } from '../hooks/useThemeProps/utils';
+import { resolveValueWithBreakpoint } from '../hooks/useThemeProps/propsFlattener';
 import { hasValidBreakpointFormat, transparentize } from './tools';
-import type { ITheme } from '.';
+// import type { ITheme } from '.';
 import type { UseResponsiveQueryParams } from '../utils/useResponsiveQuery';
+import { isEmptyObj } from '../utils/isEmptyObj';
 
 const isNumber = (n: any) => typeof n === 'number' && !isNaN(n);
 
@@ -614,6 +614,7 @@ const getRNKeyAndStyleValue = ({
   theme,
   styledSystemProps,
   currentBreakpoint,
+  platform,
 }: any) => {
   let style: any = {};
   if (config === true) {
@@ -625,7 +626,7 @@ const getRNKeyAndStyleValue = ({
     //@ts-ignore
     const { property, scale, properties, transformer } = config;
     let val = value;
-
+    // console.log('zzzz style system props', theme, scale, value, transformer);
     if (transformer) {
       val = transformer(val, theme[scale], theme, styledSystemProps.fontSize);
     } else {
@@ -636,7 +637,9 @@ const getRNKeyAndStyleValue = ({
     if (typeof val === 'string') {
       if (val.endsWith('px')) {
         val = parseFloat(val);
-      } else if (val.endsWith('em') && Platform.OS !== 'web') {
+        //TODO: build-time
+        // } else if (val.endsWith('em') && Platform.OS !== 'web') {
+      } else if (val.endsWith('em') && platform !== 'web') {
         const fontSize = resolveValueWithBreakpoint(
           styledSystemProps.fontSize,
           theme.breakpoints,
@@ -676,20 +679,24 @@ const getRNKeyAndStyleValue = ({
 };
 
 export const getStyleAndFilteredProps = ({
-  style,
+  _style,
   theme,
-  debug,
+  _debug,
   currentBreakpoint,
   getResponsiveStyles,
   styledSystemProps,
+  platform,
 }: any) => {
   let styleFromProps: any = {};
+  let restDefaultProps: any = {};
+  const unResolvedProps: any = {};
   let dataSet: any = {};
   let responsiveStyles: null | Record<
     keyof typeof theme.breakpoints,
     Array<any>
   > = null;
 
+  // console.log(styledSystemProps, '&&&&&');
   const orderedBreakPoints = Object.entries(
     theme.breakpoints as ITheme['breakpoints']
   ).sort((a, b) => a[1] - b[1]);
@@ -698,6 +705,21 @@ export const getStyleAndFilteredProps = ({
     const rawValue = styledSystemProps[key];
 
     const config = propConfig[key as keyof typeof propConfig];
+
+    // TODO: refactor
+    // Start: For edge cases
+    if (
+      !getResponsiveStyles &&
+      hasValidBreakpointFormat(rawValue, theme.breakpoints)
+    ) {
+      unResolvedProps[key] = rawValue;
+    }
+
+    // TODO: refactor space prop for Stack Component
+    // if (key === 'space') {
+    //   unResolvedProps[key] = rawValue;
+    // }
+    // End: For edge cases
 
     if (hasValidBreakpointFormat(rawValue, theme.breakpoints)) {
       if (!responsiveStyles) responsiveStyles = {};
@@ -717,11 +739,13 @@ export const getStyleAndFilteredProps = ({
             styledSystemProps,
             theme,
             currentBreakpoint,
+            platform,
           });
           //@ts-ignore
           responsiveStyles[orderedBreakPoints[i][0]].push(newStyle);
         });
       } else {
+        // console.log('hello 111222', key, value);
         for (const k in value) {
           const newStyle = getRNKeyAndStyleValue({
             config,
@@ -730,65 +754,120 @@ export const getStyleAndFilteredProps = ({
             styledSystemProps,
             theme,
             currentBreakpoint,
+            platform,
           });
           if (!responsiveStyles[k]) {
             responsiveStyles[k] = [];
           }
           responsiveStyles[k].push(newStyle);
         }
+        // console.log('hello 111222', key, value, responsiveStyles);
       }
     } else {
       const value = rawValue;
-      const newStyle = getRNKeyAndStyleValue({
-        config,
-        value,
-        key,
-        styledSystemProps,
-        theme,
-        currentBreakpoint,
-      });
 
-      styleFromProps = {
-        ...styleFromProps,
-        ...newStyle,
-      };
+      // if (styledSystemProps?.extraProp?.endsWith('Icon')) {
+      //   console.log(styledSystemProps?.extraProp, 'hello flatten here22');
+      // }
+
+      //TODO: refactor
+      if (
+        key === 'size' ||
+        (styledSystemProps?.extraProp?.endsWith('.Icon') && key === 'color')
+      ) {
+        restDefaultProps = {
+          ...restDefaultProps,
+          [key]: value,
+        };
+      } else {
+        const newStyle = getRNKeyAndStyleValue({
+          config,
+          value,
+          key,
+          styledSystemProps,
+          theme,
+          currentBreakpoint,
+          platform,
+        });
+
+        // TODO: refactor
+        if (
+          isEmptyObj(newStyle) &&
+          !key.startsWith('_') &&
+          key !== 'extraProp' &&
+          key !== 'colorScheme' &&
+          // key !== 'style' &&
+          key !== 'variants' &&
+          key !== 'sizes' &&
+          key !== 'variant'
+        ) {
+          restDefaultProps = {
+            ...restDefaultProps,
+            [key]: value,
+          };
+        }
+
+        styleFromProps = {
+          ...styleFromProps,
+          ...newStyle,
+        };
+      }
     }
   }
 
   if (responsiveStyles) {
-    const query: UseResponsiveQueryParams = { query: [] };
-    orderedBreakPoints.forEach((o) => {
-      const key = o[0];
-      if (key === 'base') {
-        if (responsiveStyles) query.initial = responsiveStyles.base;
-      } else {
-        if (responsiveStyles)
-          if (key in responsiveStyles) {
-            query?.query?.push({
-              minWidth: o[1],
-              style: responsiveStyles[key],
-            });
-          }
-      }
-    });
+    if (getResponsiveStyles) {
+      const query: UseResponsiveQueryParams = { query: [] };
+      orderedBreakPoints.forEach((o) => {
+        const key = o[0];
+        if (key === 'base') {
+          if (responsiveStyles) query.initial = responsiveStyles.base;
+        } else {
+          if (responsiveStyles)
+            if (key in responsiveStyles) {
+              query?.query?.push({
+                minWidth: o[1],
+                style: responsiveStyles[key],
+              });
+            }
+        }
+      });
+      // console.log('hello responsive', orderedBreakPoints, responsiveStyles);
 
-    const { dataSet: newDataSet, styles } = getResponsiveStyles(query);
-    dataSet = { ...dataSet, ...newDataSet };
-    styleFromProps = { ...styleFromProps, ...StyleSheet.flatten(styles) };
+      const { dataSet: newDataSet, styles } = getResponsiveStyles(query);
+      dataSet = { ...dataSet, ...newDataSet };
+
+      styleFromProps = { ...styleFromProps, ...styles };
+
+      //TODO: build-time
+      // styleFromProps = { ...styleFromProps };
+    } else {
+    }
   }
 
-  if (process.env.NODE_ENV === 'development' && debug) {
-    /* eslint-disable-next-line */
-    console.log('style ', debug + ' :: ', {
-      styleFromProps,
-      style,
-      styledSystemProps,
-    });
-  }
+  // if (process.env.NODE_ENV === 'development' && debug) {
+  //   /* eslint-disable-next-line */
+  //   console.log('style ', debug + ' :: ', {
+  //     styleFromProps,
+  //     style,
+  //     styledSystemProps,
+  //   });
+  // }
 
+  // if (styleFromProps.backgroundColor === 'white.600') {
+  //   console.log(
+  //     styleFromProps,
+  //     styledSystemProps.extraProp,
+  //     'style from props *****'
+  //   );
+  // }
   return {
-    styleSheet: StyleSheet.create({ box: styleFromProps }),
+    //TODO: build-time
+    styleSheet: {}, // StyleSheet.create({ box: styleFromProps }),
+    styleFromProps,
+    restDefaultProps,
     dataSet,
+    unResolvedProps,
   };
 };
 

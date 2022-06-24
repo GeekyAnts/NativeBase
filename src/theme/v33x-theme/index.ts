@@ -24,4 +24,4 @@ export interface IV33xTheme
   extends ICustomTheme,
     Omit<V33xTheme, keyof ICustomTheme> {}
 
-export { v33xTheme, tools as themeTools };
+export { v33xTheme, tools as v3ThemeTools };
