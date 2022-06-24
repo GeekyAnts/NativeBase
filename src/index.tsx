@@ -174,7 +174,6 @@ import {
   Overlay,
   IOverlayProps,
 } from './components/primitives';
-import { resolveDefaultTheme } from './utils/styled';
 export * from './components/basic';
 export * from './components/primitives/Icon/Icons';
 export * from './theme';

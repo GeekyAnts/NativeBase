@@ -27,7 +27,7 @@
     "commit-test": "yarn prepare && cd example && yarn test && cd .."
   },
   "lint-staged": {
-    "src/**/*.{js,ts,tsx}": [
+    "src/**/*.{ts,tsx}": [
       "eslint"
     ],
     "example/**/*.{js,ts,tsx}": [

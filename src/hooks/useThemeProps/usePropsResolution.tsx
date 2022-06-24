@@ -520,10 +520,7 @@ export const usePropsResolutionWithComponentTheme = (
     }
   }
 
-  const responsivelyResolvedProps = useBreakpointResolvedProps(
-    responsiveProps,
-    config?.name
-  );
+  const responsivelyResolvedProps = useBreakpointResolvedProps(responsiveProps);
 
   flattenProps = {
     ...flattenProps,
