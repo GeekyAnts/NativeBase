@@ -103,6 +103,11 @@ const pseudoPropsMap = {
     respondTo: 'isDisabled',
     priority: SPECIFICITY_100,
   },
+  _reversed: {
+    dependentOn: 'state',
+    respondTo: 'isReversed',
+    priority: SPECIFICITY_100,
+  },
   _loading: {
     dependentOn: 'state',
     respondTo: 'isLoading',
@@ -494,7 +499,6 @@ export const resolvePropsToStyle = (
   INTERNAL_themeStyle?: any
 ) => {
   const {
-    styleSheet,
     unResolvedProps,
     styleFromProps,
     restDefaultProps,

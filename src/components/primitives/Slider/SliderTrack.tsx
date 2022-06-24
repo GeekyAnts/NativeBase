@@ -1,7 +1,6 @@
 import React from 'react';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { Pressable } from '../Pressable';
-import { StyleSheet } from 'react-native';
 import Box from '../Box';
 import { SliderContext } from './Context';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';

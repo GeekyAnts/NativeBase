@@ -679,9 +679,7 @@ const getRNKeyAndStyleValue = ({
 };
 
 export const getStyleAndFilteredProps = ({
-  _style,
   theme,
-  _debug,
   currentBreakpoint,
   getResponsiveStyles,
   styledSystemProps,
@@ -698,7 +696,9 @@ export const getStyleAndFilteredProps = ({
 
   // console.log(styledSystemProps, '&&&&&');
   const orderedBreakPoints = Object.entries(
+    //@ts-ignore
     theme.breakpoints as ITheme['breakpoints']
+    //@ts-ignore
   ).sort((a, b) => a[1] - b[1]);
 
   for (const key in styledSystemProps) {
@@ -826,6 +826,7 @@ export const getStyleAndFilteredProps = ({
           if (responsiveStyles)
             if (key in responsiveStyles) {
               query?.query?.push({
+                //@ts-ignore
                 minWidth: o[1],
                 style: responsiveStyles[key],
               });

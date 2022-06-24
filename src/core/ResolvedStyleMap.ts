@@ -256,7 +256,7 @@ export const getThemeProps = (
   }
   return themeObj;
 };
-export const getResolvedProps = (key: string, colorMode?: ColorMode) => {
+export const getResolvedProps = (key: string, colorMode?: any) => {
   const styleObj: any = resolvedStyledMap[key];
 
   if (!colorMode || !styleObj) {

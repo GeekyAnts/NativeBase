@@ -27,7 +27,7 @@
     "commit-test": "yarn prepare && cd example && yarn test && cd .."
   },
   "lint-staged": {
-    "src/**/*.{js,ts,tsx}": [
+    "src/**/*.{ts,tsx}": [
       "eslint"
     ],
     "example/**/*.{js,ts,tsx}": [
@@ -37,7 +37,7 @@
       "prettier --write"
     ]
   },
-  "version": "3.5.0-rc.1",
+  "version": "3.5.0-alpha.1",
   "license": "MIT",
   "private": false,
   "main": "lib/commonjs/index",

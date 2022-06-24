@@ -11,19 +11,19 @@ const SliderFilledTrack = (props: ISliderTrackFilledProps, ref?: any) => {
     colorScheme,
     state,
     trackLayout,
-    orientation,
+    // orientation,
     variant,
     isDisabled,
     sliderSize,
     isReadOnly,
   } = React.useContext(SliderContext);
 
-  console.log(
-    // isReversed,
-    variant,
-    state.getThumbPercent(0),
-    'variant here ***'
-  );
+  // console.log(
+  //   // isReversed,
+  //   variant,
+  //   state.getThumbPercent(0),
+  //   'variant here ***'
+  // );
   // const sliderTrackPosition = isReversed
   //   ? variant === 'vertical'
   //     ? trackLayout.height - trackLayout.height * state.getThumbPercent(0)

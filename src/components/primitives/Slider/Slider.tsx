@@ -8,7 +8,10 @@ import { SliderContext } from './Context';
 import { useSlider } from '@react-native-aria/slider';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
-function Slider({ isDisabled, isReadOnly, ...props }: ISliderProps, ref?: any) {
+function Slider(
+  { isDisabled, isReadOnly, ...props }: ISliderProps & { variant?: string },
+  ref?: any
+) {
   const newProps = {
     ...props,
     'aria-label': props.accessibilityLabel ?? 'Slider',
