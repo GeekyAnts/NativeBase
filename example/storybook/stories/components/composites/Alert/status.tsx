@@ -7,7 +7,6 @@ import {
   VStack,
   CloseIcon,
   Text,
-  Center,
 } from 'native-base';
 
 export function Example() {

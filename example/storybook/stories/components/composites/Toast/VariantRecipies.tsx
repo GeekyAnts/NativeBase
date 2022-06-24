@@ -57,7 +57,7 @@ export const Example = () => {
       maxWidth="100%"
       alignSelf="center"
       flexDirection="row"
-      status={status ?? 'info'}
+      status={status ? status : 'info'}
       variant={variant as any}
       {...rest}
     >
@@ -114,8 +114,9 @@ export const Example = () => {
   return (
     <Center>
       <VStack space={2}>
-        {ToastDetails.map((item) => (
+        {ToastDetails.map((item, index) => (
           <Button
+            key={index}
             onPress={() =>
               toast.show({
                 render: ({ id }) => {
