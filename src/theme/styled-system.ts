@@ -836,7 +836,6 @@ export const getStyleAndFilteredProps = ({
 
       const { dataSet: newDataSet, styles } = getResponsiveStyles(query);
       dataSet = { ...dataSet, ...newDataSet };
-      console.log('hello 111222', query, styles);
 
       styleFromProps = { ...styleFromProps, ...styles };
 

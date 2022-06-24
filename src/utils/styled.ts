@@ -15,7 +15,6 @@ import {
 } from '../core/ResolvedStyleMap';
 import { theme } from '../theme';
 
-console.log('one here ****');
 // window['logger'] = {};
 // console.batchTime = (key) => {
 //   const keyValue = window['logger'][key];
@@ -333,9 +332,9 @@ export const updateComponentThemeMap = (
   // }
 };
 
-console.time('resolveTheme>>>> ALL');
+// console.time('resolveTheme>>>> ALL');
 
-console.timeEnd('resolveTheme>>>> ALL');
+// console.timeEnd('resolveTheme>>>> ALL');
 
 export * from '../core/ResolvedStyleMap';
 // for (const key in theme.components) {
