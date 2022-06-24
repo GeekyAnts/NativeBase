@@ -120,7 +120,6 @@ function MyWrapper({ children }: any) {
       justifyContent="center"
       alignItems="center"
       bg={bgColor}
-      // bg="red.400"
       safeAreaY
     >
       <Tooltip
@@ -137,12 +136,6 @@ function MyWrapper({ children }: any) {
           onPress={toggleColorMode}
           icon={colorMode === 'dark' ? <SunIcon /> : <MoonIcon />}
           size="lg"
-          // _icon={{
-          //   color: 'red.400',
-          // }}
-          // _icon={{
-          //   color: 'red.400',
-          // }}
         />
       </Tooltip>
       {children}

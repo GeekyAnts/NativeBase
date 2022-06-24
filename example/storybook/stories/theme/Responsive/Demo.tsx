@@ -8,7 +8,6 @@ export const Example = () => {
       rounded="lg"
       overflow="hidden"
       width={['72', '72', '4/6']}
-      // width={{ base: '4/6', sm: '4/6' }}
       borderColor="coolGray.200"
       borderWidth="1"
       _dark={{ borderColor: 'coolGray.600', backgroundColor: 'gray.700' }}
@@ -39,7 +38,7 @@ export const Example = () => {
           PHOTOS
         </Center>
       </Box>
-      <Stack p="4" space={[3, 3, 1.5]} bg="amber.400">
+      <Stack p="4" space={[3, 3, 1.5]}>
         <Stack space={2}>
           <Heading size="md" ml="-1">
             The Garden City

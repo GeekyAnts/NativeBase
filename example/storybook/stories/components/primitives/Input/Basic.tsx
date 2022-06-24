@@ -4,7 +4,7 @@ import { Input, Box } from 'native-base';
 export const Example = () => {
   return (
     <Box alignItems="center">
-      <Input mx="3" placeholder="Input here" w="100%" />
+      <Input mx="3" placeholder="Input" w="100%" />
     </Box>
   );
 };

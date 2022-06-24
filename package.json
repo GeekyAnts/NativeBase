@@ -67,7 +67,6 @@
     "@types/react": "^16.9.19",
     "@types/react-native": "~0.63.2",
     "@types/tinycolor2": "^1.4.2",
-    "babel-plugin-macros": "^3.1.0",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "commitlint": "^8.3.5",
     "eslint": "^7.10.0",

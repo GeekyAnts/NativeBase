@@ -21,8 +21,6 @@
     "@react-native-async-storage/async-storage": "^1.17.3",
     "@rollup/plugin-commonjs": "^22.0.0",
     "@rollup/plugin-typescript": "^8.3.3",
-    "babel-plugin-codegen": "^4.1.5",
-    "codegen.macro": "^4.1.0",
     "expo": "^44.0.0",
     "expo-font": "~10.0.4",
     "expo-linear-gradient": "~11.0.3",

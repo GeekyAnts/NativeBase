@@ -23,8 +23,6 @@ const Badge = (
     {}
   );
 
-  // console.log(props, newProps, 'hello props >>>>>');
-
   if (leftIcon) {
     startIcon = leftIcon;
   }
@@ -57,7 +55,6 @@ const Badge = (
     );
   }
 
-  // console.log(style, 'hello props >>>>> 22');
   return (
     <HStack {...newProps} ref={ref}>
       {startIcon ? startIcon : null}
