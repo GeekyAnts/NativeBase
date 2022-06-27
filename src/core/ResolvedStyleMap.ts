@@ -2,10 +2,7 @@ import { forEach, map, get as lodashGet, merge } from 'lodash';
 // import type { ColorMode } from './color-mode';
 import { isEmptyObj } from '../utils/isEmptyObj';
 import { theme } from '../theme';
-import {
-  updateComponentThemeMap,
-  updateComponentThemeMapForColorMode,
-} from '../utils/styled';
+import { updateComponentThemeMap } from '../utils/styled';
 
 // Adding Map for storing the props and style for the styled component
 export let resolvedStyledMap: { [key: string]: any } = {};

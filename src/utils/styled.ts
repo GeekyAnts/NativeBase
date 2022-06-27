@@ -15,7 +15,6 @@ import {
   set as setResolvedStyleMap,
 } from '../core/ResolvedStyleMap';
 import { theme } from '../theme';
-import { cpuUsage } from 'process';
 import { isEmptyObj } from './isEmptyObj';
 
 // window['logger'] = {};
@@ -52,7 +51,7 @@ const resolveForInternalPseudoProps = (
   config: any,
   mergeDefaultProps: boolean = true
 ) => {
-  console.log(config, 'config here');
+  // console.log(config, 'config here');
   // if (name !== 'Button') {
   //   return;
   // }
