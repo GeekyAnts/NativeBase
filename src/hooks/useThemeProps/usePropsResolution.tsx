@@ -40,10 +40,14 @@ export function usePropsResolution(
 
   const componentThemeProps = getThemeProps(
     component,
-    { colorMode, platform: Platform.OS },
+    { colorMode: colorMode, platform: Platform.OS },
     state,
     incomingProps
   );
+
+  if (component === 'Button' || component === 'Stack') {
+    console.log(componentThemeProps, component, 'theme props');
+  }
 
   if (config?.extendTheme) {
     config.extendTheme.forEach((extendedComponent) => {
@@ -184,11 +188,17 @@ export function usePropsResolution(
     if (PSEUDO_PROP_COMPONENT_MAP[property]) {
       const pseudoComponentThemeProps = getThemeProps(
         `${component}.${PSEUDO_PROP_COMPONENT_MAP[property]}`,
-        colorMode,
+        // { colorMode: 'light' },
+        { colorMode, platform: Platform.OS },
         {},
         incomingProps
       );
 
+      console.log(
+        `${component}.${PSEUDO_PROP_COMPONENT_MAP[property]}`,
+        pseudoComponentThemeProps,
+        'hello 111'
+      );
       // if (component === 'Radio' && property === '_stack') {
       //   // console.log(pseudoComponentThemeProps, incomingProps, 'property here');
       // }
@@ -268,8 +278,9 @@ export function usePropsResolution(
     // }
   }
   // }
-
-  // console.log(componentThemeProps, component, resolvedProps, 'theme props');
+  if (component === 'Button') {
+    console.log(resolvedProps, 'theme props &&&');
+  }
 
   return resolvedProps;
 }

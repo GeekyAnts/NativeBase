@@ -2,7 +2,10 @@ import { forEach, map, get as lodashGet, merge } from 'lodash';
 // import type { ColorMode } from './color-mode';
 import { isEmptyObj } from '../utils/isEmptyObj';
 import { theme } from '../theme';
-import { updateComponentThemeMap } from '../utils/styled';
+import {
+  updateComponentThemeMap,
+  updateComponentThemeMapForColorMode,
+} from '../utils/styled';
 
 // Adding Map for storing the props and style for the styled component
 export let resolvedStyledMap: { [key: string]: any } = {};
@@ -35,6 +38,7 @@ export const PSEUDO_PROP_COMPONENT_MAP: any = {
 
 export const COLOR_SCHEME_MAP: any = {
   Button: true,
+  ButtonGroup: true,
   IconButton: true,
   Checkbox: true,
   Radio: true,
@@ -146,14 +150,13 @@ const getComponentNameKeyFromProps = (
   return componentKeyName;
 };
 
+// const get
 export const getThemeProps = (
   inputComponentKeyName: string,
   config: any,
   state?: any,
   props: any = {}
 ): any => {
-  //
-
   const componentNames = inputComponentKeyName.split('.');
 
   const rootComponentName = componentNames[0];
@@ -169,47 +172,32 @@ export const getThemeProps = (
 
   let themeObj: any = getThemeObject(componentKeyName, config.colorMode, state);
 
-  // if (inputComponentKeyName === 'ButtonGroup') {
-  //   console.log('*** &&& theme props $$ >>>>>>>');
-  //   debugger;
-  // }
-  // if (inputComponentKeyName === 'Slider') {
-  //   console.log('component theme ^^&', themeObj, componentKeyName);
-  // }
-  // if (inputComponentKeyName === 'Button') {
-  //   // console.log(componentKeyName, themeObj, '((()))');
-  // }
-
   if (isEmptyObj(themeObj)) {
-    themeObj = getThemeObject(rootComponentName, config.colorMode, state);
+    updateComponentThemeMap(inputComponentKeyName, {}, config, true, props);
+    themeObj = getThemeObject(componentKeyName, config.colorMode, state);
   }
 
-  // if (inputComponentKeyName === 'Icon') {
-  //   console.log(componentKeyName, themeObj, ' *****theme object');
-  // }
-
-  // debugger;
   if (!isEmptyObj(themeObj) && props.size) {
     let componentKeyNameForSize = `${rootComponentName}.${props.size}`;
 
     if (pseudoComponentKeyName) {
       componentKeyNameForSize = `${componentKeyNameForSize}.${pseudoComponentKeyName}`;
     }
-    const sizeThemeObj = getThemeObject(
+
+    let sizeThemeObj = getThemeObject(
       `${componentKeyNameForSize}`,
       config.colorMode,
       state
     );
 
-    // if (pseudoComponentKeyName) {
-    //   console.log(sizeThemeObj, componentKeyNameForSize, 'style them object');
-    // }
-
-    // console.log(themeObj.style, sizeThemeObj.style, 'style me rehne ka');
-    // console.log(
-    //   themeObj.style?.concat(sizeThemeObj.style),
-    //   'style me rehne kan222'
-    // );
+    if (isEmptyObj(sizeThemeObj)) {
+      updateComponentThemeMap(rootComponentName, {}, config, true, props);
+      sizeThemeObj = getThemeObject(
+        componentKeyNameForSize,
+        config.colorMode,
+        state
+      );
+    }
     const mergedThemeObj = {
       style: sizeThemeObj?.style
         ? [...themeObj?.style, ...sizeThemeObj?.style]
@@ -237,23 +225,6 @@ export const getThemeProps = (
     themeObj = mergedThemeObj;
   }
 
-  // if (rootComponentName === 'Text') {
-  //   console.log(componentKeyName, props.size, themeObj, 'component key here');
-  //   // debugger;
-  // }
-  // console.log('theme obje', themeObj, inputComponentKeyName);
-
-  // console.log(themeObj, inputComponentKeyName, 'theme object');
-  if (isEmptyObj(themeObj)) {
-    updateComponentThemeMap(inputComponentKeyName, {}, config.platform);
-
-    // if (inputComponentKeyName === 'ButtonGroup') {
-    //   console.log(themeObj, '*** &&& theme props $$');
-    //   debugger;
-    // }
-
-    return getThemeProps(inputComponentKeyName, config, state, props);
-  }
   return themeObj;
 };
 export const getResolvedProps = (key: string, colorMode?: any) => {
