@@ -75,7 +75,11 @@ export const get = (key: string) => {
   return resolvedStyledMap[key];
 };
 
-const getThemeObject = (componentName: any, colorMode: any, state?: any) => {
+export const getThemeObject = (
+  componentName: any,
+  colorMode: any,
+  state?: any
+) => {
   const styleObj: any = resolvedStyledMap[componentName];
 
   if (!styleObj) {

@@ -1,6 +1,7 @@
 import get from 'lodash.get';
 import {
   COLOR_SCHEME_MAP,
+  getThemeObject,
   pseudoPropStateMap,
   PSEUDO_PROP_COMPONENT_MAP,
   resolvedStyledMap,
@@ -15,6 +16,7 @@ import {
 } from '../core/ResolvedStyleMap';
 import { theme } from '../theme';
 import { cpuUsage } from 'process';
+import { isEmptyObj } from './isEmptyObj';
 
 // window['logger'] = {};
 // console.batchTime = (key) => {
@@ -189,12 +191,16 @@ export const updateComponentThemeMap = (
   const { platform, colorMode } = config;
 
   const componentTheme = get(theme, `components.${name}`, {});
-  let themeObj = {};
+  // let themeObj = {};
   if (runTimeResolution) {
-    themeObj = updateComponentThemeMapForColorMode(name, name, inputProps, {
-      colorMode: colorMode,
-      platform,
-    });
+    let themeObj: any = getThemeObject(name, config.colorMode);
+
+    if (isEmptyObj(themeObj)) {
+      themeObj = updateComponentThemeMapForColorMode(name, name, inputProps, {
+        colorMode: colorMode,
+        platform,
+      });
+    }
 
     // updateComponentThemeMapForColorMode(name, name, inputProps, {
     //   colorMode: 'dark',
