@@ -5,13 +5,23 @@ import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { usePropsResolution } from '../../../hooks/';
 
 const ScaleFade = ({ children, ...props }: IScaleFadeProps, ref?: any) => {
-  const { in: animationState, ...resolvedProps } = usePropsResolution(
-    'ScaleFade',
-    props
-  );
+  const {
+    in: animationState,
+    duration,
+    initialScale,
+    ...resolvedProps
+  } = usePropsResolution('ScaleFade', props);
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
+  }
+  if (duration) {
+    resolvedProps.animate.transition.duration = duration;
+    resolvedProps.exit.transition.duration = duration;
+  }
+  if (initialScale) {
+    resolvedProps.animate.initial.scale = initialScale;
+    resolvedProps.exit.initial.scale = initialScale;
   }
 
   return (
