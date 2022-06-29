@@ -18,30 +18,33 @@ type SpaceType =
 // Original source: https://github.com/gregberge/react-flatten-children
 type ReactChildArray = ReturnType<typeof React.Children.toArray>;
 function flattenChildren(
-  children: React.ReactNode,
+  children: JSX.Element[] | JSX.Element,
   keys: (string | number)[] = []
 ): ReactChildArray {
   const childrenArray = React.Children.toArray(children);
-  return childrenArray.reduce((flatChildren: ReactChildArray, child, index: number) => {
-    if ((child as React.ReactElement<any>).type === React.Fragment) {
-      return flatChildren.concat(
-        flattenChildren(
-          (child as React.ReactElement<any>).props.children,
-          keys.concat(child.key || index)
-        )
-      );
-    }
-    if (React.isValidElement(child)) {
-      flatChildren.push(
-        React.cloneElement(child, {
-          key: keys.concat(String(child.key || index)).join('.')
-        })
-      );
-    } else {
-      flatChildren.push(child);
-    }
-    return flatChildren;
-  }, []);
+  return childrenArray.reduce(
+    (flatChildren: ReactChildArray, child: any, index: number) => {
+      if ((child as React.ReactElement<any>).type === React.Fragment) {
+        return flatChildren.concat(
+          flattenChildren(
+            (child as React.ReactElement<any>).props.children,
+            keys.concat(child.key || index)
+          )
+        );
+      }
+      if (React.isValidElement(child)) {
+        flatChildren.push(
+          React.cloneElement(child, {
+            key: keys.concat(String(child.key || index)).join('.'),
+          })
+        );
+      } else {
+        flatChildren.push(child);
+      }
+      return flatChildren;
+    },
+    []
+  );
 }
 
 const getSpacedChildren = (
