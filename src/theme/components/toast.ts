@@ -16,6 +16,7 @@ const baseStyle = (props: Record<string, any>) => {
       alignItems: 'center',
       justifyContent: 'center',
       pointerEvents: 'box-none',
+      _web: { position: 'fixed' },
     },
     _overlay: {},
     _presenceTransition: {

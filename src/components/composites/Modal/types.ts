@@ -5,6 +5,7 @@ import type { CustomProps } from '../../../components/types';
 import type { IScrollViewProps } from '../../basic/ScrollView';
 import type { IFadeProps, ISlideProps } from '../Transitions';
 import type { ThemeComponentSizeType } from '../../../components/types/utils';
+import type { IOverlayProps } from '../../primitives/Overlay';
 export interface InterfaceModalProps extends InterfaceBoxProps<IModalProps> {
   /**
    * If true, the modal will open. Useful for controllable state behaviour
@@ -76,6 +77,10 @@ export interface InterfaceModalProps extends InterfaceBoxProps<IModalProps> {
    * Props applied on Child Slide Animation.
    */
   _slide?: Partial<ISlideProps>;
+  /**
+   * Props to be passed to the Overlay used inside of Modal.
+   */
+  _overlay?: IOverlayProps;
 }
 
 export type IModalComponentType = ((
