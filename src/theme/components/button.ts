@@ -51,7 +51,7 @@ const baseStyle = (props: InterfaceButtonProps & { theme: any }) => {
   };
 };
 
-function variantGhost({ colorScheme, ..._props }: InterfaceButtonProps) {
+function variantGhost({ colorScheme }: InterfaceButtonProps) {
   return {
     _light: {
       _text: {
@@ -90,7 +90,7 @@ function variantGhost({ colorScheme, ..._props }: InterfaceButtonProps) {
   };
 }
 
-function variantOutline({ colorScheme, ..._props }: InterfaceButtonProps) {
+function variantOutline({ colorScheme }: InterfaceButtonProps) {
   return {
     borderWidth: '1px',
 
@@ -133,7 +133,7 @@ function variantOutline({ colorScheme, ..._props }: InterfaceButtonProps) {
   };
 }
 
-function variantSolid({ colorScheme, ..._props }: InterfaceButtonProps) {
+function variantSolid({ colorScheme }: InterfaceButtonProps) {
   return {
     _text: {
       color: 'text.50',
@@ -166,7 +166,7 @@ function variantSolid({ colorScheme, ..._props }: InterfaceButtonProps) {
   };
 }
 
-function variantSubtle({ colorScheme, ..._props }: InterfaceButtonProps) {
+function variantSubtle({ colorScheme }: InterfaceButtonProps) {
   return {
     _text: {
       color: `${colorScheme}.900`,
@@ -199,7 +199,7 @@ function variantSubtle({ colorScheme, ..._props }: InterfaceButtonProps) {
   };
 }
 
-function variantLink({ colorScheme, ..._props }: InterfaceButtonProps) {
+function variantLink({ colorScheme }: InterfaceButtonProps) {
   return {
     _icon: {
       color: `${colorScheme}.600`,

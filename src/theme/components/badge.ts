@@ -1,5 +1,5 @@
 import { getColorScheme } from '../tools';
-
+import type { InterfaceBadgeProps } from '../../components/composites/Badge/types';
 const baseStyle = {
   flexDirection: 'row',
   justifyContent: 'center',
@@ -10,7 +10,7 @@ const baseStyle = {
   _text: { fontSize: 'xs', fontWeight: 'medium' },
 };
 
-function variantSolid(props: Record<string, any>) {
+function variantSolid(props: InterfaceBadgeProps & { colorScheme: any }) {
   const colorScheme = getColorScheme(props);
   return {
     _text: {
@@ -26,7 +26,7 @@ function variantSolid(props: Record<string, any>) {
   };
 }
 
-function variantSubtle(props: Record<string, any>) {
+function variantSubtle(props: InterfaceBadgeProps & { colorScheme: any }) {
   const colorScheme = getColorScheme(props);
   return {
     _text: { color: `${colorScheme}.900` },
@@ -39,7 +39,7 @@ function variantSubtle(props: Record<string, any>) {
   };
 }
 
-function variantOutline(props: Record<string, any>) {
+function variantOutline(props: InterfaceBadgeProps & { colorScheme: any }) {
   const colorScheme = getColorScheme(props);
   return {
     _light: {
@@ -62,9 +62,9 @@ function variantOutline(props: Record<string, any>) {
 }
 
 const variants = {
-  solid: variantSolid,
-  subtle: variantSubtle,
-  outline: variantOutline,
+  solid: variantSolid as any,
+  subtle: variantSubtle as any,
+  outline: variantOutline as any,
 };
 
 const defaultProps = {
