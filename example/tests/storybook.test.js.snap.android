@@ -207,8 +207,6 @@ exports[`Storyshots Actionsheet Composition 1`] = `
         visible={false}
       >
         <View
-          entryDuration={200}
-          exitDuration={150}
           pointerEvents="none"
           style={
             Object {
@@ -915,8 +913,6 @@ exports[`Storyshots Actionsheet Custom Backdrop 1`] = `
       visible={false}
     >
       <View
-        entryDuration={200}
-        exitDuration={150}
         pointerEvents="none"
         style={
           Object {
@@ -1691,8 +1687,6 @@ exports[`Storyshots Actionsheet DisableOverlay 1`] = `
         visible={false}
       >
         <View
-          entryDuration={200}
-          exitDuration={150}
           pointerEvents="none"
           style={
             Object {
@@ -2439,8 +2433,6 @@ exports[`Storyshots Actionsheet Icon 1`] = `
         visible={false}
       >
         <View
-          entryDuration={200}
-          exitDuration={150}
           pointerEvents="none"
           style={
             Object {
@@ -3324,8 +3316,6 @@ exports[`Storyshots Actionsheet Usage 1`] = `
         visible={false}
       >
         <View
-          entryDuration={200}
-          exitDuration={150}
           pointerEvents="none"
           style={
             Object {
@@ -4209,8 +4199,8 @@ exports[`Storyshots Alert Basic 1`] = `
               <RNSVGSvgView
                 accessibilityRole="image"
                 align="xMidYMid"
-                bbHeight={20}
-                bbWidth={20}
+                bbHeight={12}
+                bbWidth={12}
                 color={-11840157}
                 dataSet={Object {}}
                 focusable={false}
@@ -4226,13 +4216,13 @@ exports[`Storyshots Alert Basic 1`] = `
                     },
                     Object {
                       "color": "#4b5563",
-                      "height": 20,
-                      "width": 20,
+                      "height": 12,
+                      "width": 12,
                     },
                     Object {
                       "flex": 0,
-                      "height": 20,
-                      "width": 20,
+                      "height": 12,
+                      "width": 12,
                     },
                   ]
                 }
@@ -4625,8 +4615,8 @@ exports[`Storyshots Alert ColorScheme 1`] = `
               <RNSVGSvgView
                 accessibilityRole="image"
                 align="xMidYMid"
-                bbHeight={20}
-                bbWidth={20}
+                bbHeight={12}
+                bbWidth={12}
                 color={-11840157}
                 dataSet={Object {}}
                 focusable={false}
@@ -4642,13 +4632,13 @@ exports[`Storyshots Alert ColorScheme 1`] = `
                     },
                     Object {
                       "color": "#4b5563",
-                      "height": 20,
-                      "width": 20,
+                      "height": 12,
+                      "width": 12,
                     },
                     Object {
                       "flex": 0,
-                      "height": 20,
-                      "width": 20,
+                      "height": 12,
+                      "width": 12,
                     },
                   ]
                 }
@@ -4911,8 +4901,8 @@ exports[`Storyshots Alert ColorScheme 1`] = `
               <RNSVGSvgView
                 accessibilityRole="image"
                 align="xMidYMid"
-                bbHeight={20}
-                bbWidth={20}
+                bbHeight={12}
+                bbWidth={12}
                 color={-11840157}
                 dataSet={Object {}}
                 focusable={false}
@@ -4928,13 +4918,13 @@ exports[`Storyshots Alert ColorScheme 1`] = `
                     },
                     Object {
                       "color": "#4b5563",
-                      "height": 20,
-                      "width": 20,
+                      "height": 12,
+                      "width": 12,
                     },
                     Object {
                       "flex": 0,
-                      "height": 20,
-                      "width": 20,
+                      "height": 12,
+                      "width": 12,
                     },
                   ]
                 }
@@ -5197,8 +5187,8 @@ exports[`Storyshots Alert ColorScheme 1`] = `
               <RNSVGSvgView
                 accessibilityRole="image"
                 align="xMidYMid"
-                bbHeight={20}
-                bbWidth={20}
+                bbHeight={12}
+                bbWidth={12}
                 color={-11840157}
                 dataSet={Object {}}
                 focusable={false}
@@ -5214,13 +5204,13 @@ exports[`Storyshots Alert ColorScheme 1`] = `
                     },
                     Object {
                       "color": "#4b5563",
-                      "height": 20,
-                      "width": 20,
+                      "height": 12,
+                      "width": 12,
                     },
                     Object {
                       "flex": 0,
-                      "height": 20,
-                      "width": 20,
+                      "height": 12,
+                      "width": 12,
                     },
                   ]
                 }
@@ -5621,8 +5611,8 @@ exports[`Storyshots Alert Composition 1`] = `
                 <RNSVGSvgView
                   accessibilityRole="image"
                   align="xMidYMid"
-                  bbHeight={20}
-                  bbWidth={20}
+                  bbHeight={12}
+                  bbWidth={12}
                   color={-11840157}
                   dataSet={Object {}}
                   focusable={false}
@@ -5638,13 +5628,13 @@ exports[`Storyshots Alert Composition 1`] = `
                       },
                       Object {
                         "color": "#4b5563",
-                        "height": 20,
-                        "width": 20,
+                        "height": 12,
+                        "width": 12,
                       },
                       Object {
                         "flex": 0,
-                        "height": 20,
-                        "width": 20,
+                        "height": 12,
+                        "width": 12,
                       },
                     ]
                   }
@@ -6197,8 +6187,8 @@ exports[`Storyshots Alert Status 1`] = `
               <RNSVGSvgView
                 accessibilityRole="image"
                 align="xMidYMid"
-                bbHeight={20}
-                bbWidth={20}
+                bbHeight={12}
+                bbWidth={12}
                 color={-11840157}
                 dataSet={Object {}}
                 focusable={false}
@@ -6214,13 +6204,13 @@ exports[`Storyshots Alert Status 1`] = `
                     },
                     Object {
                       "color": "#4b5563",
-                      "height": 20,
-                      "width": 20,
+                      "height": 12,
+                      "width": 12,
                     },
                     Object {
                       "flex": 0,
-                      "height": 20,
-                      "width": 20,
+                      "height": 12,
+                      "width": 12,
                     },
                   ]
                 }
@@ -6462,8 +6452,8 @@ exports[`Storyshots Alert Status 1`] = `
               <RNSVGSvgView
                 accessibilityRole="image"
                 align="xMidYMid"
-                bbHeight={20}
-                bbWidth={20}
+                bbHeight={12}
+                bbWidth={12}
                 color={-11840157}
                 dataSet={Object {}}
                 focusable={false}
@@ -6479,13 +6469,13 @@ exports[`Storyshots Alert Status 1`] = `
                     },
                     Object {
                       "color": "#4b5563",
-                      "height": 20,
-                      "width": 20,
+                      "height": 12,
+                      "width": 12,
                     },
                     Object {
                       "flex": 0,
-                      "height": 20,
-                      "width": 20,
+                      "height": 12,
+                      "width": 12,
                     },
                   ]
                 }
@@ -6712,8 +6702,8 @@ exports[`Storyshots Alert Status 1`] = `
               <RNSVGSvgView
                 accessibilityRole="image"
                 align="xMidYMid"
-                bbHeight={20}
-                bbWidth={20}
+                bbHeight={12}
+                bbWidth={12}
                 color={-11840157}
                 dataSet={Object {}}
                 focusable={false}
@@ -6729,13 +6719,13 @@ exports[`Storyshots Alert Status 1`] = `
                     },
                     Object {
                       "color": "#4b5563",
-                      "height": 20,
-                      "width": 20,
+                      "height": 12,
+                      "width": 12,
                     },
                     Object {
                       "flex": 0,
-                      "height": 20,
-                      "width": 20,
+                      "height": 12,
+                      "width": 12,
                     },
                   ]
                 }
@@ -6962,8 +6952,8 @@ exports[`Storyshots Alert Status 1`] = `
               <RNSVGSvgView
                 accessibilityRole="image"
                 align="xMidYMid"
-                bbHeight={20}
-                bbWidth={20}
+                bbHeight={12}
+                bbWidth={12}
                 color={-11840157}
                 dataSet={Object {}}
                 focusable={false}
@@ -6979,13 +6969,13 @@ exports[`Storyshots Alert Status 1`] = `
                     },
                     Object {
                       "color": "#4b5563",
-                      "height": 20,
-                      "width": 20,
+                      "height": 12,
+                      "width": 12,
                     },
                     Object {
                       "flex": 0,
-                      "height": 20,
-                      "width": 20,
+                      "height": 12,
+                      "width": 12,
                     },
                   ]
                 }
@@ -7343,8 +7333,8 @@ exports[`Storyshots Alert Usage 1`] = `
               <RNSVGSvgView
                 accessibilityRole="image"
                 align="xMidYMid"
-                bbHeight={20}
-                bbWidth={20}
+                bbHeight={12}
+                bbWidth={12}
                 color={-11840157}
                 dataSet={Object {}}
                 focusable={false}
@@ -7360,13 +7350,13 @@ exports[`Storyshots Alert Usage 1`] = `
                     },
                     Object {
                       "color": "#4b5563",
-                      "height": 20,
-                      "width": 20,
+                      "height": 12,
+                      "width": 12,
                     },
                     Object {
                       "flex": 0,
-                      "height": 20,
-                      "width": 20,
+                      "height": 12,
+                      "width": 12,
                     },
                   ]
                 }
@@ -9158,8 +9148,8 @@ exports[`Storyshots Alert action 1`] = `
                   <RNSVGSvgView
                     accessibilityRole="image"
                     align="xMidYMid"
-                    bbHeight={20}
-                    bbWidth={20}
+                    bbHeight={12}
+                    bbWidth={12}
                     color={-11840157}
                     dataSet={Object {}}
                     focusable={false}
@@ -9175,13 +9165,13 @@ exports[`Storyshots Alert action 1`] = `
                         },
                         Object {
                           "color": "#4b5563",
-                          "height": 20,
-                          "width": 20,
+                          "height": 12,
+                          "width": 12,
                         },
                         Object {
                           "flex": 0,
-                          "height": 20,
-                          "width": 20,
+                          "height": 12,
+                          "width": 12,
                         },
                       ]
                     }
@@ -35015,11 +35005,11 @@ exports[`Storyshots Examples Todo App 1`] = `
                       "fontSize": 12,
                     },
                     Object {
-                      "color": "#fafafa",
-                      "fontSize": 20,
-                      "height": 20,
-                      "lineHeight": 20,
-                      "width": 20,
+                      "color": "#fafaf9",
+                      "fontSize": 16,
+                      "height": 16,
+                      "lineHeight": 16,
+                      "width": 16,
                     },
                     Object {
                       "fontFamily": "feather",
@@ -35268,11 +35258,11 @@ exports[`Storyshots Examples Todo App 1`] = `
                         "fontSize": 12,
                       },
                       Object {
-                        "color": "#525252",
-                        "fontSize": 16,
-                        "height": 16,
-                        "lineHeight": 16,
-                        "width": 16,
+                        "color": "#a3a3a3",
+                        "fontSize": 12,
+                        "height": 12,
+                        "lineHeight": 12,
+                        "width": 12,
                       },
                       Object {
                         "fontFamily": "entypo",
@@ -35466,11 +35456,11 @@ exports[`Storyshots Examples Todo App 1`] = `
                         "fontSize": 12,
                       },
                       Object {
-                        "color": "#525252",
-                        "fontSize": 16,
-                        "height": 16,
-                        "lineHeight": 16,
-                        "width": 16,
+                        "color": "#a3a3a3",
+                        "fontSize": 12,
+                        "height": 12,
+                        "lineHeight": 12,
+                        "width": 12,
                       },
                       Object {
                         "fontFamily": "entypo",
@@ -35664,11 +35654,11 @@ exports[`Storyshots Examples Todo App 1`] = `
                         "fontSize": 12,
                       },
                       Object {
-                        "color": "#525252",
-                        "fontSize": 16,
-                        "height": 16,
-                        "lineHeight": 16,
-                        "width": 16,
+                        "color": "#a3a3a3",
+                        "fontSize": 12,
+                        "height": 12,
+                        "lineHeight": 12,
+                        "width": 12,
                       },
                       Object {
                         "fontFamily": "entypo",
@@ -35862,11 +35852,11 @@ exports[`Storyshots Examples Todo App 1`] = `
                         "fontSize": 12,
                       },
                       Object {
-                        "color": "#525252",
-                        "fontSize": 16,
-                        "height": 16,
-                        "lineHeight": 16,
-                        "width": 16,
+                        "color": "#a3a3a3",
+                        "fontSize": 12,
+                        "height": 12,
+                        "lineHeight": 12,
+                        "width": 12,
                       },
                       Object {
                         "fontFamily": "entypo",
@@ -47591,9 +47581,9 @@ exports[`Storyshots IconButton SVGIcon 1`] = `
         <RNSVGSvgView
           accessibilityRole="image"
           align="xMidYMid"
-          bbHeight={20}
-          bbWidth={20}
-          color={-328966}
+          bbHeight={40}
+          bbWidth={40}
+          color={-16612153}
           dataSet={Object {}}
           focusable={false}
           meetOrSlice={0}
@@ -47608,18 +47598,18 @@ exports[`Storyshots IconButton SVGIcon 1`] = `
                 "borderWidth": 0,
               },
               Object {
-                "color": "#fafafa",
-                "height": 20,
-                "width": 20,
+                "color": "#0284c7",
+                "height": 40,
+                "width": 40,
               },
               Object {
                 "flex": 0,
-                "height": 20,
-                "width": 20,
+                "height": 40,
+                "width": 40,
               },
             ]
           }
-          tintColor={-328966}
+          tintColor={-16612153}
           vbHeight={100}
           vbWidth={100}
         >
@@ -57354,6 +57344,11 @@ exports[`Storyshots Menu Menu positions 1`] = `
             pointerEvents="none"
             rejectResponderTermination={true}
             secureTextEntry={false}
+            selection={
+              Object {
+                "start": 0,
+              }
+            }
             selectionColor="#1f2937"
             style={
               Object {
@@ -57451,8 +57446,6 @@ exports[`Storyshots Menu Menu positions 1`] = `
         visible={false}
       >
         <View
-          entryDuration={200}
-          exitDuration={150}
           pointerEvents="none"
           style={
             Object {
@@ -59013,8 +59006,6 @@ exports[`Storyshots Modal Basic 1`] = `
         visible={false}
       >
         <View
-          entryDuration={200}
-          exitDuration={150}
           pointerEvents="none"
           style={
             Object {
@@ -59077,8 +59068,6 @@ exports[`Storyshots Modal Basic 1`] = `
           />
         </View>
         <View
-          entryDuration={200}
-          exitDuration={100}
           pointerEvents="none"
           style={
             Object {
@@ -59889,8 +59878,6 @@ exports[`Storyshots Modal Modal Custom Backdrop 1`] = `
         visible={false}
       >
         <View
-          entryDuration={200}
-          exitDuration={150}
           pointerEvents="none"
           style={
             Object {
@@ -59953,8 +59940,6 @@ exports[`Storyshots Modal Modal Custom Backdrop 1`] = `
           />
         </View>
         <View
-          entryDuration={200}
-          exitDuration={100}
           pointerEvents="none"
           style={
             Object {
@@ -60873,8 +60858,6 @@ exports[`Storyshots Modal Modal Placement 1`] = `
       visible={false}
     >
       <View
-        entryDuration={200}
-        exitDuration={150}
         pointerEvents="none"
         style={
           Object {
@@ -60937,8 +60920,6 @@ exports[`Storyshots Modal Modal Placement 1`] = `
         />
       </View>
       <View
-        entryDuration={200}
-        exitDuration={100}
         pointerEvents="none"
         style={
           Object {
@@ -61672,8 +61653,6 @@ exports[`Storyshots Modal Modal Ref Examples 1`] = `
       visible={false}
     >
       <View
-        entryDuration={200}
-        exitDuration={150}
         pointerEvents="none"
         style={
           Object {
@@ -61736,8 +61715,6 @@ exports[`Storyshots Modal Modal Ref Examples 1`] = `
         />
       </View>
       <View
-        entryDuration={200}
-        exitDuration={100}
         pointerEvents="none"
         style={
           Object {
@@ -62604,8 +62581,6 @@ exports[`Storyshots Modal Modal Size Examples 1`] = `
       visible={false}
     >
       <View
-        entryDuration={200}
-        exitDuration={150}
         pointerEvents="none"
         style={
           Object {
@@ -62668,8 +62643,6 @@ exports[`Storyshots Modal Modal Size Examples 1`] = `
         />
       </View>
       <View
-        entryDuration={200}
-        exitDuration={100}
         pointerEvents="none"
         style={
           Object {
@@ -63683,8 +63656,6 @@ exports[`Storyshots Modal Modal with Keyboard Avoid view 1`] = `
       visible={false}
     >
       <View
-        entryDuration={200}
-        exitDuration={150}
         pointerEvents="none"
         style={
           Object {
@@ -63747,8 +63718,6 @@ exports[`Storyshots Modal Modal with Keyboard Avoid view 1`] = `
         />
       </View>
       <View
-        entryDuration={200}
-        exitDuration={100}
         pointerEvents="none"
         style={
           Object {
@@ -64497,8 +64466,6 @@ exports[`Storyshots Modal Multiple modal 1`] = `
         visible={false}
       >
         <View
-          entryDuration={200}
-          exitDuration={150}
           pointerEvents="none"
           style={
             Object {
@@ -64561,8 +64528,6 @@ exports[`Storyshots Modal Multiple modal 1`] = `
           />
         </View>
         <View
-          entryDuration={200}
-          exitDuration={100}
           pointerEvents="none"
           style={
             Object {
@@ -65057,8 +65022,6 @@ exports[`Storyshots Modal Multiple modal 1`] = `
         visible={false}
       >
         <View
-          entryDuration={200}
-          exitDuration={150}
           pointerEvents="none"
           style={
             Object {
@@ -65121,8 +65084,6 @@ exports[`Storyshots Modal Multiple modal 1`] = `
           />
         </View>
         <View
-          entryDuration={200}
-          exitDuration={100}
           pointerEvents="none"
           style={
             Object {
@@ -65843,8 +65804,6 @@ exports[`Storyshots Modal Multiple modal 1`] = `
         visible={false}
       >
         <View
-          entryDuration={200}
-          exitDuration={150}
           pointerEvents="none"
           style={
             Object {
@@ -65907,8 +65866,6 @@ exports[`Storyshots Modal Multiple modal 1`] = `
           />
         </View>
         <View
-          entryDuration={200}
-          exitDuration={100}
           pointerEvents="none"
           style={
             Object {
@@ -67594,6 +67551,11 @@ exports[`Storyshots Popover Popover positions 1`] = `
               pointerEvents="none"
               rejectResponderTermination={true}
               secureTextEntry={false}
+              selection={
+                Object {
+                  "start": 0,
+                }
+              }
               selectionColor="#1f2937"
               style={
                 Object {
@@ -67691,8 +67653,6 @@ exports[`Storyshots Popover Popover positions 1`] = `
           visible={false}
         >
           <View
-            entryDuration={200}
-            exitDuration={150}
             pointerEvents="none"
             style={
               Object {
@@ -80878,6 +80838,11 @@ exports[`Storyshots Select Basic 1`] = `
               pointerEvents="none"
               rejectResponderTermination={true}
               secureTextEntry={false}
+              selection={
+                Object {
+                  "start": 0,
+                }
+              }
               selectionColor="#1f2937"
               style={
                 Object {
@@ -80975,8 +80940,6 @@ exports[`Storyshots Select Basic 1`] = `
           visible={false}
         >
           <View
-            entryDuration={200}
-            exitDuration={150}
             pointerEvents="none"
             style={
               Object {
@@ -81913,6 +81876,11 @@ exports[`Storyshots Select FormControlled 1`] = `
               rejectResponderTermination={true}
               required={true}
               secureTextEntry={false}
+              selection={
+                Object {
+                  "start": 0,
+                }
+              }
               selectionColor="#1f2937"
               style={
                 Object {
@@ -82010,8 +81978,6 @@ exports[`Storyshots Select FormControlled 1`] = `
           visible={false}
         >
           <View
-            entryDuration={200}
-            exitDuration={150}
             pointerEvents="none"
             style={
               Object {
@@ -83040,6 +83006,11 @@ exports[`Storyshots Select Select Long list 1`] = `
               rejectResponderTermination={true}
               required={false}
               secureTextEntry={false}
+              selection={
+                Object {
+                  "start": 0,
+                }
+              }
               selectionColor="#1f2937"
               style={
                 Object {
@@ -83137,8 +83108,6 @@ exports[`Storyshots Select Select Long list 1`] = `
           visible={false}
         >
           <View
-            entryDuration={200}
-            exitDuration={150}
             pointerEvents="none"
             style={
               Object {
@@ -99748,6 +99717,11 @@ exports[`Storyshots Tooltip Tooltip Positions 1`] = `
             pointerEvents="none"
             rejectResponderTermination={true}
             secureTextEntry={false}
+            selection={
+              Object {
+                "start": 0,
+              }
+            }
             selectionColor="#1f2937"
             style={
               Object {
@@ -99845,8 +99819,6 @@ exports[`Storyshots Tooltip Tooltip Positions 1`] = `
         visible={false}
       >
         <View
-          entryDuration={200}
-          exitDuration={150}
           pointerEvents="none"
           style={
             Object {
@@ -103499,11 +103471,11 @@ exports[`Storyshots Transitions Stagger 1`] = `
                     "fontSize": 12,
                   },
                   Object {
-                    "color": "#fafafa",
-                    "fontSize": 20,
-                    "height": 20,
-                    "lineHeight": 20,
-                    "width": 20,
+                    "color": "#fafaf9",
+                    "fontSize": 24,
+                    "height": 24,
+                    "lineHeight": 24,
+                    "width": 24,
                   },
                   Object {
                     "fontFamily": "material",
@@ -103588,11 +103560,11 @@ exports[`Storyshots Transitions Stagger 1`] = `
                     "fontSize": 12,
                   },
                   Object {
-                    "color": "#fafafa",
-                    "fontSize": 20,
-                    "height": 20,
-                    "lineHeight": 20,
-                    "width": 20,
+                    "color": "#fafaf9",
+                    "fontSize": 24,
+                    "height": 24,
+                    "lineHeight": 24,
+                    "width": 24,
                   },
                   Object {
                     "fontFamily": "material-community",
@@ -103677,11 +103649,11 @@ exports[`Storyshots Transitions Stagger 1`] = `
                     "fontSize": 12,
                   },
                   Object {
-                    "color": "#fafafa",
-                    "fontSize": 20,
-                    "height": 20,
-                    "lineHeight": 20,
-                    "width": 20,
+                    "color": "#fafaf9",
+                    "fontSize": 24,
+                    "height": 24,
+                    "lineHeight": 24,
+                    "width": 24,
                   },
                   Object {
                     "fontFamily": "material-community",
@@ -103766,11 +103738,11 @@ exports[`Storyshots Transitions Stagger 1`] = `
                     "fontSize": 12,
                   },
                   Object {
-                    "color": "#fafafa",
-                    "fontSize": 20,
-                    "height": 20,
-                    "lineHeight": 20,
-                    "width": 20,
+                    "color": "#fafaf9",
+                    "fontSize": 24,
+                    "height": 24,
+                    "lineHeight": 24,
+                    "width": 24,
                   },
                   Object {
                     "fontFamily": "material",
@@ -103836,7 +103808,7 @@ exports[`Storyshots Transitions Stagger 1`] = `
                   "fontSize": 12,
                 },
                 Object {
-                  "color": "#fafafa",
+                  "color": "#fafaf9",
                   "fontSize": 24,
                   "height": 24,
                   "lineHeight": 24,
@@ -107482,8 +107454,6 @@ exports[`Storyshots useDisclose Usage 1`] = `
         visible={false}
       >
         <View
-          entryDuration={200}
-          exitDuration={150}
           pointerEvents="none"
           style={
             Object {
@@ -107546,8 +107516,6 @@ exports[`Storyshots useDisclose Usage 1`] = `
           />
         </View>
         <View
-          entryDuration={200}
-          exitDuration={100}
           pointerEvents="none"
           style={
             Object {

@@ -1298,8 +1298,8 @@ exports[`Storyshots Alert Basic 1`] = `
                 style={
                   Object {
                     "color": "rgba(75,85,99,1.00)",
-                    "height": "20px",
-                    "width": "20px",
+                    "height": "12px",
+                    "width": "12px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -1648,8 +1648,8 @@ exports[`Storyshots Alert ColorScheme 1`] = `
                 style={
                   Object {
                     "color": "rgba(75,85,99,1.00)",
-                    "height": "20px",
-                    "width": "20px",
+                    "height": "12px",
+                    "width": "12px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -1890,8 +1890,8 @@ exports[`Storyshots Alert ColorScheme 1`] = `
                 style={
                   Object {
                     "color": "rgba(75,85,99,1.00)",
-                    "height": "20px",
-                    "width": "20px",
+                    "height": "12px",
+                    "width": "12px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -2132,8 +2132,8 @@ exports[`Storyshots Alert ColorScheme 1`] = `
                 style={
                   Object {
                     "color": "rgba(75,85,99,1.00)",
-                    "height": "20px",
-                    "width": "20px",
+                    "height": "12px",
+                    "width": "12px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -2496,8 +2496,8 @@ exports[`Storyshots Alert Composition 1`] = `
                   style={
                     Object {
                       "color": "rgba(75,85,99,1.00)",
-                      "height": "20px",
-                      "width": "20px",
+                      "height": "12px",
+                      "width": "12px",
                     }
                   }
                   viewBox="0 0 24 24"
@@ -2966,8 +2966,8 @@ exports[`Storyshots Alert Status 1`] = `
                 style={
                   Object {
                     "color": "rgba(75,85,99,1.00)",
-                    "height": "20px",
-                    "width": "20px",
+                    "height": "12px",
+                    "width": "12px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -3173,8 +3173,8 @@ exports[`Storyshots Alert Status 1`] = `
                 style={
                   Object {
                     "color": "rgba(75,85,99,1.00)",
-                    "height": "20px",
-                    "width": "20px",
+                    "height": "12px",
+                    "width": "12px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -3375,8 +3375,8 @@ exports[`Storyshots Alert Status 1`] = `
                 style={
                   Object {
                     "color": "rgba(75,85,99,1.00)",
-                    "height": "20px",
-                    "width": "20px",
+                    "height": "12px",
+                    "width": "12px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -3577,8 +3577,8 @@ exports[`Storyshots Alert Status 1`] = `
                 style={
                   Object {
                     "color": "rgba(75,85,99,1.00)",
-                    "height": "20px",
-                    "width": "20px",
+                    "height": "12px",
+                    "width": "12px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -3900,8 +3900,8 @@ exports[`Storyshots Alert Usage 1`] = `
                 style={
                   Object {
                     "color": "rgba(75,85,99,1.00)",
-                    "height": "20px",
-                    "width": "20px",
+                    "height": "12px",
+                    "width": "12px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -5573,8 +5573,8 @@ exports[`Storyshots Alert action 1`] = `
                     style={
                       Object {
                         "color": "rgba(75,85,99,1.00)",
-                        "height": "20px",
-                        "width": "20px",
+                        "height": "12px",
+                        "width": "12px",
                       }
                     }
                     viewBox="0 0 24 24"
@@ -45311,9 +45311,9 @@ exports[`Storyshots IconButton SVGIcon 1`] = `
           strokeWidth="10"
           style={
             Object {
-              "color": "rgba(250,250,250,1.00)",
-              "height": "20px",
-              "width": "20px",
+              "color": "rgba(2,132,199,1.00)",
+              "height": "40px",
+              "width": "40px",
             }
           }
           viewBox="0 0 100 100"
