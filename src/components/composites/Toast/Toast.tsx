@@ -11,7 +11,7 @@ import { AccessibilityInfo, Platform, SafeAreaView } from 'react-native';
 import Box from '../../primitives/Box';
 import { usePropsResolution } from '../../../hooks';
 import type { IToastContext, IToastInfo, IToast, IToastProps } from './types';
-
+import { useKeyboardBottomInset } from '../../../utils';
 const INSET = 50;
 
 const POSITIONS = {
@@ -71,6 +71,7 @@ const CustomToast = ({ _overlay, _stack, _presenceTransition }: any) => {
     ToastContext
   );
 
+  const bottomInset = useKeyboardBottomInset() * 2;
   const getPositions = () => {
     return Object.keys(toastInfo);
   };
@@ -110,7 +111,19 @@ const CustomToast = ({ _overlay, _stack, _presenceTransition }: any) => {
                       translateY: transitionConfig[position],
                     }}
                   >
-                    <SafeAreaView>{toast.component}</SafeAreaView>
+                    <SafeAreaView>
+                      <Box
+                        bottom={
+                          ['bottom', 'bottom-left', 'bottom-right'].includes(
+                            position
+                          )
+                            ? bottomInset + 'px'
+                            : undefined
+                        }
+                      >
+                        {toast.component}
+                      </Box>
+                    </SafeAreaView>
                   </PresenceTransition>
                 ))
               }
