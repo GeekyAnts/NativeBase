@@ -1,6 +1,8 @@
 import { getColor, getColorScheme, transparentize } from '../tools';
-
-function getBg(props: Record<string, any>) {
+import type { InterfaceAlertProps } from '../../components/composites/Alert/types';
+function getBg(
+  props: InterfaceAlertProps & { theme: any } & { colorScheme: any }
+) {
   let { theme, colorScheme, status, variant } = props;
 
   colorScheme = getColorScheme(props, !status ? colorScheme : status);
@@ -18,7 +20,9 @@ function getBg(props: Record<string, any>) {
   return { lightBg, darkBg };
 }
 
-const variantSubtle = (props: Record<string, any>) => {
+const variantSubtle = (
+  props: InterfaceAlertProps & { theme: any } & { colorScheme: any }
+) => {
   let { colorScheme, status } = props;
   const { lightBg, darkBg } = getBg(props);
 
@@ -36,7 +40,7 @@ const variantSubtle = (props: Record<string, any>) => {
   };
 };
 
-const variantOutline = (props: Record<string, any>) => {
+const variantOutline = (props: InterfaceAlertProps & { colorScheme: any }) => {
   let { colorScheme, status } = props;
 
   colorScheme = getColorScheme(props, !status ? colorScheme : status);
@@ -54,7 +58,9 @@ const variantOutline = (props: Record<string, any>) => {
   };
 };
 
-const variantOutlineLight = (props: Record<string, any>) => {
+const variantOutlineLight = (
+  props: InterfaceAlertProps & { theme: any } & { colorScheme: any }
+) => {
   let { colorScheme, status, theme } = props;
 
   colorScheme = getColorScheme(props, !status ? colorScheme : status);
@@ -72,7 +78,9 @@ const variantOutlineLight = (props: Record<string, any>) => {
   };
 };
 
-const variantSolid = (props: Record<string, any>) => {
+const variantSolid = (
+  props: InterfaceAlertProps & { theme: any } & { colorScheme: any }
+) => {
   const { lightBg, darkBg } = getBg(props);
   return {
     _light: {
@@ -85,7 +93,9 @@ const variantSolid = (props: Record<string, any>) => {
   };
 };
 
-const variantLeftAccent = (props: Record<string, any>) => {
+const variantLeftAccent = (
+  props: InterfaceAlertProps & { theme: any } & { colorScheme: any }
+) => {
   let { colorScheme, status } = props;
   const { lightBg, darkBg } = getBg(props);
 
@@ -106,7 +116,9 @@ const variantLeftAccent = (props: Record<string, any>) => {
   };
 };
 
-const variantTopAccent = (props: Record<string, any>) => {
+const variantTopAccent = (
+  props: InterfaceAlertProps & { theme: any } & { colorScheme: any }
+) => {
   let { colorScheme, status } = props;
   const { lightBg, darkBg } = getBg(props);
 
@@ -128,12 +140,12 @@ const variantTopAccent = (props: Record<string, any>) => {
 };
 
 const variants = {
-  'subtle': variantSubtle,
-  'solid': variantSolid,
-  'left-accent': variantLeftAccent,
-  'top-accent': variantTopAccent,
-  'outline': variantOutline,
-  'outline-light': variantOutlineLight,
+  'subtle': variantSubtle as any,
+  'solid': variantSolid as any,
+  'left-accent': variantLeftAccent as any,
+  'top-accent': variantTopAccent as any,
+  'outline': variantOutline as any,
+  'outline-light': variantOutlineLight as any,
 };
 
 export const Alert = {
