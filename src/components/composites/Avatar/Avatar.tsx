@@ -21,7 +21,9 @@ const Avatar = ({ children, ...props }: IAvatarProps, ref: any) => {
       typeof child?.type === 'object' &&
       child?.type.displayName === 'AvatarBadge'
     ) {
-      Badge = React.cloneElement(child, { size: _badgeSize[0] });
+      Badge = React.cloneElement(child, {
+        size: _badgeSize ? _badgeSize[0] : undefined,
+      });
     } else {
       remainingChildren.push(child);
     }
