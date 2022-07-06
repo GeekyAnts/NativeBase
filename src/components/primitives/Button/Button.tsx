@@ -64,6 +64,7 @@ const Button = (
     ...resolvedProps
   } = usePropsResolution('Button', props, state);
 
+  // console.log(resolvedProps, 'resolved props here');
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;

@@ -2,10 +2,7 @@ import { forEach, map, get as lodashGet, merge } from 'lodash';
 // import type { ColorMode } from './color-mode';
 import { isEmptyObj } from '../utils/isEmptyObj';
 import { theme } from '../theme';
-import {
-  updateComponentThemeMap,
-  updateComponentThemeMapForColorMode,
-} from '../utils/styled';
+import { updateComponentThemeMap } from '../utils/styled';
 
 // Adding Map for storing the props and style for the styled component
 export let resolvedStyledMap: { [key: string]: any } = {};
@@ -134,14 +131,16 @@ const getComponentNameKeyFromProps = (
 ) => {
   let componentKeyName: string = componentName;
 
-  const componentTheme = lodashGet(theme, `components.${componentName}`, {});
+  // const componentTheme = lodashGet(theme, `components.${componentName}`, {});
 
-  const colorSchemeKey =
-    colorScheme || componentTheme.defaultProps?.colorScheme;
+  const colorSchemeKey = colorScheme;
+  // || componentTheme.defaultProps?.colorScheme;
+  const variantKey = variant;
+  // || componentTheme.defaultProps?.variant;
 
-  if (colorSchemeKey && variant) {
-    componentKeyName = `${componentName}.${colorSchemeKey}.${variant}`;
-  } else if (variant) {
+  if (colorSchemeKey && variantKey) {
+    componentKeyName = `${componentName}.${colorSchemeKey}.${variantKey}`;
+  } else if (variantKey) {
     componentKeyName = `${componentName}.${variant}`;
   } else if (colorSchemeKey) {
     componentKeyName = `${componentName}.${colorSchemeKey}`;
@@ -173,7 +172,12 @@ export const getThemeProps = (
   let themeObj: any = getThemeObject(componentKeyName, config.colorMode, state);
 
   if (isEmptyObj(themeObj)) {
-    updateComponentThemeMap(inputComponentKeyName, {}, config, true, props);
+    // console.log('hello here 1111', inputComponentKeyName);
+    // updateComponentThemeMap(inputComponentKeyName, {}, config, true);
+    updateComponentThemeMap(inputComponentKeyName, {}, config, true, {
+      variant: props.variant,
+      colorScheme: props.colorScheme,
+    });
     themeObj = getThemeObject(componentKeyName, config.colorMode, state);
   }
 
@@ -189,15 +193,41 @@ export const getThemeProps = (
       config.colorMode,
       state
     );
+    // console.log(
+    //   'hello 111 222',
+    //   // sizeThemeObj,
+    //   rootComponentName,
+    //   componentKeyNameForSize,
+    //   pseudoComponentKeyName,
+    //   inputComponentKeyName
+    // );
 
     if (isEmptyObj(sizeThemeObj)) {
-      updateComponentThemeMap(rootComponentName, {}, config, true, props);
-      sizeThemeObj = getThemeObject(
-        componentKeyNameForSize,
-        config.colorMode,
-        state
-      );
+      if (pseudoComponentKeyName) {
+        sizeThemeObj = getThemeObject(
+          `${rootComponentName}.${pseudoComponentKeyName}`,
+          config.colorMode,
+          state
+        );
+      }
+      if (isEmptyObj(sizeThemeObj)) {
+        // console.log(
+        //   `${rootComponentName}.${pseudoComponentKeyName}`,
+        //   componentKeyNameForSize,
+        //   ' ***** ',
+        //   pseudoComponentKeyName
+        // );
+        updateComponentThemeMap(rootComponentName, {}, config, true, {
+          size: props.size,
+        });
+        sizeThemeObj = getThemeObject(
+          componentKeyNameForSize,
+          config.colorMode,
+          state
+        );
+      }
     }
+
     const mergedThemeObj = {
       style: sizeThemeObj?.style
         ? [...themeObj?.style, ...sizeThemeObj?.style]

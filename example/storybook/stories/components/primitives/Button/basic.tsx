@@ -5,12 +5,26 @@ export const Example = () => {
   return (
     <Box alignItems="center">
       <Button
-        size="sm"
+        size="lg"
         colorScheme={'green'}
         onPress={() => console.log('hello world')}
       >
         Click Me
       </Button>
+      {/* <Button
+        size="sm"
+        // colorScheme={'green'}
+        onPress={() => console.log('hello world')}
+      >
+        Click Me
+      </Button> */}
+      {/* <Button
+        size="sm"
+        // colorScheme={'green'}
+        onPress={() => console.log('hello world')}
+      >
+        Click Me
+      </Button> */}
     </Box>
   );
 };

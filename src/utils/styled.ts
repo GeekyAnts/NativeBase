@@ -14,7 +14,6 @@ import {
   set as setResolvedStyleMap,
 } from '../core/ResolvedStyleMap';
 import { theme } from '../theme';
-import { cpuUsage } from 'process';
 
 // window['logger'] = {};
 // console.batchTime = (key) => {
@@ -50,7 +49,7 @@ const resolveForInternalPseudoProps = (
   config: any,
   mergeDefaultProps: boolean = true
 ) => {
-  console.log(config, 'config here');
+  // console.log(config, name, key, 'config here');
   // if (name !== 'Button') {
   //   return;
   // }
@@ -160,6 +159,7 @@ export const updateComponentThemeMapForColorMode = (
   );
 
   setResolvedStyleMap(key, styledObj, config.colorMode);
+  // console.log(key, styledObj, config.colorMode, '&&&&&&');
 
   resolveForInternalPseudoProps(
     name,
@@ -188,91 +188,45 @@ export const updateComponentThemeMap = (
 ) => {
   const { platform, colorMode } = config;
 
+  // console.log(props, 'props here');
   const componentTheme = get(theme, `components.${name}`, {});
   let themeObj = {};
   if (runTimeResolution) {
-    themeObj = updateComponentThemeMapForColorMode(name, name, inputProps, {
-      colorMode: colorMode,
-      platform,
-    });
+    const currentColorScheme = props?.colorScheme; // || componentTheme?.defaultProps?.colorScheme;
+    const currentVariant = props?.variant; // || componentTheme?.defaultProps?.variant;
+    const currentSize = props?.size; // || componentTheme?.defaultProps?.size;
 
-    // updateComponentThemeMapForColorMode(name, name, inputProps, {
-    //   colorMode: 'dark',
-    //   platform,
-    // });
-
-    const currentColorScheme =
-      props?.colorScheme || componentTheme?.defaultProps?.colorScheme;
-    const currentVariant =
-      props?.variant || componentTheme?.defaultProps?.variant;
-    const currentSize = props?.size || componentTheme?.defaultProps?.size;
-
-    // console.log(inputProps, 'input props');
-    if (COLOR_SCHEME_MAP[name]) {
+    if (currentVariant && currentColorScheme) {
+      themeObj = updateComponentThemeMapForColorMode(
+        name,
+        `${name}.${currentColorScheme}.${currentVariant}`,
+        { variant: currentVariant, colorScheme: currentColorScheme },
+        {
+          colorMode,
+          platform,
+        }
+      );
+    } else if (currentColorScheme) {
       themeObj = updateComponentThemeMapForColorMode(
         name,
         `${name}.${currentColorScheme}`,
         { colorScheme: currentColorScheme },
         {
-          colorMode: colorMode,
+          colorMode,
           platform,
         }
       );
-
-      // updateComponentThemeMapForColorMode(
-      //   name,
-      //   `${name}.${currentColorScheme}`,
-      //   { colorScheme: currentColorScheme },
-      //   {
-      //     colorMode: 'dark',
-      //     platform,
-      //   }
-      // );
-
-      if (componentTheme?.variants) {
-        themeObj = updateComponentThemeMapForColorMode(
-          name,
-          `${name}.${currentColorScheme}.${currentVariant}`,
-          { variant: currentVariant, colorScheme: currentColorScheme },
-          {
-            colorMode: colorMode,
-            platform,
-          }
-        );
-        // updateComponentThemeMapForColorMode(
-        //   name,
-        //   `${name}.${currentColorScheme}.${currentVariant}`,
-        //   { variant: currentVariant, colorScheme: currentColorScheme },
-        //   {
-        //     colorMode: 'dark',
-        //     platform,
-        //   }
-        // );
-      }
-    } else {
-      if (componentTheme?.variants) {
-        themeObj = updateComponentThemeMapForColorMode(
-          name,
-          `${name}.${currentVariant}`,
-          { variant: currentVariant },
-          {
-            colorMode,
-            platform,
-          }
-        );
-        // updateComponentThemeMapForColorMode(
-        //   name,
-        //   `${name}.${currentVariant}`,
-        //   { variant: currentVariant },
-        //   {
-        //     colorMode: 'dark',
-        //     platform,
-        //   }
-        // );
-      }
-    }
-
-    if (componentTheme?.sizes) {
+    } else if (currentVariant) {
+      themeObj = updateComponentThemeMapForColorMode(
+        name,
+        `${name}.${currentVariant}`,
+        { variant: currentVariant },
+        {
+          colorMode,
+          platform,
+        }
+      );
+    } else if (currentSize) {
       themeObj = updateComponentThemeMapForColorMode(
         name,
         `${name}.${currentSize}`,
@@ -284,17 +238,18 @@ export const updateComponentThemeMap = (
         false,
         false
       );
-      // updateComponentThemeMapForColorMode(
-      //   name,
-      //   `${name}.${currentSize}`,
-      //   { size: currentSize },
-      //   {
-      //     colorMode: 'dark',
-      //     platform,
-      //   },
-      //   false,
-      //   false
-      // );
+    } else {
+      themeObj = updateComponentThemeMapForColorMode(
+        name,
+        name,
+        inputProps,
+        {
+          colorMode,
+          platform,
+        },
+        false,
+        true
+      );
     }
 
     return themeObj;
