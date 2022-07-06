@@ -22,7 +22,11 @@ const Avatar = ({ children, ...props }: IAvatarProps, ref: any) => {
       child?.type.displayName === 'AvatarBadge'
     ) {
       Badge = React.cloneElement(child, {
-        size: _badgeSize ? _badgeSize[0] : undefined,
+        size: child?.props?.size
+          ? child?.props?.size
+          : _badgeSize
+          ? _badgeSize[0]
+          : undefined,
       });
     } else {
       remainingChildren.push(child);
