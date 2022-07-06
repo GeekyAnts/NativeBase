@@ -38,15 +38,15 @@ export function usePropsResolution(
   const { theme } = useNativeBase();
   const { colorMode } = useColorMode();
 
-  console.log(colorMode, 'hello colormode');
-  console.time(component + ' ***');
+  // console.log(colorMode, 'hello colormode');
+  // console.time(component + ' ***');
   const componentThemeProps = getThemeProps(
     component,
     { colorMode: colorMode, platform: Platform.OS },
     state,
     incomingProps
   );
-  console.timeEnd(component + ' ***');
+  // console.timeEnd(component + ' ***');
 
   // if (component === 'Button' || component === 'Stack') {
   //   console.log(componentThemeProps, component, 'theme props');

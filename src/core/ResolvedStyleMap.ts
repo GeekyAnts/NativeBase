@@ -1,7 +1,6 @@
-import { forEach, map, get as lodashGet, merge } from 'lodash';
+import { forEach, map, get as merge } from 'lodash';
 // import type { ColorMode } from './color-mode';
 import { isEmptyObj } from '../utils/isEmptyObj';
-import { theme } from '../theme';
 import { updateComponentThemeMap } from '../utils/styled';
 
 // Adding Map for storing the props and style for the styled component
@@ -156,7 +155,7 @@ export const getThemeProps = (
   state?: any,
   props: any = {}
 ): any => {
-  console.log(config, 'config here');
+  // console.log(config, 'config here');
   const componentNames = inputComponentKeyName.split('.');
 
   const rootComponentName = componentNames[0];
@@ -231,7 +230,7 @@ export const getThemeProps = (
           //   pseudoComponentKeyName
           // );
 
-          console.log('hello 1111', rootComponentName);
+          // console.log('hello 1111', rootComponentName);
           // debugger;
           updateComponentThemeMap(rootComponentName, {}, config, true, {
             size: props.size,

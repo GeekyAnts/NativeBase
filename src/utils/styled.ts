@@ -174,7 +174,7 @@ export const updateComponentThemeMapForColorMode = (
 
 export const resolveDefaultTheme = (platform?: string) => {
   for (const key in theme.components) {
-    // updateComponentThemeMap(key, {}, { platform });
+    updateComponentThemeMap(key, {}, { platform });
   }
   return resolvedStyledMap;
 };
@@ -227,10 +227,10 @@ export const updateComponentThemeMap = (
         }
       );
     } else if (currentSize) {
-      console.log(name, 'name here 111', currentSize);
-      if (name == 'Button') {
-        console.trace('hh');
-      }
+      // console.log(name, 'name here 111', currentSize);
+      // if (name == 'Button') {
+      //   console.trace('hh');
+      // }
       themeObj = updateComponentThemeMapForColorMode(
         name,
         `${name}.${currentSize}`,
@@ -376,6 +376,8 @@ export const updateComponentThemeMap = (
       false
     );
   }
+
+  return {};
 };
 
 export * from '../core/ResolvedStyleMap';
