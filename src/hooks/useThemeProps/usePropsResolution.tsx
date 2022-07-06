@@ -37,6 +37,8 @@ export function usePropsResolution(
 ) {
   const { theme } = useNativeBase();
   const { colorMode } = useColorMode();
+
+  console.log(colorMode, 'hello colormode');
   console.time(component + ' ***');
   const componentThemeProps = getThemeProps(
     component,

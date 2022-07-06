@@ -5,7 +5,7 @@ export const Example = () => {
   return (
     <Box alignItems="center">
       <Button
-        size="lg"
+        size="sm"
         colorScheme={'green'}
         onPress={() => console.log('hello world')}
       >

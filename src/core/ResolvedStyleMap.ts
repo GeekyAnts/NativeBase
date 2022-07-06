@@ -75,7 +75,7 @@ export const get = (key: string) => {
 const getThemeObject = (componentName: any, colorMode: any, state?: any) => {
   const styleObj: any = resolvedStyledMap[componentName];
 
-  if (!styleObj) {
+  if (!styleObj || !styleObj[colorMode]) {
     return {};
   }
 
@@ -156,6 +156,7 @@ export const getThemeProps = (
   state?: any,
   props: any = {}
 ): any => {
+  console.log(config, 'config here');
   const componentNames = inputComponentKeyName.split('.');
 
   const rootComponentName = componentNames[0];
@@ -204,27 +205,43 @@ export const getThemeProps = (
 
     if (isEmptyObj(sizeThemeObj)) {
       if (pseudoComponentKeyName) {
-        sizeThemeObj = getThemeObject(
-          `${rootComponentName}.${pseudoComponentKeyName}`,
-          config.colorMode,
-          state
-        );
-      }
-      if (isEmptyObj(sizeThemeObj)) {
-        // console.log(
-        //   `${rootComponentName}.${pseudoComponentKeyName}`,
-        //   componentKeyNameForSize,
-        //   ' ***** ',
-        //   pseudoComponentKeyName
+        // sizeThemeObj = getThemeObject(
+        //   `${rootComponentName}.${props.size}`,
+        //   config.colorMode,
+        //   state
         // );
-        updateComponentThemeMap(rootComponentName, {}, config, true, {
-          size: props.size,
-        });
-        sizeThemeObj = getThemeObject(
-          componentKeyNameForSize,
-          config.colorMode,
-          state
-        );
+      } else {
+        //   sizeThemeObj = getThemeObject(
+        //     `${rootComponentName}.${props.size}`,
+        //     config.colorMode,
+        //     state
+        //   );
+
+        //   console.log(
+        //     '&&&&&',
+        //     sizeThemeObj,
+        //     `${rootComponentName}.${props.size}`
+        //   );
+        // }
+        if (isEmptyObj(sizeThemeObj)) {
+          // console.log(
+          //   `${rootComponentName}.${pseudoComponentKeyName}`,
+          //   componentKeyNameForSize,
+          //   ' ***** ',
+          //   pseudoComponentKeyName
+          // );
+
+          console.log('hello 1111', rootComponentName);
+          // debugger;
+          updateComponentThemeMap(rootComponentName, {}, config, true, {
+            size: props.size,
+          });
+          sizeThemeObj = getThemeObject(
+            componentKeyNameForSize,
+            config.colorMode,
+            state
+          );
+        }
       }
     }
 
