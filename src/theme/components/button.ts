@@ -301,7 +301,7 @@ const defaultProps = {
 
 export const ButtonGroup = {
   baseStyle: { direction: 'row' },
-  defaultProps: { space: 2 },
+  defaultProps: { space: 2, borderRadius: 4 },
 };
 
 export default {
