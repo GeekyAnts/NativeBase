@@ -12,6 +12,7 @@ import { useColorMode } from '../../core/color-mode';
 import { PSEUDO_PROP_COMPONENT_MAP } from '../../core/ResolvedStyleMap';
 import get from 'lodash.get';
 import { Platform } from 'react-native';
+import merge from 'lodash.merge';
 
 // const getThemeProps = resolvedMap.theme.getThemeProps;
 
@@ -85,11 +86,21 @@ export function usePropsResolution(
   const componentTheme = get(theme, `components.${component}`);
   let resolvedProps = usePropsResolutionWithComponentTheme(
     componentTheme,
-    { ...componentThemeProps?.unResolvedProps, ...incomingProps },
+    merge({}, componentThemeProps?.unResolvedProps, incomingProps),
     theme,
     state,
     { ...config, name: component }
   );
+
+  // if (component === 'Progress') {
+  //   console.log(
+  //     // componentThemeProps.internalPseudoProps,
+  //     componentThemeProps.unResolvedProps,
+  //     incomingProps,
+  //     { ...componentThemeProps?.unResolvedProps, ...incomingProps },
+  //     'incoming props here 111'
+  //   );
+  // }
 
   // if (component === 'SliderThumb') {
   //   console.log(componentThemeProps, state, 'componentThemeProps');
@@ -176,14 +187,6 @@ export function usePropsResolution(
   //     // StyleSheet.flatten(pseudoComponentThemeProps.style),
   //     // componentThemeProps.internalPseudoProps
   //     // resolvedProps[property]
-  //   );
-  // }
-
-  // if (component === 'SliderTrack') {
-  //   console.log(
-  //     componentThemeProps.internalPseudoProps,
-  //     componentThemeProps,
-  //     'incoming props here 111'
   //   );
   // }
 
@@ -279,10 +282,6 @@ export function usePropsResolution(
     //     //   : pseudoComponentThemeProps.style,
     //   };
     // }
-  }
-  // }
-  if (component === 'Button') {
-    // console.log(resolvedProps, 'theme props &&&');
   }
 
   return resolvedProps;
