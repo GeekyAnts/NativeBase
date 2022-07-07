@@ -1,4 +1,4 @@
-import { forEach, map, get as merge } from 'lodash';
+import { forEach, map, merge } from 'lodash';
 // import type { ColorMode } from './color-mode';
 import { isEmptyObj } from '../utils/isEmptyObj';
 import { updateComponentThemeMap } from '../utils/styled';
@@ -25,6 +25,9 @@ export const PSEUDO_PROP_COMPONENT_MAP: any = {
   _checkbox: 'Checkbox',
   _radio: 'Radio',
   _pressable: 'Pressable',
+  _slide: 'Slide',
+  _fade: 'Fade',
+  _backdropFade: 'BackdropFace',
   // _label: 'Text',
   // _input: 'Input',
   // _slide: 'Slide',
