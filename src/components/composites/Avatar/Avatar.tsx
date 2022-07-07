@@ -16,13 +16,18 @@ const Avatar = ({ children, ...props }: IAvatarProps, ref: any) => {
   let Badge = <></>;
   const remainingChildren: JSX.Element[] = [];
   //  Pop Badge from children
+
   React.Children.map(children, (child) => {
+    // if (typeof child?.type === 'object') {
+    //   console.log(_badgeSize, child, 'badge size here');
+    // }
+
     if (
       typeof child?.type === 'object' &&
-      child?.type.displayName === 'AvatarBadge'
+      child?.type?.type?.render.displayName === 'AvatarBadge'
     ) {
       Badge = React.cloneElement(child, {
-        size: child?.props?.size
+        boxSize: child?.props?.size
           ? child?.props?.size
           : _badgeSize
           ? _badgeSize[0]
