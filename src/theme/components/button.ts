@@ -1,6 +1,7 @@
+import type { InterfaceButtonProps } from '../../components/primitives/Button/types';
 import { mode } from './../tools';
 
-const baseStyle = (props: Record<string, any>) => {
+const baseStyle = (props: InterfaceButtonProps & { theme: any }) => {
   const { primary } = props.theme.colors;
   const focusRing = mode(
     {
@@ -50,7 +51,7 @@ const baseStyle = (props: Record<string, any>) => {
   };
 };
 
-function variantGhost({ colorScheme }: Record<string, any>) {
+function variantGhost({ colorScheme }: InterfaceButtonProps) {
   return {
     _light: {
       _text: {
@@ -89,7 +90,7 @@ function variantGhost({ colorScheme }: Record<string, any>) {
   };
 }
 
-function variantOutline({ colorScheme }: Record<string, any>) {
+function variantOutline({ colorScheme }: InterfaceButtonProps) {
   return {
     borderWidth: '1px',
 
@@ -132,7 +133,7 @@ function variantOutline({ colorScheme }: Record<string, any>) {
   };
 }
 
-function variantSolid({ colorScheme }: Record<string, any>) {
+function variantSolid({ colorScheme }: InterfaceButtonProps) {
   return {
     _text: {
       color: 'text.50',
@@ -165,7 +166,7 @@ function variantSolid({ colorScheme }: Record<string, any>) {
   };
 }
 
-function variantSubtle({ colorScheme }: Record<string, any>) {
+function variantSubtle({ colorScheme }: InterfaceButtonProps) {
   return {
     _text: {
       color: `${colorScheme}.900`,
@@ -198,7 +199,7 @@ function variantSubtle({ colorScheme }: Record<string, any>) {
   };
 }
 
-function variantLink({ colorScheme }: Record<string, any>) {
+function variantLink({ colorScheme }: InterfaceButtonProps) {
   return {
     _icon: {
       color: `${colorScheme}.600`,
@@ -241,12 +242,12 @@ function variantLink({ colorScheme }: Record<string, any>) {
 }
 
 const variants = {
-  ghost: variantGhost,
-  outline: variantOutline,
-  solid: variantSolid,
-  subtle: variantSubtle,
-  link: variantLink,
-  unstyled: {},
+  ghost: variantGhost as any,
+  outline: variantOutline as any,
+  solid: variantSolid as any,
+  subtle: variantSubtle as any,
+  link: variantLink as any,
+  unstyled: {} as any,
 };
 
 const sizes = {

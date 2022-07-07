@@ -10,16 +10,20 @@ import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { useTheme } from '../../../hooks';
 
 const Spinner = (props: ISpinnerProps, ref: any) => {
-  const { color, size, style, testID, ...resolvedProps } = usePropsResolution(
-    'Spinner',
-    props
-  );
+  const {
+    color,
+    boxSize,
+    style,
+    testID,
+    ...resolvedProps
+  } = usePropsResolution('Spinner', props);
   const resolvedColor = getColor(color, useTheme().colors, useTheme());
   const resolvedStyle = useStyledSystemPropsResolver(resolvedProps);
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
   }
+  // console.log('Spinner size', size, resolvedProps);
 
   return (
     <ActivityIndicator
@@ -28,7 +32,8 @@ const Spinner = (props: ISpinnerProps, ref: any) => {
       accessibilityLabel="loading"
       color={resolvedColor}
       ref={ref}
-      size={size}
+      size={boxSize}
+      // boxSize={boxSize}
       style={[resolvedStyle, style]}
     />
   );

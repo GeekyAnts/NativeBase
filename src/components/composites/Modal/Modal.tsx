@@ -36,6 +36,7 @@ const Modal = (
     _fade,
     contentSize,
     _slide,
+    _overlay,
     ...resolvedProps
   } = usePropsResolution('Modal', rest);
 
@@ -89,6 +90,7 @@ const Modal = (
       isKeyboardDismissable={isKeyboardDismissable}
       animationPreset={animationPreset}
       useRNModalOnAndroid
+      {..._overlay}
     >
       <ModalContext.Provider value={contextValue}>
         <Fade in={visible} style={StyleSheet.absoluteFill} {..._backdropFade}>

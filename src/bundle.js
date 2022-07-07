@@ -4,21 +4,21 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 var get$1 = require('lodash.get');
 var lodash = require('lodash');
+var merge = require('lodash.merge');
 var isEmpty = require('lodash.isempty');
 var Color = require('tinycolor2');
 require('lodash.omitby');
 var isNil = require('lodash.isnil');
 require('lodash.pick');
 require('lodash.omit');
-var merge = require('lodash.merge');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
 var get__default = /*#__PURE__*/_interopDefaultLegacy(get$1);
+var merge__default = /*#__PURE__*/_interopDefaultLegacy(merge);
 var isEmpty__default = /*#__PURE__*/_interopDefaultLegacy(isEmpty);
 var Color__default = /*#__PURE__*/_interopDefaultLegacy(Color);
 var isNil__default = /*#__PURE__*/_interopDefaultLegacy(isNil);
-var merge__default = /*#__PURE__*/_interopDefaultLegacy(merge);
 
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation.
@@ -62,6 +62,1643 @@ function isEmptyObj(obj) {
     }
     return true;
 }
+
+// Adding Map for storing the props and style for the styled component
+exports.resolvedStyledMap = {};
+var pseudoPropStateMap = {
+    _disabled: 'isDisabled',
+    _focusVisible: 'isFocusVisible',
+    _focus: 'isFocused',
+    _hover: 'isHovered',
+    _pressed: 'isPressed',
+    _checked: 'isChecked',
+    _loading: 'isLoading',
+    _invalid: 'isInvalid',
+    _reversed: 'isReversed'
+};
+var PSEUDO_PROP_COMPONENT_MAP = {
+    _spinner: 'Spinner',
+    _stack: 'Stack',
+    _text: 'Text',
+    _icon: 'Icon',
+    _checkbox: 'Checkbox',
+    _radio: 'Radio',
+    _pressable: 'Pressable',
+    _slide: 'Slide',
+    _fade: 'Fade',
+    _backdropFade: 'BackdropFace'
+};
+var COLOR_SCHEME_MAP = {
+    Button: true,
+    ButtonGroup: true,
+    IconButton: true,
+    Checkbox: true,
+    Radio: true,
+    Alert: true,
+    Badge: true,
+    CircularProgress: true,
+    Fab: true,
+    Modal: true,
+    Progress: true,
+    Switch: true,
+    Tag: true,
+    Slider: true,
+    SliderThumb: true,
+    // SliderTrack: true,
+    SliderFilledTrack: true
+};
+var init = function (inputResolvedStyledMap) {
+    // resolvedStyledMap = new Map();
+    if (inputResolvedStyledMap) {
+        exports.resolvedStyledMap = inputResolvedStyledMap;
+    }
+    if (process.env.NODE_ENV === 'development') {
+        //@ts-ignore
+        window['resolvedStyledMap'] = exports.resolvedStyledMap;
+        //@ts-ignore
+    }
+};
+var get = function (key) {
+    // console.log(key, 'key here 111');
+    // console.log(resolvedStyledMap[key], 'key here 111');
+    return exports.resolvedStyledMap[key];
+};
+var getThemeObject = function (componentName, colorMode, state) {
+    var styleObj = exports.resolvedStyledMap[componentName];
+    if (!styleObj || !styleObj[colorMode]) {
+        return {};
+    }
+    // Theme style
+    var styleSheet = styleObj[colorMode];
+    // state style
+    var stateStyles = getPseudoStateStyles(componentName, state);
+    lodash.forEach(stateStyles, function (stateStyleObj) {
+        if (stateStyleObj[colorMode]) {
+            styleSheet = styleSheet.concat(stateStyleObj[colorMode]);
+        }
+    });
+    var unResolvedPropsArray = lodash.map(styleSheet, 'unResolvedProps');
+    var unResolvedProps = {};
+    for (var _i = 0, unResolvedPropsArray_1 = unResolvedPropsArray; _i < unResolvedPropsArray_1.length; _i++) {
+        var props = unResolvedPropsArray_1[_i];
+        unResolvedProps = __assign(__assign({}, unResolvedProps), props);
+    }
+    var restDefaultPropsArray = lodash.map(styleSheet, 'restDefaultProps');
+    var restDefaultProps = {};
+    for (var _a = 0, restDefaultPropsArray_1 = restDefaultPropsArray; _a < restDefaultPropsArray_1.length; _a++) {
+        var props = restDefaultPropsArray_1[_a];
+        restDefaultProps = __assign(__assign({}, restDefaultProps), props);
+    }
+    var styleFromPropsArray = lodash.map(styleSheet, 'styleFromProps');
+    var styleFromProps = {};
+    for (var _b = 0, styleFromPropsArray_1 = styleFromPropsArray; _b < styleFromPropsArray_1.length; _b++) {
+        var props = styleFromPropsArray_1[_b];
+        styleFromProps = __assign(__assign({}, styleFromProps), props);
+    }
+    var internalPseudoPropsArray = lodash.map(styleSheet, 'internalPseudoProps');
+    var internalPseudoProps = {};
+    for (var _c = 0, internalPseudoPropsArray_1 = internalPseudoPropsArray; _c < internalPseudoPropsArray_1.length; _c++) {
+        var props = internalPseudoPropsArray_1[_c];
+        internalPseudoProps = __assign(__assign({}, internalPseudoProps), props);
+    }
+    return {
+        style: lodash.map(styleSheet, 'style'),
+        unResolvedProps: unResolvedProps,
+        styleFromProps: styleFromProps,
+        restDefaultProps: restDefaultProps,
+        internalPseudoProps: internalPseudoProps
+    };
+};
+var getComponentNameKeyFromProps = function (componentName, _a) {
+    var _b = _a === void 0 ? {} : _a, variant = _b.variant, colorScheme = _b.colorScheme;
+    var componentKeyName = componentName;
+    // const componentTheme = lodashGet(theme, `components.${componentName}`, {});
+    var colorSchemeKey = colorScheme;
+    // || componentTheme.defaultProps?.colorScheme;
+    var variantKey = variant;
+    // || componentTheme.defaultProps?.variant;
+    if (colorSchemeKey && variantKey) {
+        componentKeyName = "".concat(componentName, ".").concat(colorSchemeKey, ".").concat(variantKey);
+    }
+    else if (variantKey) {
+        componentKeyName = "".concat(componentName, ".").concat(variant);
+    }
+    else if (colorSchemeKey) {
+        componentKeyName = "".concat(componentName, ".").concat(colorSchemeKey);
+    }
+    return componentKeyName;
+};
+// const get
+var getThemeProps = function (inputComponentKeyName, config, state, props) {
+    if (props === void 0) { props = {}; }
+    // console.log(config, 'config here');
+    var componentNames = inputComponentKeyName.split('.');
+    var rootComponentName = componentNames[0];
+    var pseudoComponentKeyName = componentNames[1];
+    var componentKeyName = rootComponentName;
+    componentKeyName = getComponentNameKeyFromProps(rootComponentName, props);
+    if (pseudoComponentKeyName) {
+        componentKeyName = "".concat(componentKeyName, ".").concat(pseudoComponentKeyName);
+    }
+    var themeObj = getThemeObject(componentKeyName, config.colorMode, state);
+    if (isEmptyObj(themeObj)) {
+        // console.log('hello here 1111', inputComponentKeyName);
+        // updateComponentThemeMap(inputComponentKeyName, {}, config, {});
+        updateComponentThemeMap(inputComponentKeyName, {}, config, {
+            variant: props.variant,
+            colorScheme: props.colorScheme
+        });
+        themeObj = getThemeObject(componentKeyName, config.colorMode, state);
+    }
+    if (!isEmptyObj(themeObj) && props.size) {
+        var componentKeyNameForSize = "".concat(rootComponentName, ".").concat(props.size);
+        if (pseudoComponentKeyName) {
+            componentKeyNameForSize = "".concat(componentKeyNameForSize, ".").concat(pseudoComponentKeyName);
+        }
+        var sizeThemeObj = getThemeObject("".concat(componentKeyNameForSize), config.colorMode, state);
+        // console.log(
+        //   'hello 111 222',
+        //   // sizeThemeObj,
+        //   rootComponentName,
+        //   componentKeyNameForSize,
+        //   pseudoComponentKeyName,
+        //   inputComponentKeyName
+        // );
+        if (isEmptyObj(sizeThemeObj)) {
+            if (pseudoComponentKeyName) ;
+            else {
+                //   sizeThemeObj = getThemeObject(
+                //     `${rootComponentName}.${props.size}`,
+                //     config.colorMode,
+                //     state
+                //   );
+                //   console.log(
+                //     '&&&&&',
+                //     sizeThemeObj,
+                //     `${rootComponentName}.${props.size}`
+                //   );
+                // }
+                if (isEmptyObj(sizeThemeObj)) {
+                    // console.log(
+                    //   `${rootComponentName}.${pseudoComponentKeyName}`,
+                    //   componentKeyNameForSize,
+                    //   ' ***** ',
+                    //   pseudoComponentKeyName
+                    // );
+                    // console.log('hello 1111', rootComponentName);
+                    // debugger;
+                    updateComponentThemeMap(rootComponentName, {}, config, {
+                        size: props.size
+                    });
+                    sizeThemeObj = getThemeObject(componentKeyNameForSize, config.colorMode, state);
+                }
+            }
+        }
+        var mergedThemeObj = {
+            style: (sizeThemeObj === null || sizeThemeObj === void 0 ? void 0 : sizeThemeObj.style)
+                ? __spreadArray(__spreadArray([], themeObj === null || themeObj === void 0 ? void 0 : themeObj.style, true), sizeThemeObj === null || sizeThemeObj === void 0 ? void 0 : sizeThemeObj.style, true) : themeObj.style,
+            styleFromProps: lodash.merge({}, themeObj.styleFromProps, sizeThemeObj.styleFromProps),
+            unResolvedProps: lodash.merge({}, themeObj.unResolvedProps, sizeThemeObj.unResolvedProps),
+            internalPseudoProps: lodash.merge({}, themeObj.internalPseudoProps, sizeThemeObj.internalPseudoProps),
+            restDefaultProps: __assign(__assign({}, themeObj.restDefaultProps), sizeThemeObj.restDefaultProps)
+        };
+        themeObj = mergedThemeObj;
+    }
+    return themeObj;
+};
+var getResolvedProps = function (key, colorMode) {
+    var styleObj = exports.resolvedStyledMap[key];
+    if (!colorMode || !styleObj) {
+        return null;
+    }
+    return styleObj[colorMode]['styleFromProps'];
+};
+var isValidStateKey = function (stateKey, state) {
+    // console.log(stateKey, pseudoPropStateMap[stateKey], state, 'is valid');
+    try {
+        //@ts-ignore
+        return state[pseudoPropStateMap[stateKey]];
+    }
+    catch (e) {
+        return false;
+    }
+};
+var isValidState = function (key, state) {
+    // include only startWith("_")
+    var stateKeys = key.split('.');
+    var isValid = stateKeys.every(function (stateKey) {
+        if (isValidStateKey(stateKey, state)) {
+            return true;
+        }
+        return false;
+    });
+    // console.log(isValid, 'valid here');
+    return isValid;
+};
+var getPseudoStateStyles = function (componentName, state) {
+    var styleObj = [];
+    var stateStyleArray = [];
+    var componentStates = get(componentName);
+    // console.log(componentStates, '***** &&&&');
+    for (var k in componentStates) {
+        var value = componentStates[k];
+        // console.log(componentStates, k, componentName, 'value **&');
+        //get for _hover, _checked
+        if (k.startsWith('_')) {
+            // const pseudoPropKey = k.slice(componentName.length + 1);
+            stateStyleArray.push({ key: k, value: value });
+        }
+    }
+    // sort for specificity
+    stateStyleArray.sort(function (obj1, obj2) { return obj1.key.length - obj2.key.length; });
+    stateStyleArray.forEach(function (item) {
+        if (isValidState(item.key, state)) {
+            styleObj.push(item.value);
+        }
+    });
+    // console.log(styleObj, 'valid state *');
+    return styleObj;
+};
+// export const getResolvedStyleSheet = (
+//   componentName: string | Array<any>,
+//   colorMode?: ColorMode,
+//   state?: any,
+//   variant?: any,
+//   size?: any
+// ) => {
+//   if (typeof componentName !== 'string') {
+//     componentName = componentName.filter((item) => item).join('.');
+//     // console.log(componentName, 'component name &&&^');
+//   } else {
+//     if (variant && size) {
+//       componentName = `${componentName}.${variant}.${size}`;
+//     } else if (variant) {
+//       componentName = `${componentName}.${variant}`;
+//     } else if (size) {
+//       componentName = `${componentName}.${size}`;
+//     }
+//   }
+//   const styleObj: any = resolvedStyledMap.get(componentName);
+//   // console.log(componentName, colorMode, styleObj, 'component name &&&&&');
+//   if (!colorMode || !styleObj) {
+//     return null;
+//   }
+//   // Theme style
+//   const styleSheet = map(styleObj[colorMode], 'style');
+//   // state style
+//   const stateStyles = getPseudoStateStyles(componentName, state);
+//   forEach(stateStyles, (stateStyleObj) => {
+//     // console.log(
+//     //   componentName,
+//     //   stateStyleObj[colorMode].style,
+//     //   map(stateStyleObj[colorMode], 'style'),
+//     //   'hello component name )))'
+//     // );
+//     styleSheet.push(map(stateStyleObj[colorMode], 'style'));
+//   });
+//   return styleSheet;
+// };
+var set = function (key, value, colorMode) {
+    var _a;
+    var styledMap = exports.resolvedStyledMap[key];
+    if (!styledMap) {
+        exports.resolvedStyledMap[key] = (_a = {},
+            _a[colorMode] = [value],
+            _a);
+    }
+    else {
+        if (!styledMap[colorMode]) {
+            styledMap[colorMode] = [];
+        }
+        styledMap[colorMode].push(value);
+    }
+};
+var log = function () {
+    // console.log(resolvedStyledMap);
+};
+
+function mode(light, dark) {
+    return function (props) { return (props.colorMode === 'dark' ? dark : light); };
+}
+var transparentize = function (color, opacity) { return function (theme) {
+    var raw = getColor$1(theme, color);
+    return Color__default["default"](raw).setAlpha(opacity).toRgbString();
+}; };
+var getColor$1 = function (theme, color, fallback) {
+    var hex = get__default["default"](theme, "colors.".concat(color), color);
+    var isValid = Color__default["default"](hex).isValid();
+    return isValid ? hex : fallback;
+};
+function randomColor(opts) {
+    var fallback = Color__default["default"].random().toHexString();
+    if (!opts || isEmpty__default["default"](opts)) {
+        return fallback;
+    }
+    if (opts.string && opts.colors) {
+        return randomColorFromList(opts.string, opts.colors);
+    }
+    if (opts.string && !opts.colors) {
+        return randomColorFromString(opts.string);
+    }
+    if (opts.colors && !opts.string) {
+        return randomFromList(opts.colors);
+    }
+    return fallback;
+}
+function randomFromList(list) {
+    return list[Math.floor(Math.random() * list.length)];
+}
+function randomColorFromList(str, list) {
+    var index = 0;
+    if (str.length === 0)
+        return list[0];
+    for (var i = 0; i < str.length; i++) {
+        index = str.charCodeAt(i) + ((index << 5) - index);
+        index = index & index;
+    }
+    index = ((index % list.length) + list.length) % list.length;
+    return list[index];
+}
+function randomColorFromString(str) {
+    var hash = 0;
+    if (str.length === 0)
+        return hash.toString();
+    for (var i = 0; i < str.length; i++) {
+        hash = str.charCodeAt(i) + ((hash << 5) - hash);
+        hash = hash & hash;
+    }
+    var color = '#';
+    for (var j = 0; j < 3; j++) {
+        var value = (hash >> (j * 8)) & 255;
+        color += ('00' + value.toString(16)).substr(-2);
+    }
+    return color;
+}
+
+function getRandomString(length) {
+    var result = '';
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+}
+function getColorFormColorScheme(props) {
+    var theme = props.theme, colorScheme = props.colorScheme, isDisabled = props.isDisabled;
+    var simpleColorScheme = colorScheme.split('.')[0];
+    if (isDisabled)
+        return 'gray.300';
+    else if (simpleColorScheme in theme.colors) {
+        return theme.colors[simpleColorScheme][0] === '#'
+            ? simpleColorScheme
+            : theme.colors[simpleColorScheme][400] ||
+                theme.colors[simpleColorScheme][200];
+    }
+    else
+        return 'primary.200';
+}
+// TODO: This function can be removed.
+function getColorScheme(props, customColorScheme) {
+    var theme = props.theme, colorScheme = props.colorScheme;
+    colorScheme = customColorScheme || colorScheme;
+    if (!(colorScheme in theme.colors))
+        return 'primary';
+    else {
+        if (typeof theme.colors[colorScheme] === 'object')
+            return colorScheme;
+    }
+}
+var inValidBreakpointProps = ['style', 'children', 'shadowOffset'];
+function hasValidBreakpointFormat(breaks, themeBreakpoints, property) {
+    if (property && inValidBreakpointProps.indexOf(property) !== -1) {
+        return false;
+    }
+    else if (Array.isArray(breaks)) {
+        return breaks.length ? true : false;
+    }
+    else if (typeof breaks === 'object' && breaks !== null) {
+        var keys = Object.keys(breaks);
+        var themeBreakPointKeys = Object.keys(themeBreakpoints);
+        for (var i = 0; i < keys.length; i++) {
+            if (themeBreakPointKeys.indexOf(keys[i]) === -1) {
+                return false;
+            }
+        }
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+function findLastValidBreakpoint(values, themeBreakpoints, currentBreakpoint) {
+    var _a;
+    var valArray = Array.isArray(values)
+        ? values
+        : Object.keys(themeBreakpoints).map(function (bPoint) { return values[bPoint]; });
+    return ((_a = valArray[currentBreakpoint]) !== null && _a !== void 0 ? _a : valArray
+        .slice(0, currentBreakpoint + 1)
+        .filter(function (v) { return !isNil__default["default"](v); })
+        .pop());
+}
+
+var isNumber = function (n) { return typeof n === 'number' && !isNaN(n); };
+var getColor = function (rawValue, scale, theme) {
+    var alphaMatched = typeof rawValue === 'string' ? rawValue === null || rawValue === void 0 ? void 0 : rawValue.match(/:alpha\.\d\d?\d?/) : false;
+    if (alphaMatched) {
+        var colorMatched = rawValue === null || rawValue === void 0 ? void 0 : rawValue.match(/^.*?(?=:alpha)/);
+        var color_1 = colorMatched ? colorMatched[0] : colorMatched;
+        var alphaValue = alphaMatched[0].split('.')[1];
+        var alphaFromToken = get__default["default"](theme.opacity, alphaValue, alphaValue);
+        var alpha = alphaFromToken ? parseFloat(alphaFromToken) : 1;
+        var newColor = transparentize(color_1, alpha)(theme);
+        return newColor;
+    }
+    else {
+        return get__default["default"](scale, rawValue, rawValue);
+    }
+};
+// To handle negative margins
+var getMargin = function (n, scale) {
+    n = convertStringNumberToNumber('margin', n);
+    if (!isNumber(n)) {
+        return get__default["default"](scale, n, n);
+    }
+    var isNegative = n < 0;
+    var absolute = Math.abs(n);
+    var value = get__default["default"](scale, absolute, absolute);
+    if (!isNumber(value)) {
+        return isNegative ? '-' + value : value;
+    }
+    return value * (isNegative ? -1 : 1);
+};
+var layout = {
+    width: {
+        property: 'width',
+        scale: 'sizes'
+    },
+    w: {
+        property: 'width',
+        scale: 'sizes'
+    },
+    height: {
+        property: 'height',
+        scale: 'sizes'
+    },
+    h: {
+        property: 'height',
+        scale: 'sizes'
+    },
+    minWidth: {
+        property: 'minWidth',
+        scale: 'sizes'
+    },
+    minW: {
+        property: 'minWidth',
+        scale: 'sizes'
+    },
+    minHeight: {
+        property: 'minHeight',
+        scale: 'sizes'
+    },
+    minH: {
+        property: 'minHeight',
+        scale: 'sizes'
+    },
+    maxWidth: {
+        property: 'maxWidth',
+        scale: 'sizes'
+    },
+    maxW: {
+        property: 'maxWidth',
+        scale: 'sizes'
+    },
+    maxHeight: {
+        property: 'maxHeight',
+        scale: 'sizes'
+    },
+    maxH: {
+        property: 'maxHeight',
+        scale: 'sizes'
+    },
+    size: {
+        properties: ['width', 'height'],
+        scale: 'sizes'
+    },
+    boxSize: {
+        properties: ['width', 'height'],
+        scale: 'sizes'
+    },
+    overflow: true,
+    overflowX: true,
+    overflowY: true,
+    display: true,
+    verticalAlign: true,
+    textAlign: true
+};
+var flexbox = {
+    alignItems: true,
+    alignContent: true,
+    justifyItems: true,
+    justifyContent: true,
+    flexWrap: true,
+    flexDirection: true,
+    flexDir: {
+        property: 'flexDirection'
+    },
+    // item
+    flex: true,
+    flexGrow: true,
+    flexShrink: true,
+    flexBasis: true,
+    justifySelf: true,
+    alignSelf: true,
+    order: true
+};
+var position = {
+    position: true,
+    zIndex: {
+        property: 'zIndex'
+    },
+    top: {
+        property: 'top',
+        scale: 'space'
+    },
+    right: {
+        property: 'right',
+        scale: 'space'
+    },
+    bottom: {
+        property: 'bottom',
+        scale: 'space'
+    },
+    left: {
+        property: 'left',
+        scale: 'space'
+    }
+};
+var color = {
+    color: {
+        property: 'color',
+        scale: 'colors',
+        transformer: getColor
+    },
+    tintColor: {
+        property: 'tintColor',
+        scale: 'colors',
+        transformer: getColor
+    },
+    backgroundColor: {
+        property: 'backgroundColor',
+        scale: 'colors',
+        transformer: getColor
+    },
+    opacity: {
+        property: 'opacity',
+        scale: 'opacity'
+    },
+    bg: {
+        property: 'backgroundColor',
+        scale: 'colors',
+        transformer: getColor
+    },
+    bgColor: {
+        property: 'backgroundColor',
+        scale: 'colors',
+        transformer: getColor
+    },
+    background: {
+        property: 'backgroundColor',
+        scale: 'colors',
+        transformer: getColor
+    },
+    textDecorationColor: {
+        property: 'textDecorationColor',
+        scale: 'colors',
+        transformer: getColor
+    }
+};
+var border = {
+    borderWidth: {
+        property: 'borderWidth',
+        scale: 'borderWidths'
+    },
+    borderStyle: {
+        property: 'borderStyle',
+        scale: 'borderStyles'
+    },
+    borderColor: {
+        property: 'borderColor',
+        scale: 'colors',
+        transformer: getColor
+    },
+    borderRadius: {
+        property: 'borderRadius',
+        scale: 'radii'
+    },
+    borderTop: {
+        property: 'borderTop',
+        scale: 'borders'
+    },
+    borderTopRadius: {
+        properties: ['borderTopLeftRadius', 'borderTopRightRadius'],
+        scale: 'radii'
+    },
+    borderLeftRadius: {
+        properties: ['borderTopLeftRadius', 'borderBottomLeftRadius'],
+        scale: 'radii'
+    },
+    borderRightRadius: {
+        properties: ['borderTopRightRadius', 'borderBottomRightRadius'],
+        scale: 'radii'
+    },
+    borderTopLeftRadius: {
+        property: 'borderTopLeftRadius',
+        scale: 'radii'
+    },
+    borderTopRightRadius: {
+        property: 'borderTopRightRadius',
+        scale: 'radii'
+    },
+    borderRight: {
+        property: 'borderRight',
+        scale: 'borders'
+    },
+    borderBottom: {
+        property: 'borderBottom',
+        scale: 'borders'
+    },
+    borderBottomLeftRadius: {
+        property: 'borderBottomLeftRadius',
+        scale: 'radii'
+    },
+    borderBottomRightRadius: {
+        property: 'borderBottomRightRadius',
+        scale: 'radii'
+    },
+    borderLeft: {
+        property: 'borderLeft',
+        scale: 'borders'
+    },
+    borderX: {
+        properties: ['borderLeft', 'borderRight'],
+        scale: 'borders'
+    },
+    borderY: {
+        properties: ['borderTop', 'borderBottom'],
+        scale: 'borders'
+    },
+    borderTopWidth: {
+        property: 'borderTopWidth',
+        scale: 'borderWidths'
+    },
+    borderTopColor: {
+        property: 'borderTopColor',
+        scale: 'colors',
+        transformer: getColor
+    },
+    borderTopStyle: {
+        property: 'borderTopStyle',
+        scale: 'borderStyles'
+    },
+    borderBottomWidth: {
+        property: 'borderBottomWidth',
+        scale: 'borderWidths'
+    },
+    borderBottomColor: {
+        property: 'borderBottomColor',
+        scale: 'colors',
+        transformer: getColor
+    },
+    borderBottomStyle: {
+        property: 'borderBottomStyle',
+        scale: 'borderStyles'
+    },
+    borderLeftWidth: {
+        property: 'borderLeftWidth',
+        scale: 'borderWidths'
+    },
+    borderLeftColor: {
+        property: 'borderLeftColor',
+        scale: 'colors',
+        transformer: getColor
+    },
+    borderLeftStyle: {
+        property: 'borderLeftStyle',
+        scale: 'borderStyles'
+    },
+    borderRightWidth: {
+        property: 'borderRightWidth',
+        scale: 'borderWidths'
+    },
+    borderRightColor: {
+        property: 'borderRightColor',
+        scale: 'colors',
+        transformer: getColor
+    },
+    borderRightStyle: {
+        property: 'borderRightStyle',
+        scale: 'borderStyles'
+    },
+    rounded: {
+        property: 'borderRadius',
+        scale: 'radii'
+    },
+    roundedTopLeft: {
+        property: 'borderTopLeftRadius',
+        scale: 'radii'
+    },
+    roundedTopRight: {
+        property: 'borderTopRightRadius',
+        scale: 'radii'
+    },
+    roundedBottomLeft: {
+        property: 'borderBottomLeftRadius',
+        scale: 'radii'
+    },
+    roundedBottomRight: {
+        property: 'borderBottomRightRadius',
+        scale: 'radii'
+    },
+    roundedTop: {
+        properties: ['borderTopLeftRadius', 'borderTopRightRadius'],
+        scale: 'radii'
+    },
+    borderBottomRadius: {
+        properties: ['borderBottomLeftRadius', 'borderBottomRightRadius'],
+        scale: 'radii'
+    },
+    roundedBottom: {
+        properties: ['borderBottomLeftRadius', 'borderBottomRightRadius'],
+        scale: 'radii'
+    },
+    roundedLeft: {
+        properties: ['borderTopLeftRadius', 'borderBottomLeftRadius'],
+        scale: 'radii'
+    },
+    roundedRight: {
+        properties: ['borderTopRightRadius', 'borderBottomRightRadius'],
+        scale: 'radii'
+    }
+};
+var background = {
+    backgroundSize: true,
+    backgroundPosition: true,
+    backgroundRepeat: true,
+    backgroundAttachment: true,
+    backgroundBlendMode: true,
+    bgImage: {
+        property: 'backgroundImage'
+    },
+    bgImg: {
+        property: 'backgroundImage'
+    },
+    bgBlendMode: {
+        property: 'backgroundBlendMode'
+    },
+    bgSize: {
+        property: 'backgroundSize'
+    },
+    bgPosition: {
+        property: 'backgroundPosition'
+    },
+    bgPos: {
+        property: 'backgroundPosition'
+    },
+    bgRepeat: {
+        property: 'backgroundRepeat'
+    },
+    bgAttachment: {
+        property: 'backgroundAttachment'
+    }
+};
+var space = {
+    margin: {
+        property: 'margin',
+        scale: 'space',
+        transformer: getMargin
+    },
+    m: {
+        property: 'margin',
+        scale: 'space',
+        transformer: getMargin
+    },
+    marginTop: {
+        property: 'marginTop',
+        scale: 'space',
+        transformer: getMargin
+    },
+    mt: {
+        property: 'marginTop',
+        scale: 'space',
+        transformer: getMargin
+    },
+    marginRight: {
+        property: 'marginRight',
+        scale: 'space',
+        transformer: getMargin
+    },
+    mr: {
+        property: 'marginRight',
+        scale: 'space',
+        transformer: getMargin
+    },
+    marginBottom: {
+        property: 'marginBottom',
+        scale: 'space',
+        transformer: getMargin
+    },
+    mb: {
+        property: 'marginBottom',
+        scale: 'space',
+        transformer: getMargin
+    },
+    marginLeft: {
+        property: 'marginLeft',
+        scale: 'space',
+        transformer: getMargin
+    },
+    ml: {
+        property: 'marginLeft',
+        scale: 'space',
+        transformer: getMargin
+    },
+    marginX: {
+        properties: ['marginLeft', 'marginRight'],
+        scale: 'space',
+        transformer: getMargin
+    },
+    mx: {
+        properties: ['marginLeft', 'marginRight'],
+        scale: 'space',
+        transformer: getMargin
+    },
+    marginY: {
+        properties: ['marginTop', 'marginBottom'],
+        scale: 'space',
+        transformer: getMargin
+    },
+    my: {
+        properties: ['marginTop', 'marginBottom'],
+        scale: 'space',
+        transformer: getMargin
+    },
+    padding: {
+        property: 'padding',
+        scale: 'space'
+    },
+    p: {
+        property: 'padding',
+        scale: 'space'
+    },
+    paddingTop: {
+        property: 'paddingTop',
+        scale: 'space'
+    },
+    pt: {
+        property: 'paddingTop',
+        scale: 'space'
+    },
+    paddingRight: {
+        property: 'paddingRight',
+        scale: 'space'
+    },
+    pr: {
+        property: 'paddingRight',
+        scale: 'space'
+    },
+    paddingBottom: {
+        property: 'paddingBottom',
+        scale: 'space'
+    },
+    pb: {
+        property: 'paddingBottom',
+        scale: 'space'
+    },
+    paddingLeft: {
+        property: 'paddingLeft',
+        scale: 'space'
+    },
+    pl: {
+        property: 'paddingLeft',
+        scale: 'space'
+    },
+    paddingX: {
+        properties: ['paddingLeft', 'paddingRight'],
+        scale: 'space'
+    },
+    px: {
+        properties: ['paddingLeft', 'paddingRight'],
+        scale: 'space'
+    },
+    paddingY: {
+        properties: ['paddingTop', 'paddingBottom'],
+        scale: 'space'
+    },
+    py: {
+        properties: ['paddingTop', 'paddingBottom'],
+        scale: 'space'
+    },
+    gap: {
+        property: 'gap',
+        scale: 'space'
+    }
+};
+var typography$1 = {
+    fontFamily: {
+        property: 'fontFamily',
+        scale: 'fonts',
+        transformer: function (val, scale) {
+            var value = get__default["default"](scale, val);
+            return value ? value.toString() : undefined;
+        }
+    },
+    fontSize: {
+        property: 'fontSize',
+        scale: 'fontSizes'
+    },
+    fontWeight: {
+        property: 'fontWeight',
+        scale: 'fontWeights',
+        transformer: function (val, scale) {
+            return val ? get__default["default"](scale, val, val).toString() : val;
+        }
+    },
+    lineHeight: {
+        property: 'lineHeight',
+        scale: 'lineHeights'
+    },
+    letterSpacing: {
+        property: 'letterSpacing',
+        scale: 'letterSpacings'
+    },
+    textAlign: true,
+    fontStyle: true,
+    wordBreak: true,
+    overflowWrap: true,
+    textOverflow: true,
+    textTransform: true,
+    whiteSpace: true,
+    textDecoration: { property: 'textDecorationLine' },
+    txtDecor: { property: 'textDecorationLine' },
+    textDecorationLine: true
+};
+var extraProps = {
+    outline: true,
+    outlineWidth: true,
+    outlineColor: true,
+    outlineStyle: true,
+    shadow: {
+        scale: 'shadows'
+    },
+    cursor: true,
+    overflow: true,
+    userSelect: { property: 'userSelect' }
+};
+var propConfig = __assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign({}, color), space), layout), flexbox), border), position), typography$1), background), extraProps);
+// For backward compatibility with 3.0 of props like non token string numbers `<Box mt={"39"} />` => used to get applied as 39px. RN expects fontWeight to be string and crashes with numbers
+// https://reactnative.dev/docs/text-style-props#fontweight
+var convertStringNumberToNumber = function (key, value) {
+    if (typeof value === 'string' &&
+        key !== 'fontWeight' &&
+        value &&
+        !isNaN(Number(value))) {
+        return parseFloat(value);
+    }
+    return value;
+};
+var getRNKeyAndStyleValue = function (_a) {
+    var _b, _c;
+    var config = _a.config, value = _a.value, key = _a.key, theme = _a.theme, styledSystemProps = _a.styledSystemProps, currentBreakpoint = _a.currentBreakpoint, platform = _a.platform;
+    var style = {};
+    if (config === true) {
+        style = __assign(__assign({}, style), (_b = {}, _b[key] = convertStringNumberToNumber(key, value), _b));
+    }
+    else if (config) {
+        //@ts-ignore
+        var property = config.property, scale = config.scale, properties = config.properties, transformer = config.transformer;
+        var val_1 = value;
+        // console.log('zzzz style system props', theme, scale, value, transformer);
+        if (transformer) {
+            val_1 = transformer(val_1, theme[scale], theme, styledSystemProps.fontSize);
+        }
+        else {
+            // If a token is not found in the theme
+            val_1 = get__default["default"](theme[scale], value, value);
+        }
+        if (typeof val_1 === 'string') {
+            if (val_1.endsWith('px')) {
+                val_1 = parseFloat(val_1);
+                //TODO: build-time
+                // } else if (val.endsWith('em') && Platform.OS !== 'web') {
+            }
+            else if (val_1.endsWith('em') && platform !== 'web') {
+                var fontSize = resolveValueWithBreakpoint(styledSystemProps.fontSize, theme.breakpoints, currentBreakpoint, key);
+                val_1 =
+                    parseFloat(val_1) *
+                        parseFloat(get__default["default"](theme.fontSizes, fontSize, fontSize));
+            }
+        }
+        val_1 = convertStringNumberToNumber(key, val_1);
+        if (properties) {
+            //@ts-ignore
+            properties.forEach(function (property) {
+                var _a;
+                style = __assign(__assign({}, style), (_a = {}, _a[property] = val_1, _a));
+            });
+        }
+        else if (property) {
+            style = __assign(__assign({}, style), (_c = {}, _c[property] = val_1, _c));
+        }
+        else {
+            style = __assign(__assign({}, style), val_1);
+        }
+    }
+    return style;
+};
+var getStyleAndFilteredProps = function (_a) {
+    var _b;
+    var theme = _a.theme, currentBreakpoint = _a.currentBreakpoint, getResponsiveStyles = _a.getResponsiveStyles, styledSystemProps = _a.styledSystemProps, platform = _a.platform;
+    var styleFromProps = {};
+    var restDefaultProps = {};
+    var unResolvedProps = {};
+    var dataSet = {};
+    var responsiveStyles = null;
+    // console.log(styledSystemProps, '&&&&&');
+    var orderedBreakPoints = Object.entries(
+    //@ts-ignore
+    theme.breakpoints
+    //@ts-ignore
+    ).sort(function (a, b) { return a[1] - b[1]; });
+    var _loop_1 = function (key) {
+        var _d, _e;
+        var rawValue = styledSystemProps[key];
+        var config = propConfig[key];
+        // TODO: refactor
+        // Start: For edge cases
+        if (!getResponsiveStyles &&
+            hasValidBreakpointFormat(rawValue, theme.breakpoints)) {
+            unResolvedProps[key] = rawValue;
+        }
+        // TODO: refactor space prop for Stack Component
+        // if (key === 'space') {
+        //   unResolvedProps[key] = rawValue;
+        // }
+        // End: For edge cases
+        if (hasValidBreakpointFormat(rawValue, theme.breakpoints)) {
+            if (!responsiveStyles)
+                responsiveStyles = {};
+            var value = rawValue;
+            if (Array.isArray(value)) {
+                value.forEach(function (v, i) {
+                    //@ts-ignore
+                    if (!responsiveStyles[orderedBreakPoints[i][0]]) {
+                        //@ts-ignore
+                        responsiveStyles[orderedBreakPoints[i][0]] = [];
+                    }
+                    var newStyle = getRNKeyAndStyleValue({
+                        config: config,
+                        value: v,
+                        key: key,
+                        styledSystemProps: styledSystemProps,
+                        theme: theme,
+                        currentBreakpoint: currentBreakpoint,
+                        platform: platform
+                    });
+                    //@ts-ignore
+                    responsiveStyles[orderedBreakPoints[i][0]].push(newStyle);
+                });
+            }
+            else {
+                // console.log('hello 111222', key, value);
+                for (var k in value) {
+                    var newStyle = getRNKeyAndStyleValue({
+                        config: config,
+                        value: value[k],
+                        key: key,
+                        styledSystemProps: styledSystemProps,
+                        theme: theme,
+                        currentBreakpoint: currentBreakpoint,
+                        platform: platform
+                    });
+                    if (!responsiveStyles[k]) {
+                        responsiveStyles[k] = [];
+                    }
+                    responsiveStyles[k].push(newStyle);
+                }
+                // console.log('hello 111222', key, value, responsiveStyles);
+            }
+        }
+        else {
+            var value = rawValue;
+            // if (styledSystemProps?.extraProp?.endsWith('Icon')) {
+            //   console.log(styledSystemProps?.extraProp, 'hello flatten here22');
+            // }
+            //TODO: refactor
+            if (key === 'size' ||
+                (((_b = styledSystemProps === null || styledSystemProps === void 0 ? void 0 : styledSystemProps.extraProp) === null || _b === void 0 ? void 0 : _b.endsWith('.Icon')) && key === 'color')) {
+                restDefaultProps = __assign(__assign({}, restDefaultProps), (_d = {}, _d[key] = value, _d));
+            }
+            else {
+                var newStyle = getRNKeyAndStyleValue({
+                    config: config,
+                    value: value,
+                    key: key,
+                    styledSystemProps: styledSystemProps,
+                    theme: theme,
+                    currentBreakpoint: currentBreakpoint,
+                    platform: platform
+                });
+                // TODO: refactor
+                if (isEmptyObj(newStyle) &&
+                    !key.startsWith('_') &&
+                    key !== 'extraProp' &&
+                    key !== 'colorScheme' &&
+                    // key !== 'style' &&
+                    key !== 'variants' &&
+                    key !== 'sizes' &&
+                    key !== 'variant') {
+                    restDefaultProps = __assign(__assign({}, restDefaultProps), (_e = {}, _e[key] = value, _e));
+                }
+                styleFromProps = __assign(__assign({}, styleFromProps), newStyle);
+            }
+        }
+    };
+    for (var key in styledSystemProps) {
+        _loop_1(key);
+    }
+    if (responsiveStyles) {
+        if (getResponsiveStyles) {
+            var query_1 = { query: [] };
+            orderedBreakPoints.forEach(function (o) {
+                var _a;
+                var key = o[0];
+                if (key === 'base') {
+                    if (responsiveStyles)
+                        query_1.initial = responsiveStyles.base;
+                }
+                else {
+                    if (responsiveStyles)
+                        if (key in responsiveStyles) {
+                            (_a = query_1 === null || query_1 === void 0 ? void 0 : query_1.query) === null || _a === void 0 ? void 0 : _a.push({
+                                //@ts-ignore
+                                minWidth: o[1],
+                                style: responsiveStyles[key]
+                            });
+                        }
+                }
+            });
+            // console.log('hello responsive', orderedBreakPoints, responsiveStyles);
+            var _c = getResponsiveStyles(query_1), newDataSet = _c.dataSet, styles = _c.styles;
+            dataSet = __assign(__assign({}, dataSet), newDataSet);
+            styleFromProps = __assign(__assign({}, styleFromProps), styles);
+            //TODO: build-time
+            // styleFromProps = { ...styleFromProps };
+        }
+    }
+    // if (process.env.NODE_ENV === 'development' && debug) {
+    //   /* eslint-disable-next-line */
+    //   console.log('style ', debug + ' :: ', {
+    //     styleFromProps,
+    //     style,
+    //     styledSystemProps,
+    //   });
+    // }
+    // if (styleFromProps.backgroundColor === 'white.600') {
+    //   console.log(
+    //     styleFromProps,
+    //     styledSystemProps.extraProp,
+    //     'style from props *****'
+    //   );
+    // }
+    return {
+        //TODO: build-time
+        styleSheet: {},
+        styleFromProps: styleFromProps,
+        restDefaultProps: restDefaultProps,
+        dataSet: dataSet,
+        unResolvedProps: unResolvedProps
+    };
+};
+
+var _a;
+// import {
+//   findLastValidBreakpoint,
+//   hasValidBreakpointFormat,
+// } from './../../theme/tools';
+var SPECIFICITY_1000 = 1000;
+var SPECIFICITY_110 = 110;
+var SPECIFICITY_100 = 100;
+var SPECIFICITY_70 = 70;
+var SPECIFICITY_60 = 60;
+var SPECIFICITY_55 = 55;
+var SPECIFICITY_50 = 50;
+var SPECIFICITY_40 = 40;
+var SPECIFICITY_30 = 30;
+// SPECIFICITY_20 is being user for defferentiating between User Props and Theme Props. So any specificity less than SPECIFICITY_20 will be ovridable by user props.
+var SPECIFICITY_20 = 20;
+var SPECIFICITY_10 = 10;
+var specificityPrecedence = [
+    SPECIFICITY_1000,
+    SPECIFICITY_110,
+    SPECIFICITY_100,
+    SPECIFICITY_70,
+    SPECIFICITY_60,
+    SPECIFICITY_55,
+    SPECIFICITY_50,
+    SPECIFICITY_40,
+    SPECIFICITY_30,
+    SPECIFICITY_20,
+    SPECIFICITY_10,
+];
+var INITIAL_PROP_SPECIFICITY = (_a = {},
+    _a[SPECIFICITY_1000] = 0,
+    _a[SPECIFICITY_110] = 0,
+    _a[SPECIFICITY_100] = 0,
+    _a[SPECIFICITY_70] = 0,
+    _a[SPECIFICITY_60] = 0,
+    _a[SPECIFICITY_50] = 0,
+    _a[SPECIFICITY_55] = 0,
+    _a[SPECIFICITY_40] = 0,
+    _a[SPECIFICITY_30] = 0,
+    _a[SPECIFICITY_20] = 0,
+    _a[SPECIFICITY_10] = 0,
+    _a);
+var pseudoPropsMap = {
+    _web: { dependentOn: 'platform', priority: SPECIFICITY_10 },
+    _ios: { dependentOn: 'platform', priority: SPECIFICITY_10 },
+    _android: { dependentOn: 'platform', priority: SPECIFICITY_10 },
+    _light: { dependentOn: 'colormode', priority: SPECIFICITY_10 },
+    _dark: { dependentOn: 'colormode', priority: SPECIFICITY_10 },
+    // TODO: have to add more interactionProps and stateProps
+    _indeterminate: {
+        dependentOn: 'state',
+        respondTo: 'isIndeterminate',
+        priority: SPECIFICITY_30
+    },
+    _checked: {
+        dependentOn: 'state',
+        respondTo: 'isChecked',
+        priority: SPECIFICITY_30
+    },
+    // Add new pseudeo props in between -------
+    _readOnly: {
+        dependentOn: 'state',
+        respondTo: 'isReadOnly',
+        priority: SPECIFICITY_30
+    },
+    // Add new pseudeo props in between -------
+    _invalid: {
+        dependentOn: 'state',
+        respondTo: 'isInvalid',
+        priority: SPECIFICITY_40
+    },
+    _focus: {
+        dependentOn: 'state',
+        respondTo: 'isFocused',
+        priority: SPECIFICITY_50
+    },
+    _focusVisible: {
+        dependentOn: 'state',
+        respondTo: 'isFocusVisible',
+        priority: SPECIFICITY_55
+    },
+    _hover: {
+        dependentOn: 'state',
+        respondTo: 'isHovered',
+        priority: SPECIFICITY_60
+    },
+    _pressed: {
+        dependentOn: 'state',
+        respondTo: 'isPressed',
+        priority: SPECIFICITY_70
+    },
+    _disabled: {
+        dependentOn: 'state',
+        respondTo: 'isDisabled',
+        priority: SPECIFICITY_100
+    },
+    _reversed: {
+        dependentOn: 'state',
+        respondTo: 'isReversed',
+        priority: SPECIFICITY_100
+    },
+    _loading: {
+        dependentOn: 'state',
+        respondTo: 'isLoading',
+        priority: SPECIFICITY_110
+    },
+    _important: {
+        dependentOn: null,
+        priority: SPECIFICITY_1000
+    }
+};
+var SPREAD_PROP_SPECIFICITY_ORDER = [
+    'p',
+    'padding',
+    'px',
+    'py',
+    'pt',
+    'pb',
+    'pl',
+    'pr',
+    'paddingTop',
+    'paddingBottom',
+    'paddingLeft',
+    'paddingRight',
+    'm',
+    'margin',
+    'mx',
+    'my',
+    'mt',
+    'mb',
+    'ml',
+    'mr',
+    'marginTop',
+    'marginBottom',
+    'marginLeft',
+    'marginRight',
+];
+var FINAL_SPREAD_PROPS = [
+    'paddingTop',
+    'paddingBottom',
+    'paddingLeft',
+    'paddingRight',
+    'marginTop',
+    'marginBottom',
+    'marginLeft',
+    'marginRight',
+];
+var MARGIN_MAP = {
+    mx: ['marginRight', 'marginLeft'],
+    my: ['marginTop', 'marginBottom'],
+    mt: ['marginTop'],
+    mb: ['marginBottom'],
+    mr: ['marginRight'],
+    ml: ['marginLeft']
+};
+MARGIN_MAP.margin = __spreadArray(__spreadArray([], MARGIN_MAP.mx, true), MARGIN_MAP.my, true);
+MARGIN_MAP.m = MARGIN_MAP.margin;
+MARGIN_MAP.marginTop = MARGIN_MAP.mt;
+MARGIN_MAP.marginBottom = MARGIN_MAP.mb;
+MARGIN_MAP.marginLeft = MARGIN_MAP.ml;
+MARGIN_MAP.marginRight = MARGIN_MAP.mr;
+var PADDING_MAP = {
+    px: ['paddingRight', 'paddingLeft'],
+    py: ['paddingTop', 'paddingBottom'],
+    pt: ['paddingTop'],
+    pb: ['paddingBottom'],
+    pr: ['paddingRight'],
+    pl: ['paddingLeft']
+};
+PADDING_MAP.padding = __spreadArray(__spreadArray([], PADDING_MAP.px, true), PADDING_MAP.py, true);
+PADDING_MAP.p = PADDING_MAP.padding;
+PADDING_MAP.paddingTop = PADDING_MAP.pt;
+PADDING_MAP.paddingBottom = PADDING_MAP.pb;
+PADDING_MAP.paddingLeft = PADDING_MAP.pl;
+PADDING_MAP.paddingRight = PADDING_MAP.pr;
+var SPREAD_PROP_SPECIFICITY_MAP = __assign(__assign({}, PADDING_MAP), MARGIN_MAP);
+function propsSpreader(incomingProps, incomingSpecifity) {
+    var flattenedDefaultProps = __assign({}, incomingProps);
+    var specificity = {};
+    SPREAD_PROP_SPECIFICITY_ORDER.forEach(function (prop) {
+        if (prop in flattenedDefaultProps) {
+            var val_1 = incomingProps[prop] || flattenedDefaultProps[prop];
+            if (!FINAL_SPREAD_PROPS.includes(prop)) {
+                delete flattenedDefaultProps[prop];
+                specificity[prop] = incomingSpecifity[prop];
+            }
+            SPREAD_PROP_SPECIFICITY_MAP[prop].forEach(function (newProp) {
+                if (compareSpecificity(specificity[newProp], specificity[prop])) {
+                    specificity[newProp] = incomingSpecifity[prop];
+                    flattenedDefaultProps[newProp] = val_1;
+                }
+            });
+        }
+    });
+    return merge__default["default"]({}, flattenedDefaultProps);
+}
+var compareSpecificity = function (exisiting, upcoming, ignorebaseTheme
+// property?: any
+) {
+    if (!exisiting)
+        return true;
+    if (!upcoming)
+        return false;
+    var condition = ignorebaseTheme
+        ? specificityPrecedence.length - 1
+        : specificityPrecedence.length;
+    for (var index = 0; index < condition; index++) {
+        if (exisiting[specificityPrecedence[index]] >
+            upcoming[specificityPrecedence[index]]) {
+            return false;
+        }
+        else if (exisiting[specificityPrecedence[index]] <
+            upcoming[specificityPrecedence[index]]) {
+            return true;
+        }
+    }
+    return true;
+};
+var shouldResolvePseudoProp = function (_a) {
+    var property = _a.property, state = _a.state, platform = _a.platform, colormode = _a.colormode;
+    if (pseudoPropsMap[property].dependentOn === 'platform') {
+        return property === "_".concat(platform);
+    }
+    else if (pseudoPropsMap[property].dependentOn === 'colormode') {
+        return property === "_".concat(colormode);
+    }
+    else if (pseudoPropsMap[property].dependentOn === 'state') {
+        // @ts-ignore
+        return state[pseudoPropsMap[property].respondTo];
+    }
+    else if (pseudoPropsMap[property].dependentOn === null) {
+        return true;
+    }
+    else {
+        return false;
+    }
+};
+var simplifyProps = function (_a, flattenProps, specificityMap, priority) {
+    var _b;
+    var _c;
+    var props = _a.props, colormode = _a.colormode, platform = _a.platform, state = _a.state, currentSpecificity = _a.currentSpecificity, previouslyFlattenProps = _a.previouslyFlattenProps, cascadePseudoProps = _a.cascadePseudoProps;
+    if (flattenProps === void 0) { flattenProps = {}; }
+    if (specificityMap === void 0) { specificityMap = {}; }
+    var mergePsuedoProps = function (property, propertySpecity) {
+        if (compareSpecificity(specificityMap[property], propertySpecity, false)) {
+            if (process.env.NODE_ENV === 'development' && props.debug) {
+                /* eslint-disable-next-line */
+                console.log("%c ".concat(property), 'color: #818cf8;', 'updated as internal prop with higher specificity');
+            }
+            specificityMap[property] = propertySpecity;
+            // merging internal props (like, _text, _stack ...)
+            flattenProps[property] = merge__default["default"]({}, flattenProps[property], props[property]);
+        }
+        else {
+            if (process.env.NODE_ENV === 'development' && props.debug) {
+                /* eslint-disable-next-line */
+                console.log("%c ".concat(property), 'color: #818cf8;', 'updated as internal prop with lower specificity');
+            }
+            flattenProps[property] = merge__default["default"]({}, props[property], flattenProps[property]);
+        }
+    };
+    for (var property in props) {
+        // NOTE: the order is important here. Keep in mind while specificity breakpoints.
+        var propertySpecity = currentSpecificity
+            ? __assign({}, currentSpecificity) : __assign(__assign({}, INITIAL_PROP_SPECIFICITY), (_b = {}, _b[SPECIFICITY_20] = priority, _b));
+        if (
+        // @ts-ignore
+        state[(_c = pseudoPropsMap[property]) === null || _c === void 0 ? void 0 : _c.respondTo] ||
+            ['_dark', '_light', '_web', '_ios', '_android', '_important'].includes(property)) {
+            // @ts-ignore
+            if (shouldResolvePseudoProp({ property: property, state: state, platform: platform, colormode: colormode })) {
+                // NOTE: Handling (state driven) props like _important, _web, _ios, _android, _dark, _light, _disabled, _focus, _focusVisible, _hover, _pressed, _readOnly, _invalid, .... Only when they are true.
+                if (process.env.NODE_ENV === 'development' && props.debug) {
+                    /* eslint-disable-next-line */
+                    console.log("%c ".concat(property), 'color: #818cf8;', 'recursively resolving');
+                }
+                // @ts-ignore
+                propertySpecity[pseudoPropsMap[property].priority]++;
+                simplifyProps({
+                    props: props[property],
+                    colormode: colormode,
+                    platform: platform,
+                    state: state,
+                    currentSpecificity: propertySpecity,
+                    previouslyFlattenProps: previouslyFlattenProps,
+                    cascadePseudoProps: cascadePseudoProps
+                }, flattenProps, specificityMap, priority);
+            }
+            // @ts-ignore
+        }
+        else if (pseudoPropsMap[property] === undefined) {
+            if (property.startsWith('_')) {
+                // NOTE: Handling (internal) props like _text, _stack, ....
+                mergePsuedoProps(property, propertySpecity);
+            }
+            else {
+                if (compareSpecificity(specificityMap[property], propertySpecity, false)) {
+                    if (process.env.NODE_ENV === 'development' && props.debug) {
+                        /* eslint-disable-next-line */
+                        console.log("%c ".concat(property), 'color: #818cf8;', 'updated as simple prop');
+                    }
+                    specificityMap[property] = propertySpecity;
+                    // replacing simple props (like, p, m, bg, color, ...)
+                    flattenProps[property] = props[property];
+                }
+                else {
+                    if (process.env.NODE_ENV === 'development' && props.debug) {
+                        /* eslint-disable-next-line */
+                        console.log("%c ".concat(property), 'color: #818cf8;', 'ignored');
+                    }
+                }
+            }
+        }
+        else {
+            // Can delete unused props
+            if (!cascadePseudoProps) {
+                delete flattenProps[property];
+                if (process.env.NODE_ENV === 'development' && props.debug) {
+                    /* eslint-disable-next-line */
+                    console.log("%c ".concat(property), 'color: #818cf8;', 'deleted');
+                }
+            }
+            else {
+                if (process.env.NODE_ENV === 'development' && props.debug) {
+                    /* eslint-disable-next-line */
+                    console.log("%c ".concat(property), 'color: #818cf8;', 'cascaded');
+                }
+                mergePsuedoProps(property, propertySpecity);
+            }
+        }
+    }
+};
+var propsFlattener = function (_a, priority) {
+    var _b;
+    var props = _a.props, colormode = _a.colormode, platform = _a.platform, state = _a.state, currentSpecificityMap = _a.currentSpecificityMap, previouslyFlattenProps = _a.previouslyFlattenProps, cascadePseudoProps = _a.cascadePseudoProps;
+    var flattenProps = {};
+    for (var property in props) {
+        if (
+        // @ts-ignore
+        state[(_b = pseudoPropsMap[property]) === null || _b === void 0 ? void 0 : _b.respondTo] === undefined &&
+            property.startsWith('_')) {
+            flattenProps[property] = previouslyFlattenProps[property];
+        }
+    }
+    var specificityMap = currentSpecificityMap || {};
+    simplifyProps({
+        props: props,
+        colormode: colormode,
+        platform: platform,
+        state: state,
+        currentSpecificityMap: currentSpecificityMap,
+        previouslyFlattenProps: previouslyFlattenProps,
+        cascadePseudoProps: cascadePseudoProps
+    }, flattenProps, specificityMap, priority);
+    return [flattenProps, specificityMap];
+};
+var callPropsFlattener = function (targetProps, latestSpecifictyMap, specificity, cleanIncomingProps, colorModeProps, state, flattenProps, config) {
+    if (targetProps === void 0) { targetProps = {}; }
+    if (latestSpecifictyMap === void 0) { latestSpecifictyMap = {}; }
+    if (specificity === void 0) { specificity = 1; }
+    return propsFlattener({
+        props: process.env.NODE_ENV === 'development' && cleanIncomingProps.debug
+            ? __assign(__assign({}, targetProps), { debug: true }) : targetProps,
+        //TODO: build-time
+        platform: config.platform,
+        // platform: Platform.OS,
+        colormode: colorModeProps.colorMode,
+        state: state || {},
+        currentSpecificityMap: latestSpecifictyMap,
+        previouslyFlattenProps: flattenProps || {},
+        cascadePseudoProps: config === null || config === void 0 ? void 0 : config.cascadePseudoProps,
+        name: config === null || config === void 0 ? void 0 : config.name
+    }, specificity);
+};
+var resolvePropsToStyle = function (styledSystemProps, propStyle, theme, platform, debug, currentBreakpoint, strictMode, getResponsiveStyles, INTERNAL_themeStyle) {
+    var _a = getStyleAndFilteredProps({
+        styledSystemProps: styledSystemProps,
+        theme: theme,
+        debug: debug,
+        currentBreakpoint: currentBreakpoint,
+        strictMode: strictMode,
+        getResponsiveStyles: getResponsiveStyles,
+        platform: platform
+    }), unResolvedProps = _a.unResolvedProps, styleFromProps = _a.styleFromProps, restDefaultProps = _a.restDefaultProps, dataSet = _a.dataSet;
+    // console.log(
+    //   StyleSheet.flatten([INTERNAL_themeStyle, styleSheet.box, propStyle]),
+    //   '3333 style system props'
+    // );
+    if (propStyle) {
+        return {
+            style: [INTERNAL_themeStyle, styleFromProps, propStyle],
+            styleFromProps: styleFromProps,
+            unResolvedProps: unResolvedProps,
+            restDefaultProps: restDefaultProps,
+            dataSet: dataSet
+        };
+    }
+    else {
+        return {
+            style: [INTERNAL_themeStyle, styleFromProps],
+            styleFromProps: styleFromProps,
+            unResolvedProps: unResolvedProps,
+            restDefaultProps: restDefaultProps,
+            dataSet: dataSet
+        };
+    }
+};
+var resolveValueWithBreakpoint = function (values, breakpointTheme, currentBreakpoint, property) {
+    if (hasValidBreakpointFormat(values, breakpointTheme, property)) {
+        // Check the last valid breakpoint value from all values
+        // If current breakpoint is `md` and we have `base` then `lg`, then last value will be taken(`base` in this case)
+        return findLastValidBreakpoint(values, breakpointTheme, currentBreakpoint);
+    }
+    else {
+        return values;
+    }
+};
 
 var borderWidths = {
     '0': 0,
@@ -600,7 +2237,7 @@ var sizes$l = __assign(__assign(__assign({}, spacing), {
     '2xl': 672
 }), { container: container });
 
-var typography$1 = {
+var typography = {
     letterSpacings: {
         'xs': '-0.05em',
         'sm': '-0.025em',
@@ -752,65 +2389,7 @@ var opacity = {
     100: 1
 };
 
-var theme$1 = __assign(__assign({ borderWidths: borderWidths, breakpoints: breakpoints, colors: colors, radii: radii }, typography$1), { sizes: sizes$l, space: spacing, shadows: shadow, opacity: opacity });
-
-function mode(light, dark) {
-    return function (props) { return (props.colorMode === 'dark' ? dark : light); };
-}
-var transparentize = function (color, opacity) { return function (theme) {
-    var raw = getColor$1(theme, color);
-    return Color__default["default"](raw).setAlpha(opacity).toRgbString();
-}; };
-var getColor$1 = function (theme, color, fallback) {
-    var hex = get__default["default"](theme, "colors.".concat(color), color);
-    var isValid = Color__default["default"](hex).isValid();
-    return isValid ? hex : fallback;
-};
-function randomColor(opts) {
-    var fallback = Color__default["default"].random().toHexString();
-    if (!opts || isEmpty__default["default"](opts)) {
-        return fallback;
-    }
-    if (opts.string && opts.colors) {
-        return randomColorFromList(opts.string, opts.colors);
-    }
-    if (opts.string && !opts.colors) {
-        return randomColorFromString(opts.string);
-    }
-    if (opts.colors && !opts.string) {
-        return randomFromList(opts.colors);
-    }
-    return fallback;
-}
-function randomFromList(list) {
-    return list[Math.floor(Math.random() * list.length)];
-}
-function randomColorFromList(str, list) {
-    var index = 0;
-    if (str.length === 0)
-        return list[0];
-    for (var i = 0; i < str.length; i++) {
-        index = str.charCodeAt(i) + ((index << 5) - index);
-        index = index & index;
-    }
-    index = ((index % list.length) + list.length) % list.length;
-    return list[index];
-}
-function randomColorFromString(str) {
-    var hash = 0;
-    if (str.length === 0)
-        return hash.toString();
-    for (var i = 0; i < str.length; i++) {
-        hash = str.charCodeAt(i) + ((hash << 5) - hash);
-        hash = hash & hash;
-    }
-    var color = '#';
-    for (var j = 0; j < 3; j++) {
-        var value = (hash >> (j * 8)) & 255;
-        color += ('00' + value.toString(16)).substr(-2);
-    }
-    return color;
-}
+var theme$1 = __assign(__assign({ borderWidths: borderWidths, breakpoints: breakpoints, colors: colors, radii: radii }, typography), { sizes: sizes$l, space: spacing, shadows: shadow, opacity: opacity });
 
 // Accordion
 var accordionBaseStyle = function (props) {
@@ -1045,73 +2624,6 @@ var SelectItem = {
         minH: '0'
     }
 };
-
-function getRandomString(length) {
-    var result = '';
-    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    var charactersLength = characters.length;
-    for (var i = 0; i < length; i++) {
-        result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-    return result;
-}
-function getColorFormColorScheme(props) {
-    var theme = props.theme, colorScheme = props.colorScheme, isDisabled = props.isDisabled;
-    var simpleColorScheme = colorScheme.split('.')[0];
-    if (isDisabled)
-        return 'gray.300';
-    else if (simpleColorScheme in theme.colors) {
-        return theme.colors[simpleColorScheme][0] === '#'
-            ? simpleColorScheme
-            : theme.colors[simpleColorScheme][400] ||
-                theme.colors[simpleColorScheme][200];
-    }
-    else
-        return 'primary.200';
-}
-// TODO: This function can be removed.
-function getColorScheme(props, customColorScheme) {
-    var theme = props.theme, colorScheme = props.colorScheme;
-    colorScheme = customColorScheme || colorScheme;
-    if (!(colorScheme in theme.colors))
-        return 'primary';
-    else {
-        if (typeof theme.colors[colorScheme] === 'object')
-            return colorScheme;
-    }
-}
-var inValidBreakpointProps = ['style', 'children', 'shadowOffset'];
-function hasValidBreakpointFormat(breaks, themeBreakpoints, property) {
-    if (property && inValidBreakpointProps.indexOf(property) !== -1) {
-        return false;
-    }
-    else if (Array.isArray(breaks)) {
-        return breaks.length ? true : false;
-    }
-    else if (typeof breaks === 'object' && breaks !== null) {
-        var keys = Object.keys(breaks);
-        var themeBreakPointKeys = Object.keys(themeBreakpoints);
-        for (var i = 0; i < keys.length; i++) {
-            if (themeBreakPointKeys.indexOf(keys[i]) === -1) {
-                return false;
-            }
-        }
-        return true;
-    }
-    else {
-        return false;
-    }
-}
-function findLastValidBreakpoint(values, themeBreakpoints, currentBreakpoint) {
-    var _a;
-    var valArray = Array.isArray(values)
-        ? values
-        : Object.keys(themeBreakpoints).map(function (bPoint) { return values[bPoint]; });
-    return ((_a = valArray[currentBreakpoint]) !== null && _a !== void 0 ? _a : valArray
-        .slice(0, currentBreakpoint + 1)
-        .filter(function (v) { return !isNil__default["default"](v); })
-        .pop());
-}
 
 function getBg(props) {
     var theme = props.theme, colorScheme = props.colorScheme, status = props.status, variant = props.variant;
@@ -4867,1509 +6379,12 @@ var components = __assign(__assign({ FlatList: FlatList, KeyboardAvoidingView: K
     // AlertTitle,
     AlertIcon: AlertIcon, AspectRatio: AspectRatio, Avatar: Avatar, AvatarBadge: AvatarBadge, AvatarGroup: AvatarGroup, Badge: Badge, Box: Box, Breadcrumb: Breadcrumb, BreadcrumbText: BreadcrumbText, BreadcrumbIcon: BreadcrumbIcon, Button: Button, ButtonGroup: ButtonGroup, Card: Card, Center: Center, Circle: Circle, Checkbox: Checkbox, CheckboxGroup: CheckboxGroup, CircularProgress: CircularProgress, Code: Code, Container: Container, Divider: Divider, Fade: Fade, FAB: FAB, Flex: Flex, Spacer: Spacer, FormControl: FormControl, FormControlLabel: FormControlLabel, FormControlHelperText: FormControlHelperText, FormControlErrorMessage: FormControlErrorMessage, Heading: Heading, HStack: HStack, VStack: VStack, Icon: Icon, IconButton: IconButton, Image: Image, Input: Input, InputLeftAddon: InputLeftAddon, InputRightAddon: InputRightAddon, Kbd: Kbd, Link: Link, List: List, ListItem: ListItem, ListIcon: ListIcon, Menu: Menu, MenuGroup: MenuGroup, MenuItem: MenuItem, Modal: Modal, ModalContent: ModalContent, ModalHeader: ModalHeader, ModalBody: ModalBody, ModalFooter: ModalFooter, ModalOverlay: ModalOverlay, ModalCloseButton: ModalCloseButton, AlertDialog: AlertDialog, AlertDialogContent: AlertDialogContent, AlertDialogHeader: AlertDialogHeader, AlertDialogBody: AlertDialogBody, AlertDialogFooter: AlertDialogFooter, AlertDialogOverlay: AlertDialogOverlay, AlertDialogCloseButton: AlertDialogCloseButton, NumberInput: NumberInput, NumberInputStepper: NumberInputStepper, PinInput: PinInput, Pressable: Pressable }, PopoverComponentTheme), { Progress: Progress, Radio: Radio, RadioGroup: RadioGroup, ScaleFade: ScaleFade, Select: Select, SelectItem: SelectItem, SimpleGrid: SimpleGrid, Skeleton: Skeleton, SkeletonText: SkeletonText, SliderFilledTrack: SliderFilledTrack, SliderThumb: SliderThumb, SliderTrack: SliderTrack, Slider: Slider, Slide: Slide, SlideFade: SlideFade, Spinner: Spinner, Square: Square, Stack: Stack, Stat: Stat, Switch: Switch, Tabs: Tabs, Tag: Tag, Text: Text, AppBar: AppBar, TextArea: TextArea, TextField: TextField, Toast: Toast, TypeAheadSearchItem: TypeAheadSearchItem, View: View, Wrap: Wrap, ZStack: ZStack, Tooltip: Tooltip });
 
-var _a;
-// import {
-//   findLastValidBreakpoint,
-//   hasValidBreakpointFormat,
-// } from './../../theme/tools';
-var SPECIFICITY_1000 = 1000;
-var SPECIFICITY_110 = 110;
-var SPECIFICITY_100 = 100;
-var SPECIFICITY_70 = 70;
-var SPECIFICITY_60 = 60;
-var SPECIFICITY_55 = 55;
-var SPECIFICITY_50 = 50;
-var SPECIFICITY_40 = 40;
-var SPECIFICITY_30 = 30;
-// SPECIFICITY_20 is being user for defferentiating between User Props and Theme Props. So any specificity less than SPECIFICITY_20 will be ovridable by user props.
-var SPECIFICITY_20 = 20;
-var SPECIFICITY_10 = 10;
-var specificityPrecedence = [
-    SPECIFICITY_1000,
-    SPECIFICITY_110,
-    SPECIFICITY_100,
-    SPECIFICITY_70,
-    SPECIFICITY_60,
-    SPECIFICITY_55,
-    SPECIFICITY_50,
-    SPECIFICITY_40,
-    SPECIFICITY_30,
-    SPECIFICITY_20,
-    SPECIFICITY_10,
-];
-var INITIAL_PROP_SPECIFICITY = (_a = {},
-    _a[SPECIFICITY_1000] = 0,
-    _a[SPECIFICITY_110] = 0,
-    _a[SPECIFICITY_100] = 0,
-    _a[SPECIFICITY_70] = 0,
-    _a[SPECIFICITY_60] = 0,
-    _a[SPECIFICITY_50] = 0,
-    _a[SPECIFICITY_55] = 0,
-    _a[SPECIFICITY_40] = 0,
-    _a[SPECIFICITY_30] = 0,
-    _a[SPECIFICITY_20] = 0,
-    _a[SPECIFICITY_10] = 0,
-    _a);
-var pseudoPropsMap = {
-    _web: { dependentOn: 'platform', priority: SPECIFICITY_10 },
-    _ios: { dependentOn: 'platform', priority: SPECIFICITY_10 },
-    _android: { dependentOn: 'platform', priority: SPECIFICITY_10 },
-    _light: { dependentOn: 'colormode', priority: SPECIFICITY_10 },
-    _dark: { dependentOn: 'colormode', priority: SPECIFICITY_10 },
-    // TODO: have to add more interactionProps and stateProps
-    _indeterminate: {
-        dependentOn: 'state',
-        respondTo: 'isIndeterminate',
-        priority: SPECIFICITY_30
-    },
-    _checked: {
-        dependentOn: 'state',
-        respondTo: 'isChecked',
-        priority: SPECIFICITY_30
-    },
-    // Add new pseudeo props in between -------
-    _readOnly: {
-        dependentOn: 'state',
-        respondTo: 'isReadOnly',
-        priority: SPECIFICITY_30
-    },
-    // Add new pseudeo props in between -------
-    _invalid: {
-        dependentOn: 'state',
-        respondTo: 'isInvalid',
-        priority: SPECIFICITY_40
-    },
-    _focus: {
-        dependentOn: 'state',
-        respondTo: 'isFocused',
-        priority: SPECIFICITY_50
-    },
-    _focusVisible: {
-        dependentOn: 'state',
-        respondTo: 'isFocusVisible',
-        priority: SPECIFICITY_55
-    },
-    _hover: {
-        dependentOn: 'state',
-        respondTo: 'isHovered',
-        priority: SPECIFICITY_60
-    },
-    _pressed: {
-        dependentOn: 'state',
-        respondTo: 'isPressed',
-        priority: SPECIFICITY_70
-    },
-    _disabled: {
-        dependentOn: 'state',
-        respondTo: 'isDisabled',
-        priority: SPECIFICITY_100
-    },
-    _reversed: {
-        dependentOn: 'state',
-        respondTo: 'isReversed',
-        priority: SPECIFICITY_100
-    },
-    _loading: {
-        dependentOn: 'state',
-        respondTo: 'isLoading',
-        priority: SPECIFICITY_110
-    },
-    _important: {
-        dependentOn: null,
-        priority: SPECIFICITY_1000
-    }
-};
-var SPREAD_PROP_SPECIFICITY_ORDER = [
-    'p',
-    'padding',
-    'px',
-    'py',
-    'pt',
-    'pb',
-    'pl',
-    'pr',
-    'paddingTop',
-    'paddingBottom',
-    'paddingLeft',
-    'paddingRight',
-    'm',
-    'margin',
-    'mx',
-    'my',
-    'mt',
-    'mb',
-    'ml',
-    'mr',
-    'marginTop',
-    'marginBottom',
-    'marginLeft',
-    'marginRight',
-];
-var FINAL_SPREAD_PROPS = [
-    'paddingTop',
-    'paddingBottom',
-    'paddingLeft',
-    'paddingRight',
-    'marginTop',
-    'marginBottom',
-    'marginLeft',
-    'marginRight',
-];
-var MARGIN_MAP = {
-    mx: ['marginRight', 'marginLeft'],
-    my: ['marginTop', 'marginBottom'],
-    mt: ['marginTop'],
-    mb: ['marginBottom'],
-    mr: ['marginRight'],
-    ml: ['marginLeft']
-};
-MARGIN_MAP.margin = __spreadArray(__spreadArray([], MARGIN_MAP.mx, true), MARGIN_MAP.my, true);
-MARGIN_MAP.m = MARGIN_MAP.margin;
-MARGIN_MAP.marginTop = MARGIN_MAP.mt;
-MARGIN_MAP.marginBottom = MARGIN_MAP.mb;
-MARGIN_MAP.marginLeft = MARGIN_MAP.ml;
-MARGIN_MAP.marginRight = MARGIN_MAP.mr;
-var PADDING_MAP = {
-    px: ['paddingRight', 'paddingLeft'],
-    py: ['paddingTop', 'paddingBottom'],
-    pt: ['paddingTop'],
-    pb: ['paddingBottom'],
-    pr: ['paddingRight'],
-    pl: ['paddingLeft']
-};
-PADDING_MAP.padding = __spreadArray(__spreadArray([], PADDING_MAP.px, true), PADDING_MAP.py, true);
-PADDING_MAP.p = PADDING_MAP.padding;
-PADDING_MAP.paddingTop = PADDING_MAP.pt;
-PADDING_MAP.paddingBottom = PADDING_MAP.pb;
-PADDING_MAP.paddingLeft = PADDING_MAP.pl;
-PADDING_MAP.paddingRight = PADDING_MAP.pr;
-var SPREAD_PROP_SPECIFICITY_MAP = __assign(__assign({}, PADDING_MAP), MARGIN_MAP);
-function propsSpreader(incomingProps, incomingSpecifity) {
-    var flattenedDefaultProps = __assign({}, incomingProps);
-    var specificity = {};
-    SPREAD_PROP_SPECIFICITY_ORDER.forEach(function (prop) {
-        if (prop in flattenedDefaultProps) {
-            var val_1 = incomingProps[prop] || flattenedDefaultProps[prop];
-            if (!FINAL_SPREAD_PROPS.includes(prop)) {
-                delete flattenedDefaultProps[prop];
-                specificity[prop] = incomingSpecifity[prop];
-            }
-            SPREAD_PROP_SPECIFICITY_MAP[prop].forEach(function (newProp) {
-                if (compareSpecificity(specificity[newProp], specificity[prop])) {
-                    specificity[newProp] = incomingSpecifity[prop];
-                    flattenedDefaultProps[newProp] = val_1;
-                }
-            });
-        }
-    });
-    return merge__default["default"]({}, flattenedDefaultProps);
-}
-var compareSpecificity = function (exisiting, upcoming, ignorebaseTheme
-// property?: any
-) {
-    if (!exisiting)
-        return true;
-    if (!upcoming)
-        return false;
-    var condition = ignorebaseTheme
-        ? specificityPrecedence.length - 1
-        : specificityPrecedence.length;
-    for (var index = 0; index < condition; index++) {
-        if (exisiting[specificityPrecedence[index]] >
-            upcoming[specificityPrecedence[index]]) {
-            return false;
-        }
-        else if (exisiting[specificityPrecedence[index]] <
-            upcoming[specificityPrecedence[index]]) {
-            return true;
-        }
-    }
-    return true;
-};
-var shouldResolvePseudoProp = function (_a) {
-    var property = _a.property, state = _a.state, platform = _a.platform, colormode = _a.colormode;
-    if (pseudoPropsMap[property].dependentOn === 'platform') {
-        return property === "_".concat(platform);
-    }
-    else if (pseudoPropsMap[property].dependentOn === 'colormode') {
-        return property === "_".concat(colormode);
-    }
-    else if (pseudoPropsMap[property].dependentOn === 'state') {
-        // @ts-ignore
-        return state[pseudoPropsMap[property].respondTo];
-    }
-    else if (pseudoPropsMap[property].dependentOn === null) {
-        return true;
-    }
-    else {
-        return false;
-    }
-};
-var simplifyProps = function (_a, flattenProps, specificityMap, priority) {
-    var _b;
-    var _c;
-    var props = _a.props, colormode = _a.colormode, platform = _a.platform, state = _a.state, currentSpecificity = _a.currentSpecificity, previouslyFlattenProps = _a.previouslyFlattenProps, cascadePseudoProps = _a.cascadePseudoProps;
-    if (flattenProps === void 0) { flattenProps = {}; }
-    if (specificityMap === void 0) { specificityMap = {}; }
-    var mergePsuedoProps = function (property, propertySpecity) {
-        if (compareSpecificity(specificityMap[property], propertySpecity, false)) {
-            if (process.env.NODE_ENV === 'development' && props.debug) {
-                /* eslint-disable-next-line */
-                console.log("%c ".concat(property), 'color: #818cf8;', 'updated as internal prop with higher specificity');
-            }
-            specificityMap[property] = propertySpecity;
-            // merging internal props (like, _text, _stack ...)
-            flattenProps[property] = merge__default["default"]({}, flattenProps[property], props[property]);
-        }
-        else {
-            if (process.env.NODE_ENV === 'development' && props.debug) {
-                /* eslint-disable-next-line */
-                console.log("%c ".concat(property), 'color: #818cf8;', 'updated as internal prop with lower specificity');
-            }
-            flattenProps[property] = merge__default["default"]({}, props[property], flattenProps[property]);
-        }
-    };
-    for (var property in props) {
-        // NOTE: the order is important here. Keep in mind while specificity breakpoints.
-        var propertySpecity = currentSpecificity
-            ? __assign({}, currentSpecificity) : __assign(__assign({}, INITIAL_PROP_SPECIFICITY), (_b = {}, _b[SPECIFICITY_20] = priority, _b));
-        if (
-        // @ts-ignore
-        state[(_c = pseudoPropsMap[property]) === null || _c === void 0 ? void 0 : _c.respondTo] ||
-            ['_dark', '_light', '_web', '_ios', '_android', '_important'].includes(property)) {
-            // @ts-ignore
-            if (shouldResolvePseudoProp({ property: property, state: state, platform: platform, colormode: colormode })) {
-                // NOTE: Handling (state driven) props like _important, _web, _ios, _android, _dark, _light, _disabled, _focus, _focusVisible, _hover, _pressed, _readOnly, _invalid, .... Only when they are true.
-                if (process.env.NODE_ENV === 'development' && props.debug) {
-                    /* eslint-disable-next-line */
-                    console.log("%c ".concat(property), 'color: #818cf8;', 'recursively resolving');
-                }
-                // @ts-ignore
-                propertySpecity[pseudoPropsMap[property].priority]++;
-                simplifyProps({
-                    props: props[property],
-                    colormode: colormode,
-                    platform: platform,
-                    state: state,
-                    currentSpecificity: propertySpecity,
-                    previouslyFlattenProps: previouslyFlattenProps,
-                    cascadePseudoProps: cascadePseudoProps
-                }, flattenProps, specificityMap, priority);
-            }
-            // @ts-ignore
-        }
-        else if (pseudoPropsMap[property] === undefined) {
-            if (property.startsWith('_')) {
-                // NOTE: Handling (internal) props like _text, _stack, ....
-                mergePsuedoProps(property, propertySpecity);
-            }
-            else {
-                if (compareSpecificity(specificityMap[property], propertySpecity, false)) {
-                    if (process.env.NODE_ENV === 'development' && props.debug) {
-                        /* eslint-disable-next-line */
-                        console.log("%c ".concat(property), 'color: #818cf8;', 'updated as simple prop');
-                    }
-                    specificityMap[property] = propertySpecity;
-                    // replacing simple props (like, p, m, bg, color, ...)
-                    flattenProps[property] = props[property];
-                }
-                else {
-                    if (process.env.NODE_ENV === 'development' && props.debug) {
-                        /* eslint-disable-next-line */
-                        console.log("%c ".concat(property), 'color: #818cf8;', 'ignored');
-                    }
-                }
-            }
-        }
-        else {
-            // Can delete unused props
-            if (!cascadePseudoProps) {
-                delete flattenProps[property];
-                if (process.env.NODE_ENV === 'development' && props.debug) {
-                    /* eslint-disable-next-line */
-                    console.log("%c ".concat(property), 'color: #818cf8;', 'deleted');
-                }
-            }
-            else {
-                if (process.env.NODE_ENV === 'development' && props.debug) {
-                    /* eslint-disable-next-line */
-                    console.log("%c ".concat(property), 'color: #818cf8;', 'cascaded');
-                }
-                mergePsuedoProps(property, propertySpecity);
-            }
-        }
-    }
-};
-var propsFlattener = function (_a, priority) {
-    var _b;
-    var props = _a.props, colormode = _a.colormode, platform = _a.platform, state = _a.state, currentSpecificityMap = _a.currentSpecificityMap, previouslyFlattenProps = _a.previouslyFlattenProps, cascadePseudoProps = _a.cascadePseudoProps;
-    var flattenProps = {};
-    for (var property in props) {
-        if (
-        // @ts-ignore
-        state[(_b = pseudoPropsMap[property]) === null || _b === void 0 ? void 0 : _b.respondTo] === undefined &&
-            property.startsWith('_')) {
-            flattenProps[property] = previouslyFlattenProps[property];
-        }
-    }
-    var specificityMap = currentSpecificityMap || {};
-    simplifyProps({
-        props: props,
-        colormode: colormode,
-        platform: platform,
-        state: state,
-        currentSpecificityMap: currentSpecificityMap,
-        previouslyFlattenProps: previouslyFlattenProps,
-        cascadePseudoProps: cascadePseudoProps
-    }, flattenProps, specificityMap, priority);
-    return [flattenProps, specificityMap];
-};
-var callPropsFlattener = function (targetProps, latestSpecifictyMap, specificity, cleanIncomingProps, colorModeProps, state, flattenProps, config) {
-    if (targetProps === void 0) { targetProps = {}; }
-    if (latestSpecifictyMap === void 0) { latestSpecifictyMap = {}; }
-    if (specificity === void 0) { specificity = 1; }
-    return propsFlattener({
-        props: process.env.NODE_ENV === 'development' && cleanIncomingProps.debug
-            ? __assign(__assign({}, targetProps), { debug: true }) : targetProps,
-        //TODO: build-time
-        platform: config.platform,
-        // platform: Platform.OS,
-        colormode: colorModeProps.colorMode,
-        state: state || {},
-        currentSpecificityMap: latestSpecifictyMap,
-        previouslyFlattenProps: flattenProps || {},
-        cascadePseudoProps: config === null || config === void 0 ? void 0 : config.cascadePseudoProps,
-        name: config === null || config === void 0 ? void 0 : config.name
-    }, specificity);
-};
-var resolvePropsToStyle = function (styledSystemProps, propStyle, theme, platform, debug, currentBreakpoint, strictMode, getResponsiveStyles, INTERNAL_themeStyle) {
-    var _a = getStyleAndFilteredProps({
-        styledSystemProps: styledSystemProps,
-        theme: theme,
-        debug: debug,
-        currentBreakpoint: currentBreakpoint,
-        strictMode: strictMode,
-        getResponsiveStyles: getResponsiveStyles,
-        platform: platform
-    }), unResolvedProps = _a.unResolvedProps, styleFromProps = _a.styleFromProps, restDefaultProps = _a.restDefaultProps, dataSet = _a.dataSet;
-    // console.log(
-    //   StyleSheet.flatten([INTERNAL_themeStyle, styleSheet.box, propStyle]),
-    //   '3333 style system props'
-    // );
-    if (propStyle) {
-        return {
-            style: [INTERNAL_themeStyle, styleFromProps, propStyle],
-            styleFromProps: styleFromProps,
-            unResolvedProps: unResolvedProps,
-            restDefaultProps: restDefaultProps,
-            dataSet: dataSet
-        };
-    }
-    else {
-        return {
-            style: [INTERNAL_themeStyle, styleFromProps],
-            styleFromProps: styleFromProps,
-            unResolvedProps: unResolvedProps,
-            restDefaultProps: restDefaultProps,
-            dataSet: dataSet
-        };
-    }
-};
-var resolveValueWithBreakpoint = function (values, breakpointTheme, currentBreakpoint, property) {
-    if (hasValidBreakpointFormat(values, breakpointTheme, property)) {
-        // Check the last valid breakpoint value from all values
-        // If current breakpoint is `md` and we have `base` then `lg`, then last value will be taken(`base` in this case)
-        return findLastValidBreakpoint(values, breakpointTheme, currentBreakpoint);
-    }
-    else {
-        return values;
-    }
-};
-
-var isNumber = function (n) { return typeof n === 'number' && !isNaN(n); };
-var getColor = function (rawValue, scale, theme) {
-    var alphaMatched = typeof rawValue === 'string' ? rawValue === null || rawValue === void 0 ? void 0 : rawValue.match(/:alpha\.\d\d?\d?/) : false;
-    if (alphaMatched) {
-        var colorMatched = rawValue === null || rawValue === void 0 ? void 0 : rawValue.match(/^.*?(?=:alpha)/);
-        var color_1 = colorMatched ? colorMatched[0] : colorMatched;
-        var alphaValue = alphaMatched[0].split('.')[1];
-        var alphaFromToken = get__default["default"](theme.opacity, alphaValue, alphaValue);
-        var alpha = alphaFromToken ? parseFloat(alphaFromToken) : 1;
-        var newColor = transparentize(color_1, alpha)(theme);
-        return newColor;
-    }
-    else {
-        return get__default["default"](scale, rawValue, rawValue);
-    }
-};
-// To handle negative margins
-var getMargin = function (n, scale) {
-    n = convertStringNumberToNumber('margin', n);
-    if (!isNumber(n)) {
-        return get__default["default"](scale, n, n);
-    }
-    var isNegative = n < 0;
-    var absolute = Math.abs(n);
-    var value = get__default["default"](scale, absolute, absolute);
-    if (!isNumber(value)) {
-        return isNegative ? '-' + value : value;
-    }
-    return value * (isNegative ? -1 : 1);
-};
-var layout = {
-    width: {
-        property: 'width',
-        scale: 'sizes'
-    },
-    w: {
-        property: 'width',
-        scale: 'sizes'
-    },
-    height: {
-        property: 'height',
-        scale: 'sizes'
-    },
-    h: {
-        property: 'height',
-        scale: 'sizes'
-    },
-    minWidth: {
-        property: 'minWidth',
-        scale: 'sizes'
-    },
-    minW: {
-        property: 'minWidth',
-        scale: 'sizes'
-    },
-    minHeight: {
-        property: 'minHeight',
-        scale: 'sizes'
-    },
-    minH: {
-        property: 'minHeight',
-        scale: 'sizes'
-    },
-    maxWidth: {
-        property: 'maxWidth',
-        scale: 'sizes'
-    },
-    maxW: {
-        property: 'maxWidth',
-        scale: 'sizes'
-    },
-    maxHeight: {
-        property: 'maxHeight',
-        scale: 'sizes'
-    },
-    maxH: {
-        property: 'maxHeight',
-        scale: 'sizes'
-    },
-    size: {
-        properties: ['width', 'height'],
-        scale: 'sizes'
-    },
-    boxSize: {
-        properties: ['width', 'height'],
-        scale: 'sizes'
-    },
-    overflow: true,
-    overflowX: true,
-    overflowY: true,
-    display: true,
-    verticalAlign: true,
-    textAlign: true
-};
-var flexbox = {
-    alignItems: true,
-    alignContent: true,
-    justifyItems: true,
-    justifyContent: true,
-    flexWrap: true,
-    flexDirection: true,
-    flexDir: {
-        property: 'flexDirection'
-    },
-    // item
-    flex: true,
-    flexGrow: true,
-    flexShrink: true,
-    flexBasis: true,
-    justifySelf: true,
-    alignSelf: true,
-    order: true
-};
-var position = {
-    position: true,
-    zIndex: {
-        property: 'zIndex'
-    },
-    top: {
-        property: 'top',
-        scale: 'space'
-    },
-    right: {
-        property: 'right',
-        scale: 'space'
-    },
-    bottom: {
-        property: 'bottom',
-        scale: 'space'
-    },
-    left: {
-        property: 'left',
-        scale: 'space'
-    }
-};
-var color = {
-    color: {
-        property: 'color',
-        scale: 'colors',
-        transformer: getColor
-    },
-    tintColor: {
-        property: 'tintColor',
-        scale: 'colors',
-        transformer: getColor
-    },
-    backgroundColor: {
-        property: 'backgroundColor',
-        scale: 'colors',
-        transformer: getColor
-    },
-    opacity: {
-        property: 'opacity',
-        scale: 'opacity'
-    },
-    bg: {
-        property: 'backgroundColor',
-        scale: 'colors',
-        transformer: getColor
-    },
-    bgColor: {
-        property: 'backgroundColor',
-        scale: 'colors',
-        transformer: getColor
-    },
-    background: {
-        property: 'backgroundColor',
-        scale: 'colors',
-        transformer: getColor
-    },
-    textDecorationColor: {
-        property: 'textDecorationColor',
-        scale: 'colors',
-        transformer: getColor
-    }
-};
-var border = {
-    borderWidth: {
-        property: 'borderWidth',
-        scale: 'borderWidths'
-    },
-    borderStyle: {
-        property: 'borderStyle',
-        scale: 'borderStyles'
-    },
-    borderColor: {
-        property: 'borderColor',
-        scale: 'colors',
-        transformer: getColor
-    },
-    borderRadius: {
-        property: 'borderRadius',
-        scale: 'radii'
-    },
-    borderTop: {
-        property: 'borderTop',
-        scale: 'borders'
-    },
-    borderTopRadius: {
-        properties: ['borderTopLeftRadius', 'borderTopRightRadius'],
-        scale: 'radii'
-    },
-    borderLeftRadius: {
-        properties: ['borderTopLeftRadius', 'borderBottomLeftRadius'],
-        scale: 'radii'
-    },
-    borderRightRadius: {
-        properties: ['borderTopRightRadius', 'borderBottomRightRadius'],
-        scale: 'radii'
-    },
-    borderTopLeftRadius: {
-        property: 'borderTopLeftRadius',
-        scale: 'radii'
-    },
-    borderTopRightRadius: {
-        property: 'borderTopRightRadius',
-        scale: 'radii'
-    },
-    borderRight: {
-        property: 'borderRight',
-        scale: 'borders'
-    },
-    borderBottom: {
-        property: 'borderBottom',
-        scale: 'borders'
-    },
-    borderBottomLeftRadius: {
-        property: 'borderBottomLeftRadius',
-        scale: 'radii'
-    },
-    borderBottomRightRadius: {
-        property: 'borderBottomRightRadius',
-        scale: 'radii'
-    },
-    borderLeft: {
-        property: 'borderLeft',
-        scale: 'borders'
-    },
-    borderX: {
-        properties: ['borderLeft', 'borderRight'],
-        scale: 'borders'
-    },
-    borderY: {
-        properties: ['borderTop', 'borderBottom'],
-        scale: 'borders'
-    },
-    borderTopWidth: {
-        property: 'borderTopWidth',
-        scale: 'borderWidths'
-    },
-    borderTopColor: {
-        property: 'borderTopColor',
-        scale: 'colors',
-        transformer: getColor
-    },
-    borderTopStyle: {
-        property: 'borderTopStyle',
-        scale: 'borderStyles'
-    },
-    borderBottomWidth: {
-        property: 'borderBottomWidth',
-        scale: 'borderWidths'
-    },
-    borderBottomColor: {
-        property: 'borderBottomColor',
-        scale: 'colors',
-        transformer: getColor
-    },
-    borderBottomStyle: {
-        property: 'borderBottomStyle',
-        scale: 'borderStyles'
-    },
-    borderLeftWidth: {
-        property: 'borderLeftWidth',
-        scale: 'borderWidths'
-    },
-    borderLeftColor: {
-        property: 'borderLeftColor',
-        scale: 'colors',
-        transformer: getColor
-    },
-    borderLeftStyle: {
-        property: 'borderLeftStyle',
-        scale: 'borderStyles'
-    },
-    borderRightWidth: {
-        property: 'borderRightWidth',
-        scale: 'borderWidths'
-    },
-    borderRightColor: {
-        property: 'borderRightColor',
-        scale: 'colors',
-        transformer: getColor
-    },
-    borderRightStyle: {
-        property: 'borderRightStyle',
-        scale: 'borderStyles'
-    },
-    rounded: {
-        property: 'borderRadius',
-        scale: 'radii'
-    },
-    roundedTopLeft: {
-        property: 'borderTopLeftRadius',
-        scale: 'radii'
-    },
-    roundedTopRight: {
-        property: 'borderTopRightRadius',
-        scale: 'radii'
-    },
-    roundedBottomLeft: {
-        property: 'borderBottomLeftRadius',
-        scale: 'radii'
-    },
-    roundedBottomRight: {
-        property: 'borderBottomRightRadius',
-        scale: 'radii'
-    },
-    roundedTop: {
-        properties: ['borderTopLeftRadius', 'borderTopRightRadius'],
-        scale: 'radii'
-    },
-    borderBottomRadius: {
-        properties: ['borderBottomLeftRadius', 'borderBottomRightRadius'],
-        scale: 'radii'
-    },
-    roundedBottom: {
-        properties: ['borderBottomLeftRadius', 'borderBottomRightRadius'],
-        scale: 'radii'
-    },
-    roundedLeft: {
-        properties: ['borderTopLeftRadius', 'borderBottomLeftRadius'],
-        scale: 'radii'
-    },
-    roundedRight: {
-        properties: ['borderTopRightRadius', 'borderBottomRightRadius'],
-        scale: 'radii'
-    }
-};
-var background = {
-    backgroundSize: true,
-    backgroundPosition: true,
-    backgroundRepeat: true,
-    backgroundAttachment: true,
-    backgroundBlendMode: true,
-    bgImage: {
-        property: 'backgroundImage'
-    },
-    bgImg: {
-        property: 'backgroundImage'
-    },
-    bgBlendMode: {
-        property: 'backgroundBlendMode'
-    },
-    bgSize: {
-        property: 'backgroundSize'
-    },
-    bgPosition: {
-        property: 'backgroundPosition'
-    },
-    bgPos: {
-        property: 'backgroundPosition'
-    },
-    bgRepeat: {
-        property: 'backgroundRepeat'
-    },
-    bgAttachment: {
-        property: 'backgroundAttachment'
-    }
-};
-var space = {
-    margin: {
-        property: 'margin',
-        scale: 'space',
-        transformer: getMargin
-    },
-    m: {
-        property: 'margin',
-        scale: 'space',
-        transformer: getMargin
-    },
-    marginTop: {
-        property: 'marginTop',
-        scale: 'space',
-        transformer: getMargin
-    },
-    mt: {
-        property: 'marginTop',
-        scale: 'space',
-        transformer: getMargin
-    },
-    marginRight: {
-        property: 'marginRight',
-        scale: 'space',
-        transformer: getMargin
-    },
-    mr: {
-        property: 'marginRight',
-        scale: 'space',
-        transformer: getMargin
-    },
-    marginBottom: {
-        property: 'marginBottom',
-        scale: 'space',
-        transformer: getMargin
-    },
-    mb: {
-        property: 'marginBottom',
-        scale: 'space',
-        transformer: getMargin
-    },
-    marginLeft: {
-        property: 'marginLeft',
-        scale: 'space',
-        transformer: getMargin
-    },
-    ml: {
-        property: 'marginLeft',
-        scale: 'space',
-        transformer: getMargin
-    },
-    marginX: {
-        properties: ['marginLeft', 'marginRight'],
-        scale: 'space',
-        transformer: getMargin
-    },
-    mx: {
-        properties: ['marginLeft', 'marginRight'],
-        scale: 'space',
-        transformer: getMargin
-    },
-    marginY: {
-        properties: ['marginTop', 'marginBottom'],
-        scale: 'space',
-        transformer: getMargin
-    },
-    my: {
-        properties: ['marginTop', 'marginBottom'],
-        scale: 'space',
-        transformer: getMargin
-    },
-    padding: {
-        property: 'padding',
-        scale: 'space'
-    },
-    p: {
-        property: 'padding',
-        scale: 'space'
-    },
-    paddingTop: {
-        property: 'paddingTop',
-        scale: 'space'
-    },
-    pt: {
-        property: 'paddingTop',
-        scale: 'space'
-    },
-    paddingRight: {
-        property: 'paddingRight',
-        scale: 'space'
-    },
-    pr: {
-        property: 'paddingRight',
-        scale: 'space'
-    },
-    paddingBottom: {
-        property: 'paddingBottom',
-        scale: 'space'
-    },
-    pb: {
-        property: 'paddingBottom',
-        scale: 'space'
-    },
-    paddingLeft: {
-        property: 'paddingLeft',
-        scale: 'space'
-    },
-    pl: {
-        property: 'paddingLeft',
-        scale: 'space'
-    },
-    paddingX: {
-        properties: ['paddingLeft', 'paddingRight'],
-        scale: 'space'
-    },
-    px: {
-        properties: ['paddingLeft', 'paddingRight'],
-        scale: 'space'
-    },
-    paddingY: {
-        properties: ['paddingTop', 'paddingBottom'],
-        scale: 'space'
-    },
-    py: {
-        properties: ['paddingTop', 'paddingBottom'],
-        scale: 'space'
-    },
-    gap: {
-        property: 'gap',
-        scale: 'space'
-    }
-};
-var typography = {
-    fontFamily: {
-        property: 'fontFamily',
-        scale: 'fonts',
-        transformer: function (val, scale) {
-            var value = get__default["default"](scale, val);
-            return value ? value.toString() : undefined;
-        }
-    },
-    fontSize: {
-        property: 'fontSize',
-        scale: 'fontSizes'
-    },
-    fontWeight: {
-        property: 'fontWeight',
-        scale: 'fontWeights',
-        transformer: function (val, scale) {
-            return val ? get__default["default"](scale, val, val).toString() : val;
-        }
-    },
-    lineHeight: {
-        property: 'lineHeight',
-        scale: 'lineHeights'
-    },
-    letterSpacing: {
-        property: 'letterSpacing',
-        scale: 'letterSpacings'
-    },
-    textAlign: true,
-    fontStyle: true,
-    wordBreak: true,
-    overflowWrap: true,
-    textOverflow: true,
-    textTransform: true,
-    whiteSpace: true,
-    textDecoration: { property: 'textDecorationLine' },
-    txtDecor: { property: 'textDecorationLine' },
-    textDecorationLine: true
-};
-var extraProps = {
-    outline: true,
-    outlineWidth: true,
-    outlineColor: true,
-    outlineStyle: true,
-    shadow: {
-        scale: 'shadows'
-    },
-    cursor: true,
-    overflow: true,
-    userSelect: { property: 'userSelect' }
-};
-var propConfig = __assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign({}, color), space), layout), flexbox), border), position), typography), background), extraProps);
-// For backward compatibility with 3.0 of props like non token string numbers `<Box mt={"39"} />` => used to get applied as 39px. RN expects fontWeight to be string and crashes with numbers
-// https://reactnative.dev/docs/text-style-props#fontweight
-var convertStringNumberToNumber = function (key, value) {
-    if (typeof value === 'string' &&
-        key !== 'fontWeight' &&
-        value &&
-        !isNaN(Number(value))) {
-        return parseFloat(value);
-    }
-    return value;
-};
-var getRNKeyAndStyleValue = function (_a) {
-    var _b, _c;
-    var config = _a.config, value = _a.value, key = _a.key, theme = _a.theme, styledSystemProps = _a.styledSystemProps, currentBreakpoint = _a.currentBreakpoint, platform = _a.platform;
-    var style = {};
-    if (config === true) {
-        style = __assign(__assign({}, style), (_b = {}, _b[key] = convertStringNumberToNumber(key, value), _b));
-    }
-    else if (config) {
-        //@ts-ignore
-        var property = config.property, scale = config.scale, properties = config.properties, transformer = config.transformer;
-        var val_1 = value;
-        // console.log('zzzz style system props', theme, scale, value, transformer);
-        if (transformer) {
-            val_1 = transformer(val_1, theme[scale], theme, styledSystemProps.fontSize);
-        }
-        else {
-            // If a token is not found in the theme
-            val_1 = get__default["default"](theme[scale], value, value);
-        }
-        if (typeof val_1 === 'string') {
-            if (val_1.endsWith('px')) {
-                val_1 = parseFloat(val_1);
-                //TODO: build-time
-                // } else if (val.endsWith('em') && Platform.OS !== 'web') {
-            }
-            else if (val_1.endsWith('em') && platform !== 'web') {
-                var fontSize = resolveValueWithBreakpoint(styledSystemProps.fontSize, theme.breakpoints, currentBreakpoint, key);
-                val_1 =
-                    parseFloat(val_1) *
-                        parseFloat(get__default["default"](theme.fontSizes, fontSize, fontSize));
-            }
-        }
-        val_1 = convertStringNumberToNumber(key, val_1);
-        if (properties) {
-            //@ts-ignore
-            properties.forEach(function (property) {
-                var _a;
-                style = __assign(__assign({}, style), (_a = {}, _a[property] = val_1, _a));
-            });
-        }
-        else if (property) {
-            style = __assign(__assign({}, style), (_c = {}, _c[property] = val_1, _c));
-        }
-        else {
-            style = __assign(__assign({}, style), val_1);
-        }
-    }
-    return style;
-};
-var getStyleAndFilteredProps = function (_a) {
-    var _b;
-    var theme = _a.theme, currentBreakpoint = _a.currentBreakpoint, getResponsiveStyles = _a.getResponsiveStyles, styledSystemProps = _a.styledSystemProps, platform = _a.platform;
-    var styleFromProps = {};
-    var restDefaultProps = {};
-    var unResolvedProps = {};
-    var dataSet = {};
-    var responsiveStyles = null;
-    // console.log(styledSystemProps, '&&&&&');
-    var orderedBreakPoints = Object.entries(
-    //@ts-ignore
-    theme.breakpoints
-    //@ts-ignore
-    ).sort(function (a, b) { return a[1] - b[1]; });
-    var _loop_1 = function (key) {
-        var _d, _e;
-        var rawValue = styledSystemProps[key];
-        var config = propConfig[key];
-        // TODO: refactor
-        // Start: For edge cases
-        if (!getResponsiveStyles &&
-            hasValidBreakpointFormat(rawValue, theme.breakpoints)) {
-            unResolvedProps[key] = rawValue;
-        }
-        // TODO: refactor space prop for Stack Component
-        // if (key === 'space') {
-        //   unResolvedProps[key] = rawValue;
-        // }
-        // End: For edge cases
-        if (hasValidBreakpointFormat(rawValue, theme.breakpoints)) {
-            if (!responsiveStyles)
-                responsiveStyles = {};
-            var value = rawValue;
-            if (Array.isArray(value)) {
-                value.forEach(function (v, i) {
-                    //@ts-ignore
-                    if (!responsiveStyles[orderedBreakPoints[i][0]]) {
-                        //@ts-ignore
-                        responsiveStyles[orderedBreakPoints[i][0]] = [];
-                    }
-                    var newStyle = getRNKeyAndStyleValue({
-                        config: config,
-                        value: v,
-                        key: key,
-                        styledSystemProps: styledSystemProps,
-                        theme: theme,
-                        currentBreakpoint: currentBreakpoint,
-                        platform: platform
-                    });
-                    //@ts-ignore
-                    responsiveStyles[orderedBreakPoints[i][0]].push(newStyle);
-                });
-            }
-            else {
-                // console.log('hello 111222', key, value);
-                for (var k in value) {
-                    var newStyle = getRNKeyAndStyleValue({
-                        config: config,
-                        value: value[k],
-                        key: key,
-                        styledSystemProps: styledSystemProps,
-                        theme: theme,
-                        currentBreakpoint: currentBreakpoint,
-                        platform: platform
-                    });
-                    if (!responsiveStyles[k]) {
-                        responsiveStyles[k] = [];
-                    }
-                    responsiveStyles[k].push(newStyle);
-                }
-                // console.log('hello 111222', key, value, responsiveStyles);
-            }
-        }
-        else {
-            var value = rawValue;
-            // if (styledSystemProps?.extraProp?.endsWith('Icon')) {
-            //   console.log(styledSystemProps?.extraProp, 'hello flatten here22');
-            // }
-            //TODO: refactor
-            if (key === 'size' ||
-                (((_b = styledSystemProps === null || styledSystemProps === void 0 ? void 0 : styledSystemProps.extraProp) === null || _b === void 0 ? void 0 : _b.endsWith('.Icon')) && key === 'color')) {
-                restDefaultProps = __assign(__assign({}, restDefaultProps), (_d = {}, _d[key] = value, _d));
-            }
-            else {
-                var newStyle = getRNKeyAndStyleValue({
-                    config: config,
-                    value: value,
-                    key: key,
-                    styledSystemProps: styledSystemProps,
-                    theme: theme,
-                    currentBreakpoint: currentBreakpoint,
-                    platform: platform
-                });
-                // TODO: refactor
-                if (isEmptyObj(newStyle) &&
-                    !key.startsWith('_') &&
-                    key !== 'extraProp' &&
-                    key !== 'colorScheme' &&
-                    // key !== 'style' &&
-                    key !== 'variants' &&
-                    key !== 'sizes' &&
-                    key !== 'variant') {
-                    restDefaultProps = __assign(__assign({}, restDefaultProps), (_e = {}, _e[key] = value, _e));
-                }
-                styleFromProps = __assign(__assign({}, styleFromProps), newStyle);
-            }
-        }
-    };
-    for (var key in styledSystemProps) {
-        _loop_1(key);
-    }
-    if (responsiveStyles) {
-        if (getResponsiveStyles) {
-            var query_1 = { query: [] };
-            orderedBreakPoints.forEach(function (o) {
-                var _a;
-                var key = o[0];
-                if (key === 'base') {
-                    if (responsiveStyles)
-                        query_1.initial = responsiveStyles.base;
-                }
-                else {
-                    if (responsiveStyles)
-                        if (key in responsiveStyles) {
-                            (_a = query_1 === null || query_1 === void 0 ? void 0 : query_1.query) === null || _a === void 0 ? void 0 : _a.push({
-                                //@ts-ignore
-                                minWidth: o[1],
-                                style: responsiveStyles[key]
-                            });
-                        }
-                }
-            });
-            // console.log('hello responsive', orderedBreakPoints, responsiveStyles);
-            var _c = getResponsiveStyles(query_1), newDataSet = _c.dataSet, styles = _c.styles;
-            dataSet = __assign(__assign({}, dataSet), newDataSet);
-            styleFromProps = __assign(__assign({}, styleFromProps), styles);
-            //TODO: build-time
-            // styleFromProps = { ...styleFromProps };
-        }
-    }
-    // if (process.env.NODE_ENV === 'development' && debug) {
-    //   /* eslint-disable-next-line */
-    //   console.log('style ', debug + ' :: ', {
-    //     styleFromProps,
-    //     style,
-    //     styledSystemProps,
-    //   });
-    // }
-    // if (styleFromProps.backgroundColor === 'white.600') {
-    //   console.log(
-    //     styleFromProps,
-    //     styledSystemProps.extraProp,
-    //     'style from props *****'
-    //   );
-    // }
-    return {
-        //TODO: build-time
-        styleSheet: {},
-        styleFromProps: styleFromProps,
-        restDefaultProps: restDefaultProps,
-        dataSet: dataSet,
-        unResolvedProps: unResolvedProps
-    };
-};
-
 var config = {
     useSystemColorMode: false,
     initialColorMode: 'light',
     accessibleColors: false
 };
 var theme = __assign(__assign({}, theme$1), { components: components, config: config });
-
-// Adding Map for storing the props and style for the styled component
-exports.resolvedStyledMap = {};
-var pseudoPropStateMap = {
-    _disabled: 'isDisabled',
-    _focusVisible: 'isFocusVisible',
-    _focus: 'isFocused',
-    _hover: 'isHovered',
-    _pressed: 'isPressed',
-    _checked: 'isChecked',
-    _loading: 'isLoading',
-    _invalid: 'isInvalid',
-    _reversed: 'isReversed'
-};
-var PSEUDO_PROP_COMPONENT_MAP = {
-    _spinner: 'Spinner',
-    _stack: 'Stack',
-    _text: 'Text',
-    _icon: 'Icon',
-    _checkbox: 'Checkbox',
-    _radio: 'Radio',
-    _pressable: 'Pressable'
-};
-var COLOR_SCHEME_MAP = {
-    Button: true,
-    IconButton: true,
-    Checkbox: true,
-    Radio: true,
-    Alert: true,
-    Badge: true,
-    CircularProgress: true,
-    Fab: true,
-    Modal: true,
-    Progress: true,
-    Switch: true,
-    Tag: true,
-    Slider: true,
-    SliderThumb: true,
-    // SliderTrack: true,
-    SliderFilledTrack: true
-};
-var init = function (inputResolvedStyledMap) {
-    // resolvedStyledMap = new Map();
-    if (inputResolvedStyledMap) {
-        exports.resolvedStyledMap = inputResolvedStyledMap;
-    }
-    if (process.env.NODE_ENV === 'development') {
-        //@ts-ignore
-        window['resolvedStyledMap'] = exports.resolvedStyledMap;
-        //@ts-ignore
-    }
-};
-var get = function (key) {
-    // console.log(key, 'key here 111');
-    // console.log(resolvedStyledMap[key], 'key here 111');
-    return exports.resolvedStyledMap[key];
-};
-var getThemeObject = function (componentName, colorMode, state) {
-    var styleObj = exports.resolvedStyledMap[componentName];
-    if (!styleObj) {
-        return {};
-    }
-    // Theme style
-    var styleSheet = styleObj[colorMode];
-    // state style
-    var stateStyles = getPseudoStateStyles(componentName, state);
-    lodash.forEach(stateStyles, function (stateStyleObj) {
-        if (stateStyleObj[colorMode]) {
-            styleSheet = styleSheet.concat(stateStyleObj[colorMode]);
-        }
-    });
-    var unResolvedPropsArray = lodash.map(styleSheet, 'unResolvedProps');
-    var unResolvedProps = {};
-    for (var _i = 0, unResolvedPropsArray_1 = unResolvedPropsArray; _i < unResolvedPropsArray_1.length; _i++) {
-        var props = unResolvedPropsArray_1[_i];
-        unResolvedProps = __assign(__assign({}, unResolvedProps), props);
-    }
-    var restDefaultPropsArray = lodash.map(styleSheet, 'restDefaultProps');
-    var restDefaultProps = {};
-    for (var _a = 0, restDefaultPropsArray_1 = restDefaultPropsArray; _a < restDefaultPropsArray_1.length; _a++) {
-        var props = restDefaultPropsArray_1[_a];
-        restDefaultProps = __assign(__assign({}, restDefaultProps), props);
-    }
-    var styleFromPropsArray = lodash.map(styleSheet, 'styleFromProps');
-    var styleFromProps = {};
-    for (var _b = 0, styleFromPropsArray_1 = styleFromPropsArray; _b < styleFromPropsArray_1.length; _b++) {
-        var props = styleFromPropsArray_1[_b];
-        styleFromProps = __assign(__assign({}, styleFromProps), props);
-    }
-    var internalPseudoPropsArray = lodash.map(styleSheet, 'internalPseudoProps');
-    var internalPseudoProps = {};
-    for (var _c = 0, internalPseudoPropsArray_1 = internalPseudoPropsArray; _c < internalPseudoPropsArray_1.length; _c++) {
-        var props = internalPseudoPropsArray_1[_c];
-        internalPseudoProps = __assign(__assign({}, internalPseudoProps), props);
-    }
-    return {
-        style: lodash.map(styleSheet, 'style'),
-        unResolvedProps: unResolvedProps,
-        styleFromProps: styleFromProps,
-        restDefaultProps: restDefaultProps,
-        internalPseudoProps: internalPseudoProps
-    };
-};
-var getComponentNameKeyFromProps = function (componentName, _a) {
-    var _b;
-    var _c = _a === void 0 ? {} : _a, variant = _c.variant, colorScheme = _c.colorScheme;
-    var componentKeyName = componentName;
-    var componentTheme = lodash.get(theme, "components.".concat(componentName), {});
-    var colorSchemeKey = colorScheme || ((_b = componentTheme.defaultProps) === null || _b === void 0 ? void 0 : _b.colorScheme);
-    if (colorSchemeKey && variant) {
-        componentKeyName = "".concat(componentName, ".").concat(colorSchemeKey, ".").concat(variant);
-    }
-    else if (variant) {
-        componentKeyName = "".concat(componentName, ".").concat(variant);
-    }
-    else if (colorSchemeKey) {
-        componentKeyName = "".concat(componentName, ".").concat(colorSchemeKey);
-    }
-    return componentKeyName;
-};
-var getThemeProps = function (inputComponentKeyName, config, state, props) {
-    //
-    if (props === void 0) { props = {}; }
-    var componentNames = inputComponentKeyName.split('.');
-    var rootComponentName = componentNames[0];
-    var pseudoComponentKeyName = componentNames[1];
-    var componentKeyName = rootComponentName;
-    componentKeyName = getComponentNameKeyFromProps(rootComponentName, props);
-    if (pseudoComponentKeyName) {
-        componentKeyName = "".concat(componentKeyName, ".").concat(pseudoComponentKeyName);
-    }
-    var themeObj = getThemeObject(componentKeyName, config.colorMode, state);
-    // if (inputComponentKeyName === 'ButtonGroup') {
-    //   console.log('*** &&& theme props $$ >>>>>>>');
-    //   debugger;
-    // }
-    // if (inputComponentKeyName === 'Slider') {
-    //   console.log('component theme ^^&', themeObj, componentKeyName);
-    // }
-    // if (inputComponentKeyName === 'Button') {
-    //   // console.log(componentKeyName, themeObj, '((()))');
-    // }
-    if (isEmptyObj(themeObj)) {
-        themeObj = getThemeObject(rootComponentName, config.colorMode, state);
-    }
-    // if (inputComponentKeyName === 'Icon') {
-    //   console.log(componentKeyName, themeObj, ' *****theme object');
-    // }
-    // debugger;
-    if (!isEmptyObj(themeObj) && props.size) {
-        var componentKeyNameForSize = "".concat(rootComponentName, ".").concat(props.size);
-        if (pseudoComponentKeyName) {
-            componentKeyNameForSize = "".concat(componentKeyNameForSize, ".").concat(pseudoComponentKeyName);
-        }
-        var sizeThemeObj = getThemeObject("".concat(componentKeyNameForSize), config.colorMode, state);
-        // if (pseudoComponentKeyName) {
-        //   console.log(sizeThemeObj, componentKeyNameForSize, 'style them object');
-        // }
-        // console.log(themeObj.style, sizeThemeObj.style, 'style me rehne ka');
-        // console.log(
-        //   themeObj.style?.concat(sizeThemeObj.style),
-        //   'style me rehne kan222'
-        // );
-        var mergedThemeObj = {
-            style: (sizeThemeObj === null || sizeThemeObj === void 0 ? void 0 : sizeThemeObj.style)
-                ? __spreadArray(__spreadArray([], themeObj === null || themeObj === void 0 ? void 0 : themeObj.style, true), sizeThemeObj === null || sizeThemeObj === void 0 ? void 0 : sizeThemeObj.style, true) : themeObj.style,
-            styleFromProps: lodash.merge({}, themeObj.styleFromProps, sizeThemeObj.styleFromProps),
-            unResolvedProps: lodash.merge({}, themeObj.unResolvedProps, sizeThemeObj.unResolvedProps),
-            internalPseudoProps: lodash.merge({}, themeObj.internalPseudoProps, sizeThemeObj.internalPseudoProps),
-            restDefaultProps: __assign(__assign({}, themeObj.restDefaultProps), sizeThemeObj.restDefaultProps)
-        };
-        themeObj = mergedThemeObj;
-    }
-    // if (rootComponentName === 'Text') {
-    //   console.log(componentKeyName, props.size, themeObj, 'component key here');
-    //   // debugger;
-    // }
-    // console.log('theme obje', themeObj, inputComponentKeyName);
-    // console.log(themeObj, inputComponentKeyName, 'theme object');
-    if (isEmptyObj(themeObj)) {
-        updateComponentThemeMap(inputComponentKeyName, {}, config.platform);
-        // if (inputComponentKeyName === 'ButtonGroup') {
-        //   console.log(themeObj, '*** &&& theme props $$');
-        //   debugger;
-        // }
-        return getThemeProps(inputComponentKeyName, config, state, props);
-    }
-    return themeObj;
-};
-var getResolvedProps = function (key, colorMode) {
-    var styleObj = exports.resolvedStyledMap[key];
-    if (!colorMode || !styleObj) {
-        return null;
-    }
-    return styleObj[colorMode]['styleFromProps'];
-};
-var isValidStateKey = function (stateKey, state) {
-    // console.log(stateKey, pseudoPropStateMap[stateKey], state, 'is valid');
-    try {
-        //@ts-ignore
-        return state[pseudoPropStateMap[stateKey]];
-    }
-    catch (e) {
-        return false;
-    }
-};
-var isValidState = function (key, state) {
-    // include only startWith("_")
-    var stateKeys = key.split('.');
-    var isValid = stateKeys.every(function (stateKey) {
-        if (isValidStateKey(stateKey, state)) {
-            return true;
-        }
-        return false;
-    });
-    // console.log(isValid, 'valid here');
-    return isValid;
-};
-var getPseudoStateStyles = function (componentName, state) {
-    var styleObj = [];
-    var stateStyleArray = [];
-    var componentStates = get(componentName);
-    // console.log(componentStates, '***** &&&&');
-    for (var k in componentStates) {
-        var value = componentStates[k];
-        // console.log(componentStates, k, componentName, 'value **&');
-        //get for _hover, _checked
-        if (k.startsWith('_')) {
-            // const pseudoPropKey = k.slice(componentName.length + 1);
-            stateStyleArray.push({ key: k, value: value });
-        }
-    }
-    // sort for specificity
-    stateStyleArray.sort(function (obj1, obj2) { return obj1.key.length - obj2.key.length; });
-    stateStyleArray.forEach(function (item) {
-        if (isValidState(item.key, state)) {
-            styleObj.push(item.value);
-        }
-    });
-    // console.log(styleObj, 'valid state *');
-    return styleObj;
-};
-// export const getResolvedStyleSheet = (
-//   componentName: string | Array<any>,
-//   colorMode?: ColorMode,
-//   state?: any,
-//   variant?: any,
-//   size?: any
-// ) => {
-//   if (typeof componentName !== 'string') {
-//     componentName = componentName.filter((item) => item).join('.');
-//     // console.log(componentName, 'component name &&&^');
-//   } else {
-//     if (variant && size) {
-//       componentName = `${componentName}.${variant}.${size}`;
-//     } else if (variant) {
-//       componentName = `${componentName}.${variant}`;
-//     } else if (size) {
-//       componentName = `${componentName}.${size}`;
-//     }
-//   }
-//   const styleObj: any = resolvedStyledMap.get(componentName);
-//   // console.log(componentName, colorMode, styleObj, 'component name &&&&&');
-//   if (!colorMode || !styleObj) {
-//     return null;
-//   }
-//   // Theme style
-//   const styleSheet = map(styleObj[colorMode], 'style');
-//   // state style
-//   const stateStyles = getPseudoStateStyles(componentName, state);
-//   forEach(stateStyles, (stateStyleObj) => {
-//     // console.log(
-//     //   componentName,
-//     //   stateStyleObj[colorMode].style,
-//     //   map(stateStyleObj[colorMode], 'style'),
-//     //   'hello component name )))'
-//     // );
-//     styleSheet.push(map(stateStyleObj[colorMode], 'style'));
-//   });
-//   return styleSheet;
-// };
-var set = function (key, value, colorMode) {
-    var _a;
-    var styledMap = exports.resolvedStyledMap[key];
-    if (!styledMap) {
-        exports.resolvedStyledMap[key] = (_a = {},
-            _a[colorMode] = [value],
-            _a);
-    }
-    else {
-        if (!styledMap[colorMode]) {
-            styledMap[colorMode] = [];
-        }
-        styledMap[colorMode].push(value);
-    }
-};
-var log = function () {
-    // console.log(resolvedStyledMap);
-};
 
 var getStyledObject = function (
 //@ts-ignore
@@ -6544,6 +6559,7 @@ var mergeStylesWithSpecificity = function (componentTheme, flattenProps, specifi
 var resolveForInternalPseudoProps = function (name, key, styledObj, config, mergeDefaultProps) {
     var _a, _b;
     if (mergeDefaultProps === void 0) { mergeDefaultProps = true; }
+    // console.log(config, name, key, 'config here');
     // if (name !== 'Button') {
     //   return;
     // }
@@ -6557,7 +6573,7 @@ var resolveForInternalPseudoProps = function (name, key, styledObj, config, merg
             //     '******'
             //   );
             // }
-            updateComponentThemeMapForColorMode(PSEUDO_PROP_COMPONENT_MAP[property], "".concat(key, ".").concat(PSEUDO_PROP_COMPONENT_MAP[property]), styledObj.internalPseudoProps[property], config.colorMode, false, mergeDefaultProps);
+            updateComponentThemeMapForColorMode(PSEUDO_PROP_COMPONENT_MAP[property], "".concat(key, ".").concat(PSEUDO_PROP_COMPONENT_MAP[property]), styledObj.internalPseudoProps[property], config, false, mergeDefaultProps);
         }
         else {
             // const themeProps = getThemeProps(name, colorMode, {
@@ -6620,122 +6636,81 @@ var updateComponentThemeMapForColorMode = function (name, key, inputProps, confi
     }
     var styledObj = getStyledObject(name, componentTheme, config, __assign(__assign({}, inputProps), { extraProp: key }), mergeDefaultProps);
     set(key, styledObj, config.colorMode);
+    // console.log(key, styledObj, config.colorMode, '&&&&&&');
     resolveForInternalPseudoProps(name, key, styledObj, config, mergeDefaultProps);
     return styledObj;
 };
 var resolveDefaultTheme = function (platform) {
     for (var key in theme.components) {
-        updateComponentThemeMap(key, {}, platform);
+        // console.log(key, platform);
+        updateComponentThemeMap(key, {}, { platform: platform });
     }
     return exports.resolvedStyledMap;
 };
-var updateComponentThemeMap = function (name, inputProps, platform) {
-    updateComponentThemeMapForColorMode(name, name, inputProps, {
-        colorMode: 'light',
-        platform: platform
-    });
-    updateComponentThemeMapForColorMode(name, name, inputProps, {
-        colorMode: 'dark',
-        platform: platform
-    });
-    // resolve for all variants
-    var componentTheme = get__default["default"](theme, "components.".concat(name), {});
-    // resolve for colors only for button
-    // updateComponentThemeMapForColorMode(
-    //   name,
-    //   `${name}.baseStyle`,
-    //   inputProps,
-    //   'light'
-    //   // true
-    // );
-    if (COLOR_SCHEME_MAP[name]) {
-        for (var color in theme.colors) {
-            if (![
-                'white',
-                'black',
-                'lightText',
-                'darkText',
-                'contrastThreshold',
-            ].includes(color)) {
-                updateComponentThemeMapForColorMode(name, "".concat(name, ".").concat(color), { colorScheme: color }, {
-                    colorMode: 'light',
-                    platform: platform
-                }
-                // true
-                );
-                updateComponentThemeMapForColorMode(name, "".concat(name, ".").concat(color), { colorScheme: color }, {
-                    colorMode: 'dark',
-                    platform: platform
-                }
-                // true
-                );
-                for (var variant in componentTheme.variants) {
-                    updateComponentThemeMapForColorMode(name, "".concat(name, ".").concat(color, ".").concat(variant), { variant: variant, colorScheme: color }, {
-                        colorMode: 'light',
-                        platform: platform
-                    }
-                    // true
-                    );
-                    updateComponentThemeMapForColorMode(name, "".concat(name, ".").concat(color, ".").concat(variant), { variant: variant, colorScheme: color }, {
-                        colorMode: 'dark',
-                        platform: platform
-                    }
-                    // true
-                    );
-                }
-            }
-            // console.log(color, 'hello &&&&&');
+var generateBuildTimeMap = function (platform, usedComponentDetailMap) {
+    if (platform === void 0) { platform = 'web'; }
+    var componentsUsed = Object.keys(usedComponentDetailMap);
+    for (var _i = 0, componentsUsed_1 = componentsUsed; _i < componentsUsed_1.length; _i++) {
+        var componentName = componentsUsed_1[_i];
+        var componentPropsArray = usedComponentDetailMap[componentName];
+        for (var _a = 0, componentPropsArray_1 = componentPropsArray; _a < componentPropsArray_1.length; _a++) {
+            var componentProps = componentPropsArray_1[_a];
+            updateComponentThemeMap(componentName, {}, { platform: platform, colorMode: 'light' }, componentProps);
+            updateComponentThemeMap(componentName, {}, { platform: platform, colorMode: 'dark' }, componentProps);
         }
+    }
+    return exports.resolvedStyledMap;
+};
+var updateComponentThemeMap = function (name, inputProps, config, props) {
+    if (config === void 0) { config = { platform: 'web', colorMode: 'light' }; }
+    var platform = config.platform, colorMode = config.colorMode;
+    // console.log(props, 'props here');
+    // const componentTheme = get(theme, `components.${name}`, {});
+    var themeObj = {};
+    // if (runTimeResolution) {
+    var currentColorScheme = props === null || props === void 0 ? void 0 : props.colorScheme; // || componentTheme?.defaultProps?.colorScheme;
+    var currentVariant = props === null || props === void 0 ? void 0 : props.variant; // || componentTheme?.defaultProps?.variant;
+    var currentSize = props === null || props === void 0 ? void 0 : props.size; // || componentTheme?.defaultProps?.size;
+    if (currentVariant && currentColorScheme) {
+        themeObj = updateComponentThemeMapForColorMode(name, "".concat(name, ".").concat(currentColorScheme, ".").concat(currentVariant), { variant: currentVariant, colorScheme: currentColorScheme }, {
+            colorMode: colorMode,
+            platform: platform
+        });
+    }
+    else if (currentColorScheme) {
+        themeObj = updateComponentThemeMapForColorMode(name, "".concat(name, ".").concat(currentColorScheme), { colorScheme: currentColorScheme }, {
+            colorMode: colorMode,
+            platform: platform
+        });
+    }
+    else if (currentVariant) {
+        themeObj = updateComponentThemeMapForColorMode(name, "".concat(name, ".").concat(currentVariant), { variant: currentVariant }, {
+            colorMode: colorMode,
+            platform: platform
+        });
+    }
+    else if (currentSize) {
+        // console.log(name, 'name here 111', currentSize);
+        // if (name == 'Button') {
+        //   console.trace('hh');
+        // }
+        themeObj = updateComponentThemeMapForColorMode(name, "".concat(name, ".").concat(currentSize), { size: currentSize }, {
+            colorMode: colorMode,
+            platform: platform
+        }, false, false);
     }
     else {
-        for (var variant in componentTheme.variants) {
-            updateComponentThemeMapForColorMode(name, "".concat(name, ".").concat(variant), { variant: variant }, {
-                colorMode: 'light',
-                platform: platform
-            }
-            // true
-            );
-            updateComponentThemeMapForColorMode(name, "".concat(name, ".").concat(variant), { variant: variant }, {
-                colorMode: 'dark',
-                platform: platform
-            });
-        }
-    }
-    // resolve for all sizes
-    for (var size in componentTheme.sizes) {
-        updateComponentThemeMapForColorMode(name, "".concat(name, ".").concat(size), { size: size }, {
-            colorMode: 'light',
+        themeObj = updateComponentThemeMapForColorMode(name, name, inputProps, {
+            colorMode: colorMode,
             platform: platform
-        }, false, false);
-        updateComponentThemeMapForColorMode(name, "".concat(name, ".").concat(size), { size: size }, {
-            colorMode: 'dark',
-            platform: platform
-        }, false, false);
+        }, false, true);
     }
-    // resolve for all variants and sizes
-    // for (const variant in componentTheme.variants) {
-    //   for (const size in componentTheme.sizes) {
-    //     updateComponentThemeMapForColorMode(
-    //       name,
-    //       `${name}.${variant}.${size}`,
-    //       { size: size, variant: variant },
-    //       'light'
-    //     );
-    //     updateComponentThemeMapForColorMode(
-    //       name,
-    //       `${name}.${variant}.${size}`,
-    //       { size: size, variant: variant },
-    //       'dark'
-    //     );
-    //   }
-    // }
+    return themeObj;
 };
-// for (const key in theme.components) {
-// }
-// updateComponentThemeMap('Icon');
 
 exports.COLOR_SCHEME_MAP = COLOR_SCHEME_MAP;
 exports.PSEUDO_PROP_COMPONENT_MAP = PSEUDO_PROP_COMPONENT_MAP;
+exports.generateBuildTimeMap = generateBuildTimeMap;
 exports.get = get;
 exports.getResolvedProps = getResolvedProps;
 exports.getThemeProps = getThemeProps;
@@ -6745,3 +6720,4 @@ exports.pseudoPropStateMap = pseudoPropStateMap;
 exports.resolveDefaultTheme = resolveDefaultTheme;
 exports.set = set;
 exports.updateComponentThemeMap = updateComponentThemeMap;
+exports.updateComponentThemeMapForColorMode = updateComponentThemeMapForColorMode;

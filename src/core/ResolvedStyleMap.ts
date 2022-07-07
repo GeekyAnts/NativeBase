@@ -1,7 +1,6 @@
-import { forEach, map, get as lodashGet, merge } from 'lodash';
+import { forEach, map, merge } from 'lodash';
 // import type { ColorMode } from './color-mode';
 import { isEmptyObj } from '../utils/isEmptyObj';
-import { theme } from '../theme';
 import { updateComponentThemeMap } from '../utils/styled';
 
 // Adding Map for storing the props and style for the styled component
@@ -26,6 +25,9 @@ export const PSEUDO_PROP_COMPONENT_MAP: any = {
   _checkbox: 'Checkbox',
   _radio: 'Radio',
   _pressable: 'Pressable',
+  _slide: 'Slide',
+  _fade: 'Fade',
+  _backdropFade: 'BackdropFace',
   // _label: 'Text',
   // _input: 'Input',
   // _slide: 'Slide',
@@ -35,6 +37,7 @@ export const PSEUDO_PROP_COMPONENT_MAP: any = {
 
 export const COLOR_SCHEME_MAP: any = {
   Button: true,
+  ButtonGroup: true,
   IconButton: true,
   Checkbox: true,
   Radio: true,
@@ -74,7 +77,7 @@ export const get = (key: string) => {
 const getThemeObject = (componentName: any, colorMode: any, state?: any) => {
   const styleObj: any = resolvedStyledMap[componentName];
 
-  if (!styleObj) {
+  if (!styleObj || !styleObj[colorMode]) {
     return {};
   }
 
@@ -130,14 +133,16 @@ const getComponentNameKeyFromProps = (
 ) => {
   let componentKeyName: string = componentName;
 
-  const componentTheme = lodashGet(theme, `components.${componentName}`, {});
+  // const componentTheme = lodashGet(theme, `components.${componentName}`, {});
 
-  const colorSchemeKey =
-    colorScheme || componentTheme.defaultProps?.colorScheme;
+  const colorSchemeKey = colorScheme;
+  // || componentTheme.defaultProps?.colorScheme;
+  const variantKey = variant;
+  // || componentTheme.defaultProps?.variant;
 
-  if (colorSchemeKey && variant) {
-    componentKeyName = `${componentName}.${colorSchemeKey}.${variant}`;
-  } else if (variant) {
+  if (colorSchemeKey && variantKey) {
+    componentKeyName = `${componentName}.${colorSchemeKey}.${variantKey}`;
+  } else if (variantKey) {
     componentKeyName = `${componentName}.${variant}`;
   } else if (colorSchemeKey) {
     componentKeyName = `${componentName}.${colorSchemeKey}`;
@@ -146,14 +151,14 @@ const getComponentNameKeyFromProps = (
   return componentKeyName;
 };
 
+// const get
 export const getThemeProps = (
   inputComponentKeyName: string,
   config: any,
   state?: any,
   props: any = {}
 ): any => {
-  //
-
+  // console.log(config, 'config here');
   const componentNames = inputComponentKeyName.split('.');
 
   const rootComponentName = componentNames[0];
@@ -169,47 +174,79 @@ export const getThemeProps = (
 
   let themeObj: any = getThemeObject(componentKeyName, config.colorMode, state);
 
-  // if (inputComponentKeyName === 'ButtonGroup') {
-  //   console.log('*** &&& theme props $$ >>>>>>>');
-  //   debugger;
-  // }
-  // if (inputComponentKeyName === 'Slider') {
-  //   console.log('component theme ^^&', themeObj, componentKeyName);
-  // }
-  // if (inputComponentKeyName === 'Button') {
-  //   // console.log(componentKeyName, themeObj, '((()))');
-  // }
-
   if (isEmptyObj(themeObj)) {
-    themeObj = getThemeObject(rootComponentName, config.colorMode, state);
+    // console.log('hello here 1111', inputComponentKeyName);
+    // updateComponentThemeMap(inputComponentKeyName, {}, config, {});
+    updateComponentThemeMap(inputComponentKeyName, {}, config, {
+      variant: props.variant,
+      colorScheme: props.colorScheme,
+    });
+    themeObj = getThemeObject(componentKeyName, config.colorMode, state);
   }
 
-  // if (inputComponentKeyName === 'Icon') {
-  //   console.log(componentKeyName, themeObj, ' *****theme object');
-  // }
-
-  // debugger;
   if (!isEmptyObj(themeObj) && props.size) {
     let componentKeyNameForSize = `${rootComponentName}.${props.size}`;
 
     if (pseudoComponentKeyName) {
       componentKeyNameForSize = `${componentKeyNameForSize}.${pseudoComponentKeyName}`;
     }
-    const sizeThemeObj = getThemeObject(
+
+    let sizeThemeObj = getThemeObject(
       `${componentKeyNameForSize}`,
       config.colorMode,
       state
     );
-
-    // if (pseudoComponentKeyName) {
-    //   console.log(sizeThemeObj, componentKeyNameForSize, 'style them object');
-    // }
-
-    // console.log(themeObj.style, sizeThemeObj.style, 'style me rehne ka');
     // console.log(
-    //   themeObj.style?.concat(sizeThemeObj.style),
-    //   'style me rehne kan222'
+    //   'hello 111 222',
+    //   // sizeThemeObj,
+    //   rootComponentName,
+    //   componentKeyNameForSize,
+    //   pseudoComponentKeyName,
+    //   inputComponentKeyName
     // );
+
+    if (isEmptyObj(sizeThemeObj)) {
+      if (pseudoComponentKeyName) {
+        // sizeThemeObj = getThemeObject(
+        //   `${rootComponentName}.${props.size}`,
+        //   config.colorMode,
+        //   state
+        // );
+      } else {
+        //   sizeThemeObj = getThemeObject(
+        //     `${rootComponentName}.${props.size}`,
+        //     config.colorMode,
+        //     state
+        //   );
+
+        //   console.log(
+        //     '&&&&&',
+        //     sizeThemeObj,
+        //     `${rootComponentName}.${props.size}`
+        //   );
+        // }
+        if (isEmptyObj(sizeThemeObj)) {
+          // console.log(
+          //   `${rootComponentName}.${pseudoComponentKeyName}`,
+          //   componentKeyNameForSize,
+          //   ' ***** ',
+          //   pseudoComponentKeyName
+          // );
+
+          // console.log('hello 1111', rootComponentName);
+          // debugger;
+          updateComponentThemeMap(rootComponentName, {}, config, {
+            size: props.size,
+          });
+          sizeThemeObj = getThemeObject(
+            componentKeyNameForSize,
+            config.colorMode,
+            state
+          );
+        }
+      }
+    }
+
     const mergedThemeObj = {
       style: sizeThemeObj?.style
         ? [...themeObj?.style, ...sizeThemeObj?.style]
@@ -237,23 +274,6 @@ export const getThemeProps = (
     themeObj = mergedThemeObj;
   }
 
-  // if (rootComponentName === 'Text') {
-  //   console.log(componentKeyName, props.size, themeObj, 'component key here');
-  //   // debugger;
-  // }
-  // console.log('theme obje', themeObj, inputComponentKeyName);
-
-  // console.log(themeObj, inputComponentKeyName, 'theme object');
-  if (isEmptyObj(themeObj)) {
-    updateComponentThemeMap(inputComponentKeyName, {}, config.platform);
-
-    // if (inputComponentKeyName === 'ButtonGroup') {
-    //   console.log(themeObj, '*** &&& theme props $$');
-    //   debugger;
-    // }
-
-    return getThemeProps(inputComponentKeyName, config, state, props);
-  }
   return themeObj;
 };
 export const getResolvedProps = (key: string, colorMode?: any) => {

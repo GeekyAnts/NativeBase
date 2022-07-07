@@ -1,4 +1,5 @@
-function baseStyle({ isVertical }: Record<string, any>) {
+import type { IAvatarGroupProps } from '../../components/composites/Avatar/types';
+function baseStyle({ isVertical }: IAvatarGroupProps) {
   return {
     flexDirection: isVertical ? 'column-reverse' : 'row-reverse',
     space: -4,
