@@ -176,8 +176,8 @@ export const getThemeProps = (
 
   if (isEmptyObj(themeObj)) {
     // console.log('hello here 1111', inputComponentKeyName);
-    // updateComponentThemeMap(inputComponentKeyName, {}, config, true);
-    updateComponentThemeMap(inputComponentKeyName, {}, config, true, {
+    // updateComponentThemeMap(inputComponentKeyName, {}, config, {});
+    updateComponentThemeMap(inputComponentKeyName, {}, config, {
       variant: props.variant,
       colorScheme: props.colorScheme,
     });
@@ -235,7 +235,7 @@ export const getThemeProps = (
 
           // console.log('hello 1111', rootComponentName);
           // debugger;
-          updateComponentThemeMap(rootComponentName, {}, config, true, {
+          updateComponentThemeMap(rootComponentName, {}, config, {
             size: props.size,
           });
           sizeThemeObj = getThemeObject(
