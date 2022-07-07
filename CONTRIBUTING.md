@@ -24,7 +24,7 @@ If you are eager to start contributing code right away, you can go through [Nati
 There are other ways you can contribute without writing a single line of code. Here are a few things you can do to help out:
 
 1. **Replying and handling open issues.** We get a lot of issues every day, and some of them may lack necessary information. You can help out by guiding people through the process of filling out the issue template, asking for clarifying information, or pointing them to existing issues that match their description of the problem.
-2. **Reviewing pull requests for the docs.** Reviewing [documentation updates](https://github.com/nativebase/website/pulls) can be as simple as checking for spelling and grammar. If you encounter situations that can be explained better in the docs, click **Edit** at the bottom left of most docs pages to get started with your own contribution.
+2. **Reviewing pull requests for the docs.** Reviewing [documentation updates](https://github.com/GeekyAnts/nativebase-docs/pulls) can be as simple as checking for spelling and grammar. If you encounter situations that can be explained better in the docs, click **Edit** at the bottom left of most docs pages to get started with your own contribution.
 3. **Help people write test plans.** Some pull requests sent to the main repository may lack a proper test plan. These help reviewers understand how the change was tested, and can speed up the time it takes for a contribution to be accepted.
 
 Each of these tasks is highly impactful, and maintainers will greatly appreciate your help.

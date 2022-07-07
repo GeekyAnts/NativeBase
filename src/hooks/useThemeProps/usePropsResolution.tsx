@@ -12,6 +12,7 @@ import { useColorMode } from '../../core/color-mode';
 import { PSEUDO_PROP_COMPONENT_MAP } from '../../core/ResolvedStyleMap';
 import get from 'lodash.get';
 import { Platform } from 'react-native';
+import merge from 'lodash.merge';
 
 // const getThemeProps = resolvedMap.theme.getThemeProps;
 
@@ -38,12 +39,19 @@ export function usePropsResolution(
   const { theme } = useNativeBase();
   const { colorMode } = useColorMode();
 
+  // console.log(colorMode, 'hello colormode');
+  // console.time(component + ' ***');
   const componentThemeProps = getThemeProps(
     component,
-    { colorMode, platform: Platform.OS },
+    { colorMode: colorMode, platform: Platform.OS },
     state,
     incomingProps
   );
+  // console.timeEnd(component + ' ***');
+
+  // if (component === 'Button' || component === 'Stack') {
+  //   console.log(componentThemeProps, component, 'theme props');
+  // }
 
   if (config?.extendTheme) {
     config.extendTheme.forEach((extendedComponent) => {
@@ -78,11 +86,21 @@ export function usePropsResolution(
   const componentTheme = get(theme, `components.${component}`);
   let resolvedProps = usePropsResolutionWithComponentTheme(
     componentTheme,
-    { ...componentThemeProps?.unResolvedProps, ...incomingProps },
+    merge({}, componentThemeProps?.unResolvedProps, incomingProps),
     theme,
     state,
     { ...config, name: component }
   );
+
+  // if (component === 'Progress') {
+  //   console.log(
+  //     // componentThemeProps.internalPseudoProps,
+  //     componentThemeProps.unResolvedProps,
+  //     incomingProps,
+  //     { ...componentThemeProps?.unResolvedProps, ...incomingProps },
+  //     'incoming props here 111'
+  //   );
+  // }
 
   // if (component === 'SliderThumb') {
   //   console.log(componentThemeProps, state, 'componentThemeProps');
@@ -172,23 +190,21 @@ export function usePropsResolution(
   //   );
   // }
 
-  // if (component === 'SliderTrack') {
-  //   console.log(
-  //     componentThemeProps.internalPseudoProps,
-  //     componentThemeProps,
-  //     'incoming props here 111'
-  //   );
-  // }
-
   for (const property in componentThemeProps.internalPseudoProps) {
     if (PSEUDO_PROP_COMPONENT_MAP[property]) {
       const pseudoComponentThemeProps = getThemeProps(
         `${component}.${PSEUDO_PROP_COMPONENT_MAP[property]}`,
-        colorMode,
+        // { colorMode: 'light' },
+        { colorMode, platform: Platform.OS },
         {},
         incomingProps
       );
 
+      // console.log(
+      //   `${component}.${PSEUDO_PROP_COMPONENT_MAP[property]}`,
+      //   pseudoComponentThemeProps,
+      //   'hello 111'
+      // );
       // if (component === 'Radio' && property === '_stack') {
       //   // console.log(pseudoComponentThemeProps, incomingProps, 'property here');
       // }
@@ -267,9 +283,6 @@ export function usePropsResolution(
     //   };
     // }
   }
-  // }
-
-  // console.log(componentThemeProps, component, resolvedProps, 'theme props');
 
   return resolvedProps;
 }

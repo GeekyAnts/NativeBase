@@ -136,7 +136,7 @@ const getResponsiveStyles = (queries: GetResponsiveStylesParams): any => {
         const flattenQueryStyle = queryRule.style;
         const newStyle = createCompileableStyle(i18nStyle(flattenQueryStyle));
         const results = atomic(newStyle);
-        console.log(styles, newStyle, '***** query');
+        // console.log(styles, newStyle, '***** query');
 
         Object.keys(results).forEach((key) => {
           const oldIdentifier = results[key].identifier;

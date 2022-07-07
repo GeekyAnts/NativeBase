@@ -5,17 +5,26 @@ import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { usePropsResolution } from '../../../hooks/';
 
 const Fade = ({ children, ...props }: IFadeProps, ref?: any) => {
-  const { in: animationState, ...resolvedProps } = usePropsResolution(
-    'Fade',
-    props
-  );
+  const {
+    in: animationState,
+    entryDuration,
+    exitDuration,
+    ...resolvedProps
+  } = usePropsResolution('Fade', props);
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
   }
 
+  if (entryDuration) {
+    resolvedProps.animate.transition.duration = entryDuration;
+  }
+  if (exitDuration) {
+    resolvedProps.exit.transition.duration = exitDuration;
+  }
+
   return (
-    <PresenceTransition visible={animationState} {...resolvedProps} ref={ref}>
+    <PresenceTransition visible={animationState} ref={ref} {...resolvedProps}>
       {children}
     </PresenceTransition>
   );
