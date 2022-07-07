@@ -1,6 +1,6 @@
 import { randomColor, getRandomString } from './../tools';
-
-const baseStyle = (props: Record<string, any>) => {
+import type { InterfaceAvatarProps } from '../../components/composites/Avatar/types';
+const baseStyle = (props: InterfaceAvatarProps & { name: string }) => {
   const { name } = props;
   const bg = name
     ? randomColor({ string: getRandomString(5) + name })
