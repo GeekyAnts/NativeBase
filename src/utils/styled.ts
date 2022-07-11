@@ -46,30 +46,26 @@ const resolveForInternalPseudoProps = (
   key: any,
   styledObj: any,
   config: any,
-  mergeDefaultProps: boolean = true
+  mergeDefaultProps: boolean = true,
+  propertyName?: any
 ) => {
-  // console.log(config, name, key, 'config here');
   // if (name !== 'Button') {
   //   return;
   // }
+
   for (const property in styledObj.internalPseudoProps) {
     if (PSEUDO_PROP_COMPONENT_MAP[property]) {
-      // if (key === 'Button.sm') {
-      //   console.log(
-      //     mergeDefaultProps,
-      //     key,
-      //     PSEUDO_PROP_COMPONENT_MAP[property],
-      //     '******'
-      //   );
-      // }
-      updateComponentThemeMapForColorMode(
-        PSEUDO_PROP_COMPONENT_MAP[property],
-        `${key}.${PSEUDO_PROP_COMPONENT_MAP[property]}`,
-        styledObj.internalPseudoProps[property],
-        config,
-        false,
-        mergeDefaultProps
-      );
+      //TODO: not calling again for nested state prop
+      if (!propertyName) {
+        updateComponentThemeMapForColorMode(
+          PSEUDO_PROP_COMPONENT_MAP[property],
+          `${key}.${PSEUDO_PROP_COMPONENT_MAP[property]}`,
+          styledObj.internalPseudoProps[property],
+          config,
+          false,
+          mergeDefaultProps
+        );
+      }
     } else {
       // const themeProps = getThemeProps(name, colorMode, {
       //   [pseudoPropStateMap[property]]: true,
@@ -88,6 +84,7 @@ const resolveForInternalPseudoProps = (
       //     'theme props '
       //   );
       // }
+      // console.log(name, key, 'config here');
 
       const styledObjNestedProp: any = getStyledObject(
         name,
@@ -102,17 +99,39 @@ const resolveForInternalPseudoProps = (
       if (componentObj) {
         // const stateKey = key.slice(componentMapPath.length + 1);
         if (pseudoPropStateMap[property]) {
-          const stateKey = property;
+          const stateKey = propertyName
+            ? propertyName + '.' + property
+            : property;
           if (componentObj[stateKey]) {
             if (!componentObj[stateKey][config.colorMode]) {
               componentObj[stateKey][config.colorMode] = [];
             }
+
             componentObj[stateKey][config.colorMode].push(styledObjNestedProp);
           } else {
             componentObj[stateKey] = {
               [config.colorMode]: [styledObjNestedProp],
             };
           }
+
+          // if (name == 'Checkbox') {
+          //   console.log(
+          //     // property,
+          //     key,
+          //     // componentObj,
+          //     // componentMapPath,
+          //     styledObjNestedProp,
+          //     'hello here 111'
+          //   );
+          resolveForInternalPseudoProps(
+            name,
+            key,
+            styledObjNestedProp,
+            config,
+            false,
+            property
+          );
+          // }
         } else {
           // console.log(
           //   'hello here &&&*',
