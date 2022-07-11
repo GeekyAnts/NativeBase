@@ -27,6 +27,8 @@ const Fab = ({ ...props }: IFabProps, ref: any) => {
     renderInPortal,
     placement,
     placementProps,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    boxSize,
     ...newProps
   } = themeProps;
 
