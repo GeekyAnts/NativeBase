@@ -123,6 +123,8 @@ const resolveForInternalPseudoProps = (
           //     styledObjNestedProp,
           //     'hello here 111'
           //   );
+
+          // if (!isEmptyObj(styledObjNestedProp.internalPseudoProps)) {
           resolveForInternalPseudoProps(
             name,
             key,
@@ -132,15 +134,25 @@ const resolveForInternalPseudoProps = (
             property
           );
           // }
+          // }
         } else {
           // console.log(
           //   'hello here &&&*',
           //   styledObj.internalPseudoProps[property]
           // );
-          componentObj[config.colorMode][0].unResolvedProps = {
-            ...componentObj[config.colorMode][0].unResolvedProps,
-            [property]: styledObj.internalPseudoProps[property],
-          };
+
+          if (!propertyName) {
+            componentObj[config.colorMode][0].unResolvedProps = {
+              ...componentObj[config.colorMode][0].unResolvedProps,
+              [property]: styledObj.internalPseudoProps[property],
+            };
+          } else {
+            componentObj[propertyName][config.colorMode][0].unResolvedProps = {
+              ...componentObj[propertyName][config.colorMode][0]
+                .unResolvedProps,
+              [property]: styledObj.internalPseudoProps[property],
+            };
+          }
         }
       }
     }

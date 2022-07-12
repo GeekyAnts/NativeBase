@@ -30,7 +30,8 @@ const baseStyle = (props: Record<string, any>) => {
         },
         _pressed: {
           borderColor: `${c}.800`,
-          bg: `${c}.800`,
+          // bg: `${c}.800`,
+          bg: `red.800`,
         },
       },
       _hover: {

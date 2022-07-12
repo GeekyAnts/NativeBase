@@ -36,7 +36,9 @@ function SliderThumb(props: ISliderThumbProps, ref: any) {
     thumbSize,
     isReadOnly,
     isDisabled,
+    interactionBoxContext,
   } = React.useContext(SliderContext);
+
   const {
     onFocus,
     onBlur,
@@ -47,7 +49,7 @@ function SliderThumb(props: ISliderThumbProps, ref: any) {
     'SliderThumb',
     {
       size: thumbSize,
-      // _interactionBox: interactionBoxContext,
+      _interactionBox: interactionBoxContext,
       colorScheme,
       ...props,
     },
@@ -150,6 +152,8 @@ function SliderThumb(props: ISliderThumbProps, ref: any) {
   // console.log(resolvedProps, _interactionBox, 'interaction props 111');
   // _interactionBox.zIndex = 999;
   // _interactionBox.left = 0;
+
+  // console.log('hello interaction box', _interactionBox, isPressed);
   return (
     <Box
       position="absolute"

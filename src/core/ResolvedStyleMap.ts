@@ -97,7 +97,8 @@ const getThemeObject = (componentName: any, colorMode: any, state?: any) => {
 
   let unResolvedProps = {};
   for (const props of unResolvedPropsArray) {
-    unResolvedProps = { ...unResolvedProps, ...props };
+    // unResolvedProps = { ...unResolvedProps, ...props };
+    unResolvedProps = merge({}, unResolvedProps, props);
   }
 
   const restDefaultPropsArray = map(styleSheet, 'restDefaultProps');

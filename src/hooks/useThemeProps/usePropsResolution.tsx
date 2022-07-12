@@ -80,10 +80,19 @@ export function usePropsResolution(
         ...componentThemeProps.unResolvedProps,
         ...extendedThemeProps.unResolvedProps,
       };
+      // componentThemeProps.unResolvedProps = merge(
+      //   {},
+      //   componentThemeProps.unResolvedProps,
+      //   extendedThemeProps.unResolvedProps
+      // );
     });
   }
 
   const componentTheme = get(theme, `components.${component}`);
+
+  // if (component === 'SliderThumb') {
+  //   console.log(componentThemeProps, 'component theme');
+  // }
   let resolvedProps = usePropsResolutionWithComponentTheme(
     componentTheme,
     merge({}, componentThemeProps?.unResolvedProps, incomingProps),

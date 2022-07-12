@@ -78,7 +78,7 @@ export const SliderThumb = {
         _pressed: {
           _interactionBox: {
             borderWidth: '8',
-            borderColor: `red.300`,
+            borderColor: primary[300],
           },
         },
       },
@@ -113,6 +113,7 @@ export const SliderThumb = {
   },
   defaultProps: {
     colorScheme: 'primary',
+    size: 'md',
   },
   sizes: {
     lg: {
