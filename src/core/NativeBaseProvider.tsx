@@ -44,6 +44,7 @@ export interface NativeBaseProviderProps {
   config?: INativebaseConfig;
   isSSR?: boolean;
   disableContrastText?: boolean;
+  providerId?: string;
   // Refer https://github.com/th3rdwave/react-native-safe-area-context#testing
 }
 
@@ -56,6 +57,7 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
     initialWindowMetrics,
     isSSR,
     disableContrastText,
+    providerId,
   } = props;
   const theme = config.theme ?? propsTheme;
 
@@ -73,7 +75,7 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
     [windowWidth, newTheme.breakpoints]
   );
 
-  const ref = useRef(uniqueId());
+  const ref = useRef(providerId ?? uniqueId('my-provider-'));
   return (
     <NativeBaseConfigProvider
       theme={newTheme}

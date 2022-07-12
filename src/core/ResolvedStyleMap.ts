@@ -185,7 +185,7 @@ export const getThemeProps = (
     config.colorMode,
     state
   );
-  console.log(themeObj, providerId, 'theme obje');
+  // console.log(themeObj, providerId, 'theme obje');
 
   if (isEmptyObj(themeObj)) {
     // console.log('hello here 1111', inputComponentKeyName);

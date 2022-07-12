@@ -33,23 +33,6 @@ const myTheme = extendTheme({
   },
 });
 
-const theme1 = extendTheme({
-  components: {
-    Button: {
-      variants: {
-        myBtn: {
-          padding: 10,
-          bg: 'red.200',
-          w: '100',
-          h: '100',
-        },
-      },
-    },
-  },
-});
-
-console.log(myTheme, 'theme here');
-
 type MyThemeType = typeof myTheme;
 declare module 'native-base' {
   interface ICustomTheme extends MyThemeType {}
@@ -68,7 +51,7 @@ function MyWrapper({ children }: any) {
       bg={bgColor}
       safeAreaY
     >
-      {/* <Tooltip
+      <Tooltip
         label={colorMode === 'dark' ? 'Enable light mode' : 'Enable dark mode'}
         placement="bottom right"
         openDelay={300}
@@ -83,7 +66,7 @@ function MyWrapper({ children }: any) {
           icon={colorMode === 'dark' ? <SunIcon /> : <MoonIcon />}
           size="lg"
         />
-      </Tooltip> */}
+      </Tooltip>
       {children}
     </Box>
   );
@@ -125,29 +108,7 @@ export default ({ children, theme }: any) => {
   return (
     <>
       <NativeBaseProvider
-        theme={myTheme}
-        config={Config}
-        colorModeManager={colorModeManager}
-        initialWindowMetrics={{
-          frame: { x: 0, y: 0, width: 0, height: 0 },
-          insets: { top: 0, left: 0, right: 0, bottom: 0 },
-        }}
-      >
-        <MyWrapper>{children}</MyWrapper>
-      </NativeBaseProvider>
-
-      <NativeBaseProvider
-        config={Config}
-        colorModeManager={colorModeManager}
-        initialWindowMetrics={{
-          frame: { x: 0, y: 0, width: 0, height: 0 },
-          insets: { top: 0, left: 0, right: 0, bottom: 0 },
-        }}
-      >
-        <MyWrapper>{children}</MyWrapper>
-      </NativeBaseProvider>
-      <NativeBaseProvider
-        theme={theme1}
+        theme={theme}
         config={Config}
         colorModeManager={colorModeManager}
         initialWindowMetrics={{

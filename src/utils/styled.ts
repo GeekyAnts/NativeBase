@@ -181,7 +181,7 @@ export const updateComponentThemeMapForColorMode = (
   resolveForStatePseudoProps: boolean = false,
   mergeDefaultProps: boolean = true
 ) => {
-  console.log(theme, 'theme here');
+  // console.log(theme, 'theme here');
   let componentTheme = get(theme, `components.${name}`, {});
   // let componentTheme = get(defaultTheme, `components.${name}`, {});
   // if (runtime) {
@@ -220,13 +220,13 @@ export const updateComponentThemeMapForColorMode = (
   return styledObj;
 };
 
-export const resolveDefaultTheme = (platform?: string) => {
-  // for (const key in theme.components) {
-  //   // console.log(key, platform);
-  //   updateComponentThemeMap(key, {}, { platform });
-  // }
-  // return resolvedStyledMap;
-};
+// export const resolveDefaultTheme = (platform?: string) => {
+//   // for (const key in theme.components) {
+//   //   // console.log(key, platform);
+//   //   updateComponentThemeMap(key, {}, { platform });
+//   // }
+//   // return resolvedStyledMap;
+// };
 
 export const generateBuildTimeMap = (
   platform: string = 'web',
