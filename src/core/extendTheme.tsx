@@ -34,7 +34,8 @@ export function extendTheme<T extends ThemeUtil>(
 
   const finalOverrides = [overrides, ...restOverrides].reduce(
     (prevValue, currentValue) => {
-      resolveComponentThemeAndUpdateMap(currentValue);
+      console.log(prevValue, currentValue, 'value');
+      // resolveComponentThemeAndUpdateMap(currentValue);
       return mergeWith({}, prevValue, currentValue, customizer);
     },
     defaultTheme

@@ -12,7 +12,7 @@ import {
   get as getResolvedStyleMap,
   set as setResolvedStyleMap,
 } from '../core/ResolvedStyleMap';
-import { theme } from '../theme';
+import { theme as defaultTheme } from '../theme';
 
 // window['logger'] = {};
 // console.batchTime = (key) => {
@@ -42,6 +42,7 @@ import { theme } from '../theme';
 // };
 
 const resolveForInternalPseudoProps = (
+  theme: any,
   name: any,
   key: any,
   styledObj: any,
@@ -58,6 +59,7 @@ const resolveForInternalPseudoProps = (
       //TODO: not calling again for nested state prop
       if (!propertyName) {
         updateComponentThemeMapForColorMode(
+          theme,
           PSEUDO_PROP_COMPONENT_MAP[property],
           `${key}.${PSEUDO_PROP_COMPONENT_MAP[property]}`,
           styledObj.internalPseudoProps[property],
@@ -126,6 +128,7 @@ const resolveForInternalPseudoProps = (
 
           // if (!isEmptyObj(styledObjNestedProp.internalPseudoProps)) {
           resolveForInternalPseudoProps(
+            theme,
             name,
             key,
             styledObjNestedProp,
@@ -160,6 +163,7 @@ const resolveForInternalPseudoProps = (
 };
 
 export const updateComponentThemeMapForColorMode = (
+  theme: any,
   name: string,
   key: string,
   inputProps?: {},
@@ -170,7 +174,12 @@ export const updateComponentThemeMapForColorMode = (
   resolveForStatePseudoProps: boolean = false,
   mergeDefaultProps: boolean = true
 ) => {
+  console.log(theme, 'theme here');
   let componentTheme = get(theme, `components.${name}`, {});
+  // let componentTheme = get(defaultTheme, `components.${name}`, {});
+  // if (runtime) {
+  //   componentTheme =
+  // }
   // resolve for variant
 
   if (resolveForStatePseudoProps) {
@@ -192,6 +201,7 @@ export const updateComponentThemeMapForColorMode = (
   // console.log(key, styledObj, config.colorMode, '&&&&&&');
 
   resolveForInternalPseudoProps(
+    theme,
     name,
     key,
     styledObj,
@@ -203,11 +213,11 @@ export const updateComponentThemeMapForColorMode = (
 };
 
 export const resolveDefaultTheme = (platform?: string) => {
-  for (const key in theme.components) {
-    // console.log(key, platform);
-    updateComponentThemeMap(key, {}, { platform });
-  }
-  return resolvedStyledMap;
+  // for (const key in theme.components) {
+  //   // console.log(key, platform);
+  //   updateComponentThemeMap(key, {}, { platform });
+  // }
+  // return resolvedStyledMap;
 };
 
 export const generateBuildTimeMap = (
@@ -219,12 +229,14 @@ export const generateBuildTimeMap = (
     const componentPropsArray = usedComponentDetailMap[componentName];
     for (const componentProps of componentPropsArray) {
       updateComponentThemeMap(
+        defaultTheme,
         componentName,
         {},
         { platform, colorMode: 'light' },
         componentProps
       );
       updateComponentThemeMap(
+        defaultTheme,
         componentName,
         {},
         { platform, colorMode: 'dark' },
@@ -236,6 +248,7 @@ export const generateBuildTimeMap = (
 };
 
 export const updateComponentThemeMap = (
+  theme: any,
   name: string,
   inputProps?: {},
   config: any = { platform: 'web', colorMode: 'light' },
@@ -253,6 +266,7 @@ export const updateComponentThemeMap = (
 
   if (currentVariant && currentColorScheme) {
     themeObj = updateComponentThemeMapForColorMode(
+      theme,
       name,
       `${name}.${currentColorScheme}.${currentVariant}`,
       { variant: currentVariant, colorScheme: currentColorScheme },
@@ -263,6 +277,7 @@ export const updateComponentThemeMap = (
     );
   } else if (currentColorScheme) {
     themeObj = updateComponentThemeMapForColorMode(
+      theme,
       name,
       `${name}.${currentColorScheme}`,
       { colorScheme: currentColorScheme },
@@ -273,6 +288,7 @@ export const updateComponentThemeMap = (
     );
   } else if (currentVariant) {
     themeObj = updateComponentThemeMapForColorMode(
+      theme,
       name,
       `${name}.${currentVariant}`,
       { variant: currentVariant },
@@ -287,6 +303,7 @@ export const updateComponentThemeMap = (
     //   console.trace('hh');
     // }
     themeObj = updateComponentThemeMapForColorMode(
+      theme,
       name,
       `${name}.${currentSize}`,
       { size: currentSize },
@@ -299,6 +316,7 @@ export const updateComponentThemeMap = (
     );
   } else {
     themeObj = updateComponentThemeMapForColorMode(
+      theme,
       name,
       name,
       inputProps,
@@ -313,115 +331,5 @@ export const updateComponentThemeMap = (
 
   return themeObj;
 };
-
-//   updateComponentThemeMapForColorMode(name, name, inputProps, {
-//     colorMode: 'light',
-//     platform,
-//   });
-//   updateComponentThemeMapForColorMode(name, name, inputProps, {
-//     colorMode: 'dark',
-//     platform,
-//   });
-
-//   if (COLOR_SCHEME_MAP[name]) {
-//     for (const color in theme.colors) {
-//       if (
-//         ![
-//           'white',
-//           'black',
-//           'lightText',
-//           'darkText',
-//           'contrastThreshold',
-//         ].includes(color)
-//       ) {
-//         updateComponentThemeMapForColorMode(
-//           name,
-//           `${name}.${color}`,
-//           { colorScheme: color },
-//           {
-//             colorMode: 'light',
-//             platform,
-//           }
-//           // true
-//         );
-
-//         updateComponentThemeMapForColorMode(
-//           name,
-//           `${name}.${color}`,
-//           { colorScheme: color },
-//           {
-//             colorMode: 'dark',
-//             platform,
-//           }
-//           // true
-//         );
-
-//         for (const variant in componentTheme.variants) {
-//           updateComponentThemeMapForColorMode(
-//             name,
-//             `${name}.${color}.${variant}`,
-//             { variant: variant, colorScheme: color },
-//             {
-//               colorMode: 'light',
-//               platform,
-//             }
-//             // true
-//           );
-
-//           updateComponentThemeMapForColorMode(
-//             name,
-//             `${name}.${color}.${variant}`,
-//             { variant: variant, colorScheme: color },
-//             {
-//               colorMode: 'dark',
-//               platform,
-//             }
-//             // true
-//           );
-//         }
-//       }
-//     );
-//   } else if (currentVariant) {
-//     themeObj = updateComponentThemeMapForColorMode(
-//       name,
-//       `${name}.${currentVariant}`,
-//       { variant: currentVariant },
-//       {
-//         colorMode,
-//         platform,
-//       }
-//     );
-//   } else if (currentSize) {
-//     // console.log(name, 'name here 111', currentSize);
-//     // if (name == 'Button') {
-//     //   console.trace('hh');
-//     // }
-//     themeObj = updateComponentThemeMapForColorMode(
-//       name,
-//       `${name}.${currentSize}`,
-//       { size: currentSize },
-//       {
-//         colorMode,
-//         platform,
-//       },
-//       false,
-//       false
-//     );
-//   } else {
-//     themeObj = updateComponentThemeMapForColorMode(
-//       name,
-//       name,
-//       inputProps,
-//       {
-//         colorMode,
-//         platform,
-//       },
-//       false,
-//       true
-//     );
-//   }
-
-//   return {};
-// };
 
 export * from '../core/ResolvedStyleMap';

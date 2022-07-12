@@ -13,6 +13,7 @@ import { makeStyledComponent } from '../../../utils/makeStyledComponent';
 import { useResolvedFontFamily } from '../../../hooks/useResolvedFontFamily';
 import { getThemeProps } from '../../../core/ResolvedStyleMap';
 import { useColorMode } from '../../../core/color-mode';
+import { useNativeBase } from '../../../hooks';
 
 const StyledInput = makeStyledComponent(TextInput);
 
@@ -94,8 +95,10 @@ const Input = (
   //   'resolved props 222'
   // );
   const { colorMode } = useColorMode();
+  const { theme } = useNativeBase();
 
   const { styleFromProps } = getThemeProps(
+    theme,
     'Input',
     { colorMode, platform: Platform.OS },
     state,

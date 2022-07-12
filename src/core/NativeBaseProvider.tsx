@@ -90,12 +90,12 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
           colorModeManager={colorModeManager}
           options={theme.config}
         >
-          <OverlayProvider>
-            <ToastProvider>
-              <InitializeToastRef />
-              <SSRProvider>{children}</SSRProvider>
-            </ToastProvider>
-          </OverlayProvider>
+          {/* <OverlayProvider> */}
+          {/* <ToastProvider> */}
+          {/* <InitializeToastRef /> */}
+          <SSRProvider>{children}</SSRProvider>
+          {/* </ToastProvider> */}
+          {/* </OverlayProvider> */}
         </HybridProvider>
         {/* </ResponsiveQueryProvider> */}
       </SafeAreaProvider>

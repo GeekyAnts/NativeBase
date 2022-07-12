@@ -64,15 +64,6 @@ function SliderThumb(props: ISliderThumbProps, ref: any) {
 
   // console.log('context box', thumbSize);
 
-  // const { colorMode } = useColorMode();
-
-  // const { styleFromProps } = getThemeProps(
-  //   'SliderThumb',
-  //   colorMode,
-  //   state,
-  //   resolvedProps
-  // );
-
   const inputRef = React.useRef(null);
   const { thumbProps, inputProps } = useSliderThumb(
     {

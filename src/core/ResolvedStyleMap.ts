@@ -154,6 +154,7 @@ const getComponentNameKeyFromProps = (
 
 // const get
 export const getThemeProps = (
+  theme: any,
   inputComponentKeyName: string,
   config: any,
   state?: any,
@@ -178,7 +179,7 @@ export const getThemeProps = (
   if (isEmptyObj(themeObj)) {
     // console.log('hello here 1111', inputComponentKeyName);
     // updateComponentThemeMap(inputComponentKeyName, {}, config, {});
-    updateComponentThemeMap(inputComponentKeyName, {}, config, {
+    updateComponentThemeMap(theme, inputComponentKeyName, {}, config, {
       variant: props.variant,
       colorScheme: props.colorScheme,
     });
@@ -197,46 +198,11 @@ export const getThemeProps = (
       config.colorMode,
       state
     );
-    // console.log(
-    //   'hello 111 222',
-    //   // sizeThemeObj,
-    //   rootComponentName,
-    //   componentKeyNameForSize,
-    //   pseudoComponentKeyName,
-    //   inputComponentKeyName
-    // );
 
     if (isEmptyObj(sizeThemeObj)) {
-      if (pseudoComponentKeyName) {
-        // sizeThemeObj = getThemeObject(
-        //   `${rootComponentName}.${props.size}`,
-        //   config.colorMode,
-        //   state
-        // );
-      } else {
-        //   sizeThemeObj = getThemeObject(
-        //     `${rootComponentName}.${props.size}`,
-        //     config.colorMode,
-        //     state
-        //   );
-
-        //   console.log(
-        //     '&&&&&',
-        //     sizeThemeObj,
-        //     `${rootComponentName}.${props.size}`
-        //   );
-        // }
+      if (!pseudoComponentKeyName) {
         if (isEmptyObj(sizeThemeObj)) {
-          // console.log(
-          //   `${rootComponentName}.${pseudoComponentKeyName}`,
-          //   componentKeyNameForSize,
-          //   ' ***** ',
-          //   pseudoComponentKeyName
-          // );
-
-          // console.log('hello 1111', rootComponentName);
-          // debugger;
-          updateComponentThemeMap(rootComponentName, {}, config, {
+          updateComponentThemeMap(theme, rootComponentName, {}, config, {
             size: props.size,
           });
           sizeThemeObj = getThemeObject(

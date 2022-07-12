@@ -20,6 +20,7 @@ import { wrapStringChild } from '../../../utils/wrapStringChild';
 import { getThemeProps } from '../../../core';
 import { useColorMode } from '../../../core/color-mode';
 import { Platform } from 'react-native';
+import { useNativeBase } from '../../../hooks';
 
 const Checkbox = (
   {
@@ -116,6 +117,7 @@ const CheckboxComponent = React.memo(
   }: any) => {
     const _ref = React.useRef();
     const { isHovered } = useHover({}, _ref);
+    const { theme } = useNativeBase();
 
     const { checked: isChecked, disabled: isDisabled } = inputProps;
 
@@ -131,6 +133,7 @@ const CheckboxComponent = React.memo(
     };
     const { colorMode } = useColorMode();
     const { styleFromProps } = getThemeProps(
+      theme,
       'Checkbox',
       { colorMode, platform: Platform.OS },
       state,

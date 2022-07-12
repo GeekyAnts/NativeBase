@@ -42,6 +42,7 @@ export function usePropsResolution(
   // console.log(colorMode, 'hello colormode');
   // console.time(component + ' ***');
   const componentThemeProps = getThemeProps(
+    theme,
     component,
     { colorMode: colorMode, platform: Platform.OS },
     state,
@@ -56,6 +57,7 @@ export function usePropsResolution(
   if (config?.extendTheme) {
     config.extendTheme.forEach((extendedComponent) => {
       const extendedThemeProps = getThemeProps(
+        theme,
         extendedComponent,
         { colorMode, platform: Platform.OS },
         state,
@@ -202,6 +204,7 @@ export function usePropsResolution(
   for (const property in componentThemeProps.internalPseudoProps) {
     if (PSEUDO_PROP_COMPONENT_MAP[property]) {
       const pseudoComponentThemeProps = getThemeProps(
+        theme,
         `${component}.${PSEUDO_PROP_COMPONENT_MAP[property]}`,
         // { colorMode: 'light' },
         { colorMode, platform: Platform.OS },
