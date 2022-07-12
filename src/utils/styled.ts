@@ -290,10 +290,12 @@ export const updateComponentThemeMap = (
       }
     );
   } else if (currentColorScheme) {
+    // if (name === 'SliderThumb') {
+    //   console.log(props, 'hello slider ');
+    // }
     themeObj = updateComponentThemeMapForColorMode(
       theme,
       providerId,
-
       name,
       `${name}.${currentColorScheme}`,
       { colorScheme: currentColorScheme },

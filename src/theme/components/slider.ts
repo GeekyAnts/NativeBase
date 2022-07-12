@@ -41,7 +41,7 @@ export const SliderTrack = {
 export const SliderThumb = {
   baseStyle: (props: any) => {
     const { colorScheme } = props;
-    const { primary } = props.theme.colors;
+    const colors = props.theme.colors;
     return {
       borderRadius: 'full',
       zIndex: 999,
@@ -64,21 +64,21 @@ export const SliderThumb = {
         _hover: {
           _web: {
             outlineWidth: '4px',
-            outlineColor: primary[300],
+            outlineColor: colors[colorScheme][300],
             outlineStyle: 'solid',
           },
         },
         _focus: {
           _web: {
             outlineWidth: '2px',
-            outlineColor: primary[400],
+            outlineColor: colors.primary[400],
             outlineStyle: 'solid',
           },
         },
         _pressed: {
           _interactionBox: {
             borderWidth: '8',
-            borderColor: primary[300],
+            borderColor: `${colorScheme}.300`,
           },
         },
       },
@@ -87,14 +87,14 @@ export const SliderThumb = {
         _hover: {
           _web: {
             outlineWidth: '4px',
-            outlineColor: primary[800],
+            outlineColor: colors[colorScheme][800],
             outlineStyle: 'solid',
           },
         },
         _focus: {
           _web: {
             outlineWidth: '2px',
-            outlineColor: primary[400],
+            outlineColor: colors.primary[400],
             outlineStyle: 'solid',
           },
         },
@@ -113,17 +113,17 @@ export const SliderThumb = {
   },
   defaultProps: {
     colorScheme: 'primary',
-    size: 'md',
+    // size: 'md',
   },
   sizes: {
     lg: {
-      _interactionBox: { p: '3' },
+      _interactionBox: '3',
     },
     md: {
-      _interactionBox: { p: '2.5' },
+      _interactionBox: '2',
     },
     sm: {
-      _interactionBox: { p: '2' },
+      _interactionBox: '2.5',
     },
   },
 };

@@ -9,7 +9,7 @@ export const Example = () => {
         maxValue={100}
         step={1}
         defaultValue={50}
-        colorScheme="blue"
+        colorScheme="primary"
       >
         <Slider.Track>
           <Slider.FilledTrack />
