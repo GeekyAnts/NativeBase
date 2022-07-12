@@ -164,9 +164,9 @@ export const SliderFilledTrack = {
 };
 
 const sliderSizes = {
-  lg: { thumbSize: 6, sliderTrackHeight: 6 },
-  md: { thumbSize: 5, sliderTrackHeight: 5 },
-  sm: { thumbSize: 4, sliderTrackHeight: 4 },
+  lg: { thumbSize: 6, sliderTrackHeight: 6, _interactionBox: { p: '3' } },
+  md: { thumbSize: 5, sliderTrackHeight: 5, _interactionBox: { p: '2.5' } },
+  sm: { thumbSize: 4, sliderTrackHeight: 4, _interactionBox: { p: '2' } },
 };
 
 const variants = {
