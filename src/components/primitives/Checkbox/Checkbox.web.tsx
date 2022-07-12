@@ -21,6 +21,7 @@ import { getThemeProps } from '../../../core';
 import { useColorMode } from '../../../core/color-mode';
 import { Platform } from 'react-native';
 import { useNativeBase } from '../../../hooks';
+import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
 
 const Checkbox = (
   {
@@ -132,8 +133,11 @@ const CheckboxComponent = React.memo(
       isHovered: isHovered || isHoveredProp,
     };
     const { colorMode } = useColorMode();
+    const providerId = useNativeBaseConfig('NativeBase').providerId;
+
     const { styleFromProps } = getThemeProps(
       theme,
+      providerId,
       'Checkbox',
       { colorMode, platform: Platform.OS },
       state,

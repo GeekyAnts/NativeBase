@@ -68,14 +68,19 @@ export const init = (inputResolvedStyledMap?: any) => {
   }
 };
 
-export const get = (key: string) => {
+export const get = (providerId: any, key: string) => {
   // console.log(key, 'key here 111');
   // console.log(resolvedStyledMap[key], 'key here 111');
-  return resolvedStyledMap[key];
+  return resolvedStyledMap[providerId][key];
 };
 
-const getThemeObject = (componentName: any, colorMode: any, state?: any) => {
-  const styleObj: any = resolvedStyledMap[componentName];
+const getThemeObject = (
+  providerId: any,
+  componentName: any,
+  colorMode: any,
+  state?: any
+) => {
+  const styleObj: any = resolvedStyledMap?.[providerId]?.[componentName];
 
   if (!styleObj || !styleObj[colorMode]) {
     return {};
@@ -85,7 +90,7 @@ const getThemeObject = (componentName: any, colorMode: any, state?: any) => {
   let styleSheet = styleObj[colorMode];
 
   // state style
-  const stateStyles = getPseudoStateStyles(componentName, state);
+  const stateStyles = getPseudoStateStyles(providerId, componentName, state);
 
   forEach(stateStyles, (stateStyleObj) => {
     if (stateStyleObj[colorMode]) {
@@ -155,12 +160,12 @@ const getComponentNameKeyFromProps = (
 // const get
 export const getThemeProps = (
   theme: any,
+  providerId: any,
   inputComponentKeyName: string,
   config: any,
   state?: any,
   props: any = {}
 ): any => {
-  // console.log(config, 'config here');
   const componentNames = inputComponentKeyName.split('.');
 
   const rootComponentName = componentNames[0];
@@ -174,16 +179,34 @@ export const getThemeProps = (
     componentKeyName = `${componentKeyName}.${pseudoComponentKeyName}`;
   }
 
-  let themeObj: any = getThemeObject(componentKeyName, config.colorMode, state);
+  let themeObj: any = getThemeObject(
+    providerId,
+    componentKeyName,
+    config.colorMode,
+    state
+  );
+  console.log(themeObj, providerId, 'theme obje');
 
   if (isEmptyObj(themeObj)) {
     // console.log('hello here 1111', inputComponentKeyName);
     // updateComponentThemeMap(inputComponentKeyName, {}, config, {});
-    updateComponentThemeMap(theme, inputComponentKeyName, {}, config, {
-      variant: props.variant,
-      colorScheme: props.colorScheme,
-    });
-    themeObj = getThemeObject(componentKeyName, config.colorMode, state);
+    updateComponentThemeMap(
+      theme,
+      providerId,
+      inputComponentKeyName,
+      {},
+      config,
+      {
+        variant: props.variant,
+        colorScheme: props.colorScheme,
+      }
+    );
+    themeObj = getThemeObject(
+      providerId,
+      componentKeyName,
+      config.colorMode,
+      state
+    );
   }
 
   if (!isEmptyObj(themeObj) && props.size) {
@@ -194,6 +217,7 @@ export const getThemeProps = (
     }
 
     let sizeThemeObj = getThemeObject(
+      providerId,
       `${componentKeyNameForSize}`,
       config.colorMode,
       state
@@ -202,10 +226,18 @@ export const getThemeProps = (
     if (isEmptyObj(sizeThemeObj)) {
       if (!pseudoComponentKeyName) {
         if (isEmptyObj(sizeThemeObj)) {
-          updateComponentThemeMap(theme, rootComponentName, {}, config, {
-            size: props.size,
-          });
+          updateComponentThemeMap(
+            theme,
+            providerId,
+            rootComponentName,
+            {},
+            config,
+            {
+              size: props.size,
+            }
+          );
           sizeThemeObj = getThemeObject(
+            providerId,
             componentKeyNameForSize,
             config.colorMode,
             state
@@ -274,11 +306,15 @@ const isValidState = (key: string, state: any) => {
   // console.log(isValid, 'valid here');
   return isValid;
 };
-const getPseudoStateStyles = (componentName: string, state: any) => {
+const getPseudoStateStyles = (
+  providerId: any,
+  componentName: string,
+  state: any
+) => {
   const styleObj: any = [];
   const stateStyleArray: any = [];
 
-  const componentStates = get(componentName);
+  const componentStates = get(providerId, componentName);
 
   // console.log(componentStates, '***** &&&&');
   for (const k in componentStates) {
@@ -353,10 +389,18 @@ const getPseudoStateStyles = (componentName: string, state: any) => {
 
 //   return styleSheet;
 // };
-export const set = (key: string, value: any, colorMode: string) => {
-  const styledMap = resolvedStyledMap[key];
+export const set = (
+  providerId: any,
+  key: string,
+  value: any,
+  colorMode: string
+) => {
+  if (!resolvedStyledMap[providerId]) {
+    resolvedStyledMap[providerId] = {};
+  }
+  const styledMap = resolvedStyledMap[providerId][key];
   if (!styledMap) {
-    resolvedStyledMap[key] = {
+    resolvedStyledMap[providerId][key] = {
       [colorMode]: [value],
     };
   } else {

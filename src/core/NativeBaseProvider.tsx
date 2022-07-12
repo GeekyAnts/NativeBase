@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import {
   SafeAreaProvider,
   Metrics,
@@ -20,6 +20,7 @@ import { Platform, useWindowDimensions } from 'react-native';
 import { getClosestBreakpoint } from '../theme/tools/utils';
 import { platformSpecificSpaceUnits } from '../theme/tools/platformSpecificSpaceUnits';
 import { init as initResolvedStyleMap } from './ResolvedStyleMap';
+import { uniqueId } from 'lodash';
 
 initResolvedStyleMap();
 // For SSR to work, we need to pass initial insets as 0 values on web.
@@ -72,6 +73,7 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
     [windowWidth, newTheme.breakpoints]
   );
 
+  const ref = useRef(uniqueId());
   return (
     <NativeBaseConfigProvider
       theme={newTheme}
@@ -79,6 +81,7 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
       currentBreakpoint={currentBreakpoint}
       isSSR={isSSR}
       disableContrastText={disableContrastText}
+      providerId={ref.current}
     >
       <SafeAreaProvider
         initialMetrics={
@@ -90,12 +93,12 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
           colorModeManager={colorModeManager}
           options={theme.config}
         >
-          {/* <OverlayProvider> */}
-          {/* <ToastProvider> */}
-          {/* <InitializeToastRef /> */}
-          <SSRProvider>{children}</SSRProvider>
-          {/* </ToastProvider> */}
-          {/* </OverlayProvider> */}
+          <OverlayProvider>
+            <ToastProvider>
+              <InitializeToastRef />
+              <SSRProvider>{children}</SSRProvider>
+            </ToastProvider>
+          </OverlayProvider>
         </HybridProvider>
         {/* </ResponsiveQueryProvider> */}
       </SafeAreaProvider>

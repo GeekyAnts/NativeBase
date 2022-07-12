@@ -38,11 +38,11 @@ export function usePropsResolution(
 ) {
   const { theme } = useNativeBase();
   const { colorMode } = useColorMode();
+  const providerId = useNativeBaseConfig('NativeBase').providerId;
 
-  // console.log(colorMode, 'hello colormode');
-  // console.time(component + ' ***');
   const componentThemeProps = getThemeProps(
     theme,
+    providerId,
     component,
     { colorMode: colorMode, platform: Platform.OS },
     state,
@@ -58,6 +58,7 @@ export function usePropsResolution(
     config.extendTheme.forEach((extendedComponent) => {
       const extendedThemeProps = getThemeProps(
         theme,
+        providerId,
         extendedComponent,
         { colorMode, platform: Platform.OS },
         state,
@@ -205,6 +206,7 @@ export function usePropsResolution(
     if (PSEUDO_PROP_COMPONENT_MAP[property]) {
       const pseudoComponentThemeProps = getThemeProps(
         theme,
+        providerId,
         `${component}.${PSEUDO_PROP_COMPONENT_MAP[property]}`,
         // { colorMode: 'light' },
         { colorMode, platform: Platform.OS },

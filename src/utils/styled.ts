@@ -43,6 +43,8 @@ import { theme as defaultTheme } from '../theme';
 
 const resolveForInternalPseudoProps = (
   theme: any,
+  providerId: any,
+
   name: any,
   key: any,
   styledObj: any,
@@ -60,6 +62,8 @@ const resolveForInternalPseudoProps = (
       if (!propertyName) {
         updateComponentThemeMapForColorMode(
           theme,
+          providerId,
+
           PSEUDO_PROP_COMPONENT_MAP[property],
           `${key}.${PSEUDO_PROP_COMPONENT_MAP[property]}`,
           styledObj.internalPseudoProps[property],
@@ -96,7 +100,7 @@ const resolveForInternalPseudoProps = (
       );
 
       const componentMapPath = key;
-      const componentObj = getResolvedStyleMap(componentMapPath);
+      const componentObj = getResolvedStyleMap(providerId, componentMapPath);
 
       if (componentObj) {
         // const stateKey = key.slice(componentMapPath.length + 1);
@@ -129,6 +133,8 @@ const resolveForInternalPseudoProps = (
           // if (!isEmptyObj(styledObjNestedProp.internalPseudoProps)) {
           resolveForInternalPseudoProps(
             theme,
+            providerId,
+
             name,
             key,
             styledObjNestedProp,
@@ -164,6 +170,7 @@ const resolveForInternalPseudoProps = (
 
 export const updateComponentThemeMapForColorMode = (
   theme: any,
+  providerId: any,
   name: string,
   key: string,
   inputProps?: {},
@@ -197,11 +204,12 @@ export const updateComponentThemeMapForColorMode = (
     mergeDefaultProps
   );
 
-  setResolvedStyleMap(key, styledObj, config.colorMode);
+  setResolvedStyleMap(providerId, key, styledObj, config.colorMode);
   // console.log(key, styledObj, config.colorMode, '&&&&&&');
 
   resolveForInternalPseudoProps(
     theme,
+    providerId,
     name,
     key,
     styledObj,
@@ -230,6 +238,8 @@ export const generateBuildTimeMap = (
     for (const componentProps of componentPropsArray) {
       updateComponentThemeMap(
         defaultTheme,
+        // boot time provider id
+        1,
         componentName,
         {},
         { platform, colorMode: 'light' },
@@ -237,6 +247,8 @@ export const generateBuildTimeMap = (
       );
       updateComponentThemeMap(
         defaultTheme,
+        // boot time provider id
+        1,
         componentName,
         {},
         { platform, colorMode: 'dark' },
@@ -249,6 +261,7 @@ export const generateBuildTimeMap = (
 
 export const updateComponentThemeMap = (
   theme: any,
+  providerId: any,
   name: string,
   inputProps?: {},
   config: any = { platform: 'web', colorMode: 'light' },
@@ -267,6 +280,7 @@ export const updateComponentThemeMap = (
   if (currentVariant && currentColorScheme) {
     themeObj = updateComponentThemeMapForColorMode(
       theme,
+      providerId,
       name,
       `${name}.${currentColorScheme}.${currentVariant}`,
       { variant: currentVariant, colorScheme: currentColorScheme },
@@ -278,6 +292,8 @@ export const updateComponentThemeMap = (
   } else if (currentColorScheme) {
     themeObj = updateComponentThemeMapForColorMode(
       theme,
+      providerId,
+
       name,
       `${name}.${currentColorScheme}`,
       { colorScheme: currentColorScheme },
@@ -289,6 +305,8 @@ export const updateComponentThemeMap = (
   } else if (currentVariant) {
     themeObj = updateComponentThemeMapForColorMode(
       theme,
+      providerId,
+
       name,
       `${name}.${currentVariant}`,
       { variant: currentVariant },
@@ -304,6 +322,8 @@ export const updateComponentThemeMap = (
     // }
     themeObj = updateComponentThemeMapForColorMode(
       theme,
+      providerId,
+
       name,
       `${name}.${currentSize}`,
       { size: currentSize },
@@ -317,6 +337,8 @@ export const updateComponentThemeMap = (
   } else {
     themeObj = updateComponentThemeMapForColorMode(
       theme,
+      providerId,
+
       name,
       name,
       inputProps,
