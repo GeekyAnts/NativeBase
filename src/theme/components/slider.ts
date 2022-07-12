@@ -22,7 +22,6 @@ export const SliderTrack = {
       width: '100%',
       height: 1,
       _pressable: {
-        height: 1,
         width: '100%',
       },
     },
@@ -32,7 +31,6 @@ export const SliderTrack = {
       width: 1,
       _pressable: {
         height: '100%',
-        width: 1,
       },
     },
   },
