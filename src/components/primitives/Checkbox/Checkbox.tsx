@@ -20,6 +20,11 @@ import {
 import SizedIcon from './SizedIcon';
 import { Stack } from '../Stack';
 import { wrapStringChild } from '../../../utils/wrapStringChild';
+import { getThemeProps } from '../../../core';
+import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
+import { useColorMode } from '../../../core/color-mode';
+import { useNativeBase } from '../../../hooks';
+import { Platform } from 'react-native';
 
 const Checkbox = (
   {
@@ -108,8 +113,30 @@ const CheckboxComponent = React.memo(
     const { hoverProps, isHovered } = useHover();
     const { pressableProps, isPressed } = useIsPressed();
     const { focusProps, isFocused } = useFocus();
+    const { colorMode } = useColorMode();
+    const { theme } = useNativeBase();
+    const providerId = useNativeBaseConfig('NativeBase').providerId;
 
     const { checked: isChecked, disabled: isDisabled } = inputProps;
+
+    const state = {
+      isInvalid,
+      isReadOnly,
+      isIndeterminate,
+      isDisabled,
+      isChecked,
+      isHovered: isHoveredProp || isHovered,
+      isPressed: isPressedProp || isPressed,
+      isFocused: isFocusedProp || isFocused,
+    };
+    const { styleFromProps } = getThemeProps(
+      theme,
+      providerId,
+      'Checkbox',
+      { colorMode, platform: Platform.OS },
+      state,
+      combinedProps
+    );
 
     const {
       icon,
@@ -128,25 +155,24 @@ const CheckboxComponent = React.memo(
     } = usePropsResolution(
       'Checkbox',
       { ...combinedProps, ...inputProps },
-      {
-        isInvalid,
-        isReadOnly,
-        isIndeterminate,
-        isDisabled,
-        isChecked,
-        isHovered: isHoveredProp || isHovered,
-        isPressed: isPressedProp || isPressed,
-        isFocused: isFocusedProp || isFocused,
-      }
+      state
     );
 
-    const [layoutProps, nonLayoutProps] = extractInObject(resolvedProps, [
+    const filterProps = [
       ...stylingProps.margin,
       ...stylingProps.layout,
       ...stylingProps.flexbox,
       ...stylingProps.position,
+    ];
+    const [layoutProps, nonLayoutProps] = extractInObject(resolvedProps, [
+      ...filterProps,
       '_text',
     ]);
+
+    const [layoutStyles, nonLayoutStyles] = extractInObject(
+      styleFromProps,
+      filterProps
+    );
 
     const [
       accessibilityProps,
@@ -186,12 +212,20 @@ const CheckboxComponent = React.memo(
           // focusRingProps.onBlur
         )}
       >
-        <Stack {...layoutProps} {..._stack}>
+        <Stack
+          {...layoutProps}
+          {..._stack}
+          INTERNAL_themeStyle={[layoutStyles, _stack.INTERNAL_themeStyle]}
+        >
           <Center>
             {/* Interaction Wrapper */}
             <Box {..._interactionBox} />
             {/* Checkbox */}
-            <Center {...nonAccessibilityProps}>
+            <Center
+              {...nonAccessibilityProps}
+              //@ts-ignore
+              INTERNAL_themeStyle={[nonLayoutStyles]}
+            >
               <SizedIcon icon={icon} _icon={_icon} isChecked={isChecked} />
             </Center>
           </Center>
