@@ -43,7 +43,7 @@ export function usePropsResolution(
   // need to think
   const [ignoredProps, incomingProps] = extractInObject(
     inputProps,
-    ['children', 'onPress', 'icon', 'onOpen', 'onClose'].concat(
+    ['children', 'onPress', 'onOpen', 'onClose'].concat(
       config?.ignoreProps || []
     )
   );
