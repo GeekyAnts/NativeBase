@@ -5,11 +5,11 @@ import {
   propsSpreader,
   resolvePropsToStyle,
 } from '../hooks/useThemeProps/propsFlattener';
-import { theme } from '../theme';
 import { isEmptyObj } from './isEmptyObj';
 import isEmpty from 'lodash.isempty';
 
 export const getStyledObject = (
+  theme: any,
   //@ts-ignore
   name: string,
   componentTheme: any,
@@ -48,6 +48,7 @@ export const getStyledObject = (
   // console.log(inputProps, 'hello flatten here');
 
   [flattenProps] = mergeStylesWithSpecificity(
+    theme,
     componentTheme,
     flattenProps,
     specificityMap,
@@ -93,34 +94,35 @@ export const getStyledObject = (
 //@ts-ignore
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const resolveComponentThemeStyle = (
-  incomingProps: any,
-  themeType: Array<string>,
-  providedTheme?: any
-): any => {
-  try {
-    if (themeType[1]) {
-      return typeof providedTheme[themeType[0]][themeType[1]] !== 'function'
-        ? providedTheme[themeType[0]][themeType[1]]
-        : providedTheme[themeType[0]][themeType[1]]({
-            theme,
-            ...incomingProps,
-            colorMode: 'light',
-          });
-    } else {
-      return typeof providedTheme[themeType[0]] !== 'function'
-        ? providedTheme[themeType[0]]
-        : providedTheme[themeType[0]]({
-            theme,
-            ...incomingProps,
-            colorMode: 'light',
-          });
-    }
-  } catch {
-    return {};
-  }
-};
+// const resolveComponentThemeStyle = (
+//   incomingProps: any,
+//   themeType: Array<string>,
+//   providedTheme?: any
+// ): any => {
+//   try {
+//     if (themeType[1]) {
+//       return typeof providedTheme[themeType[0]][themeType[1]] !== 'function'
+//         ? providedTheme[themeType[0]][themeType[1]]
+//         : providedTheme[themeType[0]][themeType[1]]({
+//             theme,
+//             ...incomingProps,
+//             colorMode: 'light',
+//           });
+//     } else {
+//       return typeof providedTheme[themeType[0]] !== 'function'
+//         ? providedTheme[themeType[0]]
+//         : providedTheme[themeType[0]]({
+//             theme,
+//             ...incomingProps,
+//             colorMode: 'light',
+//           });
+//     }
+//   } catch {
+//     return {};
+//   }
+// };
 const resolveComponentTheme = (
+  theme: any,
   incomingProps: any,
   themeType: Array<string>,
   providedTheme: any
@@ -160,6 +162,7 @@ const resolveComponentTheme = (
 };
 
 const mergeStylesWithSpecificity = (
+  theme: any,
   componentTheme: any,
   flattenProps: any,
   specificityMap: any,
@@ -183,6 +186,7 @@ const mergeStylesWithSpecificity = (
       combinedBaseStyle = {
         ...combinedBaseStyle,
         ...resolveComponentTheme(
+          theme,
           flattenProps,
           ['baseStyle'],
           extededComponentTheme
@@ -194,6 +198,7 @@ const mergeStylesWithSpecificity = (
         combinedVariantStyle = {
           ...combinedVariantStyle,
           ...resolveComponentTheme(
+            theme,
             flattenProps,
             ['variants', flattenProps.variant],
             extededComponentTheme
@@ -227,6 +232,7 @@ const mergeStylesWithSpecificity = (
         combinedSizeStyle = {
           ...combinedSizeStyle,
           ...resolveComponentTheme(
+            theme,
             flattenProps,
             ['sizes', flattenProps.size],
             extededComponentTheme

@@ -418,6 +418,7 @@ const resolveForInternalPseudoProps = (
       // console.log(name, key, 'config here');
 
       const styledObjNestedProp: any = getStyledObject(
+        theme,
         name,
         {},
         config,
@@ -520,6 +521,7 @@ export const updateComponentThemeMapForColorMode = (
   }
 
   const styledObj: any = getStyledObject(
+    theme,
     name,
     componentTheme,
     config,
