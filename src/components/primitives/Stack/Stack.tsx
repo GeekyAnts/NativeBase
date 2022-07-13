@@ -1,6 +1,6 @@
 import React, { memo, forwardRef } from 'react';
 import { default as Box, InterfaceBoxProps } from '../Box';
-import { getSpacedChildren } from '../../../utils';
+import getSpacedChildren from '../../../utils/getSpacedChildren';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import type { CustomProps, ResponsiveValue, SpaceType } from '../../types';

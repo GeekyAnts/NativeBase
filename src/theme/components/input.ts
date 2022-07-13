@@ -4,7 +4,7 @@ const baseStyle = (props: InterfaceInputProps & { theme: any }) => {
   const { primary, error } = props.theme.colors;
 
   return {
-    fontFamily: 'body',
+    // fontFamily: 'body',
     py: '2',
     px: '3',
     borderRadius: 'sm',

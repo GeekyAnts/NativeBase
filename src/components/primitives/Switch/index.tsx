@@ -56,8 +56,6 @@ const Switch = (
     isChecked: checked,
   });
 
-  console.log(resolvedProps, 'switch props');
-
   const onTrackColor = useToken('colors', _onTrackColor);
   const offTrackColor = useToken('colors', _offTrackColor);
   const onThumbColor = useToken('colors', _onThumbColor);
