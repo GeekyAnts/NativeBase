@@ -1,7 +1,7 @@
 import React from 'react';
 import type { ResponsiveValue } from '../components/types';
 import { useNativeBaseConfig } from '../core/NativeBaseContext';
-import { resolveValueWithBreakpoint } from './useThemeProps/propsFlattener';
+import { resolveValueWithBreakpoint } from './useThemeProps/resolveValueWithBreakpoint';
 import { useTheme } from './../hooks/useTheme';
 
 type IProps = {
