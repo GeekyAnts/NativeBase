@@ -106,18 +106,16 @@ export default ({ children, theme }: any) => {
     },
   };
   return (
-    <>
-      <NativeBaseProvider
-        theme={theme}
-        config={Config}
-        colorModeManager={colorModeManager}
-        initialWindowMetrics={{
-          frame: { x: 0, y: 0, width: 0, height: 0 },
-          insets: { top: 0, left: 0, right: 0, bottom: 0 },
-        }}
-      >
-        <MyWrapper>{children}</MyWrapper>
-      </NativeBaseProvider>
-    </>
+    <NativeBaseProvider
+      theme={theme}
+      config={Config}
+      colorModeManager={colorModeManager}
+      initialWindowMetrics={{
+        frame: { x: 0, y: 0, width: 0, height: 0 },
+        insets: { top: 0, left: 0, right: 0, bottom: 0 },
+      }}
+    >
+      <MyWrapper>{children}</MyWrapper>
+    </NativeBaseProvider>
   );
 };
