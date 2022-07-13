@@ -314,15 +314,16 @@ const isValidState = (key: string, state: any) => {
 
 const getPriority = (propName: string) => {
   const propNameArray = propName.split('.');
-  const lastPropName: any = propNameArray[propNameArray.length - 1];
-  let priority = 0;
-  //@ts-ignore
-  if (pseudoPropsMap[lastPropName]) {
+
+  const maxPriority = propNameArray.reduce((previousValue, currentValue) => {
     //@ts-ignore
-    priority =
-      //@ts-ignore
-      pseudoPropsMap[lastPropName]?.priority + propNameArray.length / 10;
-  }
+    return Math.max(previousValue, pseudoPropsMap[currentValue]?.priority);
+  }, 0);
+
+  const priority =
+    //@ts-ignore
+    maxPriority + propNameArray.length / 10;
+  // }
 
   return priority;
 };

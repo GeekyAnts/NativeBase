@@ -26,7 +26,7 @@ import merge from 'lodash.merge';
  */
 export function usePropsResolution(
   component: string,
-  { INTERNAL_themeStyle, ...incomingProps }: any,
+  { INTERNAL_themeStyle, ...inputProps }: any,
   state?: IStateProps,
   config?: {
     componentTheme?: any;
@@ -39,6 +39,14 @@ export function usePropsResolution(
   const { theme } = useNativeBase();
   const { colorMode } = useColorMode();
   const providerId = useNativeBaseConfig('NativeBase').providerId;
+
+  // need to think
+  const [ignoredProps, incomingProps] = extractInObject(
+    inputProps,
+    ['children', 'onPress', 'icon', 'onOpen', 'onClose'].concat(
+      config?.ignoreProps || []
+    )
+  );
 
   const componentThemeProps = getThemeProps(
     theme,
@@ -96,7 +104,7 @@ export function usePropsResolution(
   // if (component === 'SliderThumb') {
   //   console.log(componentThemeProps, 'component theme');
   // }
-  let resolvedProps = usePropsResolutionWithComponentTheme(
+  let resolvedFlattenProps = usePropsResolutionWithComponentTheme(
     componentTheme,
     merge({}, componentThemeProps?.unResolvedProps, incomingProps),
     theme,
@@ -160,7 +168,7 @@ export function usePropsResolution(
   //   );
   // }
 
-  resolvedProps.INTERNAL_themeStyle = INTERNAL_themeStyle
+  resolvedFlattenProps.INTERNAL_themeStyle = INTERNAL_themeStyle
     ? [componentThemeProps.styleFromProps, ...INTERNAL_themeStyle]
     : [componentThemeProps.styleFromProps];
 
@@ -172,22 +180,22 @@ export function usePropsResolution(
   //   );
   // }
 
-  resolvedProps = {
+  resolvedFlattenProps = {
     ...componentThemeProps.restDefaultProps,
-    ...resolvedProps,
+    ...resolvedFlattenProps,
   };
-  if (resolvedProps.size) {
+  if (resolvedFlattenProps.size) {
     if (
-      !sizesExistsInTheme(componentTheme, resolvedProps.size) &&
-      isLiteral(resolvedProps.size)
+      !sizesExistsInTheme(componentTheme, resolvedFlattenProps.size) &&
+      isLiteral(resolvedFlattenProps.size)
     ) {
-      resolvedProps = {
-        boxSize: resolvedProps.size,
-        ...resolvedProps,
+      resolvedFlattenProps = {
+        boxSize: resolvedFlattenProps.size,
+        ...resolvedFlattenProps,
       };
     }
 
-    resolvedProps.size = undefined;
+    resolvedFlattenProps.size = undefined;
   }
 
   // if (component === 'SliderThumb') {
@@ -236,14 +244,14 @@ export function usePropsResolution(
       //   );
       // }
 
-      resolvedProps[property] = {
+      resolvedFlattenProps[property] = {
         ...pseudoComponentThemeProps.restDefaultProps,
         ...componentThemeProps.internalPseudoProps[property],
-        ...resolvedProps[property],
-        INTERNAL_themeStyle: resolvedProps[property]?.INTERNAL_themeStyle
+        ...resolvedFlattenProps[property],
+        INTERNAL_themeStyle: resolvedFlattenProps[property]?.INTERNAL_themeStyle
           ? [
               pseudoComponentThemeProps.styleFromProps,
-              ...resolvedProps[property].INTERNAL_themeStyle,
+              ...resolvedFlattenProps[property].INTERNAL_themeStyle,
             ]
           : // resolvedProps[property].INTERNAL_themeStyle.unshift(
             //     pseudoComponentThemeProps.styleFromProps
@@ -297,6 +305,11 @@ export function usePropsResolution(
     //   };
     // }
   }
+
+  const resolvedProps = omitUndefined({
+    ...resolvedFlattenProps,
+    ...ignoredProps,
+  });
 
   return resolvedProps;
 }
@@ -381,16 +394,8 @@ export const usePropsResolutionWithComponentTheme = (
   // return incomingProps;
 
   // optimized-start
-  const modifiedPropsForSSR = useResponsiveSSRProps(incomingProps, theme);
+  const cleanIncomingProps = useResponsiveSSRProps(incomingProps, theme);
   // optimized-end
-
-  // need to think
-  const [ignoredProps, cleanIncomingProps] = extractInObject(
-    modifiedPropsForSSR,
-    ['children', 'onPress', 'icon', 'onOpen', 'onClose'].concat(
-      config?.ignoreProps || []
-    )
-  );
 
   const isSSR = useNativeBaseConfig('NativeBase').isSSR;
   const disableCSSMediaQueries = !isSSR;
@@ -594,11 +599,6 @@ export const usePropsResolutionWithComponentTheme = (
   //   defaultSpecificity
   // );
 
-  const resolvedProps = omitUndefined({
-    ...flattenProps,
-    ...ignoredProps,
-  });
-
   // STEP 5: Return
-  return resolvedProps;
+  return flattenProps;
 };
