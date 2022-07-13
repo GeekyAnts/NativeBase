@@ -21,7 +21,6 @@ const Flex = (props: IFlexProps, ref: any) => {
     return null;
   }
 
-  console.log(resolvedProps, 'resolved props her');
   return (
     <Box
       {...resolvedProps}
