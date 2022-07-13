@@ -32,7 +32,7 @@ export function extendTheme<T extends ThemeUtil>(
     return undefined;
   }
 
-  const finalOverrides = [overrides, ...restOverrides].reduce(
+  let finalOverrides = [overrides, ...restOverrides].reduce(
     (prevValue, currentValue) => {
       // console.log(prevValue, currentValue, 'value');
       // resolveComponentThemeAndUpdateMap(currentValue);
@@ -40,6 +40,10 @@ export function extendTheme<T extends ThemeUtil>(
     },
     defaultTheme
   );
+
+  // TODO: Fix typings
+  // @ts-ignore
+  finalOverrides['customUserTheme'] = overrides;
 
   return finalOverrides as T & Theme;
 }
