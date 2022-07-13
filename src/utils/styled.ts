@@ -429,6 +429,7 @@ const resolveForInternalPseudoProps = (
 
       if (componentObj) {
         // const stateKey = key.slice(componentMapPath.length + 1);
+        //@ts-ignore
         if (pseudoPropsMap?.[property]?.respondTo) {
           const stateKey = propertyName
             ? propertyName + '.' + property
