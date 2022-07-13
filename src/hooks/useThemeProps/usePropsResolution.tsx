@@ -600,5 +600,5 @@ export const usePropsResolutionWithComponentTheme = (
   // );
 
   // STEP 5: Return
-  return flattenProps;
+  return omitUndefined(flattenProps);
 };
