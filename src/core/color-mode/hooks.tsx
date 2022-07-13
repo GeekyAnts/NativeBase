@@ -6,7 +6,7 @@ import type {
 } from './types';
 import { HybridContext } from './../hybrid-overlay/Context';
 import type { IHybridContextProps } from './../hybrid-overlay/types';
-import { useColorScheme } from 'react-native';
+import { Appearance } from 'react-native';
 
 export const useColorMode = (): IColorModeContextProps => {
   const {
@@ -30,7 +30,7 @@ export function useModeManager(
   useSystemColorMode: boolean | undefined,
   colorModeManager?: StorageManager
 ) {
-  const systemColorMode = useColorScheme();
+  const systemColorMode = Appearance.getColorScheme();
 
   if (useSystemColorMode) {
     initialColorMode = systemColorMode;
