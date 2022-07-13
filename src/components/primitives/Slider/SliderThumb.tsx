@@ -36,7 +36,9 @@ function SliderThumb(props: ISliderThumbProps, ref: any) {
     thumbSize,
     isReadOnly,
     isDisabled,
+    _interactionBox: interactionBoxContext,
   } = React.useContext(SliderContext);
+
   const {
     onFocus,
     onBlur,
@@ -47,7 +49,7 @@ function SliderThumb(props: ISliderThumbProps, ref: any) {
     'SliderThumb',
     {
       size: thumbSize,
-      // _interactionBox: interactionBoxContext,
+      _interactionBox: interactionBoxContext,
       colorScheme,
       ...props,
     },
@@ -61,15 +63,6 @@ function SliderThumb(props: ISliderThumbProps, ref: any) {
   );
 
   // console.log('context box', thumbSize);
-
-  // const { colorMode } = useColorMode();
-
-  // const { styleFromProps } = getThemeProps(
-  //   'SliderThumb',
-  //   colorMode,
-  //   state,
-  //   resolvedProps
-  // );
 
   const inputRef = React.useRef(null);
   const { thumbProps, inputProps } = useSliderThumb(
@@ -146,10 +139,6 @@ function SliderThumb(props: ISliderThumbProps, ref: any) {
   if (useHasResponsiveProps(props)) {
     return null;
   }
-
-  // console.log(resolvedProps, _interactionBox, 'interaction props 111');
-  // _interactionBox.zIndex = 999;
-  // _interactionBox.left = 0;
   return (
     <Box
       position="absolute"

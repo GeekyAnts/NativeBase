@@ -8,6 +8,8 @@ import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { useColorMode } from '../../../core/color-mode';
 import { getThemeProps } from '../../../core';
 import { Platform } from 'react-native';
+import { useNativeBase } from '../../../hooks';
+import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
 
 const SVG = makeStyledComponent(Svg);
 
@@ -16,7 +18,12 @@ const SVGIcon = (
   ref: any
 ) => {
   const { colorMode } = useColorMode();
+  const { theme } = useNativeBase();
+  const providerId = useNativeBaseConfig('NativeBase').providerId;
+
   const { styleFromProps } = getThemeProps(
+    theme,
+    providerId,
     'Icon',
     { colorMode, platform: Platform.OS },
     {},

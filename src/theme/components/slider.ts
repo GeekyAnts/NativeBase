@@ -22,7 +22,6 @@ export const SliderTrack = {
       width: '100%',
       height: 1,
       _pressable: {
-        height: 1,
         width: '100%',
       },
     },
@@ -32,7 +31,6 @@ export const SliderTrack = {
       width: 1,
       _pressable: {
         height: '100%',
-        width: 1,
       },
     },
   },
@@ -41,7 +39,7 @@ export const SliderTrack = {
 export const SliderThumb = {
   baseStyle: (props: any) => {
     const { colorScheme } = props;
-    const { primary } = props.theme.colors;
+    const colors = props.theme.colors;
     return {
       borderRadius: 'full',
       zIndex: 999,
@@ -64,21 +62,21 @@ export const SliderThumb = {
         _hover: {
           _web: {
             outlineWidth: '4px',
-            outlineColor: primary[300],
+            outlineColor: colors[colorScheme][300],
             outlineStyle: 'solid',
           },
         },
         _focus: {
           _web: {
             outlineWidth: '2px',
-            outlineColor: primary[400],
+            outlineColor: colors.primary[400],
             outlineStyle: 'solid',
           },
         },
         _pressed: {
           _interactionBox: {
             borderWidth: '8',
-            borderColor: `red.300`,
+            borderColor: `${colorScheme}.300`,
           },
         },
       },
@@ -87,14 +85,14 @@ export const SliderThumb = {
         _hover: {
           _web: {
             outlineWidth: '4px',
-            outlineColor: primary[800],
+            outlineColor: colors[colorScheme][800],
             outlineStyle: 'solid',
           },
         },
         _focus: {
           _web: {
             outlineWidth: '2px',
-            outlineColor: primary[400],
+            outlineColor: colors.primary[400],
             outlineStyle: 'solid',
           },
         },
@@ -113,16 +111,17 @@ export const SliderThumb = {
   },
   defaultProps: {
     colorScheme: 'primary',
+    // size: 'md',
   },
   sizes: {
     lg: {
-      _interactionBox: { p: '3' },
+      _interactionBox: '3',
     },
     md: {
-      _interactionBox: { p: '2.5' },
+      _interactionBox: '2',
     },
     sm: {
-      _interactionBox: { p: '2' },
+      _interactionBox: '2.5',
     },
   },
 };
@@ -163,9 +162,9 @@ export const SliderFilledTrack = {
 };
 
 const sliderSizes = {
-  lg: { thumbSize: 6, sliderTrackHeight: 6 },
-  md: { thumbSize: 5, sliderTrackHeight: 5 },
-  sm: { thumbSize: 4, sliderTrackHeight: 4 },
+  lg: { thumbSize: 6, sliderTrackHeight: 6, _interactionBox: { p: '3' } },
+  md: { thumbSize: 5, sliderTrackHeight: 5, _interactionBox: { p: '2.5' } },
+  sm: { thumbSize: 4, sliderTrackHeight: 4, _interactionBox: { p: '2' } },
 };
 
 const variants = {
