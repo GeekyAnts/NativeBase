@@ -47,7 +47,7 @@ const INITIAL_PROP_SPECIFICITY = {
   [SPECIFICITY_10]: 0,
 };
 
-const pseudoPropsMap = {
+export const pseudoPropsMap = {
   _web: { dependentOn: 'platform', priority: SPECIFICITY_10 },
   _ios: { dependentOn: 'platform', priority: SPECIFICITY_10 },
   _android: { dependentOn: 'platform', priority: SPECIFICITY_10 },
@@ -352,6 +352,7 @@ const simplifyProps = (
         }
         // @ts-ignore
         propertySpecity[pseudoPropsMap[property].priority]++;
+
         simplifyProps(
           {
             props: props[property],

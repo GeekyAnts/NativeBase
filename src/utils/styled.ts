@@ -1,6 +1,6 @@
 import get from 'lodash.get';
 import {
-  pseudoPropStateMap,
+  // pseudoPropStateMap,
   PSEUDO_PROP_COMPONENT_MAP,
   resolvedStyledMap,
 } from '../core/ResolvedStyleMap';
@@ -13,6 +13,7 @@ import {
   set as setResolvedStyleMap,
 } from '../core/ResolvedStyleMap';
 import { theme as defaultTheme } from '../theme';
+import { pseudoPropsMap } from '../hooks/useThemeProps/propsFlattener';
 
 // window['logger'] = {};
 // console.batchTime = (key) => {
@@ -104,7 +105,7 @@ const resolveForInternalPseudoProps = (
 
       if (componentObj) {
         // const stateKey = key.slice(componentMapPath.length + 1);
-        if (pseudoPropStateMap[property]) {
+        if (pseudoPropsMap?.[property]?.respondTo) {
           const stateKey = propertyName
             ? propertyName + '.' + property
             : property;
