@@ -15,8 +15,6 @@ import { CircleIcon } from '../Icon/Icons';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { combineContextAndProps, isEmptyObj } from '../../../utils';
 import { useFormControlContext } from '../../composites/FormControl';
-// import { getThemeProps } from '../../../core/ResolvedStyleMap';
-// import { useColorMode } from '../../../core/color-mode';
 
 const RadioComponent = memo(
   forwardRef(

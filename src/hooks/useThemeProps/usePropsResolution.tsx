@@ -5,11 +5,11 @@ import type { IStateProps } from './propsFlattener';
 import { useResponsiveSSRProps } from '../useResponsiveSSRProps';
 import type { ComponentTheme } from '../../theme';
 import { useNativeBaseConfig } from '../../core/NativeBaseContext';
-import { getThemeProps } from '../../core/ResolvedStyleMap';
+import { getThemeProps } from '../../utils/styled';
 import { callPropsFlattener } from './propsFlattener';
 
 import { useColorMode } from '../../core/color-mode';
-import { PSEUDO_PROP_COMPONENT_MAP } from '../../core/ResolvedStyleMap';
+import { PSEUDO_PROP_COMPONENT_MAP } from '../../utils/styled';
 import get from 'lodash.get';
 import { Platform } from 'react-native';
 import merge from 'lodash.merge';
@@ -600,5 +600,5 @@ export const usePropsResolutionWithComponentTheme = (
   // );
 
   // STEP 5: Return
-  return flattenProps;
+  return omitUndefined(flattenProps);
 };

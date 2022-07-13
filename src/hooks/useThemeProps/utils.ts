@@ -5,7 +5,7 @@ import cloneDeep from 'lodash.clonedeep';
 import { themePropertyMap } from './../../theme/base';
 import { getClosestBreakpoint, extractInObject } from './../../theme/tools';
 import { useContrastText } from '../useContrastText';
-import { resolveValueWithBreakpoint } from './propsFlattener';
+import { resolveValueWithBreakpoint } from './resolveValueWithBreakpoint';
 
 /*
  Extract props from theme props and omit those from props

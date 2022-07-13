@@ -11,7 +11,7 @@ import { mergeRefs } from '../../../utils';
 import { Stack } from '../Stack';
 import { makeStyledComponent } from '../../../utils/makeStyledComponent';
 import { useResolvedFontFamily } from '../../../hooks/useResolvedFontFamily';
-import { getThemeProps } from '../../../core/ResolvedStyleMap';
+import { getThemeProps } from '../../../utils/styled';
 import { useColorMode } from '../../../core/color-mode';
 import { useNativeBase } from '../../../hooks';
 import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
