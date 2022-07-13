@@ -339,7 +339,7 @@ const getPseudoStateStyles = (
   const styleObj: any = [];
   const stateStyleArray: any = [];
 
-  const componentStates = lodashGet(providerId, componentName);
+  const componentStates = getResolvedStyleMap(providerId, componentName);
 
   // console.log(componentStates, '***** &&&&');
 
