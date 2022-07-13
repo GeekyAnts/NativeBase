@@ -2,20 +2,21 @@ import { forEach, map, merge } from 'lodash';
 // import type { ColorMode } from './color-mode';
 import { isEmptyObj } from '../utils/isEmptyObj';
 import { updateComponentThemeMap } from '../utils/styled';
+import { pseudoPropsMap } from '../hooks/useThemeProps/propsFlattener';
 
 // Adding Map for storing the props and style for the styled component
 export let resolvedStyledMap: { [key: string]: any } = {};
-export const pseudoPropStateMap: any = {
-  _disabled: 'isDisabled',
-  _focusVisible: 'isFocusVisible',
-  _focus: 'isFocused',
-  _hover: 'isHovered',
-  _pressed: 'isPressed',
-  _checked: 'isChecked',
-  _loading: 'isLoading',
-  _invalid: 'isInvalid',
-  _reversed: 'isReversed',
-};
+// export const pseudoPropStateMap: any = {
+//   _disabled: 'isDisabled',
+//   _focusVisible: 'isFocusVisible',
+//   _focus: 'isFocused',
+//   _pressed: 'isPressed',
+//   _checked: 'isChecked',
+//   _loading: 'isLoading',
+//   _invalid: 'isInvalid',
+//   _hover: 'isHovered',
+//   _reversed: 'isReversed',
+// };
 
 export const PSEUDO_PROP_COMPONENT_MAP: any = {
   _spinner: 'Spinner',
@@ -91,6 +92,10 @@ const getThemeObject = (
 
   // state style
   const stateStyles = getPseudoStateStyles(providerId, componentName, state);
+
+  if (componentName === 'Checkbox' && state.isInvalid && state.isHovered) {
+    // console.log(componentName, stateStyles, 'component state');
+  }
 
   forEach(stateStyles, (stateStyleObj) => {
     if (stateStyleObj[colorMode]) {
@@ -287,7 +292,7 @@ const isValidStateKey = (stateKey: string, state: any) => {
   // console.log(stateKey, pseudoPropStateMap[stateKey], state, 'is valid');
   try {
     //@ts-ignore
-    return state[pseudoPropStateMap[stateKey]];
+    return state[pseudoPropsMap[stateKey].respondTo];
   } catch (e: any) {
     return false;
   }
@@ -306,6 +311,21 @@ const isValidState = (key: string, state: any) => {
   // console.log(isValid, 'valid here');
   return isValid;
 };
+
+const getPriority = (propName: string) => {
+  const propNameArray = propName.split('.');
+  const lastPropName: any = propNameArray[propNameArray.length - 1];
+  let priority = 0;
+  //@ts-ignore
+  if (pseudoPropsMap[lastPropName]) {
+    //@ts-ignore
+    priority =
+      //@ts-ignore
+      pseudoPropsMap[lastPropName]?.priority + propNameArray.length / 10;
+  }
+
+  return priority;
+};
 const getPseudoStateStyles = (
   providerId: any,
   componentName: string,
@@ -317,29 +337,26 @@ const getPseudoStateStyles = (
   const componentStates = get(providerId, componentName);
 
   // console.log(componentStates, '***** &&&&');
+
+  // const currentPriority = 0;
   for (const k in componentStates) {
     const value = componentStates[k];
 
     // console.log(componentStates, k, componentName, 'value **&');
     //get for _hover, _checked
     if (k.startsWith('_')) {
-      // const pseudoPropKey = k.slice(componentName.length + 1);
-      stateStyleArray.push({ key: k, value: value });
+      const priority = getPriority(k);
+      stateStyleArray.push({ key: k, value: value, priority: priority });
     }
   }
 
-  // sort for specificity
-  stateStyleArray.sort(
-    (obj1: any, obj2: any) => obj1.key.length - obj2.key.length
-  );
+  stateStyleArray.sort((obj1: any, obj2: any) => obj1.priority - obj2.priority);
 
   stateStyleArray.forEach((item: any) => {
     if (isValidState(item.key, state)) {
       styleObj.push(item.value);
     }
   });
-
-  // console.log(styleObj, 'valid state *');
 
   return styleObj;
 };
