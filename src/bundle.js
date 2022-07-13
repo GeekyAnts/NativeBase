@@ -1393,6 +1393,180 @@ var resolvePropsToStyle = function (styledSystemProps, propStyle, theme, platfor
     }
 };
 
+var getStyledObject = function (theme, 
+//@ts-ignore
+name, componentTheme, config, inputProps, mergeDefaultProps) {
+    var _a;
+    var _b;
+    if (mergeDefaultProps === void 0) { mergeDefaultProps = true; }
+    var componentStyle = (_b = componentTheme === null || componentTheme === void 0 ? void 0 : componentTheme.defaultProps) === null || _b === void 0 ? void 0 : _b.style;
+    // console.log(config, 'config here');
+    var inputWithDefaultProps = __assign(__assign({}, componentTheme.defaultProps), inputProps);
+    if (!mergeDefaultProps) {
+        inputWithDefaultProps = inputProps;
+    }
+    var flattenProps, specificityMap;
+    _a = propsFlattener({
+        props: inputWithDefaultProps,
+        //TODO: build-time
+        platform: config.platform,
+        colormode: config.colorMode,
+        state: {},
+        currentSpecificityMap: {},
+        previouslyFlattenProps: flattenProps || {},
+        cascadePseudoProps: true
+    }, 1), flattenProps = _a[0], specificityMap = _a[1];
+    // console.log(inputProps, 'hello flatten here');
+    flattenProps = mergeStylesWithSpecificity(theme, componentTheme, flattenProps, specificityMap, config.colorMode, mergeDefaultProps, config)[0];
+    // console.log(flattenProps, 'hello flatten props');
+    var internalPseudoProps = {};
+    for (var property in flattenProps) {
+        if (property.startsWith('_') &&
+            !['_dark', '_light', '_web', '_ios', '_android', '_important'].includes(property)) {
+            internalPseudoProps[property] = flattenProps[property];
+        }
+    }
+    var styleObj = resolvePropsToStyle(flattenProps, componentStyle, theme, config.platform, false, 4, false, undefined);
+    // if (inputProps?.extraProp === 'Actionsheet') {
+    //   console.log(flattenProps, 'hello flatten here');
+    // }
+    styleObj.internalPseudoProps = internalPseudoProps;
+    return styleObj;
+};
+//@ts-ignore
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+// const resolveComponentThemeStyle = (
+//   incomingProps: any,
+//   themeType: Array<string>,
+//   providedTheme?: any
+// ): any => {
+//   try {
+//     if (themeType[1]) {
+//       return typeof providedTheme[themeType[0]][themeType[1]] !== 'function'
+//         ? providedTheme[themeType[0]][themeType[1]]
+//         : providedTheme[themeType[0]][themeType[1]]({
+//             theme,
+//             ...incomingProps,
+//             colorMode: 'light',
+//           });
+//     } else {
+//       return typeof providedTheme[themeType[0]] !== 'function'
+//         ? providedTheme[themeType[0]]
+//         : providedTheme[themeType[0]]({
+//             theme,
+//             ...incomingProps,
+//             colorMode: 'light',
+//           });
+//     }
+//   } catch {
+//     return {};
+//   }
+// };
+var resolveComponentTheme = function (theme, incomingProps, themeType, providedTheme) {
+    // if (typeof providedTheme[themeType[0]][themeType[1]] === 'function')
+    //   // console.log(
+    //   //   themeType,
+    //   //   // providedTheme,
+    //   //   providedTheme[themeType[0]][themeType[1]]({
+    //   //     theme,
+    //   //     ...incomingProps,
+    //   //     colorMode: 'light',
+    //   //   }),
+    //   //   'flatten Props 111 ****'
+    //   // );
+    try {
+        if (themeType[1]) {
+            return typeof providedTheme[themeType[0]][themeType[1]] !== 'function'
+                ? providedTheme[themeType[0]][themeType[1]]
+                : providedTheme[themeType[0]][themeType[1]](__assign(__assign({ theme: theme }, incomingProps), { colorMode: 'light' }));
+        }
+        else {
+            return typeof providedTheme[themeType[0]] !== 'function'
+                ? providedTheme[themeType[0]]
+                : providedTheme[themeType[0]](__assign(__assign({ theme: theme }, incomingProps), { colorMode: 'light' }));
+        }
+    }
+    catch (_a) {
+        return {};
+    }
+};
+var mergeStylesWithSpecificity = function (theme, componentTheme, flattenProps, specificityMap, colorMode, mergeDefaultProps, config) {
+    var _a, _b, _c;
+    if (mergeDefaultProps === void 0) { mergeDefaultProps = true; }
+    var combinedBaseStyle = {};
+    var combinedVariantStyle = {};
+    var combinedSizeStyle = {};
+    var flattenBaseStyle, baseSpecificityMap;
+    var extendedTheme = [];
+    if (!isEmpty__default["default"](componentTheme))
+        extendedTheme.push(componentTheme);
+    // if (flattenProps.extraProp === 'IconButton.Icon') {
+    //   console.log(flattenProps, 'lflflflflf', componentTheme);
+    // }
+    extendedTheme.map(function (extededComponentTheme) {
+        if (extededComponentTheme.baseStyle && mergeDefaultProps) {
+            combinedBaseStyle = __assign(__assign({}, combinedBaseStyle), resolveComponentTheme(theme, flattenProps, ['baseStyle'], extededComponentTheme));
+        }
+        if (flattenProps.variant && mergeDefaultProps) {
+            if (extededComponentTheme.variants) {
+                combinedVariantStyle = __assign(__assign({}, combinedVariantStyle), resolveComponentTheme(theme, flattenProps, ['variants', flattenProps.variant], extededComponentTheme));
+                // console.log(
+                //   // combinedBaseStyle,
+                //   resolveComponentTheme(
+                //     flattenProps,
+                //     ['variants', flattenProps.variant],
+                //     extededComponentTheme
+                //   ),
+                //   flattenProps,
+                //   'flatten props 111 $$$'
+                // );
+            }
+        }
+        if (flattenProps.size &&
+            (extededComponentTheme === null || extededComponentTheme === void 0 ? void 0 : extededComponentTheme.sizes) &&
+            (extededComponentTheme === null || extededComponentTheme === void 0 ? void 0 : extededComponentTheme.sizes[flattenProps.size])) {
+            if (typeof extededComponentTheme.sizes[flattenProps.size] === 'string' ||
+                typeof extededComponentTheme.sizes[flattenProps.size] === 'number') {
+                flattenProps.size = extededComponentTheme.sizes[flattenProps.size];
+            }
+            else {
+                combinedSizeStyle = __assign(__assign({}, combinedSizeStyle), resolveComponentTheme(theme, flattenProps, ['sizes', flattenProps.size], extededComponentTheme));
+                delete flattenProps.size;
+            }
+        }
+    });
+    if (flattenProps.extraProp === 'Spinner') ;
+    // console.log('****>>>>> 2', flattenProps);
+    // console.log(combinedBaseStyle, " ******* ");
+    if (!isEmptyObj(combinedBaseStyle)) {
+        _a = callPropsFlattener(combinedBaseStyle, specificityMap, 1, {}, { colorMode: colorMode }, {}, flattenProps, __assign(__assign({}, config), { cascadePseudoProps: true })), flattenBaseStyle = _a[0], baseSpecificityMap = _a[1];
+    }
+    // NOTE: Resolving variants
+    var flattenVariantStyle, variantSpecificityMap;
+    // Extracting props from variant
+    // console.log(combinedVariantStyle, "999999");
+    if (!isEmptyObj(combinedVariantStyle)) {
+        _b = callPropsFlattener(combinedVariantStyle, baseSpecificityMap || specificityMap, 1, {}, { colorMode: colorMode }, {}, flattenProps, __assign(__assign({}, config), { cascadePseudoProps: true })), flattenVariantStyle = _b[0], variantSpecificityMap = _b[1];
+        // We remove variant from original props if we found it in the componentTheme
+        //@ts-ignore
+        flattenProps.variant = undefined;
+    }
+    // NOTE: Resolving size
+    var flattenSizeStyle, sizeSpecificityMap;
+    // Extracting props from size
+    // console.log(combinedSizeStyle, "&&&&&&&");
+    if (!isEmptyObj(combinedSizeStyle)) {
+        _c = callPropsFlattener(combinedSizeStyle, variantSpecificityMap || baseSpecificityMap || specificityMap, 1, {}, { colorMode: colorMode }, {}, flattenProps, __assign(__assign({}, config), { cascadePseudoProps: true })), flattenSizeStyle = _c[0], sizeSpecificityMap = _c[1];
+    }
+    //////
+    var defaultStyles = merge__default["default"]({}, flattenBaseStyle, flattenVariantStyle, flattenSizeStyle);
+    var defaultSpecificity = merge__default["default"]({}, specificityMap, baseSpecificityMap, variantSpecificityMap, sizeSpecificityMap);
+    // console.log(flattenProps.size, flattenProps, componentTheme, 'h3h3h3');
+    flattenProps = propsSpreader(merge__default["default"](defaultStyles, flattenProps), defaultSpecificity);
+    // console.log(flattenProps, 'h3h3h3 >>>>>');
+    return [flattenProps];
+};
+
 var borderWidths = {
     '0': 0,
     '1': '1px',
@@ -6078,151 +6252,6 @@ var config = {
 };
 var theme = __assign(__assign({}, theme$1), { components: components, config: config });
 
-var getStyledObject = function (
-//@ts-ignore
-name, componentTheme, config, inputProps, mergeDefaultProps) {
-    var _a;
-    var _b;
-    if (mergeDefaultProps === void 0) { mergeDefaultProps = true; }
-    var componentStyle = (_b = componentTheme === null || componentTheme === void 0 ? void 0 : componentTheme.defaultProps) === null || _b === void 0 ? void 0 : _b.style;
-    // console.log(config, 'config here');
-    var inputWithDefaultProps = __assign(__assign({}, componentTheme.defaultProps), inputProps);
-    if (!mergeDefaultProps) {
-        inputWithDefaultProps = inputProps;
-    }
-    var flattenProps, specificityMap;
-    _a = propsFlattener({
-        props: inputWithDefaultProps,
-        //TODO: build-time
-        platform: config.platform,
-        colormode: config.colorMode,
-        state: {},
-        currentSpecificityMap: {},
-        previouslyFlattenProps: flattenProps || {},
-        cascadePseudoProps: true
-    }, 1), flattenProps = _a[0], specificityMap = _a[1];
-    // console.log(inputProps, 'hello flatten here');
-    flattenProps = mergeStylesWithSpecificity(componentTheme, flattenProps, specificityMap, config.colorMode, mergeDefaultProps, config)[0];
-    // console.log(flattenProps, 'hello flatten props');
-    var internalPseudoProps = {};
-    for (var property in flattenProps) {
-        if (property.startsWith('_') &&
-            !['_dark', '_light', '_web', '_ios', '_android', '_important'].includes(property)) {
-            internalPseudoProps[property] = flattenProps[property];
-        }
-    }
-    var styleObj = resolvePropsToStyle(flattenProps, componentStyle, theme, config.platform, false, 4, false, undefined);
-    // if (inputProps?.extraProp === 'Actionsheet') {
-    //   console.log(flattenProps, 'hello flatten here');
-    // }
-    styleObj.internalPseudoProps = internalPseudoProps;
-    return styleObj;
-};
-var resolveComponentTheme = function (incomingProps, themeType, providedTheme) {
-    // if (typeof providedTheme[themeType[0]][themeType[1]] === 'function')
-    //   // console.log(
-    //   //   themeType,
-    //   //   // providedTheme,
-    //   //   providedTheme[themeType[0]][themeType[1]]({
-    //   //     theme,
-    //   //     ...incomingProps,
-    //   //     colorMode: 'light',
-    //   //   }),
-    //   //   'flatten Props 111 ****'
-    //   // );
-    try {
-        if (themeType[1]) {
-            return typeof providedTheme[themeType[0]][themeType[1]] !== 'function'
-                ? providedTheme[themeType[0]][themeType[1]]
-                : providedTheme[themeType[0]][themeType[1]](__assign(__assign({ theme: theme }, incomingProps), { colorMode: 'light' }));
-        }
-        else {
-            return typeof providedTheme[themeType[0]] !== 'function'
-                ? providedTheme[themeType[0]]
-                : providedTheme[themeType[0]](__assign(__assign({ theme: theme }, incomingProps), { colorMode: 'light' }));
-        }
-    }
-    catch (_a) {
-        return {};
-    }
-};
-var mergeStylesWithSpecificity = function (componentTheme, flattenProps, specificityMap, colorMode, mergeDefaultProps, config) {
-    var _a, _b, _c;
-    if (mergeDefaultProps === void 0) { mergeDefaultProps = true; }
-    var combinedBaseStyle = {};
-    var combinedVariantStyle = {};
-    var combinedSizeStyle = {};
-    var flattenBaseStyle, baseSpecificityMap;
-    var extendedTheme = [];
-    if (!isEmpty__default["default"](componentTheme))
-        extendedTheme.push(componentTheme);
-    // if (flattenProps.extraProp === 'IconButton.Icon') {
-    //   console.log(flattenProps, 'lflflflflf', componentTheme);
-    // }
-    extendedTheme.map(function (extededComponentTheme) {
-        if (extededComponentTheme.baseStyle && mergeDefaultProps) {
-            combinedBaseStyle = __assign(__assign({}, combinedBaseStyle), resolveComponentTheme(flattenProps, ['baseStyle'], extededComponentTheme));
-        }
-        if (flattenProps.variant && mergeDefaultProps) {
-            if (extededComponentTheme.variants) {
-                combinedVariantStyle = __assign(__assign({}, combinedVariantStyle), resolveComponentTheme(flattenProps, ['variants', flattenProps.variant], extededComponentTheme));
-                // console.log(
-                //   // combinedBaseStyle,
-                //   resolveComponentTheme(
-                //     flattenProps,
-                //     ['variants', flattenProps.variant],
-                //     extededComponentTheme
-                //   ),
-                //   flattenProps,
-                //   'flatten props 111 $$$'
-                // );
-            }
-        }
-        if (flattenProps.size &&
-            (extededComponentTheme === null || extededComponentTheme === void 0 ? void 0 : extededComponentTheme.sizes) &&
-            (extededComponentTheme === null || extededComponentTheme === void 0 ? void 0 : extededComponentTheme.sizes[flattenProps.size])) {
-            if (typeof extededComponentTheme.sizes[flattenProps.size] === 'string' ||
-                typeof extededComponentTheme.sizes[flattenProps.size] === 'number') {
-                flattenProps.size = extededComponentTheme.sizes[flattenProps.size];
-            }
-            else {
-                combinedSizeStyle = __assign(__assign({}, combinedSizeStyle), resolveComponentTheme(flattenProps, ['sizes', flattenProps.size], extededComponentTheme));
-                delete flattenProps.size;
-            }
-        }
-    });
-    if (flattenProps.extraProp === 'Spinner') ;
-    // console.log('****>>>>> 2', flattenProps);
-    // console.log(combinedBaseStyle, " ******* ");
-    if (!isEmptyObj(combinedBaseStyle)) {
-        _a = callPropsFlattener(combinedBaseStyle, specificityMap, 1, {}, { colorMode: colorMode }, {}, flattenProps, __assign(__assign({}, config), { cascadePseudoProps: true })), flattenBaseStyle = _a[0], baseSpecificityMap = _a[1];
-    }
-    // NOTE: Resolving variants
-    var flattenVariantStyle, variantSpecificityMap;
-    // Extracting props from variant
-    // console.log(combinedVariantStyle, "999999");
-    if (!isEmptyObj(combinedVariantStyle)) {
-        _b = callPropsFlattener(combinedVariantStyle, baseSpecificityMap || specificityMap, 1, {}, { colorMode: colorMode }, {}, flattenProps, __assign(__assign({}, config), { cascadePseudoProps: true })), flattenVariantStyle = _b[0], variantSpecificityMap = _b[1];
-        // We remove variant from original props if we found it in the componentTheme
-        //@ts-ignore
-        flattenProps.variant = undefined;
-    }
-    // NOTE: Resolving size
-    var flattenSizeStyle, sizeSpecificityMap;
-    // Extracting props from size
-    // console.log(combinedSizeStyle, "&&&&&&&");
-    if (!isEmptyObj(combinedSizeStyle)) {
-        _c = callPropsFlattener(combinedSizeStyle, variantSpecificityMap || baseSpecificityMap || specificityMap, 1, {}, { colorMode: colorMode }, {}, flattenProps, __assign(__assign({}, config), { cascadePseudoProps: true })), flattenSizeStyle = _c[0], sizeSpecificityMap = _c[1];
-    }
-    //////
-    var defaultStyles = merge__default["default"]({}, flattenBaseStyle, flattenVariantStyle, flattenSizeStyle);
-    var defaultSpecificity = merge__default["default"]({}, specificityMap, baseSpecificityMap, variantSpecificityMap, sizeSpecificityMap);
-    // console.log(flattenProps.size, flattenProps, componentTheme, 'h3h3h3');
-    flattenProps = propsSpreader(merge__default["default"](defaultStyles, flattenProps), defaultSpecificity);
-    // console.log(flattenProps, 'h3h3h3 >>>>>');
-    return [flattenProps];
-};
-
 // Adding Map for storing the props and style for the styled component
 exports.resolvedStyledMap = {};
 var PSEUDO_PROP_COMPONENT_MAP = {
@@ -6450,7 +6479,7 @@ var getPriority = function (propName) {
 var getPseudoStateStyles = function (providerId, componentName, state) {
     var styleObj = [];
     var stateStyleArray = [];
-    var componentStates = lodash.get(providerId, componentName);
+    var componentStates = getResolvedStyleMap(providerId, componentName);
     // console.log(componentStates, '***** &&&&');
     // const currentPriority = 0;
     for (var k in componentStates) {
@@ -6502,11 +6531,12 @@ var resolveForInternalPseudoProps = function (theme, providerId, name, key, styl
             //   );
             // }
             // console.log(name, key, 'config here');
-            var styledObjNestedProp = getStyledObject(name, {}, config, styledObj.internalPseudoProps[property]);
+            var styledObjNestedProp = getStyledObject(theme, name, {}, config, styledObj.internalPseudoProps[property]);
             var componentMapPath = key;
             var componentObj = getResolvedStyleMap(providerId, componentMapPath);
             if (componentObj) {
                 // const stateKey = key.slice(componentMapPath.length + 1);
+                //@ts-ignore
                 if ((_d = pseudoPropsMap === null || pseudoPropsMap === void 0 ? void 0 : pseudoPropsMap[property]) === null || _d === void 0 ? void 0 : _d.respondTo) {
                     var stateKey = propertyName
                         ? propertyName + '.' + property
@@ -6570,7 +6600,7 @@ var updateComponentThemeMapForColorMode = function (theme, providerId, name, key
     if (resolveForStatePseudoProps) {
         componentTheme = {};
     }
-    var styledObj = getStyledObject(name, componentTheme, config, __assign(__assign({}, inputProps), { extraProp: key }), mergeDefaultProps);
+    var styledObj = getStyledObject(theme, name, componentTheme, config, __assign(__assign({}, inputProps), { extraProp: key }), mergeDefaultProps);
     setResolvedStyleMap(providerId, key, styledObj, config.colorMode);
     // console.log(key, styledObj, config.colorMode, '&&&&&&');
     resolveForInternalPseudoProps(theme, providerId, name, key, styledObj, config, mergeDefaultProps);
