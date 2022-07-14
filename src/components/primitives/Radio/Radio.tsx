@@ -10,7 +10,6 @@ import { useRadio } from '@react-native-aria/radio';
 import { RadioContext } from './RadioGroup';
 import { mergeRefs } from '../../../utils';
 import { CircleIcon } from '../Icon/Icons';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import {
   composeEventHandlers,
   combineContextAndProps,
@@ -180,10 +179,6 @@ const Radio = (
     ...combinedProps,
   });
 
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
   if (isEmptyObj(contextState)) {
     console.error('Error: Radio must be wrapped inside a Radio.Group');
     return <></>;

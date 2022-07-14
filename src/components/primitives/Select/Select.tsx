@@ -15,7 +15,6 @@ import type { IButtonProps } from '../Button/types';
 import { ScrollView } from '../../basic/ScrollView';
 import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 import { FlatList } from '../../basic/FlatList';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import type { ISelectItemProps } from './types';
 import { Pressable } from '../Pressable';
 
@@ -117,11 +116,6 @@ const Select = (
       _item: _item ?? {},
     };
   }, [value, setValue, _selectedItem, _item]);
-
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
 
   const rightIcon =
     isOpen && dropdownOpenIcon ? (

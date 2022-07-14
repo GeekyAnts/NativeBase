@@ -4,7 +4,6 @@ import { useCheckboxGroup } from '@react-native-aria/checkbox';
 import { useFormControlContext } from '../../composites/FormControl';
 import type { ICheckboxGroupProps, ICheckboxContext } from './types';
 import Box from '../Box';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 
 export const CheckboxGroupContext = createContext<ICheckboxContext | null>(
@@ -24,10 +23,7 @@ function CheckboxGroup(
   );
 
   const formControlContext = useFormControlContext();
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps({ ...props, size, colorScheme })) {
-    return null;
-  }
+
   return (
     <CheckboxGroupContext.Provider
       value={{

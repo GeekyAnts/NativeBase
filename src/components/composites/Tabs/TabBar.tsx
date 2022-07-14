@@ -3,7 +3,6 @@ import Box from '../../primitives/Box';
 import { TabsContext } from './Context';
 import type { ITabsContextProps, ITabBarProps } from './types';
 import { mergeRefs } from '../../../utils';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const TabBarImpl = (
   { tablistRef, tabListProps, ...props }: ITabBarProps,
@@ -15,10 +14,7 @@ const TabBarImpl = (
     isFitted,
     state,
   }: ITabsContextProps = React.useContext(TabsContext);
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
+
   return (
     <Box
       flexDirection="row"

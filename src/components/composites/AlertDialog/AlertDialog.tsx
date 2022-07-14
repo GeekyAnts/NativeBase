@@ -10,7 +10,6 @@ import type { IAlertDialogProps } from './types';
 import { Fade } from '../Transitions';
 import { useKeyboardBottomInset } from '../../../utils';
 import { Overlay } from '../../primitives/Overlay';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const AlertDialog = (
   {
@@ -60,10 +59,6 @@ const AlertDialog = (
     </Box>
   );
 
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(rest)) {
-    return null;
-  }
   return (
     <Overlay
       isOpen={visible}

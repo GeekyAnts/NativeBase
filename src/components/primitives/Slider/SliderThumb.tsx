@@ -7,7 +7,6 @@ import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { ISliderThumbProps } from './types';
 import Box from '../Box';
 import { SliderContext } from './Context';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { useHover } from '@react-native-aria/interactions';
 import { mergeRefs } from '../../../utils';
 import { extractInObject, stylingProps } from '../../../theme/tools/utils';
@@ -135,10 +134,6 @@ function SliderThumb(props: ISliderThumbProps, ref: any) {
   //   'props here 111'
   // );
 
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
   return (
     <Box
       position="absolute"

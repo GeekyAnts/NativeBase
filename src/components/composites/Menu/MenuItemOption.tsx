@@ -7,7 +7,6 @@ import type { IMenuItemOptionProps, IMenuOptionContextProps } from './types';
 import { MenuOptionContext } from './MenuOptionGroup';
 import { useMenuOptionItem } from './useMenu';
 import { HStack } from '../../primitives/Stack';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const MenuItemOption = (
   { value, ...props }: IMenuItemOptionProps,
@@ -32,10 +31,6 @@ const MenuItemOption = (
     onPress && onPress(e);
   };
 
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
   return (
     <MenuItem
       {...resolvedProps}

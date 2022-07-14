@@ -2,7 +2,6 @@ import React, { memo, forwardRef } from 'react';
 import { Box, Image } from '../../primitives';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IAvatarProps } from './types';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import isNil from 'lodash.isnil';
 import has from 'lodash.has';
 
@@ -37,11 +36,6 @@ const Avatar = ({ children, ...props }: IAvatarProps, ref: any) => {
       remainingChildren.push(child);
     }
   });
-
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
 
   const getSource = () => {
     if (source) {

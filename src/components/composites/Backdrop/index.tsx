@@ -1,12 +1,7 @@
 import React, { memo } from 'react';
 import { Pressable, IPressableProps } from '../../primitives/Pressable';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const Backdrop = (props: IPressableProps) => {
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
   return (
     <Pressable
       _web={{

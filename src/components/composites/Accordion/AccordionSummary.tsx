@@ -9,7 +9,6 @@ import { AccordionItemContext } from './Context';
 import { useThemeProps } from '../../../hooks';
 import { mergeRefs } from '../../../utils';
 import { useHover } from '@react-native-aria/interactions';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const AccordionSummary = (
   { children, ...props }: IAccordionSummaryProps,
@@ -33,10 +32,7 @@ const AccordionSummary = (
 
   const _ref = React.useRef(null);
   const { isHovered } = useHover({}, _ref);
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
+
   return (
     <TouchableOpacity
       activeOpacity={0.2}

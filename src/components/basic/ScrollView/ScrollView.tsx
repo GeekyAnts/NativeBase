@@ -6,7 +6,6 @@ import {
 } from '../../../hooks';
 import { makeStyledComponent } from '../../../utils/makeStyledComponent';
 import type { IScrollViewProps } from './types';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const StyledScrollView: any = makeStyledComponent(RNScrollView);
 
@@ -20,10 +19,6 @@ export const ScrollView = forwardRef((props: IScrollViewProps, ref: any) => {
     _contentContainerStyle || {}
   );
 
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
   return (
     <StyledScrollView
       {...resolvedProps}
