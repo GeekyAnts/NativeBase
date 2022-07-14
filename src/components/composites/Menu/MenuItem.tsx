@@ -6,21 +6,52 @@ import type { IMenuItemProps } from './types';
 import { MenuContext } from './MenuContext';
 import { useMenuItem } from './useMenu';
 import { mergeRefs } from '../../../utils';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import { composeEventHandlers } from '../../../utils';
+import { useFocusRing } from '@react-native-aria/focus';
 
+import {
+  useHover,
+  useFocus,
+  useIsPressed,
+} from '../../primitives/Pressable/Pressable';
 const MenuItem = (
-  { children, isDisabled, onPress, textValue, ...props }: IMenuItemProps,
+  {
+    //@ts-ignore
+    onPressIn,
+    onPressOut,
+    onHoverIn,
+    onHoverOut,
+    onFocus,
+    onBlur,
+    children,
+    isDisabled,
+    onPress,
+    textValue,
+    ...props
+  }: IMenuItemProps,
   ref: any
 ) => {
   const { closeOnSelect, onClose } = React.useContext(MenuContext);
   const menuItemRef = React.useRef<any>(null);
   const mergedRef = mergeRefs([menuItemRef, ref]);
+
+  const { hoverProps, isHovered } = useHover();
+  const { pressableProps, isPressed } = useIsPressed();
+  const { focusProps, isFocused } = useFocus();
+  const { isFocusVisible, focusProps: focusRingProps }: any = useFocusRing();
+
+  const state = {
+    isDisabled,
+    isHovered: isHovered,
+    isFocused: isFocused,
+    isPressed: isPressed,
+    isFocusVisible: isFocusVisible,
+  };
+
   const { _text, ...resolvedProps } = usePropsResolution(
     'MenuItem',
     props,
-    {
-      isDisabled,
-    },
+    state,
     {
       cascadePseudoProps: true,
     }
@@ -38,16 +69,29 @@ const MenuItem = (
     ref: menuItemRef,
   });
 
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
   return (
     <Pressable
+      disabled={isDisabled}
+      onPressIn={composeEventHandlers(onPressIn, pressableProps.onPressIn)}
+      onPressOut={composeEventHandlers(onPressOut, pressableProps.onPressOut)}
+      // @ts-ignore - web only
+      onHoverIn={composeEventHandlers(onHoverIn, hoverProps.onHoverIn)}
+      // @ts-ignore - web only
+      onHoverOut={composeEventHandlers(onHoverOut, hoverProps.onHoverOut)}
+      // @ts-ignore - web only
+      onFocus={composeEventHandlers(
+        composeEventHandlers(onFocus, focusProps.onFocus),
+        focusRingProps.onFocus
+      )}
+      // @ts-ignore - web only
+      onBlur={composeEventHandlers(
+        composeEventHandlers(onBlur, focusProps.onBlur),
+        focusRingProps.onBlur
+      )}
       {...menuItemProps}
       {...resolvedProps}
       ref={mergedRef}
-      disabled={isDisabled}
+      // disabled={isDisabled}
       accessibilityState={{
         disabled: isDisabled,
       }}

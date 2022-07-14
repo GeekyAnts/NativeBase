@@ -3,7 +3,6 @@ import { Modal } from '../../composites/Modal';
 import type { IActionsheetProps } from './types';
 import { usePropsResolution } from '../../../hooks';
 import { ActionSheetContext } from './ActionSheetContext';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { Platform } from 'react-native';
 
 const Actionsheet = (
@@ -16,10 +15,7 @@ const Actionsheet = (
     onClose,
     ...resolvedProps
   } = usePropsResolution('Actionsheet', props);
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
+
   //Fixing overlay position for Web due to scrollView issue
   let overlayStyle: any = Platform.OS === 'web' ? { position: 'fixed' } : {};
 

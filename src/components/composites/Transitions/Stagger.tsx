@@ -2,7 +2,6 @@ import cloneDeep from 'lodash.clonedeep';
 import React from 'react';
 import PresenceTransition from './PresenceTransition';
 import type { ISupportedTransitions, ITransitionConfig } from './types';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 interface IStaggerConfig {
   offset: number;
@@ -36,10 +35,6 @@ interface IStaggerProps {
 const defaultStaggerConfig: IStaggerConfig = { offset: 0, reverse: false };
 
 const Stagger = ({ children, ...restProps }: IStaggerProps) => {
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(restProps)) {
-    return null;
-  }
   return React.Children.map(children, (child, index) => {
     const clonedAnimationConfig = cloneDeep(restProps);
     const { animate, exit } = clonedAnimationConfig;

@@ -3,7 +3,6 @@ import type { IInputGroupProps } from './types';
 import { getAttachedChildren } from '../../../utils';
 import { HStack } from '../Stack';
 import { extractInObject, stylingProps } from '../../../theme/tools/utils';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const supplyPropsToChildren = (children: any, props: any) => {
   if (children.length >= 2) {
@@ -52,10 +51,7 @@ export const InputGroup = memo(
       'shadow',
       'opacity',
     ]);
-    //TODO: refactor for responsive prop
-    if (useHasResponsiveProps(props)) {
-      return null;
-    }
+
     return (
       <HStack {...layoutProps} ref={ref}>
         {supplyPropsToChildren(getAttachedChildren(children), nonLayoutProps)}

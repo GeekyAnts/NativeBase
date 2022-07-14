@@ -3,7 +3,6 @@ import type { IInputProps } from './types';
 import { Platform, TextInput } from 'react-native';
 import { useToken } from '../../../hooks';
 import { useFormControl } from '../../composites/FormControl';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { useHover } from '@react-native-aria/interactions';
 import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
@@ -11,8 +10,10 @@ import { mergeRefs } from '../../../utils';
 import { Stack } from '../Stack';
 import { makeStyledComponent } from '../../../utils/makeStyledComponent';
 import { useResolvedFontFamily } from '../../../hooks/useResolvedFontFamily';
-import { getThemeProps } from '../../../core/ResolvedStyleMap';
+import { getThemeProps } from '../../../utils/styled';
 import { useColorMode } from '../../../core/color-mode';
+import { useNativeBase } from '../../../hooks';
+import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
 
 const StyledInput = makeStyledComponent(TextInput);
 
@@ -94,8 +95,12 @@ const Input = (
   //   'resolved props 222'
   // );
   const { colorMode } = useColorMode();
+  const { theme } = useNativeBase();
+  const providerId = useNativeBaseConfig('NativeBase').providerId;
 
   const { styleFromProps } = getThemeProps(
+    theme,
+    providerId,
     'Input',
     { colorMode, platform: Platform.OS },
     state,
@@ -134,12 +139,6 @@ const Input = (
     'colors',
     underlineColorAndroid
   );
-
-  // console.log('INTERNAL_themeStyle', resolvedProps, layoutProps);
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
 
   // console.log(
   //   nonLayoutProps.INTERNAL_themeStyle,

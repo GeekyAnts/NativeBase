@@ -5,11 +5,11 @@ import type { IStateProps } from './propsFlattener';
 import { useResponsiveSSRProps } from '../useResponsiveSSRProps';
 import type { ComponentTheme } from '../../theme';
 import { useNativeBaseConfig } from '../../core/NativeBaseContext';
-import { getThemeProps } from '../../core/ResolvedStyleMap';
+import { getThemeProps } from '../../utils/styled';
 import { callPropsFlattener } from './propsFlattener';
 
 import { useColorMode } from '../../core/color-mode';
-import { PSEUDO_PROP_COMPONENT_MAP } from '../../core/ResolvedStyleMap';
+import { PSEUDO_PROP_COMPONENT_MAP } from '../../utils/styled';
 import get from 'lodash.get';
 import { Platform } from 'react-native';
 import merge from 'lodash.merge';
@@ -26,7 +26,7 @@ import merge from 'lodash.merge';
  */
 export function usePropsResolution(
   component: string,
-  { INTERNAL_themeStyle, ...incomingProps }: any,
+  { INTERNAL_themeStyle, ...inputProps }: any,
   state?: IStateProps,
   config?: {
     componentTheme?: any;
@@ -38,10 +38,19 @@ export function usePropsResolution(
 ) {
   const { theme } = useNativeBase();
   const { colorMode } = useColorMode();
+  const providerId = useNativeBaseConfig('NativeBase').providerId;
 
-  // console.log(colorMode, 'hello colormode');
-  // console.time(component + ' ***');
+  // need to think
+  const [ignoredProps, incomingProps] = extractInObject(
+    inputProps,
+    ['children', 'onPress', 'onOpen', 'onClose'].concat(
+      config?.ignoreProps || []
+    )
+  );
+
   const componentThemeProps = getThemeProps(
+    theme,
+    providerId,
     component,
     { colorMode: colorMode, platform: Platform.OS },
     state,
@@ -56,6 +65,8 @@ export function usePropsResolution(
   if (config?.extendTheme) {
     config.extendTheme.forEach((extendedComponent) => {
       const extendedThemeProps = getThemeProps(
+        theme,
+        providerId,
         extendedComponent,
         { colorMode, platform: Platform.OS },
         state,
@@ -80,11 +91,20 @@ export function usePropsResolution(
         ...componentThemeProps.unResolvedProps,
         ...extendedThemeProps.unResolvedProps,
       };
+      // componentThemeProps.unResolvedProps = merge(
+      //   {},
+      //   componentThemeProps.unResolvedProps,
+      //   extendedThemeProps.unResolvedProps
+      // );
     });
   }
 
   const componentTheme = get(theme, `components.${component}`);
-  let resolvedProps = usePropsResolutionWithComponentTheme(
+
+  // if (component === 'SliderThumb') {
+  //   console.log(componentThemeProps, 'component theme');
+  // }
+  let resolvedFlattenProps = usePropsResolutionWithComponentTheme(
     componentTheme,
     merge({}, componentThemeProps?.unResolvedProps, incomingProps),
     theme,
@@ -148,7 +168,7 @@ export function usePropsResolution(
   //   );
   // }
 
-  resolvedProps.INTERNAL_themeStyle = INTERNAL_themeStyle
+  resolvedFlattenProps.INTERNAL_themeStyle = INTERNAL_themeStyle
     ? [componentThemeProps.styleFromProps, ...INTERNAL_themeStyle]
     : [componentThemeProps.styleFromProps];
 
@@ -160,22 +180,22 @@ export function usePropsResolution(
   //   );
   // }
 
-  resolvedProps = {
+  resolvedFlattenProps = {
     ...componentThemeProps.restDefaultProps,
-    ...resolvedProps,
+    ...resolvedFlattenProps,
   };
-  if (resolvedProps.size) {
+  if (resolvedFlattenProps.size) {
     if (
-      !sizesExistsInTheme(componentTheme, resolvedProps.size) &&
-      isLiteral(resolvedProps.size)
+      !sizesExistsInTheme(componentTheme, resolvedFlattenProps.size) &&
+      isLiteral(resolvedFlattenProps.size)
     ) {
-      resolvedProps = {
-        boxSize: resolvedProps.size,
-        ...resolvedProps,
+      resolvedFlattenProps = {
+        boxSize: resolvedFlattenProps.size,
+        ...resolvedFlattenProps,
       };
     }
 
-    resolvedProps.size = undefined;
+    resolvedFlattenProps.size = undefined;
   }
 
   // if (component === 'SliderThumb') {
@@ -193,6 +213,8 @@ export function usePropsResolution(
   for (const property in componentThemeProps.internalPseudoProps) {
     if (PSEUDO_PROP_COMPONENT_MAP[property]) {
       const pseudoComponentThemeProps = getThemeProps(
+        theme,
+        providerId,
         `${component}.${PSEUDO_PROP_COMPONENT_MAP[property]}`,
         // { colorMode: 'light' },
         { colorMode, platform: Platform.OS },
@@ -222,14 +244,14 @@ export function usePropsResolution(
       //   );
       // }
 
-      resolvedProps[property] = {
+      resolvedFlattenProps[property] = {
         ...pseudoComponentThemeProps.restDefaultProps,
         ...componentThemeProps.internalPseudoProps[property],
-        ...resolvedProps[property],
-        INTERNAL_themeStyle: resolvedProps[property]?.INTERNAL_themeStyle
+        ...resolvedFlattenProps[property],
+        INTERNAL_themeStyle: resolvedFlattenProps[property]?.INTERNAL_themeStyle
           ? [
               pseudoComponentThemeProps.styleFromProps,
-              ...resolvedProps[property].INTERNAL_themeStyle,
+              ...resolvedFlattenProps[property].INTERNAL_themeStyle,
             ]
           : // resolvedProps[property].INTERNAL_themeStyle.unshift(
             //     pseudoComponentThemeProps.styleFromProps
@@ -283,6 +305,11 @@ export function usePropsResolution(
     //   };
     // }
   }
+
+  const resolvedProps = omitUndefined({
+    ...resolvedFlattenProps,
+    ...ignoredProps,
+  });
 
   return resolvedProps;
 }
@@ -367,16 +394,8 @@ export const usePropsResolutionWithComponentTheme = (
   // return incomingProps;
 
   // optimized-start
-  const modifiedPropsForSSR = useResponsiveSSRProps(incomingProps, theme);
+  const cleanIncomingProps = useResponsiveSSRProps(incomingProps, theme);
   // optimized-end
-
-  // need to think
-  const [ignoredProps, cleanIncomingProps] = extractInObject(
-    modifiedPropsForSSR,
-    ['children', 'onPress', 'icon', 'onOpen', 'onClose'].concat(
-      config?.ignoreProps || []
-    )
-  );
 
   const isSSR = useNativeBaseConfig('NativeBase').isSSR;
   const disableCSSMediaQueries = !isSSR;
@@ -580,11 +599,6 @@ export const usePropsResolutionWithComponentTheme = (
   //   defaultSpecificity
   // );
 
-  const resolvedProps = omitUndefined({
-    ...flattenProps,
-    ...ignoredProps,
-  });
-
   // STEP 5: Return
-  return resolvedProps;
+  return omitUndefined(flattenProps);
 };

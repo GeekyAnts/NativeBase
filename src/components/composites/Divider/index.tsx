@@ -3,7 +3,6 @@ import { Platform } from 'react-native';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import Box from './../../primitives/Box';
 import type { IDividerProps } from './types';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const Divider = (props: IDividerProps, ref?: any) => {
   const { orientation, ...resolvedProps } = usePropsResolution(
@@ -12,10 +11,6 @@ const Divider = (props: IDividerProps, ref?: any) => {
     {},
     { resolveResponsively: ['thickness'] }
   );
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
 
   const orientationProps =
     orientation === 'vertical'

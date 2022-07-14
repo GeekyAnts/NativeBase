@@ -27,4 +27,5 @@ export const [
   isSSR?: boolean;
   theme?: ITheme;
   disableContrastText?: boolean;
+  providerId?: string;
 }>('NativeBaseConfigProvider');

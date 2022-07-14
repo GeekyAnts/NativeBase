@@ -19,85 +19,14 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Config from '../../../nativebase.config';
 
 const myTheme = extendTheme({
-  space: {
-    mySpace: '29px',
-  },
-  colors: {
-    blue1: {
-      '100': 'blue',
-    },
-  },
-
   components: {
-    Link: {
-      sizes: {
-        mysize: 10,
-      },
-    },
     Button: {
       variants: {
         myBtn: {
           padding: 10,
-        },
-        myNewButton: ({ myPaddingX }: { myPaddingX: number }) => {
-          return {
-            padding: myPaddingX,
-          };
-        },
-
-        // myNewButton1: (props: any) => {
-        //   return {
-        //     padding: props.padding,
-        //   };
-        // },
-      },
-      sizes: {
-        newsize: ({ mySize }: { mySize: number }) => {
-          return {
-            padding: mySize,
-          };
-        },
-      },
-    },
-
-    Input: {
-      variants: {
-        newsize: ({ mySize }: { mySize: number }) => {
-          return {
-            padding: mySize,
-          };
-        },
-
-        newsize1: (props: any) => {
-          return {
-            padding: props.padding,
-          };
-        },
-      },
-      sizes: {
-        'my-size': {
-          padding: 2,
-        },
-      },
-    },
-
-    Checkbox: {
-      sizes: {
-        myBtn: {
-          padding: 10,
-        },
-        myNewButton: ({ myPadding }: { myPadding: any }) => {
-          return {
-            padding: myPadding,
-          };
-        },
-      },
-    },
-
-    Box: {
-      variants: {
-        myBtn: {
-          padding: 10,
+          bg: 'blue.200',
+          w: '100',
+          h: '100',
         },
       },
     },

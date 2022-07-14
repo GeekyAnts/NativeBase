@@ -2,7 +2,7 @@ import React, { memo, forwardRef } from 'react';
 import type { IButtonGroupProps } from './types';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { Stack } from '../Stack';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import { map } from 'lodash';
 export default memo(
   forwardRef(
     (
@@ -15,10 +15,14 @@ export default memo(
         colorScheme,
         isDisabled,
         isAttached,
+        borderRadius,
+        INTERNAL_themeStyle,
         ...newProps
       } = usePropsResolution('ButtonGroup', props);
 
-      const { borderRadius } = usePropsResolution('Button', props);
+      const buttonBorderRadius =
+        borderRadius ?? map(INTERNAL_themeStyle, 'borderRadius')[0];
+
       let computedChildren: JSX.Element | JSX.Element[];
 
       if (Array.isArray(children)) {
@@ -36,13 +40,13 @@ export default memo(
               ...(isAttached ? { borderRadius: 0 } : {}),
               ...(isAttached && index === 0
                 ? direction === 'column'
-                  ? { borderTopRadius: borderRadius }
-                  : { borderLeftRadius: borderRadius }
+                  ? { borderTopRadius: buttonBorderRadius }
+                  : { borderLeftRadius: buttonBorderRadius }
                 : {}),
               ...(isAttached && index === children?.length - 1
                 ? direction === 'column'
-                  ? { borderBottomRadius: borderRadius }
-                  : { borderRightRadius: borderRadius }
+                  ? { borderBottomRadius: buttonBorderRadius }
+                  : { borderRightRadius: buttonBorderRadius }
                 : {}),
 
               //when buttons are attached, remove double border from them, just keep borderRight in case for direction row and borderBottom in case of direction column for every component
@@ -69,10 +73,6 @@ export default memo(
             });
           }
         );
-      }
-      //TODO: refactor for responsive prop
-      if (useHasResponsiveProps(props)) {
-        return null;
       }
 
       return (

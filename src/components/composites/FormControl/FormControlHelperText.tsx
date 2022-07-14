@@ -3,7 +3,6 @@ import Box from '../../primitives/Box';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useFormControlContext } from './useFormControl';
 import type { IFormControlHelperTextProps } from './types';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { combineContextAndProps } from '../../../utils';
 
 const FormControlHelperText = (
@@ -29,10 +28,6 @@ const FormControlHelperText = (
       resolvedProps?.setHasHelpText(false);
     };
   });
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
 
   return (
     <Box {...resolvedProps} nativeID={resolvedProps?.feedbackId} ref={ref} />

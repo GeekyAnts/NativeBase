@@ -4,7 +4,6 @@ import type { IPinInputFieldProps, IPinInputContext } from './types';
 import { PinInputContext } from './Context';
 import { Platform } from 'react-native';
 import { mergeRefs } from '../../../utils';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const PinInputFiled = (
   {
@@ -44,10 +43,6 @@ const PinInputFiled = (
     setRefList && setRefList(myRef, fieldIndex);
   }, [myRef, fieldIndex, setRefList]);
 
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
   return (
     <Input
       //@ts-ignore

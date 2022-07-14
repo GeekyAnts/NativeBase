@@ -3,7 +3,6 @@ import Box from '../../primitives/Box';
 import { AccordionContext, AccordionItemContext } from './Context';
 import type { IAccordionItemProps, IAccordionContextProps } from './types';
 import { useThemeProps } from '../../../hooks';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const AccordionItem = (
   { children, index: pIndex = 0, isDisabled, ...props }: IAccordionItemProps,
@@ -29,10 +28,7 @@ const AccordionItem = (
       return children({ isExpanded: isOpen, isDisabled });
     return children;
   };
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
+
   return (
     <AccordionItemContext.Provider
       value={{

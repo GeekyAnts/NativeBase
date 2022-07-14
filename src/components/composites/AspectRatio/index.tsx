@@ -1,7 +1,6 @@
 import React, { forwardRef, memo } from 'react';
 import { StyleSheet, ViewStyle, Platform } from 'react-native';
 import { default as Box } from '../../primitives/Box';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { usePropsResolution } from '../../../hooks';
 import type { IAspectRatioProps } from './types';
 
@@ -47,10 +46,6 @@ const AspectRatio = (props: IAspectRatioProps, ref?: any) => {
     children?.props?.children
   );
 
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(resolvedProps)) {
-    return null;
-  }
   // DOC:  It uses a aspectRatio property of React Native and manually calculate on Web
   if (Platform.OS === 'web') {
     return (

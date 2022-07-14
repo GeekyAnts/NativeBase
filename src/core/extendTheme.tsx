@@ -8,13 +8,13 @@ function isFunction(value: any): boolean {
 
 type ThemeUtil = Theme | (Record<string, any> & {});
 
-function resolveComponentThemeAndUpdateMap(theme: any) {
-  if (theme.components) {
-    // Object.keys(theme.components).map((key?: string) => {
-    //   // updateComponentThemeMap(key, theme.components[key]);
-    // });
-  }
-}
+// function resolveComponentThemeAndUpdateMap(theme: any) {
+//   if (theme.components) {
+//     // Object.keys(theme.components).map((key?: string) => {
+//     //   // updateComponentThemeMap(key, theme.components[key]);
+//     // });
+//   }
+// }
 export function extendTheme<T extends ThemeUtil>(
   overrides: T,
   ...restOverrides: T[]
@@ -32,13 +32,18 @@ export function extendTheme<T extends ThemeUtil>(
     return undefined;
   }
 
-  const finalOverrides = [overrides, ...restOverrides].reduce(
+  let finalOverrides = [overrides, ...restOverrides].reduce(
     (prevValue, currentValue) => {
-      resolveComponentThemeAndUpdateMap(currentValue);
+      // console.log(prevValue, currentValue, 'value');
+      // resolveComponentThemeAndUpdateMap(currentValue);
       return mergeWith({}, prevValue, currentValue, customizer);
     },
     defaultTheme
   );
+
+  // TODO: Fix typings
+  // @ts-ignore
+  finalOverrides['customUserTheme'] = overrides;
 
   return finalOverrides as T & Theme;
 }

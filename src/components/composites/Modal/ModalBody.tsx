@@ -1,7 +1,6 @@
 import React, { memo, forwardRef } from 'react';
 import Box, { IBoxProps } from '../../primitives/Box';
 import { usePropsResolution } from '../../../hooks';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { ScrollView, IScrollViewProps } from '../../basic/ScrollView';
 
 const ModalBody = (
@@ -12,10 +11,7 @@ const ModalBody = (
     'ModalBody',
     props
   );
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
+
   return (
     <ScrollView {..._scrollview}>
       <Box {...resolvedProps} ref={ref}>

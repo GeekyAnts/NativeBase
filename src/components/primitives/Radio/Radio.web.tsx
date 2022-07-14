@@ -12,11 +12,8 @@ import { VisuallyHidden } from '@react-aria/visually-hidden';
 import { RadioContext } from './RadioGroup';
 import { useFocusRing } from '@react-native-aria/focus';
 import { CircleIcon } from '../Icon/Icons';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { combineContextAndProps, isEmptyObj } from '../../../utils';
 import { useFormControlContext } from '../../composites/FormControl';
-// import { getThemeProps } from '../../../core/ResolvedStyleMap';
-// import { useColorMode } from '../../../core/color-mode';
 
 const RadioComponent = memo(
   forwardRef(
@@ -29,7 +26,6 @@ const RadioComponent = memo(
         wrapperRef,
         isHovered: isHoveredProp,
         isFocusVisible: isFocusVisibleProp,
-        ...props
       }: any,
       ref: any
     ) => {
@@ -82,10 +78,6 @@ const RadioComponent = memo(
           {wrapStringChild(children, _text)}
         </Stack>
       );
-      //TODO: refactor for responsive prop
-      if (useHasResponsiveProps(props)) {
-        return null;
-      }
 
       return (
         <Box
@@ -140,10 +132,6 @@ const Radio = (
     ...combinedProps,
   });
 
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
   if (isEmptyObj(contextState)) {
     console.error('Error: Radio must be wrapped inside a Radio.Group');
     return <></>;

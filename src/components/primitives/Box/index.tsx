@@ -2,7 +2,7 @@ import React, { memo, forwardRef } from 'react';
 import { View } from 'react-native';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { getColor } from '../../../theme';
-import { useTheme } from '../../../hooks';
+import { useTheme } from '../../../hooks/useTheme';
 import { makeStyledComponent } from '../../../utils/makeStyledComponent';
 import { wrapStringChild } from '../../../utils/wrapStringChild';
 import type { IBoxProps, InterfaceBoxProps } from './types';

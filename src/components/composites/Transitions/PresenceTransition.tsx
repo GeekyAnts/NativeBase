@@ -2,7 +2,6 @@ import React, { memo, forwardRef } from 'react';
 import { ExitAnimationContext } from '../../primitives/Overlay/ExitAnimationContext';
 import { Transition } from './Transition';
 import type { IPresenceTransitionProps } from './types';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const PresenceTransition = (
   { visible = false, onTransitionComplete, ...rest }: IPresenceTransitionProps,
@@ -11,10 +10,6 @@ const PresenceTransition = (
   // const [animationExited, setAnimationExited] = React.useState(!visible);
 
   const { setExited } = React.useContext(ExitAnimationContext);
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(rest)) {
-    return null;
-  }
 
   return (
     <Transition

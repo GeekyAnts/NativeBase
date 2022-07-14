@@ -1,7 +1,6 @@
 import React, { memo, forwardRef } from 'react';
 import { Pressable } from '../../primitives/Pressable';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { composeEventHandlers } from '../../../utils';
 import type { IIconButtonProps } from './types';
 import {
@@ -57,11 +56,6 @@ const IconButton = (
       ...icon?.props,
       ...props._icon,
     });
-  }
-
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
   }
 
   return (

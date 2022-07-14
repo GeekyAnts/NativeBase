@@ -7,7 +7,6 @@ import type {
   IAccordionItemContextProps,
 } from './types';
 import { useThemeProps } from '../../../hooks';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const AccordionDetails = (
   { children, ...props }: IAccordionDetailsProps,
@@ -20,10 +19,7 @@ const AccordionDetails = (
   const { AnimationProps }: IAccordionContextProps = React.useContext(
     AccordionContext
   );
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
+
   return (
     <Collapse {...AnimationProps} {...newProps} isOpen={isOpen} ref={ref}>
       {children}

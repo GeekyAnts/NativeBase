@@ -2,7 +2,6 @@ import React, { memo, forwardRef } from 'react';
 import Box from '../Box';
 import type { IFlexProps } from './types';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const Flex = (props: IFlexProps, ref: any) => {
   const {
@@ -16,12 +15,6 @@ const Flex = (props: IFlexProps, ref: any) => {
     ...resolvedProps
   } = usePropsResolution('Flex', props, {});
 
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
-
-  console.log(resolvedProps, 'resolved props her');
   return (
     <Box
       {...resolvedProps}

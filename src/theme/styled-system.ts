@@ -1,5 +1,5 @@
 import get from 'lodash.get';
-import { resolveValueWithBreakpoint } from '../hooks/useThemeProps/propsFlattener';
+import { resolveValueWithBreakpoint } from '../hooks/useThemeProps/resolveValueWithBreakpoint';
 import { hasValidBreakpointFormat, transparentize } from './tools';
 // import type { ITheme } from '.';
 import type { UseResponsiveQueryParams } from '../utils/useResponsiveQuery';
@@ -531,10 +531,15 @@ export const typography = {
   fontFamily: {
     property: 'fontFamily',
     scale: 'fonts',
-    // transformer: (val: any, scale: any) => {
-    //   const value = get(scale, val);
-    //   return value ? value.toString() : undefined;
-    // },
+    transformer: (val: any, scale: any) => {
+      let value: any;
+      if (scale.hasOwnProperty(val)) {
+        value = get(scale, val);
+      } else {
+        value = get(scale, val, val);
+      }
+      return value ? value.toString() : undefined;
+    },
   },
   fontSize: {
     property: 'fontSize',

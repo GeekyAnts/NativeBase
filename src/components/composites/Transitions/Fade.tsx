@@ -1,7 +1,6 @@
 import React from 'react';
 import PresenceTransition from '../Transitions/PresenceTransition';
 import type { IFadeProps } from './types';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { usePropsResolution } from '../../../hooks/';
 
 const Fade = ({ children, ...props }: IFadeProps, ref?: any) => {
@@ -11,10 +10,6 @@ const Fade = ({ children, ...props }: IFadeProps, ref?: any) => {
     exitDuration,
     ...resolvedProps
   } = usePropsResolution('Fade', props);
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
 
   if (entryDuration) {
     resolvedProps.animate.transition.duration = entryDuration;

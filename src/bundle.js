@@ -2,9 +2,9 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-var get$1 = require('lodash.get');
 var lodash = require('lodash');
 var merge = require('lodash.merge');
+var get = require('lodash.get');
 var isEmpty = require('lodash.isempty');
 var Color = require('tinycolor2');
 require('lodash.omitby');
@@ -14,8 +14,8 @@ require('lodash.omit');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
-var get__default = /*#__PURE__*/_interopDefaultLegacy(get$1);
 var merge__default = /*#__PURE__*/_interopDefaultLegacy(merge);
+var get__default = /*#__PURE__*/_interopDefaultLegacy(get);
 var isEmpty__default = /*#__PURE__*/_interopDefaultLegacy(isEmpty);
 var Color__default = /*#__PURE__*/_interopDefaultLegacy(Color);
 var isNil__default = /*#__PURE__*/_interopDefaultLegacy(isNil);
@@ -55,327 +55,6 @@ function __spreadArray(to, from, pack) {
     }
     return to.concat(ar || Array.prototype.slice.call(from));
 }
-
-function isEmptyObj(obj) {
-    for (var _x in obj) {
-        return false;
-    }
-    return true;
-}
-
-// Adding Map for storing the props and style for the styled component
-exports.resolvedStyledMap = {};
-var pseudoPropStateMap = {
-    _disabled: 'isDisabled',
-    _focusVisible: 'isFocusVisible',
-    _focus: 'isFocused',
-    _hover: 'isHovered',
-    _pressed: 'isPressed',
-    _checked: 'isChecked',
-    _loading: 'isLoading',
-    _invalid: 'isInvalid',
-    _reversed: 'isReversed'
-};
-var PSEUDO_PROP_COMPONENT_MAP = {
-    _spinner: 'Spinner',
-    _stack: 'Stack',
-    _text: 'Text',
-    _icon: 'Icon',
-    _checkbox: 'Checkbox',
-    _radio: 'Radio',
-    _pressable: 'Pressable',
-    _slide: 'Slide',
-    _fade: 'Fade',
-    _backdropFade: 'BackdropFace'
-};
-var COLOR_SCHEME_MAP = {
-    Button: true,
-    ButtonGroup: true,
-    IconButton: true,
-    Checkbox: true,
-    Radio: true,
-    Alert: true,
-    Badge: true,
-    CircularProgress: true,
-    Fab: true,
-    Modal: true,
-    Progress: true,
-    Switch: true,
-    Tag: true,
-    Slider: true,
-    SliderThumb: true,
-    // SliderTrack: true,
-    SliderFilledTrack: true
-};
-var init = function (inputResolvedStyledMap) {
-    // resolvedStyledMap = new Map();
-    if (inputResolvedStyledMap) {
-        exports.resolvedStyledMap = inputResolvedStyledMap;
-    }
-    if (process.env.NODE_ENV === 'development') {
-        //@ts-ignore
-        window['resolvedStyledMap'] = exports.resolvedStyledMap;
-        //@ts-ignore
-    }
-};
-var get = function (key) {
-    // console.log(key, 'key here 111');
-    // console.log(resolvedStyledMap[key], 'key here 111');
-    return exports.resolvedStyledMap[key];
-};
-var getThemeObject = function (componentName, colorMode, state) {
-    var styleObj = exports.resolvedStyledMap[componentName];
-    if (!styleObj || !styleObj[colorMode]) {
-        return {};
-    }
-    // Theme style
-    var styleSheet = styleObj[colorMode];
-    // state style
-    var stateStyles = getPseudoStateStyles(componentName, state);
-    lodash.forEach(stateStyles, function (stateStyleObj) {
-        if (stateStyleObj[colorMode]) {
-            styleSheet = styleSheet.concat(stateStyleObj[colorMode]);
-        }
-    });
-    var unResolvedPropsArray = lodash.map(styleSheet, 'unResolvedProps');
-    var unResolvedProps = {};
-    for (var _i = 0, unResolvedPropsArray_1 = unResolvedPropsArray; _i < unResolvedPropsArray_1.length; _i++) {
-        var props = unResolvedPropsArray_1[_i];
-        unResolvedProps = __assign(__assign({}, unResolvedProps), props);
-    }
-    var restDefaultPropsArray = lodash.map(styleSheet, 'restDefaultProps');
-    var restDefaultProps = {};
-    for (var _a = 0, restDefaultPropsArray_1 = restDefaultPropsArray; _a < restDefaultPropsArray_1.length; _a++) {
-        var props = restDefaultPropsArray_1[_a];
-        restDefaultProps = __assign(__assign({}, restDefaultProps), props);
-    }
-    var styleFromPropsArray = lodash.map(styleSheet, 'styleFromProps');
-    var styleFromProps = {};
-    for (var _b = 0, styleFromPropsArray_1 = styleFromPropsArray; _b < styleFromPropsArray_1.length; _b++) {
-        var props = styleFromPropsArray_1[_b];
-        styleFromProps = __assign(__assign({}, styleFromProps), props);
-    }
-    var internalPseudoPropsArray = lodash.map(styleSheet, 'internalPseudoProps');
-    var internalPseudoProps = {};
-    for (var _c = 0, internalPseudoPropsArray_1 = internalPseudoPropsArray; _c < internalPseudoPropsArray_1.length; _c++) {
-        var props = internalPseudoPropsArray_1[_c];
-        internalPseudoProps = __assign(__assign({}, internalPseudoProps), props);
-    }
-    return {
-        style: lodash.map(styleSheet, 'style'),
-        unResolvedProps: unResolvedProps,
-        styleFromProps: styleFromProps,
-        restDefaultProps: restDefaultProps,
-        internalPseudoProps: internalPseudoProps
-    };
-};
-var getComponentNameKeyFromProps = function (componentName, _a) {
-    var _b = _a === void 0 ? {} : _a, variant = _b.variant, colorScheme = _b.colorScheme;
-    var componentKeyName = componentName;
-    // const componentTheme = lodashGet(theme, `components.${componentName}`, {});
-    var colorSchemeKey = colorScheme;
-    // || componentTheme.defaultProps?.colorScheme;
-    var variantKey = variant;
-    // || componentTheme.defaultProps?.variant;
-    if (colorSchemeKey && variantKey) {
-        componentKeyName = "".concat(componentName, ".").concat(colorSchemeKey, ".").concat(variantKey);
-    }
-    else if (variantKey) {
-        componentKeyName = "".concat(componentName, ".").concat(variant);
-    }
-    else if (colorSchemeKey) {
-        componentKeyName = "".concat(componentName, ".").concat(colorSchemeKey);
-    }
-    return componentKeyName;
-};
-// const get
-var getThemeProps = function (inputComponentKeyName, config, state, props) {
-    if (props === void 0) { props = {}; }
-    // console.log(config, 'config here');
-    var componentNames = inputComponentKeyName.split('.');
-    var rootComponentName = componentNames[0];
-    var pseudoComponentKeyName = componentNames[1];
-    var componentKeyName = rootComponentName;
-    componentKeyName = getComponentNameKeyFromProps(rootComponentName, props);
-    if (pseudoComponentKeyName) {
-        componentKeyName = "".concat(componentKeyName, ".").concat(pseudoComponentKeyName);
-    }
-    var themeObj = getThemeObject(componentKeyName, config.colorMode, state);
-    if (isEmptyObj(themeObj)) {
-        // console.log('hello here 1111', inputComponentKeyName);
-        // updateComponentThemeMap(inputComponentKeyName, {}, config, {});
-        updateComponentThemeMap(inputComponentKeyName, {}, config, {
-            variant: props.variant,
-            colorScheme: props.colorScheme
-        });
-        themeObj = getThemeObject(componentKeyName, config.colorMode, state);
-    }
-    if (!isEmptyObj(themeObj) && props.size) {
-        var componentKeyNameForSize = "".concat(rootComponentName, ".").concat(props.size);
-        if (pseudoComponentKeyName) {
-            componentKeyNameForSize = "".concat(componentKeyNameForSize, ".").concat(pseudoComponentKeyName);
-        }
-        var sizeThemeObj = getThemeObject("".concat(componentKeyNameForSize), config.colorMode, state);
-        // console.log(
-        //   'hello 111 222',
-        //   // sizeThemeObj,
-        //   rootComponentName,
-        //   componentKeyNameForSize,
-        //   pseudoComponentKeyName,
-        //   inputComponentKeyName
-        // );
-        if (isEmptyObj(sizeThemeObj)) {
-            if (pseudoComponentKeyName) ;
-            else {
-                //   sizeThemeObj = getThemeObject(
-                //     `${rootComponentName}.${props.size}`,
-                //     config.colorMode,
-                //     state
-                //   );
-                //   console.log(
-                //     '&&&&&',
-                //     sizeThemeObj,
-                //     `${rootComponentName}.${props.size}`
-                //   );
-                // }
-                if (isEmptyObj(sizeThemeObj)) {
-                    // console.log(
-                    //   `${rootComponentName}.${pseudoComponentKeyName}`,
-                    //   componentKeyNameForSize,
-                    //   ' ***** ',
-                    //   pseudoComponentKeyName
-                    // );
-                    // console.log('hello 1111', rootComponentName);
-                    // debugger;
-                    updateComponentThemeMap(rootComponentName, {}, config, {
-                        size: props.size
-                    });
-                    sizeThemeObj = getThemeObject(componentKeyNameForSize, config.colorMode, state);
-                }
-            }
-        }
-        var mergedThemeObj = {
-            style: (sizeThemeObj === null || sizeThemeObj === void 0 ? void 0 : sizeThemeObj.style)
-                ? __spreadArray(__spreadArray([], themeObj === null || themeObj === void 0 ? void 0 : themeObj.style, true), sizeThemeObj === null || sizeThemeObj === void 0 ? void 0 : sizeThemeObj.style, true) : themeObj.style,
-            styleFromProps: lodash.merge({}, themeObj.styleFromProps, sizeThemeObj.styleFromProps),
-            unResolvedProps: lodash.merge({}, themeObj.unResolvedProps, sizeThemeObj.unResolvedProps),
-            internalPseudoProps: lodash.merge({}, themeObj.internalPseudoProps, sizeThemeObj.internalPseudoProps),
-            restDefaultProps: __assign(__assign({}, themeObj.restDefaultProps), sizeThemeObj.restDefaultProps)
-        };
-        themeObj = mergedThemeObj;
-    }
-    return themeObj;
-};
-var getResolvedProps = function (key, colorMode) {
-    var styleObj = exports.resolvedStyledMap[key];
-    if (!colorMode || !styleObj) {
-        return null;
-    }
-    return styleObj[colorMode]['styleFromProps'];
-};
-var isValidStateKey = function (stateKey, state) {
-    // console.log(stateKey, pseudoPropStateMap[stateKey], state, 'is valid');
-    try {
-        //@ts-ignore
-        return state[pseudoPropStateMap[stateKey]];
-    }
-    catch (e) {
-        return false;
-    }
-};
-var isValidState = function (key, state) {
-    // include only startWith("_")
-    var stateKeys = key.split('.');
-    var isValid = stateKeys.every(function (stateKey) {
-        if (isValidStateKey(stateKey, state)) {
-            return true;
-        }
-        return false;
-    });
-    // console.log(isValid, 'valid here');
-    return isValid;
-};
-var getPseudoStateStyles = function (componentName, state) {
-    var styleObj = [];
-    var stateStyleArray = [];
-    var componentStates = get(componentName);
-    // console.log(componentStates, '***** &&&&');
-    for (var k in componentStates) {
-        var value = componentStates[k];
-        // console.log(componentStates, k, componentName, 'value **&');
-        //get for _hover, _checked
-        if (k.startsWith('_')) {
-            // const pseudoPropKey = k.slice(componentName.length + 1);
-            stateStyleArray.push({ key: k, value: value });
-        }
-    }
-    // sort for specificity
-    stateStyleArray.sort(function (obj1, obj2) { return obj1.key.length - obj2.key.length; });
-    stateStyleArray.forEach(function (item) {
-        if (isValidState(item.key, state)) {
-            styleObj.push(item.value);
-        }
-    });
-    // console.log(styleObj, 'valid state *');
-    return styleObj;
-};
-// export const getResolvedStyleSheet = (
-//   componentName: string | Array<any>,
-//   colorMode?: ColorMode,
-//   state?: any,
-//   variant?: any,
-//   size?: any
-// ) => {
-//   if (typeof componentName !== 'string') {
-//     componentName = componentName.filter((item) => item).join('.');
-//     // console.log(componentName, 'component name &&&^');
-//   } else {
-//     if (variant && size) {
-//       componentName = `${componentName}.${variant}.${size}`;
-//     } else if (variant) {
-//       componentName = `${componentName}.${variant}`;
-//     } else if (size) {
-//       componentName = `${componentName}.${size}`;
-//     }
-//   }
-//   const styleObj: any = resolvedStyledMap.get(componentName);
-//   // console.log(componentName, colorMode, styleObj, 'component name &&&&&');
-//   if (!colorMode || !styleObj) {
-//     return null;
-//   }
-//   // Theme style
-//   const styleSheet = map(styleObj[colorMode], 'style');
-//   // state style
-//   const stateStyles = getPseudoStateStyles(componentName, state);
-//   forEach(stateStyles, (stateStyleObj) => {
-//     // console.log(
-//     //   componentName,
-//     //   stateStyleObj[colorMode].style,
-//     //   map(stateStyleObj[colorMode], 'style'),
-//     //   'hello component name )))'
-//     // );
-//     styleSheet.push(map(stateStyleObj[colorMode], 'style'));
-//   });
-//   return styleSheet;
-// };
-var set = function (key, value, colorMode) {
-    var _a;
-    var styledMap = exports.resolvedStyledMap[key];
-    if (!styledMap) {
-        exports.resolvedStyledMap[key] = (_a = {},
-            _a[colorMode] = [value],
-            _a);
-    }
-    else {
-        if (!styledMap[colorMode]) {
-            styledMap[colorMode] = [];
-        }
-        styledMap[colorMode].push(value);
-    }
-};
-var log = function () {
-    // console.log(resolvedStyledMap);
-};
 
 function mode(light, dark) {
     return function (props) { return (props.colorMode === 'dark' ? dark : light); };
@@ -500,6 +179,24 @@ function findLastValidBreakpoint(values, themeBreakpoints, currentBreakpoint) {
         .slice(0, currentBreakpoint + 1)
         .filter(function (v) { return !isNil__default["default"](v); })
         .pop());
+}
+
+var resolveValueWithBreakpoint = function (values, breakpointTheme, currentBreakpoint, property) {
+    if (hasValidBreakpointFormat(values, breakpointTheme, property)) {
+        // Check the last valid breakpoint value from all values
+        // If current breakpoint is `md` and we have `base` then `lg`, then last value will be taken(`base` in this case)
+        return findLastValidBreakpoint(values, breakpointTheme, currentBreakpoint);
+    }
+    else {
+        return values;
+    }
+};
+
+function isEmptyObj(obj) {
+    for (var _x in obj) {
+        return false;
+    }
+    return true;
 }
 
 var isNumber = function (n) { return typeof n === 'number' && !isNaN(n); };
@@ -1009,7 +706,13 @@ var typography$1 = {
         property: 'fontFamily',
         scale: 'fonts',
         transformer: function (val, scale) {
-            var value = get__default["default"](scale, val);
+            var value;
+            if (scale.hasOwnProperty(val)) {
+                value = get__default["default"](scale, val);
+            }
+            else {
+                value = get__default["default"](scale, val, val);
+            }
             return value ? value.toString() : undefined;
         }
     },
@@ -1689,15 +1392,179 @@ var resolvePropsToStyle = function (styledSystemProps, propStyle, theme, platfor
         };
     }
 };
-var resolveValueWithBreakpoint = function (values, breakpointTheme, currentBreakpoint, property) {
-    if (hasValidBreakpointFormat(values, breakpointTheme, property)) {
-        // Check the last valid breakpoint value from all values
-        // If current breakpoint is `md` and we have `base` then `lg`, then last value will be taken(`base` in this case)
-        return findLastValidBreakpoint(values, breakpointTheme, currentBreakpoint);
+
+var getStyledObject = function (theme, 
+//@ts-ignore
+name, componentTheme, config, inputProps, mergeDefaultProps) {
+    var _a;
+    var _b;
+    if (mergeDefaultProps === void 0) { mergeDefaultProps = true; }
+    var componentStyle = (_b = componentTheme === null || componentTheme === void 0 ? void 0 : componentTheme.defaultProps) === null || _b === void 0 ? void 0 : _b.style;
+    // console.log(config, 'config here');
+    var inputWithDefaultProps = __assign(__assign({}, componentTheme.defaultProps), inputProps);
+    if (!mergeDefaultProps) {
+        inputWithDefaultProps = inputProps;
     }
-    else {
-        return values;
+    var flattenProps, specificityMap;
+    _a = propsFlattener({
+        props: inputWithDefaultProps,
+        //TODO: build-time
+        platform: config.platform,
+        colormode: config.colorMode,
+        state: {},
+        currentSpecificityMap: {},
+        previouslyFlattenProps: flattenProps || {},
+        cascadePseudoProps: true
+    }, 1), flattenProps = _a[0], specificityMap = _a[1];
+    // console.log(inputProps, 'hello flatten here');
+    flattenProps = mergeStylesWithSpecificity(theme, componentTheme, flattenProps, specificityMap, config.colorMode, mergeDefaultProps, config)[0];
+    // console.log(flattenProps, 'hello flatten props');
+    var internalPseudoProps = {};
+    for (var property in flattenProps) {
+        if (property.startsWith('_') &&
+            !['_dark', '_light', '_web', '_ios', '_android', '_important'].includes(property)) {
+            internalPseudoProps[property] = flattenProps[property];
+        }
     }
+    var styleObj = resolvePropsToStyle(flattenProps, componentStyle, theme, config.platform, false, 4, false, undefined);
+    // if (inputProps?.extraProp === 'Actionsheet') {
+    //   console.log(flattenProps, 'hello flatten here');
+    // }
+    styleObj.internalPseudoProps = internalPseudoProps;
+    return styleObj;
+};
+//@ts-ignore
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+// const resolveComponentThemeStyle = (
+//   incomingProps: any,
+//   themeType: Array<string>,
+//   providedTheme?: any
+// ): any => {
+//   try {
+//     if (themeType[1]) {
+//       return typeof providedTheme[themeType[0]][themeType[1]] !== 'function'
+//         ? providedTheme[themeType[0]][themeType[1]]
+//         : providedTheme[themeType[0]][themeType[1]]({
+//             theme,
+//             ...incomingProps,
+//             colorMode: 'light',
+//           });
+//     } else {
+//       return typeof providedTheme[themeType[0]] !== 'function'
+//         ? providedTheme[themeType[0]]
+//         : providedTheme[themeType[0]]({
+//             theme,
+//             ...incomingProps,
+//             colorMode: 'light',
+//           });
+//     }
+//   } catch {
+//     return {};
+//   }
+// };
+var resolveComponentTheme = function (theme, incomingProps, themeType, providedTheme) {
+    // if (typeof providedTheme[themeType[0]][themeType[1]] === 'function')
+    //   // console.log(
+    //   //   themeType,
+    //   //   // providedTheme,
+    //   //   providedTheme[themeType[0]][themeType[1]]({
+    //   //     theme,
+    //   //     ...incomingProps,
+    //   //     colorMode: 'light',
+    //   //   }),
+    //   //   'flatten Props 111 ****'
+    //   // );
+    try {
+        if (themeType[1]) {
+            return typeof providedTheme[themeType[0]][themeType[1]] !== 'function'
+                ? providedTheme[themeType[0]][themeType[1]]
+                : providedTheme[themeType[0]][themeType[1]](__assign(__assign({ theme: theme }, incomingProps), { colorMode: 'light' }));
+        }
+        else {
+            return typeof providedTheme[themeType[0]] !== 'function'
+                ? providedTheme[themeType[0]]
+                : providedTheme[themeType[0]](__assign(__assign({ theme: theme }, incomingProps), { colorMode: 'light' }));
+        }
+    }
+    catch (_a) {
+        return {};
+    }
+};
+var mergeStylesWithSpecificity = function (theme, componentTheme, flattenProps, specificityMap, colorMode, mergeDefaultProps, config) {
+    var _a, _b, _c;
+    if (mergeDefaultProps === void 0) { mergeDefaultProps = true; }
+    var combinedBaseStyle = {};
+    var combinedVariantStyle = {};
+    var combinedSizeStyle = {};
+    var flattenBaseStyle, baseSpecificityMap;
+    var extendedTheme = [];
+    if (!isEmpty__default["default"](componentTheme))
+        extendedTheme.push(componentTheme);
+    // if (flattenProps.extraProp === 'IconButton.Icon') {
+    //   console.log(flattenProps, 'lflflflflf', componentTheme);
+    // }
+    extendedTheme.map(function (extededComponentTheme) {
+        if (extededComponentTheme.baseStyle && mergeDefaultProps) {
+            combinedBaseStyle = __assign(__assign({}, combinedBaseStyle), resolveComponentTheme(theme, flattenProps, ['baseStyle'], extededComponentTheme));
+        }
+        if (flattenProps.variant && mergeDefaultProps) {
+            if (extededComponentTheme.variants) {
+                combinedVariantStyle = __assign(__assign({}, combinedVariantStyle), resolveComponentTheme(theme, flattenProps, ['variants', flattenProps.variant], extededComponentTheme));
+                // console.log(
+                //   // combinedBaseStyle,
+                //   resolveComponentTheme(
+                //     flattenProps,
+                //     ['variants', flattenProps.variant],
+                //     extededComponentTheme
+                //   ),
+                //   flattenProps,
+                //   'flatten props 111 $$$'
+                // );
+            }
+        }
+        if (flattenProps.size &&
+            (extededComponentTheme === null || extededComponentTheme === void 0 ? void 0 : extededComponentTheme.sizes) &&
+            (extededComponentTheme === null || extededComponentTheme === void 0 ? void 0 : extededComponentTheme.sizes[flattenProps.size])) {
+            if (typeof extededComponentTheme.sizes[flattenProps.size] === 'string' ||
+                typeof extededComponentTheme.sizes[flattenProps.size] === 'number') {
+                flattenProps.size = extededComponentTheme.sizes[flattenProps.size];
+            }
+            else {
+                combinedSizeStyle = __assign(__assign({}, combinedSizeStyle), resolveComponentTheme(theme, flattenProps, ['sizes', flattenProps.size], extededComponentTheme));
+                delete flattenProps.size;
+            }
+        }
+    });
+    if (flattenProps.extraProp === 'Spinner') ;
+    // console.log('****>>>>> 2', flattenProps);
+    // console.log(combinedBaseStyle, " ******* ");
+    if (!isEmptyObj(combinedBaseStyle)) {
+        _a = callPropsFlattener(combinedBaseStyle, specificityMap, 1, {}, { colorMode: colorMode }, {}, flattenProps, __assign(__assign({}, config), { cascadePseudoProps: true })), flattenBaseStyle = _a[0], baseSpecificityMap = _a[1];
+    }
+    // NOTE: Resolving variants
+    var flattenVariantStyle, variantSpecificityMap;
+    // Extracting props from variant
+    // console.log(combinedVariantStyle, "999999");
+    if (!isEmptyObj(combinedVariantStyle)) {
+        _b = callPropsFlattener(combinedVariantStyle, baseSpecificityMap || specificityMap, 1, {}, { colorMode: colorMode }, {}, flattenProps, __assign(__assign({}, config), { cascadePseudoProps: true })), flattenVariantStyle = _b[0], variantSpecificityMap = _b[1];
+        // We remove variant from original props if we found it in the componentTheme
+        //@ts-ignore
+        flattenProps.variant = undefined;
+    }
+    // NOTE: Resolving size
+    var flattenSizeStyle, sizeSpecificityMap;
+    // Extracting props from size
+    // console.log(combinedSizeStyle, "&&&&&&&");
+    if (!isEmptyObj(combinedSizeStyle)) {
+        _c = callPropsFlattener(combinedSizeStyle, variantSpecificityMap || baseSpecificityMap || specificityMap, 1, {}, { colorMode: colorMode }, {}, flattenProps, __assign(__assign({}, config), { cascadePseudoProps: true })), flattenSizeStyle = _c[0], sizeSpecificityMap = _c[1];
+    }
+    //////
+    var defaultStyles = merge__default["default"]({}, flattenBaseStyle, flattenVariantStyle, flattenSizeStyle);
+    var defaultSpecificity = merge__default["default"]({}, specificityMap, baseSpecificityMap, variantSpecificityMap, sizeSpecificityMap);
+    // console.log(flattenProps.size, flattenProps, componentTheme, 'h3h3h3');
+    flattenProps = propsSpreader(merge__default["default"](defaultStyles, flattenProps), defaultSpecificity);
+    // console.log(flattenProps, 'h3h3h3 >>>>>');
+    return [flattenProps];
 };
 
 var borderWidths = {
@@ -3267,7 +3134,7 @@ var defaultProps$w = {
 };
 var ButtonGroup = {
     baseStyle: { direction: 'row' },
-    defaultProps: { space: 2 }
+    defaultProps: { space: 2, borderRadius: 4 }
 };
 var Button = {
     baseStyle: baseStyle$I,
@@ -4105,7 +3972,7 @@ var Image = {
 var baseStyle$n = function (props) {
     var _a = props.theme.colors, primary = _a.primary, error = _a.error;
     return {
-        fontFamily: 'body',
+        // fontFamily: 'body',
         py: '2',
         px: '3',
         borderRadius: 'sm',
@@ -5889,7 +5756,8 @@ var baseStyle$7 = function (props) {
             space: 2,
             alignItems: 'center',
             justifyContent: 'center',
-            pointerEvents: 'box-none'
+            pointerEvents: 'box-none',
+            _web: { position: 'fixed' }
         },
         _overlay: {},
         _presenceTransition: {
@@ -6142,7 +6010,6 @@ var SliderTrack = {
             width: '100%',
             height: 1,
             _pressable: {
-                height: 1,
                 width: '100%'
             }
         },
@@ -6151,8 +6018,7 @@ var SliderTrack = {
             height: '100%',
             width: 1,
             _pressable: {
-                height: '100%',
-                width: 1
+                height: '100%'
             }
         }
     }
@@ -6160,7 +6026,7 @@ var SliderTrack = {
 var SliderThumb = {
     baseStyle: function (props) {
         var colorScheme = props.colorScheme;
-        var primary = props.theme.colors.primary;
+        var colors = props.theme.colors;
         return {
             borderRadius: 'full',
             zIndex: 999,
@@ -6182,21 +6048,21 @@ var SliderThumb = {
                 _hover: {
                     _web: {
                         outlineWidth: '4px',
-                        outlineColor: primary[300],
+                        outlineColor: colors[colorScheme][300],
                         outlineStyle: 'solid'
                     }
                 },
                 _focus: {
                     _web: {
                         outlineWidth: '2px',
-                        outlineColor: primary[400],
+                        outlineColor: colors.primary[400],
                         outlineStyle: 'solid'
                     }
                 },
                 _pressed: {
                     _interactionBox: {
                         borderWidth: '8',
-                        borderColor: "red.300"
+                        borderColor: "".concat(colorScheme, ".300")
                     }
                 }
             },
@@ -6205,14 +6071,14 @@ var SliderThumb = {
                 _hover: {
                     _web: {
                         outlineWidth: '4px',
-                        outlineColor: primary[800],
+                        outlineColor: colors[colorScheme][800],
                         outlineStyle: 'solid'
                     }
                 },
                 _focus: {
                     _web: {
                         outlineWidth: '2px',
-                        outlineColor: primary[400],
+                        outlineColor: colors.primary[400],
                         outlineStyle: 'solid'
                     }
                 },
@@ -6234,13 +6100,13 @@ var SliderThumb = {
     },
     sizes: {
         lg: {
-            _interactionBox: { p: '3' }
+            _interactionBox: '3'
         },
         md: {
-            _interactionBox: { p: '2.5' }
+            _interactionBox: '2'
         },
         sm: {
-            _interactionBox: { p: '2' }
+            _interactionBox: '2.5'
         }
     }
 };
@@ -6279,9 +6145,9 @@ var SliderFilledTrack = {
     }
 };
 var sliderSizes = {
-    lg: { thumbSize: 6, sliderTrackHeight: 6 },
-    md: { thumbSize: 5, sliderTrackHeight: 5 },
-    sm: { thumbSize: 4, sliderTrackHeight: 4 }
+    lg: { thumbSize: 6, sliderTrackHeight: 6, _interactionBox: { p: '3' } },
+    md: { thumbSize: 5, sliderTrackHeight: 5, _interactionBox: { p: '2.5' } },
+    sm: { thumbSize: 4, sliderTrackHeight: 4, _interactionBox: { p: '2' } }
 };
 var variants = {
     vertical: {
@@ -6386,194 +6252,266 @@ var config = {
 };
 var theme = __assign(__assign({}, theme$1), { components: components, config: config });
 
-var getStyledObject = function (
-//@ts-ignore
-name, componentTheme, config, inputProps, mergeDefaultProps) {
-    var _a;
-    var _b;
-    if (mergeDefaultProps === void 0) { mergeDefaultProps = true; }
-    var componentStyle = (_b = componentTheme === null || componentTheme === void 0 ? void 0 : componentTheme.defaultProps) === null || _b === void 0 ? void 0 : _b.style;
-    // console.log(config, 'config here');
-    var inputWithDefaultProps = __assign(__assign({}, componentTheme.defaultProps), inputProps);
-    if (!mergeDefaultProps) {
-        inputWithDefaultProps = inputProps;
-    }
-    var flattenProps, specificityMap;
-    _a = propsFlattener({
-        props: inputWithDefaultProps,
-        //TODO: build-time
-        platform: config.platform,
-        colormode: config.colorMode,
-        state: {},
-        currentSpecificityMap: {},
-        previouslyFlattenProps: flattenProps || {},
-        cascadePseudoProps: true
-    }, 1), flattenProps = _a[0], specificityMap = _a[1];
-    // console.log(inputProps, 'hello flatten here');
-    flattenProps = mergeStylesWithSpecificity(componentTheme, flattenProps, specificityMap, config.colorMode, mergeDefaultProps, config)[0];
-    // console.log(flattenProps, 'hello flatten props');
-    var internalPseudoProps = {};
-    for (var property in flattenProps) {
-        if (property.startsWith('_') &&
-            !['_dark', '_light', '_web', '_ios', '_android', '_important'].includes(property)) {
-            internalPseudoProps[property] = flattenProps[property];
-        }
-    }
-    var styleObj = resolvePropsToStyle(flattenProps, componentStyle, theme, config.platform, false, 4, false, undefined);
-    // if (inputProps?.extraProp === 'Actionsheet') {
-    //   console.log(flattenProps, 'hello flatten here');
-    // }
-    styleObj.internalPseudoProps = internalPseudoProps;
-    return styleObj;
+// Adding Map for storing the props and style for the styled component
+exports.resolvedStyledMap = {};
+var PSEUDO_PROP_COMPONENT_MAP = {
+    _spinner: 'Spinner',
+    _stack: 'Stack',
+    _text: 'Text',
+    _icon: 'Icon',
+    _checkbox: 'Checkbox',
+    _radio: 'Radio',
+    _pressable: 'Pressable',
+    _slide: 'Slide',
+    _fade: 'Fade',
+    _backdropFade: 'BackdropFace'
 };
-var resolveComponentTheme = function (incomingProps, themeType, providedTheme) {
-    // if (typeof providedTheme[themeType[0]][themeType[1]] === 'function')
-    //   // console.log(
-    //   //   themeType,
-    //   //   // providedTheme,
-    //   //   providedTheme[themeType[0]][themeType[1]]({
-    //   //     theme,
-    //   //     ...incomingProps,
-    //   //     colorMode: 'light',
-    //   //   }),
-    //   //   'flatten Props 111 ****'
-    //   // );
-    try {
-        if (themeType[1]) {
-            return typeof providedTheme[themeType[0]][themeType[1]] !== 'function'
-                ? providedTheme[themeType[0]][themeType[1]]
-                : providedTheme[themeType[0]][themeType[1]](__assign(__assign({ theme: theme }, incomingProps), { colorMode: 'light' }));
-        }
-        else {
-            return typeof providedTheme[themeType[0]] !== 'function'
-                ? providedTheme[themeType[0]]
-                : providedTheme[themeType[0]](__assign(__assign({ theme: theme }, incomingProps), { colorMode: 'light' }));
-        }
+var COLOR_SCHEME_MAP = {
+    Button: true,
+    ButtonGroup: true,
+    IconButton: true,
+    Checkbox: true,
+    Radio: true,
+    Alert: true,
+    Badge: true,
+    CircularProgress: true,
+    Fab: true,
+    Modal: true,
+    Progress: true,
+    Switch: true,
+    Tag: true,
+    Slider: true,
+    SliderThumb: true,
+    // SliderTrack: true,
+    SliderFilledTrack: true
+};
+var init = function (inputResolvedStyledMap) {
+    if (inputResolvedStyledMap) {
+        exports.resolvedStyledMap = inputResolvedStyledMap;
     }
-    catch (_a) {
+    if (process.env.NODE_ENV === 'development') {
+        //@ts-ignore
+        window['resolvedStyledMap'] = exports.resolvedStyledMap;
+        //@ts-ignore
+    }
+};
+var getResolvedStyleMap = function (providerId, key) {
+    return exports.resolvedStyledMap[providerId][key];
+};
+var setResolvedStyleMap = function (providerId, key, value, colorMode) {
+    var _a;
+    if (!exports.resolvedStyledMap[providerId]) {
+        exports.resolvedStyledMap[providerId] = {};
+    }
+    var styledMap = exports.resolvedStyledMap[providerId][key];
+    if (!styledMap) {
+        exports.resolvedStyledMap[providerId][key] = (_a = {},
+            _a[colorMode] = [value],
+            _a);
+    }
+    else {
+        if (!styledMap[colorMode]) {
+            styledMap[colorMode] = [];
+        }
+        styledMap[colorMode].push(value);
+    }
+};
+var getThemeObject = function (providerId, componentName, colorMode, state) {
+    var _a;
+    var styleObj = (_a = exports.resolvedStyledMap === null || exports.resolvedStyledMap === void 0 ? void 0 : exports.resolvedStyledMap[providerId]) === null || _a === void 0 ? void 0 : _a[componentName];
+    if (!styleObj || !styleObj[colorMode]) {
         return {};
     }
-};
-var mergeStylesWithSpecificity = function (componentTheme, flattenProps, specificityMap, colorMode, mergeDefaultProps, config) {
-    var _a, _b, _c;
-    if (mergeDefaultProps === void 0) { mergeDefaultProps = true; }
-    var combinedBaseStyle = {};
-    var combinedVariantStyle = {};
-    var combinedSizeStyle = {};
-    var flattenBaseStyle, baseSpecificityMap;
-    var extendedTheme = [];
-    if (!isEmpty__default["default"](componentTheme))
-        extendedTheme.push(componentTheme);
-    // if (flattenProps.extraProp === 'IconButton.Icon') {
-    //   console.log(flattenProps, 'lflflflflf', componentTheme);
-    // }
-    extendedTheme.map(function (extededComponentTheme) {
-        if (extededComponentTheme.baseStyle && mergeDefaultProps) {
-            combinedBaseStyle = __assign(__assign({}, combinedBaseStyle), resolveComponentTheme(flattenProps, ['baseStyle'], extededComponentTheme));
-        }
-        if (flattenProps.variant && mergeDefaultProps) {
-            if (extededComponentTheme.variants) {
-                combinedVariantStyle = __assign(__assign({}, combinedVariantStyle), resolveComponentTheme(flattenProps, ['variants', flattenProps.variant], extededComponentTheme));
-                // console.log(
-                //   // combinedBaseStyle,
-                //   resolveComponentTheme(
-                //     flattenProps,
-                //     ['variants', flattenProps.variant],
-                //     extededComponentTheme
-                //   ),
-                //   flattenProps,
-                //   'flatten props 111 $$$'
-                // );
-            }
-        }
-        if (flattenProps.size &&
-            (extededComponentTheme === null || extededComponentTheme === void 0 ? void 0 : extededComponentTheme.sizes) &&
-            (extededComponentTheme === null || extededComponentTheme === void 0 ? void 0 : extededComponentTheme.sizes[flattenProps.size])) {
-            if (typeof extededComponentTheme.sizes[flattenProps.size] === 'string' ||
-                typeof extededComponentTheme.sizes[flattenProps.size] === 'number') {
-                flattenProps.size = extededComponentTheme.sizes[flattenProps.size];
-            }
-            else {
-                combinedSizeStyle = __assign(__assign({}, combinedSizeStyle), resolveComponentTheme(flattenProps, ['sizes', flattenProps.size], extededComponentTheme));
-                delete flattenProps.size;
-            }
+    // Theme style
+    var styleSheet = styleObj[colorMode];
+    // state style
+    var stateStyles = getPseudoStateStyles(providerId, componentName, state);
+    if (componentName === 'Checkbox' && state.isInvalid && state.isHovered) ;
+    lodash.forEach(stateStyles, function (stateStyleObj) {
+        if (stateStyleObj[colorMode]) {
+            styleSheet = styleSheet.concat(stateStyleObj[colorMode]);
         }
     });
-    if (flattenProps.extraProp === 'Spinner') ;
-    // console.log('****>>>>> 2', flattenProps);
-    // console.log(combinedBaseStyle, " ******* ");
-    if (!isEmptyObj(combinedBaseStyle)) {
-        _a = callPropsFlattener(combinedBaseStyle, specificityMap, 1, {}, { colorMode: colorMode }, {}, flattenProps, __assign(__assign({}, config), { cascadePseudoProps: true })), flattenBaseStyle = _a[0], baseSpecificityMap = _a[1];
+    var unResolvedPropsArray = lodash.map(styleSheet, 'unResolvedProps');
+    var unResolvedProps = {};
+    for (var _i = 0, unResolvedPropsArray_1 = unResolvedPropsArray; _i < unResolvedPropsArray_1.length; _i++) {
+        var props = unResolvedPropsArray_1[_i];
+        // unResolvedProps = { ...unResolvedProps, ...props };
+        unResolvedProps = lodash.merge({}, unResolvedProps, props);
     }
-    // NOTE: Resolving variants
-    var flattenVariantStyle, variantSpecificityMap;
-    // Extracting props from variant
-    // console.log(combinedVariantStyle, "999999");
-    if (!isEmptyObj(combinedVariantStyle)) {
-        _b = callPropsFlattener(combinedVariantStyle, baseSpecificityMap || specificityMap, 1, {}, { colorMode: colorMode }, {}, flattenProps, __assign(__assign({}, config), { cascadePseudoProps: true })), flattenVariantStyle = _b[0], variantSpecificityMap = _b[1];
-        // We remove variant from original props if we found it in the componentTheme
-        //@ts-ignore
-        flattenProps.variant = undefined;
+    var restDefaultPropsArray = lodash.map(styleSheet, 'restDefaultProps');
+    var restDefaultProps = {};
+    for (var _b = 0, restDefaultPropsArray_1 = restDefaultPropsArray; _b < restDefaultPropsArray_1.length; _b++) {
+        var props = restDefaultPropsArray_1[_b];
+        restDefaultProps = __assign(__assign({}, restDefaultProps), props);
     }
-    // NOTE: Resolving size
-    var flattenSizeStyle, sizeSpecificityMap;
-    // Extracting props from size
-    // console.log(combinedSizeStyle, "&&&&&&&");
-    if (!isEmptyObj(combinedSizeStyle)) {
-        _c = callPropsFlattener(combinedSizeStyle, variantSpecificityMap || baseSpecificityMap || specificityMap, 1, {}, { colorMode: colorMode }, {}, flattenProps, __assign(__assign({}, config), { cascadePseudoProps: true })), flattenSizeStyle = _c[0], sizeSpecificityMap = _c[1];
+    var styleFromPropsArray = lodash.map(styleSheet, 'styleFromProps');
+    var styleFromProps = {};
+    for (var _c = 0, styleFromPropsArray_1 = styleFromPropsArray; _c < styleFromPropsArray_1.length; _c++) {
+        var props = styleFromPropsArray_1[_c];
+        styleFromProps = __assign(__assign({}, styleFromProps), props);
     }
-    //////
-    var defaultStyles = merge__default["default"]({}, flattenBaseStyle, flattenVariantStyle, flattenSizeStyle);
-    var defaultSpecificity = merge__default["default"]({}, specificityMap, baseSpecificityMap, variantSpecificityMap, sizeSpecificityMap);
-    // console.log(flattenProps.size, flattenProps, componentTheme, 'h3h3h3');
-    flattenProps = propsSpreader(merge__default["default"](defaultStyles, flattenProps), defaultSpecificity);
-    // console.log(flattenProps, 'h3h3h3 >>>>>');
-    return [flattenProps];
+    var internalPseudoPropsArray = lodash.map(styleSheet, 'internalPseudoProps');
+    var internalPseudoProps = {};
+    for (var _d = 0, internalPseudoPropsArray_1 = internalPseudoPropsArray; _d < internalPseudoPropsArray_1.length; _d++) {
+        var props = internalPseudoPropsArray_1[_d];
+        internalPseudoProps = __assign(__assign({}, internalPseudoProps), props);
+    }
+    return {
+        style: lodash.map(styleSheet, 'style'),
+        unResolvedProps: unResolvedProps,
+        styleFromProps: styleFromProps,
+        restDefaultProps: restDefaultProps,
+        internalPseudoProps: internalPseudoProps
+    };
 };
-
-// window['logger'] = {};
-// console.batchTime = (key) => {
-//   const keyValue = window['logger'][key];
-//   if (keyValue) {
-//     // keyValue.totalTime = keyValue.totalTime + (Date.now() - keyValue.startTime);
-//     keyValue.startTime = window.performance.now();
-//   } else {
-//     window['logger'][key] = {
-//       startTime: window.performance.now(),
-//       totalTime: 0,
-//     };
-//   }
-// };
-// console.batchTimeEnd = (key) => {
-//   const keyValue = window['logger'][key];
-//   if (keyValue) {
-//     keyValue.totalTime =
-//       keyValue.totalTime + (window.performance.now() - keyValue.startTime);
-//     // console.log(
-//     //   "useStyledSystemPropsResolver 2222",
-//     //   keyValue,
-//     //   window.performance.now()
-//     // );
-//   }
-// };
-var resolveForInternalPseudoProps = function (name, key, styledObj, config, mergeDefaultProps) {
-    var _a, _b;
-    if (mergeDefaultProps === void 0) { mergeDefaultProps = true; }
-    // console.log(config, name, key, 'config here');
+var getComponentNameKeyFromProps = function (componentName, _a) {
+    var _b = _a === void 0 ? {} : _a, variant = _b.variant, colorScheme = _b.colorScheme;
+    var componentKeyName = componentName;
+    // const componentTheme = lodashGet(theme, `components.${componentName}`, {});
+    var colorSchemeKey = colorScheme;
+    // || componentTheme.defaultProps?.colorScheme;
+    var variantKey = variant;
+    // || componentTheme.defaultProps?.variant;
+    if (colorSchemeKey && variantKey) {
+        componentKeyName = "".concat(componentName, ".").concat(colorSchemeKey, ".").concat(variantKey);
+    }
+    else if (variantKey) {
+        componentKeyName = "".concat(componentName, ".").concat(variant);
+    }
+    else if (colorSchemeKey) {
+        componentKeyName = "".concat(componentName, ".").concat(colorSchemeKey);
+    }
+    return componentKeyName;
+};
+// const get
+var getThemeProps = function (theme, providerId, inputComponentKeyName, config, state, props) {
+    if (props === void 0) { props = {}; }
+    var componentNames = inputComponentKeyName.split('.');
+    var rootComponentName = componentNames[0];
+    var pseudoComponentKeyName = componentNames[1];
+    var componentKeyName = rootComponentName;
+    componentKeyName = getComponentNameKeyFromProps(rootComponentName, props);
+    if (pseudoComponentKeyName) {
+        componentKeyName = "".concat(componentKeyName, ".").concat(pseudoComponentKeyName);
+    }
+    var themeObj = getThemeObject(providerId, componentKeyName, config.colorMode, state);
+    // console.log(themeObj, providerId, 'theme obje');
+    if (isEmptyObj(themeObj)) {
+        // console.log('hello here 1111', inputComponentKeyName);
+        // updateComponentThemeMap(inputComponentKeyName, {}, config, {});
+        updateComponentThemeMap(theme, providerId, inputComponentKeyName, {}, config, {
+            variant: props.variant,
+            colorScheme: props.colorScheme
+        });
+        themeObj = getThemeObject(providerId, componentKeyName, config.colorMode, state);
+    }
+    if (!isEmptyObj(themeObj) && props.size) {
+        var componentKeyNameForSize = "".concat(rootComponentName, ".").concat(props.size);
+        if (pseudoComponentKeyName) {
+            componentKeyNameForSize = "".concat(componentKeyNameForSize, ".").concat(pseudoComponentKeyName);
+        }
+        var sizeThemeObj = getThemeObject(providerId, "".concat(componentKeyNameForSize), config.colorMode, state);
+        if (isEmptyObj(sizeThemeObj)) {
+            if (!pseudoComponentKeyName) {
+                if (isEmptyObj(sizeThemeObj)) {
+                    updateComponentThemeMap(theme, providerId, rootComponentName, {}, config, {
+                        size: props.size
+                    });
+                    sizeThemeObj = getThemeObject(providerId, componentKeyNameForSize, config.colorMode, state);
+                }
+            }
+        }
+        var mergedThemeObj = {
+            style: (sizeThemeObj === null || sizeThemeObj === void 0 ? void 0 : sizeThemeObj.style)
+                ? __spreadArray(__spreadArray([], themeObj === null || themeObj === void 0 ? void 0 : themeObj.style, true), sizeThemeObj === null || sizeThemeObj === void 0 ? void 0 : sizeThemeObj.style, true) : themeObj.style,
+            styleFromProps: lodash.merge({}, themeObj.styleFromProps, sizeThemeObj.styleFromProps),
+            unResolvedProps: lodash.merge({}, themeObj.unResolvedProps, sizeThemeObj.unResolvedProps),
+            internalPseudoProps: lodash.merge({}, themeObj.internalPseudoProps, sizeThemeObj.internalPseudoProps),
+            restDefaultProps: __assign(__assign({}, themeObj.restDefaultProps), sizeThemeObj.restDefaultProps)
+        };
+        themeObj = mergedThemeObj;
+    }
+    return themeObj;
+};
+var getResolvedProps = function (key, colorMode) {
+    var styleObj = exports.resolvedStyledMap[key];
+    if (!colorMode || !styleObj) {
+        return null;
+    }
+    return styleObj[colorMode]['styleFromProps'];
+};
+var isValidStateKey = function (stateKey, state) {
+    // console.log(stateKey, pseudoPropStateMap[stateKey], state, 'is valid');
+    try {
+        //@ts-ignore
+        return state[pseudoPropsMap[stateKey].respondTo];
+    }
+    catch (e) {
+        return false;
+    }
+};
+var isValidState = function (key, state) {
+    // include only startWith("_")
+    var stateKeys = key.split('.');
+    var isValid = stateKeys.every(function (stateKey) {
+        if (isValidStateKey(stateKey, state)) {
+            return true;
+        }
+        return false;
+    });
+    // console.log(isValid, 'valid here');
+    return isValid;
+};
+var getPriority = function (propName) {
+    var propNameArray = propName.split('.');
+    var maxPriority = propNameArray.reduce(function (previousValue, currentValue) {
+        var _a;
+        //@ts-ignore
+        return Math.max(previousValue, (_a = pseudoPropsMap[currentValue]) === null || _a === void 0 ? void 0 : _a.priority);
+    }, 0);
+    var priority = 
+    //@ts-ignore
+    maxPriority + propNameArray.length / 10;
+    // }
+    return priority;
+};
+var getPseudoStateStyles = function (providerId, componentName, state) {
+    var styleObj = [];
+    var stateStyleArray = [];
+    var componentStates = getResolvedStyleMap(providerId, componentName);
+    // console.log(componentStates, '***** &&&&');
+    // const currentPriority = 0;
+    for (var k in componentStates) {
+        var value = componentStates[k];
+        // console.log(componentStates, k, componentName, 'value **&');
+        //get for _hover, _checked
+        if (k.startsWith('_')) {
+            var priority = getPriority(k);
+            stateStyleArray.push({ key: k, value: value, priority: priority });
+        }
+    }
+    stateStyleArray.sort(function (obj1, obj2) { return obj1.priority - obj2.priority; });
+    stateStyleArray.forEach(function (item) {
+        if (isValidState(item.key, state)) {
+            styleObj.push(item.value);
+        }
+    });
+    return styleObj;
+};
+var resolveForInternalPseudoProps = function (theme, providerId, name, key, styledObj, config, mergeDefaultProps, propertyName) {
     // if (name !== 'Button') {
     //   return;
     // }
+    var _a, _b, _c;
+    var _d;
+    if (mergeDefaultProps === void 0) { mergeDefaultProps = true; }
     for (var property in styledObj.internalPseudoProps) {
         if (PSEUDO_PROP_COMPONENT_MAP[property]) {
-            // if (key === 'Button.sm') {
-            //   console.log(
-            //     mergeDefaultProps,
-            //     key,
-            //     PSEUDO_PROP_COMPONENT_MAP[property],
-            //     '******'
-            //   );
-            // }
-            updateComponentThemeMapForColorMode(PSEUDO_PROP_COMPONENT_MAP[property], "".concat(key, ".").concat(PSEUDO_PROP_COMPONENT_MAP[property]), styledObj.internalPseudoProps[property], config, false, mergeDefaultProps);
+            //TODO: not calling again for nested state prop
+            if (!propertyName) {
+                updateComponentThemeMapForColorMode(theme, providerId, PSEUDO_PROP_COMPONENT_MAP[property], "".concat(key, ".").concat(PSEUDO_PROP_COMPONENT_MAP[property]), styledObj.internalPseudoProps[property], config, false, mergeDefaultProps);
+            }
         }
         else {
             // const themeProps = getThemeProps(name, colorMode, {
@@ -6592,13 +6530,17 @@ var resolveForInternalPseudoProps = function (name, key, styledObj, config, merg
             //     'theme props '
             //   );
             // }
-            var styledObjNestedProp = getStyledObject(name, {}, config, styledObj.internalPseudoProps[property]);
+            // console.log(name, key, 'config here');
+            var styledObjNestedProp = getStyledObject(theme, name, {}, config, styledObj.internalPseudoProps[property]);
             var componentMapPath = key;
-            var componentObj = get(componentMapPath);
+            var componentObj = getResolvedStyleMap(providerId, componentMapPath);
             if (componentObj) {
                 // const stateKey = key.slice(componentMapPath.length + 1);
-                if (pseudoPropStateMap[property]) {
-                    var stateKey = property;
+                //@ts-ignore
+                if ((_d = pseudoPropsMap === null || pseudoPropsMap === void 0 ? void 0 : pseudoPropsMap[property]) === null || _d === void 0 ? void 0 : _d.respondTo) {
+                    var stateKey = propertyName
+                        ? propertyName + '.' + property
+                        : property;
                     if (componentObj[stateKey]) {
                         if (!componentObj[stateKey][config.colorMode]) {
                             componentObj[stateKey][config.colorMode] = [];
@@ -6610,43 +6552,67 @@ var resolveForInternalPseudoProps = function (name, key, styledObj, config, merg
                             _a[config.colorMode] = [styledObjNestedProp],
                             _a);
                     }
+                    // if (name == 'Checkbox') {
+                    //   console.log(
+                    //     // property,
+                    //     key,
+                    //     // componentObj,
+                    //     // componentMapPath,
+                    //     styledObjNestedProp,
+                    //     'hello here 111'
+                    //   );
+                    // if (!isEmptyObj(styledObjNestedProp.internalPseudoProps)) {
+                    resolveForInternalPseudoProps(theme, providerId, name, key, styledObjNestedProp, config, false, property);
+                    // }
+                    // }
                 }
                 else {
                     // console.log(
                     //   'hello here &&&*',
                     //   styledObj.internalPseudoProps[property]
                     // );
-                    componentObj[config.colorMode][0].unResolvedProps = __assign(__assign({}, componentObj[config.colorMode][0].unResolvedProps), (_b = {}, _b[property] = styledObj.internalPseudoProps[property], _b));
+                    if (!propertyName) {
+                        componentObj[config.colorMode][0].unResolvedProps = __assign(__assign({}, componentObj[config.colorMode][0].unResolvedProps), (_b = {}, _b[property] = styledObj.internalPseudoProps[property], _b));
+                    }
+                    else {
+                        componentObj[propertyName][config.colorMode][0].unResolvedProps = __assign(__assign({}, componentObj[propertyName][config.colorMode][0]
+                            .unResolvedProps), (_c = {}, _c[property] = styledObj.internalPseudoProps[property], _c));
+                    }
                 }
             }
         }
     }
 };
-var updateComponentThemeMapForColorMode = function (name, key, inputProps, config, resolveForStatePseudoProps, mergeDefaultProps) {
+var updateComponentThemeMapForColorMode = function (theme, providerId, name, key, inputProps, config, resolveForStatePseudoProps, mergeDefaultProps) {
     if (config === void 0) { config = {
         colorMode: 'light',
         platform: 'web'
     }; }
     if (resolveForStatePseudoProps === void 0) { resolveForStatePseudoProps = false; }
     if (mergeDefaultProps === void 0) { mergeDefaultProps = true; }
-    var componentTheme = get__default["default"](theme, "components.".concat(name), {});
+    // console.log(theme, 'theme here');
+    var componentTheme = lodash.get(theme, "components.".concat(name), {});
+    // let componentTheme = get(defaultTheme, `components.${name}`, {});
+    // if (runtime) {
+    //   componentTheme =
+    // }
     // resolve for variant
     if (resolveForStatePseudoProps) {
         componentTheme = {};
     }
-    var styledObj = getStyledObject(name, componentTheme, config, __assign(__assign({}, inputProps), { extraProp: key }), mergeDefaultProps);
-    set(key, styledObj, config.colorMode);
+    var styledObj = getStyledObject(theme, name, componentTheme, config, __assign(__assign({}, inputProps), { extraProp: key }), mergeDefaultProps);
+    setResolvedStyleMap(providerId, key, styledObj, config.colorMode);
     // console.log(key, styledObj, config.colorMode, '&&&&&&');
-    resolveForInternalPseudoProps(name, key, styledObj, config, mergeDefaultProps);
+    resolveForInternalPseudoProps(theme, providerId, name, key, styledObj, config, mergeDefaultProps);
     return styledObj;
 };
-var resolveDefaultTheme = function (platform) {
-    for (var key in theme.components) {
-        // console.log(key, platform);
-        updateComponentThemeMap(key, {}, { platform: platform });
-    }
-    return exports.resolvedStyledMap;
-};
+// export const resolveDefaultTheme = (platform?: string) => {
+//   // for (const key in theme.components) {
+//   //   // console.log(key, platform);
+//   //   updateComponentThemeMap(key, {}, { platform });
+//   // }
+//   // return resolvedStyledMap;
+// };
 var generateBuildTimeMap = function (platform, usedComponentDetailMap) {
     if (platform === void 0) { platform = 'web'; }
     var componentsUsed = Object.keys(usedComponentDetailMap);
@@ -6655,13 +6621,17 @@ var generateBuildTimeMap = function (platform, usedComponentDetailMap) {
         var componentPropsArray = usedComponentDetailMap[componentName];
         for (var _a = 0, componentPropsArray_1 = componentPropsArray; _a < componentPropsArray_1.length; _a++) {
             var componentProps = componentPropsArray_1[_a];
-            updateComponentThemeMap(componentName, {}, { platform: platform, colorMode: 'light' }, componentProps);
-            updateComponentThemeMap(componentName, {}, { platform: platform, colorMode: 'dark' }, componentProps);
+            updateComponentThemeMap(theme, 
+            // boot time provider id
+            1, componentName, {}, { platform: platform, colorMode: 'light' }, componentProps);
+            updateComponentThemeMap(theme, 
+            // boot time provider id
+            1, componentName, {}, { platform: platform, colorMode: 'dark' }, componentProps);
         }
     }
-    return exports.resolvedStyledMap;
+    // return resolvedStyledMap;
 };
-var updateComponentThemeMap = function (name, inputProps, config, props) {
+var updateComponentThemeMap = function (theme, providerId, name, inputProps, config, props) {
     if (config === void 0) { config = { platform: 'web', colorMode: 'light' }; }
     var platform = config.platform, colorMode = config.colorMode;
     // console.log(props, 'props here');
@@ -6672,19 +6642,22 @@ var updateComponentThemeMap = function (name, inputProps, config, props) {
     var currentVariant = props === null || props === void 0 ? void 0 : props.variant; // || componentTheme?.defaultProps?.variant;
     var currentSize = props === null || props === void 0 ? void 0 : props.size; // || componentTheme?.defaultProps?.size;
     if (currentVariant && currentColorScheme) {
-        themeObj = updateComponentThemeMapForColorMode(name, "".concat(name, ".").concat(currentColorScheme, ".").concat(currentVariant), { variant: currentVariant, colorScheme: currentColorScheme }, {
+        themeObj = updateComponentThemeMapForColorMode(theme, providerId, name, "".concat(name, ".").concat(currentColorScheme, ".").concat(currentVariant), { variant: currentVariant, colorScheme: currentColorScheme }, {
             colorMode: colorMode,
             platform: platform
         });
     }
     else if (currentColorScheme) {
-        themeObj = updateComponentThemeMapForColorMode(name, "".concat(name, ".").concat(currentColorScheme), { colorScheme: currentColorScheme }, {
+        // if (name === 'SliderThumb') {
+        //   console.log(props, 'hello slider ');
+        // }
+        themeObj = updateComponentThemeMapForColorMode(theme, providerId, name, "".concat(name, ".").concat(currentColorScheme), { colorScheme: currentColorScheme }, {
             colorMode: colorMode,
             platform: platform
         });
     }
     else if (currentVariant) {
-        themeObj = updateComponentThemeMapForColorMode(name, "".concat(name, ".").concat(currentVariant), { variant: currentVariant }, {
+        themeObj = updateComponentThemeMapForColorMode(theme, providerId, name, "".concat(name, ".").concat(currentVariant), { variant: currentVariant }, {
             colorMode: colorMode,
             platform: platform
         });
@@ -6694,13 +6667,13 @@ var updateComponentThemeMap = function (name, inputProps, config, props) {
         // if (name == 'Button') {
         //   console.trace('hh');
         // }
-        themeObj = updateComponentThemeMapForColorMode(name, "".concat(name, ".").concat(currentSize), { size: currentSize }, {
+        themeObj = updateComponentThemeMapForColorMode(theme, providerId, name, "".concat(name, ".").concat(currentSize), { size: currentSize }, {
             colorMode: colorMode,
             platform: platform
         }, false, false);
     }
     else {
-        themeObj = updateComponentThemeMapForColorMode(name, name, inputProps, {
+        themeObj = updateComponentThemeMapForColorMode(theme, providerId, name, name, inputProps, {
             colorMode: colorMode,
             platform: platform
         }, false, true);
@@ -6711,13 +6684,10 @@ var updateComponentThemeMap = function (name, inputProps, config, props) {
 exports.COLOR_SCHEME_MAP = COLOR_SCHEME_MAP;
 exports.PSEUDO_PROP_COMPONENT_MAP = PSEUDO_PROP_COMPONENT_MAP;
 exports.generateBuildTimeMap = generateBuildTimeMap;
-exports.get = get;
 exports.getResolvedProps = getResolvedProps;
+exports.getResolvedStyleMap = getResolvedStyleMap;
 exports.getThemeProps = getThemeProps;
 exports.init = init;
-exports.log = log;
-exports.pseudoPropStateMap = pseudoPropStateMap;
-exports.resolveDefaultTheme = resolveDefaultTheme;
-exports.set = set;
+exports.setResolvedStyleMap = setResolvedStyleMap;
 exports.updateComponentThemeMap = updateComponentThemeMap;
 exports.updateComponentThemeMapForColorMode = updateComponentThemeMapForColorMode;

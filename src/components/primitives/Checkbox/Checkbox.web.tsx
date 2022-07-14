@@ -11,7 +11,6 @@ import { CheckboxGroupContext } from './CheckboxGroup';
 import { useHover } from '@react-native-aria/interactions';
 import { useCheckbox, useCheckboxGroupItem } from '@react-native-aria/checkbox';
 import { useFocusRing } from '@react-native-aria/focus';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 import { combineContextAndProps } from '../../../utils';
 import SizedIcon from './SizedIcon';
@@ -20,6 +19,8 @@ import { wrapStringChild } from '../../../utils/wrapStringChild';
 import { getThemeProps } from '../../../core';
 import { useColorMode } from '../../../core/color-mode';
 import { Platform } from 'react-native';
+import { useNativeBase } from '../../../hooks';
+import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
 
 const Checkbox = (
   {
@@ -116,6 +117,7 @@ const CheckboxComponent = React.memo(
   }: any) => {
     const _ref = React.useRef();
     const { isHovered } = useHover({}, _ref);
+    const { theme } = useNativeBase();
 
     const { checked: isChecked, disabled: isDisabled } = inputProps;
 
@@ -130,7 +132,11 @@ const CheckboxComponent = React.memo(
       isHovered: isHovered || isHoveredProp,
     };
     const { colorMode } = useColorMode();
+    const providerId = useNativeBaseConfig('NativeBase').providerId;
+
     const { styleFromProps } = getThemeProps(
+      theme,
+      providerId,
       'Checkbox',
       { colorMode, platform: Platform.OS },
       state,
@@ -214,11 +220,6 @@ const CheckboxComponent = React.memo(
       () => mergeRefs([wrapperRef, _ref]),
       [wrapperRef]
     );
-
-    //TODO: refactor for responsive prop
-    if (useHasResponsiveProps(resolvedProps)) {
-      return null;
-    }
 
     return (
       <Box

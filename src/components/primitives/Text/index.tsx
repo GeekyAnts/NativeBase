@@ -6,7 +6,6 @@ import { mergeRefs } from '../../../utils/mergeRefs';
 import { makeStyledComponent } from '../../../utils/makeStyledComponent';
 import { useResolvedFontFamily } from '../../../hooks/useResolvedFontFamily';
 import { Text as NativeText } from 'react-native';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const StyledText = makeStyledComponent(NativeText);
 // updateComponentThemeMap('Text');
@@ -47,7 +46,7 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
   const _ref = useRef(null);
   // TODO: might have to add this condition
   const { isHovered } = useHover({}, _hover ? _ref : null);
-  // const { isHovered } = useHover({}, _ref);
+
   let fontFamily = propFontFamily;
   const fontStyle = italic ? 'italic' : propFontStyle;
   const fontWeight = bold ? 'bold' : propFontWeight;
@@ -60,11 +59,6 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
 
   if (resolvedFontFamily) {
     fontFamily = resolvedFontFamily;
-  }
-
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
   }
 
   const propsToSpread = {

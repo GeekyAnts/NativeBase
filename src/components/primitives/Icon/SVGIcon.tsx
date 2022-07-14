@@ -4,10 +4,11 @@ import { makeStyledComponent } from '../../../utils/makeStyledComponent';
 import { Svg, G } from './nbSvg';
 import type { IIconProps } from './types';
 import { questionOutlineIconPath } from './Icons/questionIconPath';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { useColorMode } from '../../../core/color-mode';
 import { getThemeProps } from '../../../core';
 import { Platform } from 'react-native';
+import { useNativeBase } from '../../../hooks';
+import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
 
 const SVG = makeStyledComponent(Svg);
 
@@ -16,7 +17,12 @@ const SVGIcon = (
   ref: any
 ) => {
   const { colorMode } = useColorMode();
+  const { theme } = useNativeBase();
+  const providerId = useNativeBaseConfig('NativeBase').providerId;
+
   const { styleFromProps } = getThemeProps(
+    theme,
+    providerId,
     'Icon',
     { colorMode, platform: Platform.OS },
     {},
@@ -41,13 +47,6 @@ const SVGIcon = (
 
   const strokeHex = useToken('colors', stroke || '');
   const colorHex = useToken('colors', color || '');
-
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
-
-  // return null;
 
   return (
     <SVG
