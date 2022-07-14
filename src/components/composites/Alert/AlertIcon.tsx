@@ -10,7 +10,6 @@ import type { IAlertContext, IAlertIconProps } from './types';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { AlertContext } from './Context';
 import { omitUndefined } from '../../../theme/tools/utils';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const AlertIcon = ({ children, ...props }: IAlertIconProps, ref?: any) => {
   let { boxSize, ...newProps } = usePropsResolution('AlertIcon', props);
@@ -30,10 +29,7 @@ const AlertIcon = ({ children, ...props }: IAlertIconProps, ref?: any) => {
         return <InfoIcon {..._icon} {...newProps} ref={ref} />;
     }
   };
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
+
   return <Box>{children || getIcon()}</Box>;
 };
 export default memo(forwardRef(AlertIcon));

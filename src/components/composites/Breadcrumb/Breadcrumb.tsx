@@ -9,7 +9,6 @@ import Text from '../../primitives/Text';
 import type { IFlexProps } from '../../primitives';
 import { ThreeDotsIcon } from '../../primitives/Icon/Icons';
 
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 const Breadcrumb = (
   {
     style,
@@ -58,10 +57,6 @@ const Breadcrumb = (
     </Text>
   );
 
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
   return (
     <HStack
       display="flex"

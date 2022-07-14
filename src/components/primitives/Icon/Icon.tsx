@@ -3,15 +3,11 @@ import { useToken, usePropsResolution } from '../../../hooks';
 import type { IIconProps } from './types';
 import SVGIcon from './SVGIcon';
 import { Factory } from '../../../factory';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const Icon = (props: IIconProps, ref?: any) => {
   const { as, size, ...resolvedProps } = usePropsResolution('Icon', props);
   const tokenizedFontSize = useToken('space', size || resolvedProps.boxSize);
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
+
   if (!as) {
     return <SVGIcon size={size} {...resolvedProps} ref={ref} />;
   }

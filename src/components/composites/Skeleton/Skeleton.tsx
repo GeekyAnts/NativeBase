@@ -4,7 +4,6 @@ import { usePropsResolution } from '../../../hooks';
 import { canUseDom } from '../../../utils';
 import Box from '../../primitives/Box';
 import type { ISkeletonProps } from './types';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { useToken } from '../../../hooks/useToken';
 
 const Skeleton = (props: ISkeletonProps, ref: any) => {
@@ -49,11 +48,6 @@ const Skeleton = (props: ISkeletonProps, ref: any) => {
       opacity: blinkAnim, // Bind opacity to animated value
     },
   };
-
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
 
   return resolvedProps.isLoaded ? (
     children

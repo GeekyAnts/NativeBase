@@ -9,7 +9,6 @@ import type { ICheckboxProps } from './types';
 import { useToggleState } from '@react-stately/toggle';
 import { CheckboxGroupContext } from './CheckboxGroup';
 import { useCheckbox, useCheckboxGroupItem } from '@react-native-aria/checkbox';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { composeEventHandlers, combineContextAndProps } from '../../../utils';
 import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 import {
@@ -181,11 +180,6 @@ const CheckboxComponent = React.memo(
       'accessibilityRole',
       'accessibilityState',
     ]);
-
-    //TODO: refactor for responsive prop
-    if (useHasResponsiveProps(resolvedProps)) {
-      return null;
-    }
 
     return (
       <Pressable

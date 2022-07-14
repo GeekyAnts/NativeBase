@@ -12,7 +12,6 @@ import { extractInObject } from '../../../theme/tools';
 import { ITypeaheadProps, IComboBoxProps, layoutPropsList } from './types';
 import { Input } from '../../primitives/Input';
 import { useThemeProps } from '../../../hooks';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 export const Typeahead = React.forwardRef(
   (
@@ -28,10 +27,6 @@ export const Typeahead = React.forwardRef(
     }: ITypeaheadProps,
     ref?: any
   ) => {
-    //TODO: refactor for responsive prop
-    if (useHasResponsiveProps(rest)) {
-      return null;
-    }
     return (
       <ComboBoxImplementation
         {...rest}

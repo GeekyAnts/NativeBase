@@ -2,7 +2,6 @@ import React, { memo, forwardRef } from 'react';
 import type { IButtonGroupProps } from './types';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { Stack } from '../Stack';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { map } from 'lodash';
 export default memo(
   forwardRef(
@@ -74,10 +73,6 @@ export default memo(
             });
           }
         );
-      }
-      //TODO: refactor for responsive prop
-      if (useHasResponsiveProps(props)) {
-        return null;
       }
 
       return (

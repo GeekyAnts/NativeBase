@@ -10,7 +10,6 @@ import type { IModalProps } from './types';
 import { Fade } from '../../composites/Transitions';
 import { useKeyboardBottomInset } from '../../../utils';
 import { Overlay } from '../../primitives/Overlay';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 const Modal = (
   {
     children,
@@ -78,10 +77,6 @@ const Modal = (
     };
   }, [handleClose, contentSize, initialFocusRef, finalFocusRef, visible]);
 
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(rest)) {
-    return null;
-  }
   // console.log('visible here ****', visible, restDefaultProps);
   return (
     <Overlay

@@ -3,7 +3,6 @@ import { Box, HStack, VStack } from '../../primitives';
 import type { ISimpleGridProps } from './types';
 // const isDebug = process.env.NODE_ENV !== 'production';
 import { useThemeProps } from '../../../hooks/useThemeProps';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const DEBUG_STYLES = false
   ? {
@@ -29,10 +28,7 @@ const SimpleGrid = (props: ISimpleGridProps, ref?: any): JSX.Element => {
     children,
     ...remainingProps
   } = useThemeProps('SimpleGrid', props);
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return <></>;
-  }
+
   let cellSpacing = space ?? 0;
   let cellSpacingX = spacingX ?? cellSpacing;
   let cellSpacingY = spacingY ?? cellSpacing;

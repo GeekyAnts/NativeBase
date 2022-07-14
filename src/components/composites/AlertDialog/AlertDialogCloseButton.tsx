@@ -4,7 +4,6 @@ import { usePropsResolution } from '../../../hooks';
 import { Pressable } from '../../primitives/Pressable';
 import { CloseIcon } from '../../primitives/Icon/Icons';
 import type { IButtonProps } from '../../primitives/Button';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import {
   useHover,
   useFocus,
@@ -35,10 +34,7 @@ const AlertDialogCloseButton = (props: IButtonProps, ref?: any) => {
     isFocusVisible,
   });
   const { handleClose } = React.useContext(AlertDialogContext);
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
+
   return (
     <Pressable
       accessibilityRole="button"

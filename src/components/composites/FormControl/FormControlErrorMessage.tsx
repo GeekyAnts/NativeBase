@@ -4,7 +4,6 @@ import { HStack } from '../../primitives/Stack';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useFormControlContext } from './useFormControl';
 import type { IFormControlErrorMessageProps } from './types';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { combineContextAndProps } from '../../../utils';
 import Text from '../../primitives/Text';
 
@@ -66,10 +65,7 @@ const FormControlErrorMessage = (
       resolvedProps?.setHasFeedbackText(false);
     };
   });
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
+
   return resolvedProps?.isInvalid && children ? (
     <Box nativeID={resolvedProps?.helpTextId} {...resolvedProps} ref={ref}>
       <HStack {..._stack}>

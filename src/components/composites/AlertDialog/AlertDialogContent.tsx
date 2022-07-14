@@ -2,7 +2,6 @@ import React, { memo, forwardRef } from 'react';
 import Box, { IBoxProps } from '../../primitives/Box';
 import { usePropsResolution } from '../../../hooks';
 import { AlertDialogContext } from './Context';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const AlertDialogContent = (props: IBoxProps, ref?: any) => {
   const newProps = usePropsResolution('AlertDialogContent', props);
@@ -27,10 +26,6 @@ const AlertDialogContent = (props: IBoxProps, ref?: any) => {
     };
   }, [initialFocusRef, finalFocusRef]);
 
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
   return (
     <Box
       {...contentSize}

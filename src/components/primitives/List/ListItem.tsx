@@ -12,7 +12,6 @@ import {
   useFocus,
   useIsPressed,
 } from '../../primitives/Pressable/Pressable';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const ListItem = ({ children, ...props }: IListItemProps, ref: any) => {
   const { hoverProps, isHovered } = useHover();
@@ -41,11 +40,6 @@ const ListItem = ({ children, ...props }: IListItemProps, ref: any) => {
   });
   const _ref = React.useRef(null);
   // const { isHovered } = useHover({}, _ref);
-
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
 
   // Extracting Pressable Props from resolvedProps
   const [

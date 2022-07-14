@@ -3,7 +3,7 @@ import type { IMenuProps } from './types';
 import Box from '../../primitives/Box';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { Popper } from '../Popper';
-import { AccessibilityInfo, ScrollView } from 'react-native';
+import { AccessibilityInfo, ScrollView, StyleSheet } from 'react-native';
 import { useControllableState } from '../../../hooks';
 import { useMenuTrigger, useMenu, useMenuTypeahead } from './useMenu';
 import Backdrop from '../Backdrop';
@@ -11,7 +11,6 @@ import { PresenceTransition } from '../Transitions';
 import { FocusScope } from '@react-native-aria/focus';
 import { MenuContext } from './MenuContext';
 import { Overlay } from '../../primitives/Overlay';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const Menu = (
   {
@@ -72,21 +71,23 @@ const Menu = (
     }
   }, [isOpen]);
 
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(resolvedProps)) {
-    return null;
-  }
   return (
     <>
       {updatedTrigger()}
       <Overlay
         isOpen={isOpen}
         onRequestClose={handleClose}
+        isKeyboardDismissable={true}
         useRNModalOnAndroid
         {..._overlay}
+        // style={{ backgroundColor: 'red' }}
         unmountOnExit
       >
-        <PresenceTransition visible={isOpen} {..._presenceTransition}>
+        <PresenceTransition
+          visible={isOpen}
+          {..._presenceTransition}
+          style={StyleSheet.absoluteFill}
+        >
           <Popper
             triggerRef={triggerRef}
             onClose={handleClose}
@@ -94,6 +95,7 @@ const Menu = (
             {...resolvedProps}
           >
             <Backdrop onPress={handleClose} {..._backdrop} />
+
             <Popper.Content isOpen={isOpen}>
               <MenuContext.Provider
                 value={{ closeOnSelect, onClose: handleClose }}

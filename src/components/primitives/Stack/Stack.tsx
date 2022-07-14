@@ -2,7 +2,6 @@ import React, { memo, forwardRef } from 'react';
 import { default as Box, InterfaceBoxProps } from '../Box';
 import getSpacedChildren from '../../../utils/getSpacedChildren';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import type { CustomProps, ResponsiveValue, SpaceType } from '../../types';
 import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
 import { useToken } from '../../../hooks';
@@ -88,10 +87,6 @@ const Stack = ({ ...props }: IStackProps, ref?: any) => {
   //   resolvedProps
   // );
 
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
   // console.log(direction, 'INTERNAL_themeStyle ***');
 
   return (

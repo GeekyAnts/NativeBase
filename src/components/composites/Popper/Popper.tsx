@@ -10,7 +10,6 @@ import type {
 import { createContext } from '../../../utils';
 import Box, { IBoxProps } from '../../primitives/Box';
 // import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const defaultArrowHeight = 15;
 const defaultArrowWidth = 15;
@@ -140,10 +139,6 @@ const PopperContent = React.forwardRef(
         }),
       [rendered, overlayProps.style]
     );
-    //TODO: refactor for responsive prop
-    if (useHasResponsiveProps(rest)) {
-      return null;
-    }
 
     return (
       <View ref={overlayRef} collapsable={false} style={overlayStyle.overlay}>

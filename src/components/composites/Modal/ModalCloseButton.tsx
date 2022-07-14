@@ -4,7 +4,6 @@ import { usePropsResolution } from '../../../hooks';
 import { Pressable } from '../../primitives/Pressable';
 import { CloseIcon } from '../../primitives/Icon/Icons';
 import type { IButtonProps } from '../../primitives/Button';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import {
   useHover,
   useFocus,
@@ -35,10 +34,7 @@ const ModalCloseButton = (props: IButtonProps, ref?: any) => {
     ...resolvedProps
   } = usePropsResolution('ModalCloseButton', props, state);
   const { handleClose } = React.useContext(ModalContext);
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
+
   return (
     <Pressable
       accessibilityRole="button"

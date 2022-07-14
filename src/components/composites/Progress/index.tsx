@@ -2,7 +2,6 @@ import React, { memo, forwardRef } from 'react';
 import { Box } from '../../primitives';
 import type { InterfaceBoxProps } from '../../primitives/Box';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import type { ColorSchemeType } from '../../../components/types';
 import type {
   CustomProps,
@@ -58,11 +57,6 @@ const Progress = (props: IProgressProps, ref?: any) => {
     children,
     ...resolvedProps
   } = usePropsResolution('Progress', props);
-
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
 
   let valueWidth =
     value < max && value > min

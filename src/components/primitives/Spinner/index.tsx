@@ -6,7 +6,6 @@ import {
 } from '../../../hooks';
 import { getColor } from '../../../theme';
 import type { ISpinnerProps } from './types';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { useTheme } from '../../../hooks';
 
 const Spinner = (props: ISpinnerProps, ref: any) => {
@@ -19,10 +18,7 @@ const Spinner = (props: ISpinnerProps, ref: any) => {
   } = usePropsResolution('Spinner', props);
   const resolvedColor = getColor(color, useTheme().colors, useTheme());
   const resolvedStyle = useStyledSystemPropsResolver(resolvedProps);
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
+
   // console.log('Spinner size', size, resolvedProps);
 
   return (

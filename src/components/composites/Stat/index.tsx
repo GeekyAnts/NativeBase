@@ -10,15 +10,11 @@ import {
 } from '../../primitives';
 import { useThemeProps } from '../../../hooks';
 import { ChevronDownIcon, ChevronUpIcon } from '../../primitives/Icon/Icons';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 export const StatLabel = React.memo(
   React.forwardRef(({ style, ...props }: ITextProps, ref?: any) => {
     let newProps = useThemeProps('Stat', props);
-    //TODO: refactor for responsive prop
-    if (useHasResponsiveProps(props)) {
-      return null;
-    }
+
     return (
       <Text
         {...newProps._statLabel}

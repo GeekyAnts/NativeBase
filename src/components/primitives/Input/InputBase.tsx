@@ -7,7 +7,6 @@ import { useHover } from '@react-native-aria/interactions';
 import { mergeRefs } from '../../../utils';
 import { makeStyledComponent } from '../../../utils/makeStyledComponent';
 import { useResolvedFontFamily } from '../../../hooks/useResolvedFontFamily';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const StyledInput = makeStyledComponent(TextInput);
 
@@ -94,19 +93,6 @@ const InputBase = (
     'colors',
     underlineColorAndroid
   );
-  //TODO: refactor for responsive prop
-  if (
-    useHasResponsiveProps({
-      ...props,
-      onKeyPress,
-      onFocus,
-      onBlur,
-      disableFocusHandling,
-      inputProps,
-    })
-  ) {
-    return null;
-  }
 
   return (
     <StyledInput
