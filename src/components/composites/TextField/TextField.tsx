@@ -7,7 +7,6 @@ import Text from '../../primitives/Text';
 import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 import Select from '../../primitives/Select';
 import TextArea from '../../primitives/TextArea';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const TextField = (mainProps: ITextFieldProps, ref?: any) => {
   //TODO: Remove `any`
@@ -37,10 +36,7 @@ const TextField = (mainProps: ITextFieldProps, ref?: any) => {
     ...stylingProps.flexbox,
     ...stylingProps.position,
   ]);
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
+
   const activeComponent = () => {
     switch (component) {
       case 'select':

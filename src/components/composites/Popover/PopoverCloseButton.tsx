@@ -4,7 +4,6 @@ import { Pressable } from '../../primitives/Pressable';
 import { CloseIcon } from '../../primitives/Icon/Icons';
 import { PopoverContext } from './PopoverContext';
 import type { IButtonProps } from '../../primitives/Button';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import {
   useHover,
   useFocus,
@@ -35,10 +34,7 @@ const PopoverCloseButton = (props: IButtonProps, ref: any) => {
     isFocused,
     isFocusVisible,
   });
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
+
   return (
     <Pressable
       accessibilityRole="button"

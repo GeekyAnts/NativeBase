@@ -2,7 +2,6 @@ import React, { forwardRef, memo } from 'react';
 import { Pressable as RNPressable } from 'react-native';
 import { composeEventHandlers } from '../../../utils';
 import type { IPressableProps } from './types';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { makeStyledComponent } from '../../../utils/makeStyledComponent';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useFocusRing } from '@react-native-aria/focus';
@@ -83,11 +82,6 @@ const Pressable = (
   } = usePropsResolution('Pressable', props, state);
 
   // TODO: Replace Render props with Context Hook
-
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
 
   // console.log(resolvedProps, 'hello 111 &&&');
 

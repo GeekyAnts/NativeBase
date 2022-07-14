@@ -3,7 +3,6 @@ import { Image as RNImage } from 'react-native';
 import Text from '../Text';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IImageProps } from './types';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { makeStyledComponent } from '../../../utils/makeStyledComponent';
 
 const StyledImage = makeStyledComponent(RNImage);
@@ -67,10 +66,7 @@ const Image = memo(
         renderedSource,
       ]
     );
-    //TODO: refactor for responsive prop
-    if (useHasResponsiveProps(props)) {
-      return null;
-    }
+
     if (!alt) {
       console.warn('Please pass alt prop to Image component');
     }

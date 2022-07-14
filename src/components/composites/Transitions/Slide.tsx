@@ -2,7 +2,6 @@ import React, { forwardRef, memo } from 'react';
 import Box from '../../primitives/Box';
 import type { ISlideProps } from './types';
 import PresenceTransition from './PresenceTransition';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { Overlay } from '../../primitives/Overlay';
 import { usePropsResolution } from '../../../hooks/';
 
@@ -94,11 +93,6 @@ export const Slide = memo(
         },
       },
     };
-
-    //TODO: refactor for responsive prop
-    if (useHasResponsiveProps(props)) {
-      return null;
-    }
 
     const slideComponent = (
       <PresenceTransition

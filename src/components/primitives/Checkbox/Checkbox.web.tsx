@@ -11,7 +11,6 @@ import { CheckboxGroupContext } from './CheckboxGroup';
 import { useHover } from '@react-native-aria/interactions';
 import { useCheckbox, useCheckboxGroupItem } from '@react-native-aria/checkbox';
 import { useFocusRing } from '@react-native-aria/focus';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 import { combineContextAndProps } from '../../../utils';
 import SizedIcon from './SizedIcon';
@@ -221,11 +220,6 @@ const CheckboxComponent = React.memo(
       () => mergeRefs([wrapperRef, _ref]),
       [wrapperRef]
     );
-
-    //TODO: refactor for responsive prop
-    if (useHasResponsiveProps(resolvedProps)) {
-      return null;
-    }
 
     return (
       <Box

@@ -6,7 +6,6 @@ import type { IMenuItemProps } from './types';
 import { MenuContext } from './MenuContext';
 import { useMenuItem } from './useMenu';
 import { mergeRefs } from '../../../utils';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { composeEventHandlers } from '../../../utils';
 import { useFocusRing } from '@react-native-aria/focus';
 
@@ -70,10 +69,6 @@ const MenuItem = (
     ref: menuItemRef,
   });
 
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
   return (
     <Pressable
       disabled={isDisabled}

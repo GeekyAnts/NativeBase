@@ -8,7 +8,6 @@ import { useLink } from './useLink';
 import { mergeRefs } from '../../../utils';
 import { Pressable } from '../Pressable';
 import { useHover } from '@react-native-aria/interactions';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const Link = ({ isHovered: isHoveredProp, ...props }: ILinkProps, ref: any) => {
   const _ref = React.useRef(null);
@@ -39,10 +38,7 @@ const Link = ({ isHovered: isHoveredProp, ...props }: ILinkProps, ref: any) => {
   //     ...hoverTextProps,
   //   };
   // }
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
+
   return (
     <>
       {/* On web we render Link in anchor tag */}

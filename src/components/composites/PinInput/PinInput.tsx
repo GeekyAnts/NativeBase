@@ -6,7 +6,6 @@ import { useFormControlContext } from '../FormControl';
 import { Platform } from 'react-native';
 import { PinInputContext } from './Context';
 import { themeTools } from '../../../theme';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const PinInput = ({ children, ...props }: IPinInputProps, ref?: any) => {
   let [padding, remProps] = themeTools.extractInObject(props, [
@@ -92,11 +91,6 @@ const PinInput = ({ children, ...props }: IPinInputProps, ref?: any) => {
   React.useEffect(() => {
     if (value !== undefined && value != pinInputValue) setPinInputValue(value);
   }, [value, pinInputValue, setPinInputValue]);
-
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
 
   return (
     <PinInputContext.Provider

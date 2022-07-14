@@ -12,7 +12,6 @@ import {
   useIsPressed,
 } from '../../primitives/Pressable/Pressable';
 import { useFocusRing } from '@react-native-aria/focus';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const Button = (
   {
@@ -63,12 +62,6 @@ const Button = (
     _icon,
     ...resolvedProps
   } = usePropsResolution('Button', props, state);
-
-  // console.log(resolvedProps, 'resolved props here');
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
 
   if (leftIcon) {
     startIcon = leftIcon;

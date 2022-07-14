@@ -3,7 +3,6 @@ import Box, { IBoxProps } from '../../primitives/Box';
 import { usePropsResolution } from '../../../hooks';
 import { ModalContext } from './Context';
 import { Platform } from 'react-native';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const ModalContent = (props: IBoxProps, ref?: any) => {
   // console.log(styleFromProps, 'style from props &&&&*&*');
@@ -30,10 +29,6 @@ const ModalContent = (props: IBoxProps, ref?: any) => {
     }
   }, [initialFocusRef, finalFocusRef, visible]);
 
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
   return (
     <Box
       {...contentSize}

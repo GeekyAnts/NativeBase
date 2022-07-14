@@ -4,7 +4,6 @@ import { useFormControlContext } from '../../composites/FormControl';
 import type { IRadioContext, IRadioGroupProps } from './types';
 import { useRadioGroupState } from '@react-stately/radio';
 import { useRadioGroup } from '@react-native-aria/radio';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 
 export const RadioContext = React.createContext<IRadioContext>(
@@ -42,11 +41,6 @@ const RadioGroup = (
     // eslint-disable-next-line react-hooks/exhaustive-deps
     []
   );
-
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps({ ...props, size, colorScheme })) {
-    return null;
-  }
 
   return (
     <RadioContext.Provider value={contextValue}>

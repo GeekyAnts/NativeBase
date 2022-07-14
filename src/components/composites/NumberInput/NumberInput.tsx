@@ -4,7 +4,6 @@ import { useFormControlContext } from '../FormControl';
 import type { INumberInputProps } from './types';
 import { NumberInputContext } from './Context';
 import Box from '../../primitives/Box';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const NumberInput = ({ children, ...props }: INumberInputProps, ref?: any) => {
   const {
@@ -41,10 +40,7 @@ const NumberInput = ({ children, ...props }: INumberInputProps, ref?: any) => {
     if (value !== undefined && value != numberInputValue)
       setNumberInputValue(value);
   }, [value, numberInputValue, setNumberInputValue]);
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
+
   return (
     <Box ref={ref}>
       <NumberInputContext.Provider

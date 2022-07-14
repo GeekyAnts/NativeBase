@@ -9,7 +9,6 @@ import { usePropsResolution } from '../../../hooks';
 import Box from '../../primitives/Box';
 import type { ITooltipProps } from './types';
 import { useId } from '@react-aria/utils';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 export const Tooltip = ({
   label,
@@ -110,10 +109,7 @@ export const Tooltip = ({
     enabled: isOpen,
     callback: () => setIsOpen(false),
   });
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
+
   return (
     <>
       {newChildren}

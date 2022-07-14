@@ -4,7 +4,6 @@ import Box from '../../primitives/Box';
 import { HStack } from '../../primitives/Stack';
 import Spinner from '../../primitives/Spinner';
 import { usePropsResolution } from '../../../hooks';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import type { IActionsheetItemProps } from './types';
 import { useFocusRing } from '@react-native-aria/focus';
 import {
@@ -58,10 +57,6 @@ const ActionsheetItem = (
   } = usePropsResolution('ActionsheetItem', props, state, {
     cascadePseudoProps: true,
   });
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
 
   if (leftIcon) {
     startIcon = leftIcon;

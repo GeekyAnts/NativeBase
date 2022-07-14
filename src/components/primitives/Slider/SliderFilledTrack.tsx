@@ -3,7 +3,6 @@ import { SliderContext } from './Context';
 import Box from '../Box';
 import type { ISliderTrackFilledProps } from './types';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const SliderFilledTrack = (props: ISliderTrackFilledProps, ref?: any) => {
   const {
@@ -52,11 +51,6 @@ const SliderFilledTrack = (props: ISliderTrackFilledProps, ref?: any) => {
     },
     { isDisabled, isReadOnly, isReversed }
   );
-
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
 
   // console.log(
   //   // resolvedProps,

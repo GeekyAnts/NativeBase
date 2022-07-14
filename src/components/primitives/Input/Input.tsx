@@ -3,7 +3,6 @@ import type { IInputProps } from './types';
 import { Platform, TextInput } from 'react-native';
 import { useToken } from '../../../hooks';
 import { useFormControl } from '../../composites/FormControl';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { useHover } from '@react-native-aria/interactions';
 import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
@@ -140,12 +139,6 @@ const Input = (
     'colors',
     underlineColorAndroid
   );
-
-  // console.log('INTERNAL_themeStyle', resolvedProps, layoutProps);
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
 
   // console.log(
   //   nonLayoutProps.INTERNAL_themeStyle,
