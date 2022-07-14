@@ -94,26 +94,21 @@ const deleteFromResolvedMap = (
   value: string,
   condition: string
 ) => {
-  const keys = Object.keys(object[providerId]);
+  const keys = Object.keys(object?.[providerId]);
+
   keys.forEach((key) => {
     if (key.startsWith(value) && key.includes(condition)) {
-      delete object[providerId][key];
+      delete object?.[providerId]?.[key];
     }
     if (
       key.startsWith(value) &&
       !key.includes(condition) &&
       isKeyWithSingleOrDoubleValue(key)
     ) {
-      delete object[providerId][key];
-      // console.log(
-      //   'resolvedStyledMap',
-      //   JSON.parse(JSON.stringify(object)),
-      //   providerId,
-      //   key
-      // );
+      delete object?.[providerId]?.[key];
     }
   });
-  // return ;
+  return;
 };
 
 const NativeBaseProvider = (props: NativeBaseProviderProps) => {
@@ -129,9 +124,9 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
   } = props;
   // @ts-ignore
   const { customUserTheme, ...theme } = config.theme ?? propsTheme;
+  const ref = useRef(providerId ?? uniqueId('my-provider-'));
   useEffect(() => {
     let components = getComponentNamesFromTheme(customUserTheme);
-
     components.map((component) => {
       let variants = getComponentVariants(
         customUserTheme?.components?.[component]
@@ -141,14 +136,14 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
         deleteFromResolvedMap(
           resolvedStyledMap,
           // @ts-ignore
-          providerId,
+          ref.current,
           component,
           variant
         );
       });
       sizes.map((size) => {
         // @ts-ignore
-        deleteFromResolvedMap(resolvedStyledMap, providerId, component, size);
+        deleteFromResolvedMap(resolvedStyledMap, ref.current, component, size);
       });
     });
   }, [customUserTheme, providerId]);
@@ -167,7 +162,6 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
     [windowWidth, newTheme.breakpoints]
   );
 
-  const ref = useRef(providerId ?? uniqueId('my-provider-'));
   return (
     <NativeBaseConfigProvider
       theme={newTheme}
