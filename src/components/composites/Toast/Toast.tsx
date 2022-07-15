@@ -12,6 +12,7 @@ import Box from '../../primitives/Box';
 import { usePropsResolution } from '../../../hooks';
 import type { IToastContext, IToastInfo, IToast, IToastProps } from './types';
 import { useKeyboardBottomInset } from '../../../utils';
+
 const INSET = 50;
 
 const POSITIONS = {
@@ -116,7 +117,7 @@ const CustomToast = ({ _overlay, _stack, _presenceTransition }: any) => {
                         bottom={
                           ['bottom', 'bottom-left', 'bottom-right'].includes(
                             position
-                          )
+                          ) && toast.config?.avoidKeyboard
                             ? bottomInset + 'px'
                             : undefined
                         }
@@ -210,6 +211,8 @@ export const ToastProvider = ({ children }: { children: any }) => {
         _title,
         _description,
         accessibilityAnnouncement,
+        // @ts-ignore
+        avoidKeyboard = false, //eslint-disable-line
         ...rest
       } = props;
 
