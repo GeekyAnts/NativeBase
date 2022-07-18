@@ -4,7 +4,7 @@
 [![](https://img.shields.io/discord/785491682719301643?label=Discord&logo=discord&logoColor=%237289DA)](https://discord.com/invite/TSgCw2UPmb)
 [![npm next package](https://img.shields.io/npm/v/native-base/next.svg)](https://www.npmjs.com/package/native-base)
 [![npm latest package](https://img.shields.io/npm/v/native-base/latest.svg)](https://www.npmjs.com/package/native-base)
-[![npm downloads](https://img.shields.io/npm/dm/native-base.svg)](https://npm-stat.com/charts.html?package=native-base&from=2016-04-01&to=2018-02-17)
+[![npm downloads](https://img.shields.io/npm/dm/native-base.svg)](https://npm-stat.com/charts.html?package=native-base)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/GeekyAnts/NativeBase/blob/master/LICENSE)
 [![Follow on Twitter](https://img.shields.io/twitter/follow/nativebase.svg?label=follow+NativeBase)](https://twitter.com/nativebase)
 [![Github Stars](https://img.shields.io/github/stars/GeekyAnts/NativeBase)](https://img.shields.io/github/stars/GeekyAnts/NativeBase)
