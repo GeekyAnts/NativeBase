@@ -174,6 +174,9 @@ import {
   Overlay,
   IOverlayProps,
 } from './components/primitives';
+import map from './utils/map';
+import { init } from './utils/styled';
+init(map);
 export * from './components/basic';
 export * from './components/primitives/Icon/Icons';
 export * from './theme';
