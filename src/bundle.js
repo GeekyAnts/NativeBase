@@ -6623,10 +6623,10 @@ var generateBuildTimeMap = function (platform, usedComponentDetailMap) {
             var componentProps = componentPropsArray_1[_a];
             updateComponentThemeMap(theme, 
             // boot time provider id
-            1, componentName, {}, { platform: platform, colorMode: 'light' }, componentProps);
+            'generatedBuildTimeMap', componentName, {}, { platform: platform, colorMode: 'light' }, componentProps);
             updateComponentThemeMap(theme, 
             // boot time provider id
-            1, componentName, {}, { platform: platform, colorMode: 'dark' }, componentProps);
+            'generatedBuildTimeMap', componentName, {}, { platform: platform, colorMode: 'dark' }, componentProps);
         }
     }
     // return resolvedStyledMap;
