@@ -567,7 +567,7 @@ export const generateBuildTimeMap = (
       updateComponentThemeMap(
         defaultTheme,
         // boot time provider id
-        1,
+        'generatedBuildTimeMap',
         componentName,
         {},
         { platform, colorMode: 'light' },
@@ -576,7 +576,7 @@ export const generateBuildTimeMap = (
       updateComponentThemeMap(
         defaultTheme,
         // boot time provider id
-        1,
+        'generatedBuildTimeMap',
         componentName,
         {},
         { platform, colorMode: 'dark' },
