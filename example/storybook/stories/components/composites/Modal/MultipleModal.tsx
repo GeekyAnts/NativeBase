@@ -7,6 +7,7 @@ import {
   Text,
   Radio,
   Center,
+  Input,
 } from 'native-base';
 import { useState } from 'react';
 
@@ -14,16 +15,36 @@ export const Example = () => {
   const [showModal, setShowModal] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
   const [showModal3, setShowModal3] = useState(false);
-
   return (
     <Center>
       <Button onPress={() => setShowModal(true)}>Button</Button>
-      <Modal isOpen={showModal} onClose={() => setShowModal(false)} size="lg">
+      <Modal
+        isOpen={showModal}
+        onClose={() => setShowModal(false)}
+        size="lg"
+        testid="modal1"
+      >
         <Modal.Content maxWidth="350">
           <Modal.CloseButton />
           <Modal.Header>Order</Modal.Header>
           <Modal.Body>
             <VStack space={3}>
+              <HStack alignItems="center" justifyContent="space-between">
+                <Text fontWeight="medium">Sub Total</Text>
+                <Text color="blueGray.400">$298.77</Text>
+              </HStack>
+              <HStack alignItems="center" justifyContent="space-between">
+                <Text fontWeight="medium">Sub Total</Text>
+                <Text color="blueGray.400">$298.77</Text>
+              </HStack>
+              <HStack alignItems="center" justifyContent="space-between">
+                <Text fontWeight="medium">Sub Total</Text>
+                <Text color="blueGray.400">$298.77</Text>
+              </HStack>
+              <HStack alignItems="center" justifyContent="space-between">
+                <Text fontWeight="medium">Sub Total</Text>
+                <Text color="blueGray.400">$298.77</Text>
+              </HStack>
               <HStack alignItems="center" justifyContent="space-between">
                 <Text fontWeight="medium">Sub Total</Text>
                 <Text color="blueGray.400">$298.77</Text>
@@ -51,23 +72,37 @@ export const Example = () => {
         </Modal.Content>
       </Modal>
 
-      <Modal isOpen={showModal2} onClose={() => setShowModal2(false)} size="lg">
+      <Modal
+        isOpen={showModal2}
+        onClose={() => setShowModal2(false)}
+        size="lg"
+        testid="modal2"
+      >
         <Modal.Content maxWidth="350">
           <Modal.CloseButton />
           <Modal.Header>Select Address</Modal.Header>
           <Modal.Body>
+            <Input />
             <Radio.Group defaultValue="address1" name="address" size="sm">
               <VStack space={3}>
                 <Radio
                   alignItems="flex-start"
-                  _text={{ mt: '-1', ml: '2', fontSize: 'sm' }}
+                  _text={{
+                    mt: '-1',
+                    ml: '2',
+                    fontSize: 'sm',
+                  }}
                   value="address1"
                 >
                   4140 Parker Rd. Allentown, New Mexico 31134
                 </Radio>
                 <Radio
                   alignItems="flex-start"
-                  _text={{ mt: '-1', ml: '2', fontSize: 'sm' }}
+                  _text={{
+                    mt: '-1',
+                    ml: '2',
+                    fontSize: 'sm',
+                  }}
                   value="address2"
                 >
                   6391 Elign St. Celina, Delaware 10299
@@ -97,21 +132,33 @@ export const Example = () => {
               <VStack space={3}>
                 <Radio
                   alignItems="flex-start"
-                  _text={{ mt: '-1', ml: '2', fontSize: 'sm' }}
+                  _text={{
+                    mt: '-1',
+                    ml: '2',
+                    fontSize: 'sm',
+                  }}
                   value="payment1"
                 >
                   Cash on delivery
                 </Radio>
                 <Radio
                   alignItems="flex-start"
-                  _text={{ mt: '-1', ml: '2', fontSize: 'sm' }}
+                  _text={{
+                    mt: '-1',
+                    ml: '2',
+                    fontSize: 'sm',
+                  }}
                   value="payment2"
                 >
                   Credit/ Debit/ ATM Card
                 </Radio>
                 <Radio
                   alignItems="flex-start"
-                  _text={{ mt: '-1', ml: '2', fontSize: 'sm' }}
+                  _text={{
+                    mt: '-1',
+                    ml: '2',
+                    fontSize: 'sm',
+                  }}
                   value="payment3"
                 >
                   UPI

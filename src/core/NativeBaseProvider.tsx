@@ -10,6 +10,7 @@ import type { IColorModeProviderProps } from './color-mode';
 import HybridProvider from './hybrid-overlay/HybridProvider';
 import { OverlayProvider } from '@react-native-aria/overlays';
 import { ToastProvider, ToastRef } from '../components/composites/Toast';
+import { FocusScopeProvider } from '../components/composites/Modal/FocusScopeProvider';
 import {
   defaultConfig,
   INativebaseConfig,
@@ -91,12 +92,14 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
             colorModeManager={colorModeManager}
             options={theme.config}
           >
+            {/* <FocusScopeProvider> */}
             <OverlayProvider>
               <ToastProvider>
                 <InitializeToastRef />
                 <SSRProvider>{children}</SSRProvider>
               </ToastProvider>
             </OverlayProvider>
+            {/* </FocusScopeProvider> */}
           </HybridProvider>
         </ResponsiveQueryProvider>
       </SafeAreaProvider>

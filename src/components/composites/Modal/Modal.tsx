@@ -2,7 +2,9 @@ import React, { forwardRef, memo } from 'react';
 import { StyleSheet } from 'react-native';
 import Backdrop from '../Backdrop';
 import { Slide } from '../Transitions';
-import { FocusScope } from '@react-native-aria/focus';
+// import { FocusScope } from '@react-native-aria/focus';
+import { FocusScope } from './FocusScope';
+import { FocusScope as AriaFocusScope } from '@react-native-aria/focus';
 import { useControllableState, usePropsResolution } from '../../../hooks';
 import { ModalContext } from './Context';
 import Box from '../../primitives/Box';
@@ -76,7 +78,40 @@ const Modal = (
   if (useHasResponsiveProps(rest)) {
     return null;
   }
-  // console.log('visible here', visible);
+  const getVisible = () => {
+    if (!visible) {
+      return false;
+    }
+    if (rest.testid === 'modal2') {
+      console.log('modal 2 visible @@@');
+      return true;
+    }
+    return false;
+  };
+
+  console.log(visible && !initialFocusRef, rest.testid, '&&&&&&');
+
+  return (
+    <>
+      <Overlay
+        isOpen={visible}
+        onRequestClose={handleClose}
+        isKeyboardDismissable={isKeyboardDismissable}
+        animationPreset={animationPreset}
+        useRNModalOnAndroid
+        {..._overlay}
+      >
+        <AriaFocusScope
+          contain={visible}
+          // autoFocus={true}
+          // autoFocus={visible && !initialFocusRef}
+          // restoreFocus={visible && !finalFocusRef}
+        >
+          {child}
+        </AriaFocusScope>
+      </Overlay>
+    </>
+  );
   return (
     <Overlay
       isOpen={visible}
