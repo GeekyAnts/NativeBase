@@ -36,7 +36,7 @@
       "prettier --write"
     ]
   },
-  "version": "3.4.3",
+  "version": "3.4.9",
   "license": "MIT",
   "private": false,
   "main": "lib/commonjs/index",
@@ -79,8 +79,8 @@
     "pod-install": "^0.1.0",
     "postinstall-postinstall": "^2.1.0",
     "prettier": "^2.0.5",
-    "react": "16.11.0",
-    "react-dom": "^17.0.2",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
     "react-native": "0.63.2",
     "react-native-safe-area-context": "^3.1.9",
     "react-native-svg": "^12.1.0",
@@ -111,7 +111,7 @@
       "<rootDir>/lib/"
     ],
     "transformIgnorePatterns": [
-      "node_modules/(?!(react-native|expo-asset|expo-constants|@unimodules|react-native-unimodules|expo-font|react-native-svg|@expo/vector-icons|react-native-vector-icons|@react-native-aria/checkbox|@react-native-aria/interactions|@react-native-aria/button|@react-native-aria/switch|@react-native-aria/toggle|@react-native-aria/utils|@react-native-aria/*))"
+      "node_modules/(?!(@react-native|react-native|expo-asset|expo-constants|@unimodules|react-native-unimodules|expo-font|react-native-svg|@expo/vector-icons|react-native-vector-icons|@react-native-aria/checkbox|@react-native-aria/interactions|@react-native-aria/button|@react-native-aria/switch|@react-native-aria/toggle|@react-native-aria/utils|@react-native-aria/*))"
     ],
     "setupFiles": [
       "<rootDir>/src/jest/mock.ts"
@@ -188,13 +188,13 @@
     "@react-native-aria/slider": "^0.2.5-alpha.1",
     "@react-native-aria/tabs": "^0.2.7",
     "@react-native-aria/utils": "^0.2.8",
-    "@react-stately/checkbox": "^3.0.1",
-    "@react-stately/collections": "^3.3.0",
-    "@react-stately/combobox": "^3.0.0-alpha.1",
-    "@react-stately/radio": "^3.2.1",
-    "@react-stately/slider": "^3.0.1",
-    "@react-stately/tabs": "^3.0.0-alpha.1",
-    "@react-stately/toggle": "^3.2.1",
+    "@react-stately/checkbox": "3.0.3",
+    "@react-stately/collections": "3.3.0",
+    "@react-stately/combobox": "3.0.0-alpha.1",
+    "@react-stately/radio": "3.2.1",
+    "@react-stately/slider": "3.0.1",
+    "@react-stately/tabs": "3.0.0-alpha.1",
+    "@react-stately/toggle": "3.2.1",
     "@types/lodash.has": "^4.5.6",
     "lodash.clonedeep": "^4.5.0",
     "lodash.get": "^4.4.2",

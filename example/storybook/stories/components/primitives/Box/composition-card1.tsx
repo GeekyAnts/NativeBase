@@ -2,7 +2,15 @@ import React from 'react';
 import { Box, Heading, Image, Text, HStack, Stack, Button } from 'native-base';
 export const Example = () => {
   return (
-    <Box rounded="25" w="100%" shadow={4} mx={{ base: 'auto', md: 0 }}>
+    <Box
+      rounded="25"
+      w="100%"
+      _ios={{ shadow: 4 }}
+      _android={{ borderWidth: 1 }}
+      _light={{ borderColor: 'gray.300' }}
+      _dark={{ borderColor: 'gray.400' }}
+      mx={{ base: 'auto', md: 0 }}
+    >
       <Image
         roundedTop="25"
         h={56}

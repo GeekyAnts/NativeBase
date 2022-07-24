@@ -65,5 +65,7 @@ const Badge = (
   );
 };
 
-export default memo(forwardRef(Badge));
+export type IBadgeComponentType = (props: IBadgeProps) => JSX.Element;
+
+export default memo(forwardRef(Badge)) as IBadgeComponentType;
 export type { IBadgeProps };

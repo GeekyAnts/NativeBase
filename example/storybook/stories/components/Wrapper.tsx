@@ -45,11 +45,11 @@ const myTheme = extendTheme({
           };
         },
 
-        myNewButton1: (props: any) => {
-          return {
-            padding: props.padding,
-          };
-        },
+        // myNewButton1: (props: any) => {
+        //   return {
+        //     padding: props.padding,
+        //   };
+        // },
       },
       sizes: {
         newsize: ({ mySize }: { mySize: number }) => {

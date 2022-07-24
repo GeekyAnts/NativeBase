@@ -105,11 +105,11 @@ export interface InterfaceButtonProps
   /**
    * Props to be passed to the button when isLoading is true.
    */
-  _loading?: Omit<Partial<IButtonProps>, '_loading'>;
+  _loading?: Partial<IButtonProps>;
   /**
    * Props to be passed to the button when button is disabled.
    */
-  _disabled?: Omit<Partial<IButtonProps>, '_disable'>;
+  _disabled?: Partial<IButtonProps>;
   /**
    * Props to be passed to the spinner when isLoading is true.
    */
@@ -117,15 +117,15 @@ export interface InterfaceButtonProps
   /**
    * Props to be passed to the button when button is hovered.
    */
-  _hover?: Omit<Partial<IButtonProps>, '_hover'>;
+  _hover?: Partial<IButtonProps>;
   /**
    * Props to be passed to the button when button is pressed.
    */
-  _pressed?: Omit<Partial<IButtonProps>, '_pressed'>;
+  _pressed?: Partial<IButtonProps>;
   /**
    * Props to be passed to the button when button is focused.
    */
-  _focus?: Omit<Partial<IButtonProps>, '_focus'>;
+  _focus?: Partial<IButtonProps>;
   /**
    * The right icon element to use in the button.
    */

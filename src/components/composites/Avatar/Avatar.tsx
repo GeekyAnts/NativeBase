@@ -3,6 +3,8 @@ import { Box, Image } from '../../primitives';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IAvatarProps } from './types';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import isNil from 'lodash.isnil';
+import has from 'lodash.has';
 
 const Avatar = ({ children, ...props }: IAvatarProps, ref: any) => {
   const [error, setError] = React.useState(false);
@@ -19,7 +21,13 @@ const Avatar = ({ children, ...props }: IAvatarProps, ref: any) => {
       typeof child?.type === 'object' &&
       child?.type.displayName === 'AvatarBadge'
     ) {
-      Badge = React.cloneElement(child, { size: _badgeSize[0] });
+      Badge = React.cloneElement(child, {
+        size: child?.props?.size
+          ? child?.props?.size
+          : _badgeSize
+          ? _badgeSize[0]
+          : undefined,
+      });
     } else {
       remainingChildren.push(child);
     }
@@ -30,9 +38,21 @@ const Avatar = ({ children, ...props }: IAvatarProps, ref: any) => {
     return null;
   }
 
+  const getSource = () => {
+    if (source) {
+      if (has(source, 'uri') && !isNil(source.uri)) {
+        return source;
+      } else if (!has(source, 'uri')) {
+        return source;
+      }
+    }
+    return null;
+  };
+  const imageSource = getSource();
+
   return (
     <Box {...resolvedProps}>
-      {!!source?.uri && !error ? (
+      {imageSource && !error ? (
         <Image
           source={source}
           onError={() => {

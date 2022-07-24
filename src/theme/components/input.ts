@@ -1,5 +1,6 @@
 import { transparentize } from '../tools';
-const baseStyle = (props: any) => {
+import type { InterfaceInputProps } from '../../components/primitives/Input/types';
+const baseStyle = (props: InterfaceInputProps & { theme: any }) => {
   const { primary, error } = props.theme.colors;
 
   return {
@@ -53,7 +54,7 @@ const baseStyle = (props: any) => {
         _stack: {
           style: {
             outlineWidth: '1px',
-            outlineColor: `${props.inValidOutlineColor || error[600]}`,
+            outlineColor: `${props.invalidOutlineColor || error[600]}`,
             outlineStyle: 'solid',
           },
         },
@@ -100,7 +101,7 @@ const baseStyle = (props: any) => {
         _stack: {
           style: {
             outlineWidth: '1px',
-            outlineColor: `${props.inValidOutlineColor || error[500]}`,
+            outlineColor: `${props.invalidOutlineColor || error[500]}`,
             outlineStyle: 'solid',
           },
         },
@@ -128,7 +129,7 @@ const baseStyle = (props: any) => {
   };
 };
 
-function roundedStyle(props: Record<string, any>) {
+function roundedStyle(props: InterfaceInputProps & { theme: any }) {
   const { theme } = props;
   return {
     borderRadius: 'full',
@@ -138,7 +139,7 @@ function roundedStyle(props: Record<string, any>) {
     },
   };
 }
-function outlineStyle(props: Record<string, any>) {
+function outlineStyle(props: InterfaceInputProps & { theme: any }) {
   const { theme } = props;
   return {
     borderWidth: '1',
@@ -147,7 +148,7 @@ function outlineStyle(props: Record<string, any>) {
     },
   };
 }
-function filledStyle(props: Record<string, any>) {
+function filledStyle(props: InterfaceInputProps & { theme: any }) {
   const { theme } = props;
   return {
     borderWidth: '1',
@@ -192,7 +193,7 @@ function unstyledStyle() {
     },
   };
 }
-function underlinedStyle(props: Record<string, any>) {
+function underlinedStyle(props: InterfaceInputProps & { theme: any }) {
   const { primary, error } = props.theme.colors;
 
   return {
@@ -212,7 +213,7 @@ function underlinedStyle(props: Record<string, any>) {
         _stack: {
           style: {
             outlineWidth: 0,
-            boxShadow: `0 1px 0 0 ${props.inValidOutlineColor || error[600]}`,
+            boxShadow: `0 1px 0 0 ${props.invalidOutlineColor || error[600]}`,
           },
         },
       },
@@ -240,11 +241,11 @@ function underlinedStyle(props: Record<string, any>) {
 }
 
 const variants = {
-  outline: outlineStyle,
-  underlined: underlinedStyle,
-  rounded: roundedStyle,
-  filled: filledStyle,
-  unstyled: unstyledStyle,
+  outline: outlineStyle as any,
+  underlined: underlinedStyle as any,
+  rounded: roundedStyle as any,
+  filled: filledStyle as any,
+  unstyled: unstyledStyle as any,
 };
 
 const sizes = {

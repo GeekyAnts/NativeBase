@@ -359,5 +359,5 @@ export type {
   IWrapProps,
 };
 
-export { StyledProps } from './theme';
+export type { StyledProps } from './theme/types';
 export type { ITheme, ICustomTheme } from './theme';

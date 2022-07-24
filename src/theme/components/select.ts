@@ -1,6 +1,9 @@
 export const Select = {
   baseStyle: () => {
     return {
+      selection: {
+        start: 0,
+      },
       _light: {
         customDropdownIconProps: { color: 'muted.500', mr: '3' },
         _hover: {
@@ -8,7 +11,6 @@ export const Select = {
         },
         _focus: {
           borderColor: 'primary.600',
-          // bg: transparentize('primary.600', 0.1)(theme),
         },
         _disabled: {
           bg: 'muted.100',
@@ -26,7 +28,6 @@ export const Select = {
         },
         _focus: {
           borderColor: 'primary.500',
-          // bg: transparentize('primary.500', 0.1)(theme),
         },
         _disabled: {
           bg: 'muted.800',
