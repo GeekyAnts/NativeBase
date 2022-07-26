@@ -2,7 +2,7 @@ import React, { forwardRef, memo } from 'react';
 import { StyleSheet } from 'react-native';
 import Backdrop from '../Backdrop';
 import { Slide } from '../Transitions';
-import { FocusScope } from '@react-native-aria/focus';
+import { FocusScope } from '../../primitives/FocusScope';
 import { useControllableState, usePropsResolution } from '../../../hooks';
 import { ModalContext } from './Context';
 import Box from '../../primitives/Box';

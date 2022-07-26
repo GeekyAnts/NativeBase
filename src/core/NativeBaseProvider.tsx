@@ -22,7 +22,7 @@ import {
   platformSpecificSpaceUnits,
 } from '../theme/tools/utils';
 import { ResponsiveQueryProvider } from '../utils/useResponsiveQuery';
-
+import { FocusScopeProvider } from '../components/primitives/FocusScope/FocusScopeProvider';
 // For SSR to work, we need to pass initial insets as 0 values on web.
 
 // https://github.com/th3rdwave/react-native-safe-area-context/issues/132
@@ -91,12 +91,14 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
             colorModeManager={colorModeManager}
             options={theme.config}
           >
-            <OverlayProvider>
-              <ToastProvider>
-                <InitializeToastRef />
-                <SSRProvider>{children}</SSRProvider>
-              </ToastProvider>
-            </OverlayProvider>
+            <FocusScopeProvider>
+              <OverlayProvider>
+                <ToastProvider>
+                  <InitializeToastRef />
+                  <SSRProvider>{children}</SSRProvider>
+                </ToastProvider>
+              </OverlayProvider>
+            </FocusScopeProvider>
           </HybridProvider>
         </ResponsiveQueryProvider>
       </SafeAreaProvider>
