@@ -1,0 +1,19 @@
+{
+  "name": "NativeBaseExpoExample",
+  "displayName": "NativeBase Expo Example",
+  "packagerOpts": {
+    "config": "metro.config.js"
+  },
+  "expo": {
+    "name": "NativeBase Expo Example",
+    "slug": "native-base-expo-example",
+    "description": "Example app for Nativebase",
+    "privacy": "public",
+    "version": "1.0.0",
+    "platforms": ["ios", "android", "web"],
+    "ios": {
+      "supportsTablet": true
+    },
+    "assetBundlePatterns": ["**/*"]
+  }
+}
