@@ -80,6 +80,8 @@ const Modal = (
   let overlayStyle;
   if (Platform.OS === 'web') {
     overlayStyle = { ..._overlay, unMountOnExit: true };
+  } else {
+    overlayStyle = { ..._overlay };
   }
   return (
     <Overlay
