@@ -1,5 +1,5 @@
 import React, { forwardRef, memo } from 'react';
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 import Backdrop from '../Backdrop';
 import { Slide } from '../Transitions';
 import { FocusScope } from '@react-native-aria/focus';
@@ -77,6 +77,10 @@ const Modal = (
     return null;
   }
   // console.log('visible here', visible);
+  let overlayStyle;
+  if (Platform.OS === 'web') {
+    overlayStyle = { ..._overlay, unMountOnExit: true };
+  }
   return (
     <Overlay
       isOpen={visible}
@@ -84,7 +88,7 @@ const Modal = (
       isKeyboardDismissable={isKeyboardDismissable}
       animationPreset={animationPreset}
       useRNModalOnAndroid
-      {..._overlay}
+      {...overlayStyle}
     >
       <ModalContext.Provider value={contextValue}>
         <Fade in={visible} style={StyleSheet.absoluteFill} {..._backdropFade}>
