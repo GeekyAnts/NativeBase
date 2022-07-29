@@ -7,7 +7,11 @@ import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const Icon = (props: IIconProps, ref?: any) => {
   const { as, size, ...resolvedProps } = usePropsResolution('Icon', props);
-  const tokenizedFontSize = useToken('space', size);
+  const tokenizedFontSize = useToken('space', size, undefined, {
+    component: 'Icon',
+    property: 'sizes',
+  });
+
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
@@ -18,9 +22,9 @@ const Icon = (props: IIconProps, ref?: any) => {
   const isJSX = React.isValidElement(as);
   const StyledAs = Factory(
     isJSX
-      ? (resolvedProps) =>
+      ? (resProps) =>
           React.cloneElement(as, {
-            ...resolvedProps,
+            ...resProps,
             //@ts-ignore
             ...as.props,
           })
@@ -32,7 +36,6 @@ const Icon = (props: IIconProps, ref?: any) => {
       {...resolvedProps}
       fontSize={tokenizedFontSize}
       lineHeight={tokenizedFontSize}
-      size={size}
       ref={ref}
     />
   );
