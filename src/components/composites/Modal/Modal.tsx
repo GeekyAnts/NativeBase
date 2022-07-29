@@ -84,7 +84,7 @@ const Modal = (
       onRequestClose={handleClose}
       isKeyboardDismissable={isKeyboardDismissable}
       animationPreset={animationPreset}
-      useRNModal
+      useRNModal={useRNModal}
       {..._overlay}
     >
       <ModalContext.Provider value={contextValue}>
