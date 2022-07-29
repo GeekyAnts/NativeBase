@@ -84,6 +84,7 @@ const Modal = (
       onRequestClose={handleClose}
       isKeyboardDismissable={isKeyboardDismissable}
       animationPreset={animationPreset}
+      useRNModalOnAndroid
       useRNModal={useRNModal}
       {..._overlay}
     >
