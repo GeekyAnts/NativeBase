@@ -83,6 +83,7 @@ const Menu = (
       <Overlay
         isOpen={isOpen}
         onRequestClose={handleClose}
+        useRNModalOnAndroid
         useRNModal={useRNModal}
         {..._overlay}
         unmountOnExit

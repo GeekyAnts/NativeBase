@@ -83,6 +83,10 @@ export interface InterfaceAlertDialogProps
    * @default "fade"
    */
   animationPreset?: 'slide' | 'fade';
+  /* If true, renders react-native native modal
+   * @default false
+   */
+  useRNModal?: boolean;
 }
 
 export type IAlertDialogComponentType = ((

@@ -2,7 +2,7 @@
 import { OverlayContainer } from '@react-native-aria/overlays';
 import React from 'react';
 import type { ViewStyle } from 'react-native';
-import { Modal } from 'react-native';
+import { Modal, Platform } from 'react-native';
 import { useKeyboardDismissable } from '../../../hooks';
 import { ExitAnimationContext } from './ExitAnimationContext';
 
@@ -10,6 +10,7 @@ export interface IOverlayProps {
   isOpen?: boolean;
   children?: any;
   // We use RN modal on android if needed as it supports shifting accessiblity focus to the opened view. IOS automatically shifts focus if an absolutely placed view appears in front.
+  useRNModalOnAndroid?: boolean;
   useRNModal?: boolean;
   onRequestClose?: any;
   isKeyboardDismissable?: boolean;
@@ -22,6 +23,7 @@ export function Overlay({
   children,
   isOpen,
   useRNModal = false,
+  useRNModalOnAndroid = false,
   isKeyboardDismissable = true,
   //@ts-ignore
   animationPreset = 'fade',
@@ -47,7 +49,7 @@ export function Overlay({
     return null;
   }
 
-  if (useRNModal) {
+  if (useRNModal || (useRNModalOnAndroid && Platform.OS === 'android')) {
     return (
       <ExitAnimationContext.Provider value={{ exited, setExited }}>
         <Modal

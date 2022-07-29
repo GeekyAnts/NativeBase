@@ -70,6 +70,7 @@ const AlertDialog = (
       isOpen={visible}
       onRequestClose={handleClose}
       isKeyboardDismissable={isKeyboardDismissable}
+      useRNModalOnAndroid
       useRNModal={useRNModal}
       unmountOnExit
     >
