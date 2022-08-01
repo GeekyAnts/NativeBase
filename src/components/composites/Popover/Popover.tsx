@@ -77,6 +77,7 @@ const Popover = (
       <Overlay
         isOpen={isOpen}
         onRequestClose={handleClose}
+        useRNModalOnAndroid
         useRNModal={useRNModal}
         unmountOnExit
       >
