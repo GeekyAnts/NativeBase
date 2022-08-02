@@ -300,7 +300,7 @@ export const usePropsResolutionWithComponentTheme = (
   );
   const responsiveProps = {};
   if (disableCSSMediaQueries) {
-    // STEP 2.5: resolving responsive props
+    // STEP 1.5: resolving responsive props
     resolveResponsively.map((propsName) => {
       if (flattenProps[propsName]) {
         // @ts-ignore
@@ -319,7 +319,7 @@ export const usePropsResolutionWithComponentTheme = (
     responsiveProps
   );
 
-  // STEP 1.5: resolving component theme
+  // STEP 2: resolving component theme
   let combinedBaseStyle = {};
   let combinedVariantStyle = {};
   let combinedSizeStyle = {};
@@ -368,7 +368,7 @@ export const usePropsResolutionWithComponentTheme = (
     }
   });
 
-  // STEP 2: flatten them
+  // STEP 2.5: flatten them
   if (process.env.NODE_ENV === 'development' && cleanIncomingProps.debug) {
     /* eslint-disable-next-line */
     console.log(
@@ -376,43 +376,6 @@ export const usePropsResolutionWithComponentTheme = (
       'background: #4b5563; color: #FFF; font-weight: 700; padding: 2px 8px;'
     );
   }
-  //TODO: hack
-  // let flattenProps: any, specificityMap;
-  // [flattenProps, specificityMap] = callPropsFlattener(
-  //   incomingWithDefaultProps,
-  //   {},
-  //   2
-  // );
-  // const responsiveProps = {};
-  // if (disableCSSMediaQueries) {
-  //   // STEP 2.5: resolving responsive props
-  //   resolveResponsively.map((propsName) => {
-  //     if (flattenProps[propsName]) {
-  //       // @ts-ignore
-  //       responsiveProps[propsName] = flattenProps[propsName];
-  //     }
-  //   });
-  // }
-  // if (resolveResponsively.includes('direction')) {
-  //   const propName = 'direction';
-  //   if (flattenProps[propName]) {
-  //     // @ts-ignore
-  //     responsiveProps[propName] = flattenProps[propName];
-  //   }
-  // }
-  // const responsivelyResolvedProps = useBreakpointResolvedProps(responsiveProps);
-
-  // console.log(resolveResponsively, '###');
-  // if (
-  //   responsivelyResolvedProps?.size &&
-  //   extendedTheme?.length > 0 &&
-  //   extendedTheme[0]?.sizes &&
-  //   extendedTheme[0]?.sizes[responsivelyResolvedProps?.size]
-  // ) {
-  //   console.log(extendedTheme, responsivelyResolvedProps, '$$$$');
-  //   responsivelyResolvedProps.size =
-  //     extendedTheme[0]?.sizes[responsivelyResolvedProps?.size];
-  // }
 
   flattenProps = {
     ...flattenProps,
