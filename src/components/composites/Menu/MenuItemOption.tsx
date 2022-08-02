@@ -1,6 +1,6 @@
 import React, { forwardRef, memo, useContext } from 'react';
 import { CheckIcon } from '../../primitives/Icon/Icons';
-import Box from '../../primitives/Box';
+import Text from '../../primitives/Text';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import MenuItem from './MenuItem';
 import type { IMenuItemOptionProps, IMenuOptionContextProps } from './types';
@@ -46,7 +46,17 @@ const MenuItemOption = (
     >
       <HStack {..._stack}>
         <CheckIcon {..._icon} />
-        <Box _text={_text}>{children}</Box>
+        {React.Children.map(children, (child, index: any) => {
+          if (typeof child === 'string' || typeof child === 'number') {
+            return (
+              <Text key={index} {..._text}>
+                {child}
+              </Text>
+            );
+          } else {
+            return child;
+          }
+        })}
       </HStack>
     </MenuItem>
   );
