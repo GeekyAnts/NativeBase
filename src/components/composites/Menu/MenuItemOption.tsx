@@ -6,7 +6,6 @@ import MenuItem from './MenuItem';
 import type { IMenuItemOptionProps, IMenuOptionContextProps } from './types';
 import { MenuOptionContext } from './MenuOptionGroup';
 import { useMenuOptionItem } from './useMenu';
-import { HStack } from '../../primitives/Stack';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const MenuItemOption = (
@@ -22,7 +21,6 @@ const MenuItemOption = (
     children,
     onPress,
     _icon,
-    _stack,
     _text,
     ...resolvedProps
   } = usePropsResolution('MenuItem', props, { isChecked });
@@ -44,20 +42,18 @@ const MenuItemOption = (
       onPress={modifiedOnPress}
       ref={ref}
     >
-      <HStack {..._stack}>
-        <CheckIcon {..._icon} />
-        {React.Children.map(children, (child, index: any) => {
-          if (typeof child === 'string' || typeof child === 'number') {
-            return (
-              <Text key={index} {..._text}>
-                {child}
-              </Text>
-            );
-          } else {
-            return child;
-          }
-        })}
-      </HStack>
+      <CheckIcon {..._icon} />
+      {React.Children.map(children, (child, index: any) => {
+        if (typeof child === 'string' || typeof child === 'number') {
+          return (
+            <Text key={index} {..._text}>
+              {child}
+            </Text>
+          );
+        } else {
+          return child;
+        }
+      })}
     </MenuItem>
   );
 };
