@@ -51,6 +51,7 @@ export function Overlay({
     return (
       <ExitAnimationContext.Provider value={{ exited, setExited }}>
         <Modal
+          statusBarTranslucent
           transparent
           visible={isOpen}
           onRequestClose={onRequestClose}
