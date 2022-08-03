@@ -1,6 +1,9 @@
 import type { InterfaceBoxProps } from '../Box';
 import type { IButtonProps } from '../Button';
-import type { IActionsheetContentProps } from '../../composites/Actionsheet/types';
+import type {
+  IActionsheetContentProps,
+  IActionsheetProps,
+} from '../../composites/Actionsheet/types';
 import type { MutableRefObject } from 'react';
 import type { CustomProps, ResponsiveValue } from '../../../components/types';
 import type { IColors } from '../../../theme/base/colors';
@@ -81,6 +84,10 @@ export interface InterfaceSelectProps extends InterfaceBoxProps<ISelectProps> {
    * Callback to be invoked when Select Dropdown or BottomSheet is closed.
    */
   onClose?: (nativeEvent: any) => void;
+  /**
+   * props to be passed to underlying ActionSheet. Select uses ActionSheet underneath.
+   */
+  _actionSheet?: Partial<IActionsheetProps>;
   /**
    * props to be passed to underlying ActionSheet.Content. Select uses ActionSheet underneath.
    */

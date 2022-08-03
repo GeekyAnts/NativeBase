@@ -81,6 +81,11 @@ export interface InterfaceModalProps extends InterfaceBoxProps<IModalProps> {
    * Props to be passed to the Overlay used inside of Modal.
    */
   _overlay?: IOverlayProps;
+
+  /* If true, renders react-native native modal
+   * @default false
+   */
+  useRNModal?: boolean;
 }
 
 export type IModalComponentType = ((

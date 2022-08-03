@@ -23,6 +23,7 @@ const Popover = (
     defaultIsOpen,
     initialFocusRef,
     finalFocusRef,
+    useRNModal,
     trapFocus = true,
     ...props
   }: IPopoverProps,
@@ -77,6 +78,7 @@ const Popover = (
         isOpen={isOpen}
         onRequestClose={handleClose}
         useRNModalOnAndroid
+        useRNModal={useRNModal}
         unmountOnExit
       >
         <PresenceTransition
