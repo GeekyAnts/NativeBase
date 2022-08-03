@@ -98,6 +98,11 @@ export interface InterfacePopoverProps {
    * This function will be invoked when popover is opened
    */
   onOpen?: () => void;
+
+  /* If true, renders react-native native modal
+   * @default false
+   */
+  useRNModal?: boolean;
 }
 
 export type IPopoverContentImpl = {

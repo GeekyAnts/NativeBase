@@ -67,6 +67,7 @@ const Select = (
     onClose,
     optimized,
     customDropdownIconProps,
+    _actionSheet,
     _actionSheetContent,
     _actionSheetBody,
     _webSelect,
@@ -222,7 +223,7 @@ const Select = (
       >
         {commonInput}
       </Pressable>
-      <Actionsheet isOpen={isOpen} onClose={handleClose}>
+      <Actionsheet isOpen={isOpen} onClose={handleClose} {..._actionSheet}>
         <Actionsheet.Content {..._actionSheetContent}>
           {/* TODO: Replace ScrollVeiw with FlatList */}
           {optimized ? (

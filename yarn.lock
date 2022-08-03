@@ -1957,7 +1957,7 @@
     "@react-types/combobox" "3.0.0-alpha.1"
     "@react-types/shared" "^3.4.0"
 
-"@react-aria/focus@^3.2.2", "@react-aria/focus@^3.2.3":
+"@react-aria/focus@3.2.3", "@react-aria/focus@^3.2.2", "@react-aria/focus@^3.2.3":
   version "3.2.3"
   resolved "https://registry.yarnpkg.com/@react-aria/focus/-/focus-3.2.3.tgz#3e4137498a7fb5235d056c30fd94ab4a82e73aea"
   integrity sha512-+OWmJMivrq3f8ApWihH1KJYqYj3rZV34YJORacBohcAsF1Qd1V1/P+w3dMkf24kV0wqAiWePCF1FwgnrL/rYzQ==
@@ -2294,10 +2294,10 @@
     "@react-native-aria/utils" "^0.2.4"
     "@react-types/button" "^3.3.1"
 
-"@react-native-aria/focus@^0.2.4":
-  version "0.2.4"
-  resolved "https://registry.yarnpkg.com/@react-native-aria/focus/-/focus-0.2.4.tgz#9402eb5c7913f9ce933e1d6582007ec730680a59"
-  integrity sha512-W/6yU9r896TZ8Z9+7FdWpnAFvurabu6oBVtCCrz8fEUeLaPhUFJXLm/aZmPcF30lYED157ICkx9xJBdGihJZzw==
+"@react-native-aria/focus@^0.2.6":
+  version "0.2.6"
+  resolved "https://registry.yarnpkg.com/@react-native-aria/focus/-/focus-0.2.6.tgz#b824944b2d7020f74a80fd849f2bf77aac9d3d29"
+  integrity sha512-J/WKi5qizCFwv3XCDTSUePYz7zfpGpwU4XsDQZ48j2DlC29sX7JbRoml9/lu8/hhEEOz6/mpkaaFTgv0uFZcVA==
   dependencies:
     "@react-aria/focus" "^3.2.3"
 

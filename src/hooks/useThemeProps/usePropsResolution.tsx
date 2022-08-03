@@ -232,9 +232,13 @@ export const usePropsResolutionWithComponentTheme = (
 
   const resolveComponentTheme = (
     themeType: Array<string>,
-    providedTheme: any
+    providedTheme: any,
+    config?: any
   ): any => {
     try {
+      if (config?.colorScheme) {
+        incomingWithDefaultProps.colorScheme = config.colorScheme;
+      }
       if (themeType[1]) {
         return typeof providedTheme[themeType[0]][themeType[1]] !== 'function'
           ? providedTheme[themeType[0]][themeType[1]]
@@ -286,63 +290,8 @@ export const usePropsResolutionWithComponentTheme = (
     cleanIncomingProps
   );
 
-  // STEP 1.5: resolving component theme
-  let combinedBaseStyle = {};
-  let combinedVariantStyle = {};
-  let combinedSizeStyle = {};
-  extendedTheme.map((extededComponentTheme: any) => {
-    if (extededComponentTheme.baseStyle) {
-      combinedBaseStyle = {
-        ...combinedBaseStyle,
-        ...resolveComponentTheme(['baseStyle'], extededComponentTheme),
-      };
-    }
-    if (incomingWithDefaultProps.variant) {
-      if (extededComponentTheme.variants) {
-        combinedVariantStyle = {
-          ...combinedVariantStyle,
-          ...resolveComponentTheme(
-            ['variants', incomingWithDefaultProps.variant],
-            extededComponentTheme
-          ),
-        };
-      }
-    }
-    if (
-      incomingWithDefaultProps.size &&
-      extededComponentTheme?.sizes &&
-      extededComponentTheme?.sizes[incomingWithDefaultProps.size]
-    ) {
-      if (
-        typeof extededComponentTheme.sizes[incomingWithDefaultProps.size] ===
-          'string' ||
-        typeof extededComponentTheme.sizes[incomingWithDefaultProps.size] ===
-          'number'
-      ) {
-        incomingWithDefaultProps.size =
-          extededComponentTheme.sizes[incomingWithDefaultProps.size];
-      } else {
-        combinedSizeStyle = {
-          ...combinedSizeStyle,
-          ...resolveComponentTheme(
-            ['sizes', incomingWithDefaultProps.size],
-            extededComponentTheme
-          ),
-        };
-        incomingWithDefaultProps.size = undefined;
-      }
-    }
-  });
-
-  // STEP 2: flatten them
-  if (process.env.NODE_ENV === 'development' && cleanIncomingProps.debug) {
-    /* eslint-disable-next-line */
-    console.log(
-      `%cFlattening incoming and Default`,
-      'background: #4b5563; color: #FFF; font-weight: 700; padding: 2px 8px;'
-    );
-  }
   //TODO: hack
+  // 2. Flatten incomingDefaultProps
   let flattenProps: any, specificityMap;
   [flattenProps, specificityMap] = callPropsFlattener(
     incomingWithDefaultProps,
@@ -351,7 +300,7 @@ export const usePropsResolutionWithComponentTheme = (
   );
   const responsiveProps = {};
   if (disableCSSMediaQueries) {
-    // STEP 2.5: resolving responsive props
+    // STEP 1.5: resolving responsive props
     resolveResponsively.map((propsName) => {
       if (flattenProps[propsName]) {
         // @ts-ignore
@@ -366,7 +315,67 @@ export const usePropsResolutionWithComponentTheme = (
       responsiveProps[propName] = flattenProps[propName];
     }
   }
-  const responsivelyResolvedProps = useBreakpointResolvedProps(responsiveProps);
+  const responsivelyResolvedProps: any = useBreakpointResolvedProps(
+    responsiveProps
+  );
+
+  // STEP 2: resolving component theme
+  let combinedBaseStyle = {};
+  let combinedVariantStyle = {};
+  let combinedSizeStyle = {};
+  extendedTheme.map((extededComponentTheme: any) => {
+    if (extededComponentTheme.baseStyle) {
+      combinedBaseStyle = {
+        ...combinedBaseStyle,
+        ...resolveComponentTheme(['baseStyle'], extededComponentTheme),
+      };
+    }
+    if (responsivelyResolvedProps.variant) {
+      if (extededComponentTheme.variants) {
+        combinedVariantStyle = {
+          ...combinedVariantStyle,
+          ...resolveComponentTheme(
+            ['variants', responsivelyResolvedProps.variant],
+            extededComponentTheme,
+            { colorScheme: responsivelyResolvedProps?.colorScheme }
+          ),
+        };
+      }
+    }
+    if (
+      responsivelyResolvedProps.size &&
+      extededComponentTheme?.sizes &&
+      extededComponentTheme?.sizes[responsivelyResolvedProps.size]
+    ) {
+      if (
+        typeof extededComponentTheme.sizes[responsivelyResolvedProps.size] ===
+          'string' ||
+        typeof extededComponentTheme.sizes[responsivelyResolvedProps.size] ===
+          'number'
+      ) {
+        responsivelyResolvedProps.size =
+          extededComponentTheme.sizes[responsivelyResolvedProps.size];
+      } else {
+        combinedSizeStyle = {
+          ...combinedSizeStyle,
+          ...resolveComponentTheme(
+            ['sizes', responsivelyResolvedProps.size],
+            extededComponentTheme
+          ),
+        };
+        responsivelyResolvedProps.size = undefined;
+      }
+    }
+  });
+
+  // STEP 2.5: flatten them
+  if (process.env.NODE_ENV === 'development' && cleanIncomingProps.debug) {
+    /* eslint-disable-next-line */
+    console.log(
+      `%cFlattening incoming and Default`,
+      'background: #4b5563; color: #FFF; font-weight: 700; padding: 2px 8px;'
+    );
+  }
 
   flattenProps = {
     ...flattenProps,

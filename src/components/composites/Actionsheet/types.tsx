@@ -27,6 +27,10 @@ export interface InterfaceActionsheetProps
    * Props applied on Overlay.
    */
   _backdrop?: any;
+  /* If true, renders react-native native modal
+   * @default false
+   */
+  useRNModal?: boolean;
 }
 
 export interface IActionsheetContentProps
