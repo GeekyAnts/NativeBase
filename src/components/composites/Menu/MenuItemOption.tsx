@@ -46,7 +46,7 @@ const MenuItemOption = (
       {React.Children.map(children, (child, index: any) => {
         if (typeof child === 'string' || typeof child === 'number') {
           return (
-            <Text key={index} {..._text}>
+            <Text key={`menu-item-option-${index}`} {..._text}>
               {child}
             </Text>
           );
