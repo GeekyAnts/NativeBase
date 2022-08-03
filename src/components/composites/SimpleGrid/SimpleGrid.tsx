@@ -7,10 +7,10 @@ import { useThemeProps } from '../../../hooks/useThemeProps';
 const DEBUG_STYLES = false
   ? {
       rows: {
-        borderWidth: '1px',
+        borderWidth: '0.25',
       },
       cols: {
-        borderWidth: '1px',
+        borderWidth: '0.25',
       },
     }
   : {
@@ -53,11 +53,19 @@ const SimpleGrid = (props: ISimpleGridProps, ref?: any): JSX.Element => {
             <HStack space={cellSpacingX} key={rowIndex}>
               {row.map((col: any) => {
                 return (
-                  <Box {...DEBUG_STYLES.cols} key={col.key}>
+                  <Box {...DEBUG_STYLES.cols} flex={1}>
                     {col}
                   </Box>
                 );
               })}
+
+              {row.length % columns !== 0 ? (
+                Array.from({ length: columns - row.length }, (_, index) => (
+                  <Box flex="1" key={index} />
+                ))
+              ) : (
+                <></>
+              )}
             </HStack>
           );
         })}
