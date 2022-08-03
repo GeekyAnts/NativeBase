@@ -71,7 +71,8 @@ const Image = memo(
     if (useHasResponsiveProps(props)) {
       return null;
     }
-    if (!alt) {
+
+    if (typeof alt !== 'string') {
       console.warn('Please pass alt prop to Image component');
     }
 
