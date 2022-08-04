@@ -1,12 +1,12 @@
-import { SimpleGrid, Center } from 'native-base';
 import React from 'react';
+import { SimpleGrid, Center } from 'native-base';
 
 const items = 6;
 const data = Array(items).fill(0);
 
-export default function NumberOfColumnsSimpleGrid() {
+export default function ResponsiveColumns() {
   return (
-    <SimpleGrid columns={2} space={4} width="50%">
+    <SimpleGrid columns={{ base: 2, md: 3, lg: 4 }} space={4} width="50%">
       {data.map((_item, index) => {
         return (
           <Center
