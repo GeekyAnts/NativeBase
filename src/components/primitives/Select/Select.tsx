@@ -67,6 +67,7 @@ const Select = (
     onClose,
     optimized,
     customDropdownIconProps,
+    _actionSheet,
     _actionSheetContent,
     _actionSheetBody,
     _webSelect,
@@ -92,18 +93,18 @@ const Select = (
     },
   });
 
-  const itemsList: Array<{ label: string; value: string }> = React.Children.map(
-    children ?? [],
-    (child: any) => {
-      return {
-        label: child.props.label,
-        value: child.props.value,
-      };
-    }
-  );
+  const itemsList: Array<{
+    label: string;
+    value: string;
+  }> = React.Children.toArray(children).map((child: any) => {
+    return {
+      label: child?.props?.label,
+      value: child?.props?.value,
+    };
+  });
 
   const selectedItemArray = itemsList.filter(
-    (item: any) => item.value === value
+    (item: any) => item?.value === value
   );
 
   const selectedItem =
@@ -140,7 +141,7 @@ const Select = (
   };
 
   if (optimized) {
-    React.Children.map(children, (child: any) => {
+    React.Children.toArray(children).map((child: any) => {
       flatListData.push(child.props);
     });
   }
@@ -222,7 +223,7 @@ const Select = (
       >
         {commonInput}
       </Pressable>
-      <Actionsheet isOpen={isOpen} onClose={handleClose}>
+      <Actionsheet isOpen={isOpen} onClose={handleClose} {..._actionSheet}>
         <Actionsheet.Content {..._actionSheetContent}>
           {/* TODO: Replace ScrollVeiw with FlatList */}
           {optimized ? (
@@ -232,12 +233,12 @@ const Select = (
               // eslint-disable-next-line no-shadow
               keyExtractor={(_item, index) => index.toString()}
               renderItem={({ item }: any) => {
-                const isSelected = selectedValue === item.value;
+                const isSelected = selectedValue === item?.value;
                 return (
                   <Actionsheet.Item
                     onPress={() => {
                       if (!isDisabled) {
-                        setValue(item.value);
+                        setValue(item?.value);
                       }
                     }}
                     accessibilityState={{ selected: isSelected }}
@@ -245,7 +246,7 @@ const Select = (
                     {..._item}
                     {...(isSelected && _selectedItem)}
                   >
-                    {item.label}
+                    {item?.label}
                   </Actionsheet.Item>
                 );
               }}
