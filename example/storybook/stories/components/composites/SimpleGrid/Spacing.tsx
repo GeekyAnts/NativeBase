@@ -4,7 +4,7 @@ import { Center, SimpleGrid } from 'native-base';
 const items = 6;
 const data = Array(items).fill(0);
 
-function Spacing() {
+export const Example = () => {
   return (
     <SimpleGrid
       columns={{ base: 1, sm: 2, md: 3, lg: 4 }}
@@ -27,6 +27,4 @@ function Spacing() {
       })}
     </SimpleGrid>
   );
-}
-
-export default Spacing;
+};

@@ -4,7 +4,7 @@ import React from 'react';
 const items = 12;
 const data = Array(items).fill(0);
 
-export default function MinChildWidthSimpleGrid() {
+export const Example = () => {
   return (
     <SimpleGrid minChildWidth={70} space={4}>
       {data.map((_item, index) => {
@@ -12,4 +12,4 @@ export default function MinChildWidthSimpleGrid() {
       })}
     </SimpleGrid>
   );
-}
+};

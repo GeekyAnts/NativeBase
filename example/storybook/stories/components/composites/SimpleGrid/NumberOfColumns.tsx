@@ -4,7 +4,7 @@ import React from 'react';
 const items = 6;
 const data = Array(items).fill(0);
 
-export default function NumberOfColumnsSimpleGrid() {
+export const Example = () => {
   return (
     <SimpleGrid columns={2} space={4} width="50%">
       {data.map((_item, index) => {
@@ -19,4 +19,4 @@ export default function NumberOfColumnsSimpleGrid() {
       })}
     </SimpleGrid>
   );
-}
+};

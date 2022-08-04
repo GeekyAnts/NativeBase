@@ -4,7 +4,7 @@ import { SimpleGrid, Center } from 'native-base';
 const items = 6;
 const data = Array(items).fill(0);
 
-export default function ResponsiveColumns() {
+export const Example = () => {
   return (
     <SimpleGrid columns={{ base: 2, md: 3, lg: 4 }} space={4} width="50%">
       {data.map((_item, index) => {
@@ -19,4 +19,4 @@ export default function ResponsiveColumns() {
       })}
     </SimpleGrid>
   );
-}
+};
