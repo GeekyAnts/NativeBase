@@ -25,7 +25,6 @@ const SimpleGrid = (props: ISimpleGridProps, ref?: any): JSX.Element => {
     space,
     spacingX,
     spacingY,
-    minChildWidth,
     children,
     ...remainingProps
   } = useThemeProps('SimpleGrid', props);
@@ -33,14 +32,14 @@ const SimpleGrid = (props: ISimpleGridProps, ref?: any): JSX.Element => {
   if (useHasResponsiveProps(props)) {
     return <></>;
   }
-  let cellSpacing = space ?? 0;
-  let cellSpacingX = spacingX ?? cellSpacing;
-  let cellSpacingY = spacingY ?? cellSpacing;
+  const cellSpacing = space ?? 0;
+  const cellSpacingX = spacingX ?? cellSpacing;
+  const cellSpacingY = spacingY ?? cellSpacing;
 
   const childrenArray = React.Children.toArray(children);
 
   if (columns) {
-    let rowSlices = [];
+    const rowSlices = [];
     for (let i = 0; i < childrenArray.length; i = i + columns) {
       rowSlices.push(childrenArray.slice(i, i + columns));
     }
@@ -78,31 +77,31 @@ const SimpleGrid = (props: ISimpleGridProps, ref?: any): JSX.Element => {
   }
   // Needs more work for empty spacing i.e. auto-fit. Current workaround is to use wrap and let the columns be created dynamically
   // https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/
-  else if (minChildWidth) {
-    return (
-      <Box
-        flexDirection="row"
-        flexWrap="wrap"
-        justifyContent="center"
-        {...remainingProps}
-        ref={ref}
-      >
-        {childrenArray.map((col: any) => {
-          return (
-            <Box
-              {...DEBUG_STYLES.cols}
-              mx={cellSpacingX}
-              my={cellSpacingY}
-              key={col.key}
-              minWidth={minChildWidth}
-            >
-              {col}
-            </Box>
-          );
-        })}
-      </Box>
-    );
-  }
+  // else if (minChildWidth) {
+  //   return (
+  //     <HStack
+  //       flexWrap="wrap"
+  //       justifyContent="center"
+  //       {...remainingProps}
+  //       ref={ref}
+  //       space={cellSpacingX}
+  //     >
+  //       {childrenArray.map((col: any) => {
+  //         return (
+  //           <Box
+  //             {...DEBUG_STYLES.cols}
+  //             // mx={cellSpacingX}
+  //             my={cellSpacingY / 2}
+  //             key={col.key}
+  //             minWidth={minChildWidth}
+  //           >
+  //             {col}
+  //           </Box>
+  //         );
+  //       })}
+  //     </HStack>
+  //   );
+  // }
 
   return <></>;
 };
