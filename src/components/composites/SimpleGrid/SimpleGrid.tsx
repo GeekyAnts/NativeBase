@@ -2,8 +2,8 @@ import React from 'react';
 import { Box, HStack, VStack } from '../../primitives';
 import type { ISimpleGridProps } from './types';
 // const isDebug = process.env.NODE_ENV !== 'production';
-import { useThemeProps } from '../../../hooks/useThemeProps';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import { usePropsResolution } from 'native-base';
 
 const DEBUG_STYLES = false
   ? {
@@ -27,7 +27,8 @@ const SimpleGrid = (props: ISimpleGridProps, ref?: any): JSX.Element => {
     spacingY,
     children,
     ...remainingProps
-  } = useThemeProps('SimpleGrid', props);
+  } = usePropsResolution('SimpleGrid', props);
+
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return <></>;
