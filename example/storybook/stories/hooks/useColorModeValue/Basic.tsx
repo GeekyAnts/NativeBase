@@ -13,6 +13,7 @@ function UseColorMode() {
   const { toggleColorMode } = useColorMode();
   const text = useColorModeValue('Light', 'Dark');
   const bg = useColorModeValue('warmGray.50', 'coolGray.800');
+
   return (
     <Center>
       <Box p="4" flex="1" bg={bg} maxW="300" w="100%" mt={10} safeArea>
