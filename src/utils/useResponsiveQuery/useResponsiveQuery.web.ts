@@ -44,6 +44,24 @@ import React from 'react';
 // refer line number 121 in `react-native-web/dist/exports/StyleSheet/createOrdererdCSSStyleSheetfile`.
 // We can trick this hash id generator by adding a comment on top of our media query rule in this format. /* media-query + data-attr {} */ then it'll start using media-query + data-attr as cache key
 
+/******************** Implementation after RNW v0.18 ***********************/
+
+/**
+ * 1. preprocess:- Handles shadow/text shadow conversion from RN styles to web *                 styles
+ *
+ * 2. atomic:- it handles prefixing, converting RN specific styles to web styles *             and generating the CSS selector.
+ *             Input {marginTop: 10}
+ *             Output
+ *             compiledStyle : marginTop: "r-marginTop-156q2ks"
+ *             compiledOrderedRules : ".r-marginTop-156q2ks{margin-top:10px;}"
+ *      a)compiledStyle:- Array it holds identifier/selector with properties
+ *      b)compiledOrderedRules:- Array it holds the css rule with selector name
+ *      Also from RNW v0.18 handles swapping of ltr styles if enabled by user
+ * 3. createSheet:- used to grab sheet which exist already created by rnw. when we *                  call createSheet without id it will return sheet which exist. *                  cause it automatically takes a default ID  which is already in *                  use (created by rnw with default ID) so this return sheet *                  which exist with  ID doesn't create a new sheet.
+ *
+ * This Implementation is based on asumptions that RNW doesn't change the         * function  or doesn't re-write them. if there is any change in RNW implmentation * it we'll break and needs to be updated.
+ *
+ */
 const MEDIA_QUERY_STYLESHEET_GROUP = 3;
 
 export const useResponsiveQuery = (
@@ -140,8 +158,7 @@ const getResponsiveStyles = (
         const flattenQueryStyle = StyleSheet.flatten(queryRule.style);
         const newStyle = preprocess(flattenQueryStyle);
         const [compiledStyle, compiledOrderedRules] = atomic(newStyle);
-
-        delete compiledStyle.$$css;
+        delete compiledStyle.$$css; //removing unnecessary $$css property
         Object.keys(compiledStyle).forEach((key) => {
           const oldIdentifier = compiledStyle[key];
           compiledOrderedRules.forEach(([rules, _order]: any) => {
