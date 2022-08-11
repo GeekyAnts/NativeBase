@@ -3,7 +3,7 @@ import { atomic } from 'react-native-web/dist/exports/StyleSheet/compiler';
 //@ts-ignore
 import { createSheet } from 'react-native-web/dist/exports/StyleSheet/dom';
 //@ts-ignore
-import preprocess from 'react-native-web/dist/exports/StyleSheet/preprocess';
+import preprocess from 'react-native-web/dist/exports/StyleSheet/preprocess.js';
 import type {
   DataSet,
   Query,
