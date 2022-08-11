@@ -1,20 +1,9 @@
 //@ts-ignore
-// import createCompileableStyle from 'react-native-web/dist/exports/StyleSheet/createCompileableStyle';
-// //@ts-ignore
-// import i18nStyle from 'react-native-web/dist/exports/StyleSheet/i18nStyle';
-
-//@ts-ignore
 import { atomic } from 'react-native-web/dist/exports/StyleSheet/compiler';
-
-// console.log(Test, 'test');
-// //@ts-ignore
-// import styleResolver from 'react-native-web/dist/exports/StyleSheet';
-// import stylesheet from 'react-native-web/dist/exports/StyleSheet';
 //@ts-ignore
 import { createSheet } from 'react-native-web/dist/exports/StyleSheet/dom';
 //@ts-ignore
 import preprocess from 'react-native-web/dist/exports/StyleSheet/preprocess';
-// import {} from 'react-native-web';
 import type {
   DataSet,
   Query,
@@ -23,7 +12,7 @@ import type {
   GetResponsiveStylesParams,
 } from './types';
 import { StyleSheet } from 'react-native';
-//@ts-ignore
+// @ts-ignore
 import stableHash from 'stable-hash';
 import hash from './hash';
 import type { GetResponsiveStylesReturnType } from './types';
@@ -136,7 +125,6 @@ const getResponsiveStyles = (
     : undefined;
 
   let dataSet: DataSet = {};
-  // console.log(' hello query');
 
   if (queries.query) {
     queries.query.forEach((queryRule) => {
@@ -150,69 +138,21 @@ const getResponsiveStyles = (
         let mediaRules = '';
 
         const flattenQueryStyle = StyleSheet.flatten(queryRule.style);
-        console.log('flattenQueryStyle', flattenQueryStyle);
-        // const newStyle = createCompileableStyle(i18nStyle(flattenQueryStyle));
         const newStyle = preprocess(flattenQueryStyle);
-        console.log('newStyle', newStyle);
-        // console.log(
-        //   '*** i18nStyle',
-        //   flattenQueryStyle,
-        //   i18nStyle(flattenQueryStyle)
-        // );
-        // console.log(
-        //   '*** createCompileableStyle',
-        //   i18nStyle(flattenQueryStyle),
-        //   newStyle
-        // );
-
-        // const results = atomic(flattenQueryStyle);
         const [compiledStyle, compiledOrderedRules] = atomic(newStyle);
-        // console.log('*** atomic', compiledOrderedRules);
+
         delete compiledStyle.$$css;
         Object.keys(compiledStyle).forEach((key) => {
           const oldIdentifier = compiledStyle[key];
-          compiledOrderedRules.forEach(([rules, order]) => {
+          compiledOrderedRules.forEach(([rules, _order]: any) => {
             // Rule returned by atomic has css selectors, so we'll replace it with data-attr selector
             const newRule = rules[0].replace(
               '.' + oldIdentifier,
               newIdentifier
             );
-
             mediaRules += newRule;
           });
         });
-
-        // Object.keys(results).forEach((key) => {
-        //   const oldIdentifier = results[key].identifier;
-
-        //   // if (process.env.NODE_ENV !== 'production') {
-        //   //   dataSet[dataAttribute] =
-        //   //     oldIdentifier + ' ' + dataSet[dataAttribute];
-        //   // }
-
-        //   compiledOrderedRules.forEach(([rules, order]) => {
-
-        //     rules.forEach((oldRule: string) => {
-        //       // Rule returned by atomic has css selectors, so we'll replace it with data-attr selector
-        //       const newRule = oldRule.replace('.' + oldIdentifier, newIdentifier);
-        //       mediaRules += newRule;
-        //     });
-
-        //     // if (sheet != null) {
-        //     //   rules.forEach((rule) => {
-        //     //     sheet.insert(rule, order);
-        //     //   });
-        //     // }
-
-        //   // results[key].rules.forEach((oldRule: string) => {
-        //   //   // Rule returned by atomic has css selectors, so we'll replace it with data-attr selector
-        //   //   const newRule = oldRule.replace('.' + oldIdentifier, newIdentifier);
-        //   //   mediaRules += newRule;
-        //   // });
-        // });
-
-        // console.log(stylesheet.getSheet(), 'style sheet here');
-
         if (mediaRules) {
           const mediaQueryRule = getMediaQueryRule(queryRule, mediaRules);
 
@@ -222,16 +162,12 @@ const getResponsiveStyles = (
 
           // const stylesheetText = `/*${queryHash}{}*/${mediaQueryRule}`;
 
-          const sheet = createSheet();
+          const sheet = createSheet(); //return a sheet object which is being used doesn't create one
 
           sheet.insert(
             `/*${queryHash}{}*/${mediaQueryRule}`,
             MEDIA_QUERY_STYLESHEET_GROUP
           );
-          // const myOwnStyleSheet = StyleSheet.create({});
-          // console.log(myOwnStyleSheet, 'hello 222');
-          // stylesheet.getSheet().textContent +
-          //   `/*${queryHash}{}*/${mediaQueryRule}`;
         }
       }
     });
