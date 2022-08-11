@@ -10573,7 +10573,7 @@ react-native-svg@^12.1.0:
     css-select "^2.1.0"
     css-tree "^1.0.0-alpha.39"
 
-react-native-web@^0.18.7:
+react-native-web@^0.18.0:
   version "0.18.7"
   resolved "https://registry.yarnpkg.com/react-native-web/-/react-native-web-0.18.7.tgz#2b688502b3d389c49346fa3d8c9a20cfd52f507f"
   integrity sha512-5DwcsrAqLjOvzJJk/XPozEtqCOF3hrCJ55buLOEPMxvS8lKxRdeMF9SZUI2zyqE8JcMFGtQzLhWAZGeaTrXaRg==
