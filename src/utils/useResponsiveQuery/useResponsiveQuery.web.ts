@@ -10,7 +10,10 @@ import { atomic } from 'react-native-web/dist/exports/StyleSheet/compiler';
 // //@ts-ignore
 // import styleResolver from 'react-native-web/dist/exports/StyleSheet';
 // import stylesheet from 'react-native-web/dist/exports/StyleSheet';
+//@ts-ignore
 import { createSheet } from 'react-native-web/dist/exports/StyleSheet/dom';
+//@ts-ignore
+import preprocess from 'react-native-web/dist/exports/StyleSheet/preprocess';
 // import {} from 'react-native-web';
 import type {
   DataSet,
@@ -147,9 +150,10 @@ const getResponsiveStyles = (
         let mediaRules = '';
 
         const flattenQueryStyle = StyleSheet.flatten(queryRule.style);
-
+        console.log('flattenQueryStyle', flattenQueryStyle);
         // const newStyle = createCompileableStyle(i18nStyle(flattenQueryStyle));
-
+        const newStyle = preprocess(flattenQueryStyle);
+        console.log('newStyle', newStyle);
         // console.log(
         //   '*** i18nStyle',
         //   flattenQueryStyle,
@@ -162,7 +166,7 @@ const getResponsiveStyles = (
         // );
 
         // const results = atomic(flattenQueryStyle);
-        const [compiledStyle, compiledOrderedRules] = atomic(flattenQueryStyle);
+        const [compiledStyle, compiledOrderedRules] = atomic(newStyle);
         // console.log('*** atomic', compiledOrderedRules);
         delete compiledStyle.$$css;
         Object.keys(compiledStyle).forEach((key) => {

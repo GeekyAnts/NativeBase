@@ -93,7 +93,7 @@ const Example = () => {
           letterSpacing: 'lg',
         }}
         bg={['red.400', 'blue.400']}
-        // p={[2, 5]}
+        shadow={[8, 1]}
       >
         This is a Box
       </Box>
