@@ -48,19 +48,20 @@ export default function App() {
         {customIsOn && <CustomButtonScreen />}
         {nativeBaseIsOn && <NativeBaseScreen />} */}
         <NativeBaseProvider
-        // theme={extendTheme({
-        //   // config: { initialColorMode: 'dark' },
-        //   components: {
-        //     Pressable: {
-        //       bg: 'blue.400',
-        //       _hover: 'red.500',
-        //     },
-        //   },
-        // })}
+          isSSR
+          // theme={extendTheme({
+          //   // config: { initialColorMode: 'dark' },
+          //   components: {
+          //     Pressable: {
+          //       bg: 'blue.400',
+          //       _hover: 'red.500',
+          //     },
+          //   },
+          // })}
         >
-          <DripsyProvider theme={theme}>
-            <NativeBaseScreen />
-          </DripsyProvider>
+          {/* <DripsyProvider theme={theme}> */}
+          <NativeBaseScreen />
+          {/* </DripsyProvider> */}
         </NativeBaseProvider>
       </View>
     </>

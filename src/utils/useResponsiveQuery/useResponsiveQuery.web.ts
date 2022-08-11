@@ -1,11 +1,17 @@
 //@ts-ignore
-import createCompileableStyle from 'react-native-web/dist/exports/StyleSheet/createCompileableStyle';
+// import createCompileableStyle from 'react-native-web/dist/exports/StyleSheet/createCompileableStyle';
+// //@ts-ignore
+// import i18nStyle from 'react-native-web/dist/exports/StyleSheet/i18nStyle';
+
 //@ts-ignore
-import i18nStyle from 'react-native-web/dist/exports/StyleSheet/i18nStyle';
-//@ts-ignore
-import { atomic } from 'react-native-web/dist/exports/StyleSheet/compile';
-//@ts-ignore
-import styleResolver from 'react-native-web/dist/exports/StyleSheet/styleResolver';
+import { atomic } from 'react-native-web/dist/exports/StyleSheet/compiler';
+
+// console.log(Test, 'test');
+// //@ts-ignore
+// import styleResolver from 'react-native-web/dist/exports/StyleSheet';
+// import stylesheet from 'react-native-web/dist/exports/StyleSheet';
+import { createSheet } from 'react-native-web/dist/exports/StyleSheet/dom';
+// import {} from 'react-native-web';
 import type {
   DataSet,
   Query,
@@ -127,6 +133,7 @@ const getResponsiveStyles = (
     : undefined;
 
   let dataSet: DataSet = {};
+  // console.log(' hello query');
 
   if (queries.query) {
     queries.query.forEach((queryRule) => {
@@ -140,23 +147,67 @@ const getResponsiveStyles = (
         let mediaRules = '';
 
         const flattenQueryStyle = StyleSheet.flatten(queryRule.style);
-        const newStyle = createCompileableStyle(i18nStyle(flattenQueryStyle));
-        const results = atomic(newStyle);
 
-        Object.keys(results).forEach((key) => {
-          const oldIdentifier = results[key].identifier;
+        // const newStyle = createCompileableStyle(i18nStyle(flattenQueryStyle));
 
-          if (process.env.NODE_ENV !== 'production') {
-            dataSet[dataAttribute] =
-              oldIdentifier + ' ' + dataSet[dataAttribute];
-          }
+        // console.log(
+        //   '*** i18nStyle',
+        //   flattenQueryStyle,
+        //   i18nStyle(flattenQueryStyle)
+        // );
+        // console.log(
+        //   '*** createCompileableStyle',
+        //   i18nStyle(flattenQueryStyle),
+        //   newStyle
+        // );
 
-          results[key].rules.forEach((oldRule: string) => {
+        // const results = atomic(flattenQueryStyle);
+        const [compiledStyle, compiledOrderedRules] = atomic(flattenQueryStyle);
+        // console.log('*** atomic', compiledOrderedRules);
+        delete compiledStyle.$$css;
+        Object.keys(compiledStyle).forEach((key) => {
+          const oldIdentifier = compiledStyle[key];
+          compiledOrderedRules.forEach(([rules, order]) => {
             // Rule returned by atomic has css selectors, so we'll replace it with data-attr selector
-            const newRule = oldRule.replace('.' + oldIdentifier, newIdentifier);
+            const newRule = rules[0].replace(
+              '.' + oldIdentifier,
+              newIdentifier
+            );
+
             mediaRules += newRule;
           });
         });
+
+        // Object.keys(results).forEach((key) => {
+        //   const oldIdentifier = results[key].identifier;
+
+        //   // if (process.env.NODE_ENV !== 'production') {
+        //   //   dataSet[dataAttribute] =
+        //   //     oldIdentifier + ' ' + dataSet[dataAttribute];
+        //   // }
+
+        //   compiledOrderedRules.forEach(([rules, order]) => {
+
+        //     rules.forEach((oldRule: string) => {
+        //       // Rule returned by atomic has css selectors, so we'll replace it with data-attr selector
+        //       const newRule = oldRule.replace('.' + oldIdentifier, newIdentifier);
+        //       mediaRules += newRule;
+        //     });
+
+        //     // if (sheet != null) {
+        //     //   rules.forEach((rule) => {
+        //     //     sheet.insert(rule, order);
+        //     //   });
+        //     // }
+
+        //   // results[key].rules.forEach((oldRule: string) => {
+        //   //   // Rule returned by atomic has css selectors, so we'll replace it with data-attr selector
+        //   //   const newRule = oldRule.replace('.' + oldIdentifier, newIdentifier);
+        //   //   mediaRules += newRule;
+        //   // });
+        // });
+
+        // console.log(stylesheet.getSheet(), 'style sheet here');
 
         if (mediaRules) {
           const mediaQueryRule = getMediaQueryRule(queryRule, mediaRules);
@@ -164,10 +215,19 @@ const getResponsiveStyles = (
           // Here by prepending the /*${queryHash}{}*/ comment, we're kind of tricking the regex used by rn-web to verify if a rule is inserted or not.
           // Looks safe to me, just need to keep a check if there are any implementation changes in createStyleSheet file in rn-web in future.
           // Second argument defines the order of the insertion. DataSet and class selectors have same CSS specificity so we need to make sure that media rules have higher precedence. Max precendence in RN web is around 2.2 so 3 ensures styles will be appended later
-          styleResolver.sheet.insert(
+
+          // const stylesheetText = `/*${queryHash}{}*/${mediaQueryRule}`;
+
+          const sheet = createSheet();
+
+          sheet.insert(
             `/*${queryHash}{}*/${mediaQueryRule}`,
             MEDIA_QUERY_STYLESHEET_GROUP
           );
+          // const myOwnStyleSheet = StyleSheet.create({});
+          // console.log(myOwnStyleSheet, 'hello 222');
+          // stylesheet.getSheet().textContent +
+          //   `/*${queryHash}{}*/${mediaQueryRule}`;
         }
       }
     });

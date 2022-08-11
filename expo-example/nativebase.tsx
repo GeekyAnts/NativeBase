@@ -80,19 +80,23 @@ const Example = () => {
   //   console.endTimeKey('mountmodal', '>>>>>>>>>>>>>>>>>> modal');
   // });
 
-  const toast = useToast();
+  // const toast = useToast();
   return (
     <View>
-      <Button
-        mt={100}
-        onPress={() =>
-          toast.show({
-            title: 'Test',
-          })
-        }
+      <Box
+        alignSelf="center"
+        // bg="primary.500"
+        _text={{
+          fontSize: 'md',
+          fontWeight: 'medium',
+          color: 'warmGray.50',
+          letterSpacing: 'lg',
+        }}
+        bg={['red.400', 'blue.400']}
+        // p={[2, 5]}
       >
-        hello
-      </Button>
+        This is a Box
+      </Box>
     </View>
   );
 

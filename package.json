@@ -84,7 +84,7 @@
     "react-native": "0.63.2",
     "react-native-safe-area-context": "^3.1.9",
     "react-native-svg": "^12.1.0",
-    "react-native-web": "^0.17.7",
+    "react-native-web": "0.18.2",
     "react-test-renderer": "^16.9.0",
     "release-it": "^13.5.8",
     "rollup": "^2.34.1",
