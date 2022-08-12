@@ -146,7 +146,7 @@ const Select = (
     });
   }
 
-  const [layoutProps] = extractInObject(resolvedProps, [
+  const [layoutProps, nonLayoutProps] = extractInObject(resolvedProps, [
     ...stylingProps.margin,
     ...stylingProps.flexbox,
     ...stylingProps.position,
@@ -158,7 +158,7 @@ const Select = (
     <Input
       placeholder={placeholder}
       InputRightElement={rightIcon}
-      {...resolvedProps}
+      {...nonLayoutProps}
       // NOTE: Adding ts-ignore as we're not exposing isFocused in the Input component
       // @ts-ignore-next-line
       isFocused={isFocused}
@@ -174,7 +174,7 @@ const Select = (
   );
 
   return Platform.OS === 'web' ? (
-    <Box>
+    <Box {...layoutProps}>
       {/* <Box w="100%" h="100%" position="absolute" opacity="0" zIndex={1}> */}
       <select
         aria-readonly={selectProps.readOnly}
