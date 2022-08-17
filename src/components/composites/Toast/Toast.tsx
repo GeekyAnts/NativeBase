@@ -83,7 +83,11 @@ const CustomToast = ({ _overlay, _stack, _presenceTransition }: any) => {
   });
 
   return getPositions().length > 0 ? (
-    <Overlay {..._overlay} isOpen={hasToastOnOverlay}>
+    <Overlay
+      {..._overlay}
+      isOpen={hasToastOnOverlay}
+      isKeyboardDismissable={false}
+    >
       {getPositions().map((position: string) => {
         if (Object.keys(POSITIONS).includes(position))
           return (
