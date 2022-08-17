@@ -170,6 +170,7 @@ const Select = (
       focusable={false}
       isDisabled={isDisabled}
       pointerEvents="none"
+      variant={props?.variant}
     />
   );
 
