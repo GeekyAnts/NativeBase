@@ -31,6 +31,7 @@ const Select = (
     isHovered: isHoveredProp,
     isFocused: isFocusedProp,
     isFocusVisible: isFocusVisibleProp,
+    variant,
     ...props
   }: ISelectProps,
   ref: any
@@ -170,7 +171,7 @@ const Select = (
       focusable={false}
       isDisabled={isDisabled}
       pointerEvents="none"
-      variant={props?.variant}
+      variant={variant}
     />
   );
 
