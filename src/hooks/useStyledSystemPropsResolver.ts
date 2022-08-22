@@ -69,7 +69,7 @@ export const useStyledSystemPropsResolver = ({
     console.log('style,resprops', currentBreakpoint);
   }
 
-  restProps.dataSet = dataSet;
+  restProps.dataSet = { ...restProps.dataSet, ...dataSet };
 
   return [style, restProps];
 };
