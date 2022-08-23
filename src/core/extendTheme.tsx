@@ -1,5 +1,6 @@
 import { theme as defaultTheme, Theme } from './../theme';
 import mergeWith from 'lodash.mergewith';
+import omit from 'lodash.omit';
 
 function isFunction(value: any): boolean {
   return typeof value === 'function';
@@ -52,7 +53,10 @@ const resolveColorModeStyling = (
   colorMode: string
 ) => {
   if (overrideValue.hasOwnProperty(colorMode)) {
-    const newOverRider = { ...overrideValue, ...overrideValue[colorMode] };
+    const newOverRider = {
+      ...omit(overrideValue, ['_light', '_dark']),
+      ...overrideValue[colorMode],
+    };
     mergeWith(sourceValue[colorMode], sourceValue[colorMode], newOverRider);
   } else {
     mergeWith(sourceValue[colorMode], sourceValue[colorMode], overrideValue);
