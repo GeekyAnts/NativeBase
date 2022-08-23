@@ -12,12 +12,24 @@ export function extendTheme<T extends ThemeUtil>(
   ...restOverrides: T[]
 ) {
   function customizer(source: any, override: any) {
+    if (source && source.hasOwnProperty('_light')) {
+      resolveColorModeStyling(source, override, '_light');
+    }
+    if (source && source.hasOwnProperty('_dark')) {
+      resolveColorModeStyling(source, override, '_dark');
+    }
     if (isFunction(source)) {
       return (...args: any[]) => {
         const sourceValue = source(...args);
         const overrideValue = isFunction(override)
           ? override(...args)
           : override;
+        if (sourceValue.hasOwnProperty('_light')) {
+          resolveColorModeStyling(sourceValue, overrideValue, '_light');
+        }
+        if (sourceValue.hasOwnProperty('_dark')) {
+          resolveColorModeStyling(sourceValue, overrideValue, '_dark');
+        }
         return mergeWith({}, sourceValue, overrideValue, customizer);
       };
     }
@@ -33,3 +45,16 @@ export function extendTheme<T extends ThemeUtil>(
 
   return finalOverrides as T & Theme;
 }
+
+const resolveColorModeStyling = (
+  sourceValue: any,
+  overrideValue: any,
+  colorMode: string
+) => {
+  if (overrideValue.hasOwnProperty(colorMode)) {
+    const newOverRider = { ...overrideValue, ...overrideValue[colorMode] };
+    mergeWith(sourceValue[colorMode], sourceValue[colorMode], newOverRider);
+  } else {
+    mergeWith(sourceValue[colorMode], sourceValue[colorMode], overrideValue);
+  }
+};
