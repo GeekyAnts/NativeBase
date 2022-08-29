@@ -284,35 +284,38 @@ const simplifyProps = (
     cascadePseudoProps,
   }: any,
   flattenProps: any = {},
+  stateProps: any = {},
   specificityMap: any = {},
   priority: number
 ) => {
   const mergePsuedoProps = (property: string, propertySpecity: object) => {
     if (compareSpecificity(specificityMap[property], propertySpecity, false)) {
-      if (process.env.NODE_ENV === 'development' && props.debug) {
-        /* eslint-disable-next-line */
-        console.log(
-          `%c ${property}`,
-          'color: #818cf8;',
-          'updated as internal prop with higher specificity'
-        );
-      }
+      // if (process.env.NODE_ENV === 'development' && props.debug) {
+      //   /* eslint-disable-next-line */
+      //   console.log(
+      //     `%c ${property}`,
+      //     'color: #818cf8;',
+      //     'updated as internal prop with higher specificity'
+      //   );
+      // }
       specificityMap[property] = propertySpecity;
       // merging internal props (like, _text, _stack ...)
+
       flattenProps[property] = merge(
         {},
         flattenProps[property],
         props[property]
       );
     } else {
-      if (process.env.NODE_ENV === 'development' && props.debug) {
-        /* eslint-disable-next-line */
-        console.log(
-          `%c ${property}`,
-          'color: #818cf8;',
-          'updated as internal prop with lower specificity'
-        );
-      }
+      // if (process.env.NODE_ENV === 'development' && props.debug) {
+      //   /* eslint-disable-next-line */
+      //   console.log(
+      //     `%c ${property}`,
+      //     'color: #818cf8;',
+      //     'updated as internal prop with lower specificity'
+      //   );
+      // }
+
       flattenProps[property] = merge(
         {},
         props[property],
@@ -320,6 +323,7 @@ const simplifyProps = (
       );
     }
   };
+
   for (const property in props) {
     // NOTE: the order is important here. Keep in mind while specificity breakpoints.
     const propertySpecity = currentSpecificity
@@ -331,7 +335,36 @@ const simplifyProps = (
 
     if (
       // @ts-ignore
-      state[pseudoPropsMap[property]?.respondTo] ||
+      state[pseudoPropsMap[property]?.respondTo]
+    ) {
+      // @ts-ignore
+      if (shouldResolvePseudoProp({ property, state, platform, colormode })) {
+        // NOTE: Handling (state driven) props like _important, _web, _ios, _android, _dark, _light, _disabled, _focus, _focusVisible, _hover, _pressed, _readOnly, _invalid, .... Only when they are true.
+
+        // @ts-ignore
+        propertySpecity[pseudoPropsMap[property].priority]++;
+
+        simplifyProps(
+          {
+            props: props[property],
+            colormode,
+            platform,
+            state,
+            currentSpecificity: propertySpecity,
+            previouslyFlattenProps: previouslyFlattenProps,
+            cascadePseudoProps,
+          },
+          stateProps,
+          stateProps,
+          specificityMap,
+          priority
+        );
+
+        if (props.bg == 'blue.500') {
+          console.log(flattenProps, stateProps, property, '*** #');
+        }
+      }
+    } else if (
       ['_dark', '_light', '_web', '_ios', '_android', '_important'].includes(
         property
       )
@@ -361,6 +394,7 @@ const simplifyProps = (
             cascadePseudoProps,
           },
           flattenProps,
+          stateProps,
           specificityMap,
           priority
         );
@@ -424,6 +458,7 @@ export const propsFlattener = (
   priority: number
 ) => {
   const flattenProps: any = {};
+  const stateProps: any = {};
 
   for (const property in props) {
     if (
@@ -448,11 +483,12 @@ export const propsFlattener = (
       cascadePseudoProps,
     },
     flattenProps,
+    stateProps,
     specificityMap,
     priority
   );
 
-  return [flattenProps, specificityMap];
+  return [flattenProps, specificityMap, stateProps];
 };
 
 export const callPropsFlattener = (
@@ -494,7 +530,8 @@ export const resolvePropsToStyle = (
   currentBreakpoint: any,
   strictMode: any,
   getResponsiveStyles?: any,
-  INTERNAL_themeStyle?: any
+  INTERNAL_themeStyle?: any,
+  stateProps?: any
 ) => {
   const {
     unResolvedProps,
@@ -511,13 +548,24 @@ export const resolvePropsToStyle = (
     platform,
   });
 
-  // console.log(
-  //   StyleSheet.flatten([INTERNAL_themeStyle, styleSheet.box, propStyle]),
-  //   '3333 style system props'
-  // );
+  const {
+    unResolvedProps: unResolvedProps1,
+    styleFromProps: styleFromProps1,
+    restDefaultProps: restDefaultProps1,
+    dataSet: dataSet1,
+  } = getStyleAndFilteredProps({
+    styledSystemProps: stateProps,
+    theme,
+    debug,
+    currentBreakpoint,
+    strictMode,
+    getResponsiveStyles,
+    platform,
+  });
+
   if (propStyle) {
     return {
-      style: [INTERNAL_themeStyle, styleFromProps, propStyle],
+      style: [INTERNAL_themeStyle, styleFromProps, styleFromProps1, propStyle],
       styleFromProps,
       unResolvedProps,
       restDefaultProps,
@@ -526,7 +574,7 @@ export const resolvePropsToStyle = (
     };
   } else {
     return {
-      style: [INTERNAL_themeStyle, styleFromProps],
+      style: [INTERNAL_themeStyle, styleFromProps, styleFromProps1],
       styleFromProps,
       unResolvedProps,
       restDefaultProps,

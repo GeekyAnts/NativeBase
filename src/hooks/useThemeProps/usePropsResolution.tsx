@@ -58,9 +58,9 @@ export function usePropsResolution(
   );
   // console.timeEnd(component + ' ***');
 
-  // if (component === 'Button' || component === 'Stack') {
-  //   console.log(componentThemeProps, component, 'theme props');
-  // }
+  if (component === 'Button') {
+    // console.log(componentThemeProps, component, 'theme props');
+  }
 
   if (config?.extendTheme) {
     config.extendTheme.forEach((extendedComponent) => {
@@ -104,13 +104,18 @@ export function usePropsResolution(
   // if (component === 'SliderThumb') {
   //   console.log(componentThemeProps, 'component theme');
   // }
-  let resolvedFlattenProps = usePropsResolutionWithComponentTheme(
+  let resolvedPropsWithStateProps = usePropsResolutionWithComponentTheme(
     componentTheme,
     merge({}, componentThemeProps?.unResolvedProps, incomingProps),
     theme,
     state,
     { ...config, name: component }
   );
+  let resolvedFlattenProps = resolvedPropsWithStateProps.flattenProps;
+  let resolvedStateProps = {
+    ...inputProps.stateProps,
+    ...resolvedPropsWithStateProps.stateProps,
+  };
 
   // if (component === 'Progress') {
   //   console.log(
@@ -309,6 +314,7 @@ export function usePropsResolution(
   const resolvedProps = omitUndefined({
     ...resolvedFlattenProps,
     ...ignoredProps,
+    stateProps: resolvedStateProps,
   });
 
   return resolvedProps;
@@ -517,10 +523,15 @@ export const usePropsResolutionWithComponentTheme = (
   // console.log(incomingWithDefaultProps, 'incoming with default');
   //TODO: hack
   //@ts-ignore
-  let flattenProps: any, specificityMap;
+  let flattenProps: any, stateProps, specificityMap;
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  [flattenProps, specificityMap] = callPropsFlattener(
+
+  [
+    flattenProps,
+    specificityMap,
+    stateProps,
+  ] = callPropsFlattener(
     incomingWithDefaultProps,
     {},
     2,
@@ -530,6 +541,10 @@ export const usePropsResolutionWithComponentTheme = (
     flattenProps,
     { ...config, platform: Platform.OS }
   );
+
+  if (config.name === 'Button') {
+    console.log(flattenProps.bg, stateProps, state?.isHovered, 'zzz');
+  }
 
   // console.log(specificityMap, "*****");
   // console.log("outgoing ******", flattenProps);
@@ -600,5 +615,8 @@ export const usePropsResolutionWithComponentTheme = (
   // );
 
   // STEP 5: Return
-  return omitUndefined(flattenProps);
+  return {
+    flattenProps: omitUndefined(flattenProps),
+    stateProps: omitUndefined(stateProps),
+  };
 };

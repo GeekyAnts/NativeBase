@@ -59,7 +59,8 @@ export const useStyledSystemPropsResolver = ({
       currentBreakpoint,
       strictMode,
       getResponsiveStyles,
-      restProps.INTERNAL_themeStyle
+      restProps.INTERNAL_themeStyle,
+      restProps.stateProps
     );
 
     // console.log(
