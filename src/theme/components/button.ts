@@ -1,16 +1,7 @@
 import type { InterfaceButtonProps } from '../../components/primitives/Button/types';
-import { mode } from './../tools';
 
 const baseStyle = (props: InterfaceButtonProps & { theme: any }) => {
   const { primary } = props.theme.colors;
-  const focusRing = mode(
-    {
-      boxShadow: `${primary[400]} 0px 0px 0px 2px`,
-    },
-    {
-      boxShadow: `${primary[500]} 0px 0px 0px 2px`,
-    }
-  )(props);
 
   return {
     borderRadius: 'sm', // '4px'
@@ -30,8 +21,14 @@ const baseStyle = (props: InterfaceButtonProps & { theme: any }) => {
     },
     _focusVisible: {
       _web: {
-        outlineWidth: '0',
-        style: { ...focusRing },
+        _light: {
+          outlineWidth: '0',
+          style: { boxShadow: `${primary[400]} 0px 0px 0px 2px` },
+        },
+        _dark: {
+          outlineWidth: '0',
+          style: { boxShadow: `${primary[500]} 0px 0px 0px 2px` },
+        },
       },
     },
     _stack: {
