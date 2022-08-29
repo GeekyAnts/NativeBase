@@ -10,9 +10,8 @@ export const resolveStackStyleInput = (variant: any, color: any) => {
     };
   } else {
     return {
-      outlineWidth: '1px',
-      outlineColor: color,
-      outlineStyle: 'solid',
+      outlineWidth: '0',
+      boxShadow: `0 0 0 1px ${color}`,
     };
   }
 };

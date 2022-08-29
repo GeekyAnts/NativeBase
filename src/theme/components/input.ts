@@ -42,9 +42,8 @@ const baseStyle = (props: InterfaceInputProps & { theme: any }) => {
         _hover: { borderColor: 'primary.600' },
         _stack: {
           style: {
-            outlineWidth: '1px',
-            outlineColor: primary[600],
-            outlineStyle: 'solid',
+            outlineWidth: '0',
+            boxShadow: `0 0 0 1px ${primary[600]}`,
           },
         },
       },
@@ -53,9 +52,8 @@ const baseStyle = (props: InterfaceInputProps & { theme: any }) => {
         _hover: { borderColor: 'error.600' },
         _stack: {
           style: {
-            outlineWidth: '1px',
-            outlineColor: error[600],
-            outlineStyle: 'solid',
+            outlineWidth: '0',
+            boxShadow: `0 0 0 1px ${error[600]}`,
           },
         },
       },
@@ -90,9 +88,8 @@ const baseStyle = (props: InterfaceInputProps & { theme: any }) => {
         _hover: { borderColor: 'primary.500' },
         _stack: {
           style: {
-            outlineWidth: '1px',
-            outlineColor: primary[500],
-            outlineStyle: 'solid',
+            outlineWidth: '0',
+            boxShadow: `0 0 0 1px ${primary[500]}`,
           },
         },
       },
@@ -100,9 +97,8 @@ const baseStyle = (props: InterfaceInputProps & { theme: any }) => {
         borderColor: 'error.500',
         _stack: {
           style: {
-            outlineWidth: '1px',
-            outlineColor: error[500],
-            outlineStyle: 'solid',
+            outlineWidth: '0',
+            boxShadow: `0 0 0 1px ${error[500]}`,
           },
         },
         _hover: { borderColor: 'error.500' },
