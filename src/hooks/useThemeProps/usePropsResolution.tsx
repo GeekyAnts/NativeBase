@@ -2,7 +2,7 @@
 import { useNativeBase } from '../useNativeBase';
 import { omitUndefined, extractInObject, isLiteral } from '../../theme/tools';
 import { useBreakpointResolvedProps } from '../useBreakpointResolvedProps';
-import type { IStateProps } from './propsFlattener';
+import { IStateProps, propsSpreader } from './propsFlattener';
 import { useResponsiveSSRProps } from '../useResponsiveSSRProps';
 import type { ComponentTheme } from '../../theme';
 import { useNativeBaseConfig } from '../../core/NativeBaseContext';
@@ -58,6 +58,7 @@ export function usePropsResolution(
     state,
     incomingProps
   );
+
   // console.timeEnd(component + ' ***');
 
   if (component === 'Button') {
@@ -501,10 +502,20 @@ export const usePropsResolutionWithComponentTheme = (
 
   const responsivelyResolvedProps = useBreakpointResolvedProps(responsiveProps);
 
+  // const defaultSpecificity = merge(
+  //   {},
+  //   specificityMap,
+  //   baseSpecificityMap,
+  //   variantSpecificityMap,
+  //   sizeSpecificityMap
+  // );
+
   flattenProps = {
     ...flattenProps,
     ...responsivelyResolvedProps,
   };
+
+  flattenProps = propsSpreader({ ...flattenProps }, specificityMap);
 
   //tested
 
@@ -551,4 +562,5 @@ export const usePropsResolutionWithComponentTheme = (
     flattenProps: omitUndefined(flattenProps),
     stateProps: omitUndefined(stateProps),
   };
+
 };
