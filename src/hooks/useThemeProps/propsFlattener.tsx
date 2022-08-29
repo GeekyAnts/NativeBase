@@ -360,9 +360,9 @@ const simplifyProps = (
           priority
         );
 
-        if (props.bg == 'blue.500') {
-          console.log(flattenProps, stateProps, property, '*** #');
-        }
+        // if (props.bg == 'blue.500') {
+        //   console.log(flattenProps, stateProps, property, '*** #');
+        // }
       }
     } else if (
       ['_dark', '_light', '_web', '_ios', '_android', '_important'].includes(
@@ -549,10 +549,10 @@ export const resolvePropsToStyle = (
   });
 
   const {
-    unResolvedProps: unResolvedProps1,
-    styleFromProps: styleFromProps1,
-    restDefaultProps: restDefaultProps1,
-    dataSet: dataSet1,
+    // unResolvedProps: unResolvedProps1,
+    styleFromProps: inlineStateStyleFromProps,
+    // restDefaultProps: restDefaultProps1,
+    // dataSet: dataSet1,
   } = getStyleAndFilteredProps({
     styledSystemProps: stateProps,
     theme,
@@ -563,9 +563,23 @@ export const resolvePropsToStyle = (
     platform,
   });
 
+  // if (styledSystemProps.bg === 'blue.500') {
+  //   console.log(
+  //     stateProps?.INTERNAL_themeStyle,
+  //     inlineStateStyleFromProps,
+  //     'state props here &&&****&&&***'
+  //   );
+  // }
+
   if (propStyle) {
     return {
-      style: [INTERNAL_themeStyle, styleFromProps, styleFromProps1, propStyle],
+      style: [
+        INTERNAL_themeStyle,
+        styleFromProps,
+        stateProps?.INTERNAL_themeStyle,
+        inlineStateStyleFromProps,
+        propStyle,
+      ],
       styleFromProps,
       unResolvedProps,
       restDefaultProps,
@@ -574,7 +588,12 @@ export const resolvePropsToStyle = (
     };
   } else {
     return {
-      style: [INTERNAL_themeStyle, styleFromProps, styleFromProps1],
+      style: [
+        INTERNAL_themeStyle,
+        styleFromProps,
+        stateProps?.INTERNAL_themeStyle,
+        inlineStateStyleFromProps,
+      ],
       styleFromProps,
       unResolvedProps,
       restDefaultProps,

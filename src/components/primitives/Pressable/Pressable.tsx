@@ -86,6 +86,13 @@ const Pressable = (
   // console.log(resolvedProps, 'hello 111 &&&');
 
   // TODO: Replace Render props with Context Hook
+
+  // console.log(
+  //   props.stateProps,
+  //   resolvedProps.stateProps,
+  //   'hello state props h3233'
+  // );
+
   return (
     <StyledPressable
       // style={[, pressableStyle]}

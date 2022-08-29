@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useNativeBase } from '../useNativeBase';
 import { omitUndefined, extractInObject, isLiteral } from '../../theme/tools';
 import { useBreakpointResolvedProps } from '../useBreakpointResolvedProps';
@@ -13,6 +14,7 @@ import { PSEUDO_PROP_COMPONENT_MAP } from '../../utils/styled';
 import get from 'lodash.get';
 import { Platform } from 'react-native';
 import merge from 'lodash.merge';
+import { isEmptyObj } from '../../utils';
 
 // const getThemeProps = resolvedMap.theme.getThemeProps;
 
@@ -26,7 +28,7 @@ import merge from 'lodash.merge';
  */
 export function usePropsResolution(
   component: string,
-  { INTERNAL_themeStyle, ...inputProps }: any,
+  { INTERNAL_themeStyle, stateProps, ...inputProps }: any,
   state?: IStateProps,
   config?: {
     componentTheme?: any;
@@ -73,12 +75,6 @@ export function usePropsResolution(
         incomingProps
       );
 
-      // if (component === 'TextArea') {
-      //   console.log(
-      //     extendedThemeProps.styleFromProps,
-      //     'extended theme props 11'
-      //   );
-      // }
       componentThemeProps.style = [
         ...componentThemeProps.style,
         ...extendedThemeProps.style,
@@ -91,11 +87,6 @@ export function usePropsResolution(
         ...componentThemeProps.unResolvedProps,
         ...extendedThemeProps.unResolvedProps,
       };
-      // componentThemeProps.unResolvedProps = merge(
-      //   {},
-      //   componentThemeProps.unResolvedProps,
-      //   extendedThemeProps.unResolvedProps
-      // );
     });
   }
 
@@ -113,7 +104,7 @@ export function usePropsResolution(
   );
   let resolvedFlattenProps = resolvedPropsWithStateProps.flattenProps;
   let resolvedStateProps = {
-    ...inputProps.stateProps,
+    ...stateProps,
     ...resolvedPropsWithStateProps.stateProps,
   };
 
@@ -177,18 +168,20 @@ export function usePropsResolution(
     ? [componentThemeProps.styleFromProps, ...INTERNAL_themeStyle]
     : [componentThemeProps.styleFromProps];
 
-  // if (component === 'Box') {
-  //   console.log(
-  //     'component thme props 22',
-  //     INTERNAL_themeStyle,
-  //     resolvedProps.INTERNAL_themeStyle
-  //   );
-  // }
+  resolvedStateProps.INTERNAL_themeStyle = stateProps?.INTERNAL_themeStyle
+    ? [
+        componentThemeProps.stateStyleFromProps,
+        ...stateProps.INTERNAL_themeStyle,
+      ]
+    : isEmptyObj(componentThemeProps.stateStyleFromProps)
+    ? []
+    : [componentThemeProps.stateStyleFromProps];
 
   resolvedFlattenProps = {
     ...componentThemeProps.restDefaultProps,
     ...resolvedFlattenProps,
   };
+
   if (resolvedFlattenProps.size) {
     if (
       !sizesExistsInTheme(componentTheme, resolvedFlattenProps.size) &&
@@ -227,28 +220,6 @@ export function usePropsResolution(
         incomingProps
       );
 
-      // console.log(
-      //   `${component}.${PSEUDO_PROP_COMPONENT_MAP[property]}`,
-      //   pseudoComponentThemeProps,
-      //   'hello 111'
-      // );
-      // if (component === 'Radio' && property === '_stack') {
-      //   // console.log(pseudoComponentThemeProps, incomingProps, 'property here');
-      // }
-      // if (component === 'Radio' && property === '_stack') {
-      //   console.log(incomingProps, 'property here');
-      // }
-
-      // if (component === 'Button') {
-      //   console.log(
-      //     property,
-      //     // componentThemeProps?.unResolvedProps,
-      //     pseudoComponentThemeProps,
-      //     // resolvedProps,
-      //     'hhhhh1111'
-      //   );
-      // }
-
       resolvedFlattenProps[property] = {
         ...pseudoComponentThemeProps.restDefaultProps,
         ...componentThemeProps.internalPseudoProps[property],
@@ -269,46 +240,7 @@ export function usePropsResolution(
             //   ]
             [pseudoComponentThemeProps.styleFromProps],
       };
-
-      // resolvedProps[property] = {
-      //   ...pseudoComponentThemeProps.restDefaultProps,
-      //   ...resolvedProps[property],
-      //   INTERNAL_themeStyle: resolvedProps[property]?.INTERNAL_themeStyle
-      //     ? [
-      //         ...pseudoComponentThemeProps.style,
-      //         ...resolvedProps[property].INTERNAL_themeStyle,
-      //       ]
-      //     : pseudoComponentThemeProps.style,
-      // };
-
-      // if (component === 'SliderTrack') {
-      //   console.log(
-      //     '&&&&&',
-      //     incomingProps,
-      //     // componentThemeProps.internalPseudoProps[property],
-      //     resolvedProps[property]
-      //   );
-      // }
     }
-
-    // else if (!pseudoPropStateMap[property]) {
-    //   console.log(
-    //     property,
-    //     componentThemeProps.internalPseudoProps[property],
-    //     'hello property'
-    //   );
-
-    //   resolvedProps[property] = {
-    //     ...resolvedProps[property],
-    //     ...componentThemeProps.internalPseudoProps[property],
-    //     // INTERNAL_themeStyle: resolvedProps[property]?.INTERNAL_themeStyle
-    //     //   ? [
-    //     //       ...pseudoComponentThemeProps.style,
-    //     //       ...resolvedProps[property].INTERNAL_themeStyle,
-    //     //     ]
-    //     //   : pseudoComponentThemeProps.style,
-    //   };
-    // }
   }
 
   const resolvedProps = omitUndefined({
@@ -317,6 +249,11 @@ export function usePropsResolution(
     stateProps: resolvedStateProps,
   });
 
+  // if (component === 'Button') {
+  //   console.log(resolvedStateProps, 'hello here');
+  // }
+
+  // console.log(stateProps, 'hello state propsher');
   return resolvedProps;
 }
 
@@ -526,7 +463,6 @@ export const usePropsResolutionWithComponentTheme = (
   let flattenProps: any, stateProps, specificityMap;
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-
   [
     flattenProps,
     specificityMap,
@@ -541,10 +477,6 @@ export const usePropsResolutionWithComponentTheme = (
     flattenProps,
     { ...config, platform: Platform.OS }
   );
-
-  if (config.name === 'Button') {
-    console.log(flattenProps.bg, stateProps, state?.isHovered, 'zzz');
-  }
 
   // console.log(specificityMap, "*****");
   // console.log("outgoing ******", flattenProps);

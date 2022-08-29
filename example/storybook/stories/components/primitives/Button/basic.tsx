@@ -7,7 +7,7 @@ export const Example = () => {
       <Button
         bg="blue.500"
         p="2"
-        _hover={{ bg: 'amber.400' }}
+        // _hover={{ bg: 'amber.400' }}
         onPress={() => console.log('hello world')}
       >
         Click Me
