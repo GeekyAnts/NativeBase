@@ -8,16 +8,19 @@ import { useResponsiveQuery } from '../utils/useResponsiveQuery';
 import stableHash from 'stable-hash';
 import { resolvePropsToStyle } from './useThemeProps/propsFlattener';
 import { Platform } from 'react-native';
+import { omitUndefined } from '../theme/tools';
 
 const getStyledSystemPropsAndRestProps = (props: any) => {
   const styledSystemProps: any = {};
   const restProps: any = {};
 
-  for (const key in props) {
+  const incomingAndThemeProps = omitUndefined(props);
+
+  for (const key in incomingAndThemeProps) {
     if (key in propConfig) {
-      styledSystemProps[key] = props[key];
+      styledSystemProps[key] = incomingAndThemeProps[key];
     } else {
-      restProps[key] = props[key];
+      restProps[key] = incomingAndThemeProps[key];
     }
   }
 
