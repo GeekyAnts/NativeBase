@@ -8,6 +8,8 @@ export const platformSpecificSpaceUnits = (theme: ITheme) => {
 
   const newTheme = { ...theme };
   const isWeb = Platform.OS === 'web';
+  console.log('is web', isWeb);
+
   scales.forEach((key) => {
     const scale = get(theme, key, {});
     const newScale = { ...scale };
@@ -24,6 +26,7 @@ export const platformSpecificSpaceUnits = (theme: ITheme) => {
             newScale[scaleKey] = convertAbsoluteToRem(val);
           }
         }
+
         // If platform is not web, we need to convert px unit to absolute and rem unit to absolute. e.g. 16px to 16. 1rem to 16.
         else {
           if (isRem) {

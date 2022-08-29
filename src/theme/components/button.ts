@@ -149,6 +149,7 @@ function variantSolid({ colorScheme }: InterfaceButtonProps) {
       bg: `${colorScheme}.600`,
       _hover: {
         bg: `${colorScheme}.700`,
+        // bg: `red.700`,
       },
       _pressed: {
         bg: `${colorScheme}.800`,
