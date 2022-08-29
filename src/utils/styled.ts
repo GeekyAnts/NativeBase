@@ -101,9 +101,12 @@ const getThemeObject = (
     // console.log(componentName, stateStyles, 'component state');
   }
 
+  let stateStyleSheet: any = [];
+
   forEach(stateStyles, (stateStyleObj) => {
     if (stateStyleObj[colorMode]) {
-      styleSheet = styleSheet.concat(stateStyleObj[colorMode]);
+      // styleSheet = styleSheet.concat(stateStyleObj[colorMode]);
+      stateStyleSheet = stateStyleSheet.concat(stateStyleObj[colorMode]);
     }
   });
 
@@ -133,10 +136,21 @@ const getThemeObject = (
     internalPseudoProps = { ...internalPseudoProps, ...props };
   }
 
+  const stateStyleFromPropsArray = map(stateStyleSheet, 'styleFromProps');
+  let stateStyleFromProps = {};
+  for (const props of stateStyleFromPropsArray) {
+    stateStyleFromProps = { ...stateStyleFromProps, ...props };
+  }
+
+  // if (componentName === 'Button') {
+  //   console.log(stateStyles, stateStyleSheet, 'hello here');
+  // }
+  // console.log(styleFromProps, "hello style from props")
   return {
     style: map(styleSheet, 'style'),
     unResolvedProps: unResolvedProps,
     styleFromProps: styleFromProps,
+    stateStyleFromProps: stateStyleFromProps,
     restDefaultProps: restDefaultProps,
     internalPseudoProps: internalPseudoProps,
   };

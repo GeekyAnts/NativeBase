@@ -52,6 +52,10 @@ export const useStyledSystemPropsResolver = ({
 
   // console.log('useStyledSystemPropsResolver', restProps);
 
+  // if (props.bg === 'blue.500') {
+  //   console.log(props.stateProps, 'hello here');
+  // }
+
   const { style, dataSet } = React.useMemo(() => {
     const resolvedStyle = resolvePropsToStyle(
       styledSystemProps,
@@ -62,7 +66,8 @@ export const useStyledSystemPropsResolver = ({
       currentBreakpoint,
       strictMode,
       getResponsiveStyles,
-      restProps.INTERNAL_themeStyle
+      restProps.INTERNAL_themeStyle,
+      restProps.stateProps
     );
 
     // console.log(
@@ -83,6 +88,7 @@ export const useStyledSystemPropsResolver = ({
     stableHash(propStyle),
     getResponsiveStyles,
     stableHash(props),
+    stableHash(restProps.stateProps),
   ]);
 
   // if (process.env.NODE_ENV === "development" && debug) {
