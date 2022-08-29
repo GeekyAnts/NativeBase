@@ -496,13 +496,28 @@ export const resolvePropsToStyle = (
   getResponsiveStyles?: any,
   INTERNAL_themeStyle?: any
 ) => {
+  let flattenInternalThemeProps = INTERNAL_themeStyle;
+  let fontSize;
+
+  if (Array.isArray(flattenInternalThemeProps)) {
+    flattenInternalThemeProps = flattenInternalThemeProps.flat();
+    fontSize = flattenInternalThemeProps[0]?.fontSize;
+  } else {
+    fontSize = flattenInternalThemeProps?.fontSize;
+  }
+
+  const modifiedStyledSytemProps = {
+    fontSize,
+    ...styledSystemProps,
+  };
+
   const {
     unResolvedProps,
     styleFromProps,
     restDefaultProps,
     dataSet,
   } = getStyleAndFilteredProps({
-    styledSystemProps,
+    styledSystemProps: modifiedStyledSytemProps,
     theme,
     debug,
     currentBreakpoint,
