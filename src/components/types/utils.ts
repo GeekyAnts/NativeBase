@@ -84,13 +84,21 @@ export type CustomComponentProps<
     undefined
   >
 >;
+
+type VariantSizeColorScheme<T extends keyof ITheme['components']> = {
+  variant?: VariantType<T>;
+  size?: ThemeComponentSizeType<T>;
+  colorScheme?: ColorSchemeType;
+};
 export type CustomProps<
   T extends keyof ITheme['components']
 > = CustomComponentProps<T> extends never
-  ? {}
+  ? {} & VariantSizeColorScheme<T>
   : // : CustomComponentProps<T> extends Record<string, any>
     // ? {}
-    UnionToIntersection<CustomComponentProps<T>> & {};
+    UnionToIntersection<
+      CustomComponentProps<T>
+    > & {} & VariantSizeColorScheme<T>;
 
 export type UnionToIntersection<U> = (
   U extends any ? (k: U) => void : never
