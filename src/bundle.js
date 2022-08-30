@@ -1222,27 +1222,36 @@ var shouldResolvePseudoProp = function (_a) {
         return false;
     }
 };
-var simplifyProps = function (_a, flattenProps, specificityMap, priority) {
+var simplifyProps = function (_a, flattenProps, stateProps, specificityMap, priority) {
     var _b;
     var _c;
     var props = _a.props, colormode = _a.colormode, platform = _a.platform, state = _a.state, currentSpecificity = _a.currentSpecificity, previouslyFlattenProps = _a.previouslyFlattenProps, cascadePseudoProps = _a.cascadePseudoProps;
     if (flattenProps === void 0) { flattenProps = {}; }
+    if (stateProps === void 0) { stateProps = {}; }
     if (specificityMap === void 0) { specificityMap = {}; }
     var mergePsuedoProps = function (property, propertySpecity) {
         if (compareSpecificity(specificityMap[property], propertySpecity, false)) {
-            if (process.env.NODE_ENV === 'development' && props.debug) {
-                /* eslint-disable-next-line */
-                console.log("%c ".concat(property), 'color: #818cf8;', 'updated as internal prop with higher specificity');
-            }
+            // if (process.env.NODE_ENV === 'development' && props.debug) {
+            //   /* eslint-disable-next-line */
+            //   console.log(
+            //     `%c ${property}`,
+            //     'color: #818cf8;',
+            //     'updated as internal prop with higher specificity'
+            //   );
+            // }
             specificityMap[property] = propertySpecity;
             // merging internal props (like, _text, _stack ...)
             flattenProps[property] = merge__default["default"]({}, flattenProps[property], props[property]);
         }
         else {
-            if (process.env.NODE_ENV === 'development' && props.debug) {
-                /* eslint-disable-next-line */
-                console.log("%c ".concat(property), 'color: #818cf8;', 'updated as internal prop with lower specificity');
-            }
+            // if (process.env.NODE_ENV === 'development' && props.debug) {
+            //   /* eslint-disable-next-line */
+            //   console.log(
+            //     `%c ${property}`,
+            //     'color: #818cf8;',
+            //     'updated as internal prop with lower specificity'
+            //   );
+            // }
             flattenProps[property] = merge__default["default"]({}, props[property], flattenProps[property]);
         }
     };
@@ -1252,8 +1261,27 @@ var simplifyProps = function (_a, flattenProps, specificityMap, priority) {
             ? __assign({}, currentSpecificity) : __assign(__assign({}, INITIAL_PROP_SPECIFICITY), (_b = {}, _b[SPECIFICITY_20] = priority, _b));
         if (
         // @ts-ignore
-        state[(_c = pseudoPropsMap[property]) === null || _c === void 0 ? void 0 : _c.respondTo] ||
-            ['_dark', '_light', '_web', '_ios', '_android', '_important'].includes(property)) {
+        state[(_c = pseudoPropsMap[property]) === null || _c === void 0 ? void 0 : _c.respondTo]) {
+            // @ts-ignore
+            if (shouldResolvePseudoProp({ property: property, state: state, platform: platform, colormode: colormode })) {
+                // NOTE: Handling (state driven) props like _important, _web, _ios, _android, _dark, _light, _disabled, _focus, _focusVisible, _hover, _pressed, _readOnly, _invalid, .... Only when they are true.
+                // @ts-ignore
+                propertySpecity[pseudoPropsMap[property].priority]++;
+                simplifyProps({
+                    props: props[property],
+                    colormode: colormode,
+                    platform: platform,
+                    state: state,
+                    currentSpecificity: propertySpecity,
+                    previouslyFlattenProps: previouslyFlattenProps,
+                    cascadePseudoProps: cascadePseudoProps
+                }, stateProps, stateProps, specificityMap, priority);
+                // if (props.bg == 'blue.500') {
+                //   console.log(flattenProps, stateProps, property, '*** #');
+                // }
+            }
+        }
+        else if (['_dark', '_light', '_web', '_ios', '_android', '_important'].includes(property)) {
             // @ts-ignore
             if (shouldResolvePseudoProp({ property: property, state: state, platform: platform, colormode: colormode })) {
                 // NOTE: Handling (state driven) props like _important, _web, _ios, _android, _dark, _light, _disabled, _focus, _focusVisible, _hover, _pressed, _readOnly, _invalid, .... Only when they are true.
@@ -1271,7 +1299,7 @@ var simplifyProps = function (_a, flattenProps, specificityMap, priority) {
                     currentSpecificity: propertySpecity,
                     previouslyFlattenProps: previouslyFlattenProps,
                     cascadePseudoProps: cascadePseudoProps
-                }, flattenProps, specificityMap, priority);
+                }, flattenProps, stateProps, specificityMap, priority);
             }
             // @ts-ignore
         }
@@ -1321,6 +1349,7 @@ var propsFlattener = function (_a, priority) {
     var _b;
     var props = _a.props, colormode = _a.colormode, platform = _a.platform, state = _a.state, currentSpecificityMap = _a.currentSpecificityMap, previouslyFlattenProps = _a.previouslyFlattenProps, cascadePseudoProps = _a.cascadePseudoProps;
     var flattenProps = {};
+    var stateProps = {};
     for (var property in props) {
         if (
         // @ts-ignore
@@ -1338,8 +1367,8 @@ var propsFlattener = function (_a, priority) {
         currentSpecificityMap: currentSpecificityMap,
         previouslyFlattenProps: previouslyFlattenProps,
         cascadePseudoProps: cascadePseudoProps
-    }, flattenProps, specificityMap, priority);
-    return [flattenProps, specificityMap];
+    }, flattenProps, stateProps, specificityMap, priority);
+    return [flattenProps, specificityMap, stateProps];
 };
 var callPropsFlattener = function (targetProps, latestSpecifictyMap, specificity, cleanIncomingProps, colorModeProps, state, flattenProps, config) {
     if (targetProps === void 0) { targetProps = {}; }
@@ -1359,23 +1388,54 @@ var callPropsFlattener = function (targetProps, latestSpecifictyMap, specificity
         name: config === null || config === void 0 ? void 0 : config.name
     }, specificity);
 };
-var resolvePropsToStyle = function (styledSystemProps, propStyle, theme, platform, debug, currentBreakpoint, strictMode, getResponsiveStyles, INTERNAL_themeStyle) {
-    var _a = getStyleAndFilteredProps({
-        styledSystemProps: styledSystemProps,
+var resolvePropsToStyle = function (styledSystemProps, propStyle, theme, platform, debug, currentBreakpoint, strictMode, getResponsiveStyles, INTERNAL_themeStyle, stateProps) {
+    var _a;
+    var flattenInternalThemeProps = INTERNAL_themeStyle;
+    var fontSize;
+    if (Array.isArray(flattenInternalThemeProps)) {
+        flattenInternalThemeProps = flattenInternalThemeProps.flat();
+        fontSize = (_a = flattenInternalThemeProps[0]) === null || _a === void 0 ? void 0 : _a.fontSize;
+    }
+    else {
+        fontSize = flattenInternalThemeProps === null || flattenInternalThemeProps === void 0 ? void 0 : flattenInternalThemeProps.fontSize;
+    }
+    var modifiedStyledSytemProps = __assign({ fontSize: fontSize }, styledSystemProps);
+    var _b = getStyleAndFilteredProps({
+        styledSystemProps: modifiedStyledSytemProps,
         theme: theme,
         debug: debug,
         currentBreakpoint: currentBreakpoint,
         strictMode: strictMode,
         getResponsiveStyles: getResponsiveStyles,
         platform: platform
-    }), unResolvedProps = _a.unResolvedProps, styleFromProps = _a.styleFromProps, restDefaultProps = _a.restDefaultProps, dataSet = _a.dataSet;
-    // console.log(
-    //   StyleSheet.flatten([INTERNAL_themeStyle, styleSheet.box, propStyle]),
-    //   '3333 style system props'
-    // );
+    }), unResolvedProps = _b.unResolvedProps, styleFromProps = _b.styleFromProps, restDefaultProps = _b.restDefaultProps, dataSet = _b.dataSet;
+    var 
+    // unResolvedProps: unResolvedProps1,
+    inlineStateStyleFromProps = getStyleAndFilteredProps({
+        styledSystemProps: stateProps,
+        theme: theme,
+        debug: debug,
+        currentBreakpoint: currentBreakpoint,
+        strictMode: strictMode,
+        getResponsiveStyles: getResponsiveStyles,
+        platform: platform
+    }).styleFromProps;
+    // if (styledSystemProps.bg === 'blue.500') {
+    //   console.log(
+    //     stateProps?.INTERNAL_themeStyle,
+    //     inlineStateStyleFromProps,
+    //     'state props here &&&****&&&***'
+    //   );
+    // }
     if (propStyle) {
         return {
-            style: [INTERNAL_themeStyle, styleFromProps, propStyle],
+            style: [
+                INTERNAL_themeStyle,
+                styleFromProps,
+                stateProps === null || stateProps === void 0 ? void 0 : stateProps.INTERNAL_themeStyle,
+                inlineStateStyleFromProps,
+                propStyle,
+            ],
             styleFromProps: styleFromProps,
             unResolvedProps: unResolvedProps,
             restDefaultProps: restDefaultProps,
@@ -1384,7 +1444,12 @@ var resolvePropsToStyle = function (styledSystemProps, propStyle, theme, platfor
     }
     else {
         return {
-            style: [INTERNAL_themeStyle, styleFromProps],
+            style: [
+                INTERNAL_themeStyle,
+                styleFromProps,
+                stateProps === null || stateProps === void 0 ? void 0 : stateProps.INTERNAL_themeStyle,
+                inlineStateStyleFromProps,
+            ],
             styleFromProps: styleFromProps,
             unResolvedProps: unResolvedProps,
             restDefaultProps: restDefaultProps,
@@ -6327,9 +6392,11 @@ var getThemeObject = function (providerId, componentName, colorMode, state) {
     // state style
     var stateStyles = getPseudoStateStyles(providerId, componentName, state);
     if (componentName === 'Checkbox' && state.isInvalid && state.isHovered) ;
+    var stateStyleSheet = [];
     lodash.forEach(stateStyles, function (stateStyleObj) {
         if (stateStyleObj[colorMode]) {
-            styleSheet = styleSheet.concat(stateStyleObj[colorMode]);
+            // styleSheet = styleSheet.concat(stateStyleObj[colorMode]);
+            stateStyleSheet = stateStyleSheet.concat(stateStyleObj[colorMode]);
         }
     });
     var unResolvedPropsArray = lodash.map(styleSheet, 'unResolvedProps');
@@ -6357,10 +6424,21 @@ var getThemeObject = function (providerId, componentName, colorMode, state) {
         var props = internalPseudoPropsArray_1[_d];
         internalPseudoProps = __assign(__assign({}, internalPseudoProps), props);
     }
+    var stateStyleFromPropsArray = lodash.map(stateStyleSheet, 'styleFromProps');
+    var stateStyleFromProps = {};
+    for (var _e = 0, stateStyleFromPropsArray_1 = stateStyleFromPropsArray; _e < stateStyleFromPropsArray_1.length; _e++) {
+        var props = stateStyleFromPropsArray_1[_e];
+        stateStyleFromProps = __assign(__assign({}, stateStyleFromProps), props);
+    }
+    // if (componentName === 'Button') {
+    //   console.log(stateStyles, stateStyleSheet, 'hello here');
+    // }
+    // console.log(styleFromProps, "hello style from props")
     return {
         style: lodash.map(styleSheet, 'style'),
         unResolvedProps: unResolvedProps,
         styleFromProps: styleFromProps,
+        stateStyleFromProps: stateStyleFromProps,
         restDefaultProps: restDefaultProps,
         internalPseudoProps: internalPseudoProps
     };
