@@ -7,7 +7,7 @@ import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { useHover } from '@react-native-aria/interactions';
 import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
-import { mergeRefs } from '../../../utils';
+import { mergeRefs, resolveStackStyleInput } from '../../../utils';
 import { Stack } from '../Stack';
 import { makeStyledComponent } from '../../../utils/styled';
 import { useResolvedFontFamily } from '../../../hooks/useResolvedFontFamily';
@@ -35,12 +35,6 @@ const Input = (
     setIsFocused(focusState);
     callback();
   };
-
-  /**Converting into Hash Color Code */
-  //@ts-ignore
-  props.focusOutlineColor = useToken('colors', props.focusOutlineColor);
-  //@ts-ignore
-  props.invalidOutlineColor = useToken('colors', props.invalidOutlineColor);
 
   const _ref = React.useRef(null);
   const { isHovered } = useHover({}, _ref);
@@ -113,9 +107,37 @@ const Input = (
     'colors',
     underlineColorAndroid
   );
+
+  /**Converting into Hash Color Code */
+  //@ts-ignore
+  resolvedProps.focusOutlineColor = useToken(
+    'colors',
+    resolvedProps.focusOutlineColor
+  );
+  //@ts-ignore
+  resolvedProps.invalidOutlineColor = useToken(
+    'colors',
+    resolvedProps.invalidOutlineColor
+  );
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
+  }
+
+  if (resolvedProps.focusOutlineColor && isFocused) {
+    layoutProps.borderColor = resolvedProps.focusOutlineColor;
+    _stack.style = resolveStackStyleInput(
+      props.variant,
+      resolvedProps.focusOutlineColor
+    );
+  }
+
+  if (resolvedProps.invalidOutlineColor && props.isInvalid) {
+    layoutProps.borderColor = resolvedProps.invalidOutlineColor;
+    _stack.style = resolveStackStyleInput(
+      props.variant,
+      resolvedProps.invalidOutlineColor
+    );
   }
 
   return (
