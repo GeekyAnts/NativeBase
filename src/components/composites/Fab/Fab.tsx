@@ -1,7 +1,7 @@
 import React, { memo, forwardRef } from 'react';
 import { Button } from '../../primitives/Button';
 import type { IFabProps } from './types';
-import { usePropsResolution } from '../../../hooks/useThemeProps';
+import { useComponentThemeResolver } from '../../../hooks/useThemeProps/useComponentThemeResolver';
 import { OverlayContainer } from '@react-native-aria/overlays';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { extractInObject } from '../../../theme/tools/utils';
@@ -19,7 +19,7 @@ const Fab = ({ ...props }: IFabProps, ref: any) => {
     '_disabled',
     '_spinner',
   ]);
-  const themeProps = usePropsResolution('FAB', remainingProps);
+  const themeProps = useComponentThemeResolver('FAB', remainingProps);
 
   const {
     label,
