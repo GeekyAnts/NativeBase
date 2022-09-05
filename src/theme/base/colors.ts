@@ -333,12 +333,6 @@ const colors = {
   secondary: {} as IColorHues,
   light: {} as IColorHues,
   tertiary: {} as IColorHues,
-  backgroundLight: {} as IColorHues,
-  backgroundDark: {} as IColorHues,
-  textLight: {} as IColorHues,
-  textDark: {} as IColorHues,
-  borderLight: {} as IColorHues,
-  borderDark: {} as IColorHues,
 };
 
 colors.danger = colors.rose;
@@ -351,14 +345,6 @@ colors.secondary = colors.pink;
 colors.tertiary = colors.emerald;
 colors.info = colors.lightBlue;
 colors.light = colors.warmGray;
-
-// Derived colors for theming
-colors.backgroundLight = colors.coolGray;
-colors.backgroundDark = colors.coolGray;
-colors.textLight = colors.coolGray;
-colors.textDark = colors.coolGray;
-colors.borderLight = colors.coolGray;
-colors.borderDark = colors.coolGray;
 
 export default colors;
 // export type IColors = Leaves<ITheme['colors']>;
