@@ -157,10 +157,9 @@ function filledStyle(props: InterfaceInputProps & { theme: any }) {
         borderWidth: 0,
       },
     },
-    _light: {
-      bg: 'muted.100',
-      borderColor: 'muted.100',
-    },
+    bg: 'muted.100',
+    borderColor: 'muted.100',
+
     _dark: {
       bg: 'muted.800',
       borderColor: 'muted.800',
@@ -196,24 +195,23 @@ function underlinedStyle(props: InterfaceInputProps & { theme: any }) {
     borderWidth: '0',
     pl: '0',
     borderBottomWidth: '1',
-    _light: {
-      _focus: {
-        _stack: {
-          style: {
-            outlineWidth: '0',
-            boxShadow: `0 1px 0 0 ${primary[600]}`,
-          },
-        },
-      },
-      _invalid: {
-        _stack: {
-          style: {
-            outlineWidth: 0,
-            boxShadow: `0 1px 0 0 ${error[600]}`,
-          },
+    _focus: {
+      _stack: {
+        style: {
+          outlineWidth: '0',
+          boxShadow: `0 1px 0 0 ${primary[600]}`,
         },
       },
     },
+    _invalid: {
+      _stack: {
+        style: {
+          outlineWidth: 0,
+          boxShadow: `0 1px 0 0 ${error[600]}`,
+        },
+      },
+    },
+
     _dark: {
       _focus: {
         _stack: {
