@@ -30,21 +30,23 @@ const baseStyle = (props: InterfaceInputProps & { theme: any }) => {
       w: '100%',
       h: '100%',
     },
-    _light: {
-      placeholderTextColor: 'text.400',
-      color: 'text.900',
-      borderColor: 'muted.300',
-      _hover: {
-        borderColor: 'primary.600',
-      },
-      _focus: {
-        borderColor: 'primary.600',
-        _hover: { borderColor: 'primary.600' },
-        _stack: {
-          style: {
-            outlineWidth: '0',
-            boxShadow: `0 0 0 1px ${primary[600]}`,
-          },
+    placeholderTextColor: 'text.400',
+    color: 'text.900',
+    borderColor: 'muted.300',
+    _hover: {
+      borderColor: 'primary.600',
+    },
+    _focus: {
+      borderColor: 'primary.600',
+      _hover: { borderColor: 'primary.600' },
+      _stack: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        // justifyContent: 'space-between',
+        overflow: 'hidden',
+        style: {
+          outlineWidth: '0',
+          boxShadow: `0 0 0 1px ${primary[600]}`,
         },
       },
       _invalid: {
@@ -68,12 +70,6 @@ const baseStyle = (props: InterfaceInputProps & { theme: any }) => {
         _hover: {
           borderColor: 'muted.300',
         },
-      },
-      _stack: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        // justifyContent: 'space-between',
-        overflow: 'hidden',
       },
     },
     _dark: {
