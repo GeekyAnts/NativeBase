@@ -1,6 +1,7 @@
 export const SliderTrack = {
   baseStyle: ({ isVertical, size }: any) => {
     return {
+      bg: 'muted.200',
       borderRadius: 'lg',
       overflow: 'hidden',
       style: {
@@ -15,9 +16,7 @@ export const SliderTrack = {
         py: !isVertical ? '3' : undefined,
         px: isVertical ? '3' : undefined,
       },
-      _light: {
-        bg: 'muted.200',
-      },
+
       _dark: {
         bg: 'muted.700',
       },
@@ -46,29 +45,28 @@ export const SliderThumb = {
         justifyContent: 'center',
         space: 2,
       },
-      _light: {
-        bg: `${colorScheme}.600`,
-        _hover: {
-          _web: {
-            outlineWidth: '4px',
-            outlineColor: primary[300],
-            outlineStyle: 'solid',
-          },
-        },
-        _focus: {
-          _web: {
-            outlineWidth: '2px',
-            outlineColor: primary[400],
-            outlineStyle: 'solid',
-          },
-        },
-        _pressed: {
-          _interactionBox: {
-            borderWidth: '8',
-            borderColor: `${colorScheme}.300`,
-          },
+      bg: `${colorScheme}.600`,
+      _hover: {
+        _web: {
+          outlineWidth: '4px',
+          outlineColor: primary[300],
+          outlineStyle: 'solid',
         },
       },
+      _focus: {
+        _web: {
+          outlineWidth: '2px',
+          outlineColor: primary[400],
+          outlineStyle: 'solid',
+        },
+      },
+      _pressed: {
+        _interactionBox: {
+          borderWidth: '8',
+          borderColor: `${colorScheme}.300`,
+        },
+      },
+
       _dark: {
         bg: `${colorScheme}.500`,
         _hover: {
@@ -131,9 +129,8 @@ export const SliderFilledTrack = {
         orientation === 'vertical'
           ? { height: sliderTrackPosition, width: size }
           : { width: sliderTrackPosition, height: size },
-      _light: {
-        bg: `${colorScheme}.600`,
-      },
+      bg: `${colorScheme}.600`,
+
       _dark: {
         bg: `${colorScheme}.500`,
       },
