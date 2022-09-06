@@ -16,7 +16,6 @@ export const SliderTrack = {
         py: !isVertical ? '3' : undefined,
         px: isVertical ? '3' : undefined,
       },
-
       _dark: {
         bg: 'muted.700',
       },
@@ -130,7 +129,6 @@ export const SliderFilledTrack = {
           ? { height: sliderTrackPosition, width: size }
           : { width: sliderTrackPosition, height: size },
       bg: `${colorScheme}.600`,
-
       _dark: {
         bg: `${colorScheme}.500`,
       },
