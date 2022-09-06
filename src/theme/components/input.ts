@@ -30,21 +30,23 @@ const baseStyle = (props: InterfaceInputProps & { theme: any }) => {
       w: '100%',
       h: '100%',
     },
-    _light: {
-      placeholderTextColor: 'text.400',
-      color: 'text.900',
-      borderColor: 'muted.300',
-      _hover: {
-        borderColor: 'primary.600',
-      },
-      _focus: {
-        borderColor: 'primary.600',
-        _hover: { borderColor: 'primary.600' },
-        _stack: {
-          style: {
-            outlineWidth: '0',
-            boxShadow: `0 0 0 1px ${primary[600]}`,
-          },
+    placeholderTextColor: 'text.400',
+    color: 'text.900',
+    borderColor: 'muted.300',
+    _hover: {
+      borderColor: 'primary.600',
+    },
+    _focus: {
+      borderColor: 'primary.600',
+      _hover: { borderColor: 'primary.600' },
+      _stack: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        // justifyContent: 'space-between',
+        overflow: 'hidden',
+        style: {
+          outlineWidth: '0',
+          boxShadow: `0 0 0 1px ${primary[600]}`,
         },
       },
       _invalid: {
@@ -68,12 +70,6 @@ const baseStyle = (props: InterfaceInputProps & { theme: any }) => {
         _hover: {
           borderColor: 'muted.300',
         },
-      },
-      _stack: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        // justifyContent: 'space-between',
-        overflow: 'hidden',
       },
     },
     _dark: {
@@ -157,10 +153,9 @@ function filledStyle(props: InterfaceInputProps & { theme: any }) {
         borderWidth: 0,
       },
     },
-    _light: {
-      bg: 'muted.100',
-      borderColor: 'muted.100',
-    },
+    bg: 'muted.100',
+    borderColor: 'muted.100',
+
     _dark: {
       bg: 'muted.800',
       borderColor: 'muted.800',
@@ -196,24 +191,23 @@ function underlinedStyle(props: InterfaceInputProps & { theme: any }) {
     borderWidth: '0',
     pl: '0',
     borderBottomWidth: '1',
-    _light: {
-      _focus: {
-        _stack: {
-          style: {
-            outlineWidth: '0',
-            boxShadow: `0 1px 0 0 ${primary[600]}`,
-          },
-        },
-      },
-      _invalid: {
-        _stack: {
-          style: {
-            outlineWidth: 0,
-            boxShadow: `0 1px 0 0 ${error[600]}`,
-          },
+    _focus: {
+      _stack: {
+        style: {
+          outlineWidth: '0',
+          boxShadow: `0 1px 0 0 ${primary[600]}`,
         },
       },
     },
+    _invalid: {
+      _stack: {
+        style: {
+          outlineWidth: 0,
+          boxShadow: `0 1px 0 0 ${error[600]}`,
+        },
+      },
+    },
+
     _dark: {
       _focus: {
         _stack: {

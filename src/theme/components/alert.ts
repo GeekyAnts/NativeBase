@@ -3,9 +3,9 @@ import type { InterfaceAlertProps } from '../../components/composites/Alert/type
 function getBg(
   props: InterfaceAlertProps & { theme: any } & { colorScheme: any }
 ) {
-  let { theme, colorScheme, status, variant } = props;
+  const { theme, colorScheme: c, status, variant } = props;
 
-  colorScheme = getColorScheme(props, !status ? colorScheme : status);
+  const colorScheme = getColorScheme(props, !status ? c : status);
 
   const lightBg =
     variant === 'solid'
@@ -29,10 +29,8 @@ const variantSubtle = (
   colorScheme = getColorScheme(props, !status ? colorScheme : status);
 
   return {
-    _light: {
-      bg: lightBg,
-      _icon: { color: `${colorScheme}.700` },
-    },
+    bg: lightBg,
+    _icon: { color: `${colorScheme}.700` },
     _dark: {
       bg: darkBg,
       _icon: { color: `${colorScheme}.600` },
@@ -47,10 +45,8 @@ const variantOutline = (props: InterfaceAlertProps & { colorScheme: any }) => {
 
   return {
     borderWidth: 1,
-    _light: {
-      _icon: { color: `${colorScheme}.700` },
-      borderColor: `${colorScheme}.700`,
-    },
+    _icon: { color: `${colorScheme}.700` },
+    borderColor: `${colorScheme}.700`,
     _dark: {
       _icon: { color: `${colorScheme}.600` },
       borderColor: `${colorScheme}.600`,
@@ -67,10 +63,8 @@ const variantOutlineLight = (
 
   return {
     borderWidth: 1,
-    _light: {
-      _icon: { color: `${colorScheme}.700` },
-      borderColor: transparentize(`${colorScheme}.700`, 0.4)(theme),
-    },
+    _icon: { color: `${colorScheme}.700` },
+    borderColor: transparentize(`${colorScheme}.700`, 0.4)(theme),
     _dark: {
       _icon: { color: `${colorScheme}.600` },
       borderColor: transparentize(`${colorScheme}.600`, 0.4)(theme),
@@ -83,9 +77,7 @@ const variantSolid = (
 ) => {
   const { lightBg, darkBg } = getBg(props);
   return {
-    _light: {
-      bg: lightBg,
-    },
+    bg: lightBg,
     _dark: {
       bg: darkBg,
     },
@@ -103,11 +95,9 @@ const variantLeftAccent = (
 
   return {
     borderLeftWidth: 4,
-    _light: {
-      bg: lightBg,
-      _icon: { color: `${colorScheme}.700` },
-      borderLeftColor: `${colorScheme}.700`,
-    },
+    bg: lightBg,
+    _icon: { color: `${colorScheme}.700` },
+    borderLeftColor: `${colorScheme}.700`,
     _dark: {
       bg: darkBg,
       _icon: { color: `${colorScheme}.600` },
@@ -126,11 +116,9 @@ const variantTopAccent = (
 
   return {
     borderTopWidth: 4,
-    _light: {
-      bg: lightBg,
-      _icon: { color: `${colorScheme}.700` },
-      borderTopColor: `${colorScheme}.700`,
-    },
+    bg: lightBg,
+    _icon: { color: `${colorScheme}.700` },
+    borderTopColor: `${colorScheme}.700`,
     _dark: {
       bg: darkBg,
       _icon: { color: `${colorScheme}.600` },

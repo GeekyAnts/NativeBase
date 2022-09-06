@@ -26,9 +26,7 @@ const baseStyle = (props: InterfaceAvatarProps & { name: string }) => {
         width: '100%',
       },
     },
-    _light: {
-      borderColor: 'gray.800',
-    },
+    borderColor: 'gray.800',
     _dark: {
       borderColor: 'white',
     },

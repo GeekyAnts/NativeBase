@@ -1,8 +1,6 @@
 const baseStyle = () => {
   return {
-    _light: {
-      color: 'muted.500',
-    },
+    color: 'muted.500',
     _dark: {
       color: 'muted.400',
     },
