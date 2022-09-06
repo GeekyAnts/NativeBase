@@ -2,10 +2,7 @@ import type { IBoxProps, InterfaceBoxProps } from '../../primitives/Box';
 import type { IIconButtonProps } from '../IconButton';
 import type { MutableRefObject } from 'react';
 import type { IFadeProps, ISlideProps } from '../Transitions';
-import type {
-  CustomProps,
-  ThemeComponentSizeType,
-} from '../../../components/types/utils';
+import type { CustomProps } from '../../../components/types/utils';
 
 export interface InterfaceAlertDialogProps
   extends InterfaceBoxProps<IAlertDialogProps> {
@@ -21,10 +18,6 @@ export interface InterfaceAlertDialogProps
    * If true, the AlertDialog will be opened by default
    */
   defaultIsOpen?: boolean;
-  /**
-   * The size of the AlertDialog
-   */
-  size?: ThemeComponentSizeType<'AlertDialog'>; //'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'full' | number | string;
   /**
    * The ref of element that is least destructive child of the AlertDialog.
    */
