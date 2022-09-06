@@ -3,11 +3,7 @@ import type { StyledProps } from '../../../theme/types';
 import type { PlatformProps } from '../../types';
 import type { InterfaceBoxProps } from '../Box';
 import type { ISizes } from '../../../theme/base/sizes';
-import type {
-  CustomProps,
-  ThemeComponentSizeType,
-  VariantType,
-} from '../../types';
+import type { CustomProps } from '../../types';
 import type { ResponsiveValue, ColorType } from '../../../components/types';
 import type { IStackProps } from '../Stack/Stack';
 import type { MutableRefObject, RefCallback } from 'react';
@@ -21,11 +17,6 @@ export interface InterfaceInputProps
    */
   isInvalid?: boolean;
   /**
-   * The variant of the input style to use.
-   * @default 'outline'
-   */
-  variant?: VariantType<'Input'>;
-  /**
    * 	If true, the input will be disabled.
    */
   isDisabled?: boolean;
@@ -37,11 +28,6 @@ export interface InterfaceInputProps
    * 	If true, the input will be focused.
    */
   isFocused?: boolean;
-  /**
-   * The size of the input.
-   * @default 'md'
-   */
-  size?: ThemeComponentSizeType<'Input'>; // ResponsiveValue<ISizes | (string & {}) | number>;
   /**
    * This will set aria-required="true" on web when passed in formcontrol.
    */

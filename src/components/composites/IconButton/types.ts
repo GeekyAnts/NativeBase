@@ -1,9 +1,8 @@
 import type { InterfacePressableProps } from '../../primitives/Pressable/types';
 import type { IIconProps } from '../../primitives/Icon';
-import type { ColorSchemeType, PlatformProps } from '../../../components/types';
+import type { PlatformProps } from '../../../components/types';
 
-import type { CustomProps, VariantType } from '../../types';
-import type { ThemeComponentSizeType } from '../../../components/types/utils';
+import type { CustomProps } from '../../types';
 export interface InterfaceIconButtonProps
   extends Omit<
       InterfacePressableProps,
@@ -35,20 +34,6 @@ export interface InterfaceIconButtonProps
       | '_important'
     >,
     PlatformProps<IIconButtonProps> {
-  /**
-   * The color of the radio when it's checked. This should be one of the color keys in the theme (e.g."green", "red").
-   * @default 'primary'
-   */
-  colorScheme?: ColorSchemeType;
-  /**
-   * The variant of the button style to use.
-   * @default 'ghost'
-   */
-  variant?: VariantType<'IconButton'>;
-  /**
-   * The size of the button.
-   */
-  size?: ThemeComponentSizeType<'IconButton'>;
   /**
    * If true, the button will be disabled.
    */

@@ -1,12 +1,8 @@
 import type { ITextProps } from './../Text/types';
 import type { IStackProps } from '../Stack';
-import type { ResponsiveValue } from '../../types';
 import type { MutableRefObject } from 'react';
-import type { ISizes } from '../../../theme/base/sizes';
 import type {
-  ThemeComponentSizeType,
   CustomProps,
-  VariantType,
   // VariantType,
   // VariantTypeTest,
 } from '../../../components/types/utils';
@@ -32,16 +28,6 @@ import type { ColorSchemeType } from '../../../components/types';
 export interface InterfaceButtonProps
   extends InterfacePressableProps<IButtonProps> {
   /**
-   * The color of the radio when it's checked. This should be one of the color keys in the theme (e.g."green", "red").
-   * @default 'primary'
-   */
-  colorScheme?: ColorSchemeType;
-  /**
-   * The variant of the button style to use.
-   * @default 'solid'
-   */
-  variant?: VariantType<'Button'>;
-  /**
    * If true, the button will show a spinner.
    */
   isLoading?: boolean;
@@ -61,10 +47,6 @@ export interface InterfaceButtonProps
    * If true, the button focus ring will be visible.
    */
   isFocusVisible?: boolean;
-  /**
-   * The size of the button.
-   */
-  size?: ThemeComponentSizeType<'Button'>;
   // size?: SizeType;
   /**
    * The start icon element to use in the button.
@@ -146,18 +128,6 @@ export interface IButtonGroupProps extends IStackProps {
    *
    */
   children: JSX.Element | Array<JSX.Element>;
-  /**
-   * The variant of the button style to use.
-   * @default 'solid'
-   */
-  variant?: ResponsiveValue<
-    'ghost' | 'outline' | 'solid' | 'link' | 'unstyled' | 'subtle'
-  >;
-  /**
-   * The start icon element to use in the button.
-   */
-
-  size?: ResponsiveValue<ISizes | (string & {}) | number>;
 
   /**
    * The color of the radio when it's checked. This should be one of the color keys in the theme (e.g."green", "red").
