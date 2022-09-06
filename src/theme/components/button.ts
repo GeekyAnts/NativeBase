@@ -22,7 +22,11 @@ const baseStyle = (props: InterfaceButtonProps & { theme: any }) => {
       _web: {
         outlineWidth: '0',
         style: { boxShadow: `${primary[400]} 0px 0px 0px 2px` },
-        _dark: {
+      },
+    },
+    _dark: {
+      _focusVisible: {
+        _web: {
           outlineWidth: '0',
           style: { boxShadow: `${primary[500]} 0px 0px 0px 2px` },
         },

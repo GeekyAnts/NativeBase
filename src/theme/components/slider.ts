@@ -1,6 +1,7 @@
 export const SliderTrack = {
   baseStyle: ({ isVertical, size }: any) => {
     return {
+      bg: 'muted.200',
       borderRadius: 'lg',
       overflow: 'hidden',
       style: {
@@ -15,7 +16,6 @@ export const SliderTrack = {
         py: !isVertical ? '3' : undefined,
         px: isVertical ? '3' : undefined,
       },
-      bg: 'muted.200',
       _dark: {
         bg: 'muted.700',
       },
@@ -65,6 +65,7 @@ export const SliderThumb = {
           borderColor: `${colorScheme}.300`,
         },
       },
+
       _dark: {
         bg: `${colorScheme}.500`,
         _hover: {
