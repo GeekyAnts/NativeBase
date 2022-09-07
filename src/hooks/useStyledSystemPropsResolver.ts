@@ -8,16 +8,19 @@ import { useResponsiveQuery } from '../utils/useResponsiveQuery';
 import stableHash from 'stable-hash';
 import { resolvePropsToStyle } from './useThemeProps/propsFlattener';
 import { Platform } from 'react-native';
+import { omitUndefined } from '../theme/tools';
 
 const getStyledSystemPropsAndRestProps = (props: any) => {
   const styledSystemProps: any = {};
   const restProps: any = {};
 
-  for (const key in props) {
+  const incomingAndThemeProps = omitUndefined(props);
+
+  for (const key in incomingAndThemeProps) {
     if (key in propConfig) {
-      styledSystemProps[key] = props[key];
+      styledSystemProps[key] = incomingAndThemeProps[key];
     } else {
-      restProps[key] = props[key];
+      restProps[key] = incomingAndThemeProps[key];
     }
   }
 
@@ -49,6 +52,10 @@ export const useStyledSystemPropsResolver = ({
 
   // console.log('useStyledSystemPropsResolver', restProps);
 
+  // if (props.bg === 'blue.500') {
+  //   console.log(props.stateProps, 'hello here');
+  // }
+
   const { style, dataSet } = React.useMemo(() => {
     const resolvedStyle = resolvePropsToStyle(
       styledSystemProps,
@@ -59,7 +66,8 @@ export const useStyledSystemPropsResolver = ({
       currentBreakpoint,
       strictMode,
       getResponsiveStyles,
-      restProps.INTERNAL_themeStyle
+      restProps.INTERNAL_themeStyle,
+      restProps.stateProps
     );
 
     // console.log(
@@ -80,6 +88,7 @@ export const useStyledSystemPropsResolver = ({
     stableHash(propStyle),
     getResponsiveStyles,
     stableHash(props),
+    stableHash(restProps.stateProps),
   ]);
 
   // if (process.env.NODE_ENV === "development" && debug) {
