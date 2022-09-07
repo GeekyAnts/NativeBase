@@ -175,41 +175,7 @@ const Select = (
     />
   );
 
-  return Platform.OS === 'web' ? (
-    <Box {...layoutProps}>
-      {/* <Box w="100%" h="100%" position="absolute" opacity="0" zIndex={1}> */}
-      <select
-        aria-readonly={selectProps.readOnly}
-        required={selectProps.required}
-        disabled={isDisabled}
-        {...focusProps}
-        {...hoverProps}
-        ref={mergeRefs([ref, _ref])}
-        //@ts-ignore
-        onChange={(e) => {
-          setValue(e.target.value);
-        }}
-        value={selectedItem === null ? tempFix : value}
-        aria-label={placeholder}
-        onFocus={() => {
-          setIsFocused(true);
-          onOpen && onOpen();
-        }}
-        onBlur={() => {
-          setIsFocused(false);
-          onClose && onClose();
-        }}
-        {..._webSelect}
-      >
-        <option disabled value={tempFix}>
-          {placeholder}
-        </option>
-        {children}
-      </select>
-      {/* </Box> */}
-      {commonInput}
-    </Box>
-  ) : (
+  return Platform.OS === 'android' || Platform.OS === 'ios' ? (
     <>
       <Pressable
         onPress={() => {
@@ -263,6 +229,40 @@ const Select = (
         </Actionsheet.Content>
       </Actionsheet>
     </>
+  ) : (
+    <Box {...layoutProps}>
+      {/* <Box w="100%" h="100%" position="absolute" opacity="0" zIndex={1}> */}
+      <select
+        aria-readonly={selectProps.readOnly}
+        required={selectProps.required}
+        disabled={isDisabled}
+        {...focusProps}
+        {...hoverProps}
+        ref={mergeRefs([ref, _ref])}
+        //@ts-ignore
+        onChange={(e) => {
+          setValue(e.target.value);
+        }}
+        value={selectedItem === null ? tempFix : value}
+        aria-label={placeholder}
+        onFocus={() => {
+          setIsFocused(true);
+          onOpen && onOpen();
+        }}
+        onBlur={() => {
+          setIsFocused(false);
+          onClose && onClose();
+        }}
+        {..._webSelect}
+      >
+        <option disabled value={tempFix}>
+          {placeholder}
+        </option>
+        {children}
+      </select>
+      {/* </Box> */}
+      {commonInput}
+    </Box>
   );
 };
 
