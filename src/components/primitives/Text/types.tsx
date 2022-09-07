@@ -10,8 +10,8 @@ import type {
 import type { CustomProps, PlatformProps, ResponsiveValue } from '../../types';
 import type { VariantType } from '../../../components/types';
 
-export interface InterfaceTextProps
-  extends PlatformProps<ITextProps>,
+export interface InterfaceTextProps<T = ITextProps>
+  extends PlatformProps<T>,
     StyledProps,
     TextProps {
   /**

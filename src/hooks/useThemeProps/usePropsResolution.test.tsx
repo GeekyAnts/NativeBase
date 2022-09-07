@@ -214,7 +214,8 @@ describe('props resolution', () => {
           testID="test"
           //@ts-ignore
           variant="myBox"
-          size="xs"
+          //@ts-ignore
+          // size="xs"
         >
           hello world
         </Box>
