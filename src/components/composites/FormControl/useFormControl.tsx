@@ -98,7 +98,7 @@ export function useFormControl(props: IFormControlProps) {
 
   return {
     ...cleanProps,
-    nativeID: props.nativeID ?? field?.nativeID,
+    nativeID: props.nativeID ?? field?.nativeID + '-input',
     disabled: props.isDisabled || field?.isDisabled,
     readOnly: props.isReadOnly || field?.isReadOnly,
     required: props.isRequired || field?.isRequired,
