@@ -5,22 +5,19 @@ const baseStyle = (props: Record<string, any>) => {
       opacity: 0.4,
     },
     _invalid: {
+      borderColor: 'error.600',
       borderWidth: 2,
       borderRadius: 12,
     },
     onThumbColor: 'muted.50',
     offThumbColor: 'muted.50',
-    _light: {
-      offTrackColor: 'muted.300',
-      onTrackColor: `${c}.600`,
-      _hover: {
-        offTrackColor: 'muted.400',
-        onTrackColor: `${c}.700`,
-      },
-      _invalid: {
-        borderColor: 'error.600',
-      },
+    offTrackColor: 'muted.300',
+    onTrackColor: `${c}.600`,
+    _hover: {
+      offTrackColor: 'muted.400',
+      onTrackColor: `${c}.700`,
     },
+
     _dark: {
       offTrackColor: 'muted.700',
       onTrackColor: `${c}.500`,

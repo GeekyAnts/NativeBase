@@ -14,6 +14,7 @@ function baseStyle(props: Record<string, any>) {
   return {
     overflow: 'hidden',
     _filledTrack: {
+      bg: `${c}.600`,
       shadow: 0,
       height: '100%',
       display: 'flex',
@@ -25,12 +26,7 @@ function baseStyle(props: Record<string, any>) {
         fontWeight: 'bold',
       },
     },
-    _light: {
-      bg: 'muted.200',
-      _filledTrack: {
-        bg: `${c}.600`,
-      },
-    },
+    bg: 'muted.200',
     _dark: {
       bg: 'muted.700',
       _filledTrack: {

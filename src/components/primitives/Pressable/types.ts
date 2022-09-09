@@ -24,20 +24,20 @@ export interface InterfacePressableProps<T = IPressableProps>
   /**
    * Style props to be applied when hovered
    */
-  _hover?: Omit<Partial<IPressableProps>, '_hover'>;
+  _hover?: Omit<Partial<T>, '_hover'>;
   /**
    * Style props to be applied when pressed
    */
-  _pressed?: Omit<Partial<IPressableProps>, '_pressed'>;
+  _pressed?: Omit<Partial<T>, '_pressed'>;
   /**
    * Style props to be applied when focus
    */
-  _focus?: Omit<Partial<IPressableProps>, '_focus'>;
+  _focus?: Omit<Partial<T>, '_focus'>;
 
   /**
    * Style props to be applied when disabled
    */
-  _disabled?: Omit<Partial<IPressableProps>, '_disabled'>;
+  _disabled?: Omit<Partial<T>, '_disabled'>;
 
   /**
    * 	If true, the p will be disabled.
@@ -62,7 +62,7 @@ export interface InterfacePressableProps<T = IPressableProps>
   /**
    * Style props to be applied when focus visible. These styles will be only applied when user is interacting the app using a keyboard. (Web only)
    */
-  _focusVisible?: Omit<Partial<IPressableProps>, '_focusVisible'>;
+  _focusVisible?: Omit<Partial<T>, '_focusVisible'>;
 
   children?:
     | React.ReactNode

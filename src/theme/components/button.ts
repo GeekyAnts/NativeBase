@@ -1,23 +1,13 @@
 import type { InterfaceButtonProps } from '../../components/primitives/Button/types';
-import { mode } from './../tools';
 
 const baseStyle = (props: InterfaceButtonProps & { theme: any }) => {
   const { primary } = props.theme.colors;
-  const focusRing = mode(
-    {
-      boxShadow: `${primary[400]} 0px 0px 0px 2px`,
-    },
-    {
-      boxShadow: `${primary[500]} 0px 0px 0px 2px`,
-    }
-  )(props);
 
   return {
     borderRadius: 'sm', // '4px'
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-
     _web: {
       _disabled: {
         cursor: 'not-allowed',
@@ -31,7 +21,15 @@ const baseStyle = (props: InterfaceButtonProps & { theme: any }) => {
     _focusVisible: {
       _web: {
         outlineWidth: '0',
-        style: { ...focusRing },
+        style: { boxShadow: `${primary[400]} 0px 0px 0px 2px` },
+      },
+    },
+    _dark: {
+      _focusVisible: {
+        _web: {
+          outlineWidth: '0',
+          style: { boxShadow: `${primary[500]} 0px 0px 0px 2px` },
+        },
       },
     },
     _stack: {
@@ -53,23 +51,22 @@ const baseStyle = (props: InterfaceButtonProps & { theme: any }) => {
 
 function variantGhost({ colorScheme }: InterfaceButtonProps) {
   return {
-    _light: {
-      _text: {
-        color: `${colorScheme}.600`,
-      },
-      _icon: {
-        color: `${colorScheme}.600`,
-      },
-      _spinner: {
-        color: `${colorScheme}.600`,
-      },
-      _hover: {
-        bg: `${colorScheme}.600:alpha.10`,
-      },
-      _pressed: {
-        bg: `${colorScheme}.600:alpha.20`,
-      },
+    _text: {
+      color: `${colorScheme}.600`,
     },
+    _icon: {
+      color: `${colorScheme}.600`,
+    },
+    _spinner: {
+      color: `${colorScheme}.600`,
+    },
+    _hover: {
+      bg: `${colorScheme}.600:alpha.10`,
+    },
+    _pressed: {
+      bg: `${colorScheme}.600:alpha.20`,
+    },
+
     _dark: {
       _text: {
         color: `${colorScheme}.500`,
@@ -93,25 +90,23 @@ function variantGhost({ colorScheme }: InterfaceButtonProps) {
 function variantOutline({ colorScheme }: InterfaceButtonProps) {
   return {
     borderWidth: '1px',
-
-    _light: {
-      borderColor: 'muted.300',
-      _text: {
-        color: `${colorScheme}.600`,
-      },
-      _icon: {
-        color: `${colorScheme}.600`,
-      },
-      _spinner: {
-        color: `${colorScheme}.600`,
-      },
-      _hover: {
-        bg: `${colorScheme}.600:alpha.10`,
-      },
-      _pressed: {
-        bg: `${colorScheme}.600:alpha.20`,
-      },
+    borderColor: 'muted.300',
+    _text: {
+      color: `${colorScheme}.600`,
     },
+    _icon: {
+      color: `${colorScheme}.600`,
+    },
+    _spinner: {
+      color: `${colorScheme}.600`,
+    },
+    _hover: {
+      bg: `${colorScheme}.600:alpha.10`,
+    },
+    _pressed: {
+      bg: `${colorScheme}.600:alpha.20`,
+    },
+
     _dark: {
       borderColor: 'muted.700',
       _text: {
@@ -144,16 +139,14 @@ function variantSolid({ colorScheme }: InterfaceButtonProps) {
     _spinner: {
       color: 'text.50',
     },
-
-    _light: {
-      bg: `${colorScheme}.600`,
-      _hover: {
-        bg: `${colorScheme}.700`,
-      },
-      _pressed: {
-        bg: `${colorScheme}.800`,
-      },
+    bg: `${colorScheme}.600`,
+    _hover: {
+      bg: `${colorScheme}.700`,
     },
+    _pressed: {
+      bg: `${colorScheme}.800`,
+    },
+
     _dark: {
       bg: `${colorScheme}.600`,
       _hover: {
@@ -168,6 +161,7 @@ function variantSolid({ colorScheme }: InterfaceButtonProps) {
 
 function variantSubtle({ colorScheme }: InterfaceButtonProps) {
   return {
+    bg: `${colorScheme}.100`,
     _text: {
       color: `${colorScheme}.900`,
     },
@@ -177,16 +171,13 @@ function variantSubtle({ colorScheme }: InterfaceButtonProps) {
     _spinner: {
       color: `${colorScheme}.900`,
     },
-
-    _light: {
-      bg: `${colorScheme}.100`,
-      _hover: {
-        bg: `${colorScheme}.200`,
-      },
-      _pressed: {
-        bg: `${colorScheme}.300`,
-      },
+    _hover: {
+      bg: `${colorScheme}.200`,
     },
+    _pressed: {
+      bg: `${colorScheme}.300`,
+    },
+
     _dark: {
       bg: `${colorScheme}.300`,
       _hover: {
@@ -215,18 +206,13 @@ function variantLink({ colorScheme }: InterfaceButtonProps) {
     },
     _pressed: {
       _text: {
+        color: `${colorScheme}.800`,
         textDecorationLine: 'underline',
       },
     },
-    _light: {
-      _text: {
-        color: `${colorScheme}.600`,
-      },
-      _pressed: {
-        _text: {
-          color: `${colorScheme}.800`,
-        },
-      },
+
+    _text: {
+      color: `${colorScheme}.600`,
     },
     _dark: {
       _text: {
