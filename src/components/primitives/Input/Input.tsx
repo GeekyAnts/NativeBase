@@ -19,6 +19,10 @@ const Input = (
     isHovered: isHoveredProp,
     isFocused: isFocusedProp,
     onKeyPress,
+    InputLeftElement,
+    InputRightElement,
+    leftElement,
+    rightElement,
     ...props
   }: IInputProps,
   ref: any
@@ -59,10 +63,6 @@ const Input = (
     placeholderTextColor,
     selectionColor,
     underlineColorAndroid,
-    InputLeftElement,
-    InputRightElement,
-    leftElement,
-    rightElement,
     onFocus,
     onBlur,
     wrapperRef,
