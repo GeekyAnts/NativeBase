@@ -38,10 +38,6 @@ const baseStyle = (props: InterfaceInputProps & { theme: any }) => {
       alignItems: 'center',
       // justifyContent: 'space-between',
       overflow: 'hidden',
-      style: {
-        outlineWidth: '0',
-        boxShadow: `0 0 0 1px ${primary[600]}`,
-      },
     },
     _hover: {
       borderColor: 'primary.600',
@@ -69,6 +65,12 @@ const baseStyle = (props: InterfaceInputProps & { theme: any }) => {
         placeholderTextColor: 'muted.700',
         _hover: {
           borderColor: 'muted.300',
+        },
+      },
+      _stack: {
+        style: {
+          outlineWidth: '0',
+          boxShadow: `0 0 0 1px ${primary[600]}`,
         },
       },
     },
