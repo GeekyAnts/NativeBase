@@ -63,12 +63,11 @@ export const AlertDialogContent = {
       rounded: 'lg',
       maxHeight: `${Dimensions.get('window').height - 150}px`,
       overflow: 'hidden',
-      _light: {
-        bg: 'muted.50',
-        _text: {
-          color: 'text.900',
-        },
+      bg: 'muted.50',
+      _text: {
+        color: 'text.900',
       },
+
       _dark: {
         bg: 'muted.800',
         color: 'text.50',
@@ -92,18 +91,16 @@ export const AlertDialogCloseButton = {
       },
       _icon: {
         size: '4',
+        color: 'muted.500',
       },
-      _light: {
-        _icon: {
-          color: 'muted.500',
-        },
-        _hover: {
-          bg: 'muted.200',
-        },
-        _pressed: {
-          bg: 'muted.300',
-        },
+
+      _hover: {
+        bg: 'muted.200',
       },
+      _pressed: {
+        bg: 'muted.300',
+      },
+
       _dark: {
         _icon: {
           color: 'muted.400',
@@ -124,17 +121,14 @@ export const AlertDialogHeader = {
       p: '4',
       borderBottomWidth: '1',
       _text: {
+        color: 'text.900',
         fontSize: 'md',
         fontWeight: 'semibold',
         lineHeight: 'sm',
       },
-      _light: {
-        bg: 'muted.50',
-        borderColor: 'muted.300',
-        _text: {
-          color: 'text.900',
-        },
-      },
+      bg: 'muted.50',
+      borderColor: 'muted.300',
+
       _dark: {
         bg: 'muted.800',
         borderColor: 'muted.700',
@@ -149,12 +143,12 @@ export const AlertDialogBody = {
   baseStyle: () => {
     return {
       p: '4',
-      _light: {
-        bg: 'muted.50',
-        _text: {
-          color: 'text.900',
-        },
+
+      bg: 'muted.50',
+      _text: {
+        color: 'text.900',
       },
+
       _dark: {
         bg: 'muted.800',
         _text: {
@@ -172,10 +166,9 @@ export const AlertDialogFooter = {
       justifyContent: 'flex-end',
       flexWrap: 'wrap',
       borderTopWidth: '1',
-      _light: {
-        bg: 'muted.50',
-        borderColor: 'muted.300',
-      },
+      bg: 'muted.50',
+      borderColor: 'muted.300',
+
       _dark: {
         bg: 'muted.800',
         borderColor: 'muted.700',

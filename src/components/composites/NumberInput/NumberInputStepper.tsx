@@ -64,6 +64,7 @@ const NumberInputStepper = (
   ref?: any
 ) => {
   const {
+    //@ts-ignore
     numberInputStepper,
     setNumberInputStepper,
   }: INumberInputContext = React.useContext(NumberInputContext);
