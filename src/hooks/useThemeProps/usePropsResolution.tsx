@@ -50,6 +50,7 @@ export function usePropsResolution(
     )
   );
 
+  // componentThemeProps - return default+extended theme resolved props
   const componentThemeProps = getThemeProps(
     theme,
     providerId,
@@ -59,12 +60,11 @@ export function usePropsResolution(
     incomingProps
   );
 
-  // console.timeEnd(component + ' ***');
+  const stateStyleFromProps = omitUndefined(
+    componentThemeProps.stateStyleFromProps
+  );
 
-  if (component === 'Button') {
-    // console.log(componentThemeProps, component, 'theme props');
-  }
-
+  // This is only for TextArea
   if (config?.extendTheme) {
     config.extendTheme.forEach((extendedComponent) => {
       const extendedThemeProps = getThemeProps(
@@ -93,81 +93,22 @@ export function usePropsResolution(
 
   const componentTheme = get(theme, `components.${component}`);
 
-  // if (component === 'SliderThumb') {
-  //   console.log(componentThemeProps, 'component theme');
-  // }
-  let resolvedPropsWithStateProps = usePropsResolutionWithComponentTheme(
+  // usePropsResolutionWithComponentTheme - returns inline theme props
+  const resolvedPropsWithStateProps = usePropsResolutionWithComponentTheme(
     componentTheme,
     merge({}, componentThemeProps?.unResolvedProps, incomingProps),
     theme,
     state,
     { ...config, name: component }
   );
+
   let resolvedFlattenProps = resolvedPropsWithStateProps.flattenProps;
-  let resolvedStateProps = {
+  const resolvedStateProps = {
     ...stateProps,
     ...resolvedPropsWithStateProps.stateProps,
   };
 
-  // if (component === 'Progress') {
-  //   console.log(
-  //     // componentThemeProps.internalPseudoProps,
-  //     componentThemeProps.unResolvedProps,
-  //     incomingProps,
-  //     { ...componentThemeProps?.unResolvedProps, ...incomingProps },
-  //     'incoming props here 111'
-  //   );
-  // }
-
-  // if (component === 'SliderThumb') {
-  //   console.log(componentThemeProps, state, 'componentThemeProps');
-  // }
-
-  // if (component === 'IconButton') {
-  //   console.log(
-  //     resolvedProps._icon,
-  //     // pseudoComponentThemeProps.restDefaultProps.size,
-  //     // resolvedProps[property].size,
-  //     // {
-  //     //   ...pseudoComponentThemeProps.restDefaultProps,
-  //     //   ...resolvedProps[property],
-  //     // }.size,
-  //     'hello here 11'
-  //   );
-  // }
-  // console.log(
-  //   { ...componentThemeProps?.unResolvedProps, ...incomingProps },
-  //   'component thme props 2222'
-  // );
-
-  // Not Resolve theme props and pseudo props
-  // if (incomingProps?.INTERNAL_notResolveThemeAndPseudoProps) {
-  //   delete incomingProps.INTERNAL_notResolveThemeAndPseudoProps;
-  //   return incomingProps;
-  // }
-
-  // if (process.env.NODE_ENV === "development" && incomingProps.debug) {
-  //   /* eslint-disable-next-line */
-  //   console.log(
-  //     "%c resolvedProps: ",
-  //     "color: #22d3ee; font-weight: 700;",
-  //     resolvedProps
-  //   );
-  // }
-  // console.timeEnd(component + "-usePropResolution");
-
-  // if (component === 'Button') {
-
-  // if (component === 'Text') {
-  //   console.log(
-  //     'component thme props 11 ***',
-  //     StyleSheet.flatten(incomingProps.INTERNAL_themeStyle)
-  //   );
-  // }
-
-  const stateStyleFromProps = omitUndefined(
-    componentThemeProps.stateStyleFromProps
-  );
+  // Merge default props with inline resolved props
   resolvedFlattenProps.INTERNAL_themeStyle = INTERNAL_themeStyle
     ? [componentThemeProps.styleFromProps, ...INTERNAL_themeStyle]
     : [componentThemeProps.styleFromProps];
@@ -178,6 +119,7 @@ export function usePropsResolution(
     ? []
     : [stateStyleFromProps];
 
+  // merge rest default props with resolved props
   resolvedFlattenProps = {
     ...componentThemeProps.restDefaultProps,
     ...resolvedFlattenProps,
@@ -197,25 +139,13 @@ export function usePropsResolution(
     resolvedFlattenProps.size = undefined;
   }
 
-  // if (component === 'SliderThumb') {
-  //   console.log(
-  //     'property ***',
-  //     property,
-  //     // incomingProps,
-  //     componentThemeProps.internalPseudoProps[property]
-  //     // StyleSheet.flatten(pseudoComponentThemeProps.style),
-  //     // componentThemeProps.internalPseudoProps
-  //     // resolvedProps[property]
-  //   );
-  // }
-
+  // merge for each internal pseudo props
   for (const property in componentThemeProps.internalPseudoProps) {
     if (PSEUDO_PROP_COMPONENT_MAP[property]) {
       const pseudoComponentThemeProps = getThemeProps(
         theme,
         providerId,
         `${component}.${PSEUDO_PROP_COMPONENT_MAP[property]}`,
-        // { colorMode: 'light' },
         { colorMode, platform: Platform.OS },
         {},
         incomingProps
@@ -250,11 +180,6 @@ export function usePropsResolution(
     stateProps: resolvedStateProps,
   });
 
-  // if (component === 'Button') {
-  //   console.log(resolvedStateProps, 'hello here');
-  // }
-
-  // console.log(stateProps, 'hello state propsher');
   return resolvedProps;
 }
 

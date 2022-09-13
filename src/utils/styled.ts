@@ -147,7 +147,7 @@ const getThemeObject = (
   // }
   // console.log(styleFromProps, "hello style from props")
   return {
-    style: map(styleSheet, 'style'),
+    // style: map(styleSheet, 'style'),
     unResolvedProps: unResolvedProps,
     styleFromProps: styleFromProps,
     stateStyleFromProps: stateStyleFromProps,
@@ -208,11 +208,8 @@ export const getThemeProps = (
     config.colorMode,
     state
   );
-  // console.log(themeObj, providerId, 'theme obje');
 
   if (isEmptyObj(themeObj)) {
-    // console.log('hello here 1111', inputComponentKeyName);
-    // updateComponentThemeMap(inputComponentKeyName, {}, config, {});
     updateComponentThemeMap(
       theme,
       providerId,
@@ -270,9 +267,9 @@ export const getThemeProps = (
     }
 
     const mergedThemeObj = {
-      style: sizeThemeObj?.style
-        ? [...themeObj?.style, ...sizeThemeObj?.style]
-        : themeObj.style,
+      // style: sizeThemeObj?.style
+      //   ? [...themeObj?.style, ...sizeThemeObj?.style]
+      //   : themeObj.style,
       styleFromProps: merge(
         {},
         themeObj.styleFromProps,
