@@ -176,9 +176,10 @@ const Radio = (
     radioState.inputProps.disabled,
   ]);
 
-  const [contextCombinedProps] = React.useState({
-    ...combinedProps,
-  });
+  const contextCombinedProps = React.useMemo(() => {
+    return { ...combinedProps };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [combinedProps]);
 
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {

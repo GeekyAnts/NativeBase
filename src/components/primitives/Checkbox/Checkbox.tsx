@@ -74,10 +74,11 @@ const Checkbox = (
     groupItemInputProps.disabled,
   ]);
 
-  const [contextCombinedProps] = React.useState({
-    ...checkboxGroupContext,
-    ...combinedProps,
-  });
+  const contextCombinedProps = React.useMemo(() => {
+    return { ...checkboxGroupContext, ...combinedProps };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [combinedProps]);
+
   return (
     <CheckboxComponent
       inputProps={inputProps}
