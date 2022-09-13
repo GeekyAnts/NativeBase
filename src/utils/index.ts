@@ -13,6 +13,8 @@ export {
   mergeRefs,
   composeEventHandlers,
 };
+export * from './wrapStringChild';
+export * from '../components/primitives/Radio/RadioGroup';
 export { combineContextAndProps } from './combineContextAndProps';
 export type { IAccessibilityProps } from './accessibilityTypes';
 export { ariaAttr } from './accessibilityUtils';

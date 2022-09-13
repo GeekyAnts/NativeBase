@@ -12,8 +12,14 @@ export type { IInputProps } from './Input';
 export { Checkbox } from './Checkbox';
 export type { ICheckboxProps, ICheckboxGroupProps } from './Checkbox';
 
-export { Radio } from './Radio';
-export type { IRadioProps, IRadioGroupProps, IRadioValue } from './Radio';
+export { Radio, RadioContext } from './Radio';
+export type {
+  IRadioProps,
+  IRadioGroupProps,
+  IRadioValue,
+  IRadioContext,
+  IRadioComponentType,
+} from './Radio';
 
 export { Icon, createIcon } from './Icon';
 export type { IIconProps } from './Icon';
@@ -42,7 +48,7 @@ export type { ISpinnerProps } from './Spinner';
 export { default as Heading } from './Heading';
 export type { IHeadingProps } from './Heading';
 
-export { Pressable } from './Pressable';
+export * from './Pressable';
 export type { IPressableProps } from './Pressable';
 
 export { default as Flex, Spacer } from './Flex';
