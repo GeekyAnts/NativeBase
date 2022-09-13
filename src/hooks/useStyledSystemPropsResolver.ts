@@ -97,9 +97,8 @@ export const useStyledSystemPropsResolver = ({
   // }
   // console.log('** use prop resolution 2', restProps);
 
-  restProps.dataSet = dataSet;
   delete restProps.INTERNAL_themeStyle;
-  // console.timeEnd("useStyledSystemPropsResolver");
+  restProps.dataSet = { ...restProps.dataSet, ...dataSet };
 
   return [style, restProps];
 };

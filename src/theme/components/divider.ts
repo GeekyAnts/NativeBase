@@ -1,8 +1,6 @@
 function baseStyle() {
   return {
-    _light: {
-      bg: 'muted.300',
-    },
+    bg: 'muted.300',
     _dark: {
       bg: 'muted.600',
     },

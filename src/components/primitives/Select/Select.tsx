@@ -30,6 +30,7 @@ const Select = (
     isHovered: isHoveredProp,
     isFocused: isFocusedProp,
     isFocusVisible: isFocusVisibleProp,
+    variant,
     ...props
   }: ISelectProps,
   ref: any
@@ -66,6 +67,7 @@ const Select = (
     onClose,
     optimized,
     customDropdownIconProps,
+    _actionSheet,
     _actionSheetContent,
     _actionSheetBody,
     _webSelect,
@@ -91,18 +93,18 @@ const Select = (
     },
   });
 
-  const itemsList: Array<{ label: string; value: string }> = React.Children.map(
-    children ?? [],
-    (child: any) => {
-      return {
-        label: child.props.label,
-        value: child.props.value,
-      };
-    }
-  );
+  const itemsList: Array<{
+    label: string;
+    value: string;
+  }> = React.Children.toArray(children).map((child: any) => {
+    return {
+      label: child?.props?.label,
+      value: child?.props?.value,
+    };
+  });
 
   const selectedItemArray = itemsList.filter(
-    (item: any) => item.value === value
+    (item: any) => item?.value === value
   );
 
   const selectedItem =
@@ -134,12 +136,12 @@ const Select = (
   };
 
   if (optimized) {
-    React.Children.map(children, (child: any) => {
+    React.Children.toArray(children).map((child: any) => {
       flatListData.push(child.props);
     });
   }
 
-  const [layoutProps] = extractInObject(resolvedProps, [
+  const [layoutProps, nonLayoutProps] = extractInObject(resolvedProps, [
     ...stylingProps.margin,
     ...stylingProps.flexbox,
     ...stylingProps.position,
@@ -151,7 +153,7 @@ const Select = (
     <Input
       placeholder={placeholder}
       InputRightElement={rightIcon}
-      {...resolvedProps}
+      {...nonLayoutProps}
       // NOTE: Adding ts-ignore as we're not exposing isFocused in the Input component
       // @ts-ignore-next-line
       isFocused={isFocused}
@@ -163,11 +165,66 @@ const Select = (
       focusable={false}
       isDisabled={isDisabled}
       pointerEvents="none"
+      variant={variant}
     />
   );
 
-  return Platform.OS === 'web' ? (
-    <Box>
+  return Platform.OS === 'android' || Platform.OS === 'ios' ? (
+    <>
+      <Pressable
+        onPress={() => {
+          Keyboard.dismiss();
+          setIsOpen(true);
+          onOpen && onOpen();
+        }}
+        disabled={isDisabled}
+        accessibilityLabel={accessibilityLabel}
+        accessibilityRole="button"
+        ref={mergeRefs([ref, _ref])}
+        {...layoutProps}
+      >
+        {commonInput}
+      </Pressable>
+      <Actionsheet isOpen={isOpen} onClose={handleClose} {..._actionSheet}>
+        <Actionsheet.Content {..._actionSheetContent}>
+          {/* TODO: Replace ScrollVeiw with FlatList */}
+          {optimized ? (
+            <FlatList
+              {..._actionSheetBody}
+              data={flatListData}
+              // eslint-disable-next-line no-shadow
+              keyExtractor={(_item, index) => index.toString()}
+              renderItem={({ item }: any) => {
+                const isSelected = selectedValue === item?.value;
+                return (
+                  <Actionsheet.Item
+                    onPress={() => {
+                      if (!isDisabled) {
+                        setValue(item?.value);
+                      }
+                    }}
+                    accessibilityState={{ selected: isSelected }}
+                    {...item}
+                    {..._item}
+                    {...(isSelected && _selectedItem)}
+                  >
+                    {item?.label}
+                  </Actionsheet.Item>
+                );
+              }}
+            />
+          ) : (
+            <ScrollView {..._actionSheetBody}>
+              <SelectContext.Provider value={contextValue}>
+                {children}
+              </SelectContext.Provider>
+            </ScrollView>
+          )}
+        </Actionsheet.Content>
+      </Actionsheet>
+    </>
+  ) : (
+    <Box {...layoutProps}>
       {/* <Box w="100%" h="100%" position="absolute" opacity="0" zIndex={1}> */}
       <select
         aria-readonly={selectProps.readOnly}
@@ -200,60 +257,6 @@ const Select = (
       {/* </Box> */}
       {commonInput}
     </Box>
-  ) : (
-    <>
-      <Pressable
-        onPress={() => {
-          Keyboard.dismiss();
-          setIsOpen(true);
-          onOpen && onOpen();
-        }}
-        disabled={isDisabled}
-        accessibilityLabel={accessibilityLabel}
-        accessibilityRole="button"
-        ref={mergeRefs([ref, _ref])}
-        {...layoutProps}
-      >
-        {commonInput}
-      </Pressable>
-      <Actionsheet isOpen={isOpen} onClose={handleClose}>
-        <Actionsheet.Content {..._actionSheetContent}>
-          {/* TODO: Replace ScrollVeiw with FlatList */}
-          {optimized ? (
-            <FlatList
-              {..._actionSheetBody}
-              data={flatListData}
-              // eslint-disable-next-line no-shadow
-              keyExtractor={(_item, index) => index.toString()}
-              renderItem={({ item }: any) => {
-                const isSelected = selectedValue === item.value;
-                return (
-                  <Actionsheet.Item
-                    onPress={() => {
-                      if (!isDisabled) {
-                        setValue(item.value);
-                      }
-                    }}
-                    accessibilityState={{ selected: isSelected }}
-                    {...item}
-                    {..._item}
-                    {...(isSelected && _selectedItem)}
-                  >
-                    {item.label}
-                  </Actionsheet.Item>
-                );
-              }}
-            />
-          ) : (
-            <ScrollView {..._actionSheetBody}>
-              <SelectContext.Provider value={contextValue}>
-                {children}
-              </SelectContext.Provider>
-            </ScrollView>
-          )}
-        </Actionsheet.Content>
-      </Actionsheet>
-    </>
   );
 };
 

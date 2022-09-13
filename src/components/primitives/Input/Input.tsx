@@ -6,7 +6,7 @@ import { useFormControl } from '../../composites/FormControl';
 import { useHover } from '@react-native-aria/interactions';
 import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
-import { mergeRefs } from '../../../utils';
+import { mergeRefs, resolveStackStyleInput } from '../../../utils';
 import { Stack } from '../Stack';
 import { makeStyledComponent } from '../../../utils/makeStyledComponent';
 import { useResolvedFontFamily } from '../../../hooks/useResolvedFontFamily';
@@ -22,6 +22,10 @@ const Input = (
     isHovered: isHoveredProp,
     isFocused: isFocusedProp,
     onKeyPress,
+    InputLeftElement,
+    InputRightElement,
+    leftElement,
+    rightElement,
     ...props
   }: IInputProps,
   ref: any
@@ -33,6 +37,14 @@ const Input = (
     isRequired: props.isRequired,
     nativeID: props.nativeID,
   });
+  const [isFocused, setIsFocused] = React.useState(false);
+  const handleFocus = (focusState: boolean, callback: any) => {
+    setIsFocused(focusState);
+    callback();
+  };
+
+  const _ref = React.useRef(null);
+  const { isHovered } = useHover({}, _ref);
 
   const inputThemeProps = {
     isDisabled: inputProps.disabled,
@@ -40,11 +52,6 @@ const Input = (
     isReadOnly: inputProps.accessibilityReadOnly,
     isRequired: inputProps.required,
   };
-  const [isFocused, setIsFocused] = React.useState(false);
-
-  const _ref = React.useRef(null);
-
-  const { isHovered } = useHover({}, _ref);
 
   const state = {
     isDisabled: inputThemeProps.isDisabled,
@@ -54,10 +61,6 @@ const Input = (
     isReadOnly: inputThemeProps.isReadOnly,
   };
 
-  const handleFocus = (focusState: boolean, callback: any) => {
-    setIsFocused(focusState);
-    callback();
-  };
   /**Converting into Hash Color Code */
   //@ts-ignore
   props.focusOutlineColor = useToken('colors', props.focusOutlineColor);
@@ -77,10 +80,6 @@ const Input = (
     placeholderTextColor,
     selectionColor,
     underlineColorAndroid,
-    InputLeftElement,
-    InputRightElement,
-    leftElement,
-    rightElement,
     onFocus,
     onBlur,
     wrapperRef,
@@ -140,11 +139,34 @@ const Input = (
     underlineColorAndroid
   );
 
-  // console.log(
-  //   nonLayoutProps.INTERNAL_themeStyle,
-  //   INTERNAL_themeStyle,
-  //   'layout styles'
-  // );
+  /**Converting into Hash Color Code */
+  //@ts-ignore
+  resolvedProps.focusOutlineColor = useToken(
+    'colors',
+    resolvedProps.focusOutlineColor
+  );
+  //@ts-ignore
+  resolvedProps.invalidOutlineColor = useToken(
+    'colors',
+    resolvedProps.invalidOutlineColor
+  );
+
+  if (resolvedProps.focusOutlineColor && isFocused) {
+    layoutProps.borderColor = resolvedProps.focusOutlineColor;
+    _stack.style = resolveStackStyleInput(
+      props.variant,
+      resolvedProps.focusOutlineColor
+    );
+  }
+
+  if (resolvedProps.invalidOutlineColor && props.isInvalid) {
+    layoutProps.borderColor = resolvedProps.invalidOutlineColor;
+    _stack.style = resolveStackStyleInput(
+      props.variant,
+      resolvedProps.invalidOutlineColor
+    );
+  }
+
   return (
     <Stack
       {..._stack}
