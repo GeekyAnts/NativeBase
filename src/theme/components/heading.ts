@@ -1,8 +1,6 @@
 const baseStyle = () => {
   return {
-    _light: {
-      color: 'text.900',
-    },
+    color: 'text.900',
     _dark: {
       color: 'text.50',
     },
@@ -13,21 +11,21 @@ const baseStyle = () => {
 
 const sizes = {
   '4xl': {
-    fontSize: ['6xl', null, '7xl'],
+    fontSize: { base: '6xl', md: '7xl' },
     letterSpacing: 'xl',
   },
   '3xl': {
-    fontSize: ['5xl', null, '6xl'],
+    fontSize: { base: '5xl', md: '6xl' },
     letterSpacing: 'xl',
   },
   '2xl': {
-    fontSize: ['4xl', null, '5xl'],
+    fontSize: { base: '4xl', md: '5xl' },
   },
   'xl': {
-    fontSize: ['3xl', null, '4xl'],
+    fontSize: { base: '3xl', md: '4xl' },
   },
   'lg': {
-    fontSize: ['2xl', null, '3xl'],
+    fontSize: { base: '2xl', md: '3xl' },
   },
   'md': { fontSize: 'xl' },
   'sm': { fontSize: 'md' },

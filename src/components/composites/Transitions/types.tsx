@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import type { ViewProps } from 'react-native';
+import type { CustomProps } from '../../../components/types';
 import type { InterfaceBoxProps } from '../../primitives/Box';
 import type { IOverlayProps } from '../../primitives/Overlay';
 export type IFadeProps = InterfaceBoxProps<IFadeProps> & {
@@ -37,7 +38,7 @@ export type ISlideFadeProps = InterfaceBoxProps<ISlideFadeProps> & {
   duration?: number;
   offsetX?: number;
   offsetY?: number;
-};
+} & CustomProps<'Slide'>;
 
 export interface ISupportedTransitions {
   opacity?: number;

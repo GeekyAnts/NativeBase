@@ -109,7 +109,7 @@ export interface InterfaceInputProps
   _stack?: Partial<IStackProps>;
   /** This prop allow you to change outlineColor when input is in focused state*/
   focusOutlineColor?: ColorType;
-  /** This prop allow you to change outlineColor when input is in focused state*/
+  /** This prop allow you to change outlineColor when input is in invalid state*/
   invalidOutlineColor?: ColorType;
   ref?: MutableRefObject<any> | RefCallback<any>;
 }
