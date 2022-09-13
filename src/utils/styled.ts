@@ -288,6 +288,11 @@ export const getThemeProps = (
         themeObj.internalPseudoProps,
         sizeThemeObj.internalPseudoProps
       ),
+      stateStyleFromProps: merge(
+        {},
+        themeObj.stateStyleFromProps,
+        sizeThemeObj.stateStyleFromProps
+      ),
       restDefaultProps: {
         ...themeObj.restDefaultProps,
         ...sizeThemeObj.restDefaultProps,
