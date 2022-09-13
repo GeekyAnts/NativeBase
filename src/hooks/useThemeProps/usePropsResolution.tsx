@@ -165,18 +165,18 @@ export function usePropsResolution(
   //   );
   // }
 
+  const stateStyleFromProps = omitUndefined(
+    componentThemeProps.stateStyleFromProps
+  );
   resolvedFlattenProps.INTERNAL_themeStyle = INTERNAL_themeStyle
     ? [componentThemeProps.styleFromProps, ...INTERNAL_themeStyle]
     : [componentThemeProps.styleFromProps];
 
   resolvedStateProps.INTERNAL_themeStyle = stateProps?.INTERNAL_themeStyle
-    ? [
-        componentThemeProps.stateStyleFromProps,
-        ...stateProps.INTERNAL_themeStyle,
-      ]
-    : isEmptyObj(componentThemeProps.stateStyleFromProps)
+    ? [stateStyleFromProps, ...stateProps.INTERNAL_themeStyle]
+    : isEmptyObj(stateStyleFromProps)
     ? []
-    : [componentThemeProps.stateStyleFromProps];
+    : [stateStyleFromProps];
 
   resolvedFlattenProps = {
     ...componentThemeProps.restDefaultProps,
@@ -562,5 +562,4 @@ export const usePropsResolutionWithComponentTheme = (
     flattenProps: omitUndefined(flattenProps),
     stateProps: omitUndefined(stateProps),
   };
-
 };
