@@ -6,7 +6,7 @@ import { useNativeBaseConfig } from '../core/NativeBaseContext';
 import { useResponsiveQuery } from '../utils/useResponsiveQuery';
 //@ts-ignore
 import stableHash from 'stable-hash';
-import { resolvePropsToStyle } from './useThemeProps/propsFlattener';
+import { resolvePropsToStyle } from './useThemeProps/resolvePropsToStyle';
 import { Platform } from 'react-native';
 import { omitUndefined } from '../theme/tools';
 
@@ -32,8 +32,6 @@ export const useStyledSystemPropsResolver = ({
   debug,
   ...props
 }: any) => {
-  // console.time("PROP_CONFIG");
-
   const theme = useTheme();
 
   const { currentBreakpoint, config } = useNativeBaseConfig(
@@ -42,19 +40,10 @@ export const useStyledSystemPropsResolver = ({
   const strictMode = config.strictMode;
 
   const { getResponsiveStyles } = useResponsiveQuery();
-  // console.timeEnd("PROP_CONFIG");
 
   const { styledSystemProps, restProps } = getStyledSystemPropsAndRestProps(
     props
   );
-
-  // console.log('** use prop resolution ***', props, getResponsiveStyles);
-
-  // console.log('useStyledSystemPropsResolver', restProps);
-
-  // if (props.bg === 'blue.500') {
-  //   console.log(props.stateProps, 'hello here');
-  // }
 
   const { style, dataSet } = React.useMemo(() => {
     const resolvedStyle = resolvePropsToStyle(
@@ -69,13 +58,6 @@ export const useStyledSystemPropsResolver = ({
       restProps.INTERNAL_themeStyle,
       restProps.stateProps
     );
-
-    // console.log(
-    //   StyleSheet.flatten(resolvedStyle.style),
-    //   styledSystemProps,
-    //   '******'
-    // );
-
     return resolvedStyle;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
