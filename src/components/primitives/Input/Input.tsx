@@ -85,6 +85,7 @@ const Input = (
     wrapperRef,
     _stack,
     _input,
+    stateProps,
     ...resolvedProps
   } = usePropsResolution('Input', props, state);
 
@@ -96,8 +97,7 @@ const Input = (
   const { colorMode } = useColorMode();
   const { theme } = useNativeBase();
   const providerId = useNativeBaseConfig('NativeBase').providerId;
-
-  const { styleFromProps } = getThemeProps(
+  const { styleFromProps, stateStyleFromProps } = getThemeProps(
     theme,
     providerId,
     'Input',
@@ -118,6 +118,11 @@ const Input = (
   ];
   const [layoutStyles, nonLayoutStyles] = extractInObject(
     styleFromProps,
+    filterProps
+  );
+
+  const [statelayoutStyles, stateNonLayoutStyles] = extractInObject(
+    { ...stateStyleFromProps, ...stateProps },
     filterProps
   );
 
@@ -174,6 +179,7 @@ const Input = (
       INTERNAL_themeStyle={[layoutStyles, _stack?.INTERNAL_themeStyle]}
       ref={mergeRefs([_ref, wrapperRef])}
       isFocused={isFocused}
+      stateProps={statelayoutStyles}
     >
       {InputLeftElement || leftElement ? InputLeftElement || leftElement : null}
       <StyledInput
@@ -185,6 +191,7 @@ const Input = (
         w={isFullWidth ? '100%' : undefined}
         {...nonLayoutProps}
         {...resolvedFontFamily}
+        stateProps={stateNonLayoutStyles}
         INTERNAL_themeStyle={[nonLayoutStyles]}
         placeholderTextColor={resolvedPlaceholderTextColor}
         selectionColor={resolvedSelectionColor}
