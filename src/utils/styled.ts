@@ -119,12 +119,14 @@ const getThemeObject = (
   }
 
   const restDefaultPropsArray = map(styleSheet, 'restDefaultProps');
+
   let restDefaultProps = {};
   for (const props of restDefaultPropsArray) {
     restDefaultProps = { ...restDefaultProps, ...props };
   }
 
   const styleFromPropsArray = map(styleSheet, 'styleFromProps');
+
   let styleFromProps = {};
   for (const props of styleFromPropsArray) {
     styleFromProps = { ...styleFromProps, ...props };
@@ -137,15 +139,32 @@ const getThemeObject = (
   }
 
   const stateStyleFromPropsArray = map(stateStyleSheet, 'styleFromProps');
+
+  const stateStyleinternalPropsFromPropsArray = map(
+    stateStyleSheet,
+    'internalPseudoProps'
+  );
+
+  const stateRestProps = map(stateStyleSheet, 'restDefaultProps');
+  const stateunResolvedPropsArray = map(stateStyleSheet, 'unResolvedProps');
+
   let stateStyleFromProps = {};
   for (const props of stateStyleFromPropsArray) {
     stateStyleFromProps = { ...stateStyleFromProps, ...props };
   }
 
-  // if (componentName === 'Button') {
-  //   console.log(stateStyles, stateStyleSheet, 'hello here');
-  // }
-  // console.log(styleFromProps, "hello style from props")
+  for (const props of stateStyleinternalPropsFromPropsArray) {
+    internalPseudoProps = { ...internalPseudoProps, ...props };
+  }
+
+  for (const props of stateRestProps) {
+    restDefaultProps = { ...restDefaultProps, ...props };
+  }
+
+  for (const props of stateunResolvedPropsArray) {
+    unResolvedProps = { ...unResolvedProps, ...props };
+  }
+
   return {
     // style: map(styleSheet, 'style'),
     unResolvedProps: unResolvedProps,
