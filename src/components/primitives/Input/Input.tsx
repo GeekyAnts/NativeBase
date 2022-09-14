@@ -14,6 +14,7 @@ import { getThemeProps } from '../../../utils/styled';
 import { useColorMode } from '../../../core/color-mode';
 import { useNativeBase } from '../../../hooks';
 import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
+import { merge } from 'lodash';
 
 const StyledInput = makeStyledComponent(TextInput);
 
@@ -116,21 +117,32 @@ const Input = (
     'shadow',
     'opacity',
   ];
+
+  //Merge with default styles
   const [layoutStyles, nonLayoutStyles] = extractInObject(
     styleFromProps,
     filterProps
   );
+  //Merge with default state styles
 
-  const [statelayoutStyles, stateNonLayoutStyles] = extractInObject(
-    { ...stateStyleFromProps, ...stateProps },
+  const [stateLayoutStyles, stateNonLayoutStyles] = extractInObject(
+    {
+      ...stateStyleFromProps,
+      ...merge.apply({}, stateProps.INTERNAL_themeStyle),
+    },
     filterProps
   );
 
+  //Merge with inline props
   const [layoutProps, nonLayoutProps] = extractInObject(
     resolvedProps,
     filterProps
   );
-
+  //Merge with inline state props
+  const [stateLayoutProps, stateNonLayoutProps] = extractInObject(
+    stateProps,
+    filterProps
+  );
   // console.log(layoutProps, nonLayoutProps, 'layout props here');
   const resolvedFontFamily = useResolvedFontFamily({
     fontFamily,
@@ -179,7 +191,10 @@ const Input = (
       INTERNAL_themeStyle={[layoutStyles, _stack?.INTERNAL_themeStyle]}
       ref={mergeRefs([_ref, wrapperRef])}
       isFocused={isFocused}
-      stateProps={statelayoutStyles}
+      stateProps={{
+        ...stateLayoutProps,
+        INTERNAL_themeStyle: [stateLayoutStyles],
+      }}
     >
       {InputLeftElement || leftElement ? InputLeftElement || leftElement : null}
       <StyledInput
@@ -191,7 +206,10 @@ const Input = (
         w={isFullWidth ? '100%' : undefined}
         {...nonLayoutProps}
         {...resolvedFontFamily}
-        stateProps={stateNonLayoutStyles}
+        stateProps={{
+          ...stateNonLayoutProps,
+          INTERNAL_themeStyle: [stateNonLayoutStyles],
+        }}
         INTERNAL_themeStyle={[nonLayoutStyles]}
         placeholderTextColor={resolvedPlaceholderTextColor}
         selectionColor={resolvedSelectionColor}
