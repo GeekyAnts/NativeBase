@@ -174,6 +174,20 @@ export function usePropsResolution(
     }
   }
 
+  // for inline pseudo compoennt props- merge property
+  for (const property in resolvedStateProps) {
+    if (PSEUDO_PROP_COMPONENT_MAP[property]) {
+      if (resolvedFlattenProps[property]) {
+        resolvedFlattenProps[property].stateProps =
+          resolvedStateProps[property];
+      } else {
+        resolvedFlattenProps[property] = {
+          stateProps: resolvedStateProps[property],
+        };
+      }
+    }
+  }
+
   const resolvedProps = omitUndefined({
     ...resolvedFlattenProps,
     ...ignoredProps,
