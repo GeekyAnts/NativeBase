@@ -79,6 +79,29 @@ export const setResolvedStyleMap = (
     styledMap[colorMode].push(value);
   }
 };
+
+/**
+ *
+ * @param styleSheet StyleSheet with theme style or state style
+ * @param styleSheetProperty key of styleSheet
+ * @returns style with current stylsheet property
+ */
+const getAndMergeThemeFromStylesheet = (
+  styleSheet: any,
+  styleSheetProperty: any
+) => {
+  // get style from stylsheet
+  const currentPropertyStyleArray = map(styleSheet, styleSheetProperty);
+
+  // merge styles
+  let currentPropertyStyle = {};
+  for (const props of currentPropertyStyleArray) {
+    currentPropertyStyle = merge({}, currentPropertyStyle, props);
+  }
+
+  return currentPropertyStyle;
+};
+
 const getThemeObject = (
   providerId: any,
   componentName: any,
@@ -110,60 +133,50 @@ const getThemeObject = (
     }
   });
 
-  const unResolvedPropsArray = map(styleSheet, 'unResolvedProps');
+  // Theme style props resolution
+  let unResolvedProps = getAndMergeThemeFromStylesheet(
+    styleSheet,
+    'unResolvedProps'
+  );
 
-  let unResolvedProps = {};
-  for (const props of unResolvedPropsArray) {
-    // unResolvedProps = { ...unResolvedProps, ...props };
-    unResolvedProps = merge({}, unResolvedProps, props);
-  }
+  let restDefaultProps = getAndMergeThemeFromStylesheet(
+    styleSheet,
+    'restDefaultProps'
+  );
 
-  const restDefaultPropsArray = map(styleSheet, 'restDefaultProps');
+  const styleFromProps = getAndMergeThemeFromStylesheet(
+    styleSheet,
+    'styleFromProps'
+  );
 
-  let restDefaultProps = {};
-  for (const props of restDefaultPropsArray) {
-    restDefaultProps = { ...restDefaultProps, ...props };
-  }
-
-  const styleFromPropsArray = map(styleSheet, 'styleFromProps');
-
-  let styleFromProps = {};
-  for (const props of styleFromPropsArray) {
-    styleFromProps = { ...styleFromProps, ...props };
-  }
-
-  const internalPseudoPropsArray = map(styleSheet, 'internalPseudoProps');
-  let internalPseudoProps = {};
-  for (const props of internalPseudoPropsArray) {
-    internalPseudoProps = { ...internalPseudoProps, ...props };
-  }
-
-  const stateStyleFromPropsArray = map(stateStyleSheet, 'styleFromProps');
-
-  const stateStyleinternalPropsFromPropsArray = map(
-    stateStyleSheet,
+  let internalPseudoProps = getAndMergeThemeFromStylesheet(
+    styleSheet,
     'internalPseudoProps'
   );
 
-  const stateRestProps = map(stateStyleSheet, 'restDefaultProps');
-  const stateunResolvedPropsArray = map(stateStyleSheet, 'unResolvedProps');
+  // State style props resolution
+  const stateStyleFromProps = getAndMergeThemeFromStylesheet(
+    stateStyleSheet,
+    'styleFromProps'
+  );
 
-  let stateStyleFromProps = {};
-  for (const props of stateStyleFromPropsArray) {
-    stateStyleFromProps = { ...stateStyleFromProps, ...props };
-  }
+  // Merging state styles internal pseudo props with theme style internal pseudo props
+  internalPseudoProps = {
+    ...internalPseudoProps,
+    ...getAndMergeThemeFromStylesheet(stateStyleSheet, 'internalPseudoProps'),
+  };
 
-  for (const props of stateStyleinternalPropsFromPropsArray) {
-    internalPseudoProps = { ...internalPseudoProps, ...props };
-  }
+  // Merging state styles restDefaultProps props with theme style restDefaultProps props
+  restDefaultProps = {
+    ...restDefaultProps,
+    ...getAndMergeThemeFromStylesheet(stateStyleSheet, 'restDefaultProps'),
+  };
 
-  for (const props of stateRestProps) {
-    restDefaultProps = { ...restDefaultProps, ...props };
-  }
-
-  for (const props of stateunResolvedPropsArray) {
-    unResolvedProps = { ...unResolvedProps, ...props };
-  }
+  // Merging state styles unresolved props with theme style unresolved props
+  unResolvedProps = {
+    ...unResolvedProps,
+    ...getAndMergeThemeFromStylesheet(stateStyleSheet, 'unResolvedProps'),
+  };
 
   return {
     // style: map(styleSheet, 'style'),
