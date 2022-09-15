@@ -1,37 +1,46 @@
 import merge from 'lodash.merge';
 import { extractInObject } from '../theme/tools';
 
-export const extractLayoutNonLayoutPropsFromStateAndResolvedProps = (
-  filterProps: any,
-  resolvedProps: any,
-  stateProps: any,
-  stateStyleFromProps: any,
-  styleFromProps: any
+/**
+ *
+ * @param filterProps Filtered props array
+ * @param inlineResolvedProps inline resolved props
+ * @param inlineStateResolvedProps inline state props from resolved props
+ * @param defaultStateThemeStyles  default state theme styles
+ * @param defaultThemeStyles default theme styles
+ * @returns layout and non-layout props for inline and default props
+ */
+export const extractFilteredProps = (
+  filterProps: any = [],
+  inlineResolvedProps: any = {},
+  inlineStateResolvedProps: any = {},
+  defaultStateThemeStyles: any = {},
+  defaultThemeStyles: any = {}
 ) => {
   //Merge with default styles
   const [layoutStyles, nonLayoutStyles] = extractInObject(
-    styleFromProps,
+    defaultThemeStyles,
     filterProps
   );
 
   //Merge with default state styles
   const [stateLayoutStyles, stateNonLayoutStyles] = extractInObject(
     {
-      ...stateStyleFromProps,
-      ...merge.apply({}, stateProps?.INTERNAL_themeStyle),
+      ...defaultStateThemeStyles,
+      ...merge.apply({}, inlineStateResolvedProps?.INTERNAL_themeStyle),
     },
     filterProps
   );
 
   //Merge with inline props
   const [layoutProps, nonLayoutProps] = extractInObject(
-    resolvedProps,
+    inlineResolvedProps,
     filterProps
   );
 
   //Merge with inline state props
   const [stateLayoutProps, stateNonLayoutProps] = extractInObject(
-    stateProps,
+    inlineStateResolvedProps,
     filterProps
   );
 
