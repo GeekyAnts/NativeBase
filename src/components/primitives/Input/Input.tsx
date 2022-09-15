@@ -14,7 +14,7 @@ import { getThemeProps } from '../../../utils/styled';
 import { useColorMode } from '../../../core/color-mode';
 import { useNativeBase } from '../../../hooks';
 import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
-import { extractLayoutNonLayoutPropsFromStateAndResolvedProps } from '../../../utils/extractLayoutNonLayoutProps';
+import { extractFilteredProps } from '../../../utils/extractLayoutNonLayoutProps';
 
 const StyledInput = makeStyledComponent(TextInput);
 
@@ -127,7 +127,7 @@ const Input = (
     nonLayoutProps,
     stateLayoutProps,
     stateNonLayoutProps,
-  } = extractLayoutNonLayoutPropsFromStateAndResolvedProps(
+  } = extractFilteredProps(
     filterProps,
     resolvedProps,
     stateProps,
