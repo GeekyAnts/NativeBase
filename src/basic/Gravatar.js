@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Image } from 'react-native';
+import { ImagePropTypes } from 'deprecated-react-native-prop-types';
 import { connectStyle } from 'native-base-shoutem-theme';
 import _ from 'lodash';
 import md5 from 'blueimp-md5';
@@ -54,7 +55,7 @@ class Gravatar extends NativeBaseComponent {
 }
 
 Gravatar.propTypes = {
-  ...Image.propTypes,
+  ...ImagePropTypes,
   email: PropTypes.string.isRequired,
   style: PropTypes.oneOfType([
     PropTypes.object,

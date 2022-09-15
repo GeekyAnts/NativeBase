@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, ViewPropTypes } from 'react-native';
+import { View } from 'react-native';
+import { ViewPropTypes } from 'deprecated-react-native-prop-types';
 import PropTypes from 'prop-types';
 import { connectStyle } from 'native-base-shoutem-theme';
 
@@ -37,8 +38,10 @@ Root.propTypes = {
   ])
 };
 
-const StyledRoot = connectStyle('NativeBase.Root', {}, mapPropsToStyleNames)(
-  Root
-);
+const StyledRoot = connectStyle(
+  'NativeBase.Root',
+  {},
+  mapPropsToStyleNames
+)(Root);
 
 export { StyledRoot as Root };
