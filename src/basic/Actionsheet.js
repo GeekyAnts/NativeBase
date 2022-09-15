@@ -9,9 +9,9 @@ import {
   Modal,
   Platform,
   TouchableOpacity,
-  StyleSheet,
-  ViewPropTypes,
+  StyleSheet
 } from 'react-native';
+import { ViewPropTypes } from 'deprecated-react-native-prop-types';
 import { connectStyle } from 'native-base-shoutem-theme';
 
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
@@ -36,7 +36,7 @@ class ActionSheetContainer extends Component {
     super(props);
     this.state = {
       modalVisible: false,
-      items: [],
+      items: []
     };
   }
 
@@ -53,7 +53,7 @@ class ActionSheetContainer extends Component {
     if (Platform.OS === PLATFORM.IOS) {
       if (typeof config.options[0] === 'object') {
         const options = config.options;
-        const filtered = options.map((item) => {
+        const filtered = options.map(item => {
           return item.text;
         });
 
@@ -72,7 +72,7 @@ class ActionSheetContainer extends Component {
         modalVisible: true,
         callback,
         style: config.style,
-        fontStyle: config.fontStyle,
+        fontStyle: config.fontStyle
       });
     }
   }
@@ -110,7 +110,7 @@ class ActionSheetContainer extends Component {
             <FlatList
               style={[
                 styles.flatList,
-                { marginTop: this.state.title ? commonColor.marginTop : 0 },
+                { marginTop: this.state.title ? commonColor.marginTop : 0 }
               ]}
               data={this.state.items}
               keyExtractor={(item, index) => String(index)}
@@ -134,8 +134,8 @@ class ActionSheetContainer extends Component {
                     style={[
                       styles.listItem,
                       {
-                        height: commonColor.listItemHeight,
-                      },
+                        height: commonColor.listItemHeight
+                      }
                     ]}
                     icon
                   >
@@ -144,7 +144,7 @@ class ActionSheetContainer extends Component {
                         name={item.icon}
                         type={item.iconType}
                         style={{
-                          color: item.iconColor ? item.iconColor : undefined,
+                          color: item.iconColor ? item.iconColor : undefined
                         }}
                       />
                     </Left>
@@ -164,36 +164,36 @@ class ActionSheetContainer extends Component {
 }
 
 ActionSheetContainer.propTypes = {
-  ...ViewPropTypes,
+  ...ViewPropTypes
 };
 
 const styles = StyleSheet.create({
   containerTouchable: {
     backgroundColor: commonColor.containerTouchableBackgroundColor,
     flex: 1,
-    justifyContent: 'flex-end',
+    justifyContent: 'flex-end'
   },
   flatList: {
-    marginHorizontal: commonColor.marginHorizontal,
+    marginHorizontal: commonColor.marginHorizontal
   },
   innerTouchable: {
     backgroundColor: commonColor.innerTouchableBackgroundColor,
     minHeight: commonColor.minHeight,
     maxHeight: Dimensions.get('window').height / 2,
     padding: commonColor.padding,
-    elevation: commonColor.elevation,
+    elevation: commonColor.elevation
   },
   listItem: {
     borderColor: commonColor.listItemBorderColor,
-    marginLeft: commonColor.marginLeft,
+    marginLeft: commonColor.marginLeft
   },
   listItemBody: {
     borderColor: commonColor.listItemBorderColor,
-    paddingLeft: commonColor.marginLeft / 2,
+    paddingLeft: commonColor.marginLeft / 2
   },
   touchableText: {
-    color: commonColor.touchableTextColor,
-  },
+    color: commonColor.touchableTextColor
+  }
 });
 
 const StyledActionSheetContainer = connectStyle(

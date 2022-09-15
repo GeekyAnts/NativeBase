@@ -2,8 +2,6 @@ import React from 'react';
 
 import DateTimePicker from '@react-native-community/datetimepicker';
 
-import variable from '../theme/variables/platform';
-
 export class DatePicker extends React.Component {
   static defaultProps = {
     disabled: false
@@ -40,10 +38,6 @@ export class DatePicker extends React.Component {
       minimumDate,
       timeZoneOffsetInMinutes
     } = this.props;
-
-    const variables = this.context.theme
-      ? this.context.theme['@@shoutem.theme/themeStyle'].variables
-      : variable;
 
     return (
       <DateTimePicker

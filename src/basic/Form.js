@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { View, ViewPropTypes } from 'react-native';
+import { View } from 'react-native';
+import { ViewPropTypes } from 'deprecated-react-native-prop-types';
 import { connectStyle } from 'native-base-shoutem-theme';
 
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
@@ -20,8 +21,10 @@ Form.propTypes = {
   ])
 };
 
-const StyledForm = connectStyle('NativeBase.Form', {}, mapPropsToStyleNames)(
-  Form
-);
+const StyledForm = connectStyle(
+  'NativeBase.Form',
+  {},
+  mapPropsToStyleNames
+)(Form);
 
 export { StyledForm as Form };

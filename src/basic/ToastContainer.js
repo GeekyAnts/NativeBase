@@ -1,12 +1,7 @@
 /* eslint-disable class-methods-use-this */
 import React, { Component } from 'react';
-import {
-  Keyboard,
-  Platform,
-  Animated,
-  ViewPropTypes,
-  PanResponder,
-} from 'react-native';
+import { Keyboard, Platform, Animated, PanResponder } from 'react-native';
+import { ViewPropTypes } from 'deprecated-react-native-prop-types';
 import { connectStyle } from 'native-base-shoutem-theme';
 
 import mapPropsToStyleNames from '../utils/mapPropsToStyleNames';
@@ -19,7 +14,7 @@ import { Toast } from './Toast';
 const POSITION = {
   ABSOLUTE: 'absolute',
   BOTTOM: 'bottom',
-  TOP: 'top',
+  TOP: 'top'
 };
 
 class ToastContainer extends Component {
@@ -39,7 +34,7 @@ class ToastContainer extends Component {
       pan: new Animated.ValueXY({ x: 0, y: 0 }),
       keyboardHeight: 0,
       isKeyboardVisible: false,
-      modalVisible: false,
+      modalVisible: false
     };
 
     this.keyboardDidHide = this.keyboardDidHide.bind(this);
@@ -54,7 +49,7 @@ class ToastContainer extends Component {
             useNativeDriver: false
           }).start(() => this.closeToast('swipe'));
         }
-      },
+      }
     });
   }
 
@@ -77,7 +72,7 @@ class ToastContainer extends Component {
       paddingHorizontal: Platform.OS === PLATFORM.IOS ? 20 : 0,
       top: this.state.position === POSITION.TOP ? 30 : undefined,
       bottom:
-        this.state.position === POSITION.BOTTOM ? this.getTop() : undefined,
+        this.state.position === POSITION.BOTTOM ? this.getTop() : undefined
     };
   }
 
@@ -109,14 +104,14 @@ class ToastContainer extends Component {
   keyboardDidHide() {
     this.setState({
       keyboardHeight: 0,
-      isKeyboardVisible: false,
+      isKeyboardVisible: false
     });
   }
 
   keyboardDidShow(e) {
     this.setState({
       keyboardHeight: e.endCoordinates.height,
-      isKeyboardVisible: true,
+      isKeyboardVisible: true
     });
   }
 
@@ -151,12 +146,12 @@ class ToastContainer extends Component {
     Animated.timing(this.state.fadeAnim, {
       toValue: 1,
       duration: 200,
-      useNativeDriver: false,
+      useNativeDriver: false
     }).start();
   }
-  closeModal = (reason) => {
+  closeModal = reason => {
     this.setState({
-      modalVisible: false,
+      modalVisible: false
     });
     const { onClose } = this.state;
     if (onClose && typeof onClose === 'function') {
@@ -168,7 +163,7 @@ class ToastContainer extends Component {
     Animated.timing(this.state.fadeAnim, {
       toValue: 0,
       duration: 200,
-      useNativeDriver: false,
+      useNativeDriver: false
     }).start(() => {
       this.closeModal(reason);
       this.state.pan.setValue({ x: 0, y: 0 });
@@ -180,10 +175,10 @@ class ToastContainer extends Component {
       const { x, y } = this.state.pan;
       return (
         <Animated.View
-          {...this.state.swipeDisabled ? {} : this._panResponder.panHandlers}
+          {...(this.state.swipeDisabled ? {} : this._panResponder.panHandlers)}
           style={[
             this.getToastStyle(),
-            { transform: [{ translateX: x }, { translateY: y }] },
+            { transform: [{ translateX: x }, { translateY: y }] }
           ]}
         >
           <Toast
@@ -212,7 +207,7 @@ class ToastContainer extends Component {
 }
 
 ToastContainer.propTypes = {
-  ...ViewPropTypes,
+  ...ViewPropTypes
 };
 
 const StyledToastContainer = connectStyle(

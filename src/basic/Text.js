@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Text as RNText } from 'react-native';
+import { TextPropTypes } from 'deprecated-react-native-prop-types';
 import _ from 'lodash';
 import { connectStyle } from 'native-base-shoutem-theme';
 
@@ -35,7 +36,7 @@ class Text extends React.PureComponent {
 }
 
 Text.propTypes = {
-  ...RNText.propTypes,
+  ...TextPropTypes,
   uppercase: PropTypes.bool,
   style: PropTypes.oneOfType([
     PropTypes.object,
