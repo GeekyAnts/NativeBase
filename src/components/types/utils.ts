@@ -23,7 +23,7 @@ export type ThemeComponentSizeType<
 > = ResponsiveValue<
   'sizes' extends keyof ITheme['components'][Component]
     ? keyof ITheme['components'][Component]['sizes'] | (string & {}) | number
-    : never
+    : unknown
 >;
 
 export type CombinedSizeType<Component extends keyof ITheme['components']> =
@@ -99,9 +99,9 @@ export type UnionToIntersection<U> = (
   : never;
 
 type VariantSizeColorScheme<T extends keyof ITheme['components']> = {
-  variant?: VariantType<T>;
-  size?: ThemeComponentSizeType<T>;
-  colorScheme?: ColorSchemeType;
+  variant?: Partial<VariantType<T>>;
+  size?: Partial<ThemeComponentSizeType<T>>;
+  colorScheme?: Partial<ColorSchemeType>;
 };
 // export type CustomProps<
 //   T extends keyof ITheme['components']

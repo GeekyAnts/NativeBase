@@ -56,6 +56,411 @@ function __spreadArray(to, from, pack) {
     return to.concat(ar || Array.prototype.slice.call(from));
 }
 
+var _a;
+// import {
+//   findLastValidBreakpoint,
+//   hasValidBreakpointFormat,
+// } from './../../theme/tools';
+var SPECIFICITY_1000 = 1000;
+var SPECIFICITY_110 = 110;
+var SPECIFICITY_100 = 100;
+var SPECIFICITY_70 = 70;
+var SPECIFICITY_60 = 60;
+var SPECIFICITY_55 = 55;
+var SPECIFICITY_50 = 50;
+var SPECIFICITY_40 = 40;
+var SPECIFICITY_30 = 30;
+// SPECIFICITY_20 is being user for defferentiating between User Props and Theme Props. So any specificity less than SPECIFICITY_20 will be ovridable by user props.
+var SPECIFICITY_20 = 20;
+var SPECIFICITY_10 = 10;
+var specificityPrecedence = [
+    SPECIFICITY_1000,
+    SPECIFICITY_110,
+    SPECIFICITY_100,
+    SPECIFICITY_70,
+    SPECIFICITY_60,
+    SPECIFICITY_55,
+    SPECIFICITY_50,
+    SPECIFICITY_40,
+    SPECIFICITY_30,
+    SPECIFICITY_20,
+    SPECIFICITY_10,
+];
+var INITIAL_PROP_SPECIFICITY = (_a = {},
+    _a[SPECIFICITY_1000] = 0,
+    _a[SPECIFICITY_110] = 0,
+    _a[SPECIFICITY_100] = 0,
+    _a[SPECIFICITY_70] = 0,
+    _a[SPECIFICITY_60] = 0,
+    _a[SPECIFICITY_50] = 0,
+    _a[SPECIFICITY_55] = 0,
+    _a[SPECIFICITY_40] = 0,
+    _a[SPECIFICITY_30] = 0,
+    _a[SPECIFICITY_20] = 0,
+    _a[SPECIFICITY_10] = 0,
+    _a);
+var pseudoPropsMap = {
+    _web: { dependentOn: 'platform', priority: SPECIFICITY_10 },
+    _ios: { dependentOn: 'platform', priority: SPECIFICITY_10 },
+    _android: { dependentOn: 'platform', priority: SPECIFICITY_10 },
+    _light: { dependentOn: 'colormode', priority: SPECIFICITY_10 },
+    _dark: { dependentOn: 'colormode', priority: SPECIFICITY_10 },
+    // TODO: have to add more interactionProps and stateProps
+    _indeterminate: {
+        dependentOn: 'state',
+        respondTo: 'isIndeterminate',
+        priority: SPECIFICITY_30
+    },
+    _checked: {
+        dependentOn: 'state',
+        respondTo: 'isChecked',
+        priority: SPECIFICITY_30
+    },
+    // Add new pseudeo props in between -------
+    _readOnly: {
+        dependentOn: 'state',
+        respondTo: 'isReadOnly',
+        priority: SPECIFICITY_30
+    },
+    // Add new pseudeo props in between -------
+    _invalid: {
+        dependentOn: 'state',
+        respondTo: 'isInvalid',
+        priority: SPECIFICITY_40
+    },
+    _focus: {
+        dependentOn: 'state',
+        respondTo: 'isFocused',
+        priority: SPECIFICITY_50
+    },
+    _focusVisible: {
+        dependentOn: 'state',
+        respondTo: 'isFocusVisible',
+        priority: SPECIFICITY_55
+    },
+    _hover: {
+        dependentOn: 'state',
+        respondTo: 'isHovered',
+        priority: SPECIFICITY_60
+    },
+    _pressed: {
+        dependentOn: 'state',
+        respondTo: 'isPressed',
+        priority: SPECIFICITY_70
+    },
+    _disabled: {
+        dependentOn: 'state',
+        respondTo: 'isDisabled',
+        priority: SPECIFICITY_100
+    },
+    _reversed: {
+        dependentOn: 'state',
+        respondTo: 'isReversed',
+        priority: SPECIFICITY_100
+    },
+    _loading: {
+        dependentOn: 'state',
+        respondTo: 'isLoading',
+        priority: SPECIFICITY_110
+    },
+    _important: {
+        dependentOn: null,
+        priority: SPECIFICITY_1000
+    }
+};
+var SPREAD_PROP_SPECIFICITY_ORDER = [
+    'p',
+    'padding',
+    'px',
+    'py',
+    'pt',
+    'pb',
+    'pl',
+    'pr',
+    'paddingTop',
+    'paddingBottom',
+    'paddingLeft',
+    'paddingRight',
+    'm',
+    'margin',
+    'mx',
+    'my',
+    'mt',
+    'mb',
+    'ml',
+    'mr',
+    'marginTop',
+    'marginBottom',
+    'marginLeft',
+    'marginRight',
+];
+var FINAL_SPREAD_PROPS = [
+    'paddingTop',
+    'paddingBottom',
+    'paddingLeft',
+    'paddingRight',
+    'marginTop',
+    'marginBottom',
+    'marginLeft',
+    'marginRight',
+];
+var MARGIN_MAP = {
+    mx: ['marginRight', 'marginLeft'],
+    my: ['marginTop', 'marginBottom'],
+    mt: ['marginTop'],
+    mb: ['marginBottom'],
+    mr: ['marginRight'],
+    ml: ['marginLeft']
+};
+MARGIN_MAP.margin = __spreadArray(__spreadArray([], MARGIN_MAP.mx, true), MARGIN_MAP.my, true);
+MARGIN_MAP.m = MARGIN_MAP.margin;
+MARGIN_MAP.marginTop = MARGIN_MAP.mt;
+MARGIN_MAP.marginBottom = MARGIN_MAP.mb;
+MARGIN_MAP.marginLeft = MARGIN_MAP.ml;
+MARGIN_MAP.marginRight = MARGIN_MAP.mr;
+var PADDING_MAP = {
+    px: ['paddingRight', 'paddingLeft'],
+    py: ['paddingTop', 'paddingBottom'],
+    pt: ['paddingTop'],
+    pb: ['paddingBottom'],
+    pr: ['paddingRight'],
+    pl: ['paddingLeft']
+};
+PADDING_MAP.padding = __spreadArray(__spreadArray([], PADDING_MAP.px, true), PADDING_MAP.py, true);
+PADDING_MAP.p = PADDING_MAP.padding;
+PADDING_MAP.paddingTop = PADDING_MAP.pt;
+PADDING_MAP.paddingBottom = PADDING_MAP.pb;
+PADDING_MAP.paddingLeft = PADDING_MAP.pl;
+PADDING_MAP.paddingRight = PADDING_MAP.pr;
+var SPREAD_PROP_SPECIFICITY_MAP = __assign(__assign({}, PADDING_MAP), MARGIN_MAP);
+function propsSpreader(incomingProps, incomingSpecifity) {
+    var flattenedDefaultProps = __assign({}, incomingProps);
+    var specificity = {};
+    SPREAD_PROP_SPECIFICITY_ORDER.forEach(function (prop) {
+        if (prop in flattenedDefaultProps) {
+            var val_1 = incomingProps[prop] || flattenedDefaultProps[prop];
+            if (!FINAL_SPREAD_PROPS.includes(prop)) {
+                delete flattenedDefaultProps[prop];
+                specificity[prop] = incomingSpecifity[prop];
+            }
+            SPREAD_PROP_SPECIFICITY_MAP[prop].forEach(function (newProp) {
+                if (compareSpecificity(specificity[newProp], specificity[prop])) {
+                    specificity[newProp] = incomingSpecifity[prop];
+                    flattenedDefaultProps[newProp] = val_1;
+                }
+            });
+        }
+    });
+    return merge__default["default"]({}, flattenedDefaultProps);
+}
+var compareSpecificity = function (exisiting, upcoming, ignorebaseTheme
+// property?: any
+) {
+    if (!exisiting)
+        return true;
+    if (!upcoming)
+        return false;
+    var condition = ignorebaseTheme
+        ? specificityPrecedence.length - 1
+        : specificityPrecedence.length;
+    for (var index = 0; index < condition; index++) {
+        if (exisiting[specificityPrecedence[index]] >
+            upcoming[specificityPrecedence[index]]) {
+            return false;
+        }
+        else if (exisiting[specificityPrecedence[index]] <
+            upcoming[specificityPrecedence[index]]) {
+            return true;
+        }
+    }
+    return true;
+};
+var shouldResolvePseudoProp = function (_a) {
+    var property = _a.property, state = _a.state, platform = _a.platform, colormode = _a.colormode;
+    if (pseudoPropsMap[property].dependentOn === 'platform') {
+        return property === "_".concat(platform);
+    }
+    else if (pseudoPropsMap[property].dependentOn === 'colormode') {
+        return property === "_".concat(colormode);
+    }
+    else if (pseudoPropsMap[property].dependentOn === 'state') {
+        // @ts-ignore
+        return state[pseudoPropsMap[property].respondTo];
+    }
+    else if (pseudoPropsMap[property].dependentOn === null) {
+        return true;
+    }
+    else {
+        return false;
+    }
+};
+var simplifyProps = function (_a, flattenProps, stateProps, specificityMap, priority) {
+    var _b;
+    var _c;
+    var props = _a.props, colormode = _a.colormode, platform = _a.platform, state = _a.state, currentSpecificity = _a.currentSpecificity, previouslyFlattenProps = _a.previouslyFlattenProps, cascadePseudoProps = _a.cascadePseudoProps;
+    if (flattenProps === void 0) { flattenProps = {}; }
+    if (stateProps === void 0) { stateProps = {}; }
+    if (specificityMap === void 0) { specificityMap = {}; }
+    var mergePsuedoProps = function (property, propertySpecity) {
+        if (compareSpecificity(specificityMap[property], propertySpecity, false)) {
+            // if (process.env.NODE_ENV === 'development' && props.debug) {
+            //   /* eslint-disable-next-line */
+            //   console.log(
+            //     `%c ${property}`,
+            //     'color: #818cf8;',
+            //     'updated as internal prop with higher specificity'
+            //   );
+            // }
+            specificityMap[property] = propertySpecity;
+            // merging internal props (like, _text, _stack ...)
+            flattenProps[property] = merge__default["default"]({}, flattenProps[property], props[property]);
+        }
+        else {
+            // if (process.env.NODE_ENV === 'development' && props.debug) {
+            //   /* eslint-disable-next-line */
+            //   console.log(
+            //     `%c ${property}`,
+            //     'color: #818cf8;',
+            //     'updated as internal prop with lower specificity'
+            //   );
+            // }
+            flattenProps[property] = merge__default["default"]({}, props[property], flattenProps[property]);
+        }
+    };
+    for (var property in props) {
+        // NOTE: the order is important here. Keep in mind while specificity breakpoints.
+        var propertySpecity = currentSpecificity
+            ? __assign({}, currentSpecificity) : __assign(__assign({}, INITIAL_PROP_SPECIFICITY), (_b = {}, _b[SPECIFICITY_20] = priority, _b));
+        if (
+        // @ts-ignore
+        state[(_c = pseudoPropsMap[property]) === null || _c === void 0 ? void 0 : _c.respondTo]) {
+            // @ts-ignore
+            if (shouldResolvePseudoProp({ property: property, state: state, platform: platform, colormode: colormode })) {
+                // NOTE: Handling (state driven) props like _important, _web, _ios, _android, _dark, _light, _disabled, _focus, _focusVisible, _hover, _pressed, _readOnly, _invalid, .... Only when they are true.
+                // @ts-ignore
+                propertySpecity[pseudoPropsMap[property].priority]++;
+                simplifyProps({
+                    props: props[property],
+                    colormode: colormode,
+                    platform: platform,
+                    state: state,
+                    currentSpecificity: propertySpecity,
+                    previouslyFlattenProps: previouslyFlattenProps,
+                    cascadePseudoProps: cascadePseudoProps
+                }, stateProps, stateProps, specificityMap, priority);
+                // if (props.bg == 'blue.500') {
+                //   console.log(flattenProps, stateProps, property, '*** #');
+                // }
+            }
+        }
+        else if (['_dark', '_light', '_web', '_ios', '_android', '_important'].includes(property)) {
+            // @ts-ignore
+            if (shouldResolvePseudoProp({ property: property, state: state, platform: platform, colormode: colormode })) {
+                // NOTE: Handling (state driven) props like _important, _web, _ios, _android, _dark, _light, _disabled, _focus, _focusVisible, _hover, _pressed, _readOnly, _invalid, .... Only when they are true.
+                if (process.env.NODE_ENV === 'development' && props.debug) {
+                    /* eslint-disable-next-line */
+                    console.log("%c ".concat(property), 'color: #818cf8;', 'recursively resolving');
+                }
+                // @ts-ignore
+                propertySpecity[pseudoPropsMap[property].priority]++;
+                simplifyProps({
+                    props: props[property],
+                    colormode: colormode,
+                    platform: platform,
+                    state: state,
+                    currentSpecificity: propertySpecity,
+                    previouslyFlattenProps: previouslyFlattenProps,
+                    cascadePseudoProps: cascadePseudoProps
+                }, flattenProps, stateProps, specificityMap, priority);
+            }
+            // @ts-ignore
+        }
+        else if (pseudoPropsMap[property] === undefined) {
+            if (property.startsWith('_')) {
+                // NOTE: Handling (internal) props like _text, _stack, ....
+                mergePsuedoProps(property, propertySpecity);
+            }
+            else {
+                if (compareSpecificity(specificityMap[property], propertySpecity, false)) {
+                    if (process.env.NODE_ENV === 'development' && props.debug) {
+                        /* eslint-disable-next-line */
+                        console.log("%c ".concat(property), 'color: #818cf8;', 'updated as simple prop');
+                    }
+                    specificityMap[property] = propertySpecity;
+                    // replacing simple props (like, p, m, bg, color, ...)
+                    flattenProps[property] = props[property];
+                }
+                else {
+                    if (process.env.NODE_ENV === 'development' && props.debug) {
+                        /* eslint-disable-next-line */
+                        console.log("%c ".concat(property), 'color: #818cf8;', 'ignored');
+                    }
+                }
+            }
+        }
+        else {
+            // Can delete unused props
+            if (!cascadePseudoProps) {
+                delete flattenProps[property];
+                if (process.env.NODE_ENV === 'development' && props.debug) {
+                    /* eslint-disable-next-line */
+                    console.log("%c ".concat(property), 'color: #818cf8;', 'deleted');
+                }
+            }
+            else {
+                if (process.env.NODE_ENV === 'development' && props.debug) {
+                    /* eslint-disable-next-line */
+                    console.log("%c ".concat(property), 'color: #818cf8;', 'cascaded');
+                }
+                mergePsuedoProps(property, propertySpecity);
+            }
+        }
+    }
+};
+var propsFlattener = function (_a, priority) {
+    var _b;
+    var props = _a.props, colormode = _a.colormode, platform = _a.platform, state = _a.state, currentSpecificityMap = _a.currentSpecificityMap, previouslyFlattenProps = _a.previouslyFlattenProps, cascadePseudoProps = _a.cascadePseudoProps;
+    var flattenProps = {};
+    var stateProps = {};
+    for (var property in props) {
+        if (
+        // @ts-ignore
+        state[(_b = pseudoPropsMap[property]) === null || _b === void 0 ? void 0 : _b.respondTo] === undefined &&
+            property.startsWith('_')) {
+            flattenProps[property] = previouslyFlattenProps[property];
+        }
+    }
+    var specificityMap = currentSpecificityMap || {};
+    simplifyProps({
+        props: props,
+        colormode: colormode,
+        platform: platform,
+        state: state,
+        currentSpecificityMap: currentSpecificityMap,
+        previouslyFlattenProps: previouslyFlattenProps,
+        cascadePseudoProps: cascadePseudoProps
+    }, flattenProps, stateProps, specificityMap, priority);
+    return [flattenProps, specificityMap, stateProps];
+};
+var callPropsFlattener = function (targetProps, latestSpecifictyMap, specificity, cleanIncomingProps, colorModeProps, state, flattenProps, config) {
+    if (targetProps === void 0) { targetProps = {}; }
+    if (latestSpecifictyMap === void 0) { latestSpecifictyMap = {}; }
+    if (specificity === void 0) { specificity = 1; }
+    return propsFlattener({
+        props: process.env.NODE_ENV === 'development' && cleanIncomingProps.debug
+            ? __assign(__assign({}, targetProps), { debug: true }) : targetProps,
+        //TODO: build-time
+        platform: config.platform,
+        // platform: Platform.OS,
+        colormode: colorModeProps.colorMode,
+        state: state || {},
+        currentSpecificityMap: latestSpecifictyMap,
+        previouslyFlattenProps: flattenProps || {},
+        cascadePseudoProps: config === null || config === void 0 ? void 0 : config.cascadePseudoProps,
+        name: config === null || config === void 0 ? void 0 : config.name
+    }, specificity);
+};
+
 function mode(light, dark) {
     return function (props) { return (props.colorMode === 'dark' ? dark : light); };
 }
@@ -984,398 +1389,47 @@ var getStyleAndFilteredProps = function (_a) {
     };
 };
 
-var _a;
-// import {
-//   findLastValidBreakpoint,
-//   hasValidBreakpointFormat,
-// } from './../../theme/tools';
-var SPECIFICITY_1000 = 1000;
-var SPECIFICITY_110 = 110;
-var SPECIFICITY_100 = 100;
-var SPECIFICITY_70 = 70;
-var SPECIFICITY_60 = 60;
-var SPECIFICITY_55 = 55;
-var SPECIFICITY_50 = 50;
-var SPECIFICITY_40 = 40;
-var SPECIFICITY_30 = 30;
-// SPECIFICITY_20 is being user for defferentiating between User Props and Theme Props. So any specificity less than SPECIFICITY_20 will be ovridable by user props.
-var SPECIFICITY_20 = 20;
-var SPECIFICITY_10 = 10;
-var specificityPrecedence = [
-    SPECIFICITY_1000,
-    SPECIFICITY_110,
-    SPECIFICITY_100,
-    SPECIFICITY_70,
-    SPECIFICITY_60,
-    SPECIFICITY_55,
-    SPECIFICITY_50,
-    SPECIFICITY_40,
-    SPECIFICITY_30,
-    SPECIFICITY_20,
-    SPECIFICITY_10,
-];
-var INITIAL_PROP_SPECIFICITY = (_a = {},
-    _a[SPECIFICITY_1000] = 0,
-    _a[SPECIFICITY_110] = 0,
-    _a[SPECIFICITY_100] = 0,
-    _a[SPECIFICITY_70] = 0,
-    _a[SPECIFICITY_60] = 0,
-    _a[SPECIFICITY_50] = 0,
-    _a[SPECIFICITY_55] = 0,
-    _a[SPECIFICITY_40] = 0,
-    _a[SPECIFICITY_30] = 0,
-    _a[SPECIFICITY_20] = 0,
-    _a[SPECIFICITY_10] = 0,
-    _a);
-var pseudoPropsMap = {
-    _web: { dependentOn: 'platform', priority: SPECIFICITY_10 },
-    _ios: { dependentOn: 'platform', priority: SPECIFICITY_10 },
-    _android: { dependentOn: 'platform', priority: SPECIFICITY_10 },
-    _light: { dependentOn: 'colormode', priority: SPECIFICITY_10 },
-    _dark: { dependentOn: 'colormode', priority: SPECIFICITY_10 },
-    // TODO: have to add more interactionProps and stateProps
-    _indeterminate: {
-        dependentOn: 'state',
-        respondTo: 'isIndeterminate',
-        priority: SPECIFICITY_30
-    },
-    _checked: {
-        dependentOn: 'state',
-        respondTo: 'isChecked',
-        priority: SPECIFICITY_30
-    },
-    // Add new pseudeo props in between -------
-    _readOnly: {
-        dependentOn: 'state',
-        respondTo: 'isReadOnly',
-        priority: SPECIFICITY_30
-    },
-    // Add new pseudeo props in between -------
-    _invalid: {
-        dependentOn: 'state',
-        respondTo: 'isInvalid',
-        priority: SPECIFICITY_40
-    },
-    _focus: {
-        dependentOn: 'state',
-        respondTo: 'isFocused',
-        priority: SPECIFICITY_50
-    },
-    _focusVisible: {
-        dependentOn: 'state',
-        respondTo: 'isFocusVisible',
-        priority: SPECIFICITY_55
-    },
-    _hover: {
-        dependentOn: 'state',
-        respondTo: 'isHovered',
-        priority: SPECIFICITY_60
-    },
-    _pressed: {
-        dependentOn: 'state',
-        respondTo: 'isPressed',
-        priority: SPECIFICITY_70
-    },
-    _disabled: {
-        dependentOn: 'state',
-        respondTo: 'isDisabled',
-        priority: SPECIFICITY_100
-    },
-    _reversed: {
-        dependentOn: 'state',
-        respondTo: 'isReversed',
-        priority: SPECIFICITY_100
-    },
-    _loading: {
-        dependentOn: 'state',
-        respondTo: 'isLoading',
-        priority: SPECIFICITY_110
-    },
-    _important: {
-        dependentOn: null,
-        priority: SPECIFICITY_1000
-    }
-};
-var SPREAD_PROP_SPECIFICITY_ORDER = [
-    'p',
-    'padding',
-    'px',
-    'py',
-    'pt',
-    'pb',
-    'pl',
-    'pr',
-    'paddingTop',
-    'paddingBottom',
-    'paddingLeft',
-    'paddingRight',
-    'm',
-    'margin',
-    'mx',
-    'my',
-    'mt',
-    'mb',
-    'ml',
-    'mr',
-    'marginTop',
-    'marginBottom',
-    'marginLeft',
-    'marginRight',
-];
-var FINAL_SPREAD_PROPS = [
-    'paddingTop',
-    'paddingBottom',
-    'paddingLeft',
-    'paddingRight',
-    'marginTop',
-    'marginBottom',
-    'marginLeft',
-    'marginRight',
-];
-var MARGIN_MAP = {
-    mx: ['marginRight', 'marginLeft'],
-    my: ['marginTop', 'marginBottom'],
-    mt: ['marginTop'],
-    mb: ['marginBottom'],
-    mr: ['marginRight'],
-    ml: ['marginLeft']
-};
-MARGIN_MAP.margin = __spreadArray(__spreadArray([], MARGIN_MAP.mx, true), MARGIN_MAP.my, true);
-MARGIN_MAP.m = MARGIN_MAP.margin;
-MARGIN_MAP.marginTop = MARGIN_MAP.mt;
-MARGIN_MAP.marginBottom = MARGIN_MAP.mb;
-MARGIN_MAP.marginLeft = MARGIN_MAP.ml;
-MARGIN_MAP.marginRight = MARGIN_MAP.mr;
-var PADDING_MAP = {
-    px: ['paddingRight', 'paddingLeft'],
-    py: ['paddingTop', 'paddingBottom'],
-    pt: ['paddingTop'],
-    pb: ['paddingBottom'],
-    pr: ['paddingRight'],
-    pl: ['paddingLeft']
-};
-PADDING_MAP.padding = __spreadArray(__spreadArray([], PADDING_MAP.px, true), PADDING_MAP.py, true);
-PADDING_MAP.p = PADDING_MAP.padding;
-PADDING_MAP.paddingTop = PADDING_MAP.pt;
-PADDING_MAP.paddingBottom = PADDING_MAP.pb;
-PADDING_MAP.paddingLeft = PADDING_MAP.pl;
-PADDING_MAP.paddingRight = PADDING_MAP.pr;
-var SPREAD_PROP_SPECIFICITY_MAP = __assign(__assign({}, PADDING_MAP), MARGIN_MAP);
-function propsSpreader(incomingProps, incomingSpecifity) {
-    var flattenedDefaultProps = __assign({}, incomingProps);
-    var specificity = {};
-    SPREAD_PROP_SPECIFICITY_ORDER.forEach(function (prop) {
-        if (prop in flattenedDefaultProps) {
-            var val_1 = incomingProps[prop] || flattenedDefaultProps[prop];
-            if (!FINAL_SPREAD_PROPS.includes(prop)) {
-                delete flattenedDefaultProps[prop];
-                specificity[prop] = incomingSpecifity[prop];
-            }
-            SPREAD_PROP_SPECIFICITY_MAP[prop].forEach(function (newProp) {
-                if (compareSpecificity(specificity[newProp], specificity[prop])) {
-                    specificity[newProp] = incomingSpecifity[prop];
-                    flattenedDefaultProps[newProp] = val_1;
-                }
-            });
-        }
-    });
-    return merge__default["default"]({}, flattenedDefaultProps);
-}
-var compareSpecificity = function (exisiting, upcoming, ignorebaseTheme
-// property?: any
-) {
-    if (!exisiting)
-        return true;
-    if (!upcoming)
-        return false;
-    var condition = ignorebaseTheme
-        ? specificityPrecedence.length - 1
-        : specificityPrecedence.length;
-    for (var index = 0; index < condition; index++) {
-        if (exisiting[specificityPrecedence[index]] >
-            upcoming[specificityPrecedence[index]]) {
-            return false;
-        }
-        else if (exisiting[specificityPrecedence[index]] <
-            upcoming[specificityPrecedence[index]]) {
-            return true;
-        }
-    }
-    return true;
-};
-var shouldResolvePseudoProp = function (_a) {
-    var property = _a.property, state = _a.state, platform = _a.platform, colormode = _a.colormode;
-    if (pseudoPropsMap[property].dependentOn === 'platform') {
-        return property === "_".concat(platform);
-    }
-    else if (pseudoPropsMap[property].dependentOn === 'colormode') {
-        return property === "_".concat(colormode);
-    }
-    else if (pseudoPropsMap[property].dependentOn === 'state') {
-        // @ts-ignore
-        return state[pseudoPropsMap[property].respondTo];
-    }
-    else if (pseudoPropsMap[property].dependentOn === null) {
-        return true;
+var resolvePropsToStyle = function (styledSystemProps, propStyle, theme, platform, debug, currentBreakpoint, strictMode, getResponsiveStyles, INTERNAL_themeStyle, stateProps) {
+    var _a;
+    var flattenInternalThemeProps = INTERNAL_themeStyle;
+    var fontSize;
+    if (Array.isArray(flattenInternalThemeProps)) {
+        flattenInternalThemeProps = flattenInternalThemeProps.flat();
+        fontSize = (_a = flattenInternalThemeProps[0]) === null || _a === void 0 ? void 0 : _a.fontSize;
     }
     else {
-        return false;
+        fontSize = flattenInternalThemeProps === null || flattenInternalThemeProps === void 0 ? void 0 : flattenInternalThemeProps.fontSize;
     }
-};
-var simplifyProps = function (_a, flattenProps, specificityMap, priority) {
-    var _b;
-    var _c;
-    var props = _a.props, colormode = _a.colormode, platform = _a.platform, state = _a.state, currentSpecificity = _a.currentSpecificity, previouslyFlattenProps = _a.previouslyFlattenProps, cascadePseudoProps = _a.cascadePseudoProps;
-    if (flattenProps === void 0) { flattenProps = {}; }
-    if (specificityMap === void 0) { specificityMap = {}; }
-    var mergePsuedoProps = function (property, propertySpecity) {
-        if (compareSpecificity(specificityMap[property], propertySpecity, false)) {
-            if (process.env.NODE_ENV === 'development' && props.debug) {
-                /* eslint-disable-next-line */
-                console.log("%c ".concat(property), 'color: #818cf8;', 'updated as internal prop with higher specificity');
-            }
-            specificityMap[property] = propertySpecity;
-            // merging internal props (like, _text, _stack ...)
-            flattenProps[property] = merge__default["default"]({}, flattenProps[property], props[property]);
-        }
-        else {
-            if (process.env.NODE_ENV === 'development' && props.debug) {
-                /* eslint-disable-next-line */
-                console.log("%c ".concat(property), 'color: #818cf8;', 'updated as internal prop with lower specificity');
-            }
-            flattenProps[property] = merge__default["default"]({}, props[property], flattenProps[property]);
-        }
-    };
-    for (var property in props) {
-        // NOTE: the order is important here. Keep in mind while specificity breakpoints.
-        var propertySpecity = currentSpecificity
-            ? __assign({}, currentSpecificity) : __assign(__assign({}, INITIAL_PROP_SPECIFICITY), (_b = {}, _b[SPECIFICITY_20] = priority, _b));
-        if (
-        // @ts-ignore
-        state[(_c = pseudoPropsMap[property]) === null || _c === void 0 ? void 0 : _c.respondTo] ||
-            ['_dark', '_light', '_web', '_ios', '_android', '_important'].includes(property)) {
-            // @ts-ignore
-            if (shouldResolvePseudoProp({ property: property, state: state, platform: platform, colormode: colormode })) {
-                // NOTE: Handling (state driven) props like _important, _web, _ios, _android, _dark, _light, _disabled, _focus, _focusVisible, _hover, _pressed, _readOnly, _invalid, .... Only when they are true.
-                if (process.env.NODE_ENV === 'development' && props.debug) {
-                    /* eslint-disable-next-line */
-                    console.log("%c ".concat(property), 'color: #818cf8;', 'recursively resolving');
-                }
-                // @ts-ignore
-                propertySpecity[pseudoPropsMap[property].priority]++;
-                simplifyProps({
-                    props: props[property],
-                    colormode: colormode,
-                    platform: platform,
-                    state: state,
-                    currentSpecificity: propertySpecity,
-                    previouslyFlattenProps: previouslyFlattenProps,
-                    cascadePseudoProps: cascadePseudoProps
-                }, flattenProps, specificityMap, priority);
-            }
-            // @ts-ignore
-        }
-        else if (pseudoPropsMap[property] === undefined) {
-            if (property.startsWith('_')) {
-                // NOTE: Handling (internal) props like _text, _stack, ....
-                mergePsuedoProps(property, propertySpecity);
-            }
-            else {
-                if (compareSpecificity(specificityMap[property], propertySpecity, false)) {
-                    if (process.env.NODE_ENV === 'development' && props.debug) {
-                        /* eslint-disable-next-line */
-                        console.log("%c ".concat(property), 'color: #818cf8;', 'updated as simple prop');
-                    }
-                    specificityMap[property] = propertySpecity;
-                    // replacing simple props (like, p, m, bg, color, ...)
-                    flattenProps[property] = props[property];
-                }
-                else {
-                    if (process.env.NODE_ENV === 'development' && props.debug) {
-                        /* eslint-disable-next-line */
-                        console.log("%c ".concat(property), 'color: #818cf8;', 'ignored');
-                    }
-                }
-            }
-        }
-        else {
-            // Can delete unused props
-            if (!cascadePseudoProps) {
-                delete flattenProps[property];
-                if (process.env.NODE_ENV === 'development' && props.debug) {
-                    /* eslint-disable-next-line */
-                    console.log("%c ".concat(property), 'color: #818cf8;', 'deleted');
-                }
-            }
-            else {
-                if (process.env.NODE_ENV === 'development' && props.debug) {
-                    /* eslint-disable-next-line */
-                    console.log("%c ".concat(property), 'color: #818cf8;', 'cascaded');
-                }
-                mergePsuedoProps(property, propertySpecity);
-            }
-        }
-    }
-};
-var propsFlattener = function (_a, priority) {
-    var _b;
-    var props = _a.props, colormode = _a.colormode, platform = _a.platform, state = _a.state, currentSpecificityMap = _a.currentSpecificityMap, previouslyFlattenProps = _a.previouslyFlattenProps, cascadePseudoProps = _a.cascadePseudoProps;
-    var flattenProps = {};
-    for (var property in props) {
-        if (
-        // @ts-ignore
-        state[(_b = pseudoPropsMap[property]) === null || _b === void 0 ? void 0 : _b.respondTo] === undefined &&
-            property.startsWith('_')) {
-            flattenProps[property] = previouslyFlattenProps[property];
-        }
-    }
-    var specificityMap = currentSpecificityMap || {};
-    simplifyProps({
-        props: props,
-        colormode: colormode,
-        platform: platform,
-        state: state,
-        currentSpecificityMap: currentSpecificityMap,
-        previouslyFlattenProps: previouslyFlattenProps,
-        cascadePseudoProps: cascadePseudoProps
-    }, flattenProps, specificityMap, priority);
-    return [flattenProps, specificityMap];
-};
-var callPropsFlattener = function (targetProps, latestSpecifictyMap, specificity, cleanIncomingProps, colorModeProps, state, flattenProps, config) {
-    if (targetProps === void 0) { targetProps = {}; }
-    if (latestSpecifictyMap === void 0) { latestSpecifictyMap = {}; }
-    if (specificity === void 0) { specificity = 1; }
-    return propsFlattener({
-        props: process.env.NODE_ENV === 'development' && cleanIncomingProps.debug
-            ? __assign(__assign({}, targetProps), { debug: true }) : targetProps,
-        //TODO: build-time
-        platform: config.platform,
-        // platform: Platform.OS,
-        colormode: colorModeProps.colorMode,
-        state: state || {},
-        currentSpecificityMap: latestSpecifictyMap,
-        previouslyFlattenProps: flattenProps || {},
-        cascadePseudoProps: config === null || config === void 0 ? void 0 : config.cascadePseudoProps,
-        name: config === null || config === void 0 ? void 0 : config.name
-    }, specificity);
-};
-var resolvePropsToStyle = function (styledSystemProps, propStyle, theme, platform, debug, currentBreakpoint, strictMode, getResponsiveStyles, INTERNAL_themeStyle) {
-    var _a = getStyleAndFilteredProps({
-        styledSystemProps: styledSystemProps,
+    var modifiedStyledSytemProps = __assign({ fontSize: fontSize }, styledSystemProps);
+    var _b = getStyleAndFilteredProps({
+        styledSystemProps: modifiedStyledSytemProps,
         theme: theme,
         debug: debug,
         currentBreakpoint: currentBreakpoint,
         strictMode: strictMode,
         getResponsiveStyles: getResponsiveStyles,
         platform: platform
-    }), unResolvedProps = _a.unResolvedProps, styleFromProps = _a.styleFromProps, restDefaultProps = _a.restDefaultProps, dataSet = _a.dataSet;
-    // console.log(
-    //   StyleSheet.flatten([INTERNAL_themeStyle, styleSheet.box, propStyle]),
-    //   '3333 style system props'
-    // );
+    }), unResolvedProps = _b.unResolvedProps, styleFromProps = _b.styleFromProps, restDefaultProps = _b.restDefaultProps, dataSet = _b.dataSet;
+    var 
+    // unResolvedProps: unResolvedProps1,
+    inlineStateStyleFromProps = getStyleAndFilteredProps({
+        styledSystemProps: stateProps,
+        theme: theme,
+        debug: debug,
+        currentBreakpoint: currentBreakpoint,
+        strictMode: strictMode,
+        getResponsiveStyles: getResponsiveStyles,
+        platform: platform
+    }).styleFromProps;
     if (propStyle) {
         return {
-            style: [INTERNAL_themeStyle, styleFromProps, propStyle],
+            style: [
+                INTERNAL_themeStyle,
+                styleFromProps,
+                stateProps === null || stateProps === void 0 ? void 0 : stateProps.INTERNAL_themeStyle,
+                inlineStateStyleFromProps,
+                propStyle,
+            ],
             styleFromProps: styleFromProps,
             unResolvedProps: unResolvedProps,
             restDefaultProps: restDefaultProps,
@@ -1384,7 +1438,12 @@ var resolvePropsToStyle = function (styledSystemProps, propStyle, theme, platfor
     }
     else {
         return {
-            style: [INTERNAL_themeStyle, styleFromProps],
+            style: [
+                INTERNAL_themeStyle,
+                styleFromProps,
+                stateProps === null || stateProps === void 0 ? void 0 : stateProps.INTERNAL_themeStyle,
+                inlineStateStyleFromProps,
+            ],
             styleFromProps: styleFromProps,
             unResolvedProps: unResolvedProps,
             restDefaultProps: restDefaultProps,
@@ -1427,9 +1486,6 @@ name, componentTheme, config, inputProps, mergeDefaultProps) {
         }
     }
     var styleObj = resolvePropsToStyle(flattenProps, componentStyle, theme, config.platform, false, 4, false, undefined);
-    // if (inputProps?.extraProp === 'Actionsheet') {
-    //   console.log(flattenProps, 'hello flatten here');
-    // }
     styleObj.internalPseudoProps = internalPseudoProps;
     return styleObj;
 };
@@ -2093,7 +2149,7 @@ var container = {
     lg: 1024,
     xl: 1280
 };
-var sizes$l = __assign(__assign(__assign({}, spacing), {
+var sizes$n = __assign(__assign(__assign({}, spacing), {
     '3xs': 224,
     '2xs': 256,
     'xs': 320,
@@ -2256,7 +2312,7 @@ var opacity = {
     100: 1
 };
 
-var theme$1 = __assign(__assign({ borderWidths: borderWidths, breakpoints: breakpoints, colors: colors, radii: radii }, typography), { sizes: sizes$l, space: spacing, shadows: shadow, opacity: opacity });
+var theme$1 = __assign(__assign({ borderWidths: borderWidths, breakpoints: breakpoints, colors: colors, radii: radii }, typography), { sizes: sizes$n, space: spacing, shadows: shadow, opacity: opacity });
 
 // Accordion
 var accordionBaseStyle = function (props) {
@@ -2319,20 +2375,16 @@ var ActionsheetContent = {
         py: 2,
         borderRadius: 'none',
         roundedTop: 20,
-        _light: {
-            _dragIndicator: {
-                bg: 'muted.500'
-            }
+        _dragIndicator: {
+            height: 1,
+            width: 10,
+            borderRadius: 2,
+            bg: 'muted.500'
         },
         _dark: {
             _dragIndicator: {
                 bg: 'muted.400'
             }
-        },
-        _dragIndicator: {
-            height: 1,
-            width: 10,
-            borderRadius: 2
         },
         _dragIndicatorWrapper: {
             pt: 3,
@@ -2358,34 +2410,30 @@ var ActionsheetItem = {
         },
         p: 4,
         _text: {
+            color: 'text.900',
             fontSize: 'md',
             fontWeight: 'normal'
         },
         _disabled: {
             opacity: 40
         },
-        _light: {
-            bg: 'muted.50',
-            _icon: {
-                color: 'muted.500'
-            },
-            _text: {
-                color: 'text.900'
-            },
-            _hover: {
-                bg: 'muted.200'
-            },
-            _pressed: {
-                bg: 'muted.400'
-            },
-            _focusVisible: {
-                _web: {
-                    outlineWidth: '0',
-                    style: { boxShadow: "none" },
-                    bg: 'muted.300'
-                },
+        bg: 'muted.50',
+        _icon: {
+            color: 'muted.500'
+        },
+        _hover: {
+            bg: 'muted.200'
+        },
+        _pressed: {
+            bg: 'muted.400'
+        },
+        _focusVisible: {
+            _web: {
+                outlineWidth: '0',
+                style: { boxShadow: "none" },
                 bg: 'muted.300'
-            }
+            },
+            bg: 'muted.300'
         },
         _dark: {
             bg: 'muted.800',
@@ -2418,21 +2466,24 @@ var Select = {
             selection: {
                 start: 0
             },
-            _light: {
-                customDropdownIconProps: { color: 'muted.500', mr: '3' },
-                _hover: {
-                    borderColor: 'primary.600'
-                },
-                _focus: {
-                    borderColor: 'primary.600'
-                },
-                _disabled: {
-                    bg: 'muted.100',
-                    placeholderTextColor: 'muted.700'
-                },
-                _invalid: {
-                    borderColor: 'error.600'
-                }
+            customDropdownIconProps: {
+                color: 'muted.500',
+                mr: '3',
+                size: '6',
+                p: '1'
+            },
+            _hover: {
+                borderColor: 'primary.600'
+            },
+            _focus: {
+                borderColor: 'primary.600'
+            },
+            _disabled: {
+                bg: 'muted.100',
+                placeholderTextColor: 'muted.700'
+            },
+            _invalid: {
+                borderColor: 'error.600'
             },
             _dark: {
                 customDropdownIconProps: { color: 'muted.400', mr: '3' },
@@ -2444,15 +2495,12 @@ var Select = {
                 },
                 _disabled: {
                     bg: 'muted.800',
+                    opacity: '80',
                     placeholderTextColor: 'text.50'
                 },
                 _invalid: {
                     borderColor: 'error.500'
                 }
-            },
-            customDropdownIconProps: {
-                size: '6',
-                p: '1'
             },
             _webSelect: {
                 style: {
@@ -2468,9 +2516,6 @@ var Select = {
             },
             _web: {
                 pointerEvents: 'none'
-            },
-            _disabled: {
-                opacity: '80'
             },
             _actionSheetBody: {
                 w: '100%'
@@ -2493,8 +2538,8 @@ var SelectItem = {
 };
 
 function getBg(props) {
-    var theme = props.theme, colorScheme = props.colorScheme, status = props.status, variant = props.variant;
-    colorScheme = getColorScheme(props, !status ? colorScheme : status);
+    var theme = props.theme, c = props.colorScheme, status = props.status, variant = props.variant;
+    var colorScheme = getColorScheme(props, !status ? c : status);
     var lightBg = variant === 'solid'
         ? getColor$1(theme, "".concat(colorScheme, ".700"), colorScheme)
         : getColor$1(theme, "".concat(colorScheme, ".200"), colorScheme);
@@ -2508,10 +2553,8 @@ var variantSubtle$3 = function (props) {
     var _a = getBg(props), lightBg = _a.lightBg, darkBg = _a.darkBg;
     colorScheme = getColorScheme(props, !status ? colorScheme : status);
     return {
-        _light: {
-            bg: lightBg,
-            _icon: { color: "".concat(colorScheme, ".700") }
-        },
+        bg: lightBg,
+        _icon: { color: "".concat(colorScheme, ".700") },
         _dark: {
             bg: darkBg,
             _icon: { color: "".concat(colorScheme, ".600") }
@@ -2523,10 +2566,8 @@ var variantOutline$4 = function (props) {
     colorScheme = getColorScheme(props, !status ? colorScheme : status);
     return {
         borderWidth: 1,
-        _light: {
-            _icon: { color: "".concat(colorScheme, ".700") },
-            borderColor: "".concat(colorScheme, ".700")
-        },
+        _icon: { color: "".concat(colorScheme, ".700") },
+        borderColor: "".concat(colorScheme, ".700"),
         _dark: {
             _icon: { color: "".concat(colorScheme, ".600") },
             borderColor: "".concat(colorScheme, ".600")
@@ -2538,10 +2579,8 @@ var variantOutlineLight = function (props) {
     colorScheme = getColorScheme(props, !status ? colorScheme : status);
     return {
         borderWidth: 1,
-        _light: {
-            _icon: { color: "".concat(colorScheme, ".700") },
-            borderColor: transparentize("".concat(colorScheme, ".700"), 0.4)(theme)
-        },
+        _icon: { color: "".concat(colorScheme, ".700") },
+        borderColor: transparentize("".concat(colorScheme, ".700"), 0.4)(theme),
         _dark: {
             _icon: { color: "".concat(colorScheme, ".600") },
             borderColor: transparentize("".concat(colorScheme, ".600"), 0.4)(theme)
@@ -2551,9 +2590,7 @@ var variantOutlineLight = function (props) {
 var variantSolid$3 = function (props) {
     var _a = getBg(props), lightBg = _a.lightBg, darkBg = _a.darkBg;
     return {
-        _light: {
-            bg: lightBg
-        },
+        bg: lightBg,
         _dark: {
             bg: darkBg
         },
@@ -2566,11 +2603,9 @@ var variantLeftAccent = function (props) {
     colorScheme = getColorScheme(props, !status ? colorScheme : status);
     return {
         borderLeftWidth: 4,
-        _light: {
-            bg: lightBg,
-            _icon: { color: "".concat(colorScheme, ".700") },
-            borderLeftColor: "".concat(colorScheme, ".700")
-        },
+        bg: lightBg,
+        _icon: { color: "".concat(colorScheme, ".700") },
+        borderLeftColor: "".concat(colorScheme, ".700"),
         _dark: {
             bg: darkBg,
             _icon: { color: "".concat(colorScheme, ".600") },
@@ -2584,11 +2619,9 @@ var variantTopAccent = function (props) {
     colorScheme = getColorScheme(props, !status ? colorScheme : status);
     return {
         borderTopWidth: 4,
-        _light: {
-            bg: lightBg,
-            _icon: { color: "".concat(colorScheme, ".700") },
-            borderTopColor: "".concat(colorScheme, ".700")
-        },
+        bg: lightBg,
+        _icon: { color: "".concat(colorScheme, ".700") },
+        borderTopColor: "".concat(colorScheme, ".700"),
         _dark: {
             bg: darkBg,
             _icon: { color: "".concat(colorScheme, ".600") },
@@ -2660,9 +2693,7 @@ var baseStyle$N = function (props) {
                 width: '100%'
             }
         },
-        _light: {
-            borderColor: 'gray.800'
-        },
+        borderColor: 'gray.800',
         _dark: {
             borderColor: 'white'
         }
@@ -2678,7 +2709,7 @@ function getSize(size, fontSize, badgeSize) {
         _badgeSize: badgeSize
     };
 }
-var sizes$k = {
+var sizes$m = {
     'xs': getSize('6', '2xs', '2'),
     'sm': getSize('8', 'xs', '3'),
     'md': getSize('12', 'md', '4'),
@@ -2691,7 +2722,7 @@ var defaultProps$z = {
 };
 var Avatar = {
     baseStyle: baseStyle$N,
-    sizes: sizes$k,
+    sizes: sizes$m,
     defaultProps: defaultProps$z
 };
 
@@ -2781,7 +2812,7 @@ function variantSubtle$2(props) {
     return {
         _text: { color: "".concat(colorScheme, ".900") },
         _icon: { color: "".concat(colorScheme, ".900") },
-        _light: { bg: "".concat(colorScheme, ".100") },
+        bg: "".concat(colorScheme, ".100"),
         _dark: { bg: "".concat(colorScheme, ".300") },
         borderWidth: '1',
         borderRadius: '2',
@@ -2791,11 +2822,9 @@ function variantSubtle$2(props) {
 function variantOutline$3(props) {
     var colorScheme = getColorScheme(props);
     return {
-        _light: {
-            _text: { color: "".concat(colorScheme, ".600") },
-            _icon: { color: "".concat(colorScheme, ".600") },
-            borderColor: "".concat(colorScheme, ".600")
-        },
+        _text: { color: "".concat(colorScheme, ".600") },
+        _icon: { color: "".concat(colorScheme, ".600") },
+        borderColor: "".concat(colorScheme, ".600"),
         _dark: {
             _text: {
                 color: "".concat(colorScheme, ".300")
@@ -2850,11 +2879,6 @@ var BreadcrumbIcon = {
 
 var baseStyle$I = function (props) {
     var primary = props.theme.colors.primary;
-    var focusRing = mode({
-        boxShadow: "".concat(primary[400], " 0px 0px 0px 2px")
-    }, {
-        boxShadow: "".concat(primary[500], " 0px 0px 0px 2px")
-    })(props);
     return {
         borderRadius: 'sm',
         flexDirection: 'row',
@@ -2873,7 +2897,15 @@ var baseStyle$I = function (props) {
         _focusVisible: {
             _web: {
                 outlineWidth: '0',
-                style: __assign({}, focusRing)
+                style: { boxShadow: "".concat(primary[400], " 0px 0px 0px 2px") }
+            }
+        },
+        _dark: {
+            _focusVisible: {
+                _web: {
+                    outlineWidth: '0',
+                    style: { boxShadow: "".concat(primary[500], " 0px 0px 0px 2px") }
+                }
             }
         },
         _stack: {
@@ -2894,22 +2926,20 @@ var baseStyle$I = function (props) {
 function variantGhost$1(_a) {
     var colorScheme = _a.colorScheme;
     return {
-        _light: {
-            _text: {
-                color: "".concat(colorScheme, ".600")
-            },
-            _icon: {
-                color: "".concat(colorScheme, ".600")
-            },
-            _spinner: {
-                color: "".concat(colorScheme, ".600")
-            },
-            _hover: {
-                bg: "".concat(colorScheme, ".600:alpha.10")
-            },
-            _pressed: {
-                bg: "".concat(colorScheme, ".600:alpha.20")
-            }
+        _text: {
+            color: "".concat(colorScheme, ".600")
+        },
+        _icon: {
+            color: "".concat(colorScheme, ".600")
+        },
+        _spinner: {
+            color: "".concat(colorScheme, ".600")
+        },
+        _hover: {
+            bg: "".concat(colorScheme, ".600:alpha.10")
+        },
+        _pressed: {
+            bg: "".concat(colorScheme, ".600:alpha.20")
         },
         _dark: {
             _text: {
@@ -2934,23 +2964,21 @@ function variantOutline$2(_a) {
     var colorScheme = _a.colorScheme;
     return {
         borderWidth: '1px',
-        _light: {
-            borderColor: 'muted.300',
-            _text: {
-                color: "".concat(colorScheme, ".600")
-            },
-            _icon: {
-                color: "".concat(colorScheme, ".600")
-            },
-            _spinner: {
-                color: "".concat(colorScheme, ".600")
-            },
-            _hover: {
-                bg: "".concat(colorScheme, ".600:alpha.10")
-            },
-            _pressed: {
-                bg: "".concat(colorScheme, ".600:alpha.20")
-            }
+        borderColor: 'muted.300',
+        _text: {
+            color: "".concat(colorScheme, ".600")
+        },
+        _icon: {
+            color: "".concat(colorScheme, ".600")
+        },
+        _spinner: {
+            color: "".concat(colorScheme, ".600")
+        },
+        _hover: {
+            bg: "".concat(colorScheme, ".600:alpha.10")
+        },
+        _pressed: {
+            bg: "".concat(colorScheme, ".600:alpha.20")
         },
         _dark: {
             borderColor: 'muted.700',
@@ -2984,14 +3012,12 @@ function variantSolid$1(_a) {
         _spinner: {
             color: 'text.50'
         },
-        _light: {
-            bg: "".concat(colorScheme, ".600"),
-            _hover: {
-                bg: "".concat(colorScheme, ".700")
-            },
-            _pressed: {
-                bg: "".concat(colorScheme, ".800")
-            }
+        bg: "".concat(colorScheme, ".600"),
+        _hover: {
+            bg: "".concat(colorScheme, ".700")
+        },
+        _pressed: {
+            bg: "".concat(colorScheme, ".800")
         },
         _dark: {
             bg: "".concat(colorScheme, ".600"),
@@ -3007,6 +3033,7 @@ function variantSolid$1(_a) {
 function variantSubtle$1(_a) {
     var colorScheme = _a.colorScheme;
     return {
+        bg: "".concat(colorScheme, ".100"),
         _text: {
             color: "".concat(colorScheme, ".900")
         },
@@ -3016,14 +3043,11 @@ function variantSubtle$1(_a) {
         _spinner: {
             color: "".concat(colorScheme, ".900")
         },
-        _light: {
-            bg: "".concat(colorScheme, ".100"),
-            _hover: {
-                bg: "".concat(colorScheme, ".200")
-            },
-            _pressed: {
-                bg: "".concat(colorScheme, ".300")
-            }
+        _hover: {
+            bg: "".concat(colorScheme, ".200")
+        },
+        _pressed: {
+            bg: "".concat(colorScheme, ".300")
         },
         _dark: {
             bg: "".concat(colorScheme, ".300"),
@@ -3052,18 +3076,12 @@ function variantLink$1(_a) {
         },
         _pressed: {
             _text: {
+                color: "".concat(colorScheme, ".800"),
                 textDecorationLine: 'underline'
             }
         },
-        _light: {
-            _text: {
-                color: "".concat(colorScheme, ".600")
-            },
-            _pressed: {
-                _text: {
-                    color: "".concat(colorScheme, ".800")
-                }
-            }
+        _text: {
+            color: "".concat(colorScheme, ".600")
         },
         _dark: {
             _text: {
@@ -3085,7 +3103,7 @@ var variants$6 = {
     link: variantLink$1,
     unstyled: {}
 };
-var sizes$j = {
+var sizes$l = {
     lg: {
         px: '3',
         py: '3',
@@ -3139,7 +3157,7 @@ var ButtonGroup = {
 var Button = {
     baseStyle: baseStyle$I,
     variants: variants$6,
-    sizes: sizes$j,
+    sizes: sizes$l,
     defaultProps: defaultProps$w
 };
 
@@ -3156,7 +3174,7 @@ var Card = {
 };
 
 // For Square and circle variation
-var sizes$i = {
+var sizes$k = {
     'xs': {
         height: 10,
         width: 10
@@ -3188,7 +3206,7 @@ var Center = {
         alignItems: 'center',
         justifyContent: 'center'
     },
-    sizes: sizes$i
+    sizes: sizes$k
 };
 
 var baseStyle$G = function (props) {
@@ -3201,43 +3219,42 @@ var baseStyle$G = function (props) {
         borderRadius: 'sm',
         opacity: 1,
         p: 0.5,
-        _light: {
-            bg: 'muted.50',
-            borderColor: 'muted.400',
-            _text: {
-                color: 'darkText'
-            },
-            _icon: {
-                color: "muted.50"
-            },
-            _checked: {
-                borderColor: "".concat(c, ".600"),
-                bg: "".concat(c, ".600"),
-                _hover: {
-                    borderColor: "".concat(c, ".700"),
-                    bg: "".concat(c, ".700"),
-                    _disabled: {
-                        borderColor: "".concat(c, ".600"),
-                        bg: "".concat(c, ".600")
-                    }
-                },
-                _pressed: {
-                    borderColor: "".concat(c, ".800"),
-                    bg: "".concat(c, ".800")
-                }
-            },
+        bg: 'muted.50',
+        borderColor: 'muted.400',
+        _text: {
+            color: 'darkText',
+            ml: 2
+        },
+        _icon: {
+            color: "muted.50"
+        },
+        _checked: {
+            borderColor: "".concat(c, ".600"),
+            bg: "".concat(c, ".600"),
             _hover: {
-                borderColor: 'muted.500',
+                borderColor: "".concat(c, ".700"),
+                bg: "".concat(c, ".700"),
                 _disabled: {
-                    borderColor: 'muted.400'
+                    borderColor: "".concat(c, ".600"),
+                    bg: "".concat(c, ".600")
                 }
             },
             _pressed: {
-                borderColor: 'muted.600'
-            },
-            _invalid: {
-                borderColor: 'error.600'
+                borderColor: "".concat(c, ".800"),
+                bg: "".concat(c, ".800")
             }
+        },
+        _hover: {
+            borderColor: 'muted.500',
+            _disabled: {
+                borderColor: 'muted.400'
+            }
+        },
+        _pressed: {
+            borderColor: 'muted.600'
+        },
+        _invalid: {
+            borderColor: 'error.600'
         },
         _dark: {
             bg: 'muted.900',
@@ -3288,9 +3305,6 @@ var baseStyle$G = function (props) {
                 cursor: 'pointer'
             }
         },
-        _text: {
-            ml: 2
-        },
         _focusVisible: {
             _web: {
                 style: {
@@ -3308,7 +3322,7 @@ var baseStyle$G = function (props) {
         }
     };
 };
-var sizes$h = {
+var sizes$j = {
     lg: { _icon: { size: 5 }, _text: { fontSize: 'xl' } },
     md: { _icon: { size: 4 }, _text: { fontSize: 'lg' } },
     sm: { _icon: { size: 3 }, _text: { fontSize: 'md' } }
@@ -3320,7 +3334,7 @@ var defaultProps$u = {
 };
 var Checkbox = {
     baseStyle: baseStyle$G,
-    sizes: sizes$h,
+    sizes: sizes$j,
     defaultProps: defaultProps$u
 };
 
@@ -3375,7 +3389,7 @@ var StatusBar = {
     defaultProps: defaultProps$o
 };
 
-var sizes$g = {
+var sizes$i = {
     'xs': {
         height: 6,
         width: 6
@@ -3413,7 +3427,7 @@ function baseStyle$y(props) {
         trackColor: mode("".concat(colorScheme, ".200"), "".concat(colorScheme, ".800"))(props)
     };
 }
-var CircularProgress = { baseStyle: baseStyle$y, sizes: sizes$g, defaultProps: defaultProps$n };
+var CircularProgress = { baseStyle: baseStyle$y, sizes: sizes$i, defaultProps: defaultProps$n };
 
 var variants$5 = Badge.variants, defaultProps$m = Badge.defaultProps;
 var baseStyle$x = {
@@ -3445,23 +3459,25 @@ var Container = {
 
 var baseStyle$v = {};
 var defaultProps$l = {};
+var sizes$h = {};
 var HStack = {
     baseStyle: baseStyle$v,
-    defaultProps: defaultProps$l
+    defaultProps: defaultProps$l,
+    sizes: sizes$h
 };
 
 var baseStyle$u = {};
 var defaultProps$k = {};
+var sizes$g = {};
 var VStack = {
     baseStyle: baseStyle$u,
-    defaultProps: defaultProps$k
+    defaultProps: defaultProps$k,
+    sizes: sizes$g
 };
 
 function baseStyle$t() {
     return {
-        _light: {
-            bg: 'muted.300'
-        },
+        bg: 'muted.300',
         _dark: {
             bg: 'muted.600'
         }
@@ -3530,14 +3546,10 @@ var FormControlErrorMessage = {
         return {
             mt: '2',
             _text: {
-                fontSize: 'xs'
+                fontSize: 'xs',
+                color: 'error.600'
             },
             _stack: { space: 1, alignItems: 'center' },
-            _light: {
-                _text: {
-                    color: 'error.600'
-                }
-            },
             _dark: {
                 _text: {
                     color: 'error.500'
@@ -3554,16 +3566,12 @@ var FormControlLabel = {
             justifyContent: 'flex-start',
             _text: {
                 fontSize: 'sm',
-                fontWeight: 'medium'
+                fontWeight: 'medium',
+                color: 'text.500'
             },
             my: '1',
-            _light: {
-                _text: {
-                    color: 'text.500'
-                },
-                _astrick: {
-                    color: 'error.600'
-                }
+            _astrick: {
+                color: 'error.600'
             },
             _dark: {
                 _text: {
@@ -3582,12 +3590,8 @@ var FormControlHelperText = {
         return {
             mt: '2',
             _text: {
-                fontSize: 'xs'
-            },
-            _light: {
-                _text: {
-                    color: 'text.500'
-                }
+                fontSize: 'xs',
+                color: 'text.500'
             },
             _dark: {
                 _text: {
@@ -3600,9 +3604,7 @@ var FormControlHelperText = {
 
 var baseStyle$q = function () {
     return {
-        _light: {
-            color: 'text.900'
-        },
+        color: 'text.900',
         _dark: {
             color: 'text.50'
         },
@@ -3612,21 +3614,21 @@ var baseStyle$q = function () {
 };
 var sizes$e = {
     '4xl': {
-        fontSize: ['6xl', null, '7xl'],
+        fontSize: { base: '6xl', md: '7xl' },
         letterSpacing: 'xl'
     },
     '3xl': {
-        fontSize: ['5xl', null, '6xl'],
+        fontSize: { base: '5xl', md: '6xl' },
         letterSpacing: 'xl'
     },
     '2xl': {
-        fontSize: ['4xl', null, '5xl']
+        fontSize: { base: '4xl', md: '5xl' }
     },
     'xl': {
-        fontSize: ['3xl', null, '4xl']
+        fontSize: { base: '3xl', md: '4xl' }
     },
     'lg': {
-        fontSize: ['2xl', null, '3xl']
+        fontSize: { base: '2xl', md: '3xl' }
     },
     'md': { fontSize: 'xl' },
     'sm': { fontSize: 'md' },
@@ -3643,9 +3645,7 @@ var Heading = {
 
 var baseStyle$p = function () {
     return {
-        _light: {
-            color: 'muted.500'
-        },
+        color: 'muted.500',
         _dark: {
             color: 'muted.400'
         }
@@ -3670,15 +3670,6 @@ var Icon = { baseStyle: baseStyle$p, sizes: sizes$d, defaultProps: defaultProps$
 var baseStyle$o = function (props) {
     var colorScheme = props.colorScheme;
     var colors = props.theme.colors;
-    var focusRing = mode({
-        outlineWidth: '2px',
-        outlineColor: "".concat(colors[colorScheme][600]),
-        outlineStyle: 'solid'
-    }, {
-        outlineWidth: '2px',
-        outlineColor: "".concat(colors[colorScheme][500]),
-        outlineStyle: 'solid'
-    })(props);
     return {
         borderRadius: 'sm',
         flexDirection: 'row',
@@ -3699,7 +3690,11 @@ var baseStyle$o = function (props) {
         },
         _focusVisible: {
             _web: {
-                style: __assign({}, focusRing)
+                style: {
+                    outlineWidth: '2px',
+                    outlineColor: "".concat(colors[colorScheme][600]),
+                    outlineStyle: 'solid'
+                }
             }
         },
         _loading: {
@@ -3707,22 +3702,31 @@ var baseStyle$o = function (props) {
         },
         _disabled: {
             opacity: '40'
+        },
+        _dark: {
+            _focusVisible: {
+                _web: {
+                    style: {
+                        outlineWidth: '2px',
+                        outlineColor: "".concat(colors[colorScheme][500]),
+                        outlineStyle: 'solid'
+                    }
+                }
+            }
         }
     };
 };
 function variantGhost(_a) {
     var colorScheme = _a.colorScheme;
     return {
-        _light: {
-            _icon: {
-                color: "".concat(colorScheme, ".600")
-            },
-            _hover: {
-                bg: "".concat(colorScheme, ".600:alpha.10")
-            },
-            _pressed: {
-                bg: "".concat(colorScheme, ".600:alpha.20")
-            }
+        _icon: {
+            color: "".concat(colorScheme, ".600")
+        },
+        _hover: {
+            bg: "".concat(colorScheme, ".600:alpha.10")
+        },
+        _pressed: {
+            bg: "".concat(colorScheme, ".600:alpha.20")
         },
         _dark: {
             _icon: {
@@ -3741,28 +3745,26 @@ function variantOutline$1(_a) {
     var colorScheme = _a.colorScheme;
     return {
         borderWidth: '1px',
-        _light: {
-            borderColor: "".concat(colorScheme, ".600"),
+        borderColor: "".concat(colorScheme, ".600"),
+        _icon: {
+            color: "".concat(colorScheme, ".600")
+        },
+        _hover: {
+            bg: "".concat(colorScheme, ".700"),
             _icon: {
-                color: "".concat(colorScheme, ".600")
-            },
-            _hover: {
-                bg: "".concat(colorScheme, ".700"),
-                _icon: {
-                    color: 'muted.50'
-                }
-            },
-            _pressed: {
-                bg: "".concat(colorScheme, ".800"),
-                _icon: {
-                    color: 'muted.50'
-                }
-            },
-            _focus: {
-                bg: "".concat(colorScheme, ".600"),
-                _icon: {
-                    color: 'muted.50'
-                }
+                color: 'muted.50'
+            }
+        },
+        _pressed: {
+            bg: "".concat(colorScheme, ".800"),
+            _icon: {
+                color: 'muted.50'
+            }
+        },
+        _focus: {
+            bg: "".concat(colorScheme, ".600"),
+            _icon: {
+                color: 'muted.50'
             }
         },
         _dark: {
@@ -3794,17 +3796,15 @@ function variantOutline$1(_a) {
 function variantSolid(_a) {
     var colorScheme = _a.colorScheme;
     return {
-        _light: {
-            bg: "".concat(colorScheme, ".600"),
-            _hover: {
-                bg: "".concat(colorScheme, ".700")
-            },
-            _pressed: {
-                bg: "".concat(colorScheme, ".800")
-            },
-            _icon: {
-                color: 'muted.50'
-            }
+        bg: "".concat(colorScheme, ".600"),
+        _hover: {
+            bg: "".concat(colorScheme, ".700")
+        },
+        _pressed: {
+            bg: "".concat(colorScheme, ".800")
+        },
+        _icon: {
+            color: 'muted.50'
         },
         _dark: {
             bg: "".concat(colorScheme, ".500"),
@@ -3832,14 +3832,12 @@ function variantSubtle(_a) {
         _icon: {
             color: "".concat(colorScheme, ".900")
         },
-        _light: {
-            bg: "".concat(colorScheme, ".100"),
-            _hover: {
-                bg: "".concat(colorScheme, ".200")
-            },
-            _pressed: {
-                bg: "".concat(colorScheme, ".300")
-            }
+        bg: "".concat(colorScheme, ".100"),
+        _hover: {
+            bg: "".concat(colorScheme, ".200")
+        },
+        _pressed: {
+            bg: "".concat(colorScheme, ".300")
         },
         _dark: {
             bg: "".concat(colorScheme, ".300"),
@@ -3858,19 +3856,17 @@ function variantLink(_a) {
         _spinner: {
             color: "".concat(colorScheme, ".600")
         },
-        _light: {
+        _icon: {
+            color: "".concat(colorScheme, ".600")
+        },
+        _hover: {
             _icon: {
-                color: "".concat(colorScheme, ".600")
-            },
-            _hover: {
-                _icon: {
-                    color: "".concat(colorScheme, ".700")
-                }
-            },
-            _pressed: {
-                _icon: {
-                    color: "".concat(colorScheme, ".800")
-                }
+                color: "".concat(colorScheme, ".700")
+            }
+        },
+        _pressed: {
+            _icon: {
+                color: "".concat(colorScheme, ".800")
             }
         },
         _dark: {
@@ -3892,10 +3888,8 @@ function variantLink(_a) {
 }
 function variantUnstyled() {
     return {
-        _light: {
-            _icon: {
-                color: 'muted.900'
-            }
+        _icon: {
+            color: 'muted.900'
         },
         _dark: {
             _icon: {
@@ -3996,32 +3990,28 @@ var baseStyle$n = function (props) {
             w: '100%',
             h: '100%'
         },
-        _light: {
-            placeholderTextColor: 'text.400',
-            color: 'text.900',
-            borderColor: 'muted.300',
-            _hover: {
-                borderColor: 'primary.600'
-            },
-            _focus: {
-                borderColor: 'primary.600',
-                _hover: { borderColor: 'primary.600' },
-                _stack: {
-                    style: {
-                        outlineWidth: '1px',
-                        outlineColor: "".concat(props.focusOutlineColor || primary[600]),
-                        outlineStyle: 'solid'
-                    }
-                }
-            },
+        placeholderTextColor: 'text.400',
+        color: 'text.900',
+        borderColor: 'muted.300',
+        _stack: {
+            flexDirection: 'row',
+            alignItems: 'center',
+            // justifyContent: 'space-between',
+            overflow: 'hidden'
+        },
+        _hover: {
+            borderColor: 'primary.600'
+        },
+        _focus: {
+            borderColor: 'primary.600',
+            _hover: { borderColor: 'primary.600' },
             _invalid: {
                 borderColor: 'error.600',
                 _hover: { borderColor: 'error.600' },
                 _stack: {
                     style: {
-                        outlineWidth: '1px',
-                        outlineColor: "".concat(props.invalidOutlineColor || error[600]),
-                        outlineStyle: 'solid'
+                        outlineWidth: '0',
+                        boxShadow: "0 0 0 1px ".concat(error[600])
                     }
                 }
             },
@@ -4038,10 +4028,10 @@ var baseStyle$n = function (props) {
                 }
             },
             _stack: {
-                flexDirection: 'row',
-                alignItems: 'center',
-                // justifyContent: 'space-between',
-                overflow: 'hidden'
+                style: {
+                    outlineWidth: '0',
+                    boxShadow: "0 0 0 1px ".concat(primary[600])
+                }
             }
         },
         _dark: {
@@ -4056,9 +4046,8 @@ var baseStyle$n = function (props) {
                 _hover: { borderColor: 'primary.500' },
                 _stack: {
                     style: {
-                        outlineWidth: '1px',
-                        outlineColor: "".concat(props.focusOutlineColor || primary[500]),
-                        outlineStyle: 'solid'
+                        outlineWidth: '0',
+                        boxShadow: "0 0 0 1px ".concat(primary[500])
                     }
                 }
             },
@@ -4066,9 +4055,8 @@ var baseStyle$n = function (props) {
                 borderColor: 'error.500',
                 _stack: {
                     style: {
-                        outlineWidth: '1px',
-                        outlineColor: "".concat(props.invalidOutlineColor || error[500]),
-                        outlineStyle: 'solid'
+                        outlineWidth: '0',
+                        boxShadow: "0 0 0 1px ".concat(error[500])
                     }
                 },
                 _hover: { borderColor: 'error.500' }
@@ -4127,10 +4115,8 @@ function filledStyle(props) {
                 borderWidth: 0
             }
         },
-        _light: {
-            bg: 'muted.100',
-            borderColor: 'muted.100'
-        },
+        bg: 'muted.100',
+        borderColor: 'muted.100',
         _dark: {
             bg: 'muted.800',
             borderColor: 'muted.800'
@@ -4165,21 +4151,19 @@ function underlinedStyle(props) {
         borderWidth: '0',
         pl: '0',
         borderBottomWidth: '1',
-        _light: {
-            _focus: {
-                _stack: {
-                    style: {
-                        outlineWidth: '0',
-                        boxShadow: "0 1px 0 0 ".concat(props.focusOutlineColor || primary[600])
-                    }
+        _focus: {
+            _stack: {
+                style: {
+                    outlineWidth: '0',
+                    boxShadow: "0 1px 0 0 ".concat(primary[600])
                 }
-            },
-            _invalid: {
-                _stack: {
-                    style: {
-                        outlineWidth: 0,
-                        boxShadow: "0 1px 0 0 ".concat(props.invalidOutlineColor || error[600])
-                    }
+            }
+        },
+        _invalid: {
+            _stack: {
+                style: {
+                    outlineWidth: 0,
+                    boxShadow: "0 1px 0 0 ".concat(error[600])
                 }
             }
         },
@@ -4188,7 +4172,7 @@ function underlinedStyle(props) {
                 _stack: {
                     style: {
                         outlineWidth: '0',
-                        boxShadow: "0 1px 0 0 ".concat(props.focusOutlineColor || primary[500])
+                        boxShadow: "0 1px 0 0 ".concat(primary[500])
                     }
                 }
             },
@@ -4196,7 +4180,7 @@ function underlinedStyle(props) {
                 _stack: {
                     style: {
                         outlineWidth: 0,
-                        boxShadow: "0 1px 0 0 ".concat(props.focusOutlineColor || error[500])
+                        boxShadow: "0 1px 0 0 ".concat(error[500])
                     }
                 }
             }
@@ -4238,14 +4222,10 @@ var baseStyle$m = function () {
         shadow: 6,
         rounded: 'sm',
         _text: {
-            fontSize: 'sm'
+            fontSize: 'sm',
+            color: "text.50"
         },
-        _light: {
-            bg: "muted.800",
-            _text: {
-                color: "text.50"
-            }
-        },
+        bg: "muted.800",
         _dark: {
             bg: "muted.50",
             _text: {
@@ -4301,9 +4281,7 @@ var baseStyle$j = {
     py: 2,
     borderRadius: 'sm',
     shadow: 6,
-    _light: {
-        bg: 'muted.50'
-    },
+    bg: 'muted.50',
     _dark: {
         bg: 'muted.800'
     },
@@ -4329,9 +4307,7 @@ var MenuGroup = {
         _title: {
             fontSize: 'xs',
             textTransform: 'uppercase',
-            _light: {
-                color: 'text.500'
-            },
+            color: 'text.500',
             _dark: {
                 color: 'text.400'
             }
@@ -4353,35 +4329,31 @@ var MenuItem = {
         },
         _icon: {
             size: 4,
-            opacity: 0
+            opacity: 0,
+            color: 'muted.500'
         },
-        _light: {
+        _text: {
+            color: 'text.900'
+        },
+        _disabled: {
             _text: {
-                color: 'text.900'
-            },
-            _disabled: {
-                _text: {
-                    color: 'text.400'
-                }
-            },
-            _hover: {
-                bg: 'muted.200'
-            },
-            _focus: {
+                color: 'text.400'
+            }
+        },
+        _hover: {
+            bg: 'muted.200'
+        },
+        _focus: {
+            bg: 'muted.300'
+        },
+        _pressed: {
+            bg: 'muted.400'
+        },
+        _focusVisible: {
+            _web: {
+                outlineWidth: '0',
+                style: { boxShadow: "none" },
                 bg: 'muted.300'
-            },
-            _pressed: {
-                bg: 'muted.400'
-            },
-            _icon: {
-                color: 'muted.500'
-            },
-            _focusVisible: {
-                _web: {
-                    outlineWidth: '0',
-                    style: { boxShadow: "none" },
-                    bg: 'muted.300'
-                }
             }
         },
         _dark: {
@@ -4404,13 +4376,13 @@ var MenuItem = {
             },
             _icon: {
                 color: 'muted.400'
-            }
-        },
-        _focusVisible: {
-            _web: {
-                outlineWidth: '0',
-                style: { boxShadow: "none" },
-                bg: 'muted.600'
+            },
+            _focusVisible: {
+                _web: {
+                    outlineWidth: '0',
+                    style: { boxShadow: "none" },
+                    bg: 'muted.600'
+                }
             }
         },
         _checked: {
@@ -4483,11 +4455,9 @@ var ModalContent = {
         //TODO: build-time
         // maxHeight: `${Dimensions.get('window').height - 150}px`,
         overflow: 'hidden',
-        _light: {
-            bg: 'muted.50',
-            _text: {
-                color: 'text.900'
-            }
+        bg: 'muted.50',
+        _text: {
+            color: 'text.900'
         },
         _dark: {
             bg: 'muted.800',
@@ -4512,18 +4482,14 @@ var ModalCloseButton = {
             cursor: 'pointer'
         },
         _icon: {
-            size: '4'
+            size: '4',
+            color: 'muted.500'
         },
-        _light: {
-            _icon: {
-                color: 'muted.500'
-            },
-            _hover: {
-                bg: 'muted.200'
-            },
-            _pressed: {
-                bg: 'muted.300'
-            }
+        _hover: {
+            bg: 'muted.200'
+        },
+        _pressed: {
+            bg: 'muted.300'
         },
         _dark: {
             _icon: {
@@ -4545,15 +4511,11 @@ var ModalHeader = {
         _text: {
             fontSize: 'md',
             fontWeight: 'semibold',
-            lineHeight: 'sm'
+            lineHeight: 'sm',
+            color: 'text.900'
         },
-        _light: {
-            bg: 'muted.50',
-            borderColor: 'muted.300',
-            _text: {
-                color: 'text.900'
-            }
-        },
+        bg: 'muted.50',
+        borderColor: 'muted.300',
         _dark: {
             bg: 'muted.800',
             borderColor: 'muted.700',
@@ -4585,10 +4547,8 @@ var ModalFooter = {
         justifyContent: 'flex-end',
         flexWrap: 'wrap',
         borderTopWidth: 1,
-        _light: {
-            bg: 'muted.50',
-            borderColor: 'muted.300'
-        },
+        bg: 'muted.50',
+        borderColor: 'muted.300',
         _dark: {
             bg: 'muted.800',
             borderColor: 'muted.700'
@@ -4668,11 +4628,9 @@ var AlertDialogContent = {
             //TODO: build-time
             // maxHeight: `${Dimensions.get('window').height - 150}px`,
             overflow: 'hidden',
-            _light: {
-                bg: 'muted.50',
-                _text: {
-                    color: 'text.900'
-                }
+            bg: 'muted.50',
+            _text: {
+                color: 'text.900'
             },
             _dark: {
                 bg: 'muted.800',
@@ -4696,18 +4654,14 @@ var AlertDialogCloseButton = {
                 cursor: 'pointer'
             },
             _icon: {
-                size: '4'
+                size: '4',
+                color: 'muted.500'
             },
-            _light: {
-                _icon: {
-                    color: 'muted.500'
-                },
-                _hover: {
-                    bg: 'muted.200'
-                },
-                _pressed: {
-                    bg: 'muted.300'
-                }
+            _hover: {
+                bg: 'muted.200'
+            },
+            _pressed: {
+                bg: 'muted.300'
             },
             _dark: {
                 _icon: {
@@ -4729,17 +4683,13 @@ var AlertDialogHeader = {
             p: '4',
             borderBottomWidth: '1',
             _text: {
+                color: 'text.900',
                 fontSize: 'md',
                 fontWeight: 'semibold',
                 lineHeight: 'sm'
             },
-            _light: {
-                bg: 'muted.50',
-                borderColor: 'muted.300',
-                _text: {
-                    color: 'text.900'
-                }
-            },
+            bg: 'muted.50',
+            borderColor: 'muted.300',
             _dark: {
                 bg: 'muted.800',
                 borderColor: 'muted.700',
@@ -4754,11 +4704,9 @@ var AlertDialogBody = {
     baseStyle: function () {
         return {
             p: '4',
-            _light: {
-                bg: 'muted.50',
-                _text: {
-                    color: 'text.900'
-                }
+            bg: 'muted.50',
+            _text: {
+                color: 'text.900'
             },
             _dark: {
                 bg: 'muted.800',
@@ -4777,10 +4725,8 @@ var AlertDialogFooter = {
             justifyContent: 'flex-end',
             flexWrap: 'wrap',
             borderTopWidth: '1',
-            _light: {
-                bg: 'muted.50',
-                borderColor: 'muted.300'
-            },
+            bg: 'muted.50',
+            borderColor: 'muted.300',
             _dark: {
                 bg: 'muted.800',
                 borderColor: 'muted.700'
@@ -4843,11 +4789,9 @@ var PopoverBody = {
     baseStyle: function () { return ({
         p: '3',
         shadow: '6',
-        _light: {
-            bg: 'muted.50',
-            _text: {
-                color: 'text.900'
-            }
+        bg: 'muted.50',
+        _text: {
+            color: 'text.900'
         },
         _dark: {
             bg: 'muted.800',
@@ -4861,11 +4805,9 @@ var PopoverContent = {
     baseStyle: function () { return ({
         //TODO: Box inside PopperContent is not able to resolve shadow
         // shadow: '6',
-        _light: {
-            borderColor: 'muted.300',
-            _text: {
-                color: 'text.900'
-            }
+        borderColor: 'muted.300',
+        _text: {
+            color: 'text.900'
         },
         _dark: {
             borderColor: 'muted.700',
@@ -4888,15 +4830,11 @@ var PopoverHeader = {
         _text: {
             fontSize: 'md',
             fontWeight: '700',
-            lineHeight: 'sm'
+            lineHeight: 'sm',
+            color: 'text.900'
         },
-        _light: {
-            bg: 'muted.50',
-            borderColor: 'muted.300',
-            _text: {
-                color: 'text.900'
-            }
-        },
+        bg: 'muted.50',
+        borderColor: 'muted.300',
         _dark: {
             bg: 'muted.800',
             borderColor: 'muted.700',
@@ -4908,10 +4846,8 @@ var PopoverHeader = {
 };
 var PopoverArrow = {
     baseStyle: function () { return ({
-        _light: {
-            bg: 'muted.50',
-            borderColor: 'muted.300'
-        },
+        bg: 'muted.50',
+        borderColor: 'muted.300',
         _dark: {
             bg: 'muted.800',
             borderColor: 'muted.700'
@@ -4927,10 +4863,8 @@ var PopoverFooter = {
             justifyContent: 'flex-end',
             flexWrap: 'wrap',
             borderTopWidth: 1,
-            _light: {
-                bg: 'muted.50',
-                borderColor: 'muted.300'
-            },
+            bg: 'muted.50',
+            borderColor: 'muted.300',
             _dark: {
                 bg: 'muted.800',
                 borderColor: 'muted.700'
@@ -5043,14 +4977,24 @@ var PinInput = {
 
 var baseStyle$i = function (props) {
     var primary = props.theme.colors.primary;
-    var focusRing = mode({
-        boxShadow: "".concat(primary[400], " 0px 0px 0px 2px")
-    }, {
-        boxShadow: "".concat(primary[500], " 0px 0px 0px 2px")
-    })(props);
     return {
         _focusVisible: {
-            _web: { style: __assign(__assign({}, focusRing), { outlineWidth: 0 }) }
+            _web: {
+                style: {
+                    outlineWidth: 0,
+                    boxShadow: "".concat(primary[400], " 0px 0px 0px 2px")
+                }
+            }
+        },
+        _dark: {
+            _focusVisible: {
+                _web: {
+                    style: {
+                        outlineWidth: 0,
+                        boxShadow: "".concat(primary[500], " 0px 0px 0px 2px")
+                    }
+                }
+            }
         }
     };
 };
@@ -5073,6 +5017,7 @@ function baseStyle$h(props) {
     return {
         overflow: 'hidden',
         _filledTrack: {
+            bg: "".concat(c, ".600"),
             shadow: 0,
             height: '100%',
             display: 'flex',
@@ -5084,12 +5029,7 @@ function baseStyle$h(props) {
                 fontWeight: 'bold'
             }
         },
-        _light: {
-            bg: 'muted.200',
-            _filledTrack: {
-                bg: "".concat(c, ".600")
-            }
-        },
+        bg: 'muted.200',
         _dark: {
             bg: 'muted.700',
             _filledTrack: {
@@ -5131,41 +5071,39 @@ var baseStyle$g = function (props) {
         borderWidth: 2,
         borderRadius: 'full',
         p: 1,
-        _light: {
-            bg: 'muted.50',
-            borderColor: 'muted.400',
-            _checked: {
-                borderColor: "".concat(c, ".600"),
-                _icon: {
-                    color: "".concat(c, ".600")
-                },
-                _hover: {
-                    borderColor: "".concat(c, ".700"),
-                    _icon: { color: "".concat(c, ".700") },
-                    _disabled: {
-                        borderColor: "".concat(c, ".600"),
-                        _icon: {
-                            color: "".concat(c, ".600")
-                        }
-                    }
-                },
-                _pressed: {
-                    borderColor: "".concat(c, ".800"),
-                    _icon: { color: "".concat(c, ".800") }
-                }
+        bg: 'muted.50',
+        borderColor: 'muted.400',
+        _checked: {
+            borderColor: "".concat(c, ".600"),
+            _icon: {
+                color: "".concat(c, ".600")
             },
             _hover: {
-                borderColor: 'muted.500',
+                borderColor: "".concat(c, ".700"),
+                _icon: { color: "".concat(c, ".700") },
                 _disabled: {
-                    borderColor: 'muted.400'
+                    borderColor: "".concat(c, ".600"),
+                    _icon: {
+                        color: "".concat(c, ".600")
+                    }
                 }
             },
             _pressed: {
-                borderColor: 'muted.600'
-            },
-            _invalid: {
-                borderColor: 'error.600'
+                borderColor: "".concat(c, ".800"),
+                _icon: { color: "".concat(c, ".800") }
             }
+        },
+        _hover: {
+            borderColor: 'muted.500',
+            _disabled: {
+                borderColor: 'muted.400'
+            }
+        },
+        _pressed: {
+            borderColor: 'muted.600'
+        },
+        _invalid: {
+            borderColor: 'error.600'
         },
         _dark: {
             bg: 'muted.900',
@@ -5267,9 +5205,12 @@ var RadioGroup = {
 
 // Skeleton
 var Skeleton = {
-    baseStyle: function (props) {
+    baseStyle: function () {
         return {
-            startColor: mode('muted.200', 'muted.600')(props),
+            startColor: 'muted.200',
+            _dark: {
+                startColor: 'muted.600'
+            },
             endColor: 'transparent',
             overflow: 'hidden',
             fadeDuration: 0.1,
@@ -5281,9 +5222,12 @@ var Skeleton = {
 };
 // SkeletonText
 var SkeletonText = {
-    baseStyle: function (props) {
+    baseStyle: function () {
         return {
-            startColor: mode('muted.200', 'muted.600')(props),
+            startColor: 'muted.200',
+            _dark: {
+                startColor: 'muted.600'
+            },
             endColor: 'transparent',
             fadeDuration: 0.1,
             w: '100%',
@@ -5348,21 +5292,17 @@ var baseStyle$e = function (props) {
             opacity: 0.4
         },
         _invalid: {
+            borderColor: 'error.600',
             borderWidth: 2,
             borderRadius: 12
         },
         onThumbColor: 'muted.50',
         offThumbColor: 'muted.50',
-        _light: {
-            offTrackColor: 'muted.300',
-            onTrackColor: "".concat(c, ".600"),
-            _hover: {
-                offTrackColor: 'muted.400',
-                onTrackColor: "".concat(c, ".700")
-            },
-            _invalid: {
-                borderColor: 'error.600'
-            }
+        offTrackColor: 'muted.300',
+        onTrackColor: "".concat(c, ".600"),
+        _hover: {
+            offTrackColor: 'muted.400',
+            onTrackColor: "".concat(c, ".700")
         },
         _dark: {
             offTrackColor: 'muted.700',
@@ -5673,9 +5613,7 @@ var Tag = {
 };
 
 var baseStyle$b = {
-    _light: {
-        color: 'text.900'
-    },
+    color: 'text.900',
     _dark: {
         color: 'text.50'
     },
@@ -5990,14 +5928,12 @@ var FAB = { baseStyle: baseStyle$2, defaultProps: defaultProps };
 var SliderTrack = {
     baseStyle: function () {
         return {
+            bg: 'muted.200',
             borderRadius: 'lg',
             overflow: 'hidden',
             _pressable: {
                 alignItems: 'center',
                 justifyContent: 'center'
-            },
-            _light: {
-                bg: 'muted.200'
             },
             _dark: {
                 bg: 'muted.700'
@@ -6043,27 +5979,25 @@ var SliderThumb = {
                 alignItems: 'center',
                 justifyContent: 'center'
             },
-            _light: {
-                bg: "".concat(colorScheme, ".600"),
-                _hover: {
-                    _web: {
-                        outlineWidth: '4px',
-                        outlineColor: colors[colorScheme][300],
-                        outlineStyle: 'solid'
-                    }
-                },
-                _focus: {
-                    _web: {
-                        outlineWidth: '2px',
-                        outlineColor: colors.primary[400],
-                        outlineStyle: 'solid'
-                    }
-                },
-                _pressed: {
-                    _interactionBox: {
-                        borderWidth: '8',
-                        borderColor: "".concat(colorScheme, ".300")
-                    }
+            bg: "".concat(colorScheme, ".600"),
+            _hover: {
+                _web: {
+                    outlineWidth: '4px',
+                    outlineColor: colors[colorScheme][300],
+                    outlineStyle: 'solid'
+                }
+            },
+            _focus: {
+                _web: {
+                    outlineWidth: '2px',
+                    outlineColor: colors.primary[400],
+                    outlineStyle: 'solid'
+                }
+            },
+            _pressed: {
+                _interactionBox: {
+                    borderWidth: '8',
+                    borderColor: "".concat(colorScheme, ".300")
                 }
             },
             _dark: {
@@ -6114,9 +6048,7 @@ var SliderFilledTrack = {
     baseStyle: function (_a) {
         var colorScheme = _a.colorScheme;
         return {
-            _light: {
-                bg: "".concat(colorScheme, ".600")
-            },
+            bg: "".concat(colorScheme, ".600"),
             _dark: {
                 bg: "".concat(colorScheme, ".500")
             }
@@ -6185,17 +6117,13 @@ var baseStyle$1 = function () {
         borderRightWidth: '0',
         borderLeftRadius: 'sm',
         _text: {
+            color: 'text.900',
             fontWeight: 400
         },
         alignItems: 'center',
         justifyContent: 'center',
-        _light: {
-            bg: 'muted.50',
-            borderColor: 'muted.300',
-            _text: {
-                color: 'text.900'
-            }
-        },
+        bg: 'muted.50',
+        borderColor: 'muted.300',
         _dark: {
             bg: 'muted.800',
             borderColor: 'muted.700',
@@ -6215,17 +6143,13 @@ var baseStyle = function () {
         borderLeftWidth: '0',
         borderRightRadius: 'sm',
         _text: {
+            color: 'text.900',
             fontWeight: 400
         },
         alignItems: 'center',
         justifyContent: 'center',
-        _light: {
-            bg: 'muted.50',
-            borderColor: 'muted.300',
-            _text: {
-                color: 'text.900'
-            }
-        },
+        bg: 'muted.50',
+        borderColor: 'muted.300',
         _dark: {
             bg: 'muted.800',
             borderColor: 'muted.700',
@@ -6316,6 +6240,23 @@ var setResolvedStyleMap = function (providerId, key, value, colorMode) {
         styledMap[colorMode].push(value);
     }
 };
+/**
+ *
+ * @param styleSheet StyleSheet with theme style or state style
+ * @param styleSheetProperty key of styleSheet
+ * @returns style with current stylsheet property
+ */
+var getAndMergeThemeFromStylesheet = function (styleSheet, styleSheetProperty) {
+    // get style from stylsheet
+    var currentPropertyStyleArray = lodash.map(styleSheet, styleSheetProperty);
+    // merge styles
+    var currentPropertyStyle = {};
+    for (var _i = 0, currentPropertyStyleArray_1 = currentPropertyStyleArray; _i < currentPropertyStyleArray_1.length; _i++) {
+        var props = currentPropertyStyleArray_1[_i];
+        currentPropertyStyle = lodash.merge({}, currentPropertyStyle, props);
+    }
+    return currentPropertyStyle;
+};
 var getThemeObject = function (providerId, componentName, colorMode, state) {
     var _a;
     var styleObj = (_a = exports.resolvedStyledMap === null || exports.resolvedStyledMap === void 0 ? void 0 : exports.resolvedStyledMap[providerId]) === null || _a === void 0 ? void 0 : _a[componentName];
@@ -6327,40 +6268,31 @@ var getThemeObject = function (providerId, componentName, colorMode, state) {
     // state style
     var stateStyles = getPseudoStateStyles(providerId, componentName, state);
     if (componentName === 'Checkbox' && state.isInvalid && state.isHovered) ;
+    var stateStyleSheet = [];
     lodash.forEach(stateStyles, function (stateStyleObj) {
         if (stateStyleObj[colorMode]) {
-            styleSheet = styleSheet.concat(stateStyleObj[colorMode]);
+            // styleSheet = styleSheet.concat(stateStyleObj[colorMode]);
+            stateStyleSheet = stateStyleSheet.concat(stateStyleObj[colorMode]);
         }
     });
-    var unResolvedPropsArray = lodash.map(styleSheet, 'unResolvedProps');
-    var unResolvedProps = {};
-    for (var _i = 0, unResolvedPropsArray_1 = unResolvedPropsArray; _i < unResolvedPropsArray_1.length; _i++) {
-        var props = unResolvedPropsArray_1[_i];
-        // unResolvedProps = { ...unResolvedProps, ...props };
-        unResolvedProps = lodash.merge({}, unResolvedProps, props);
-    }
-    var restDefaultPropsArray = lodash.map(styleSheet, 'restDefaultProps');
-    var restDefaultProps = {};
-    for (var _b = 0, restDefaultPropsArray_1 = restDefaultPropsArray; _b < restDefaultPropsArray_1.length; _b++) {
-        var props = restDefaultPropsArray_1[_b];
-        restDefaultProps = __assign(__assign({}, restDefaultProps), props);
-    }
-    var styleFromPropsArray = lodash.map(styleSheet, 'styleFromProps');
-    var styleFromProps = {};
-    for (var _c = 0, styleFromPropsArray_1 = styleFromPropsArray; _c < styleFromPropsArray_1.length; _c++) {
-        var props = styleFromPropsArray_1[_c];
-        styleFromProps = __assign(__assign({}, styleFromProps), props);
-    }
-    var internalPseudoPropsArray = lodash.map(styleSheet, 'internalPseudoProps');
-    var internalPseudoProps = {};
-    for (var _d = 0, internalPseudoPropsArray_1 = internalPseudoPropsArray; _d < internalPseudoPropsArray_1.length; _d++) {
-        var props = internalPseudoPropsArray_1[_d];
-        internalPseudoProps = __assign(__assign({}, internalPseudoProps), props);
-    }
+    // Theme style props resolution
+    var unResolvedProps = getAndMergeThemeFromStylesheet(styleSheet, 'unResolvedProps');
+    var restDefaultProps = getAndMergeThemeFromStylesheet(styleSheet, 'restDefaultProps');
+    var styleFromProps = getAndMergeThemeFromStylesheet(styleSheet, 'styleFromProps');
+    var internalPseudoProps = getAndMergeThemeFromStylesheet(styleSheet, 'internalPseudoProps');
+    // State style props resolution
+    var stateStyleFromProps = getAndMergeThemeFromStylesheet(stateStyleSheet, 'styleFromProps');
+    // Merging state styles internal pseudo props with theme style internal pseudo props
+    internalPseudoProps = __assign(__assign({}, internalPseudoProps), getAndMergeThemeFromStylesheet(stateStyleSheet, 'internalPseudoProps'));
+    // Merging state styles restDefaultProps props with theme style restDefaultProps props
+    restDefaultProps = __assign(__assign({}, restDefaultProps), getAndMergeThemeFromStylesheet(stateStyleSheet, 'restDefaultProps'));
+    // Merging state styles unresolved props with theme style unresolved props
+    unResolvedProps = __assign(__assign({}, unResolvedProps), getAndMergeThemeFromStylesheet(stateStyleSheet, 'unResolvedProps'));
     return {
-        style: lodash.map(styleSheet, 'style'),
+        // style: map(styleSheet, 'style'),
         unResolvedProps: unResolvedProps,
         styleFromProps: styleFromProps,
+        stateStyleFromProps: stateStyleFromProps,
         restDefaultProps: restDefaultProps,
         internalPseudoProps: internalPseudoProps
     };
@@ -6396,10 +6328,7 @@ var getThemeProps = function (theme, providerId, inputComponentKeyName, config, 
         componentKeyName = "".concat(componentKeyName, ".").concat(pseudoComponentKeyName);
     }
     var themeObj = getThemeObject(providerId, componentKeyName, config.colorMode, state);
-    // console.log(themeObj, providerId, 'theme obje');
     if (isEmptyObj(themeObj)) {
-        // console.log('hello here 1111', inputComponentKeyName);
-        // updateComponentThemeMap(inputComponentKeyName, {}, config, {});
         updateComponentThemeMap(theme, providerId, inputComponentKeyName, {}, config, {
             variant: props.variant,
             colorScheme: props.colorScheme
@@ -6423,11 +6352,13 @@ var getThemeProps = function (theme, providerId, inputComponentKeyName, config, 
             }
         }
         var mergedThemeObj = {
-            style: (sizeThemeObj === null || sizeThemeObj === void 0 ? void 0 : sizeThemeObj.style)
-                ? __spreadArray(__spreadArray([], themeObj === null || themeObj === void 0 ? void 0 : themeObj.style, true), sizeThemeObj === null || sizeThemeObj === void 0 ? void 0 : sizeThemeObj.style, true) : themeObj.style,
+            // style: sizeThemeObj?.style
+            //   ? [...themeObj?.style, ...sizeThemeObj?.style]
+            //   : themeObj.style,
             styleFromProps: lodash.merge({}, themeObj.styleFromProps, sizeThemeObj.styleFromProps),
             unResolvedProps: lodash.merge({}, themeObj.unResolvedProps, sizeThemeObj.unResolvedProps),
             internalPseudoProps: lodash.merge({}, themeObj.internalPseudoProps, sizeThemeObj.internalPseudoProps),
+            stateStyleFromProps: lodash.merge({}, themeObj.stateStyleFromProps, sizeThemeObj.stateStyleFromProps),
             restDefaultProps: __assign(__assign({}, themeObj.restDefaultProps), sizeThemeObj.restDefaultProps)
         };
         themeObj = mergedThemeObj;
