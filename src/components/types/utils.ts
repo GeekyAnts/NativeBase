@@ -99,9 +99,9 @@ export type UnionToIntersection<U> = (
   : never;
 
 type VariantSizeColorScheme<T extends keyof ITheme['components']> = {
-  variant?: Partial<VariantType<T>>;
-  size?: Partial<ThemeComponentSizeType<T>>;
-  colorScheme?: Partial<ColorSchemeType>;
+  variant?: VariantType<T>;
+  size?: ThemeComponentSizeType<T>;
+  colorScheme?: ColorSchemeType;
 };
 // export type CustomProps<
 //   T extends keyof ITheme['components']
