@@ -24,7 +24,7 @@ import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
 import { useColorMode } from '../../../core/color-mode';
 import { useNativeBase } from '../../../hooks';
 import { Platform } from 'react-native';
-import { extractFilteredProps } from '../../../utils/extractLayoutNonLayoutProps';
+import { extractFilteredProps } from '../../../utils/extractFilteredProps';
 
 const Checkbox = (
   {
