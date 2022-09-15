@@ -4,7 +4,7 @@ import { Platform, TextInput } from 'react-native';
 import { useToken } from '../../../hooks';
 import { useFormControl } from '../../composites/FormControl';
 import { useHover } from '@react-native-aria/interactions';
-import { extractInObject, stylingProps } from '../../../theme/tools/utils';
+import { stylingProps } from '../../../theme/tools/utils';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { mergeRefs, resolveStackStyleInput } from '../../../utils';
 import { Stack } from '../Stack';
@@ -14,7 +14,7 @@ import { getThemeProps } from '../../../utils/styled';
 import { useColorMode } from '../../../core/color-mode';
 import { useNativeBase } from '../../../hooks';
 import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
-import { merge } from 'lodash';
+import { extractLayoutNonLayoutPropsFromStateAndResolvedProps } from '../../../utils/extractLayoutNonLayoutProps';
 
 const StyledInput = makeStyledComponent(TextInput);
 
@@ -118,32 +118,23 @@ const Input = (
     'opacity',
   ];
 
-  //Merge with default styles
-  const [layoutStyles, nonLayoutStyles] = extractInObject(
-    styleFromProps,
-    filterProps
-  );
-  //Merge with default state styles
-
-  const [stateLayoutStyles, stateNonLayoutStyles] = extractInObject(
-    {
-      ...stateStyleFromProps,
-      ...merge.apply({}, stateProps.INTERNAL_themeStyle),
-    },
-    filterProps
-  );
-
-  //Merge with inline props
-  const [layoutProps, nonLayoutProps] = extractInObject(
+  const {
+    layoutStyles,
+    nonLayoutStyles,
+    stateLayoutStyles,
+    stateNonLayoutStyles,
+    layoutProps,
+    nonLayoutProps,
+    stateLayoutProps,
+    stateNonLayoutProps,
+  } = extractLayoutNonLayoutPropsFromStateAndResolvedProps(
+    filterProps,
     resolvedProps,
-    filterProps
-  );
-  //Merge with inline state props
-  const [stateLayoutProps, stateNonLayoutProps] = extractInObject(
     stateProps,
-    filterProps
+    stateStyleFromProps,
+    styleFromProps
   );
-  // console.log(layoutProps, nonLayoutProps, 'layout props here');
+
   const resolvedFontFamily = useResolvedFontFamily({
     fontFamily,
     fontWeight: fontWeight ?? 400,
