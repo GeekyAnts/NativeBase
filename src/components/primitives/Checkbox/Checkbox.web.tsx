@@ -11,7 +11,7 @@ import { CheckboxGroupContext } from './CheckboxGroup';
 import { useHover } from '@react-native-aria/interactions';
 import { useCheckbox, useCheckboxGroupItem } from '@react-native-aria/checkbox';
 import { useFocusRing } from '@react-native-aria/focus';
-import { extractInObject, stylingProps } from '../../../theme/tools/utils';
+import { stylingProps } from '../../../theme/tools/utils';
 import { combineContextAndProps } from '../../../utils';
 import SizedIcon from './SizedIcon';
 import { Stack } from '../Stack';
@@ -21,6 +21,7 @@ import { useColorMode } from '../../../core/color-mode';
 import { Platform } from 'react-native';
 import { useNativeBase } from '../../../hooks';
 import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
+import { extractFilteredProps } from '../../../utils/extractFilteredProps';
 
 const Checkbox = (
   {
@@ -134,7 +135,7 @@ const CheckboxComponent = React.memo(
     const { colorMode } = useColorMode();
     const providerId = useNativeBaseConfig('NativeBase').providerId;
 
-    const { styleFromProps } = getThemeProps(
+    const { styleFromProps, stateStyleFromProps } = getThemeProps(
       theme,
       providerId,
       'Checkbox',
@@ -150,17 +151,14 @@ const CheckboxComponent = React.memo(
       ...stylingProps.position,
       '_text',
     ];
-    const [layoutStyles, nonLayoutStyles] = extractInObject(
-      styleFromProps,
-      filterProps
-    );
-    // console.log('nonLayoutStyles LayoutStyles', layoutStyles, nonLayoutStyles);
+
     const {
       icon,
       _interactionBox,
       _icon,
       _stack,
       _text,
+      stateProps,
       ...resolvedProps
     } = usePropsResolution(
       'Checkbox',
@@ -170,9 +168,21 @@ const CheckboxComponent = React.memo(
       state
     );
 
-    const [layoutProps, nonLayoutProps] = extractInObject(
+    const {
+      layoutStyles,
+      nonLayoutStyles,
+      stateLayoutStyles,
+      stateNonLayoutStyles,
+      layoutProps,
+      nonLayoutProps,
+      stateLayoutProps,
+      stateNonLayoutProps,
+    } = extractFilteredProps(
+      filterProps,
       resolvedProps,
-      filterProps
+      stateProps,
+      stateStyleFromProps,
+      styleFromProps
     );
 
     const component = React.useMemo(() => {
@@ -181,6 +191,10 @@ const CheckboxComponent = React.memo(
           {..._stack}
           INTERNAL_themeStyle={[layoutStyles, _stack.INTERNAL_themeStyle]}
           {...layoutProps}
+          stateProps={{
+            ...stateLayoutProps,
+            INTERNAL_themeStyle: [stateLayoutStyles],
+          }}
         >
           <Center>
             <Box {..._interactionBox} />
@@ -188,6 +202,10 @@ const CheckboxComponent = React.memo(
               {...nonLayoutProps}
               //@ts-ignore
               INTERNAL_themeStyle={[nonLayoutStyles]}
+              stateProps={{
+                ...stateNonLayoutProps,
+                INTERNAL_themeStyle: [stateNonLayoutStyles],
+              }}
             >
               <SizedIcon
                 icon={icon}
@@ -209,6 +227,10 @@ const CheckboxComponent = React.memo(
       _interactionBox,
       nonLayoutProps,
       nonLayoutStyles,
+      stateLayoutProps,
+      stateNonLayoutProps,
+      stateLayoutStyles,
+      stateNonLayoutStyles,
       icon,
       _icon,
       isChecked,

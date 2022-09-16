@@ -4,7 +4,7 @@ import { Platform, TextInput } from 'react-native';
 import { useToken } from '../../../hooks';
 import { useFormControl } from '../../composites/FormControl';
 import { useHover } from '@react-native-aria/interactions';
-import { extractInObject, stylingProps } from '../../../theme/tools/utils';
+import { stylingProps } from '../../../theme/tools/utils';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { mergeRefs, resolveStackStyleInput } from '../../../utils';
 import { Stack } from '../Stack';
@@ -14,6 +14,7 @@ import { getThemeProps } from '../../../utils/styled';
 import { useColorMode } from '../../../core/color-mode';
 import { useNativeBase } from '../../../hooks';
 import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
+import { extractFilteredProps } from '../../../utils/extractFilteredProps';
 
 const StyledInput = makeStyledComponent(TextInput);
 
@@ -85,6 +86,7 @@ const Input = (
     wrapperRef,
     _stack,
     _input,
+    stateProps,
     ...resolvedProps
   } = usePropsResolution('Input', props, state);
 
@@ -96,8 +98,7 @@ const Input = (
   const { colorMode } = useColorMode();
   const { theme } = useNativeBase();
   const providerId = useNativeBaseConfig('NativeBase').providerId;
-
-  const { styleFromProps } = getThemeProps(
+  const { styleFromProps, stateStyleFromProps } = getThemeProps(
     theme,
     providerId,
     'Input',
@@ -116,17 +117,24 @@ const Input = (
     'shadow',
     'opacity',
   ];
-  const [layoutStyles, nonLayoutStyles] = extractInObject(
-    styleFromProps,
-    filterProps
-  );
 
-  const [layoutProps, nonLayoutProps] = extractInObject(
+  const {
+    layoutStyles,
+    nonLayoutStyles,
+    stateLayoutStyles,
+    stateNonLayoutStyles,
+    layoutProps,
+    nonLayoutProps,
+    stateLayoutProps,
+    stateNonLayoutProps,
+  } = extractFilteredProps(
+    filterProps,
     resolvedProps,
-    filterProps
+    stateProps,
+    stateStyleFromProps,
+    styleFromProps
   );
 
-  // console.log(layoutProps, nonLayoutProps, 'layout props here');
   const resolvedFontFamily = useResolvedFontFamily({
     fontFamily,
     fontWeight: fontWeight ?? 400,
@@ -174,6 +182,10 @@ const Input = (
       INTERNAL_themeStyle={[layoutStyles, _stack?.INTERNAL_themeStyle]}
       ref={mergeRefs([_ref, wrapperRef])}
       isFocused={isFocused}
+      stateProps={{
+        ...stateLayoutProps,
+        INTERNAL_themeStyle: [stateLayoutStyles],
+      }}
     >
       {InputLeftElement || leftElement ? InputLeftElement || leftElement : null}
       <StyledInput
@@ -185,6 +197,10 @@ const Input = (
         w={isFullWidth ? '100%' : undefined}
         {...nonLayoutProps}
         {...resolvedFontFamily}
+        stateProps={{
+          ...stateNonLayoutProps,
+          INTERNAL_themeStyle: [stateNonLayoutStyles],
+        }}
         INTERNAL_themeStyle={[nonLayoutStyles]}
         placeholderTextColor={resolvedPlaceholderTextColor}
         selectionColor={resolvedSelectionColor}
