@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { View, Animated, PanResponder, ViewPropTypes } from 'react-native';
+import { View, Animated, PanResponder } from 'react-native';
+import { ViewPropTypes } from 'deprecated-react-native-prop-types';
 import clamp from 'clamp';
 import { connectStyle } from 'native-base-shoutem-theme';
 
@@ -116,13 +117,18 @@ class DeckSwiper extends Component {
         if (val > 0.2) {
           val = 0.2;
         }
-        Animated.timing(this.state.fadeAnim, { toValue: 0.8 + val, useNativeDriver: false }).start();
+        Animated.timing(this.state.fadeAnim, {
+          toValue: 0.8 + val,
+          useNativeDriver: false
+        }).start();
         Animated.spring(this.state.enter, {
           toValue: 0.8 + val,
           friction: 7,
           useNativeDriver: false
         }).start();
-        Animated.event([null, { dx: this.state.pan.x }], { useNativeDriver: false })(e, gestureState);
+        Animated.event([null, { dx: this.state.pan.x }], {
+          useNativeDriver: false
+        })(e, gestureState);
       },
 
       onPanResponderRelease: (e, { vx, vy }) => {
@@ -178,8 +184,15 @@ class DeckSwiper extends Component {
   swipeRight() {
     if (this.props.onSwiping) this.props.onSwiping('right');
     setTimeout(() => {
-      Animated.timing(this.state.fadeAnim, { toValue: 1, useNativeDriver: false }).start();
-      Animated.spring(this.state.enter, { toValue: 1, friction: 7, useNativeDriver: false }).start();
+      Animated.timing(this.state.fadeAnim, {
+        toValue: 1,
+        useNativeDriver: false
+      }).start();
+      Animated.spring(this.state.enter, {
+        toValue: 1,
+        friction: 7,
+        useNativeDriver: false
+      }).start();
       this.selectNext();
       Animated.decay(this.state.pan, {
         velocity: { x: 8, y: 1 },
@@ -192,8 +205,15 @@ class DeckSwiper extends Component {
   swipeLeft() {
     if (this.props.onSwiping) this.props.onSwiping('left');
     setTimeout(() => {
-      Animated.timing(this.state.fadeAnim, { toValue: 1, useNativeDriver: false }).start();
-      Animated.spring(this.state.enter, { toValue: 1, friction: 7, useNativeDriver: false }).start();
+      Animated.timing(this.state.fadeAnim, {
+        toValue: 1,
+        useNativeDriver: false
+      }).start();
+      Animated.spring(this.state.enter, {
+        toValue: 1,
+        friction: 7,
+        useNativeDriver: false
+      }).start();
       this.selectNext();
       Animated.decay(this.state.pan, {
         velocity: { x: -8, y: 1 },
