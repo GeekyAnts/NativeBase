@@ -27,6 +27,16 @@ const Content = memo(
         ...resolvedProps
       } = usePropsResolution('ActionsheetContent', props);
 
+      const handleCloseRef = React.useRef(null);
+      const handleCloseCallback = React.useCallback(() => {
+        let handleCloseCurrent = handleCloseRef.current;
+        //@ts-ignore
+        return handleCloseCurrent();
+      }, []);
+      React.useEffect(() => {
+        handleCloseRef.current = handleClose;
+      }, [handleClose]);
+
       const panResponder = React.useRef(
         PanResponder.create({
           onStartShouldSetPanResponder: () => true,
@@ -47,7 +57,7 @@ const Content = memo(
                 toValue: { x: 0, y: sheetHeight.current },
                 duration: 150,
                 useNativeDriver: true,
-              }).start(handleClose);
+              }).start(handleCloseCallback);
 
               setTimeout(() => {
                 Animated.timing(pan, {

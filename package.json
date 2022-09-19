@@ -37,7 +37,7 @@
       "prettier --write"
     ]
   },
-  "version": "3.5.0-alpha.8",
+  "version": "3.5.0-alpha.10",
   "license": "MIT",
   "private": false,
   "main": "lib/commonjs/index",
@@ -175,13 +175,13 @@
     ]
   },
   "dependencies": {
-    "@react-aria/focus": "^3.2.3",
+    "@react-aria/focus": "3.2.3",
     "@react-aria/utils": "^3.6.0",
     "@react-aria/visually-hidden": "^3.2.1",
     "@react-native-aria/button": "^0.2.4",
     "@react-native-aria/checkbox": "^0.2.2",
     "@react-native-aria/combobox": "^0.2.4-alpha.0",
-    "@react-native-aria/focus": "^0.2.4",
+    "@react-native-aria/focus": "^0.2.6",
     "@react-native-aria/interactions": "^0.2.2",
     "@react-native-aria/listbox": "^0.2.4-alpha.3",
     "@react-native-aria/overlays": "0.3.3-rc.0",
@@ -199,6 +199,7 @@
     "@rollup/plugin-commonjs": "^22.0.0",
     "@rollup/plugin-typescript": "^8.3.3",
     "@types/lodash.has": "^4.5.6",
+    "@types/use-subscription": "^1.0.0",
     "lodash.clonedeep": "^4.5.0",
     "lodash.get": "^4.4.2",
     "lodash.has": "^4.5.2",
@@ -213,7 +214,8 @@
     "react-native-keyboard-aware-scroll-view": "^0.9.5",
     "rollup-plugin-external-globals": "^0.6.1",
     "stable-hash": "^0.0.2",
-    "tinycolor2": "^1.4.2"
+    "tinycolor2": "^1.4.2",
+    "use-subscription": "^1.8.0"
   },
   "directories": {
     "example": "example",

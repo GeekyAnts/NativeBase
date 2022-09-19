@@ -61,11 +61,9 @@ export const ModalContent = {
     //TODO: build-time
     // maxHeight: `${Dimensions.get('window').height - 150}px`,
     overflow: 'hidden',
-    _light: {
-      bg: 'muted.50',
-      _text: {
-        color: 'text.900',
-      },
+    bg: 'muted.50',
+    _text: {
+      color: 'text.900',
     },
     _dark: {
       bg: 'muted.800',
@@ -91,17 +89,13 @@ export const ModalCloseButton = {
     },
     _icon: {
       size: '4',
+      color: 'muted.500',
     },
-    _light: {
-      _icon: {
-        color: 'muted.500',
-      },
-      _hover: {
-        bg: 'muted.200',
-      },
-      _pressed: {
-        bg: 'muted.300',
-      },
+    _hover: {
+      bg: 'muted.200',
+    },
+    _pressed: {
+      bg: 'muted.300',
     },
     _dark: {
       _icon: {
@@ -124,14 +118,10 @@ export const ModalHeader = {
       fontSize: 'md',
       fontWeight: 'semibold',
       lineHeight: 'sm',
+      color: 'text.900',
     },
-    _light: {
-      bg: 'muted.50',
-      borderColor: 'muted.300',
-      _text: {
-        color: 'text.900',
-      },
-    },
+    bg: 'muted.50',
+    borderColor: 'muted.300',
     _dark: {
       bg: 'muted.800',
       borderColor: 'muted.700',
@@ -163,10 +153,8 @@ export const ModalFooter = {
     justifyContent: 'flex-end',
     flexWrap: 'wrap',
     borderTopWidth: 1,
-    _light: {
-      bg: 'muted.50',
-      borderColor: 'muted.300',
-    },
+    bg: 'muted.50',
+    borderColor: 'muted.300',
     _dark: {
       bg: 'muted.800',
       borderColor: 'muted.700',
