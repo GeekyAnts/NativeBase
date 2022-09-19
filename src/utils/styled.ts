@@ -47,7 +47,7 @@ export const init = (inputResolvedStyledMap?: any) => {
   if (inputResolvedStyledMap) {
     resolvedStyledMap = inputResolvedStyledMap;
   }
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env.NODE_ENV === 'development' && typeof window !== 'undefined') {
     //@ts-ignore
     window['resolvedStyledMap'] = resolvedStyledMap;
     //@ts-ignore

@@ -179,7 +179,7 @@ const Input = (
     <Stack
       {..._stack}
       {...layoutProps}
-      INTERNAL_themeStyle={[layoutStyles, _stack?.INTERNAL_themeStyle]}
+      INTERNAL_themeStyle={[layoutStyles, ..._stack?.INTERNAL_themeStyle]}
       ref={mergeRefs([_ref, wrapperRef])}
       isFocused={isFocused}
       stateProps={{
