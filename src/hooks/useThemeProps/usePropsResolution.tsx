@@ -113,6 +113,20 @@ export function usePropsResolution(
     ? [componentThemeProps.styleFromProps, ...INTERNAL_themeStyle]
     : [componentThemeProps.styleFromProps];
 
+  // console.log(
+  //   INTERNAL_themeStyle,
+  //   resolvedFlattenProps.INTERNAL_themeStyle,
+  //   component,
+  //   '#####@@@@@'
+  // );
+  // if (component === 'Stack') {
+  //   console.log(
+  //     INTERNAL_themeStyle,
+  //     componentThemeProps.styleFromProps,
+  //     'dfibvdkndk#####'
+  //   );
+  // }
+
   resolvedStateProps.INTERNAL_themeStyle = stateProps?.INTERNAL_themeStyle
     ? [stateStyleFromProps, ...stateProps.INTERNAL_themeStyle]
     : isEmptyObj(stateStyleFromProps)
@@ -280,9 +294,6 @@ export const usePropsResolutionWithComponentTheme = (
   const cleanIncomingProps = useResponsiveSSRProps(incomingProps, theme);
   // optimized-end
 
-  if (config?.name === 'Stack')
-    console.log(cleanIncomingProps, 'cleanIncomingProps');
-
   const isSSR = useNativeBaseConfig('NativeBase').isSSR;
   const disableCSSMediaQueries = !isSSR;
 
@@ -422,7 +433,6 @@ export const usePropsResolutionWithComponentTheme = (
     { ...config, platform: Platform.OS }
   );
 
-  // console.log(specificityMap, "*****");
   // console.log("outgoing ******", flattenProps);
 
   const responsiveProps = {};
@@ -444,8 +454,6 @@ export const usePropsResolutionWithComponentTheme = (
   }
 
   const responsivelyResolvedProps = useBreakpointResolvedProps(responsiveProps);
-
-  console.log(responsivelyResolvedProps, 'responsiveResolvedProps');
 
   // const defaultSpecificity = merge(
   //   {},
@@ -503,6 +511,7 @@ export const usePropsResolutionWithComponentTheme = (
   // );
 
   // STEP 5: Return
+
   return {
     flattenProps: omitUndefined(flattenProps),
     stateProps: omitUndefined(stateProps),
