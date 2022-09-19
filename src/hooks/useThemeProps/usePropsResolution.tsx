@@ -280,6 +280,9 @@ export const usePropsResolutionWithComponentTheme = (
   const cleanIncomingProps = useResponsiveSSRProps(incomingProps, theme);
   // optimized-end
 
+  if (config?.name === 'Stack')
+    console.log(cleanIncomingProps, 'cleanIncomingProps');
+
   const isSSR = useNativeBaseConfig('NativeBase').isSSR;
   const disableCSSMediaQueries = !isSSR;
 
@@ -287,6 +290,7 @@ export const usePropsResolutionWithComponentTheme = (
     'colorScheme',
     'size',
     'variant',
+    'direction',
     ...(config?.resolveResponsively || []),
   ];
 
@@ -440,6 +444,8 @@ export const usePropsResolutionWithComponentTheme = (
   }
 
   const responsivelyResolvedProps = useBreakpointResolvedProps(responsiveProps);
+
+  console.log(responsivelyResolvedProps, 'responsiveResolvedProps');
 
   // const defaultSpecificity = merge(
   //   {},

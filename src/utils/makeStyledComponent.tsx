@@ -1,5 +1,9 @@
 import { useStyledSystemPropsResolver } from '../hooks/useStyledSystemPropsResolver';
 import React from 'react';
+import { StyleSheet } from 'react-native';
+
+if
+window['StyleSheet'] = StyleSheet;
 
 export const makeStyledComponent = (
   Comp: any
@@ -15,6 +19,8 @@ export const makeStyledComponent = (
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   return React.forwardRef(({ debug, ...props }: any, ref: any) => {
     const [style, restProps] = useStyledSystemPropsResolver(props);
+
+    console.log(style, '@@@');
 
     return (
       <Comp {...restProps} style={style} ref={ref}>

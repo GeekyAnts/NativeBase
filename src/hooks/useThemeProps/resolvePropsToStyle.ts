@@ -1,3 +1,4 @@
+import { StyleSheet } from 'react-native';
 import { getStyleAndFilteredProps } from '../../theme/styled-system';
 
 export const resolvePropsToStyle = (
@@ -73,13 +74,27 @@ export const resolvePropsToStyle = (
       dataSet,
     };
   } else {
-    return {
-      style: [
+    console.log(
+      StyleSheet.create([
         INTERNAL_themeStyle,
         styleFromProps,
-        stateProps?.INTERNAL_themeStyle,
+        // StyleSheet.create(stateProps?.INTERNAL_themeStyle),
+        // stateProps?.INTERNAL_themeStyle,
         inlineStateStyleFromProps,
-      ],
+      ]),
+      stateProps?.INTERNAL_themeStyle,
+
+      'resolvedStyles###'
+    );
+
+    return {
+      style: StyleSheet.create([
+        INTERNAL_themeStyle,
+        styleFromProps,
+        // StyleSheet.create(stateProps?.INTERNAL_themeStyle),
+        // stateProps?.INTERNAL_themeStyle,
+        inlineStateStyleFromProps,
+      ]),
       styleFromProps,
       unResolvedProps,
       restDefaultProps,
