@@ -47,7 +47,7 @@ export const init = (inputResolvedStyledMap?: any) => {
   if (inputResolvedStyledMap) {
     resolvedStyledMap = inputResolvedStyledMap;
   }
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env.NODE_ENV === 'development' && typeof window !== 'undefined') {
     //@ts-ignore
     window['resolvedStyledMap'] = resolvedStyledMap;
     //@ts-ignore
@@ -79,6 +79,29 @@ export const setResolvedStyleMap = (
     styledMap[colorMode].push(value);
   }
 };
+
+/**
+ *
+ * @param styleSheet StyleSheet with theme style or state style
+ * @param styleSheetProperty key of styleSheet
+ * @returns style with current stylsheet property
+ */
+const getAndMergeThemeFromStylesheet = (
+  styleSheet: any,
+  styleSheetProperty: any
+) => {
+  // get style from stylsheet
+  const currentPropertyStyleArray = map(styleSheet, styleSheetProperty);
+
+  // merge styles
+  let currentPropertyStyle = {};
+  for (const props of currentPropertyStyleArray) {
+    currentPropertyStyle = merge({}, currentPropertyStyle, props);
+  }
+
+  return currentPropertyStyle;
+};
+
 const getThemeObject = (
   providerId: any,
   componentName: any,
@@ -110,44 +133,53 @@ const getThemeObject = (
     }
   });
 
-  const unResolvedPropsArray = map(styleSheet, 'unResolvedProps');
+  // Theme style props resolution
+  let unResolvedProps = getAndMergeThemeFromStylesheet(
+    styleSheet,
+    'unResolvedProps'
+  );
 
-  let unResolvedProps = {};
-  for (const props of unResolvedPropsArray) {
-    // unResolvedProps = { ...unResolvedProps, ...props };
-    unResolvedProps = merge({}, unResolvedProps, props);
-  }
+  let restDefaultProps = getAndMergeThemeFromStylesheet(
+    styleSheet,
+    'restDefaultProps'
+  );
 
-  const restDefaultPropsArray = map(styleSheet, 'restDefaultProps');
-  let restDefaultProps = {};
-  for (const props of restDefaultPropsArray) {
-    restDefaultProps = { ...restDefaultProps, ...props };
-  }
+  const styleFromProps = getAndMergeThemeFromStylesheet(
+    styleSheet,
+    'styleFromProps'
+  );
 
-  const styleFromPropsArray = map(styleSheet, 'styleFromProps');
-  let styleFromProps = {};
-  for (const props of styleFromPropsArray) {
-    styleFromProps = { ...styleFromProps, ...props };
-  }
+  let internalPseudoProps = getAndMergeThemeFromStylesheet(
+    styleSheet,
+    'internalPseudoProps'
+  );
 
-  const internalPseudoPropsArray = map(styleSheet, 'internalPseudoProps');
-  let internalPseudoProps = {};
-  for (const props of internalPseudoPropsArray) {
-    internalPseudoProps = { ...internalPseudoProps, ...props };
-  }
+  // State style props resolution
+  const stateStyleFromProps = getAndMergeThemeFromStylesheet(
+    stateStyleSheet,
+    'styleFromProps'
+  );
 
-  const stateStyleFromPropsArray = map(stateStyleSheet, 'styleFromProps');
-  let stateStyleFromProps = {};
-  for (const props of stateStyleFromPropsArray) {
-    stateStyleFromProps = { ...stateStyleFromProps, ...props };
-  }
+  // Merging state styles internal pseudo props with theme style internal pseudo props
+  internalPseudoProps = {
+    ...internalPseudoProps,
+    ...getAndMergeThemeFromStylesheet(stateStyleSheet, 'internalPseudoProps'),
+  };
 
-  // if (componentName === 'Button') {
-  //   console.log(stateStyles, stateStyleSheet, 'hello here');
-  // }
-  // console.log(styleFromProps, "hello style from props")
+  // Merging state styles restDefaultProps props with theme style restDefaultProps props
+  restDefaultProps = {
+    ...restDefaultProps,
+    ...getAndMergeThemeFromStylesheet(stateStyleSheet, 'restDefaultProps'),
+  };
+
+  // Merging state styles unresolved props with theme style unresolved props
+  unResolvedProps = {
+    ...unResolvedProps,
+    ...getAndMergeThemeFromStylesheet(stateStyleSheet, 'unResolvedProps'),
+  };
+
   return {
-    style: map(styleSheet, 'style'),
+    // style: map(styleSheet, 'style'),
     unResolvedProps: unResolvedProps,
     styleFromProps: styleFromProps,
     stateStyleFromProps: stateStyleFromProps,
@@ -208,11 +240,8 @@ export const getThemeProps = (
     config.colorMode,
     state
   );
-  // console.log(themeObj, providerId, 'theme obje');
 
   if (isEmptyObj(themeObj)) {
-    // console.log('hello here 1111', inputComponentKeyName);
-    // updateComponentThemeMap(inputComponentKeyName, {}, config, {});
     updateComponentThemeMap(
       theme,
       providerId,
@@ -270,9 +299,9 @@ export const getThemeProps = (
     }
 
     const mergedThemeObj = {
-      style: sizeThemeObj?.style
-        ? [...themeObj?.style, ...sizeThemeObj?.style]
-        : themeObj.style,
+      // style: sizeThemeObj?.style
+      //   ? [...themeObj?.style, ...sizeThemeObj?.style]
+      //   : themeObj.style,
       styleFromProps: merge(
         {},
         themeObj.styleFromProps,
@@ -287,6 +316,11 @@ export const getThemeProps = (
         {},
         themeObj.internalPseudoProps,
         sizeThemeObj.internalPseudoProps
+      ),
+      stateStyleFromProps: merge(
+        {},
+        themeObj.stateStyleFromProps,
+        sizeThemeObj.stateStyleFromProps
       ),
       restDefaultProps: {
         ...themeObj.restDefaultProps,

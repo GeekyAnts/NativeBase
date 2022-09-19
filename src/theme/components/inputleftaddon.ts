@@ -6,17 +6,14 @@ const baseStyle = () => {
     borderRightWidth: '0',
     borderLeftRadius: 'sm',
     _text: {
+      color: 'text.900',
       fontWeight: 400,
     },
     alignItems: 'center',
     justifyContent: 'center',
-    _light: {
-      bg: 'muted.50',
-      borderColor: 'muted.300',
-      _text: {
-        color: 'text.900',
-      },
-    },
+    bg: 'muted.50',
+    borderColor: 'muted.300',
+
     _dark: {
       bg: 'muted.800',
       borderColor: 'muted.700',

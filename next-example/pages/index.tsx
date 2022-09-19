@@ -1,120 +1,31 @@
+//@ts-nocheck
 import React from 'react';
-import type { NextPage } from 'next';
-import { Text } from 'react-native';
-import { Box, Stack, Button } from 'native-base';
+import { Stack, Center, Button, ScrollView, Box, Divider } from 'native-base';
 
-const Home: NextPage = () => {
+export default () => {
   return (
-    <Stack
-      // space={[10, 20, 32]}
-      space={[10, 20, 24]}
-      // space={'10'}
-      direction={['row', 'column', 'row']}
-      // direction={'column'}
-      // flexWrap={'wrap'}
-    >
-      {/* <Text>hi</Text> */}
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-
-      {/* <Button
-        w="16"
-        bg={['red.900', 'light.200', 'lightBlue.100']}
-        // _text={{ color: ['white', 'black', 'red.900'] }}
-      >
-        Text
-      </Button> */}
-      {/* <Button
-        w="16"
-        bg={['red.900', 'light.200', 'lightBlue.100']}
-        // _text={{ color: ['white', 'black', 'red.900'] }}
-      >
-        Text
-      </Button>
-      <Button
-        w="16"
-        bg={['red.900', 'light.200', 'lightBlue.100']}
-        // _text={{ color: ['white', 'black', 'red.900'] }}
-      >
-        Text
-      </Button>
-      <Button
-        w="16"
-        bg={['red.900', 'light.200', 'lightBlue.100']}
-        // _text={{ color: ['white', 'black', 'red.900'] }}
-      >
-        Text
-      </Button>
-      <Button
-        w="16"
-        bg={['red.900', 'light.200', 'lightBlue.100']}
-        // _text={{ color: ['white', 'black', 'red.900'] }}
-      >
-        Text
-      </Button>
-      <Button
-        w="16"
-        bg={['red.900', 'light.200', 'lightBlue.100']}
-        // _text={{ color: ['white', 'black', 'red.900'] }}
-      >
-        Text
-      </Button>
-      <Button
-        w="16"
-        bg={['red.900', 'light.200', 'lightBlue.100']}
-        // _text={{ color: ['white', 'black', 'red.900'] }}
-      >
-        Text
-      </Button>
-      <Button
-        w="16"
-        bg={['red.900', 'light.200', 'lightBlue.100']}
-        // _text={{ color: ['white', 'black', 'red.900'] }}
-      >
-        Text
-      </Button>
-      <Button
-        w="16"
-        bg={['red.900', 'light.200', 'lightBlue.100']}
-        // _text={{ color: ['white', 'black', 'red.900'] }}
-      >
-        Text
-      </Button>
-
-      <Button
-        w="16"
-        bg={['red.900', 'light.200', 'lightBlue.100']}
-        // _text={{ color: ['white', 'black', 'red.900'] }}
-      >
-        Text
-      </Button>
-
-      <Button
-        w="16"
-        bg={['red.900', 'light.200', 'lightBlue.100']}
-        // _text={{ color: ['white', 'black', 'red.900'] }}
-      >
-        Text
-      </Button> */}
-      {/* 
- <Button
-        w="16"
-        bg={['red.900', 'light.200', 'lightBlue.100']}
-        // _text={{ color: ['white', 'black', 'red.900'] }}
-      >
-        Text
-      </Button> */}
-      {/* <Box boxSize="20" bg="red.100"></Box> */}
-    </Stack>
+    <ScrollView>
+      <Stack direction={{ base: 'row', sm: 'column', md: 'row' }} space="3">
+        <Box p="4" bg={'red.500'}>
+          Box 1
+        </Box>
+        <Box p="4" bg={'red.500'}>
+          Box 2
+        </Box>
+        <Box p="4" bg={'red.500'}>
+          Box 3
+        </Box>
+        <Button
+          bg={{
+            base: 'red.500',
+            sm: 'teal.500',
+            md: 'amber.500',
+            lg: 'blue.500',
+          }}
+        >
+          Hello world
+        </Button>
+      </Stack>
+    </ScrollView>
   );
 };
-
-export default Home;

@@ -14,6 +14,7 @@ export interface InterfaceHStackProps extends InterfaceStackProps {
 }
 
 export type IHStackProps = InterfaceHStackProps & CustomProps<'HStack'>;
+
 const HStack = (props: IHStackProps, ref?: any) => {
   const resolvedProps = usePropsResolution('HStack', props, {});
 

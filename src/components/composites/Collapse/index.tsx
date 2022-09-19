@@ -3,6 +3,7 @@ import React, { useEffect, useRef, forwardRef } from 'react';
 import { ViewStyle, LayoutAnimation, UIManager, Platform } from 'react-native';
 import { Box } from '../../primitives';
 import type { InterfaceBoxProps } from '../../primitives/Box';
+import type { CustomProps } from '../../../components/types';
 export type InterfaceCollapseProps = InterfaceBoxProps<ICollapseProps> & {
   style?: ViewStyle;
   endingHeight?: number;
@@ -14,7 +15,7 @@ export type InterfaceCollapseProps = InterfaceBoxProps<ICollapseProps> & {
   onAnimationStart?: Function;
 };
 
-export type ICollapseProps = InterfaceCollapseProps;
+export type ICollapseProps = InterfaceCollapseProps & CustomProps<'Box'>;
 
 function usePrevious(value: any) {
   const ref = useRef();

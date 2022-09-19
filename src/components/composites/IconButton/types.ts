@@ -6,7 +6,7 @@ import type { CustomProps, VariantType } from '../../types';
 import type { ThemeComponentSizeType } from '../../../components/types/utils';
 export interface InterfaceIconButtonProps
   extends Omit<
-      InterfacePressableProps,
+      InterfacePressableProps<InterfaceIconButtonProps>,
       | 'children'
       | 'color'
       | '_light'
