@@ -4,6 +4,8 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 var lodash = require('lodash');
 var merge = require('lodash.merge');
+require('react');
+var reactNative = require('react-native');
 var get = require('lodash.get');
 var isEmpty = require('lodash.isempty');
 var Color = require('tinycolor2');
@@ -461,6 +463,13 @@ var callPropsFlattener = function (targetProps, latestSpecifictyMap, specificity
     }, specificity);
 };
 
+function isEmptyObj(obj) {
+    for (var _x in obj) {
+        return false;
+    }
+    return true;
+}
+
 function mode(light, dark) {
     return function (props) { return (props.colorMode === 'dark' ? dark : light); };
 }
@@ -596,13 +605,6 @@ var resolveValueWithBreakpoint = function (values, breakpointTheme, currentBreak
         return values;
     }
 };
-
-function isEmptyObj(obj) {
-    for (var _x in obj) {
-        return false;
-    }
-    return true;
-}
 
 var isNumber = function (n) { return typeof n === 'number' && !isNaN(n); };
 var getColor = function (rawValue, scale, theme) {
@@ -1359,7 +1361,7 @@ var getStyleAndFilteredProps = function (_a) {
             // console.log('hello responsive', orderedBreakPoints, responsiveStyles);
             var _c = getResponsiveStyles(query_1), newDataSet = _c.dataSet, styles = _c.styles;
             dataSet = __assign(__assign({}, dataSet), newDataSet);
-            styleFromProps = __assign(__assign({}, styleFromProps), styles);
+            styleFromProps = __assign(__assign({}, styleFromProps), reactNative.StyleSheet.flatten(styles));
             //TODO: build-time
             // styleFromProps = { ...styleFromProps };
         }
@@ -1371,13 +1373,6 @@ var getStyleAndFilteredProps = function (_a) {
     //     style,
     //     styledSystemProps,
     //   });
-    // }
-    // if (styleFromProps.backgroundColor === 'white.600') {
-    //   console.log(
-    //     styleFromProps,
-    //     styledSystemProps.extraProp,
-    //     'style from props *****'
-    //   );
     // }
     return {
         //TODO: build-time
@@ -1410,9 +1405,7 @@ var resolvePropsToStyle = function (styledSystemProps, propStyle, theme, platfor
         getResponsiveStyles: getResponsiveStyles,
         platform: platform
     }), unResolvedProps = _b.unResolvedProps, styleFromProps = _b.styleFromProps, restDefaultProps = _b.restDefaultProps, dataSet = _b.dataSet;
-    var 
-    // unResolvedProps: unResolvedProps1,
-    inlineStateStyleFromProps = getStyleAndFilteredProps({
+    var _c = getStyleAndFilteredProps({
         styledSystemProps: stateProps,
         theme: theme,
         debug: debug,
@@ -1420,36 +1413,21 @@ var resolvePropsToStyle = function (styledSystemProps, propStyle, theme, platfor
         strictMode: strictMode,
         getResponsiveStyles: getResponsiveStyles,
         platform: platform
-    }).styleFromProps;
-    if (propStyle) {
-        return {
-            style: [
-                INTERNAL_themeStyle,
-                styleFromProps,
-                stateProps === null || stateProps === void 0 ? void 0 : stateProps.INTERNAL_themeStyle,
-                inlineStateStyleFromProps,
-                propStyle,
-            ],
-            styleFromProps: styleFromProps,
-            unResolvedProps: unResolvedProps,
-            restDefaultProps: restDefaultProps,
-            dataSet: dataSet
-        };
-    }
-    else {
-        return {
-            style: [
-                INTERNAL_themeStyle,
-                styleFromProps,
-                stateProps === null || stateProps === void 0 ? void 0 : stateProps.INTERNAL_themeStyle,
-                inlineStateStyleFromProps,
-            ],
-            styleFromProps: styleFromProps,
-            unResolvedProps: unResolvedProps,
-            restDefaultProps: restDefaultProps,
-            dataSet: dataSet
-        };
-    }
+    }), stateUnResolvedProps = _c.unResolvedProps, inlineStyleFromProps = _c.styleFromProps, stateRestDefaultProps = _c.restDefaultProps, stateDataSet = _c.dataSet;
+    var mergedStyle = merge__default["default"].apply({}, [
+        merge__default["default"].apply({}, INTERNAL_themeStyle),
+        styleFromProps,
+        merge__default["default"].apply({}, stateProps === null || stateProps === void 0 ? void 0 : stateProps.INTERNAL_themeStyle),
+        inlineStyleFromProps,
+        propStyle !== null && propStyle !== void 0 ? propStyle : undefined,
+    ]);
+    return {
+        style: mergedStyle,
+        styleFromProps: styleFromProps,
+        unResolvedProps: merge__default["default"](unResolvedProps, stateUnResolvedProps),
+        restDefaultProps: merge__default["default"](restDefaultProps, stateRestDefaultProps),
+        dataSet: !isEmptyObj(stateDataSet) ? stateDataSet : dataSet
+    };
 };
 
 var getStyledObject = function (theme, 
@@ -4274,7 +4252,8 @@ var Link = {
     baseStyle: baseStyle$k,
     defaultProps: {
         isUnderlined: true
-    }
+    },
+    sizes: {}
 };
 
 var baseStyle$j = {
@@ -6213,7 +6192,7 @@ var init = function (inputResolvedStyledMap) {
     if (inputResolvedStyledMap) {
         exports.resolvedStyledMap = inputResolvedStyledMap;
     }
-    if (process.env.NODE_ENV === 'development') {
+    if (process.env.NODE_ENV === 'development' && typeof window !== 'undefined') {
         //@ts-ignore
         window['resolvedStyledMap'] = exports.resolvedStyledMap;
         //@ts-ignore

@@ -4,6 +4,7 @@ import { hasValidBreakpointFormat, transparentize } from './tools';
 // import type { ITheme } from '.';
 import type { UseResponsiveQueryParams } from '../utils/useResponsiveQuery';
 import { isEmptyObj } from '../utils/isEmptyObj';
+import { StyleSheet } from 'react-native';
 
 const isNumber = (n: any) => typeof n === 'number' && !isNaN(n);
 
@@ -843,7 +844,7 @@ export const getStyleAndFilteredProps = ({
       const { dataSet: newDataSet, styles } = getResponsiveStyles(query);
       dataSet = { ...dataSet, ...newDataSet };
 
-      styleFromProps = { ...styleFromProps, ...styles };
+      styleFromProps = { ...styleFromProps, ...StyleSheet.flatten(styles) };
 
       //TODO: build-time
       // styleFromProps = { ...styleFromProps };
@@ -860,16 +861,9 @@ export const getStyleAndFilteredProps = ({
   //   });
   // }
 
-  // if (styleFromProps.backgroundColor === 'white.600') {
-  //   console.log(
-  //     styleFromProps,
-  //     styledSystemProps.extraProp,
-  //     'style from props *****'
-  //   );
-  // }
   return {
     //TODO: build-time
-    styleSheet: {}, // StyleSheet.create({ box: styleFromProps }),
+    styleSheet: {}, //StyleSheet.create({ box: styleFromProps }),
     styleFromProps,
     restDefaultProps,
     dataSet,

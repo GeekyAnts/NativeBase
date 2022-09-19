@@ -1,3 +1,5 @@
+import merge from 'lodash.merge';
+import { isEmptyObj } from '../../utils';
 import { getStyleAndFilteredProps } from '../../theme/styled-system';
 
 export const resolvePropsToStyle = (
@@ -43,10 +45,10 @@ export const resolvePropsToStyle = (
   });
 
   const {
-    // unResolvedProps: unResolvedProps1,
-    styleFromProps: inlineStateStyleFromProps,
-    // restDefaultProps: restDefaultProps1,
-    // dataSet: dataSet1,
+    unResolvedProps: stateUnResolvedProps,
+    styleFromProps: inlineStyleFromProps,
+    restDefaultProps: stateRestDefaultProps,
+    dataSet: stateDataSet,
   } = getStyleAndFilteredProps({
     styledSystemProps: stateProps,
     theme,
@@ -57,34 +59,19 @@ export const resolvePropsToStyle = (
     platform,
   });
 
-  if (propStyle) {
-    return {
-      style: [
-        INTERNAL_themeStyle,
-        styleFromProps,
-        stateProps?.INTERNAL_themeStyle,
-        inlineStateStyleFromProps,
-        propStyle,
-      ],
-      styleFromProps,
-      unResolvedProps,
-      restDefaultProps,
+  const mergedStyle = merge.apply({}, [
+    merge.apply({}, INTERNAL_themeStyle),
+    styleFromProps,
+    merge.apply({}, stateProps?.INTERNAL_themeStyle),
+    inlineStyleFromProps,
+    propStyle ?? undefined,
+  ]);
 
-      dataSet,
-    };
-  } else {
-    return {
-      style: [
-        INTERNAL_themeStyle,
-        styleFromProps,
-        stateProps?.INTERNAL_themeStyle,
-        inlineStateStyleFromProps,
-      ],
-      styleFromProps,
-      unResolvedProps,
-      restDefaultProps,
-
-      dataSet,
-    };
-  }
+  return {
+    style: mergedStyle,
+    styleFromProps,
+    unResolvedProps: merge(unResolvedProps, stateUnResolvedProps),
+    restDefaultProps: merge(restDefaultProps, stateRestDefaultProps),
+    dataSet: !isEmptyObj(stateDataSet) ? stateDataSet : dataSet,
+  };
 };

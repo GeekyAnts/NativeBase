@@ -113,6 +113,20 @@ export function usePropsResolution(
     ? [componentThemeProps.styleFromProps, ...INTERNAL_themeStyle]
     : [componentThemeProps.styleFromProps];
 
+  // console.log(
+  //   INTERNAL_themeStyle,
+  //   resolvedFlattenProps.INTERNAL_themeStyle,
+  //   component,
+  //   '#####@@@@@'
+  // );
+  // if (component === 'Stack') {
+  //   console.log(
+  //     INTERNAL_themeStyle,
+  //     componentThemeProps.styleFromProps,
+  //     'dfibvdkndk#####'
+  //   );
+  // }
+
   resolvedStateProps.INTERNAL_themeStyle = stateProps?.INTERNAL_themeStyle
     ? [stateStyleFromProps, ...stateProps.INTERNAL_themeStyle]
     : isEmptyObj(stateStyleFromProps)
@@ -287,6 +301,7 @@ export const usePropsResolutionWithComponentTheme = (
     'colorScheme',
     'size',
     'variant',
+    'direction',
     ...(config?.resolveResponsively || []),
   ];
 
@@ -418,7 +433,6 @@ export const usePropsResolutionWithComponentTheme = (
     { ...config, platform: Platform.OS }
   );
 
-  // console.log(specificityMap, "*****");
   // console.log("outgoing ******", flattenProps);
 
   const responsiveProps = {};
@@ -497,6 +511,7 @@ export const usePropsResolutionWithComponentTheme = (
   // );
 
   // STEP 5: Return
+
   return {
     flattenProps: omitUndefined(flattenProps),
     stateProps: omitUndefined(stateProps),

@@ -7,7 +7,7 @@ import { useResponsiveQuery } from '../utils/useResponsiveQuery';
 //@ts-ignore
 import stableHash from 'stable-hash';
 import { resolvePropsToStyle } from './useThemeProps/resolvePropsToStyle';
-import { Platform } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 import { omitUndefined } from '../theme/tools';
 
 const getStyledSystemPropsAndRestProps = (props: any) => {
@@ -82,5 +82,8 @@ export const useStyledSystemPropsResolver = ({
   delete restProps.INTERNAL_themeStyle;
   restProps.dataSet = { ...restProps.dataSet, ...dataSet };
 
-  return [style, restProps];
+  const boxStyleSheet = StyleSheet.create({ box: style }); // StyleSheet.create(style);
+  const styleSheet = boxStyleSheet.box;
+
+  return [styleSheet, restProps];
 };

@@ -220,7 +220,7 @@ const CheckboxComponent = React.memo(
         <Stack
           {...layoutProps}
           {..._stack}
-          INTERNAL_themeStyle={[layoutStyles, _stack.INTERNAL_themeStyle]}
+          INTERNAL_themeStyle={[layoutStyles, ..._stack.INTERNAL_themeStyle]}
           stateProps={{
             ...stateLayoutProps,
             INTERNAL_themeStyle: [stateLayoutStyles],
