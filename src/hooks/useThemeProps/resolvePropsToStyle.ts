@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import merge from 'lodash.merge';
 import { getStyleAndFilteredProps } from '../../theme/styled-system';
 
 export const resolvePropsToStyle = (
@@ -58,48 +58,20 @@ export const resolvePropsToStyle = (
     platform,
   });
 
-  if (propStyle) {
-    return {
-      style: [
-        INTERNAL_themeStyle,
-        styleFromProps,
-        stateProps?.INTERNAL_themeStyle,
-        inlineStateStyleFromProps,
-        propStyle,
-      ],
-      styleFromProps,
-      unResolvedProps,
-      restDefaultProps,
-
-      dataSet,
-    };
-  } else {
-    console.log(
-      StyleSheet.create([
-        INTERNAL_themeStyle,
-        styleFromProps,
-        // StyleSheet.create(stateProps?.INTERNAL_themeStyle),
-        // stateProps?.INTERNAL_themeStyle,
-        inlineStateStyleFromProps,
-      ]),
-      stateProps?.INTERNAL_themeStyle,
-
-      'resolvedStyles###'
-    );
-
-    return {
-      style: StyleSheet.create([
-        INTERNAL_themeStyle,
-        styleFromProps,
-        // StyleSheet.create(stateProps?.INTERNAL_themeStyle),
-        // stateProps?.INTERNAL_themeStyle,
-        inlineStateStyleFromProps,
-      ]),
-      styleFromProps,
-      unResolvedProps,
-      restDefaultProps,
-
-      dataSet,
-    };
-  }
+  // console.time('start_here');
+  const mergedStyle = merge.apply({}, [
+    merge.apply({}, INTERNAL_themeStyle),
+    styleFromProps,
+    merge.apply({}, stateProps?.INTERNAL_themeStyle),
+    inlineStateStyleFromProps,
+    propStyle ?? undefined,
+  ]);
+  // console.timeEnd('start_here');
+  return {
+    style: mergedStyle,
+    styleFromProps,
+    unResolvedProps,
+    restDefaultProps,
+    dataSet,
+  };
 };
