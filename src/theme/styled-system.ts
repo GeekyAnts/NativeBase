@@ -821,8 +821,6 @@ export const getStyleAndFilteredProps = ({
     }
   }
 
-  console.log(responsiveStyles, styleFromProps, 'THIS is respomnsive ');
-
   if (responsiveStyles) {
     if (getResponsiveStyles) {
       const query: UseResponsiveQueryParams = { query: [] };
@@ -843,12 +841,9 @@ export const getStyleAndFilteredProps = ({
       });
       // console.log('hello responsive', orderedBreakPoints, responsiveStyles);
 
-      console.log(query, 'query-styled');
-
       const { dataSet: newDataSet, styles } = getResponsiveStyles(query);
       dataSet = { ...dataSet, ...newDataSet };
 
-      console.log(dataSet, 'use respnsive resolved queries');
       styleFromProps = { ...styleFromProps, ...StyleSheet.flatten(styles) };
 
       //TODO: build-time
@@ -866,19 +861,9 @@ export const getStyleAndFilteredProps = ({
   //   });
   // }
 
-  // if (styleFromProps.backgroundColor === 'white.600') {
-  //   console.log(
-  //     styleFromProps,
-  //     styledSystemProps.extraProp,
-  //     'style from props *****'
-  //   );
-  // }
-
-  console.log(dataSet, 'Styled-system.ts');
-
   return {
     //TODO: build-time
-    styleSheet: StyleSheet.create({ box: styleFromProps }),
+    styleSheet: {}, //StyleSheet.create({ box: styleFromProps }),
     styleFromProps,
     restDefaultProps,
     dataSet,

@@ -14,8 +14,7 @@ export const makeStyledComponent = (
   // console.log(StyleSheet.flatten(globalLightStyle.style), 'hello style');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   return React.forwardRef(({ debug, ...props }: any, ref: any) => {
-    const [styleSheet, style, restProps] = useStyledSystemPropsResolver(props);
-
+    const [styleSheet, restProps] = useStyledSystemPropsResolver(props);
     return (
       <Comp {...restProps} style={styleSheet} ref={ref}>
         {props.children}

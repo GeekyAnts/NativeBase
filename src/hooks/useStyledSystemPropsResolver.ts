@@ -82,9 +82,8 @@ export const useStyledSystemPropsResolver = ({
   delete restProps.INTERNAL_themeStyle;
   restProps.dataSet = { ...restProps.dataSet, ...dataSet };
 
-  let styleSheet = style;
-  let boxStyle = StyleSheet.create({ box: style }); // StyleSheet.create(style);
-  styleSheet = boxStyle.box;
+  const boxStyleSheet = StyleSheet.create({ box: style }); // StyleSheet.create(style);
+  const styleSheet = boxStyleSheet.box;
 
-  return [styleSheet, style, restProps];
+  return [styleSheet, restProps];
 };

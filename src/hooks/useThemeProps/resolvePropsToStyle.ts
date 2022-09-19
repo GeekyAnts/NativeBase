@@ -1,4 +1,5 @@
 import merge from 'lodash.merge';
+import { isEmptyObj } from '../../utils';
 import { getStyleAndFilteredProps } from '../../theme/styled-system';
 
 export const resolvePropsToStyle = (
@@ -44,10 +45,10 @@ export const resolvePropsToStyle = (
   });
 
   const {
-    // unResolvedProps: unResolvedProps1,
-    styleFromProps: inlineStateStyleFromProps,
-    // restDefaultProps: restDefaultProps1,
-    // dataSet: dataSet1,
+    unResolvedProps: stateUnResolvedProps,
+    styleFromProps: inlineStyleFromProps,
+    restDefaultProps: stateRestDefaultProps,
+    dataSet: stateDataSet,
   } = getStyleAndFilteredProps({
     styledSystemProps: stateProps,
     theme,
@@ -58,20 +59,19 @@ export const resolvePropsToStyle = (
     platform,
   });
 
-  // console.time('start_here');
   const mergedStyle = merge.apply({}, [
     merge.apply({}, INTERNAL_themeStyle),
     styleFromProps,
     merge.apply({}, stateProps?.INTERNAL_themeStyle),
-    inlineStateStyleFromProps,
+    inlineStyleFromProps,
     propStyle ?? undefined,
   ]);
-  // console.timeEnd('start_here');
+
   return {
     style: mergedStyle,
     styleFromProps,
-    unResolvedProps,
-    restDefaultProps,
-    dataSet,
+    unResolvedProps: merge(unResolvedProps, stateUnResolvedProps),
+    restDefaultProps: merge(restDefaultProps, stateRestDefaultProps),
+    dataSet: !isEmptyObj(stateDataSet) ? stateDataSet : dataSet,
   };
 };
