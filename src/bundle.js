@@ -4252,7 +4252,8 @@ var Link = {
     baseStyle: baseStyle$k,
     defaultProps: {
         isUnderlined: true
-    }
+    },
+    sizes: {}
 };
 
 var baseStyle$j = {
