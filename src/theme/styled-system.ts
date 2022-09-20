@@ -2,7 +2,7 @@ import get from 'lodash.get';
 import { resolveValueWithBreakpoint } from '../hooks/useThemeProps/resolveValueWithBreakpoint';
 import { hasValidBreakpointFormat, transparentize } from './tools';
 // import type { ITheme } from '.';
-import type { UseResponsiveQueryParams } from '../utils/useResponsiveQuery';
+// import type { UseResponsiveQueryParams } from '../utils/useResponsiveQuery';
 import { isEmptyObj } from '../utils/isEmptyObj';
 
 const isNumber = (n: any) => typeof n === 'number' && !isNaN(n);
@@ -822,7 +822,7 @@ export const getStyleAndFilteredProps = ({
 
   if (responsiveStyles) {
     if (getResponsiveStyles) {
-      const query: UseResponsiveQueryParams = { query: [] };
+      const query: any = { query: [] };
       orderedBreakPoints.forEach((o) => {
         const key = o[0];
         if (key === 'base') {

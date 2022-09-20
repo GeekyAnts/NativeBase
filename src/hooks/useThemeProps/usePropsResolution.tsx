@@ -14,7 +14,7 @@ import { PSEUDO_PROP_COMPONENT_MAP } from '../../utils/styled';
 import get from 'lodash.get';
 import { Platform } from 'react-native';
 import merge from 'lodash.merge';
-import { isEmptyObj } from '../../utils';
+import { isEmptyObj } from '../../utils/isEmptyObj';
 
 // const getThemeProps = resolvedMap.theme.getThemeProps;
 

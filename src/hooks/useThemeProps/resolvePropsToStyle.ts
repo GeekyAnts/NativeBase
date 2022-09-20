@@ -1,5 +1,5 @@
 import merge from 'lodash.merge';
-import { isEmptyObj } from '../../utils';
+import { isEmptyObj } from '../../utils/isEmptyObj';
 import { getStyleAndFilteredProps } from '../../theme/styled-system';
 
 export const resolvePropsToStyle = (

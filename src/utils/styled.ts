@@ -1,7 +1,8 @@
 import { get as lodashGet } from 'lodash';
 
 import { getStyledObject } from './getStyledComponentAndObjects';
-import { theme as defaultTheme } from '../theme';
+// import { theme as defaultTheme } from '../theme';
+const defaultTheme = {};
 import { pseudoPropsMap } from '../hooks/useThemeProps/propsFlattener';
 
 import { forEach, map, merge } from 'lodash';
