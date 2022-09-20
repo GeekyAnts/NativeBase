@@ -15,7 +15,7 @@ export const useResponsiveQuery = (
     const getResponsiveStyles = getResponsiveStylesImpl(windowWidth);
     if (queries) {
       const { styles } = getResponsiveStyles(queries);
-      return { styles, getResponsiveStyles };
+      return { styles, styleFromQuery: styles, getResponsiveStyles };
     } else {
       return { getResponsiveStyles };
     }
