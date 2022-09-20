@@ -4,7 +4,6 @@ import { hasValidBreakpointFormat, transparentize } from './tools';
 // import type { ITheme } from '.';
 import type { UseResponsiveQueryParams } from '../utils/useResponsiveQuery';
 import { isEmptyObj } from '../utils/isEmptyObj';
-import { StyleSheet } from 'react-native';
 
 const isNumber = (n: any) => typeof n === 'number' && !isNaN(n);
 
@@ -841,10 +840,12 @@ export const getStyleAndFilteredProps = ({
       });
       // console.log('hello responsive', orderedBreakPoints, responsiveStyles);
 
-      const { dataSet: newDataSet, styles } = getResponsiveStyles(query);
+      const { dataSet: newDataSet, styleFromQuery } = getResponsiveStyles(
+        query
+      );
       dataSet = { ...dataSet, ...newDataSet };
 
-      styleFromProps = { ...styleFromProps, ...StyleSheet.flatten(styles) };
+      styleFromProps = { ...styleFromProps, ...styleFromQuery };
 
       //TODO: build-time
       // styleFromProps = { ...styleFromProps };
