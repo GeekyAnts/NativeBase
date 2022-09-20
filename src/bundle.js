@@ -5,7 +5,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 var lodash = require('lodash');
 var merge = require('lodash.merge');
 require('react');
-var reactNative = require('react-native');
+require('react-native');
 var get = require('lodash.get');
 var isEmpty = require('lodash.isempty');
 var Color = require('tinycolor2');
@@ -1359,9 +1359,9 @@ var getStyleAndFilteredProps = function (_a) {
                 }
             });
             // console.log('hello responsive', orderedBreakPoints, responsiveStyles);
-            var _c = getResponsiveStyles(query_1), newDataSet = _c.dataSet, styles = _c.styles;
+            var _c = getResponsiveStyles(query_1), newDataSet = _c.dataSet, styleFromQuery = _c.styleFromQuery;
             dataSet = __assign(__assign({}, dataSet), newDataSet);
-            styleFromProps = __assign(__assign({}, styleFromProps), reactNative.StyleSheet.flatten(styles));
+            styleFromProps = __assign(__assign({}, styleFromProps), styleFromQuery);
             //TODO: build-time
             // styleFromProps = { ...styleFromProps };
         }
