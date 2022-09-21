@@ -48,7 +48,6 @@ export const useStyledSystemPropsResolver = ({
   const { style, dataSet } = React.useMemo(() => {
     const resolvedStyle = resolvePropsToStyle(
       styledSystemProps,
-      propStyle,
       theme,
       Platform.OS,
       debug,
@@ -85,5 +84,5 @@ export const useStyledSystemPropsResolver = ({
   const boxStyleSheet = StyleSheet.create({ box: style }); // StyleSheet.create(style);
   const styleSheet = boxStyleSheet.box;
 
-  return [styleSheet, restProps];
+  return [[styleSheet, propStyle], restProps];
 };
