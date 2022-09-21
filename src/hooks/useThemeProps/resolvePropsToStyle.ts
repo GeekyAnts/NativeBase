@@ -4,7 +4,6 @@ import { getStyleAndFilteredProps } from '../../theme/styled-system';
 
 export const resolvePropsToStyle = (
   styledSystemProps: any,
-  propStyle: any,
   theme: any,
   platform: any,
   debug: any,
@@ -64,7 +63,6 @@ export const resolvePropsToStyle = (
     styleFromProps,
     merge.apply({}, stateProps?.INTERNAL_themeStyle),
     inlineStyleFromProps,
-    propStyle ?? undefined,
   ]);
 
   return {

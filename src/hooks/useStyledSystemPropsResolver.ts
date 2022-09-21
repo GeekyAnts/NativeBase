@@ -9,6 +9,7 @@ import stableHash from 'stable-hash';
 import { resolvePropsToStyle } from './useThemeProps/resolvePropsToStyle';
 import { Platform, StyleSheet } from 'react-native';
 import { omitUndefined } from '../theme/tools';
+import { isEmptyObj } from '../utils';
 
 const getStyledSystemPropsAndRestProps = (props: any) => {
   const styledSystemProps: any = {};
@@ -48,7 +49,6 @@ export const useStyledSystemPropsResolver = ({
   const { style, dataSet } = React.useMemo(() => {
     const resolvedStyle = resolvePropsToStyle(
       styledSystemProps,
-      propStyle,
       theme,
       Platform.OS,
       debug,
@@ -83,7 +83,13 @@ export const useStyledSystemPropsResolver = ({
   restProps.dataSet = { ...restProps.dataSet, ...dataSet };
 
   const boxStyleSheet = StyleSheet.create({ box: style }); // StyleSheet.create(style);
-  const styleSheet = boxStyleSheet.box;
+  let styleSheet;
+
+  if (!isEmptyObj(propStyle)) {
+    styleSheet = [boxStyleSheet.box, propStyle];
+  } else {
+    styleSheet = boxStyleSheet.box;
+  }
 
   return [styleSheet, restProps];
 };
