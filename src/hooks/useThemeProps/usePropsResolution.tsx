@@ -94,9 +94,18 @@ export function usePropsResolution(
   const componentTheme = get(theme, `components.${component}`);
 
   // usePropsResolutionWithComponentTheme - returns inline theme props
+
+  /**
+   * merging inline props on top of rest default props at line:105
+   */
   const resolvedPropsWithStateProps = usePropsResolutionWithComponentTheme(
     componentTheme,
-    merge({}, componentThemeProps?.unResolvedProps, incomingProps),
+    merge(
+      {},
+      componentThemeProps?.unResolvedProps,
+      componentThemeProps?.restDefaultProps,
+      incomingProps
+    ),
     theme,
     state,
     { ...config, name: component }
@@ -108,24 +117,22 @@ export function usePropsResolution(
     ...resolvedPropsWithStateProps.stateProps,
   };
 
+  const restDefaultWithStateProps = componentThemeProps?.stateRestDefaultProps;
+
+  /**
+   * --> Merging inline state props on top of rest default state props
+   * --> Final result will be [restDefaultProps, inlineProps, restDefaulStateProps, inlineStateProps]
+   */
+
+  for (const property in restDefaultWithStateProps) {
+    resolvedFlattenProps[property] =
+      resolvedPropsWithStateProps.stateProps[property] ??
+      restDefaultWithStateProps[property];
+  }
   // Merge default props with inline resolved props
   resolvedFlattenProps.INTERNAL_themeStyle = INTERNAL_themeStyle
     ? [componentThemeProps.styleFromProps, ...INTERNAL_themeStyle]
     : [componentThemeProps.styleFromProps];
-
-  // console.log(
-  //   INTERNAL_themeStyle,
-  //   resolvedFlattenProps.INTERNAL_themeStyle,
-  //   component,
-  //   '#####@@@@@'
-  // );
-  // if (component === 'Stack') {
-  //   console.log(
-  //     INTERNAL_themeStyle,
-  //     componentThemeProps.styleFromProps,
-  //     'dfibvdkndk#####'
-  //   );
-  // }
 
   resolvedStateProps.INTERNAL_themeStyle = stateProps?.INTERNAL_themeStyle
     ? [stateStyleFromProps, ...stateProps.INTERNAL_themeStyle]

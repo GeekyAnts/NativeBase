@@ -140,8 +140,12 @@ const getThemeObject = (
     'unResolvedProps'
   );
 
-  let restDefaultProps = getAndMergeThemeFromStylesheet(
+  const restDefaultProps = getAndMergeThemeFromStylesheet(
     styleSheet,
+    'restDefaultProps'
+  );
+  const stateRestDefaultProps = getAndMergeThemeFromStylesheet(
+    stateStyleSheet,
     'restDefaultProps'
   );
 
@@ -167,12 +171,6 @@ const getThemeObject = (
     ...getAndMergeThemeFromStylesheet(stateStyleSheet, 'internalPseudoProps'),
   };
 
-  // Merging state styles restDefaultProps props with theme style restDefaultProps props
-  restDefaultProps = {
-    ...restDefaultProps,
-    ...getAndMergeThemeFromStylesheet(stateStyleSheet, 'restDefaultProps'),
-  };
-
   // Merging state styles unresolved props with theme style unresolved props
   unResolvedProps = {
     ...unResolvedProps,
@@ -185,6 +183,7 @@ const getThemeObject = (
     styleFromProps: styleFromProps,
     stateStyleFromProps: stateStyleFromProps,
     restDefaultProps: restDefaultProps,
+    stateRestDefaultProps: stateRestDefaultProps,
     internalPseudoProps: internalPseudoProps,
   };
 };
@@ -326,6 +325,10 @@ export const getThemeProps = (
       restDefaultProps: {
         ...themeObj.restDefaultProps,
         ...sizeThemeObj.restDefaultProps,
+      },
+      stateRestDefaultProps: {
+        ...themeObj.stateRestDefaultProps,
+        ...sizeThemeObj.stateRestDefaultProps,
       },
     };
     themeObj = mergedThemeObj;
