@@ -745,8 +745,11 @@ export const getStyleAndFilteredProps = ({
             currentBreakpoint,
             platform,
           });
-          //@ts-ignore
-          responsiveStyles[orderedBreakPoints[i][0]].push(newStyle);
+
+          if (!isEmptyObj(newStyle)) {
+            //@ts-ignore
+            responsiveStyles[orderedBreakPoints[i][0]].push(newStyle);
+          }
         });
       } else {
         // console.log('hello 111222', key, value);
@@ -763,7 +766,9 @@ export const getStyleAndFilteredProps = ({
           if (!responsiveStyles[k]) {
             responsiveStyles[k] = [];
           }
-          responsiveStyles[k].push(newStyle);
+          if (!isEmptyObj(newStyle)) {
+            responsiveStyles[k].push(newStyle);
+          }
         }
         // console.log('hello 111222', key, value, responsiveStyles);
       }
@@ -829,11 +834,13 @@ export const getStyleAndFilteredProps = ({
         } else {
           if (responsiveStyles)
             if (key in responsiveStyles) {
-              query?.query?.push({
-                //@ts-ignore
-                minWidth: o[1],
-                style: responsiveStyles[key],
-              });
+              if (responsiveStyles[key].length > 0) {
+                query?.query?.push({
+                  //@ts-ignore
+                  minWidth: o[1],
+                  style: responsiveStyles[key],
+                });
+              }
             }
         }
       });
