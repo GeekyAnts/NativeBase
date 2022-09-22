@@ -9,7 +9,7 @@ import stableHash from 'stable-hash';
 import { resolvePropsToStyle } from './useThemeProps/resolvePropsToStyle';
 import { Platform, StyleSheet } from 'react-native';
 import { omitUndefined } from '../theme/tools';
-import { isEmptyObj } from '../utils';
+import { isEmptyObj } from '../utils/isEmptyObj';
 
 const getStyledSystemPropsAndRestProps = (props: any) => {
   const styledSystemProps: any = {};
