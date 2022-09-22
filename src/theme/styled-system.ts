@@ -699,7 +699,6 @@ export const getStyleAndFilteredProps = ({
     Array<any>
   > = null;
 
-  // console.log(styledSystemProps, '&&&&&');
   const orderedBreakPoints = Object.entries(
     //@ts-ignore
     theme.breakpoints as ITheme['breakpoints']
