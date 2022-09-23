@@ -22,15 +22,15 @@ export interface InterfaceImageProps
    */
   source?: ImageSourcePropType;
   /**
-   * The alt text that describes the image. This will be added as accessibilityLabel in android/iOS and alt on web
+   * The alt text that describes the image. This will be added as accessibilityLabel in android/iOS and alt on web.
    */
   alt?: string;
   /**
-   * In event there was an error loading the src, specify a fallback source.
+   * In the event of an error loading the src, specify a fallback source.
    */
   fallbackSource?: ImageSourcePropType;
   /**
-   * Opt out of the fallbackSource logic and show alternative text
+   * Opt out of the fallbackSource logic and show alternative text.
    */
   ignoreFallback?: boolean;
   /**
@@ -38,7 +38,7 @@ export interface InterfaceImageProps
    */
   _alt?: Partial<ITextProps>;
   /**
-   * In event there was an error loading the src, specify a fallback JSX Element.
+   * In the event of an error loading the src, specify a fallback JSX Element.
    */
   fallbackElement?: JSX.Element | JSX.Element[];
   /**
