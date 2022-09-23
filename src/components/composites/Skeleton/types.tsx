@@ -11,7 +11,7 @@ export interface InterfaceSkeletonProps
    */
   fadeDuration?: number;
   /**
-   * If true, it'll render its children
+   * If true, it will render its children
    */
   isLoaded?: boolean;
   /**
@@ -39,7 +39,7 @@ export interface ISkeletonTextProps extends IStackProps {
    */
   fadeDuration?: number;
   /**
-   * If true, it'll render its children
+   * If true, it will render its children
    */
   isLoaded?: boolean;
   /**
@@ -55,7 +55,7 @@ export interface ISkeletonTextProps extends IStackProps {
    */
   endColor?: ResponsiveValue<IColors | (string & {})>;
   /**
-   * No of Lines in text
+   * Number of Lines in text
    */
   lines?: number;
   /**
