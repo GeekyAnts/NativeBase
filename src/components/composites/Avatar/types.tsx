@@ -10,16 +10,16 @@ export interface InterfaceAvatarProps extends InterfaceBoxProps<IAvatarProps> {
    */
   source?: ImageSourcePropType;
   /**
-   * The size of the avatar
+   * The size of the avatar.
    * @default md
    */
   size?: ThemeComponentSizeType<'Avatar'>;
   /**
-   * For providing props to Image component inside Avatar
+   * For providing props to Image component inside the Avatar.
    */
   _image?: Partial<IImageProps>;
   /**
-   * ref to be attached to Avatar wrapper
+   * ref to be attached to the Avatar wrapper.
    */
   wrapperRef?: MutableRefObject<any>;
 }
