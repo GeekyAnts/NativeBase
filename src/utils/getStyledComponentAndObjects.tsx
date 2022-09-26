@@ -74,7 +74,6 @@ export const getStyledObject = (
 
   const styleObj: any = resolvePropsToStyle(
     flattenProps,
-    componentStyle,
     theme,
     config.platform,
     false,
@@ -84,6 +83,7 @@ export const getStyledObject = (
   );
 
   styleObj.internalPseudoProps = internalPseudoProps;
+  styleObj.style = { ...styleObj?.style, ...componentStyle };
 
   return styleObj;
 };

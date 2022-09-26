@@ -17,7 +17,7 @@ import { StyleSheet } from 'react-native';
 //@ts-ignore
 import stableHash from 'stable-hash';
 import hash from './hash';
-import type { GetResponsiveStylesReturnType } from './types';
+// import type { GetResponsiveStylesReturnType } from './types';
 import { useStableMemo } from './useStableMemo';
 import { getResponsiveStylesImpl, useDimensionsWithEnable } from './common';
 import { useNativeBaseConfig } from '../../core/NativeBaseContext';
@@ -63,15 +63,18 @@ export const useResponsiveQuery = (
     if (disableCSSMediaQueries) {
       const getResponsiveStyles = getResponsiveStylesImpl(windowWidth);
       if (queries) {
-        const { styles } = getResponsiveStyles(queries);
-        return { styles, getResponsiveStyles };
+        const { styles, styleFromQuery } = getResponsiveStyles(queries);
+        return { styles, styleFromQuery, getResponsiveStyles };
       } else {
         return { getResponsiveStyles };
       }
     } else {
       if (queries) {
-        const { styles, dataSet } = getResponsiveStyles(queries);
-        return { dataSet, styles, getResponsiveStyles };
+        const { styles, dataSet, styleFromQuery } = getResponsiveStyles(
+          queries
+        );
+
+        return { dataSet, styles, styleFromQuery, getResponsiveStyles };
       } else {
         return { getResponsiveStyles };
       }
@@ -110,9 +113,7 @@ const getMediaQueryRule = (query: Query, newRule: string) => {
   return undefined;
 };
 
-const getResponsiveStyles = (
-  queries: GetResponsiveStylesParams
-): GetResponsiveStylesReturnType => {
+const getResponsiveStyles = (queries: GetResponsiveStylesParams): any => {
   const queryString = stableHash(queries.query);
   const queriesHash = hash(queryString);
 
@@ -122,8 +123,8 @@ const getResponsiveStyles = (
           .initial,
       ]
     : undefined;
-  console.log(styles, queries, '@@@@queries');
 
+  // const styleFromQuery = queries.initial ? [queries.initial] : undefined;
   let dataSet: DataSet = {};
 
   if (queries.query) {
@@ -171,5 +172,5 @@ const getResponsiveStyles = (
     });
   }
 
-  return { styles, dataSet };
+  return { styles, styleFromQuery: StyleSheet.flatten(styles), dataSet };
 };

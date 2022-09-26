@@ -23,7 +23,7 @@ export type ThemeComponentSizeType<
 > = ResponsiveValue<
   'sizes' extends keyof ITheme['components'][Component]
     ? keyof ITheme['components'][Component]['sizes'] | (string & {}) | number
-    : never
+    : unknown
 >;
 
 export type CombinedSizeType<Component extends keyof ITheme['components']> =
