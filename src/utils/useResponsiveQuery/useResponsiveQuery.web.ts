@@ -63,15 +63,18 @@ export const useResponsiveQuery = (
     if (disableCSSMediaQueries) {
       const getResponsiveStyles = getResponsiveStylesImpl(windowWidth);
       if (queries) {
-        const { styles } = getResponsiveStyles(queries);
-        return { styles, getResponsiveStyles };
+        const { styles, styleFromQuery } = getResponsiveStyles(queries);
+        return { styles, styleFromQuery, getResponsiveStyles };
       } else {
         return { getResponsiveStyles };
       }
     } else {
       if (queries) {
-        const { styles, dataSet } = getResponsiveStyles(queries);
-        return { dataSet, styles, getResponsiveStyles };
+        const { styles, dataSet, styleFromQuery } = getResponsiveStyles(
+          queries
+        );
+
+        return { dataSet, styles, styleFromQuery, getResponsiveStyles };
       } else {
         return { getResponsiveStyles };
       }
