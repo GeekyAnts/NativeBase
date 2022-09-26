@@ -17,7 +17,7 @@ export default function Factory<P>(
         theme
       );
       return (
-        <StyledComponent {...(calculatedProps as P)} ref={ref}>
+        <StyledComponent {...(calculatedProps as any)} ref={ref}>
           {children}
         </StyledComponent>
       );

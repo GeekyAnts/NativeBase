@@ -10,11 +10,8 @@ import { useRadio } from '@react-native-aria/radio';
 import { RadioContext } from './RadioGroup';
 import { mergeRefs } from '../../../utils';
 import { CircleIcon } from '../Icon/Icons';
-import {
-  composeEventHandlers,
-  combineContextAndProps,
-  isEmptyObj,
-} from '../../../utils';
+import { composeEventHandlers, combineContextAndProps } from '../../../utils';
+import { isEmptyObj } from '../../../utils/isEmptyObj';
 import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 import {
   useHover,

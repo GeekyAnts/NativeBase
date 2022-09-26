@@ -14,7 +14,7 @@ import { PSEUDO_PROP_COMPONENT_MAP } from '../../utils/styled';
 import get from 'lodash.get';
 import { Platform } from 'react-native';
 import merge from 'lodash.merge';
-import { isEmptyObj } from '../../utils';
+import { isEmptyObj } from '../../utils/isEmptyObj';
 
 // const getThemeProps = resolvedMap.theme.getThemeProps;
 
@@ -36,9 +36,11 @@ export function usePropsResolution(
     ignoreProps?: string[];
     cascadePseudoProps?: boolean;
     extendTheme?: string[];
+    notResolveThemeProps?: boolean;
   }
 ) {
   const { theme } = useNativeBase();
+
   const { colorMode } = useColorMode();
   const providerId = useNativeBaseConfig('NativeBase').providerId;
 
@@ -57,7 +59,8 @@ export function usePropsResolution(
     component,
     { colorMode: colorMode, platform: Platform.OS },
     state,
-    incomingProps
+    incomingProps,
+    config?.notResolveThemeProps
   );
 
   const stateStyleFromProps = omitUndefined(
@@ -73,7 +76,8 @@ export function usePropsResolution(
         extendedComponent,
         { colorMode, platform: Platform.OS },
         state,
-        incomingProps
+        incomingProps,
+        config?.notResolveThemeProps
       );
 
       componentThemeProps.style = [
@@ -94,9 +98,18 @@ export function usePropsResolution(
   const componentTheme = get(theme, `components.${component}`);
 
   // usePropsResolutionWithComponentTheme - returns inline theme props
+
+  /**
+   * merging inline props on top of rest default props at line:105
+   */
   const resolvedPropsWithStateProps = usePropsResolutionWithComponentTheme(
     componentTheme,
-    merge({}, componentThemeProps?.unResolvedProps, incomingProps),
+    merge(
+      {},
+      componentThemeProps?.unResolvedProps,
+      componentThemeProps?.restDefaultProps,
+      incomingProps
+    ),
     theme,
     state,
     { ...config, name: component }
@@ -108,24 +121,22 @@ export function usePropsResolution(
     ...resolvedPropsWithStateProps.stateProps,
   };
 
+  const restDefaultWithStateProps = componentThemeProps?.stateRestDefaultProps;
+
+  /**
+   * --> Merging inline state props on top of rest default state props
+   * --> Final result will be [restDefaultProps, inlineProps, restDefaulStateProps, inlineStateProps]
+   */
+
+  for (const property in restDefaultWithStateProps) {
+    resolvedFlattenProps[property] =
+      resolvedPropsWithStateProps.stateProps[property] ??
+      restDefaultWithStateProps[property];
+  }
   // Merge default props with inline resolved props
   resolvedFlattenProps.INTERNAL_themeStyle = INTERNAL_themeStyle
     ? [componentThemeProps.styleFromProps, ...INTERNAL_themeStyle]
     : [componentThemeProps.styleFromProps];
-
-  // console.log(
-  //   INTERNAL_themeStyle,
-  //   resolvedFlattenProps.INTERNAL_themeStyle,
-  //   component,
-  //   '#####@@@@@'
-  // );
-  // if (component === 'Stack') {
-  //   console.log(
-  //     INTERNAL_themeStyle,
-  //     componentThemeProps.styleFromProps,
-  //     'dfibvdkndk#####'
-  //   );
-  // }
 
   resolvedStateProps.INTERNAL_themeStyle = stateProps?.INTERNAL_themeStyle
     ? [stateStyleFromProps, ...stateProps.INTERNAL_themeStyle]
@@ -162,7 +173,8 @@ export function usePropsResolution(
         `${component}.${PSEUDO_PROP_COMPONENT_MAP[property]}`,
         { colorMode, platform: Platform.OS },
         {},
-        incomingProps
+        incomingProps,
+        config?.notResolveThemeProps
       );
 
       resolvedFlattenProps[property] = {

@@ -12,7 +12,9 @@ import { VisuallyHidden } from '@react-aria/visually-hidden';
 import { RadioContext } from './RadioGroup';
 import { useFocusRing } from '@react-native-aria/focus';
 import { CircleIcon } from '../Icon/Icons';
-import { combineContextAndProps, isEmptyObj } from '../../../utils';
+import { combineContextAndProps } from '../../../utils';
+import { isEmptyObj } from '../../../utils/isEmptyObj';
+
 import { useFormControlContext } from '../../composites/FormControl';
 
 const RadioComponent = memo(
