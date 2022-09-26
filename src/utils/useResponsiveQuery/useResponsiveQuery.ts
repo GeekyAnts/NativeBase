@@ -14,8 +14,9 @@ export const useResponsiveQuery = (
   const values = useStableMemo(() => {
     const getResponsiveStyles = getResponsiveStylesImpl(windowWidth);
     if (queries) {
-      const { styles } = getResponsiveStyles(queries);
-      return { styles, styleFromQuery: styles, getResponsiveStyles };
+      const { styles, styleFromQuery } = getResponsiveStyles(queries);
+
+      return { styles, styleFromQuery, getResponsiveStyles };
     } else {
       return { getResponsiveStyles };
     }

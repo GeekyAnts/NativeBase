@@ -48,7 +48,10 @@ export const getResponsiveStylesImpl = (width: number) => (
         }
       });
 
-      return { styles: StyleSheet.flatten(styles) };
+      return {
+        styles: styles,
+        styleFromQuery: StyleSheet.flatten(styles),
+      };
     }
   }
 
