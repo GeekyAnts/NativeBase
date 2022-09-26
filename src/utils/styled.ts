@@ -1,4 +1,4 @@
-import { get as lodashGet } from 'lodash';
+import { get as lodashGet, isNil } from 'lodash';
 
 import { getStyledObject } from './getStyledComponentAndObjects';
 import { theme as defaultTheme } from '../theme';
@@ -120,10 +120,6 @@ const getThemeObject = (
   // state style
   const stateStyles = getPseudoStateStyles(providerId, componentName, state);
 
-  if (componentName === 'Checkbox' && state.isInvalid && state.isHovered) {
-    // console.log(componentName, stateStyles, 'component state');
-  }
-
   let stateStyleSheet: any = [];
 
   forEach(stateStyles, (stateStyleObj) => {
@@ -211,6 +207,23 @@ const getComponentNameKeyFromProps = (
   return componentKeyName;
 };
 
+const mergeUnResolvedProps = (themeObj: any, sizeThemeObj: any) => {
+  const unResolvedProps = merge(
+    {},
+    themeObj.unResolvedProps,
+    sizeThemeObj.unResolvedProps
+  );
+
+  for (const property in sizeThemeObj.styleFromProps) {
+    if (!isNil(unResolvedProps[property])) {
+      delete unResolvedProps[property];
+    }
+  }
+
+  // return merge({}, themeObj.unResolvedProps, sizeThemeObj.unResolvedProps);
+
+  return unResolvedProps;
+};
 // const get
 export const getThemeProps = (
   theme: any,
@@ -309,6 +322,17 @@ export const getThemeProps = (
       }
     }
 
+    //themeObj.style.fontSize
+
+    // if (inputComponentKeyName === 'Heading') {
+    //   console.log(
+    //     'hello here &&&&',
+    //     themeObj,
+    //     themeObj.unResolvedProps,
+    //     sizeThemeObj.unResolvedProps,
+    //     props
+    //   );
+    // }
     const mergedThemeObj = {
       // style: sizeThemeObj?.style
       //   ? [...themeObj?.style, ...sizeThemeObj?.style]
@@ -318,11 +342,7 @@ export const getThemeProps = (
         themeObj.styleFromProps,
         sizeThemeObj.styleFromProps
       ),
-      unResolvedProps: merge(
-        {},
-        themeObj.unResolvedProps,
-        sizeThemeObj.unResolvedProps
-      ),
+      unResolvedProps: mergeUnResolvedProps(themeObj, sizeThemeObj),
       internalPseudoProps: merge(
         {},
         themeObj.internalPseudoProps,
