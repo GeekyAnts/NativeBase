@@ -39,7 +39,8 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
     {
       resolveResponsively: ['noOfLines', 'numberOfLines'],
       // We override the component base theme if text has an ancestor.
-      componentTheme: hasTextAncestor ? {} : undefined,
+      // componentTheme: hasTextAncestor ? {} : undefined,
+      notResolveThemeProps: hasTextAncestor ? true : false,
     }
   );
 

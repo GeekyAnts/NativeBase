@@ -36,9 +36,11 @@ export function usePropsResolution(
     ignoreProps?: string[];
     cascadePseudoProps?: boolean;
     extendTheme?: string[];
+    notResolveThemeProps?: boolean;
   }
 ) {
   const { theme } = useNativeBase();
+
   const { colorMode } = useColorMode();
   const providerId = useNativeBaseConfig('NativeBase').providerId;
 
@@ -57,7 +59,8 @@ export function usePropsResolution(
     component,
     { colorMode: colorMode, platform: Platform.OS },
     state,
-    incomingProps
+    incomingProps,
+    config?.notResolveThemeProps
   );
 
   const stateStyleFromProps = omitUndefined(
@@ -73,7 +76,8 @@ export function usePropsResolution(
         extendedComponent,
         { colorMode, platform: Platform.OS },
         state,
-        incomingProps
+        incomingProps,
+        config?.notResolveThemeProps
       );
 
       componentThemeProps.style = [
@@ -169,7 +173,8 @@ export function usePropsResolution(
         `${component}.${PSEUDO_PROP_COMPONENT_MAP[property]}`,
         { colorMode, platform: Platform.OS },
         {},
-        incomingProps
+        incomingProps,
+        config?.notResolveThemeProps
       );
 
       resolvedFlattenProps[property] = {

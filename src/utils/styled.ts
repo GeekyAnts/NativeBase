@@ -218,9 +218,21 @@ export const getThemeProps = (
   inputComponentKeyName: string,
   config: any,
   state?: any,
-  props: any = {}
+  props: any = {},
+  isAlreadyResolved: boolean = false
 ): any => {
   const componentNames = inputComponentKeyName.split('.');
+
+  if (isAlreadyResolved) {
+    return {
+      styleFromProps: {},
+      unResolvedProps: {},
+      internalPseudoProps: {},
+      stateStyleFromProps: {},
+      restDefaultProps: {},
+      stateRestDefaultProps: {},
+    };
+  }
 
   const rootComponentName = componentNames[0];
   const pseudoComponentKeyName = componentNames[1];
