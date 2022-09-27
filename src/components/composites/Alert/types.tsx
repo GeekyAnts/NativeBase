@@ -13,7 +13,7 @@ export interface InterfaceAlertProps extends InterfaceBoxProps<IAlertProps> {
    */
   variant?: VariantType<'Alert'>;
 
-  /** The colorScheme of the Alert.
+  /** The color scheme of the Alert.
    */
   colorScheme?: ColorSchemeType;
 }
