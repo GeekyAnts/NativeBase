@@ -67,7 +67,7 @@ export interface InterfaceRadioProps extends InterfaceBoxProps<IRadioProps> {
   _stack?: Partial<IStackProps>;
 
   /**
-   * Passed props wilICheckboxGroupPropsl be applied on disabled state.
+   * Passed props wilICheckboxGroupProps will be applied on the disabled state.
    */
   _disabled?: Omit<Partial<IRadioProps>, '_disabled'>;
   /**
