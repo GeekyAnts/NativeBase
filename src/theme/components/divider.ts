@@ -12,9 +12,7 @@ function baseStyle(props: Record<string, any>) {
         };
 
   return {
-    _light: {
-      bg: 'muted.300',
-    },
+    bg: 'muted.300',
     _dark: {
       bg: 'muted.600',
     },

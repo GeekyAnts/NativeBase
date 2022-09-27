@@ -6,7 +6,8 @@ import type {
 } from './types';
 import { HybridContext } from './../hybrid-overlay/Context';
 import type { IHybridContextProps } from './../hybrid-overlay/types';
-import { useColorScheme } from 'react-native';
+import { AppState, useColorScheme as _useColorScheme } from 'react-native';
+import { useSubscription } from 'use-subscription';
 
 export const useColorMode = (): IColorModeContextProps => {
   const {
@@ -24,6 +25,34 @@ export function useColorModeValue(light: any, dark: any) {
   const { colorMode } = useColorMode();
   return colorMode === 'dark' ? dark : light;
 }
+
+export const useAppState = () => {
+  const subscription = React.useMemo(
+    () => ({
+      getCurrentValue: () => AppState.currentState,
+      subscribe: (callback: () => void) => {
+        AppState.addEventListener('change', callback);
+        return () => AppState.removeEventListener('change', callback);
+      },
+    }),
+    []
+  );
+  return useSubscription(subscription);
+};
+
+export const useColorScheme = () => {
+  const colorScheme = _useColorScheme();
+  const [currentScheme, setCurrentScheme] = useState(colorScheme);
+  const appState = useAppState();
+
+  useEffect(() => {
+    if (appState === 'active') {
+      setCurrentScheme(colorScheme);
+    }
+  }, [appState, colorScheme]);
+
+  return currentScheme;
+};
 
 export function useModeManager(
   initialColorMode: ColorMode,

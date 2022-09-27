@@ -7,6 +7,7 @@ import { MenuContext } from './MenuContext';
 import { useMenuItem } from './useMenu';
 import { mergeRefs } from '../../../utils';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import { HStack } from '../../primitives';
 
 const MenuItem = (
   { children, isDisabled, onPress, textValue, ...props }: IMenuItemProps,
@@ -15,7 +16,7 @@ const MenuItem = (
   const { closeOnSelect, onClose } = React.useContext(MenuContext);
   const menuItemRef = React.useRef<any>(null);
   const mergedRef = mergeRefs([menuItemRef, ref]);
-  const { _text, ...resolvedProps } = usePropsResolution(
+  const { _text, _stack, ...resolvedProps } = usePropsResolution(
     'MenuItem',
     props,
     {
@@ -42,6 +43,7 @@ const MenuItem = (
   if (useHasResponsiveProps(props)) {
     return null;
   }
+
   return (
     <Pressable
       {...menuItemProps}
@@ -60,11 +62,11 @@ const MenuItem = (
         }
       }}
     >
-      <>
+      <HStack {..._stack}>
         {React.Children.map(children, (child, index: any) => {
           if (typeof child === 'string' || typeof child === 'number') {
             return (
-              <Text {..._text} key={`menu-item-${index}`}>
+              <Text key={`menu-item-${index}`} {..._text}>
                 {child}
               </Text>
             );
@@ -72,7 +74,7 @@ const MenuItem = (
             return child;
           }
         })}
-      </>
+      </HStack>
     </Pressable>
   );
 };

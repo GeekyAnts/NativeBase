@@ -23,7 +23,7 @@ export type ThemeComponentSizeType<
 > = ResponsiveValue<
   'sizes' extends keyof ITheme['components'][Component]
     ? keyof ITheme['components'][Component]['sizes'] | (string & {}) | number
-    : never
+    : unknown
 >;
 
 export type CombinedSizeType<Component extends keyof ITheme['components']> =
@@ -84,7 +84,7 @@ export type CustomComponentProps<
     undefined
   >
 >;
-export type CustomProps<
+export type CustomPropsTemp<
   T extends keyof ITheme['components']
 > = CustomComponentProps<T> extends never
   ? {}
@@ -97,3 +97,28 @@ export type UnionToIntersection<U> = (
 ) extends (k: infer I) => void
   ? I
   : never;
+
+type VariantSizeColorScheme<T extends keyof ITheme['components']> = {
+  variant?: VariantType<T>;
+  size?: ThemeComponentSizeType<T>;
+  colorScheme?: ColorSchemeType;
+};
+// export type CustomProps<
+//   T extends keyof ITheme['components']
+// > = CustomComponentProps<T> extends never
+//   ? {} | VariantSizeColorScheme<T>
+//   : // : CustomComponentProps<T> extends Record<string, any>
+//     // ? {}
+//     | (UnionToIntersection<CustomComponentProps<T>> & {})
+//       | VariantSizeColorScheme<T>;
+
+export type CustomProps<
+  T extends keyof ITheme['components']
+> = UnionToIntersection<CustomPropsTemp<T> | VariantSizeColorScheme<T>>;
+
+// export type CustomProps<
+//   T extends keyof ITheme['components']
+// > = CustomPropsTemp<T>;
+// | CustomPropsTemp<T>
+// | { a: string };
+// | { size?: ThemeComponentSizeType<T> };
