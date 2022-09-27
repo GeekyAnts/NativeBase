@@ -6,7 +6,7 @@ import { useTheme } from './../useTheme';
 import stableHash from 'stable-hash';
 
 import { useMemo } from 'react';
-import { isEmptyObj } from '../../utils';
+import { isEmptyObj } from '../../utils/isEmptyObj';
 
 export function useSafeArea(props: any) {
   const { safeAreaProps, paddingProps, sansPaddingProps } = useSortedProps(

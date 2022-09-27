@@ -14,4 +14,5 @@ export default {
   defaultProps: {
     isUnderlined: true,
   },
+  sizes: {},
 };

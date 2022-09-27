@@ -8,7 +8,9 @@ import { Platform, StyleSheet } from 'react-native';
 import { usePropsResolution } from '../../../hooks';
 import Box from '../../primitives/Box';
 import type { ITooltipProps } from './types';
-import { useId } from '@react-aria/utils';
+import { useId } from '@react-native-aria/utils';
+import { uniqueId } from 'lodash';
+import { ResponsiveQueryContext } from '../../../utils/useResponsiveQuery/ResponsiveQueryProvider';
 
 export const Tooltip = ({
   label,
@@ -49,7 +51,21 @@ export const Tooltip = ({
 
   const enterTimeout = React.useRef<any>();
   const exitTimeout = React.useRef<any>();
-  const tooltipID = useId();
+  // const tooltipID = '';
+  // const tooltipID = useId();
+
+  let tooltipID = uniqueId();
+
+  // let id = uniqueId();
+  const responsiveQueryContext = React.useContext(ResponsiveQueryContext);
+  const disableCSSMediaQueries = responsiveQueryContext.disableCSSMediaQueries;
+
+  if (!disableCSSMediaQueries) {
+    // This if statement technically breaks the rules of hooks, but is safe
+    // because the condition never changes after mounting.
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    tooltipID = useId();
+  }
 
   const openWithDelay = React.useCallback(() => {
     if (!isDisabled) {

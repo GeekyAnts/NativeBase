@@ -1,14 +1,12 @@
 export const SliderTrack = {
   baseStyle: () => {
     return {
+      bg: 'muted.200',
       borderRadius: 'lg',
       overflow: 'hidden',
       _pressable: {
         alignItems: 'center',
         justifyContent: 'center',
-      },
-      _light: {
-        bg: 'muted.200',
       },
       _dark: {
         bg: 'muted.700',
@@ -57,27 +55,25 @@ export const SliderThumb = {
         justifyContent: 'center',
         // space: 2,
       },
-      _light: {
-        bg: `${colorScheme}.600`,
-        _hover: {
-          _web: {
-            outlineWidth: '4px',
-            outlineColor: colors[colorScheme][300],
-            outlineStyle: 'solid',
-          },
+      bg: `${colorScheme}.600`,
+      _hover: {
+        _web: {
+          outlineWidth: '4px',
+          outlineColor: colors[colorScheme][300],
+          outlineStyle: 'solid',
         },
-        _focus: {
-          _web: {
-            outlineWidth: '2px',
-            outlineColor: colors.primary[400],
-            outlineStyle: 'solid',
-          },
+      },
+      _focus: {
+        _web: {
+          outlineWidth: '2px',
+          outlineColor: colors.primary[400],
+          outlineStyle: 'solid',
         },
-        _pressed: {
-          _interactionBox: {
-            borderWidth: '8',
-            borderColor: `${colorScheme}.300`,
-          },
+      },
+      _pressed: {
+        _interactionBox: {
+          borderWidth: '8',
+          borderColor: `${colorScheme}.300`,
         },
       },
       _dark: {
@@ -129,9 +125,8 @@ export const SliderThumb = {
 export const SliderFilledTrack = {
   baseStyle: ({ colorScheme }: any) => {
     return {
-      _light: {
-        bg: `${colorScheme}.600`,
-      },
+      bg: `${colorScheme}.600`,
+
       _dark: {
         bg: `${colorScheme}.500`,
       },

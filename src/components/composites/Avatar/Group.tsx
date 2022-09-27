@@ -28,7 +28,12 @@ const getAvatarGroupChildren = (
   };
   return [
     plusAvatars > 0 ? (
-      <Avatar {...spacingProps} {..._avatar} {..._hiddenAvatarPlaceholder}>
+      <Avatar
+        key="avatar-group-wrapper"
+        {...spacingProps}
+        {..._avatar}
+        {..._hiddenAvatarPlaceholder}
+      >
         {'+ ' + plusAvatars}
       </Avatar>
     ) : null,

@@ -110,6 +110,8 @@ export { default as CircularProgress } from './CircularProgress';
 
 export { Popover } from './Popover';
 export { Tooltip } from './Tooltip';
+export type { ITooltipProps } from './Tooltip';
+
 export type { IPopoverProps } from './Popover';
 
 export { AlertDialog } from './AlertDialog';
@@ -127,15 +129,15 @@ export type {
 export { SimpleGrid } from './SimpleGrid';
 export type { ISimpleGridProps } from './SimpleGrid';
 
-// export { Tabs } from './Tabs';
-// export type {
-//   ITabsProps,
-//   ITabBarProps,
-//   ITabProps,
-//   ITabViewsProps,
-//   ITabViewProps,
-//   ITabsContextProps,
-// } from './Tabs';
+export { Tabs } from './Tabs';
+export type {
+  ITabsProps,
+  ITabBarProps,
+  ITabProps,
+  ITabViewsProps,
+  ITabViewProps,
+  ITabsContextProps,
+} from './Tabs';
 export { TextField } from './TextField';
 export type { ITextFieldProps } from './TextField';
 

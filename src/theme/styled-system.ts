@@ -2,7 +2,7 @@ import get from 'lodash.get';
 import { resolveValueWithBreakpoint } from '../hooks/useThemeProps/resolveValueWithBreakpoint';
 import { hasValidBreakpointFormat, transparentize } from './tools';
 // import type { ITheme } from '.';
-import type { UseResponsiveQueryParams } from '../utils/useResponsiveQuery';
+// import type { UseResponsiveQueryParams } from '../utils/useResponsiveQuery';
 import { isEmptyObj } from '../utils/isEmptyObj';
 
 const isNumber = (n: any) => typeof n === 'number' && !isNaN(n);
@@ -699,7 +699,6 @@ export const getStyleAndFilteredProps = ({
     Array<any>
   > = null;
 
-  // console.log(styledSystemProps, '&&&&&');
   const orderedBreakPoints = Object.entries(
     //@ts-ignore
     theme.breakpoints as ITheme['breakpoints']
@@ -746,8 +745,11 @@ export const getStyleAndFilteredProps = ({
             currentBreakpoint,
             platform,
           });
-          //@ts-ignore
-          responsiveStyles[orderedBreakPoints[i][0]].push(newStyle);
+
+          if (!isEmptyObj(newStyle)) {
+            //@ts-ignore
+            responsiveStyles[orderedBreakPoints[i][0]].push(newStyle);
+          }
         });
       } else {
         // console.log('hello 111222', key, value);
@@ -764,7 +766,9 @@ export const getStyleAndFilteredProps = ({
           if (!responsiveStyles[k]) {
             responsiveStyles[k] = [];
           }
-          responsiveStyles[k].push(newStyle);
+          if (!isEmptyObj(newStyle)) {
+            responsiveStyles[k].push(newStyle);
+          }
         }
         // console.log('hello 111222', key, value, responsiveStyles);
       }
@@ -822,7 +826,7 @@ export const getStyleAndFilteredProps = ({
 
   if (responsiveStyles) {
     if (getResponsiveStyles) {
-      const query: UseResponsiveQueryParams = { query: [] };
+      const query: any = { query: [] };
       orderedBreakPoints.forEach((o) => {
         const key = o[0];
         if (key === 'base') {
@@ -830,20 +834,24 @@ export const getStyleAndFilteredProps = ({
         } else {
           if (responsiveStyles)
             if (key in responsiveStyles) {
-              query?.query?.push({
-                //@ts-ignore
-                minWidth: o[1],
-                style: responsiveStyles[key],
-              });
+              if (responsiveStyles[key].length > 0) {
+                query?.query?.push({
+                  //@ts-ignore
+                  minWidth: o[1],
+                  style: responsiveStyles[key],
+                });
+              }
             }
         }
       });
       // console.log('hello responsive', orderedBreakPoints, responsiveStyles);
 
-      const { dataSet: newDataSet, styles } = getResponsiveStyles(query);
+      const { dataSet: newDataSet, styleFromQuery } = getResponsiveStyles(
+        query
+      );
       dataSet = { ...dataSet, ...newDataSet };
 
-      styleFromProps = { ...styleFromProps, ...styles };
+      styleFromProps = { ...styleFromProps, ...styleFromQuery };
 
       //TODO: build-time
       // styleFromProps = { ...styleFromProps };
@@ -860,16 +868,9 @@ export const getStyleAndFilteredProps = ({
   //   });
   // }
 
-  // if (styleFromProps.backgroundColor === 'white.600') {
-  //   console.log(
-  //     styleFromProps,
-  //     styledSystemProps.extraProp,
-  //     'style from props *****'
-  //   );
-  // }
   return {
     //TODO: build-time
-    styleSheet: {}, // StyleSheet.create({ box: styleFromProps }),
+    styleSheet: {}, //StyleSheet.create({ box: styleFromProps }),
     styleFromProps,
     restDefaultProps,
     dataSet,

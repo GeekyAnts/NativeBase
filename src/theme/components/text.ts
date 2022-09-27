@@ -1,7 +1,5 @@
 const baseStyle = {
-  _light: {
-    color: 'text.900',
-  },
+  color: 'text.900',
   _dark: {
     color: 'text.50',
   },

@@ -1,6 +1,9 @@
+import React from 'react';
 import { useFocusManager } from '@react-aria/focus';
-import { useId } from '@react-aria/utils';
+import { useId } from '@react-native-aria/utils';
 import { AccessibilityRole, Platform } from 'react-native';
+import { ResponsiveQueryContext } from '../../../utils/useResponsiveQuery/ResponsiveQueryProvider';
+import { uniqueId } from 'lodash';
 
 type IMenuTriggerProps = {
   handleOpen: () => void;
@@ -8,7 +11,18 @@ type IMenuTriggerProps = {
 };
 
 export const useMenuTrigger = ({ handleOpen, isOpen }: IMenuTriggerProps) => {
-  const menuTriggerId = useId();
+  let menuTriggerId = uniqueId();
+
+  // let id = uniqueId();
+  const responsiveQueryContext = React.useContext(ResponsiveQueryContext);
+  const disableCSSMediaQueries = responsiveQueryContext.disableCSSMediaQueries;
+
+  if (!disableCSSMediaQueries) {
+    // This if statement technically breaks the rules of hooks, but is safe
+    // because the condition never changes after mounting.
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    menuTriggerId = useId();
+  }
   return {
     'onKeyDownCapture': (event: KeyboardEvent) => {
       if ([' ', 'Enter', 'ArrowUp', 'ArrowDown'].includes(event.key)) {

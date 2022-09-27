@@ -6,9 +6,10 @@ import { useNativeBaseConfig } from '../core/NativeBaseContext';
 import { useResponsiveQuery } from '../utils/useResponsiveQuery';
 //@ts-ignore
 import stableHash from 'stable-hash';
-import { resolvePropsToStyle } from './useThemeProps/propsFlattener';
-import { Platform } from 'react-native';
+import { resolvePropsToStyle } from './useThemeProps/resolvePropsToStyle';
+import { Platform, StyleSheet } from 'react-native';
 import { omitUndefined } from '../theme/tools';
+import { isEmptyObj } from '../utils/isEmptyObj';
 
 const getStyledSystemPropsAndRestProps = (props: any) => {
   const styledSystemProps: any = {};
@@ -32,8 +33,6 @@ export const useStyledSystemPropsResolver = ({
   debug,
   ...props
 }: any) => {
-  // console.time("PROP_CONFIG");
-
   const theme = useTheme();
 
   const { currentBreakpoint, config } = useNativeBaseConfig(
@@ -42,24 +41,14 @@ export const useStyledSystemPropsResolver = ({
   const strictMode = config.strictMode;
 
   const { getResponsiveStyles } = useResponsiveQuery();
-  // console.timeEnd("PROP_CONFIG");
 
   const { styledSystemProps, restProps } = getStyledSystemPropsAndRestProps(
     props
   );
 
-  // console.log('** use prop resolution ***', props, getResponsiveStyles);
-
-  // console.log('useStyledSystemPropsResolver', restProps);
-
-  // if (props.bg === 'blue.500') {
-  //   console.log(props.stateProps, 'hello here');
-  // }
-
   const { style, dataSet } = React.useMemo(() => {
     const resolvedStyle = resolvePropsToStyle(
       styledSystemProps,
-      propStyle,
       theme,
       Platform.OS,
       debug,
@@ -69,13 +58,6 @@ export const useStyledSystemPropsResolver = ({
       restProps.INTERNAL_themeStyle,
       restProps.stateProps
     );
-
-    // console.log(
-    //   StyleSheet.flatten(resolvedStyle.style),
-    //   styledSystemProps,
-    //   '******'
-    // );
-
     return resolvedStyle;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
@@ -97,9 +79,17 @@ export const useStyledSystemPropsResolver = ({
   // }
   // console.log('** use prop resolution 2', restProps);
 
-  restProps.dataSet = dataSet;
   delete restProps.INTERNAL_themeStyle;
-  // console.timeEnd("useStyledSystemPropsResolver");
+  restProps.dataSet = { ...restProps.dataSet, ...dataSet };
 
-  return [style, restProps];
+  const boxStyleSheet = StyleSheet.create({ box: style }); // StyleSheet.create(style);
+  let styleSheet;
+
+  if (!isEmptyObj(propStyle)) {
+    styleSheet = [boxStyleSheet.box, propStyle];
+  } else {
+    styleSheet = boxStyleSheet.box;
+  }
+
+  return [styleSheet, restProps];
 };

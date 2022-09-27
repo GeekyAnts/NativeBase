@@ -39,6 +39,7 @@ const Menu = (
     _overlay,
     _presenceTransition,
     _backdrop,
+    useRNModal,
     ...resolvedProps
   } = usePropsResolution('Menu', props);
   const handleOpen = React.useCallback(() => {
@@ -79,6 +80,7 @@ const Menu = (
         onRequestClose={handleClose}
         isKeyboardDismissable={true}
         useRNModalOnAndroid
+        useRNModal={useRNModal}
         {..._overlay}
         // style={{ backgroundColor: 'red' }}
         unmountOnExit

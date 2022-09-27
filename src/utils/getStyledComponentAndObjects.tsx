@@ -3,8 +3,8 @@ import {
   callPropsFlattener,
   propsFlattener,
   propsSpreader,
-  resolvePropsToStyle,
 } from '../hooks/useThemeProps/propsFlattener';
+import { resolvePropsToStyle } from '../hooks/useThemeProps/resolvePropsToStyle';
 import { isEmptyObj } from './isEmptyObj';
 import isEmpty from 'lodash.isempty';
 
@@ -74,7 +74,6 @@ export const getStyledObject = (
 
   const styleObj: any = resolvePropsToStyle(
     flattenProps,
-    componentStyle,
     theme,
     config.platform,
     false,
@@ -83,11 +82,8 @@ export const getStyledObject = (
     undefined
   );
 
-  // if (inputProps?.extraProp === 'Actionsheet') {
-  //   console.log(flattenProps, 'hello flatten here');
-  // }
-
   styleObj.internalPseudoProps = internalPseudoProps;
+  styleObj.style = { ...styleObj?.style, ...componentStyle };
 
   return styleObj;
 };

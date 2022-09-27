@@ -8,6 +8,7 @@ import { useMenuItem } from './useMenu';
 import { mergeRefs } from '../../../utils';
 import { composeEventHandlers } from '../../../utils';
 import { useFocusRing } from '@react-native-aria/focus';
+import { HStack } from '../../primitives';
 
 import {
   useHover,
@@ -48,7 +49,7 @@ const MenuItem = (
     isFocusVisible: isFocusVisible,
   };
 
-  const { _text, ...resolvedProps } = usePropsResolution(
+  const { _text, _stack, ...resolvedProps } = usePropsResolution(
     'MenuItem',
     props,
     state,
@@ -104,11 +105,11 @@ const MenuItem = (
         }
       }}
     >
-      <>
+      <HStack {..._stack}>
         {React.Children.map(children, (child, index: any) => {
           if (typeof child === 'string' || typeof child === 'number') {
             return (
-              <Text {..._text} key={`menu-item-${index}`}>
+              <Text key={`menu-item-${index}`} {..._text}>
                 {child}
               </Text>
             );
@@ -116,7 +117,7 @@ const MenuItem = (
             return child;
           }
         })}
-      </>
+      </HStack>
     </Pressable>
   );
 };
