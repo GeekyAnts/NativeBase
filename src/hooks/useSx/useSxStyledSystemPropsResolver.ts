@@ -1,13 +1,12 @@
-import { getStyleAndFilteredProps } from '../theme/styled-system';
-import { useTheme } from './useTheme';
+import { useTheme } from '../useTheme';
 import React from 'react';
-import { useNativeBaseConfig } from '../core/NativeBaseContext';
-import { useResponsiveQuery } from '../utils/useResponsiveQuery';
-import { getStyledSystemPropsAndRestProps } from '../utils/getStyledSystemPropsAndRestProps';
+import { useNativeBaseConfig } from '../../core/NativeBaseContext';
+import { useResponsiveQuery } from '../../utils/useResponsiveQuery';
 //@ts-ignore
 import stableHash from 'stable-hash';
-
-export const useStyledSystemPropsResolver = ({
+import { getStyledSystemPropsAndRestProps } from '../../utils/getStyledSystemPropsAndRestProps';
+import { getStyleAndFilteredProps } from './getStyleAndFilteredProps';
+export const useSxStyledSystemPropsResolver = ({
   style: propStyle,
   debug,
   ...props
@@ -20,12 +19,15 @@ export const useStyledSystemPropsResolver = ({
 
   const { getResponsiveStyles } = useResponsiveQuery();
 
-  const { styledSystemProps, restProps } = getStyledSystemPropsAndRestProps(
-    props
-  );
+  const {
+    styledSystemProps,
+    // eslint-disable-next-line
+    restProps: _rest,
+  } = getStyledSystemPropsAndRestProps(props);
 
-  const { style, dataSet } = React.useMemo(() => {
-    const { styleSheet, dataSet } = getStyleAndFilteredProps({
+  // eslint-disable-next-line
+  const { style, dataSet: _dataSet } = React.useMemo(() => {
+    const { styleFromProps, dataSet } = getStyleAndFilteredProps({
       styledSystemProps,
       theme,
       debug,
@@ -34,9 +36,9 @@ export const useStyledSystemPropsResolver = ({
       getResponsiveStyles,
     });
     if (propStyle) {
-      return { style: [styleSheet.box, propStyle], dataSet };
+      return { style: [styleFromProps, propStyle], dataSet };
     } else {
-      return { style: styleSheet.box, dataSet };
+      return { style: styleFromProps, dataSet };
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
@@ -55,7 +57,5 @@ export const useStyledSystemPropsResolver = ({
     console.log('style,resprops', currentBreakpoint);
   }
 
-  restProps.dataSet = { ...restProps.dataSet, ...dataSet };
-
-  return [style, restProps];
+  return style;
 };
