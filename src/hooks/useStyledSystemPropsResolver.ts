@@ -24,8 +24,8 @@ export const useStyledSystemPropsResolver = ({
     props
   );
 
-  const { style, dataSet } = React.useMemo(() => {
-    const { styleSheet, dataSet } = getStyleAndFilteredProps({
+  const { style, dataSet, styleFromProps } = React.useMemo(() => {
+    const { styleSheet, dataSet, styleFromProps } = getStyleAndFilteredProps({
       styledSystemProps,
       theme,
       debug,
@@ -34,9 +34,9 @@ export const useStyledSystemPropsResolver = ({
       getResponsiveStyles,
     });
     if (propStyle) {
-      return { style: [styleSheet.box, propStyle], dataSet };
+      return { style: [styleSheet.box, propStyle], dataSet, styleFromProps };
     } else {
-      return { style: styleSheet.box, dataSet };
+      return { style: styleSheet.box, dataSet, styleFromProps };
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
@@ -57,5 +57,5 @@ export const useStyledSystemPropsResolver = ({
 
   restProps.dataSet = { ...restProps.dataSet, ...dataSet };
 
-  return [style, restProps];
+  return [style, restProps, styleFromProps];
 };
