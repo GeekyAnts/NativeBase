@@ -5,11 +5,11 @@ import { useTheme } from '../useTheme';
 import { useMemo } from 'react';
 //@ts-ignore
 import stableHash from 'stable-hash';
-
+import type { StyledProps } from '../../theme/types';
 export const useSx = () => {
   const isSSR = useNativeBaseConfig('useBreakpointResolvedProps').isSSR;
   const theme = useTheme();
-  const Sx = (query: any) => {
+  const Sx = (query: StyledProps) => {
     const StableHashQuery = stableHash(query);
     const checkWarning = useMemo(() => {
       return isResponsiveAnyProp(query, theme);

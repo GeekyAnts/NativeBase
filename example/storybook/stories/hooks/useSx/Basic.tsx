@@ -1,14 +1,17 @@
 import React from 'react';
 import { useSx } from 'native-base';
+import type { StyledProps } from 'native-base';
 import { View, Text } from 'react-native';
 
-const textStyle = {
+const textStyle: StyledProps = {
   color: ['orange.900', 'white', 'black'],
   textAlign: 'center',
+  size: '12',
 };
 
 export const Example = () => {
   const sx = useSx();
+  console.log('Size', sx(textStyle));
   return (
     <View
       style={[
