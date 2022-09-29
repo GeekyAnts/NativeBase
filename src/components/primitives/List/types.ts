@@ -2,7 +2,7 @@ import type { IStackProps } from '../Stack';
 import type { IPressableProps } from '../Pressable';
 import type { IIconProps } from '../Icon/types';
 import type { ITextProps } from '../Text';
-import type { MutableRefObject } from 'react';
+import type { GenericRef } from 'src/components/types';
 
 export interface IListProps extends IStackProps {
   /**
@@ -79,15 +79,15 @@ export type IListComponentType = ((
   props: IListProps & { ref?: any }
 ) => JSX.Element) & {
   Item: React.MemoExoticComponent<
-    (props: IListItemProps & { ref?: MutableRefObject<any> }) => JSX.Element
+    (props: IListItemProps & { ref?: GenericRef<any> }) => JSX.Element
   >;
   Icon: React.MemoExoticComponent<
-    (props: IIconProps & { ref?: MutableRefObject<any> }) => JSX.Element
+    (props: IIconProps & { ref?: GenericRef<any> }) => JSX.Element
   >;
   Ordered: React.MemoExoticComponent<
-    (props: IListProps & { ref?: MutableRefObject<any> }) => JSX.Element
+    (props: IListProps & { ref?: GenericRef<any> }) => JSX.Element
   >;
   Unordered: React.MemoExoticComponent<
-    (props: IListProps & { ref?: MutableRefObject<any> }) => JSX.Element
+    (props: IListProps & { ref?: GenericRef<any> }) => JSX.Element
   >;
 };

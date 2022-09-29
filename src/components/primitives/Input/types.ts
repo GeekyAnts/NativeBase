@@ -1,6 +1,5 @@
 import type { TextInputProps } from 'react-native';
 import type { StyledProps } from '../../../theme/types';
-import type { PlatformProps } from '../../types';
 import type { InterfaceBoxProps } from '../Box';
 import type { ISizes } from '../../../theme/base/sizes';
 import type {
@@ -8,9 +7,13 @@ import type {
   ThemeComponentSizeType,
   VariantType,
 } from '../../types';
-import type { ResponsiveValue, ColorType } from '../../../components/types';
+import type {
+  GenericRef,
+  PlatformProps,
+  ResponsiveValue,
+  ColorType,
+} from '../../../components/types';
 import type { IStackProps } from '../Stack/Stack';
-import type { MutableRefObject, RefCallback } from 'react';
 
 export interface InterfaceInputProps
   extends PlatformProps<IInputProps>,
@@ -111,7 +114,7 @@ export interface InterfaceInputProps
   focusOutlineColor?: ColorType;
   /** This prop allow you to change outlineColor when input is in invalid state*/
   invalidOutlineColor?: ColorType;
-  ref?: MutableRefObject<any> | RefCallback<any>;
+  ref?: GenericRef<any>;
 }
 
 export interface IInputGroupProps extends InterfaceBoxProps<IInputGroupProps> {

@@ -1,9 +1,9 @@
 import type { IBoxProps, InterfaceBoxProps } from '../../primitives/Box';
 import type { IIconButtonProps } from '../IconButton';
-import type { MutableRefObject } from 'react';
 import type { IFadeProps, ISlideProps } from '../Transitions';
 import type {
   CustomProps,
+  GenericRef,
   ThemeComponentSizeType,
 } from '../../../components/types/utils';
 
@@ -90,22 +90,22 @@ export interface InterfaceAlertDialogProps
 }
 
 export type IAlertDialogComponentType = ((
-  props: IAlertDialogProps & { ref?: MutableRefObject<any> }
+  props: IAlertDialogProps & { ref?: GenericRef<any> }
 ) => JSX.Element) & {
   Body: React.MemoExoticComponent<
-    (props: IBoxProps & { ref?: MutableRefObject<any> }) => JSX.Element
+    (props: IBoxProps & { ref?: GenericRef<any> }) => JSX.Element
   >;
   CloseButton: React.MemoExoticComponent<
-    (props: IIconButtonProps & { ref?: MutableRefObject<any> }) => JSX.Element
+    (props: IIconButtonProps & { ref?: GenericRef<any> }) => JSX.Element
   >;
   Content: React.MemoExoticComponent<
-    (props: IBoxProps & { ref?: MutableRefObject<any> }) => JSX.Element
+    (props: IBoxProps & { ref?: GenericRef<any> }) => JSX.Element
   >;
   Footer: React.MemoExoticComponent<
-    (props: IBoxProps & { ref?: MutableRefObject<any> }) => JSX.Element
+    (props: IBoxProps & { ref?: GenericRef<any> }) => JSX.Element
   >;
   Header: React.MemoExoticComponent<
-    (props: IBoxProps & { ref?: MutableRefObject<any> }) => JSX.Element
+    (props: IBoxProps & { ref?: GenericRef<any> }) => JSX.Element
   >;
 };
 

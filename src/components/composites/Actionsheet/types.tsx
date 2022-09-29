@@ -1,7 +1,6 @@
 import type { InterfaceButtonProps } from '../../primitives/Button/types';
 import type { InterfaceBoxProps } from '../../primitives/Box';
-import type { MutableRefObject } from 'react';
-import type { CustomProps } from '../../../components/types';
+import type { CustomProps, GenericRef } from '../../../components/types';
 
 export interface InterfaceActionsheetProps
   extends InterfaceBoxProps<IActionsheetProps> {
@@ -56,26 +55,22 @@ export interface IActionsheetItemProps
   extends Omit<InterfaceButtonProps, 'variant' | 'size' | 'colorScheme'> {}
 
 export type IActionsheetComponentType = ((
-  props: IActionsheetProps & { ref?: MutableRefObject<any> }
+  props: IActionsheetProps & { ref?: GenericRef<any> }
 ) => JSX.Element) & {
   Content: React.MemoExoticComponent<
-    (
-      props: IActionsheetContentProps & { ref?: MutableRefObject<any> }
-    ) => JSX.Element
+    (props: IActionsheetContentProps & { ref?: GenericRef<any> }) => JSX.Element
   >;
   Item: React.MemoExoticComponent<
-    (
-      props: IActionsheetItemProps & { ref?: MutableRefObject<any> }
-    ) => JSX.Element
+    (props: IActionsheetItemProps & { ref?: GenericRef<any> }) => JSX.Element
   >;
   // Header: React.MemoExoticComponent<
   //   (
-  //     props: IActionsheetHeaderProps & { ref?: MutableRefObject<any> }
+  //     props: IActionsheetHeaderProps & { ref?: GenericRef<any> }
   //   ) => JSX.Element
   // >;
   // Footer: React.MemoExoticComponent<
   //   (
-  //     props: IActionsheetFooterProps & { ref?: MutableRefObject<any> }
+  //     props: IActionsheetFooterProps & { ref?: GenericRef<any> }
   //   ) => JSX.Element
   // >;
 };

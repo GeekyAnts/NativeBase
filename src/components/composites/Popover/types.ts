@@ -1,7 +1,7 @@
 import type { ColorValue } from 'react-native';
 import type { InterfaceBoxProps } from '../../primitives/Box';
 import type { IIconButtonProps } from '../../composites/IconButton';
-import type { MutableRefObject } from 'react';
+import type { GenericRef } from 'src/components/types';
 
 export type IPopoverArrowProps = {
   height?: number;
@@ -133,36 +133,34 @@ export interface IPopoverContentProps
   extends InterfaceBoxProps<IPopoverContentProps> {}
 
 export type IPopoverComponentType = ((
-  props: IPopoverProps & { ref?: MutableRefObject<any> }
-) => JSX.Element & { ref?: MutableRefObject<any> }) & {
+  props: IPopoverProps & { ref?: GenericRef<any> }
+) => JSX.Element & { ref?: GenericRef<any> }) & {
   Body: React.MemoExoticComponent<
     (
-      props: InterfaceBoxProps<IPopoverProps> & { ref?: MutableRefObject<any> }
+      props: InterfaceBoxProps<IPopoverProps> & { ref?: GenericRef<any> }
     ) => JSX.Element
   >;
   CloseButton: React.MemoExoticComponent<
     (
-      props: Omit<IIconButtonProps, 'icon'> & { ref?: MutableRefObject<any> }
+      props: Omit<IIconButtonProps, 'icon'> & { ref?: GenericRef<any> }
     ) => JSX.Element
   >;
   Content: React.MemoExoticComponent<
-    (
-      props: IPopoverContentProps & { ref?: MutableRefObject<any> }
-    ) => JSX.Element
+    (props: IPopoverContentProps & { ref?: GenericRef<any> }) => JSX.Element
   >;
   Footer: React.MemoExoticComponent<
     (
-      props: InterfaceBoxProps<IPopoverProps> & { ref?: MutableRefObject<any> }
+      props: InterfaceBoxProps<IPopoverProps> & { ref?: GenericRef<any> }
     ) => JSX.Element
   >;
   Header: React.MemoExoticComponent<
     (
-      props: InterfaceBoxProps<IPopoverProps> & { ref?: MutableRefObject<any> }
+      props: InterfaceBoxProps<IPopoverProps> & { ref?: GenericRef<any> }
     ) => JSX.Element
   >;
   Arrow: React.MemoExoticComponent<
     (
-      props: InterfaceBoxProps<IPopoverProps> & { ref?: MutableRefObject<any> }
+      props: InterfaceBoxProps<IPopoverProps> & { ref?: GenericRef<any> }
     ) => JSX.Element
   >;
 };

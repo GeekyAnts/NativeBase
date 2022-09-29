@@ -1,6 +1,7 @@
 import type { Leaves } from '../../theme/base/types';
 import type { ComponentTheme, ITheme } from '../../theme';
 import type { ResponsiveValue } from './responsiveValue';
+import type { ForwardedRef, Ref } from 'react';
 
 export type VariantType<
   Component extends keyof ITheme['components']
@@ -122,3 +123,5 @@ export type CustomProps<
 // | CustomPropsTemp<T>
 // | { a: string };
 // | { size?: ThemeComponentSizeType<T> };
+
+export type GenericRef<T> = ForwardedRef<T> | Ref<T>;

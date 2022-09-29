@@ -1,9 +1,11 @@
 import type { InterfaceBoxProps } from '../../primitives/Box';
 import type { IImageProps } from '../../primitives/Image';
 import type { ImageSourcePropType } from 'react-native';
-import type { MutableRefObject } from 'react';
 import type { CustomProps } from '../../../components/types';
-import type { ThemeComponentSizeType } from '../../../components/types/utils';
+import type {
+  GenericRef,
+  ThemeComponentSizeType,
+} from '../../../components/types/utils';
 export interface InterfaceAvatarProps extends InterfaceBoxProps<IAvatarProps> {
   /**
    * The image source of the avatar.
@@ -21,7 +23,7 @@ export interface InterfaceAvatarProps extends InterfaceBoxProps<IAvatarProps> {
   /**
    * ref to be attached to Avatar wrapper
    */
-  wrapperRef?: MutableRefObject<any>;
+  wrapperref?: GenericRef<any>;
 }
 
 export interface IAvatarBadgeProps
@@ -57,13 +59,13 @@ export interface IAvatarGroupProps extends IAvatarProps {
 }
 
 export type IAvatarComponentType = ((
-  props: IAvatarProps & { ref?: MutableRefObject<any> }
+  props: IAvatarProps & { ref?: GenericRef<any> }
 ) => JSX.Element) & {
   Group: React.MemoExoticComponent<
-    (props: IAvatarGroupProps & { ref?: MutableRefObject<any> }) => JSX.Element
+    (props: IAvatarGroupProps & { ref?: GenericRef<any> }) => JSX.Element
   >;
   Badge: React.MemoExoticComponent<
-    (props: IAvatarBadgeProps & { ref?: MutableRefObject<any> }) => JSX.Element
+    (props: IAvatarBadgeProps & { ref?: GenericRef<any> }) => JSX.Element
   >;
 };
 

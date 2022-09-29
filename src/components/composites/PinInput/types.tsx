@@ -1,6 +1,9 @@
-import type { MutableRefObject } from 'react';
 import type { InterfaceInputProps } from '../../primitives/Input/types';
-import type { CustomProps, ResponsiveValue } from '../../../components/types';
+import type {
+  CustomProps,
+  GenericRef,
+  ResponsiveValue,
+} from '../../../components/types';
 import type { ISizes } from '../../../theme/base/sizes';
 
 export type IPinInputProps = (InterfaceInputProps & {
@@ -15,12 +18,10 @@ export type IPinInputFieldProps = InterfaceInputProps & {
   inputSize?: number | string;
 };
 export type IPinInputComponentType = ((
-  props: IPinInputProps & { ref?: MutableRefObject<any> }
+  props: IPinInputProps & { ref?: GenericRef<any> }
 ) => JSX.Element) & {
   Field: React.MemoExoticComponent<
-    (
-      props: IPinInputFieldProps & { ref?: MutableRefObject<any> }
-    ) => JSX.Element
+    (props: IPinInputFieldProps & { ref?: GenericRef<any> }) => JSX.Element
   >;
 };
 export type IPinInputContext = IPinInputProps & {

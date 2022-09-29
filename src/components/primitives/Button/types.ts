@@ -1,12 +1,12 @@
 import type { ITextProps } from './../Text/types';
 import type { IStackProps } from '../Stack';
 import type { ResponsiveValue } from '../../types';
-import type { MutableRefObject } from 'react';
 import type { ISizes } from '../../../theme/base/sizes';
 import type {
   ThemeComponentSizeType,
   CustomProps,
   VariantType,
+  GenericRef,
   // VariantType,
   // VariantTypeTest,
 } from '../../../components/types/utils';
@@ -175,10 +175,10 @@ export interface IButtonGroupProps extends IStackProps {
 }
 
 export type IButtonComponentType = ((
-  props: IButtonProps & { ref?: MutableRefObject<any> }
+  props: IButtonProps & { ref?: GenericRef<any> }
 ) => JSX.Element) & {
   Group: React.MemoExoticComponent<
-    (props: IButtonGroupProps & { ref?: MutableRefObject<any> }) => JSX.Element
+    (props: IButtonGroupProps & { ref?: GenericRef<any> }) => JSX.Element
   >;
 };
 

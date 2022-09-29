@@ -1,7 +1,10 @@
-import type { MutableRefObject } from 'react';
 import type { InterfaceBoxProps } from '../../primitives/Box';
 import type { IStackProps } from '../../primitives/Stack/Stack';
-import type { CustomProps, ResponsiveValue } from '../../../components/types';
+import type {
+  CustomProps,
+  GenericRef,
+  ResponsiveValue,
+} from '../../../components/types';
 import type { ISizes } from '../../../theme/base/sizes';
 import type { IColors } from '../../../theme/base/colors';
 export interface InterfaceSkeletonProps
@@ -70,13 +73,13 @@ export interface ISkeletonTextProps extends IStackProps {
 }
 
 export type ISkeletonComponentType = ((
-  props: ISkeletonProps & { ref?: MutableRefObject<any> }
+  props: ISkeletonProps & { ref?: GenericRef<any> }
 ) => JSX.Element) & {
   Circle: React.MemoExoticComponent<
-    (props: ISkeletonProps & { ref?: MutableRefObject<any> }) => JSX.Element
+    (props: ISkeletonProps & { ref?: GenericRef<any> }) => JSX.Element
   >;
   Text: React.MemoExoticComponent<
-    (props: ISkeletonTextProps & { ref?: MutableRefObject<any> }) => JSX.Element
+    (props: ISkeletonTextProps & { ref?: GenericRef<any> }) => JSX.Element
   >;
 };
 
