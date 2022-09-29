@@ -1,4 +1,4 @@
-import { useStyledSystemPropsResolver } from '../../hooks/useStyledSystemPropsResolver';
+import { useStyledSystemPropsResolver } from '../useStyledSystemPropsResolver';
 import { useNativeBaseConfig } from '../../core/NativeBaseContext';
 import { isResponsiveAnyProp } from '../../theme/tools';
 import { useTheme } from '../useTheme';

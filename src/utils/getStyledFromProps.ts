@@ -6,9 +6,8 @@ import type { ITheme } from '../..';
  * Common Logic Sharing between useSx and useStyledSytem
  * @param styledSystemProps
  * @param theme
- * @param responsiveStyles
  * @param currentBreakpoint
- * @returns
+ * @returns styleFromProps, responsiveStyles
  */
 
 export const getStyledFromProps = (
