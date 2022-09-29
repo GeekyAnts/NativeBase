@@ -1,10 +1,12 @@
 import type { InterfaceBoxProps } from '../../primitives/Box';
 import type { IIconButtonProps } from '../../composites/IconButton';
-import type { MutableRefObject } from 'react';
 import type { CustomProps } from '../../../components/types';
 import type { IScrollViewProps } from '../../basic/ScrollView';
 import type { IFadeProps, ISlideProps } from '../Transitions';
-import type { ThemeComponentSizeType } from '../../../components/types/utils';
+import type {
+  GenericRef,
+  ThemeComponentSizeType,
+} from '../../../components/types/utils';
 import type { IOverlayProps } from '../../primitives/Overlay';
 export interface InterfaceModalProps extends InterfaceBoxProps<IModalProps> {
   /**
@@ -89,33 +91,33 @@ export interface InterfaceModalProps extends InterfaceBoxProps<IModalProps> {
 }
 
 export type IModalComponentType = ((
-  props: IModalProps & { ref?: MutableRefObject<any> }
+  props: IModalProps & { ref?: GenericRef<any> }
 ) => JSX.Element) & {
   Body: React.MemoExoticComponent<
     (
       props: InterfaceBoxProps<IModalProps> & {
         _scrollview?: IScrollViewProps;
       } & {
-        ref?: MutableRefObject<any>;
+        ref?: GenericRef<any>;
       }
     ) => JSX.Element
   >;
   CloseButton: React.MemoExoticComponent<
-    (props: IIconButtonProps & { ref?: MutableRefObject<any> }) => JSX.Element
+    (props: IIconButtonProps & { ref?: GenericRef<any> }) => JSX.Element
   >;
   Content: React.MemoExoticComponent<
     (
-      props: InterfaceBoxProps<IModalProps> & { ref?: MutableRefObject<any> }
+      props: InterfaceBoxProps<IModalProps> & { ref?: GenericRef<any> }
     ) => JSX.Element
   >;
   Footer: React.MemoExoticComponent<
     (
-      props: InterfaceBoxProps<IModalProps> & { ref?: MutableRefObject<any> }
+      props: InterfaceBoxProps<IModalProps> & { ref?: GenericRef<any> }
     ) => JSX.Element
   >;
   Header: React.MemoExoticComponent<
     (
-      props: InterfaceBoxProps<IModalProps> & { ref?: MutableRefObject<any> }
+      props: InterfaceBoxProps<IModalProps> & { ref?: GenericRef<any> }
     ) => JSX.Element
   >;
 };

@@ -3,13 +3,16 @@ import type { InterfaceBoxProps } from '../../primitives/Box/types';
 import type { IFormControlContext } from '../../composites';
 import type { AccessibilityRole } from 'react-native';
 import type { RadioGroupState } from '@react-stately/radio';
-import type { MutableRefObject } from 'react';
-import type { ResponsiveValue } from '../../../components/types';
+import type {
+  ColorSchemeType,
+  CustomProps,
+  GenericRef,
+  ResponsiveValue,
+  ThemeComponentSizeType,
+} from '../../../components/types';
 import type { ISizes } from '../../../theme/base/sizes';
 export type IRadioValue = string;
-import type { CustomProps, ThemeComponentSizeType } from '../../types';
 import type { IIconProps } from '../Icon';
-import type { ColorSchemeType } from '../../../components/types';
 
 export type IRadioGroupOnChangeHandler = (value: IRadioValue) => any;
 
@@ -107,7 +110,7 @@ export interface InterfaceRadioProps extends InterfaceBoxProps<IRadioProps> {
    */
   _interactionBox?: Omit<Partial<IRadioProps>, '_interactionBox'>;
 
-  ref?: MutableRefObject<any>;
+  ref?: GenericRef<any>;
 }
 export interface IRadioGroupProps extends IStackProps {
   /**
@@ -164,7 +167,7 @@ export type IUseRadioGroupReturnType = {
 
 export type IRadioComponentType = ((props: IRadioProps) => JSX.Element) & {
   Group: React.MemoExoticComponent<
-    (props: IRadioGroupProps & { ref?: MutableRefObject<any> }) => JSX.Element
+    (props: IRadioGroupProps & { ref?: GenericRef<any> }) => JSX.Element
   >;
 };
 

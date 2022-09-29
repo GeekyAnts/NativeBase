@@ -1,5 +1,4 @@
 import type { CheckboxGroupState } from '@react-stately/checkbox';
-import type { MutableRefObject } from 'react';
 import type { TouchableOpacityProps } from 'react-native';
 import type { IFormControlContext } from '../../composites/FormControl';
 import type { InterfaceBoxProps } from '../Box';
@@ -7,6 +6,7 @@ import type { IIconProps } from '../Icon';
 import type { IStackProps } from '../../primitives/Stack';
 import type {
   CustomProps,
+  GenericRef,
   ResponsiveValue,
   ThemeComponentSizeType,
 } from '../../../components/types';
@@ -136,7 +136,7 @@ export interface InterfaceCheckbox extends InterfaceBoxProps<ICheckboxProps> {
    * Ref to be passed to Icon's wrapper Box
    */
   wrapperRef?: any;
-  ref?: MutableRefObject<any>;
+  ref?: GenericRef<any>;
 }
 export interface ICheckboxGroupProps
   extends InterfaceBoxProps<ICheckboxGroupProps> {
@@ -192,7 +192,7 @@ export type ICheckboxComponentType = ((
   props: ICheckboxProps
 ) => JSX.Element) & {
   Group: React.MemoExoticComponent<
-    (props: ICheckboxGroupProps, ref?: MutableRefObject<any>) => JSX.Element
+    (props: ICheckboxGroupProps, ref?: GenericRef<any>) => JSX.Element
   >;
 };
 

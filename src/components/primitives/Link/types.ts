@@ -1,6 +1,6 @@
 import type { MutableRefObject } from 'react';
 import type { GestureResponderEvent } from 'react-native';
-import type { CustomProps } from '../../types';
+import type { CustomProps, GenericRef } from '../../types';
 import type { InterfaceBoxProps } from '../Box/types';
 
 export interface InterfaceLinkProps extends InterfaceBoxProps<ILinkProps> {
@@ -35,7 +35,7 @@ export interface InterfaceLinkProps extends InterfaceBoxProps<ILinkProps> {
   /**
    * Ref to be attached to the Link wrapper
    */
-  wrapperRef?: MutableRefObject<any>;
+  wrapperref?: GenericRef<any>;
 }
 
 export type IUseLinkProp = {

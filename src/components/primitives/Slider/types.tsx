@@ -1,10 +1,11 @@
-import type { MutableRefObject } from 'react';
-import type { CustomProps } from '../../../components/types';
+import type {
+  ColorSchemeType,
+  CustomProps,
+  GenericRef,
+} from '../../../components/types';
 import type { InterfaceBoxProps } from '../Box';
-import type { ColorSchemeType } from '../../../components/types';
 import type { ResponsiveValue } from '../../types';
 import type { ISizes } from '../../../theme/base/sizes';
-
 export interface InterfaceSliderProps extends InterfaceBoxProps<ISliderProps> {
   /** The current value of the Slider */
   value?: number;
@@ -116,18 +117,16 @@ export interface ISliderThumbProps
 }
 
 export type ISliderComponentType = ((
-  props: ISliderProps & { ref?: MutableRefObject<any> }
+  props: ISliderProps & { ref?: GenericRef<any> }
 ) => JSX.Element) & {
   Thumb: React.MemoExoticComponent<
-    (props: ISliderThumbProps & { ref?: MutableRefObject<any> }) => JSX.Element
+    (props: ISliderThumbProps & { ref?: GenericRef<any> }) => JSX.Element
   >;
   Track: React.MemoExoticComponent<
-    (props: ISliderTrackProps & { ref?: MutableRefObject<any> }) => JSX.Element
+    (props: ISliderTrackProps & { ref?: GenericRef<any> }) => JSX.Element
   >;
   FilledTrack: React.MemoExoticComponent<
-    (
-      props: ISliderTrackFilledProps & { ref?: MutableRefObject<any> }
-    ) => JSX.Element
+    (props: ISliderTrackFilledProps & { ref?: GenericRef<any> }) => JSX.Element
   >;
 };
 

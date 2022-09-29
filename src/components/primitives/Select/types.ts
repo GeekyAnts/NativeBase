@@ -4,8 +4,11 @@ import type {
   IActionsheetContentProps,
   IActionsheetProps,
 } from '../../composites/Actionsheet/types';
-import type { MutableRefObject } from 'react';
-import type { CustomProps, ResponsiveValue } from '../../../components/types';
+import type {
+  CustomProps,
+  GenericRef,
+  ResponsiveValue,
+} from '../../../components/types';
 import type { IColors } from '../../../theme/base/colors';
 import type { IFlatListProps } from '../../../components/basic/FlatList';
 import type { InterfaceButtonProps } from '../Button/types';
@@ -99,7 +102,7 @@ export interface InterfaceSelectProps extends InterfaceBoxProps<ISelectProps> {
   /**
    * Ref to be attached to the Select wrapper
    */
-  wrapperRef?: MutableRefObject<any>;
+  wrapperref?: GenericRef<any>;
 }
 
 export interface ISelectItemProps extends InterfaceButtonProps {
@@ -114,10 +117,10 @@ export interface ISelectItemProps extends InterfaceButtonProps {
 }
 
 export type ISelectComponentType = ((
-  props: ISelectProps & { ref?: MutableRefObject<any> }
+  props: ISelectProps & { ref?: GenericRef<any> }
 ) => JSX.Element) & {
   Item: React.MemoExoticComponent<
-    (props: ISelectItemProps & { ref?: MutableRefObject<any> }) => JSX.Element
+    (props: ISelectItemProps & { ref?: GenericRef<any> }) => JSX.Element
   >;
 };
 export type ISelectProps = InterfaceSelectProps & CustomProps<'Select'>;

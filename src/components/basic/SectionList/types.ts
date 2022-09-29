@@ -1,7 +1,6 @@
 import type { StyledProps } from '../../../theme/types';
 import type { SectionListProps } from 'react-native';
-import type { CustomProps, PlatformProps } from '../../types';
-import type { MutableRefObject } from 'react';
+import type { CustomProps, GenericRef, PlatformProps } from '../../types';
 type DefaultSectionT = {
   [key: string]: any;
 };
@@ -10,7 +9,7 @@ export interface InterfaceSectionListProps<ItemT, sectionT = DefaultSectionT>
   extends SectionListProps<ItemT, sectionT>,
     StyledProps,
     PlatformProps<ISectionListProps<ItemT, sectionT>> {
-  ref?: MutableRefObject<any>;
+  ref?: GenericRef<any>;
 }
 
 export type ISectionListProps<

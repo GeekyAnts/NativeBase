@@ -1,7 +1,11 @@
-import type { MutableRefObject } from 'react';
 import type { InterfaceBoxProps } from '../../../components/primitives/Box';
 import type { IIconProps } from '../../primitives';
-import type { ColorSchemeType, CustomProps, VariantType } from '../../types';
+import type {
+  ColorSchemeType,
+  CustomProps,
+  GenericRef,
+  VariantType,
+} from '../../types';
 
 export interface InterfaceAlertProps extends InterfaceBoxProps<IAlertProps> {
   /** The status of the alert
@@ -26,10 +30,10 @@ export type IAlertContext = {
 export interface IAlertIconProps extends IIconProps {}
 
 export type IAlertComponentType = ((
-  props: IAlertProps & { ref?: MutableRefObject<any> }
+  props: IAlertProps & { ref?: GenericRef<any> }
 ) => JSX.Element) & {
   Icon: React.MemoExoticComponent<
-    (props: IAlertIconProps & { ref?: MutableRefObject<any> }) => JSX.Element
+    (props: IAlertIconProps & { ref?: GenericRef<any> }) => JSX.Element
   >;
 };
 
