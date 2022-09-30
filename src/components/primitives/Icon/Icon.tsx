@@ -13,6 +13,7 @@ const Icon = (props: IIconProps, ref?: any) => {
   }
 
   const isJSX = React.isValidElement(as);
+  // console.log('as', isJSX);
 
   const StyledAs = Factory(
     isJSX
@@ -22,8 +23,16 @@ const Icon = (props: IIconProps, ref?: any) => {
             //@ts-ignore
             ...as.props,
           })
-      : as
+      : as,
+    {
+      defaultProps: {
+        p: 100,
+        bg: 'red.400',
+      },
+    }
   );
+  // console.log(as, 'as');
+  // console.log(StyledAs, 'StyledAs');
 
   return (
     <StyledAs
