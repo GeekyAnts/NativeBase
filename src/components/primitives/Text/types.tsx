@@ -8,7 +8,6 @@ import type {
   ILineHeight,
 } from '../../../theme/base/typography';
 import type { CustomProps, PlatformProps, ResponsiveValue } from '../../types';
-import type { VariantType } from '../../../components/types';
 
 export interface InterfaceTextProps<T = ITextProps>
   extends PlatformProps<T>,
@@ -78,10 +77,6 @@ export interface InterfaceTextProps<T = ITextProps>
    * Used to highlight the text with a yellow background.
    */
   highlight?: boolean;
-  /**
-   * Text component variant typings. Refer extendTheme
-   */
-  variant?: VariantType<'Text'>;
 }
 
 export type ITextProps = InterfaceTextProps & CustomProps<'Text'>;
