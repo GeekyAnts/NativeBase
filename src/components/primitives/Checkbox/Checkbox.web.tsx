@@ -79,10 +79,10 @@ const Checkbox = (
     groupItemInputProps,
   ]);
 
-  const [contextCombinedProps] = React.useState({
+  const contextCombinedProps = {
     ...checkboxGroupContext,
     ...combinedProps,
-  });
+  };
 
   return (
     <CheckboxComponent

@@ -74,10 +74,11 @@ const Checkbox = (
     groupItemInputProps.disabled,
   ]);
 
-  const [contextCombinedProps] = React.useState({
+  const contextCombinedProps = {
     ...checkboxGroupContext,
     ...combinedProps,
-  });
+  };
+
   return (
     <CheckboxComponent
       inputProps={inputProps}
