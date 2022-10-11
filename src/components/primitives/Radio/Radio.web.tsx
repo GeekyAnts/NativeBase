@@ -1,4 +1,6 @@
 import React, { memo, forwardRef } from 'react';
+//@ts-ignore
+import stableHash from 'stable-hash';
 import Box from '../Box';
 import { Stack } from '../Stack';
 import { Center } from '../../composites/Center';
@@ -159,9 +161,10 @@ const Radio = (
     radioState.inputProps.disabled,
   ]);
 
-  const [contextCombinedProps] = React.useState({
-    ...combinedProps,
-  });
+  const contextCombinedProps = React.useMemo(() => {
+    return { ...combinedProps };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [stableHash(combinedProps)]);
 
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
