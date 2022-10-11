@@ -1,7 +1,7 @@
 import { Platform } from 'react-native';
 import get from 'lodash.get';
 import { convertStringNumberToNumber } from './convertStringNumberToNumber';
-import { resolveValueWithBreakpoint } from '../hooks/useThemeProps/utils';
+import { resolveValueWithBreakpoint } from '../hooks/useThemeProps/resolveValueWithBreakpoint';
 
 /**
  * Common Logic Sharing between useSx and useStyledSytem

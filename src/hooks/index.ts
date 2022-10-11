@@ -12,7 +12,7 @@ export {
   useControllableState,
 } from './useControllableProp';
 // TODO: Have to properly remove these as we're no longer using them internally.
-export { useThemeProps, usePropsWithComponentTheme } from './useThemeProps';
+export { useThemeProps } from './useThemeProps';
 // TODO: instead export only this.
 export { usePropsResolution } from './useThemeProps';
 export { usePropsResolutionTest } from './useThemeProps/usePropsResolutionTest';
