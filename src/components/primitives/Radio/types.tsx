@@ -67,17 +67,13 @@ export interface InterfaceRadioProps extends InterfaceBoxProps<IRadioProps> {
   _stack?: Partial<IStackProps>;
 
   /**
-   * Passed props wilICheckboxGroupPropsl be applied on disabled state.
+   * Passed props wilICheckboxGroupProps will be applied on the disabled state.
    */
   _disabled?: Omit<Partial<IRadioProps>, '_disabled'>;
   /**
    * Passed props will be applied on checked state.
    */
   _checked?: Omit<Partial<IRadioProps>, '_checked'>;
-  /**
-   * Passed props will be applied on unchecked state.
-   */
-  _unchecked?: Omit<Partial<IRadioProps>, '_unchecked'>;
   /**
    * Passed props will be applied on focus state.
    */
@@ -108,6 +104,10 @@ export interface InterfaceRadioProps extends InterfaceBoxProps<IRadioProps> {
   _interactionBox?: Omit<Partial<IRadioProps>, '_interactionBox'>;
 
   ref?: MutableRefObject<any>;
+  // /**
+  //  * Passed props will be applied on unchecked state.
+  //  */
+  // _unchecked?: Omit<Partial<IRadioProps>, '_unchecked'>;
 }
 export interface IRadioGroupProps extends IStackProps {
   /**

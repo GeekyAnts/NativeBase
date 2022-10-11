@@ -20,19 +20,19 @@ export default function Factory<P>(
     }
   );
 
-  return React.forwardRef(
-    ({ children, ...props }: P & FactoryComponentProps, ref: any) => {
-      const StyledComponent = useMemo(() => makeStyledComponent(Component), []);
-      const calculatedProps = usePropsResolutionWithComponentTheme(
-        componentTheme ?? {},
-        props,
-        theme
-      );
-      return (
-        <StyledComponent {...(calculatedProps as any)} ref={ref}>
-          {children}
-        </StyledComponent>
-      );
-    }
-  );
+  // return React.forwardRef(
+  //   ({ children, ...props }: P & FactoryComponentProps, ref: any) => {
+  //     const StyledComponent = useMemo(() => makeStyledComponent(Component), []);
+  //     const calculatedProps = usePropsResolutionWithComponentTheme(
+  //       componentTheme ?? {},
+  //       props,
+  //       theme
+  //     );
+  //     return (
+  //       <StyledComponent {...(calculatedProps as any)} ref={ref}>
+  //         {children}
+  //       </StyledComponent>
+  //     );
+  //   }
+  // );
 }

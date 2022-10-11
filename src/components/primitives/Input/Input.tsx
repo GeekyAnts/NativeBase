@@ -175,6 +175,22 @@ const Input = (
     );
   }
 
+  if (resolvedProps.focusOutlineColor && isFocused) {
+    layoutProps.borderColor = resolvedProps.focusOutlineColor;
+    _stack.style = resolveStackStyleInput(
+      props.variant,
+      resolvedProps.focusOutlineColor
+    );
+  }
+
+  if (resolvedProps.invalidOutlineColor && props.isInvalid) {
+    layoutProps.borderColor = resolvedProps.invalidOutlineColor;
+    _stack.style = resolveStackStyleInput(
+      props.variant,
+      resolvedProps.invalidOutlineColor
+    );
+  }
+
   return (
     <Stack
       {..._stack}
