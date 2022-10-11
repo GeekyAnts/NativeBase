@@ -155,6 +155,7 @@ const CheckboxComponent = React.memo(
     ] = extractInObject(nonLayoutProps, [
       'accessibilityRole',
       'accessibilityState',
+      'accessibilityLabel',
     ]);
 
     //TODO: refactor for responsive prop

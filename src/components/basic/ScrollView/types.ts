@@ -10,7 +10,7 @@ export interface InterfaceScrollViewProps
    * Renders components as Box children. Accepts a JSX.Element or an array of JSX.Element. */
   children?: JSX.Element | JSX.Element[] | string | any;
   /**
-   * pass props to contentContainerStyle, and this also resolved NB tokens.
+   * Pass props to contentContainerStyle, and this also resolves NB tokens.
    */
   _contentContainerStyle?: Partial<IScrollViewProps>;
 }

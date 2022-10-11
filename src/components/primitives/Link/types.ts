@@ -1,6 +1,6 @@
 import type { MutableRefObject } from 'react';
 import type { GestureResponderEvent } from 'react-native';
-import type { CustomProps, ThemeComponentSizeType } from '../../types';
+import type { CustomProps } from '../../types';
 import type { InterfaceBoxProps } from '../Box/types';
 
 export interface InterfaceLinkProps extends InterfaceBoxProps<ILinkProps> {
@@ -11,15 +11,7 @@ export interface InterfaceLinkProps extends InterfaceBoxProps<ILinkProps> {
   /**
    * Size of the link
    */
-  size?:
-    | '2xl'
-    | 'xl'
-    | 'lg'
-    | 'md'
-    | 'sm'
-    | 'xsm'
-    | number
-    | ThemeComponentSizeType<'Link'>;
+  size?: '2xl' | 'xl' | 'lg' | 'md' | 'sm' | 'xsm' | number;
   /**
    * Whether Link text should be underlined
    */
