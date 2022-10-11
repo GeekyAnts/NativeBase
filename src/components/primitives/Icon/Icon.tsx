@@ -23,13 +23,7 @@ const Icon = (props: IIconProps, ref?: any) => {
             //@ts-ignore
             ...as.props,
           })
-      : as,
-    {
-      defaultProps: {
-        p: 100,
-        bg: 'red.400',
-      },
-    }
+      : as
   );
   // console.log(as, 'as');
   // console.log(StyledAs, 'StyledAs');
