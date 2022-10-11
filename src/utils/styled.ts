@@ -161,16 +161,18 @@ const getThemeObject = (
   );
 
   // Merging state styles internal pseudo props with theme style internal pseudo props
-  internalPseudoProps = {
-    ...internalPseudoProps,
-    ...getAndMergeThemeFromStylesheet(stateStyleSheet, 'internalPseudoProps'),
-  };
+  internalPseudoProps = merge(
+    {},
+    internalPseudoProps,
+    getAndMergeThemeFromStylesheet(stateStyleSheet, 'internalPseudoProps')
+  );
 
   // Merging state styles unresolved props with theme style unresolved props
-  unResolvedProps = {
-    ...unResolvedProps,
-    ...getAndMergeThemeFromStylesheet(stateStyleSheet, 'unResolvedProps'),
-  };
+  unResolvedProps = merge(
+    {},
+    unResolvedProps,
+    getAndMergeThemeFromStylesheet(stateStyleSheet, 'unResolvedProps')
+  );
 
   return {
     // style: map(styleSheet, 'style'),

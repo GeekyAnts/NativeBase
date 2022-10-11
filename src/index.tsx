@@ -95,6 +95,7 @@ import {
   IActionsheetItemProps,
   Fab,
   IFabProps,
+  useFormControlContext,
   TextField,
   ITextFieldProps,
   Typeahead,
@@ -181,6 +182,7 @@ init(map);
 export * from './components/basic';
 export * from './components/primitives/Icon/Icons';
 export * from './theme';
+export { extractInObject, stylingProps } from './theme/tools';
 export * from './core';
 export * from './hooks';
 export * from './factory';
@@ -264,6 +266,7 @@ export {
   // Tabs,
   Actionsheet,
   Fab,
+  useFormControlContext,
   Typeahead,
   useTypeahead,
   Select,
@@ -274,6 +277,7 @@ export {
   Drawer,
   Tooltip,
 };
+export * from './utils';
 export type {
   IAlertProps,
   IAspectRatioProps,

@@ -37,7 +37,7 @@
       "prettier --write"
     ]
   },
-  "version": "3.5.0-rc.3",
+  "version": "3.5.0-rc.4",
   "license": "MIT",
   "private": false,
   "main": "lib/commonjs/index",
@@ -181,7 +181,7 @@
     "@react-native-aria/button": "^0.2.4",
     "@react-native-aria/checkbox": "^0.2.2",
     "@react-native-aria/combobox": "^0.2.4-alpha.0",
-    "@react-native-aria/focus": "^0.2.6",
+    "@react-native-aria/focus": "0.2.7",
     "@react-native-aria/interactions": "^0.2.2",
     "@react-native-aria/listbox": "^0.2.4-alpha.3",
     "@react-native-aria/overlays": "0.3.3-rc.0",

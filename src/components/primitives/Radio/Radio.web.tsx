@@ -1,4 +1,6 @@
 import React, { memo, forwardRef } from 'react';
+//@ts-ignore
+import stableHash from 'stable-hash';
 import Box from '../Box';
 import { Stack } from '../Stack';
 import { Center } from '../../composites/Center';
@@ -16,7 +18,6 @@ import { combineContextAndProps } from '../../../utils';
 import { isEmptyObj } from '../../../utils/isEmptyObj';
 
 import { useFormControlContext } from '../../composites/FormControl';
-
 const RadioComponent = memo(
   forwardRef(
     (
@@ -27,6 +28,8 @@ const RadioComponent = memo(
         children,
         wrapperRef,
         isHovered: isHoveredProp,
+        isPressed: isPressedProp,
+        isFocused: isFocusedProp,
         isFocusVisible: isFocusVisibleProp,
       }: any,
       ref: any
@@ -37,15 +40,31 @@ const RadioComponent = memo(
       const { isHovered } = useHover({}, _ref);
       const mergedRefs = mergeRefs([_ref, wrapperRef]);
       const { focusProps, isFocusVisible } = useFocusRing();
+      const [isFocused, setFocused] = React.useState(isFocusedProp);
+      const [isPressed, setPressed] = React.useState(isPressedProp);
+      const handleFocus = () => {
+        setFocused(true);
+      };
+      const handleBlur = () => {
+        isFocusedProp ? setFocused(true) : setFocused(false);
+      };
+      const handlePressIn = () => {
+        setPressed(true);
+      };
+      const handlePressOut = () => {
+        isPressedProp ? setPressed(true) : setPressed(false);
+      };
 
       const state = {
         isInvalid,
         isReadOnly,
-        isFocusVisible: isFocusVisibleProp || isFocusVisible,
+        isFocusVisible: isFocusVisibleProp || isFocused || isFocusVisible,
         isDisabled,
         isIndeterminate,
         isChecked,
         isHovered: isHoveredProp || isHovered,
+        isPressed,
+        isFocused,
       };
 
       const {
@@ -87,10 +106,18 @@ const RadioComponent = memo(
           accessibilityRole="label"
           ref={mergedRefs}
         >
-          <VisuallyHidden>
-            <input {...inputProps} {...focusProps} ref={ref} />
-          </VisuallyHidden>
-          {component}
+          <div onMouseDown={handlePressIn} onMouseUp={handlePressOut}>
+            <VisuallyHidden>
+              <input
+                {...inputProps}
+                {...focusProps}
+                ref={ref}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+              />
+            </VisuallyHidden>
+            {component}
+          </div>
         </Box>
       );
     }
@@ -103,6 +130,8 @@ const Radio = (
     children,
     wrapperRef,
     isHovered: isHoveredProp,
+    isPressed,
+    isFocused: isFocusedProp,
     isFocusVisible: isFocusVisibleProp,
     ...props
   }: IRadioProps,
@@ -130,9 +159,10 @@ const Radio = (
     radioState.inputProps.disabled,
   ]);
 
-  const [contextCombinedProps] = React.useState({
-    ...combinedProps,
-  });
+  const contextCombinedProps = React.useMemo(() => {
+    return { ...combinedProps };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [stableHash(combinedProps)]);
 
   if (isEmptyObj(contextState)) {
     console.error('Error: Radio must be wrapped inside a Radio.Group');
@@ -148,6 +178,8 @@ const Radio = (
       icon={icon}
       wrapperRef={wrapperRef}
       isHovered={isHoveredProp}
+      isPressed={isPressed}
+      isFocused={isFocusedProp}
       isFocusVisible={isFocusVisibleProp}
     />
   );

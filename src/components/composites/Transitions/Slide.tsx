@@ -119,7 +119,9 @@ export const Slide = memo(
     if (overlay) {
       return (
         <>
-          <Overlay {..._overlay}>{slideComponent}</Overlay>
+          <Overlay isKeyboardDismissable={false} {..._overlay}>
+            {slideComponent}
+          </Overlay>
         </>
       );
     } else {

@@ -17,8 +17,8 @@ export const resolvePropsToStyle = (
   let fontSize;
 
   if (Array.isArray(flattenInternalThemeProps)) {
-    flattenInternalThemeProps = flattenInternalThemeProps.flat();
-    fontSize = flattenInternalThemeProps[0]?.fontSize;
+    flattenInternalThemeProps = merge.apply({}, INTERNAL_themeStyle);
+    fontSize = flattenInternalThemeProps?.fontSize;
   } else {
     fontSize = flattenInternalThemeProps?.fontSize;
   }
