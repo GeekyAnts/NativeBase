@@ -1,4 +1,6 @@
 import React, { memo, forwardRef } from 'react';
+//@ts-ignore
+import stableHash from 'stable-hash';
 import { Pressable, IPressableProps } from '../Pressable';
 import { Center } from '../../composites/Center';
 import Box from '../Box';
@@ -179,7 +181,7 @@ const Radio = (
   const contextCombinedProps = React.useMemo(() => {
     return { ...combinedProps };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [combinedProps]);
+  }, [stableHash(combinedProps)]);
 
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {

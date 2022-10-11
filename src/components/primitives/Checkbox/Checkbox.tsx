@@ -1,4 +1,6 @@
 import React, { useContext, memo, forwardRef } from 'react';
+//@ts-ignore
+import stableHash from 'stable-hash';
 import { Pressable, IPressableProps } from '../Pressable';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { Center } from '../../composites/Center';
@@ -77,7 +79,7 @@ const Checkbox = (
   const contextCombinedProps = React.useMemo(() => {
     return { ...checkboxGroupContext, ...combinedProps };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [combinedProps]);
+  }, [stableHash(combinedProps)]);
 
   return (
     <CheckboxComponent
