@@ -75,10 +75,6 @@ export interface InterfaceRadioProps extends InterfaceBoxProps<IRadioProps> {
    */
   _checked?: Omit<Partial<IRadioProps>, '_checked'>;
   /**
-   * Passed props will be applied on unchecked state.
-   */
-  _unchecked?: Omit<Partial<IRadioProps>, '_unchecked'>;
-  /**
    * Passed props will be applied on focus state.
    */
   _focus?: Omit<Partial<IRadioProps>, '_focus'>;
@@ -108,6 +104,10 @@ export interface InterfaceRadioProps extends InterfaceBoxProps<IRadioProps> {
   _interactionBox?: Omit<Partial<IRadioProps>, '_interactionBox'>;
 
   ref?: MutableRefObject<any>;
+  // /**
+  //  * Passed props will be applied on unchecked state.
+  //  */
+  // _unchecked?: Omit<Partial<IRadioProps>, '_unchecked'>;
 }
 export interface IRadioGroupProps extends IStackProps {
   /**
