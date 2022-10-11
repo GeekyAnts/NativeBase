@@ -2,10 +2,10 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { withKnobs } from '@storybook/addon-knobs';
 import Wrapper from './../../Wrapper';
-import Usage from './usage';
-import Theme from './theme';
-import Modes from './modes';
-import Ref from './ref';
+import { Example as Usage } from './usage';
+import { Example as Theme } from './theme';
+import { Example as Modes } from './modes';
+import { Example as Ref } from './ref';
 
 storiesOf('Factory', module)
   .addDecorator(withKnobs)
