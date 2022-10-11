@@ -26,3 +26,4 @@ export {
   keyboardDismissHandlerManager,
 } from './useKeyboardDismissable';
 export { useLayout } from './useLayout';
+export { useSx } from './useSx';
