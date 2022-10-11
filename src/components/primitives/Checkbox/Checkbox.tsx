@@ -1,4 +1,6 @@
 import React, { useContext, memo, forwardRef } from 'react';
+//@ts-ignore
+import stableHash from 'stable-hash';
 import { Pressable, IPressableProps } from '../Pressable';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { Center } from '../../composites/Center';
@@ -74,10 +76,11 @@ const Checkbox = (
     groupItemInputProps.disabled,
   ]);
 
-  const [contextCombinedProps] = React.useState({
-    ...checkboxGroupContext,
-    ...combinedProps,
-  });
+  const contextCombinedProps = React.useMemo(() => {
+    return { ...checkboxGroupContext, ...combinedProps };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [stableHash(combinedProps)]);
+
   return (
     <CheckboxComponent
       inputProps={inputProps}
@@ -154,6 +157,7 @@ const CheckboxComponent = React.memo(
     ] = extractInObject(nonLayoutProps, [
       'accessibilityRole',
       'accessibilityState',
+      'accessibilityLabel',
     ]);
 
     //TODO: refactor for responsive prop

@@ -35,6 +35,7 @@ const baseStyle = (props: Record<string, any>) => {
       _disabled: {
         borderColor: 'muted.400',
       },
+      _checked: { borderColor: `${c}.600` },
     },
 
     _pressed: {
@@ -75,6 +76,7 @@ const baseStyle = (props: Record<string, any>) => {
         _disabled: {
           borderColor: 'muted.500',
         },
+        _checked: { borderColor: `${c}.600` },
       },
 
       _pressed: {

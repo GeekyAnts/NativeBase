@@ -42,7 +42,7 @@ export const Example = () => {
       </Stack>
       <HStack mt="6" space="3">
         <Text>Toggle Accessible Colors</Text>
-        <Switch onToggle={toggleAccessibleColors} colorScheme="coolGray" />
+        <Switch onValueChange={toggleAccessibleColors} colorScheme="coolGray" />
       </HStack>
     </Center>
   );
