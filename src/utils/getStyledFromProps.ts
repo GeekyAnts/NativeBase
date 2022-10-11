@@ -1,7 +1,7 @@
 import { propConfig } from '../theme/styled-system';
 import { hasValidBreakpointFormat } from '../theme/tools';
 import { getRNKeyAndStyleValue } from './getRNKeyAndStyleValue';
-import type { ITheme } from '../..';
+import type { ITheme } from '../theme/';
 /**
  * Common Logic Sharing between useSx and useStyledSytem
  * @param styledSystemProps
