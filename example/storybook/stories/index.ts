@@ -28,7 +28,7 @@ export * from './components/primitives/Column';
 export * from './components/composites/Container';
 export * from './components/composites/Divider';
 export * from './components/composites/Fab';
-// export * from './components/composites/factory';
+export * from './components/composites/factory';
 export * from './components/primitives/Flex';
 export * from './components/composites/FormControl';
 export * from './components/primitives/Heading';
