@@ -23,12 +23,14 @@ const baseStyle = (props: Record<string, any>) => {
         opacity: 1,
         //TODO: build-time
         // transition: { easing: Easing.ease, duration: 250 },
+        transition: { duration: 250 },
       },
       exit: {
         opacity: 0,
         scale: 0.85,
         //TODO: build-time
         // transition: { easing: Easing.ease, duration: 100 },
+        transition: { duration: 100 },
       },
     },
     _title: {

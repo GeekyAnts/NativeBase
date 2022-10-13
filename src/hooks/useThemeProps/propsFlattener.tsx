@@ -506,9 +506,7 @@ export const callPropsFlattener = (
         process.env.NODE_ENV === 'development' && cleanIncomingProps.debug
           ? { ...targetProps, debug: true }
           : targetProps,
-      //TODO: build-time
       platform: config.platform,
-      // platform: Platform.OS,
       colormode: colorModeProps.colorMode,
       state: state || {},
       currentSpecificityMap: latestSpecifictyMap,

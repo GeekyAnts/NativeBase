@@ -34,7 +34,6 @@ export const getStyledObject = (
   [flattenProps, specificityMap] = propsFlattener(
     {
       props: inputWithDefaultProps,
-      //TODO: build-time
       platform: config.platform, //Platform.OS,
       colormode: config.colorMode,
       state: {},
