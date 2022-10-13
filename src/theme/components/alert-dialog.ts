@@ -61,6 +61,7 @@ export const AlertDialogContent = {
       rounded: 'lg',
       //TODO: build-time
       // maxHeight: `${Dimensions.get('window').height - 150}px`,
+      maxHeight: '100%',
       overflow: 'hidden',
       bg: 'muted.50',
       _text: {
