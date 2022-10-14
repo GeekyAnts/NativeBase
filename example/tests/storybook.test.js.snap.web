@@ -1298,8 +1298,8 @@ exports[`Storyshots Alert Basic 1`] = `
                 style={
                   Object {
                     "color": "rgba(75,85,99,1.00)",
-                    "height": "20px",
-                    "width": "20px",
+                    "height": "12px",
+                    "width": "12px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -1648,8 +1648,8 @@ exports[`Storyshots Alert ColorScheme 1`] = `
                 style={
                   Object {
                     "color": "rgba(75,85,99,1.00)",
-                    "height": "20px",
-                    "width": "20px",
+                    "height": "12px",
+                    "width": "12px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -1890,8 +1890,8 @@ exports[`Storyshots Alert ColorScheme 1`] = `
                 style={
                   Object {
                     "color": "rgba(75,85,99,1.00)",
-                    "height": "20px",
-                    "width": "20px",
+                    "height": "12px",
+                    "width": "12px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -2132,8 +2132,8 @@ exports[`Storyshots Alert ColorScheme 1`] = `
                 style={
                   Object {
                     "color": "rgba(75,85,99,1.00)",
-                    "height": "20px",
-                    "width": "20px",
+                    "height": "12px",
+                    "width": "12px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -2496,8 +2496,8 @@ exports[`Storyshots Alert Composition 1`] = `
                   style={
                     Object {
                       "color": "rgba(75,85,99,1.00)",
-                      "height": "20px",
-                      "width": "20px",
+                      "height": "12px",
+                      "width": "12px",
                     }
                   }
                   viewBox="0 0 24 24"
@@ -2966,8 +2966,8 @@ exports[`Storyshots Alert Status 1`] = `
                 style={
                   Object {
                     "color": "rgba(75,85,99,1.00)",
-                    "height": "20px",
-                    "width": "20px",
+                    "height": "12px",
+                    "width": "12px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -3173,8 +3173,8 @@ exports[`Storyshots Alert Status 1`] = `
                 style={
                   Object {
                     "color": "rgba(75,85,99,1.00)",
-                    "height": "20px",
-                    "width": "20px",
+                    "height": "12px",
+                    "width": "12px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -3375,8 +3375,8 @@ exports[`Storyshots Alert Status 1`] = `
                 style={
                   Object {
                     "color": "rgba(75,85,99,1.00)",
-                    "height": "20px",
-                    "width": "20px",
+                    "height": "12px",
+                    "width": "12px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -3577,8 +3577,8 @@ exports[`Storyshots Alert Status 1`] = `
                 style={
                   Object {
                     "color": "rgba(75,85,99,1.00)",
-                    "height": "20px",
-                    "width": "20px",
+                    "height": "12px",
+                    "width": "12px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -3900,8 +3900,8 @@ exports[`Storyshots Alert Usage 1`] = `
                 style={
                   Object {
                     "color": "rgba(75,85,99,1.00)",
-                    "height": "20px",
-                    "width": "20px",
+                    "height": "12px",
+                    "width": "12px",
                   }
                 }
                 viewBox="0 0 24 24"
@@ -5573,8 +5573,8 @@ exports[`Storyshots Alert action 1`] = `
                     style={
                       Object {
                         "color": "rgba(75,85,99,1.00)",
-                        "height": "20px",
-                        "width": "20px",
+                        "height": "12px",
+                        "width": "12px",
                       }
                     }
                     viewBox="0 0 24 24"
@@ -24226,7 +24226,7 @@ exports[`Storyshots Checkbox Checkbox Group 1`] = `
         <div
           aria-label="pick an item"
           className="css-view-1dbjc4n"
-          id="react-aria-0-2"
+          id="react-aria-0-1"
           role="group"
           style={
             Object {
@@ -24996,7 +24996,7 @@ exports[`Storyshots Checkbox Controlled checkbox 1`] = `
     <div
       aria-label="choose numbers"
       className="css-view-1dbjc4n"
-      id="react-aria-0-2"
+      id="react-aria-0-1"
       role="group"
       style={
         Object {
@@ -27459,7 +27459,7 @@ exports[`Storyshots Checkbox Form Controlled 1`] = `
         >
           <label
             className="css-view-1dbjc4n"
-            id="field-react-aria-0-2-label"
+            id="field-69-label"
             style={
               Object {
                 "WebkitBoxDirection": "normal",
@@ -27512,7 +27512,7 @@ exports[`Storyshots Checkbox Form Controlled 1`] = `
           <div
             aria-label="choose multiple items"
             className="css-view-1dbjc4n"
-            id="react-aria-0-3"
+            id="react-aria-0-1"
             role="group"
             style={
               Object {
@@ -27611,7 +27611,7 @@ exports[`Storyshots Checkbox Form Controlled 1`] = `
                   />
                   <div
                     className="css-view-1dbjc4n"
-                    id="field-react-aria-0-2"
+                    id="field-69"
                     style={
                       Object {
                         "WebkitAlignItems": "center",
@@ -27780,7 +27780,7 @@ exports[`Storyshots Checkbox Form Controlled 1`] = `
                   />
                   <div
                     className="css-view-1dbjc4n"
-                    id="field-react-aria-0-2"
+                    id="field-69"
                     style={
                       Object {
                         "WebkitAlignItems": "center",
@@ -27949,7 +27949,7 @@ exports[`Storyshots Checkbox Form Controlled 1`] = `
                   />
                   <div
                     className="css-view-1dbjc4n"
-                    id="field-react-aria-0-2"
+                    id="field-69"
                     style={
                       Object {
                         "WebkitAlignItems": "center",
@@ -28108,7 +28108,7 @@ exports[`Storyshots Checkbox Form Controlled 1`] = `
                   />
                   <div
                     className="css-view-1dbjc4n"
-                    id="field-react-aria-0-2"
+                    id="field-69"
                     style={
                       Object {
                         "WebkitAlignItems": "center",
@@ -28183,7 +28183,7 @@ exports[`Storyshots Checkbox Form Controlled 1`] = `
           </div>
           <div
             className="css-view-1dbjc4n"
-            id="field-react-aria-0-2"
+            id="field-69"
             style={
               Object {
                 "marginTop": "8px",
@@ -28194,14 +28194,14 @@ exports[`Storyshots Checkbox Form Controlled 1`] = `
               className="css-view-1dbjc4n"
               style={
                 Object {
-                  "WebkitAlignItems": "center",
-                  "WebkitBoxAlign": "center",
+                  "WebkitAlignItems": "flex-start",
+                  "WebkitBoxAlign": "start",
                   "WebkitBoxDirection": "normal",
                   "WebkitBoxOrient": "horizontal",
                   "WebkitFlexDirection": "row",
-                  "alignItems": "center",
+                  "alignItems": "flex-start",
                   "flexDirection": "row",
-                  "msFlexAlign": "center",
+                  "msFlexAlign": "start",
                   "msFlexDirection": "row",
                 }
               }
@@ -28214,6 +28214,7 @@ exports[`Storyshots Checkbox Form Controlled 1`] = `
                     "color": "rgba(220,38,38,1.00)",
                     "fontSize": "12px",
                     "height": "12px",
+                    "marginTop": "4px",
                     "width": "12px",
                   }
                 }
@@ -29543,7 +29544,7 @@ exports[`Storyshots Checkbox Uncontrolled checkbox 1`] = `
     <div
       aria-label="choose values"
       className="css-view-1dbjc4n"
-      id="react-aria-0-2"
+      id="react-aria-0-1"
       role="group"
       style={
         Object {
@@ -30649,7 +30650,7 @@ exports[`Storyshots Custom Theme Basic 1`] = `
       dir="auto"
       style={
         Object {
-          "color": "rgba(23,23,23,1.00)",
+          "color": "rgba(255,119,204,1.00)",
           "fontSize": "24px",
           "fontStyle": "normal",
           "fontWeight": "700",
@@ -30718,7 +30719,7 @@ exports[`Storyshots Custom Theme CustomizingBase 1`] = `
       dir="auto"
       style={
         Object {
-          "color": "rgba(23,23,23,1.00)",
+          "color": "rgba(52,211,153,1.00)",
           "fontSize": "32px",
           "fontStyle": "normal",
           "fontWeight": "400",
@@ -33212,7 +33213,7 @@ exports[`Storyshots Examples Signin Screen 1`] = `
           >
             <label
               className="css-view-1dbjc4n"
-              id="field-react-aria-0-2-label"
+              id="field-264-label"
               style={
                 Object {
                   "WebkitBoxDirection": "normal",
@@ -33283,7 +33284,7 @@ exports[`Storyshots Examples Signin Screen 1`] = `
                 className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
                 dir="auto"
                 disabled={false}
-                id="field-react-aria-0-2"
+                id="field-264-input"
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
@@ -33335,7 +33336,7 @@ exports[`Storyshots Examples Signin Screen 1`] = `
           >
             <label
               className="css-view-1dbjc4n"
-              id="field-react-aria-0-3-label"
+              id="field-265-label"
               style={
                 Object {
                   "WebkitBoxDirection": "normal",
@@ -33406,7 +33407,7 @@ exports[`Storyshots Examples Signin Screen 1`] = `
                 className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
                 dir="auto"
                 disabled={false}
-                id="field-react-aria-0-3"
+                id="field-265-input"
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
@@ -33837,7 +33838,7 @@ exports[`Storyshots Examples Signup Screen 1`] = `
           >
             <label
               className="css-view-1dbjc4n"
-              id="field-react-aria-0-2-label"
+              id="field-267-label"
               style={
                 Object {
                   "WebkitBoxDirection": "normal",
@@ -33908,7 +33909,7 @@ exports[`Storyshots Examples Signup Screen 1`] = `
                 className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
                 dir="auto"
                 disabled={false}
-                id="field-react-aria-0-2"
+                id="field-267-input"
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
@@ -33960,7 +33961,7 @@ exports[`Storyshots Examples Signup Screen 1`] = `
           >
             <label
               className="css-view-1dbjc4n"
-              id="field-react-aria-0-3-label"
+              id="field-268-label"
               style={
                 Object {
                   "WebkitBoxDirection": "normal",
@@ -34031,7 +34032,7 @@ exports[`Storyshots Examples Signup Screen 1`] = `
                 className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
                 dir="auto"
                 disabled={false}
-                id="field-react-aria-0-3"
+                id="field-268-input"
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
@@ -34083,7 +34084,7 @@ exports[`Storyshots Examples Signup Screen 1`] = `
           >
             <label
               className="css-view-1dbjc4n"
-              id="field-react-aria-0-4-label"
+              id="field-269-label"
               style={
                 Object {
                   "WebkitBoxDirection": "normal",
@@ -34154,7 +34155,7 @@ exports[`Storyshots Examples Signup Screen 1`] = `
                 className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
                 dir="auto"
                 disabled={false}
-                id="field-react-aria-0-4"
+                id="field-269-input"
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
@@ -34483,6 +34484,7 @@ exports[`Storyshots Examples Todo App 1`] = `
                 autoCorrect="on"
                 className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
                 dir="auto"
+                id="undefined-input"
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
@@ -38467,7 +38469,7 @@ exports[`Storyshots FormControl CustomStyle 1`] = `
             >
               <label
                 className="css-view-1dbjc4n"
-                id="field-react-aria-0-2-label"
+                id="field-87-label"
                 style={
                   Object {
                     "WebkitBoxDirection": "normal",
@@ -38538,7 +38540,7 @@ exports[`Storyshots FormControl CustomStyle 1`] = `
                   className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
                   dir="auto"
                   disabled={false}
-                  id="field-react-aria-0-2"
+                  id="field-87-input"
                   onBlur={[Function]}
                   onChange={[Function]}
                   onFocus={[Function]}
@@ -38573,7 +38575,7 @@ exports[`Storyshots FormControl CustomStyle 1`] = `
               </div>
               <div
                 className="css-view-1dbjc4n"
-                id="field-react-aria-0-2-feedback"
+                id="field-87-feedback"
                 style={
                   Object {
                     "marginTop": "8px",
@@ -38650,7 +38652,7 @@ exports[`Storyshots FormControl CustomStyle 1`] = `
             >
               <label
                 className="css-view-1dbjc4n"
-                id="field-react-aria-0-3-label"
+                id="field-88-label"
                 style={
                   Object {
                     "WebkitBoxDirection": "normal",
@@ -38719,10 +38721,10 @@ exports[`Storyshots FormControl CustomStyle 1`] = `
                   autoCapitalize="sentences"
                   autoComplete="on"
                   autoCorrect="on"
-                  className="css-textinput-11aywtz r-placeholderTextColor-1u2fwfn"
+                  className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
                   dir="auto"
                   disabled={true}
-                  id="field-react-aria-0-3"
+                  id="field-88-input"
                   onBlur={[Function]}
                   onChange={[Function]}
                   onFocus={[Function]}
@@ -38758,7 +38760,7 @@ exports[`Storyshots FormControl CustomStyle 1`] = `
               </div>
               <div
                 className="css-view-1dbjc4n"
-                id="field-react-aria-0-3-feedback"
+                id="field-88-feedback"
                 style={
                   Object {
                     "marginTop": "8px",
@@ -38834,7 +38836,7 @@ exports[`Storyshots FormControl CustomStyle 1`] = `
             >
               <label
                 className="css-view-1dbjc4n"
-                id="field-react-aria-0-4-label"
+                id="field-89-label"
                 style={
                   Object {
                     "WebkitBoxDirection": "normal",
@@ -38878,24 +38880,21 @@ exports[`Storyshots FormControl CustomStyle 1`] = `
                     "WebkitBoxOrient": "horizontal",
                     "WebkitFlexDirection": "row",
                     "alignItems": "center",
-                    "borderBottomColor": "rgba(220,38,38,1.00)",
+                    "borderBottomColor": "rgba(212,212,212,1.00)",
                     "borderBottomLeftRadius": "4px",
                     "borderBottomRightRadius": "4px",
                     "borderBottomWidth": "1px",
-                    "borderLeftColor": "rgba(220,38,38,1.00)",
+                    "borderLeftColor": "rgba(212,212,212,1.00)",
                     "borderLeftWidth": "1px",
-                    "borderRightColor": "rgba(220,38,38,1.00)",
+                    "borderRightColor": "rgba(212,212,212,1.00)",
                     "borderRightWidth": "1px",
-                    "borderTopColor": "rgba(220,38,38,1.00)",
+                    "borderTopColor": "rgba(212,212,212,1.00)",
                     "borderTopLeftRadius": "4px",
                     "borderTopRightRadius": "4px",
                     "borderTopWidth": "1px",
                     "flexDirection": "row",
                     "msFlexAlign": "center",
                     "msFlexDirection": "row",
-                    "outlineColor": "#dc2626",
-                    "outlineStyle": "solid",
-                    "outlineWidth": "1px",
                     "overflowX": "auto",
                     "overflowY": "auto",
                   }
@@ -38909,7 +38908,7 @@ exports[`Storyshots FormControl CustomStyle 1`] = `
                   className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
                   dir="auto"
                   disabled={false}
-                  id="field-react-aria-0-4"
+                  id="field-89-input"
                   onBlur={[Function]}
                   onChange={[Function]}
                   onFocus={[Function]}
@@ -38945,7 +38944,7 @@ exports[`Storyshots FormControl CustomStyle 1`] = `
               </div>
               <div
                 className="css-view-1dbjc4n"
-                id="field-react-aria-0-4"
+                id="field-89"
                 style={
                   Object {
                     "marginTop": "8px",
@@ -39144,7 +39143,7 @@ exports[`Storyshots FormControl Playground 1`] = `
       >
         <label
           className="css-view-1dbjc4n"
-          id="field-react-aria-0-2-label"
+          id="field-83-label"
           style={
             Object {
               "WebkitBoxDirection": "normal",
@@ -39237,7 +39236,7 @@ exports[`Storyshots FormControl Playground 1`] = `
             className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
             dir="auto"
             disabled={false}
-            id="field-react-aria-0-2"
+            id="field-83-input"
             onBlur={[Function]}
             onChange={[Function]}
             onFocus={[Function]}
@@ -39277,7 +39276,7 @@ exports[`Storyshots FormControl Playground 1`] = `
         />
         <div
           className="css-view-1dbjc4n"
-          id="field-react-aria-0-2-feedback"
+          id="field-83-feedback"
           style={
             Object {
               "marginTop": "8px",
@@ -39450,7 +39449,7 @@ exports[`Storyshots FormControl Usage 1`] = `
           >
             <label
               className="css-view-1dbjc4n"
-              id="field-react-aria-0-2-label"
+              id="field-85-label"
               style={
                 Object {
                   "WebkitBoxDirection": "normal",
@@ -39544,7 +39543,7 @@ exports[`Storyshots FormControl Usage 1`] = `
                 defaultValue="12345"
                 dir="auto"
                 disabled={false}
-                id="field-react-aria-0-2"
+                id="field-85-input"
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
@@ -39584,7 +39583,7 @@ exports[`Storyshots FormControl Usage 1`] = `
             />
             <div
               className="css-view-1dbjc4n"
-              id="field-react-aria-0-2-feedback"
+              id="field-85-feedback"
               style={
                 Object {
                   "marginTop": "8px",
@@ -41900,7 +41899,7 @@ exports[`Storyshots Icon All Icons 1`] = `
                         stroke=""
                       >
                         <path
-                          d="M10.9334 3.76375L17.5661 10.3964L18.4196 11.25H17.2125H2.5V12.75H17.2125H18.4181L17.5664 13.6032L10.9443 24.2372L12 21.2929L21.2929 12L11.9988 2.70586L10.9334 3.76375Z"
+                          d="M10.9334 3.76375L17.5661 10.3964L18.4196 11.25H17.2125H2.5V12.75H17.2125H18.4181L17.5664 13.6032L10.9443 20.2372L12 21.2929L21.2929 12L11.9988 2.70586L10.9334 3.76375Z"
                           stroke="currentColor"
                         />
                       </g>
@@ -45311,9 +45310,9 @@ exports[`Storyshots IconButton SVGIcon 1`] = `
           strokeWidth="10"
           style={
             Object {
-              "color": "rgba(250,250,250,1.00)",
-              "height": "20px",
-              "width": "20px",
+              "color": "rgba(2,132,199,1.00)",
+              "height": "40px",
+              "width": "40px",
             }
           }
           viewBox="0 0 100 100"
@@ -47459,6 +47458,7 @@ exports[`Storyshots Input Addons 1`] = `
             autoCorrect="on"
             className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
             dir="auto"
+            id="undefined-input"
             onBlur={[Function]}
             onChange={[Function]}
             onFocus={[Function]}
@@ -47712,6 +47712,7 @@ exports[`Storyshots Input Elements 1`] = `
           autoCorrect="on"
           className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
           dir="auto"
+          id="undefined-input"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -47790,6 +47791,7 @@ exports[`Storyshots Input Elements 1`] = `
           autoCorrect="on"
           className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
           dir="auto"
+          id="undefined-input"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -47826,9 +47828,26 @@ exports[`Storyshots Input Elements 1`] = `
           className="css-view-1dbjc4n"
         />
         <div
-          className="css-text-901oao"
-          dir="auto"
-        />
+          className="css-view-1dbjc4n"
+          onBlur={[Function]}
+          onClick={[Function]}
+          onContextMenu={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          style={
+            Object {
+              "cursor": "pointer",
+              "msTouchAction": "manipulation",
+              "touchAction": "manipulation",
+            }
+          }
+          tabIndex="0"
+        >
+          <div
+            className="css-text-901oao"
+            dir="auto"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -47958,7 +47977,7 @@ exports[`Storyshots Input Form Controlled 1`] = `
       >
         <label
           className="css-view-1dbjc4n"
-          id="field-react-aria-0-2-label"
+          id="field-125-label"
           style={
             Object {
               "WebkitBoxDirection": "normal",
@@ -48002,24 +48021,21 @@ exports[`Storyshots Input Form Controlled 1`] = `
               "WebkitBoxOrient": "horizontal",
               "WebkitFlexDirection": "row",
               "alignItems": "center",
-              "borderBottomColor": "rgba(220,38,38,1.00)",
+              "borderBottomColor": "rgba(212,212,212,1.00)",
               "borderBottomLeftRadius": "4px",
               "borderBottomRightRadius": "4px",
               "borderBottomWidth": "1px",
-              "borderLeftColor": "rgba(220,38,38,1.00)",
+              "borderLeftColor": "rgba(212,212,212,1.00)",
               "borderLeftWidth": "1px",
-              "borderRightColor": "rgba(220,38,38,1.00)",
+              "borderRightColor": "rgba(212,212,212,1.00)",
               "borderRightWidth": "1px",
-              "borderTopColor": "rgba(220,38,38,1.00)",
+              "borderTopColor": "rgba(212,212,212,1.00)",
               "borderTopLeftRadius": "4px",
               "borderTopRightRadius": "4px",
               "borderTopWidth": "1px",
               "flexDirection": "row",
               "msFlexAlign": "center",
               "msFlexDirection": "row",
-              "outlineColor": "#dc2626",
-              "outlineStyle": "solid",
-              "outlineWidth": "1px",
               "overflowX": "auto",
               "overflowY": "auto",
             }
@@ -48033,7 +48049,7 @@ exports[`Storyshots Input Form Controlled 1`] = `
             className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
             dir="auto"
             disabled={false}
-            id="field-react-aria-0-2"
+            id="field-125-input"
             onBlur={[Function]}
             onChange={[Function]}
             onFocus={[Function]}
@@ -48069,7 +48085,7 @@ exports[`Storyshots Input Form Controlled 1`] = `
         </div>
         <div
           className="css-view-1dbjc4n"
-          id="field-react-aria-0-2"
+          id="field-125"
           style={
             Object {
               "marginTop": "8px",
@@ -48294,6 +48310,7 @@ exports[`Storyshots Input Password 1`] = `
           autoCorrect="on"
           className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
           dir="auto"
+          id="undefined-input"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -48569,6 +48586,7 @@ exports[`Storyshots Input Primary 1`] = `
           autoCorrect="on"
           className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
           dir="auto"
+          id="undefined-input"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -48755,6 +48773,7 @@ exports[`Storyshots Input Size  1`] = `
           autoCorrect="on"
           className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
           dir="auto"
+          id="undefined-input"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -48832,6 +48851,7 @@ exports[`Storyshots Input Size  1`] = `
           autoCorrect="on"
           className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
           dir="auto"
+          id="undefined-input"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -48909,6 +48929,7 @@ exports[`Storyshots Input Size  1`] = `
           autoCorrect="on"
           className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
           dir="auto"
+          id="undefined-input"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -48986,6 +49007,7 @@ exports[`Storyshots Input Size  1`] = `
           autoCorrect="on"
           className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
           dir="auto"
+          id="undefined-input"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -49063,6 +49085,7 @@ exports[`Storyshots Input Size  1`] = `
           autoCorrect="on"
           className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
           dir="auto"
+          id="undefined-input"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -49140,6 +49163,7 @@ exports[`Storyshots Input Size  1`] = `
           autoCorrect="on"
           className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
           dir="auto"
+          id="undefined-input"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -49327,6 +49351,7 @@ exports[`Storyshots Input Value Controlled 1`] = `
           autoCorrect="on"
           className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
           dir="auto"
+          id="undefined-input"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -49514,6 +49539,7 @@ exports[`Storyshots Input Variants 1`] = `
           autoCorrect="on"
           className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
           dir="auto"
+          id="undefined-input"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -49592,6 +49618,7 @@ exports[`Storyshots Input Variants 1`] = `
           autoCorrect="on"
           className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
           dir="auto"
+          id="undefined-input"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -49669,6 +49696,7 @@ exports[`Storyshots Input Variants 1`] = `
           autoCorrect="on"
           className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
           dir="auto"
+          id="undefined-input"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -49746,6 +49774,7 @@ exports[`Storyshots Input Variants 1`] = `
           autoCorrect="on"
           className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
           dir="auto"
+          id="undefined-input"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -49823,6 +49852,7 @@ exports[`Storyshots Input Variants 1`] = `
           autoCorrect="on"
           className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
           dir="auto"
+          id="undefined-input"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -50079,6 +50109,7 @@ exports[`Storyshots KeyboardAvoidingView Basic 1`] = `
               autoCorrect="on"
               className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
               dir="auto"
+              id="undefined-input"
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
@@ -54936,7 +54967,7 @@ exports[`Storyshots Menu Basic 1`] = `
         aria-haspopup="menu"
         aria-label="More options menu"
         className="css-view-1dbjc4n"
-        id="react-aria-0-2"
+        id="139"
         onBlur={[Function]}
         onClick={[Function]}
         onContextMenu={[Function]}
@@ -55094,7 +55125,7 @@ exports[`Storyshots Menu Group 1`] = `
       <div
         aria-haspopup="menu"
         className="css-view-1dbjc4n"
-        id="react-aria-0-2"
+        id="141"
         onBlur={[Function]}
         onClick={[Function]}
         onContextMenu={[Function]}
@@ -55251,7 +55282,7 @@ exports[`Storyshots Menu Menu positions 1`] = `
       <div
         aria-haspopup="menu"
         className="css-cursor-18t94o4 css-view-1dbjc4n"
-        id="react-aria-0-2"
+        id="145"
         onBlur={[Function]}
         onClick={[Function]}
         onContextMenu={[Function]}
@@ -55346,6 +55377,12 @@ exports[`Storyshots Menu Menu positions 1`] = `
       />
       <div
         className="css-view-1dbjc4n"
+        style={
+          Object {
+            "marginLeft": "0px",
+            "marginRight": "0px",
+          }
+        }
       >
         <select
           onBlur={[Function]}
@@ -55461,8 +55498,6 @@ exports[`Storyshots Menu Menu positions 1`] = `
               "borderTopRightRadius": "4px",
               "borderTopWidth": "1px",
               "flexDirection": "row",
-              "marginLeft": "0px",
-              "marginRight": "0px",
               "msFlexAlign": "center",
               "msFlexDirection": "row",
               "overflowX": "auto",
@@ -55477,6 +55512,7 @@ exports[`Storyshots Menu Menu positions 1`] = `
             autoCorrect="on"
             className="css-textinput-11aywtz r-placeholderTextColor-uek9y r-pointerEvents-633pao"
             dir="auto"
+            id="undefined-input"
             onBlur={[Function]}
             onChange={[Function]}
             onFocus={[Function]}
@@ -55519,9 +55555,13 @@ exports[`Storyshots Menu Menu positions 1`] = `
             style={
               Object {
                 "color": "rgba(115,115,115,1.00)",
-                "height": "16px",
+                "height": "24px",
                 "marginRight": "12px",
-                "width": "16px",
+                "paddingBottom": "4px",
+                "paddingLeft": "4px",
+                "paddingRight": "4px",
+                "paddingTop": "4px",
+                "width": "24px",
               }
             }
             viewBox="0 0 24 24"
@@ -55657,7 +55697,7 @@ exports[`Storyshots Menu MenuOptionsGroup 1`] = `
       <div
         aria-haspopup="menu"
         className="css-view-1dbjc4n"
-        id="react-aria-0-2"
+        id="143"
         onBlur={[Function]}
         onClick={[Function]}
         onContextMenu={[Function]}
@@ -56907,6 +56947,7 @@ exports[`Storyshots Modal Modal Ref Examples 1`] = `
           autoCorrect="on"
           className="css-textinput-11aywtz r-placeholderTextColor-klosnv"
           dir="auto"
+          id="undefined-input"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -58071,7 +58112,7 @@ exports[`Storyshots Mode Basic 1`] = `
         dir="auto"
         style={
           Object {
-            "color": "rgba(23,23,23,1.00)",
+            "color": "rgba(252,165,165,1.00)",
             "fontSize": "24px",
             "fontStyle": "normal",
             "fontWeight": "700",
@@ -59577,6 +59618,12 @@ exports[`Storyshots Popover Popover positions 1`] = `
         />
         <div
           className="css-view-1dbjc4n"
+          style={
+            Object {
+              "marginLeft": "0px",
+              "marginRight": "0px",
+            }
+          }
         >
           <select
             onBlur={[Function]}
@@ -59692,8 +59739,6 @@ exports[`Storyshots Popover Popover positions 1`] = `
                 "borderTopRightRadius": "4px",
                 "borderTopWidth": "1px",
                 "flexDirection": "row",
-                "marginLeft": "0px",
-                "marginRight": "0px",
                 "msFlexAlign": "center",
                 "msFlexDirection": "row",
                 "overflowX": "auto",
@@ -59708,6 +59753,7 @@ exports[`Storyshots Popover Popover positions 1`] = `
               autoCorrect="on"
               className="css-textinput-11aywtz r-placeholderTextColor-uek9y r-pointerEvents-633pao"
               dir="auto"
+              id="undefined-input"
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
@@ -59750,9 +59796,13 @@ exports[`Storyshots Popover Popover positions 1`] = `
               style={
                 Object {
                   "color": "rgba(115,115,115,1.00)",
-                  "height": "16px",
+                  "height": "24px",
                   "marginRight": "12px",
-                  "width": "16px",
+                  "paddingBottom": "4px",
+                  "paddingLeft": "4px",
+                  "paddingRight": "4px",
+                  "paddingTop": "4px",
+                  "width": "24px",
                 }
               }
               viewBox="0 0 24 24"
@@ -62244,7 +62294,7 @@ exports[`Storyshots Radio Controlled Radio 1`] = `
       aria-label="favorite number"
       aria-orientation="vertical"
       className="css-view-1dbjc4n"
-      id="react-aria-0-2"
+      id="react-aria-0-1"
       onBlur={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -62693,7 +62743,7 @@ exports[`Storyshots Radio Custom Color 1`] = `
       aria-label="favorite colorscheme"
       aria-orientation="vertical"
       className="css-view-1dbjc4n"
-      id="react-aria-0-2"
+      id="react-aria-0-1"
       onBlur={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -63306,7 +63356,7 @@ exports[`Storyshots Radio Custom Icon 1`] = `
       aria-label="pick a choice"
       aria-orientation="vertical"
       className="css-view-1dbjc4n"
-      id="react-aria-0-2"
+      id="react-aria-0-1"
       onBlur={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -63908,7 +63958,7 @@ exports[`Storyshots Radio Disabled 1`] = `
       aria-label="select prize"
       aria-orientation="vertical"
       className="css-view-1dbjc4n"
-      id="react-aria-0-2"
+      id="react-aria-0-1"
       onBlur={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -64542,7 +64592,7 @@ exports[`Storyshots Radio Form Controlled 1`] = `
       >
         <label
           className="css-view-1dbjc4n"
-          id="field-react-aria-0-2-label"
+          id="field-175-label"
           style={
             Object {
               "WebkitBoxDirection": "normal",
@@ -64580,7 +64630,7 @@ exports[`Storyshots Radio Form Controlled 1`] = `
           aria-label="select prize"
           aria-orientation="vertical"
           className="css-view-1dbjc4n"
-          id="react-aria-0-3"
+          id="react-aria-0-1"
           onBlur={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
@@ -64676,7 +64726,7 @@ exports[`Storyshots Radio Form Controlled 1`] = `
                 />
                 <div
                   className="css-view-1dbjc4n"
-                  id="field-react-aria-0-2"
+                  id="field-174"
                   style={
                     Object {
                       "WebkitAlignItems": "center",
@@ -64844,7 +64894,7 @@ exports[`Storyshots Radio Form Controlled 1`] = `
                 />
                 <div
                   className="css-view-1dbjc4n"
-                  id="field-react-aria-0-2"
+                  id="field-174"
                   style={
                     Object {
                       "WebkitAlignItems": "center",
@@ -65012,7 +65062,7 @@ exports[`Storyshots Radio Form Controlled 1`] = `
                 />
                 <div
                   className="css-view-1dbjc4n"
-                  id="field-react-aria-0-2"
+                  id="field-174"
                   style={
                     Object {
                       "WebkitAlignItems": "center",
@@ -65098,7 +65148,7 @@ exports[`Storyshots Radio Form Controlled 1`] = `
         </div>
         <div
           className="css-view-1dbjc4n"
-          id="field-react-aria-0-2"
+          id="field-175"
           style={
             Object {
               "marginTop": "8px",
@@ -65279,7 +65329,7 @@ exports[`Storyshots Radio Invalid 1`] = `
       aria-label="select an option"
       aria-orientation="vertical"
       className="css-view-1dbjc4n"
-      id="react-aria-0-2"
+      id="react-aria-0-1"
       onBlur={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -65578,7 +65628,7 @@ exports[`Storyshots Radio Playground 1`] = `
         aria-label="pick an option from below"
         aria-orientation="vertical"
         className="css-view-1dbjc4n"
-        id="react-aria-0-2"
+        id="react-aria-0-1"
         onBlur={[Function]}
         onFocus={[Function]}
         onKeyDown={[Function]}
@@ -66030,7 +66080,7 @@ exports[`Storyshots Radio Size 1`] = `
       aria-label="pick a size"
       aria-orientation="vertical"
       className="css-view-1dbjc4n"
-      id="react-aria-0-2"
+      id="react-aria-0-1"
       onBlur={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -66672,7 +66722,7 @@ exports[`Storyshots Radio Uncontrolled Radio 1`] = `
       aria-label="Pick your favorite number"
       aria-orientation="vertical"
       className="css-view-1dbjc4n"
-      id="react-aria-0-2"
+      id="react-aria-0-1"
       onBlur={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -67285,7 +67335,7 @@ exports[`Storyshots Radio With Ref 1`] = `
       aria-label="pick an option"
       aria-orientation="vertical"
       className="css-view-1dbjc4n"
-      id="react-aria-0-2"
+      id="react-aria-0-1"
       onBlur={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
@@ -70799,6 +70849,11 @@ exports[`Storyshots Select Basic 1`] = `
       >
         <div
           className="css-view-1dbjc4n"
+          style={
+            Object {
+              "marginTop": "4px",
+            }
+          }
         >
           <select
             aria-label="Choose Service"
@@ -70877,7 +70932,6 @@ exports[`Storyshots Select Basic 1`] = `
                 "borderTopRightRadius": "4px",
                 "borderTopWidth": "1px",
                 "flexDirection": "row",
-                "marginTop": "4px",
                 "minWidth": "200px",
                 "msFlexAlign": "center",
                 "msFlexDirection": "row",
@@ -70893,6 +70947,7 @@ exports[`Storyshots Select Basic 1`] = `
               autoCorrect="on"
               className="css-textinput-11aywtz r-placeholderTextColor-uek9y r-pointerEvents-633pao"
               dir="auto"
+              id="undefined-input"
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
@@ -70936,9 +70991,13 @@ exports[`Storyshots Select Basic 1`] = `
               style={
                 Object {
                   "color": "rgba(115,115,115,1.00)",
-                  "height": "16px",
+                  "height": "24px",
                   "marginRight": "12px",
-                  "width": "16px",
+                  "paddingBottom": "4px",
+                  "paddingLeft": "4px",
+                  "paddingRight": "4px",
+                  "paddingTop": "4px",
+                  "width": "24px",
                 }
               }
               viewBox="0 0 24 24"
@@ -71087,7 +71146,7 @@ exports[`Storyshots Select FormControlled 1`] = `
       >
         <label
           className="css-view-1dbjc4n"
-          id="field-react-aria-0-2-label"
+          id="field-180-label"
           style={
             Object {
               "WebkitBoxDirection": "normal",
@@ -71141,6 +71200,11 @@ exports[`Storyshots Select FormControlled 1`] = `
         </label>
         <div
           className="css-view-1dbjc4n"
+          style={
+            Object {
+              "marginTop": "4px",
+            }
+          }
         >
           <select
             aria-label="Choose Service"
@@ -71209,26 +71273,22 @@ exports[`Storyshots Select FormControlled 1`] = `
                 "WebkitBoxOrient": "horizontal",
                 "WebkitFlexDirection": "row",
                 "alignItems": "center",
-                "borderBottomColor": "rgba(220,38,38,1.00)",
+                "borderBottomColor": "rgba(212,212,212,1.00)",
                 "borderBottomLeftRadius": "4px",
                 "borderBottomRightRadius": "4px",
                 "borderBottomWidth": "1px",
-                "borderLeftColor": "rgba(220,38,38,1.00)",
+                "borderLeftColor": "rgba(212,212,212,1.00)",
                 "borderLeftWidth": "1px",
-                "borderRightColor": "rgba(220,38,38,1.00)",
+                "borderRightColor": "rgba(212,212,212,1.00)",
                 "borderRightWidth": "1px",
-                "borderTopColor": "rgba(220,38,38,1.00)",
+                "borderTopColor": "rgba(212,212,212,1.00)",
                 "borderTopLeftRadius": "4px",
                 "borderTopRightRadius": "4px",
                 "borderTopWidth": "1px",
                 "flexDirection": "row",
-                "marginTop": "4px",
                 "minWidth": "200px",
                 "msFlexAlign": "center",
                 "msFlexDirection": "row",
-                "outlineColor": "#dc2626",
-                "outlineStyle": "solid",
-                "outlineWidth": "1px",
                 "overflowX": "auto",
                 "overflowY": "auto",
               }
@@ -71244,7 +71304,7 @@ exports[`Storyshots Select FormControlled 1`] = `
               className="css-textinput-11aywtz r-placeholderTextColor-uek9y r-pointerEvents-633pao"
               dir="auto"
               disabled={false}
-              id="field-react-aria-0-2"
+              id="field-180-input"
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
@@ -71289,9 +71349,13 @@ exports[`Storyshots Select FormControlled 1`] = `
               style={
                 Object {
                   "color": "rgba(115,115,115,1.00)",
-                  "height": "16px",
+                  "height": "24px",
                   "marginRight": "12px",
-                  "width": "16px",
+                  "paddingBottom": "4px",
+                  "paddingLeft": "4px",
+                  "paddingRight": "4px",
+                  "paddingTop": "4px",
+                  "width": "24px",
                 }
               }
               viewBox="0 0 24 24"
@@ -71308,7 +71372,7 @@ exports[`Storyshots Select FormControlled 1`] = `
         </div>
         <div
           className="css-view-1dbjc4n"
-          id="field-react-aria-0-2"
+          id="field-180"
           style={
             Object {
               "marginTop": "8px",
@@ -71507,7 +71571,7 @@ exports[`Storyshots Select Select Long list 1`] = `
       >
         <label
           className="css-view-1dbjc4n"
-          id="field-react-aria-0-2-label"
+          id="field-182-label"
           style={
             Object {
               "WebkitBoxDirection": "normal",
@@ -71543,6 +71607,11 @@ exports[`Storyshots Select Select Long list 1`] = `
         </label>
         <div
           className="css-view-1dbjc4n"
+          style={
+            Object {
+              "marginTop": "4px",
+            }
+          }
         >
           <select
             aria-label="Select a Color"
@@ -71834,7 +71903,6 @@ exports[`Storyshots Select Select Long list 1`] = `
                 "borderTopRightRadius": "4px",
                 "borderTopWidth": "1px",
                 "flexDirection": "row",
-                "marginTop": "4px",
                 "minWidth": "100px",
                 "msFlexAlign": "center",
                 "msFlexDirection": "row",
@@ -71851,7 +71919,7 @@ exports[`Storyshots Select Select Long list 1`] = `
               className="css-textinput-11aywtz r-placeholderTextColor-uek9y r-pointerEvents-633pao"
               dir="auto"
               disabled={false}
-              id="field-react-aria-0-2"
+              id="field-182-input"
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
@@ -71895,9 +71963,13 @@ exports[`Storyshots Select Select Long list 1`] = `
               style={
                 Object {
                   "color": "rgba(115,115,115,1.00)",
-                  "height": "16px",
+                  "height": "24px",
                   "marginRight": "12px",
-                  "width": "16px",
+                  "paddingBottom": "4px",
+                  "paddingLeft": "4px",
+                  "paddingRight": "4px",
+                  "paddingTop": "4px",
+                  "width": "24px",
                 }
               }
               viewBox="0 0 24 24"
@@ -74174,9 +74246,9 @@ exports[`Storyshots Slider Color 1`] = `
                   }
                 >
                   <input
-                    aria-labelledby="react-aria-0-2"
+                    aria-labelledby="react-aria-0-1"
                     aria-valuetext={70}
-                    id="react-aria-0-2-0"
+                    id="react-aria-0-1-0"
                     max={100}
                     min={0}
                     onBlur={[Function]}
@@ -74394,9 +74466,9 @@ exports[`Storyshots Slider Color 1`] = `
                   }
                 >
                   <input
-                    aria-labelledby="react-aria-0-5"
+                    aria-labelledby="react-aria-0-4"
                     aria-valuetext={70}
-                    id="react-aria-0-5-0"
+                    id="react-aria-0-4-0"
                     max={100}
                     min={0}
                     onBlur={[Function]}
@@ -74614,9 +74686,9 @@ exports[`Storyshots Slider Color 1`] = `
                   }
                 >
                   <input
-                    aria-labelledby="react-aria-0-8"
+                    aria-labelledby="react-aria-0-7"
                     aria-valuetext={70}
-                    id="react-aria-0-8-0"
+                    id="react-aria-0-7-0"
                     max={100}
                     min={0}
                     onBlur={[Function]}
@@ -74958,9 +75030,9 @@ exports[`Storyshots Slider Customized 1`] = `
                 }
               >
                 <input
-                  aria-labelledby="react-aria-0-2"
+                  aria-labelledby="react-aria-0-1"
                   aria-valuetext={70}
-                  id="react-aria-0-2-0"
+                  id="react-aria-0-1-0"
                   max={100}
                   min={0}
                   onBlur={[Function]}
@@ -75288,9 +75360,9 @@ exports[`Storyshots Slider Disabled 1`] = `
                 }
               >
                 <input
-                  aria-labelledby="react-aria-0-2"
+                  aria-labelledby="react-aria-0-1"
                   aria-valuetext={50}
-                  id="react-aria-0-2-0"
+                  id="react-aria-0-1-0"
                   max={100}
                   min={0}
                   onBlur={[Function]}
@@ -75443,7 +75515,7 @@ exports[`Storyshots Slider Form Controlled 1`] = `
         >
           <label
             className="css-view-1dbjc4n"
-            id="field-react-aria-0-2-label"
+            id="field-198-label"
             style={
               Object {
                 "WebkitBoxDirection": "normal",
@@ -75671,9 +75743,9 @@ exports[`Storyshots Slider Form Controlled 1`] = `
                     }
                   >
                     <input
-                      aria-labelledby="react-aria-0-3"
+                      aria-labelledby="react-aria-0-1"
                       aria-valuetext={50}
-                      id="react-aria-0-3-0"
+                      id="react-aria-0-1-0"
                       max={100}
                       min={0}
                       onBlur={[Function]}
@@ -75691,7 +75763,7 @@ exports[`Storyshots Slider Form Controlled 1`] = `
           </div>
           <div
             className="css-view-1dbjc4n"
-            id="field-react-aria-0-2"
+            id="field-198"
             style={
               Object {
                 "marginTop": "8px",
@@ -76073,9 +76145,9 @@ exports[`Storyshots Slider Playground 1`] = `
                 }
               >
                 <input
-                  aria-labelledby="react-aria-0-2"
+                  aria-labelledby="react-aria-0-1"
                   aria-valuetext={50}
-                  id="react-aria-0-2-0"
+                  id="react-aria-0-1-0"
                   max={100}
                   min={0}
                   onBlur={[Function]}
@@ -76401,9 +76473,9 @@ exports[`Storyshots Slider ReadOnly 1`] = `
                 }
               >
                 <input
-                  aria-labelledby="react-aria-0-2"
+                  aria-labelledby="react-aria-0-1"
                   aria-valuetext={50}
-                  id="react-aria-0-2-0"
+                  id="react-aria-0-1-0"
                   max={100}
                   min={0}
                   onBlur={[Function]}
@@ -76740,9 +76812,9 @@ exports[`Storyshots Slider Size 1`] = `
                   }
                 >
                   <input
-                    aria-labelledby="react-aria-0-2"
+                    aria-labelledby="react-aria-0-1"
                     aria-valuetext={40}
-                    id="react-aria-0-2-0"
+                    id="react-aria-0-1-0"
                     max={100}
                     min={0}
                     onBlur={[Function]}
@@ -76960,9 +77032,9 @@ exports[`Storyshots Slider Size 1`] = `
                   }
                 >
                   <input
-                    aria-labelledby="react-aria-0-5"
+                    aria-labelledby="react-aria-0-4"
                     aria-valuetext={60}
-                    id="react-aria-0-5-0"
+                    id="react-aria-0-4-0"
                     max={100}
                     min={0}
                     onBlur={[Function]}
@@ -77180,9 +77252,9 @@ exports[`Storyshots Slider Size 1`] = `
                   }
                 >
                   <input
-                    aria-labelledby="react-aria-0-8"
+                    aria-labelledby="react-aria-0-7"
                     aria-valuetext={80}
-                    id="react-aria-0-8-0"
+                    id="react-aria-0-7-0"
                     max={100}
                     min={0}
                     onBlur={[Function]}
@@ -77512,9 +77584,9 @@ exports[`Storyshots Slider Usage 1`] = `
                 }
               >
                 <input
-                  aria-labelledby="react-aria-0-2"
+                  aria-labelledby="react-aria-0-1"
                   aria-valuetext={70}
-                  id="react-aria-0-2-0"
+                  id="react-aria-0-1-0"
                   max={100}
                   min={0}
                   onBlur={[Function]}
@@ -77907,9 +77979,9 @@ exports[`Storyshots Slider Value 1`] = `
                   }
                 >
                   <input
-                    aria-labelledby="react-aria-0-2"
+                    aria-labelledby="react-aria-0-1"
                     aria-valuetext={70}
-                    id="react-aria-0-2-0"
+                    id="react-aria-0-1-0"
                     max={100}
                     min={0}
                     onBlur={[Function]}
@@ -78236,10 +78308,10 @@ exports[`Storyshots Slider Vertical 1`] = `
                 }
               >
                 <input
-                  aria-labelledby="react-aria-0-2"
+                  aria-labelledby="react-aria-0-1"
                   aria-orientation="vertical"
                   aria-valuetext={70}
-                  id="react-aria-0-2-0"
+                  id="react-aria-0-1-0"
                   max={100}
                   min={0}
                   onBlur={[Function]}
@@ -83760,6 +83832,7 @@ exports[`Storyshots TextArea Default 1`] = `
           autoCorrect="on"
           className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
           dir="auto"
+          id="undefined-input"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -83950,15 +84023,15 @@ exports[`Storyshots TextArea InValid and Disabled 1`] = `
                 "WebkitBoxOrient": "horizontal",
                 "WebkitFlexDirection": "row",
                 "alignItems": "center",
-                "borderBottomColor": "rgba(220,38,38,1.00)",
+                "borderBottomColor": "rgba(212,212,212,1.00)",
                 "borderBottomLeftRadius": "4px",
                 "borderBottomRightRadius": "4px",
                 "borderBottomWidth": "1px",
-                "borderLeftColor": "rgba(220,38,38,1.00)",
+                "borderLeftColor": "rgba(212,212,212,1.00)",
                 "borderLeftWidth": "1px",
-                "borderRightColor": "rgba(220,38,38,1.00)",
+                "borderRightColor": "rgba(212,212,212,1.00)",
                 "borderRightWidth": "1px",
-                "borderTopColor": "rgba(220,38,38,1.00)",
+                "borderTopColor": "rgba(212,212,212,1.00)",
                 "borderTopLeftRadius": "4px",
                 "borderTopRightRadius": "4px",
                 "borderTopWidth": "1px",
@@ -83967,9 +84040,6 @@ exports[`Storyshots TextArea InValid and Disabled 1`] = `
                 "marginBottom": "20px",
                 "msFlexAlign": "center",
                 "msFlexDirection": "row",
-                "outlineColor": "#dc2626",
-                "outlineStyle": "solid",
-                "outlineWidth": "1px",
                 "overflowX": "auto",
                 "overflowY": "auto",
               }
@@ -83983,6 +84053,7 @@ exports[`Storyshots TextArea InValid and Disabled 1`] = `
               autoCorrect="on"
               className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
               dir="auto"
+              id="undefined-input"
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
@@ -84094,9 +84165,10 @@ exports[`Storyshots TextArea InValid and Disabled 1`] = `
               autoCapitalize="sentences"
               autoComplete="on"
               autoCorrect="on"
-              className="css-textinput-11aywtz r-placeholderTextColor-1u2fwfn"
+              className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
               dir="auto"
               disabled={true}
+              id="undefined-input"
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
@@ -84357,6 +84429,7 @@ exports[`Storyshots TextArea Sizes 1`] = `
                 autoCorrect="on"
                 className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
                 dir="auto"
+                id="undefined-input"
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
@@ -84436,6 +84509,7 @@ exports[`Storyshots TextArea Sizes 1`] = `
                 autoCorrect="on"
                 className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
                 dir="auto"
+                id="undefined-input"
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
@@ -84515,6 +84589,7 @@ exports[`Storyshots TextArea Sizes 1`] = `
                 autoCorrect="on"
                 className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
                 dir="auto"
+                id="undefined-input"
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
@@ -84594,6 +84669,7 @@ exports[`Storyshots TextArea Sizes 1`] = `
                 autoCorrect="on"
                 className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
                 dir="auto"
+                id="undefined-input"
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
@@ -84673,6 +84749,7 @@ exports[`Storyshots TextArea Sizes 1`] = `
                 autoCorrect="on"
                 className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
                 dir="auto"
+                id="undefined-input"
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
@@ -84752,6 +84829,7 @@ exports[`Storyshots TextArea Sizes 1`] = `
                 autoCorrect="on"
                 className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
                 dir="auto"
+                id="undefined-input"
                 onBlur={[Function]}
                 onChange={[Function]}
                 onFocus={[Function]}
@@ -84945,6 +85023,7 @@ exports[`Storyshots TextArea Value Controlled 1`] = `
           autoCorrect="on"
           className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
           dir="auto"
+          id="undefined-input"
           onBlur={[Function]}
           onChange={[Function]}
           onFocus={[Function]}
@@ -88680,6 +88759,12 @@ exports[`Storyshots Tooltip Tooltip Positions 1`] = `
       />
       <div
         className="css-view-1dbjc4n"
+        style={
+          Object {
+            "marginLeft": "0px",
+            "marginRight": "0px",
+          }
+        }
       >
         <select
           onBlur={[Function]}
@@ -88790,8 +88875,6 @@ exports[`Storyshots Tooltip Tooltip Positions 1`] = `
               "borderTopRightRadius": "4px",
               "borderTopWidth": "1px",
               "flexDirection": "row",
-              "marginLeft": "0px",
-              "marginRight": "0px",
               "msFlexAlign": "center",
               "msFlexDirection": "row",
               "overflowX": "auto",
@@ -88806,6 +88889,7 @@ exports[`Storyshots Tooltip Tooltip Positions 1`] = `
             autoCorrect="on"
             className="css-textinput-11aywtz r-placeholderTextColor-uek9y r-pointerEvents-633pao"
             dir="auto"
+            id="undefined-input"
             onBlur={[Function]}
             onChange={[Function]}
             onFocus={[Function]}
@@ -88848,9 +88932,13 @@ exports[`Storyshots Tooltip Tooltip Positions 1`] = `
             style={
               Object {
                 "color": "rgba(115,115,115,1.00)",
-                "height": "16px",
+                "height": "24px",
                 "marginRight": "12px",
-                "width": "16px",
+                "paddingBottom": "4px",
+                "paddingLeft": "4px",
+                "paddingRight": "4px",
+                "paddingTop": "4px",
+                "width": "24px",
               }
             }
             viewBox="0 0 24 24"
@@ -90034,6 +90122,7 @@ exports[`Storyshots Transitions Slide wrapped inside parent 1`] = `
                   autoCorrect="on"
                   className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
                   dir="auto"
+                  id="undefined-input"
                   onBlur={[Function]}
                   onChange={[Function]}
                   onFocus={[Function]}
@@ -90765,6 +90854,7 @@ exports[`Storyshots Transitions SlideComposition 1`] = `
                     autoCorrect="on"
                     className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
                     dir="auto"
+                    id="undefined-input"
                     onBlur={[Function]}
                     onChange={[Function]}
                     onFocus={[Function]}
@@ -93876,6 +93966,7 @@ exports[`Storyshots useClipboard Usage 1`] = `
               autoCorrect="on"
               className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
               dir="auto"
+              id="undefined-input"
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
@@ -94056,6 +94147,7 @@ exports[`Storyshots useClipboard Usage 1`] = `
               autoCorrect="on"
               className="css-textinput-11aywtz r-placeholderTextColor-uek9y"
               dir="auto"
+              id="undefined-input"
               onBlur={[Function]}
               onChange={[Function]}
               onFocus={[Function]}
