@@ -1,6 +1,6 @@
 import type { RefObject } from 'react';
 import type { ViewProps } from 'react-native';
-import type { InterfaceBoxProps } from '../../primitives/Box';
+import type { IBoxProps, InterfaceBoxProps } from '../../primitives/Box';
 import type { InterfaceIconProps } from '../../primitives/Icon/types';
 import type { ColorSchemeType } from '../../../components/types';
 
@@ -35,8 +35,8 @@ export type ITabProps = InterfaceBoxProps<ITabProps> & {
   item?: any;
 };
 
-export type ITabViewsProps = InterfaceBoxProps<ITabViewsProps>;
-export type ITabViewProps = InterfaceBoxProps<ITabViewProps> & {
+export type ITabViewsProps = IBoxProps;
+export type ITabViewProps = IBoxProps & {
   index?: number;
 };
 

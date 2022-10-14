@@ -9,43 +9,42 @@ const baseStyle = (props: Record<string, any>) => {
     opacity: 1,
     p: 0.5,
 
-    _light: {
-      bg: 'muted.50',
-      borderColor: 'muted.400',
-      _text: {
-        color: 'darkText',
-      },
-      _icon: {
-        color: `muted.50`,
-      },
-      _checked: {
-        borderColor: `${c}.600`,
-        bg: `${c}.600`,
-        _hover: {
-          borderColor: `${c}.700`,
-          bg: `${c}.700`,
-          _disabled: {
-            borderColor: `${c}.600`,
-            bg: `${c}.600`,
-          },
-        },
-        _pressed: {
-          borderColor: `${c}.800`,
-          bg: `${c}.800`,
-        },
-      },
+    bg: 'muted.50',
+    borderColor: 'muted.400',
+    _text: {
+      color: 'darkText',
+      ml: 2,
+    },
+    _icon: {
+      color: `muted.50`,
+    },
+    _checked: {
+      borderColor: `${c}.600`,
+      bg: `${c}.600`,
       _hover: {
-        borderColor: 'muted.500',
+        borderColor: `${c}.700`,
+        bg: `${c}.700`,
         _disabled: {
-          borderColor: 'muted.400',
+          borderColor: `${c}.600`,
+          bg: `${c}.600`,
         },
       },
       _pressed: {
-        borderColor: 'muted.600',
+        borderColor: `${c}.800`,
+        bg: `${c}.800`,
       },
-      _invalid: {
-        borderColor: 'error.600',
+    },
+    _hover: {
+      borderColor: 'muted.500',
+      _disabled: {
+        borderColor: 'muted.400',
       },
+    },
+    _pressed: {
+      borderColor: 'muted.600',
+    },
+    _invalid: {
+      borderColor: 'error.600',
     },
 
     _dark: {
@@ -94,10 +93,6 @@ const baseStyle = (props: Record<string, any>) => {
       _web: {
         cursor: props.isDisabled ? 'not-allowed' : 'pointer',
       },
-    },
-
-    _text: {
-      ml: 2,
     },
 
     _focusVisible: {

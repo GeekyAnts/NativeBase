@@ -54,7 +54,7 @@ export type {
   IAccordionItemContextProps,
 } from './Accordion';
 
-export { FormControl } from './FormControl';
+export { FormControl, useFormControlContext } from './FormControl';
 export type {
   IFormControlProps,
   IFormControlLabelProps,

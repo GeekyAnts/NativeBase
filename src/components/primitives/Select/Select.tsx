@@ -31,6 +31,7 @@ const Select = (
     isHovered: isHoveredProp,
     isFocused: isFocusedProp,
     isFocusVisible: isFocusVisibleProp,
+    variant,
     ...props
   }: ISelectProps,
   ref: any
@@ -146,7 +147,7 @@ const Select = (
     });
   }
 
-  const [layoutProps] = extractInObject(resolvedProps, [
+  const [layoutProps, nonLayoutProps] = extractInObject(resolvedProps, [
     ...stylingProps.margin,
     ...stylingProps.flexbox,
     ...stylingProps.position,
@@ -158,7 +159,7 @@ const Select = (
     <Input
       placeholder={placeholder}
       InputRightElement={rightIcon}
-      {...resolvedProps}
+      {...nonLayoutProps}
       // NOTE: Adding ts-ignore as we're not exposing isFocused in the Input component
       // @ts-ignore-next-line
       isFocused={isFocused}
@@ -170,44 +171,11 @@ const Select = (
       focusable={false}
       isDisabled={isDisabled}
       pointerEvents="none"
+      variant={variant}
     />
   );
 
-  return Platform.OS === 'web' ? (
-    <Box>
-      {/* <Box w="100%" h="100%" position="absolute" opacity="0" zIndex={1}> */}
-      <select
-        aria-readonly={selectProps.readOnly}
-        required={selectProps.required}
-        disabled={isDisabled}
-        {...focusProps}
-        {...hoverProps}
-        ref={mergeRefs([ref, _ref])}
-        //@ts-ignore
-        onChange={(e) => {
-          setValue(e.target.value);
-        }}
-        value={selectedItem === null ? tempFix : value}
-        aria-label={placeholder}
-        onFocus={() => {
-          setIsFocused(true);
-          onOpen && onOpen();
-        }}
-        onBlur={() => {
-          setIsFocused(false);
-          onClose && onClose();
-        }}
-        {..._webSelect}
-      >
-        <option disabled value={tempFix}>
-          {placeholder}
-        </option>
-        {children}
-      </select>
-      {/* </Box> */}
-      {commonInput}
-    </Box>
-  ) : (
+  return Platform.OS === 'android' || Platform.OS === 'ios' ? (
     <>
       <Pressable
         onPress={() => {
@@ -261,6 +229,40 @@ const Select = (
         </Actionsheet.Content>
       </Actionsheet>
     </>
+  ) : (
+    <Box {...layoutProps}>
+      {/* <Box w="100%" h="100%" position="absolute" opacity="0" zIndex={1}> */}
+      <select
+        aria-readonly={selectProps.readOnly}
+        required={selectProps.required}
+        disabled={isDisabled}
+        {...focusProps}
+        {...hoverProps}
+        ref={mergeRefs([ref, _ref])}
+        //@ts-ignore
+        onChange={(e) => {
+          setValue(e.target.value);
+        }}
+        value={selectedItem === null ? tempFix : value}
+        aria-label={placeholder}
+        onFocus={() => {
+          setIsFocused(true);
+          onOpen && onOpen();
+        }}
+        onBlur={() => {
+          setIsFocused(false);
+          onClose && onClose();
+        }}
+        {..._webSelect}
+      >
+        <option disabled value={tempFix}>
+          {placeholder}
+        </option>
+        {children}
+      </select>
+      {/* </Box> */}
+      {commonInput}
+    </Box>
   );
 };
 

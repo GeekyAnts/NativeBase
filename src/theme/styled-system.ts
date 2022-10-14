@@ -1,10 +1,10 @@
-import { Platform, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 import get from 'lodash.get';
-import { resolveValueWithBreakpoint } from '../hooks/useThemeProps/utils';
-import { hasValidBreakpointFormat, transparentize } from './tools';
+import { transparentize } from './tools';
 import type { ITheme } from '.';
 import type { UseResponsiveQueryParams } from '../utils/useResponsiveQuery';
-
+import { getStyledFromProps } from '../utils/getStyledFromProps';
+import { convertStringNumberToNumber } from '../utils/convertStringNumberToNumber';
 const isNumber = (n: any) => typeof n === 'number' && !isNaN(n);
 
 export const getColor = (rawValue: any, scale: any, theme: any) => {
@@ -592,89 +592,6 @@ export const propConfig = {
   ...extraProps,
 } as const;
 
-// For backward compatibility with 3.0 of props like non token string numbers `<Box mt={"39"} />` => used to get applied as 39px. RN expects fontWeight to be string and crashes with numbers
-// https://reactnative.dev/docs/text-style-props#fontweight
-const convertStringNumberToNumber = (key: string, value: string) => {
-  if (
-    typeof value === 'string' &&
-    key !== 'fontWeight' &&
-    value &&
-    !isNaN(Number(value))
-  ) {
-    return parseFloat(value);
-  }
-
-  return value;
-};
-
-const getRNKeyAndStyleValue = ({
-  config,
-  value,
-  key,
-  theme,
-  styledSystemProps,
-  currentBreakpoint,
-}: any) => {
-  let style: any = {};
-  if (config === true) {
-    style = {
-      ...style,
-      [key]: convertStringNumberToNumber(key, value),
-    };
-  } else if (config) {
-    //@ts-ignore
-    const { property, scale, properties, transformer } = config;
-    let val = value;
-
-    if (transformer) {
-      val = transformer(val, theme[scale], theme, styledSystemProps.fontSize);
-    } else {
-      // If a token is not found in the theme
-      val = get(theme[scale], value, value);
-    }
-
-    if (typeof val === 'string') {
-      if (val.endsWith('px')) {
-        val = parseFloat(val);
-      } else if (val.endsWith('em') && Platform.OS !== 'web') {
-        const fontSize = resolveValueWithBreakpoint(
-          styledSystemProps.fontSize,
-          theme.breakpoints,
-          currentBreakpoint,
-          key
-        );
-        val =
-          parseFloat(val) *
-          parseFloat(get(theme.fontSizes, fontSize, fontSize));
-      }
-    }
-
-    val = convertStringNumberToNumber(key, val);
-
-    if (properties) {
-      //@ts-ignore
-      properties.forEach((property) => {
-        style = {
-          ...style,
-          [property]: val,
-        };
-      });
-    } else if (property) {
-      style = {
-        ...style,
-        [property]: val,
-      };
-    } else {
-      style = {
-        ...style,
-        ...val,
-      };
-    }
-  }
-
-  return style;
-};
-
 export const getStyleAndFilteredProps = ({
   style,
   theme,
@@ -683,77 +600,17 @@ export const getStyleAndFilteredProps = ({
   getResponsiveStyles,
   styledSystemProps,
 }: any) => {
-  let styleFromProps: any = {};
   let dataSet: any = {};
-  let responsiveStyles: null | Record<
-    keyof typeof theme.breakpoints,
-    Array<any>
-  > = null;
 
   const orderedBreakPoints = Object.entries(
     theme.breakpoints as ITheme['breakpoints']
   ).sort((a, b) => a[1] - b[1]);
 
-  for (const key in styledSystemProps) {
-    const rawValue = styledSystemProps[key];
-
-    const config = propConfig[key as keyof typeof propConfig];
-
-    if (hasValidBreakpointFormat(rawValue, theme.breakpoints)) {
-      if (!responsiveStyles) responsiveStyles = {};
-
-      const value = rawValue;
-      if (Array.isArray(value)) {
-        value.forEach((v, i) => {
-          //@ts-ignore
-          if (!responsiveStyles[orderedBreakPoints[i][0]]) {
-            //@ts-ignore
-            responsiveStyles[orderedBreakPoints[i][0]] = [];
-          }
-          const newStyle = getRNKeyAndStyleValue({
-            config,
-            value: v,
-            key,
-            styledSystemProps,
-            theme,
-            currentBreakpoint,
-          });
-          //@ts-ignore
-          responsiveStyles[orderedBreakPoints[i][0]].push(newStyle);
-        });
-      } else {
-        for (const k in value) {
-          const newStyle = getRNKeyAndStyleValue({
-            config,
-            value: value[k],
-            key,
-            styledSystemProps,
-            theme,
-            currentBreakpoint,
-          });
-          if (!responsiveStyles[k]) {
-            responsiveStyles[k] = [];
-          }
-          responsiveStyles[k].push(newStyle);
-        }
-      }
-    } else {
-      const value = rawValue;
-      const newStyle = getRNKeyAndStyleValue({
-        config,
-        value,
-        key,
-        styledSystemProps,
-        theme,
-        currentBreakpoint,
-      });
-
-      styleFromProps = {
-        ...styleFromProps,
-        ...newStyle,
-      };
-    }
-  }
+  let { styleFromProps, responsiveStyles }: any = getStyledFromProps(
+    styledSystemProps,
+    theme,
+    currentBreakpoint
+  );
 
   if (responsiveStyles) {
     const query: UseResponsiveQueryParams = { query: [] };
@@ -788,6 +645,7 @@ export const getStyleAndFilteredProps = ({
 
   return {
     styleSheet: StyleSheet.create({ box: styleFromProps }),
+    styleFromProps,
     dataSet,
   };
 };
