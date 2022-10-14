@@ -98,6 +98,7 @@
     "react": "*",
     "react-dom": "*",
     "react-native": "*",
+    "react-native-web": "<=0.17.7",
     "react-native-safe-area-context": "*",
     "react-native-svg": "*"
   },
