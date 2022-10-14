@@ -40,6 +40,7 @@ const Button = (
   const { isFocusVisible, focusProps: focusRingProps }: any = useFocusRing();
 
   const {
+    onPress,
     onPressIn,
     onPressOut,
     onHoverIn,
@@ -111,6 +112,7 @@ const Button = (
     <Pressable
       disabled={isDisabled || isLoading}
       ref={ref}
+      onPress={composeEventHandlers(onPress, pressableProps.onPress)}
       onPressIn={composeEventHandlers(onPressIn, pressableProps.onPressIn)}
       onPressOut={composeEventHandlers(onPressOut, pressableProps.onPressOut)}
       // @ts-ignore - web only

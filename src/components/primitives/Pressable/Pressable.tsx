@@ -33,6 +33,7 @@ export const useIsPressed = () => {
   const [isPressed, setIsPressed] = React.useState(false);
   return {
     pressableProps: {
+      onPress: () => setIsPressed((val) => !val),
       onPressIn: () => setIsPressed(true),
       onPressOut: () => setIsPressed(false),
     },
@@ -47,6 +48,7 @@ const Pressable = (
     children,
     isDisabled,
     disabled,
+    onPress,
     isHovered: isHoveredProp,
     isPressed: isPressedProp,
     isFocused: isFocusedProp,
@@ -87,6 +89,7 @@ const Pressable = (
   return (
     <StyledPressable
       ref={ref}
+      onPress={composeEventHandlers(onPress, pressableProps.onPress)}
       onPressIn={composeEventHandlers(onPressIn, pressableProps.onPressIn)}
       onPressOut={composeEventHandlers(onPressOut, pressableProps.onPressOut)}
       // @ts-ignore - web only
