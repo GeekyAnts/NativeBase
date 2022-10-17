@@ -40,6 +40,7 @@ const ModalContent = (props: IBoxProps, ref?: any) => {
       //@ts-ignore - web only
       accessibilityRole={Platform.OS === 'web' ? 'dialog' : undefined}
       accessibilityViewIsModal
+      _web={{ focusable: false }}
     />
   );
 };

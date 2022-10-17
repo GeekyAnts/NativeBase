@@ -28,7 +28,7 @@ export * from './components/primitives/Column';
 export * from './components/composites/Container';
 export * from './components/composites/Divider';
 export * from './components/composites/Fab';
-// export * from './components/composites/factory';
+export * from './components/composites/factory';
 export * from './components/primitives/Flex';
 export * from './components/composites/FormControl';
 export * from './components/primitives/Heading';
@@ -86,7 +86,7 @@ export * from './hooks/useMediaQuery';
 export * from './hooks/useSafeArea';
 export * from './hooks/useContrastText';
 export * from './hooks/useAccessibleColors';
-
+export * from './hooks/useSx';
 // // Theme
 export * from './theme/Custom';
 export * from './theme/Mode';

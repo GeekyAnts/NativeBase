@@ -1,4 +1,4 @@
-import { get as lodashGet } from 'lodash';
+import { get as lodashGet, isNil } from 'lodash';
 
 import { getStyledObject } from './getStyledComponentAndObjects';
 import { theme as defaultTheme } from '../theme';
@@ -47,7 +47,7 @@ export const init = (inputResolvedStyledMap?: any) => {
   if (inputResolvedStyledMap) {
     resolvedStyledMap = inputResolvedStyledMap;
   }
-  if (process.env.NODE_ENV === 'development') {
+  if (process.env.NODE_ENV === 'development' && typeof window !== 'undefined') {
     //@ts-ignore
     window['resolvedStyledMap'] = resolvedStyledMap;
     //@ts-ignore
@@ -79,6 +79,29 @@ export const setResolvedStyleMap = (
     styledMap[colorMode].push(value);
   }
 };
+
+/**
+ *
+ * @param styleSheet StyleSheet with theme style or state style
+ * @param styleSheetProperty key of styleSheet
+ * @returns style with current stylsheet property
+ */
+const getAndMergeThemeFromStylesheet = (
+  styleSheet: any,
+  styleSheetProperty: any
+) => {
+  // get style from stylsheet
+  const currentPropertyStyleArray = map(styleSheet, styleSheetProperty);
+
+  // merge styles
+  let currentPropertyStyle = {};
+  for (const props of currentPropertyStyleArray) {
+    currentPropertyStyle = merge({}, currentPropertyStyle, props);
+  }
+
+  return currentPropertyStyle;
+};
+
 const getThemeObject = (
   providerId: any,
   componentName: any,
@@ -97,10 +120,6 @@ const getThemeObject = (
   // state style
   const stateStyles = getPseudoStateStyles(providerId, componentName, state);
 
-  if (componentName === 'Checkbox' && state.isInvalid && state.isHovered) {
-    // console.log(componentName, stateStyles, 'component state');
-  }
-
   let stateStyleSheet: any = [];
 
   forEach(stateStyles, (stateStyleObj) => {
@@ -110,48 +129,58 @@ const getThemeObject = (
     }
   });
 
-  const unResolvedPropsArray = map(styleSheet, 'unResolvedProps');
+  // Theme style props resolution
+  let unResolvedProps = getAndMergeThemeFromStylesheet(
+    styleSheet,
+    'unResolvedProps'
+  );
 
-  let unResolvedProps = {};
-  for (const props of unResolvedPropsArray) {
-    // unResolvedProps = { ...unResolvedProps, ...props };
-    unResolvedProps = merge({}, unResolvedProps, props);
-  }
+  const restDefaultProps = getAndMergeThemeFromStylesheet(
+    styleSheet,
+    'restDefaultProps'
+  );
+  const stateRestDefaultProps = getAndMergeThemeFromStylesheet(
+    stateStyleSheet,
+    'restDefaultProps'
+  );
 
-  const restDefaultPropsArray = map(styleSheet, 'restDefaultProps');
-  let restDefaultProps = {};
-  for (const props of restDefaultPropsArray) {
-    restDefaultProps = { ...restDefaultProps, ...props };
-  }
+  const styleFromProps = getAndMergeThemeFromStylesheet(
+    styleSheet,
+    'styleFromProps'
+  );
 
-  const styleFromPropsArray = map(styleSheet, 'styleFromProps');
-  let styleFromProps = {};
-  for (const props of styleFromPropsArray) {
-    styleFromProps = { ...styleFromProps, ...props };
-  }
+  let internalPseudoProps = getAndMergeThemeFromStylesheet(
+    styleSheet,
+    'internalPseudoProps'
+  );
 
-  const internalPseudoPropsArray = map(styleSheet, 'internalPseudoProps');
-  let internalPseudoProps = {};
-  for (const props of internalPseudoPropsArray) {
-    internalPseudoProps = { ...internalPseudoProps, ...props };
-  }
+  // State style props resolution
+  const stateStyleFromProps = getAndMergeThemeFromStylesheet(
+    stateStyleSheet,
+    'styleFromProps'
+  );
 
-  const stateStyleFromPropsArray = map(stateStyleSheet, 'styleFromProps');
-  let stateStyleFromProps = {};
-  for (const props of stateStyleFromPropsArray) {
-    stateStyleFromProps = { ...stateStyleFromProps, ...props };
-  }
+  // Merging state styles internal pseudo props with theme style internal pseudo props
+  internalPseudoProps = merge(
+    {},
+    internalPseudoProps,
+    getAndMergeThemeFromStylesheet(stateStyleSheet, 'internalPseudoProps')
+  );
 
-  // if (componentName === 'Button') {
-  //   console.log(stateStyles, stateStyleSheet, 'hello here');
-  // }
-  // console.log(styleFromProps, "hello style from props")
+  // Merging state styles unresolved props with theme style unresolved props
+  unResolvedProps = merge(
+    {},
+    unResolvedProps,
+    getAndMergeThemeFromStylesheet(stateStyleSheet, 'unResolvedProps')
+  );
+
   return {
-    style: map(styleSheet, 'style'),
+    // style: map(styleSheet, 'style'),
     unResolvedProps: unResolvedProps,
     styleFromProps: styleFromProps,
     stateStyleFromProps: stateStyleFromProps,
     restDefaultProps: restDefaultProps,
+    stateRestDefaultProps: stateRestDefaultProps,
     internalPseudoProps: internalPseudoProps,
   };
 };
@@ -180,6 +209,23 @@ const getComponentNameKeyFromProps = (
   return componentKeyName;
 };
 
+const mergeUnResolvedProps = (themeObj: any, sizeThemeObj: any) => {
+  const unResolvedProps = merge(
+    {},
+    themeObj.unResolvedProps,
+    sizeThemeObj.unResolvedProps
+  );
+
+  for (const property in sizeThemeObj.styleFromProps) {
+    if (!isNil(unResolvedProps[property])) {
+      delete unResolvedProps[property];
+    }
+  }
+
+  // return merge({}, themeObj.unResolvedProps, sizeThemeObj.unResolvedProps);
+
+  return unResolvedProps;
+};
 // const get
 export const getThemeProps = (
   theme: any,
@@ -187,9 +233,21 @@ export const getThemeProps = (
   inputComponentKeyName: string,
   config: any,
   state?: any,
-  props: any = {}
+  props: any = {},
+  isAlreadyResolved: boolean = false
 ): any => {
   const componentNames = inputComponentKeyName.split('.');
+
+  if (isAlreadyResolved) {
+    return {
+      styleFromProps: {},
+      unResolvedProps: {},
+      internalPseudoProps: {},
+      stateStyleFromProps: {},
+      restDefaultProps: {},
+      stateRestDefaultProps: {},
+    };
+  }
 
   const rootComponentName = componentNames[0];
   const pseudoComponentKeyName = componentNames[1];
@@ -208,11 +266,8 @@ export const getThemeProps = (
     config.colorMode,
     state
   );
-  // console.log(themeObj, providerId, 'theme obje');
 
   if (isEmptyObj(themeObj)) {
-    // console.log('hello here 1111', inputComponentKeyName);
-    // updateComponentThemeMap(inputComponentKeyName, {}, config, {});
     updateComponentThemeMap(
       theme,
       providerId,
@@ -269,28 +324,44 @@ export const getThemeProps = (
       }
     }
 
+    //themeObj.style.fontSize
+
+    // if (inputComponentKeyName === 'Heading') {
+    //   console.log(
+    //     'hello here &&&&',
+    //     themeObj,
+    //     themeObj.unResolvedProps,
+    //     sizeThemeObj.unResolvedProps,
+    //     props
+    //   );
+    // }
     const mergedThemeObj = {
-      style: sizeThemeObj?.style
-        ? [...themeObj?.style, ...sizeThemeObj?.style]
-        : themeObj.style,
+      // style: sizeThemeObj?.style
+      //   ? [...themeObj?.style, ...sizeThemeObj?.style]
+      //   : themeObj.style,
       styleFromProps: merge(
         {},
         themeObj.styleFromProps,
         sizeThemeObj.styleFromProps
       ),
-      unResolvedProps: merge(
-        {},
-        themeObj.unResolvedProps,
-        sizeThemeObj.unResolvedProps
-      ),
+      unResolvedProps: mergeUnResolvedProps(themeObj, sizeThemeObj),
       internalPseudoProps: merge(
         {},
         themeObj.internalPseudoProps,
         sizeThemeObj.internalPseudoProps
       ),
+      stateStyleFromProps: merge(
+        {},
+        themeObj.stateStyleFromProps,
+        sizeThemeObj.stateStyleFromProps
+      ),
       restDefaultProps: {
         ...themeObj.restDefaultProps,
         ...sizeThemeObj.restDefaultProps,
+      },
+      stateRestDefaultProps: {
+        ...themeObj.stateRestDefaultProps,
+        ...sizeThemeObj.stateRestDefaultProps,
       },
     };
     themeObj = mergedThemeObj;

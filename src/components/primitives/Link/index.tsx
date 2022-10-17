@@ -29,6 +29,7 @@ const Link = ({ isHovered: isHoveredProp, ...props }: ILinkProps, ref: any) => {
     textDecorationLine: isUnderlined ? 'underline' : 'none',
     ..._text,
   };
+
   // function getHoverProps() {
   //   let hoverTextProps = {
   //     ...linkTextProps,

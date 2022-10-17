@@ -31,7 +31,7 @@ function variantSubtle(props: InterfaceBadgeProps & { colorScheme: any }) {
   return {
     _text: { color: `${colorScheme}.900` },
     _icon: { color: `${colorScheme}.900` },
-    _light: { bg: `${colorScheme}.100` },
+    bg: `${colorScheme}.100`,
     _dark: { bg: `${colorScheme}.300` },
     borderWidth: '1',
     borderRadius: '2',
@@ -42,11 +42,9 @@ function variantSubtle(props: InterfaceBadgeProps & { colorScheme: any }) {
 function variantOutline(props: InterfaceBadgeProps & { colorScheme: any }) {
   const colorScheme = getColorScheme(props);
   return {
-    _light: {
-      _text: { color: `${colorScheme}.600` },
-      _icon: { color: `${colorScheme}.600` },
-      borderColor: `${colorScheme}.600`,
-    },
+    _text: { color: `${colorScheme}.600` },
+    _icon: { color: `${colorScheme}.600` },
+    borderColor: `${colorScheme}.600`,
     _dark: {
       _text: {
         color: `${colorScheme}.300`,

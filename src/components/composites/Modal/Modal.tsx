@@ -36,6 +36,7 @@ const Modal = (
     contentSize,
     _slide,
     _overlay,
+    useRNModal,
     ...resolvedProps
   } = usePropsResolution('Modal', rest);
 
@@ -85,6 +86,7 @@ const Modal = (
       isKeyboardDismissable={isKeyboardDismissable}
       animationPreset={animationPreset}
       useRNModalOnAndroid
+      useRNModal={useRNModal}
       {..._overlay}
     >
       <ModalContext.Provider value={contextValue}>

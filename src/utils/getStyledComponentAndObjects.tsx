@@ -3,8 +3,8 @@ import {
   callPropsFlattener,
   propsFlattener,
   propsSpreader,
-  resolvePropsToStyle,
 } from '../hooks/useThemeProps/propsFlattener';
+import { resolvePropsToStyle } from '../hooks/useThemeProps/resolvePropsToStyle';
 import { isEmptyObj } from './isEmptyObj';
 import isEmpty from 'lodash.isempty';
 
@@ -34,7 +34,6 @@ export const getStyledObject = (
   [flattenProps, specificityMap] = propsFlattener(
     {
       props: inputWithDefaultProps,
-      //TODO: build-time
       platform: config.platform, //Platform.OS,
       colormode: config.colorMode,
       state: {},
@@ -74,7 +73,6 @@ export const getStyledObject = (
 
   const styleObj: any = resolvePropsToStyle(
     flattenProps,
-    componentStyle,
     theme,
     config.platform,
     false,
@@ -83,11 +81,8 @@ export const getStyledObject = (
     undefined
   );
 
-  // if (inputProps?.extraProp === 'Actionsheet') {
-  //   console.log(flattenProps, 'hello flatten here');
-  // }
-
   styleObj.internalPseudoProps = internalPseudoProps;
+  styleObj.style = { ...styleObj?.style, ...componentStyle };
 
   return styleObj;
 };
@@ -125,7 +120,8 @@ const resolveComponentTheme = (
   theme: any,
   incomingProps: any,
   themeType: Array<string>,
-  providedTheme: any
+  providedTheme: any,
+  colorMode: any
 ): any => {
   // if (typeof providedTheme[themeType[0]][themeType[1]] === 'function')
   //   // console.log(
@@ -145,7 +141,7 @@ const resolveComponentTheme = (
         : providedTheme[themeType[0]][themeType[1]]({
             theme,
             ...incomingProps,
-            colorMode: 'light',
+            colorMode,
           });
     } else {
       return typeof providedTheme[themeType[0]] !== 'function'
@@ -153,7 +149,7 @@ const resolveComponentTheme = (
         : providedTheme[themeType[0]]({
             theme,
             ...incomingProps,
-            colorMode: 'light',
+            colorMode,
           });
     }
   } catch {
@@ -189,7 +185,8 @@ const mergeStylesWithSpecificity = (
           theme,
           flattenProps,
           ['baseStyle'],
-          extededComponentTheme
+          extededComponentTheme,
+          colorMode
         ),
       };
     }
@@ -201,7 +198,8 @@ const mergeStylesWithSpecificity = (
             theme,
             flattenProps,
             ['variants', flattenProps.variant],
-            extededComponentTheme
+            extededComponentTheme,
+            colorMode
           ),
         };
         // console.log(
@@ -235,7 +233,8 @@ const mergeStylesWithSpecificity = (
             theme,
             flattenProps,
             ['sizes', flattenProps.size],
-            extededComponentTheme
+            extededComponentTheme,
+            colorMode
           ),
         };
         delete flattenProps.size;

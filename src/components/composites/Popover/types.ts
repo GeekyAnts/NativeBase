@@ -22,11 +22,11 @@ export type IArrowProps = {
 
 export interface InterfacePopoverProps {
   /**
-   * If true, the popover will be opened by default
+   * If true, the popover will be opened by default.
    */
   defaultIsOpen?: boolean;
   /**
-   * Whether the popover is opened. Useful for conrolling the open state
+   * Whether the popover is opened. Useful for controlling the open state.
    */
   isOpen?: boolean;
   /**
@@ -48,7 +48,7 @@ export interface InterfacePopoverProps {
    */
   finalFocusRef?: React.RefObject<any>;
   /**
-   * Function that returns a React Element. This element will be used as a Trigger for the popover
+   * Function that returns a React Element. This element will be used as a Trigger for the popover.
    */
   trigger: (_props: any, state: { open: boolean }) => JSX.Element;
   /**
@@ -60,16 +60,16 @@ export interface InterfacePopoverProps {
    */
   offset?: number;
   /**
-   * Determines whether menu content should overlap with the trigger
+   * Determines whether menu content should overlap with the trigger.
    * @default false
    */
   shouldOverlapWithTrigger?: boolean;
   /**
-   * Popover children
+   * Popover children.
    */
   children: React.ReactNode;
   /**
-   * If true, the modal will close when Escape key is pressed
+   * If true, the modal will close when Escape key is pressed.
    * @default true
    */
   isKeyboardDismissable?: boolean;
@@ -95,9 +95,14 @@ export interface InterfacePopoverProps {
    */
   onClose?: () => void;
   /**
-   * This function will be invoked when popover is opened
+   * This function will be invoked when popover is opened.
    */
   onOpen?: () => void;
+
+  /* If true, renders react-native native modal
+   * @default false
+   */
+  useRNModal?: boolean;
 }
 
 export type IPopoverContentImpl = {

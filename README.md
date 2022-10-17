@@ -1,6 +1,13 @@
 # <img src="https://raw.githubusercontent.com/GeekyAnts/NativeBase/master/img/header_new.png" alt="Nativebase Logo">
 
-[![Financial Contributors on Open Collective](https://opencollective.com/NativeBase/all/badge.svg?label=financial+contributors)](https://opencollective.com/NativeBase) [![](https://img.shields.io/discord/785491682719301643?label=Discord&logo=discord&logoColor=%237289DA)](https://discord.com/invite/TSgCw2UPmb) [![Build Status](https://travis-ci.org/GeekyAnts/NativeBase.svg?branch=master)](https://travis-ci.org/GeekyAnts/NativeBase) [![npm version](https://badge.fury.io/js/native-base.svg)](https://badge.fury.io/js/native-base) [![npm downloads](https://img.shields.io/npm/dt/native-base.svg)](https://npm-stat.com/charts.html?package=native-base&from=2016-04-01&to=2018-02-17)
+[![Financial Contributors on Open Collective](https://opencollective.com/NativeBase/all/badge.svg?label=financial+contributors)](https://opencollective.com/NativeBase)
+[![](https://img.shields.io/discord/785491682719301643?label=Discord&logo=discord&logoColor=%237289DA)](https://discord.com/invite/TSgCw2UPmb)
+[![npm next package](https://img.shields.io/npm/v/native-base/next.svg)](https://www.npmjs.com/package/native-base)
+[![npm latest package](https://img.shields.io/npm/v/native-base/latest.svg)](https://www.npmjs.com/package/native-base)
+[![npm downloads](https://img.shields.io/npm/dm/native-base.svg)](https://npm-stat.com/charts.html?package=native-base)
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/GeekyAnts/NativeBase/blob/master/LICENSE)
+[![Follow on Twitter](https://img.shields.io/twitter/follow/nativebase.svg?label=follow+NativeBase)](https://twitter.com/nativebase)
+[![Github Stars](https://img.shields.io/github/stars/GeekyAnts/NativeBase)](https://img.shields.io/github/stars/GeekyAnts/NativeBase)
 
 ## NativeBase is a mobile-first, accessible component library for building a consistent design system across android, iOS & web.
 

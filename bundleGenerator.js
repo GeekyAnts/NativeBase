@@ -29,6 +29,19 @@ async function build() {
   }
 
   fs.writeFileSync(path.join(__dirname, 'src/bundle.js'), outputCodes[0]);
+  const newBundle = require(path.join(__dirname, 'src/bundle.js'));
+  const { generateBuildTimeMap } = newBundle;
+  const usedComponentDetailMap = {
+    Button: [
+      { variant: 'unstyled' },
+      { colorScheme: 'indigo' },
+      { colorScheme: 'indigo' },
+      { variant: 'unstyled' },
+      { colorScheme: 'indigo' },
+      { colorScheme: 'indigo' },
+    ],
+  };
+  generateBuildTimeMap('web', usedComponentDetailMap);
   // console.log(outputCodes, 'eeee');
   return outputCodes;
 }

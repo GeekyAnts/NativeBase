@@ -23,12 +23,13 @@ export default memo(
       const buttonBorderRadius =
         borderRadius ?? map(INTERNAL_themeStyle, 'borderRadius')[0];
 
-      let computedChildren: JSX.Element | JSX.Element[];
+      let computedChildren;
 
       if (Array.isArray(children)) {
-        computedChildren = React.Children.map(
-          children,
-          (child: JSX.Element, index: number) => {
+        computedChildren = React.Children.toArray(children).map(
+          (child: any, index: number) => {
+            if (typeof child === 'string' || typeof child === 'number')
+              return child;
             return React.cloneElement(child, {
               key: `button-group-child-${index}`,
               variant,
@@ -60,9 +61,8 @@ export default memo(
           }
         );
       } else {
-        computedChildren = React.Children.map(
-          children,
-          (child: JSX.Element, index: number) => {
+        computedChildren = React.Children.toArray(children).map(
+          (child: any, index: number) => {
             return React.cloneElement(child, {
               key: `button-group-child-${index}`,
               variant,

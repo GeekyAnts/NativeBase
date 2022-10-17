@@ -9,7 +9,7 @@ export const Example = () => {
         icon={<Icon as={Entypo} name="emoji-happy" />}
         borderRadius="full"
         _icon={{
-          color: 'blue.500',
+          color: 'orange.500',
           size: 'md',
         }}
         _hover={{

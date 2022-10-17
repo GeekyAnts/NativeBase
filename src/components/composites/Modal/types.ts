@@ -8,19 +8,19 @@ import type { ThemeComponentSizeType } from '../../../components/types/utils';
 import type { IOverlayProps } from '../../primitives/Overlay';
 export interface InterfaceModalProps extends InterfaceBoxProps<IModalProps> {
   /**
-   * If true, the modal will open. Useful for controllable state behaviour
+   * If true, the modal will open. Useful for controllable state behavior.
    */
   isOpen?: boolean;
   /**
-   * Callback invoked when the modal is closed
+   * Callback invoked when the modal is closed.
    */
   onClose?: any;
   /**
-   * If true, the modal will be opened by default
+   * If true, the modal will be opened by default.
    */
   defaultIsOpen?: boolean;
   /**
-   * The size of the modal
+   * The size of the modal.
    */
   size?: ThemeComponentSizeType<'Modal'>;
   /**
@@ -37,22 +37,22 @@ export interface InterfaceModalProps extends InterfaceBoxProps<IModalProps> {
    */
   avoidKeyboard?: boolean;
   /**
-   * If true, the modal will close when the overlay is clicked
+   * If true, the modal will close when the overlay is clicked.
    * @default true
    */
   closeOnOverlayClick?: boolean;
   /**
-   * If true, the modal will close when Escape key is pressed
+   * If true, the modal will close when Escape key is pressed.
    * @default true
    */
   isKeyboardDismissable?: boolean;
   /**
-   * If true, a backdrop element is visible
+   * If true, a backdrop element is visible.
    * @default true
    */
   overlayVisible?: boolean;
   /**
-   * If true, a backdrop element is visible
+   * If true, a backdrop element is visible.
    * @default true
    */
   backdropVisible?: boolean;
@@ -61,7 +61,7 @@ export interface InterfaceModalProps extends InterfaceBoxProps<IModalProps> {
    */
   _backdrop?: any;
   /**
-   * Sets the animation type
+   * Sets the animation type.
    * @default "fade"
    */
   animationPreset?: 'fade' | 'slide';
@@ -81,6 +81,11 @@ export interface InterfaceModalProps extends InterfaceBoxProps<IModalProps> {
    * Props to be passed to the Overlay used inside of Modal.
    */
   _overlay?: IOverlayProps;
+
+  /* If true, renders react-native native modal
+   * @default false
+   */
+  useRNModal?: boolean;
 }
 
 export type IModalComponentType = ((
