@@ -642,8 +642,6 @@ const getRNKeyAndStyleValue = ({
     if (typeof val === 'string') {
       if (val.endsWith('px')) {
         val = parseFloat(val);
-        //TODO: build-time
-        // } else if (val.endsWith('em') && Platform.OS !== 'web') {
       } else if (val.endsWith('em') && platform !== 'web') {
         const fontSize = resolveValueWithBreakpoint(
           styledSystemProps.fontSize,
@@ -852,9 +850,6 @@ export const getStyleAndFilteredProps = ({
       dataSet = { ...dataSet, ...newDataSet };
 
       styleFromProps = { ...styleFromProps, ...styleFromQuery };
-
-      //TODO: build-time
-      // styleFromProps = { ...styleFromProps };
     } else {
     }
   }
@@ -869,8 +864,7 @@ export const getStyleAndFilteredProps = ({
   // }
 
   return {
-    //TODO: build-time
-    styleSheet: {}, //StyleSheet.create({ box: styleFromProps }),
+    styleSheet: {},
     styleFromProps,
     restDefaultProps,
     dataSet,

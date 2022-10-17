@@ -11,7 +11,8 @@ export const resolvePropsToStyle = (
   strictMode: any,
   getResponsiveStyles?: any,
   INTERNAL_themeStyle?: any,
-  stateProps?: any
+  stateProps?: any,
+  INTERNAL_inlineStyle?: any
 ) => {
   let flattenInternalThemeProps = INTERNAL_themeStyle;
   let fontSize;
@@ -61,6 +62,7 @@ export const resolvePropsToStyle = (
   const mergedStyle = merge.apply({}, [
     merge.apply({}, INTERNAL_themeStyle),
     styleFromProps,
+    INTERNAL_inlineStyle,
     merge.apply({}, stateProps?.INTERNAL_themeStyle),
     inlineStyleFromProps,
   ]);

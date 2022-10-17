@@ -26,9 +26,10 @@ const Link = ({ isHovered: isHoveredProp, ...props }: ILinkProps, ref: any) => {
   const { linkProps } = useLink({ href, onPress, isExternal, _ref });
 
   const linkTextProps = {
-    ..._text,
     textDecorationLine: isUnderlined ? 'underline' : 'none',
+    ..._text,
   };
+
   // function getHoverProps() {
   //   let hoverTextProps = {
   //     ...linkTextProps,
