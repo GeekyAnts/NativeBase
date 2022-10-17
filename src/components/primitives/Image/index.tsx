@@ -97,7 +97,7 @@ const Image = memo(
 );
 
 interface ImageStatics {
-  getSize: typeof RNImage.prefetch;
+  getSize: typeof RNImage.getSize;
   prefetch: typeof RNImage.prefetch;
   queryCache: typeof RNImage.queryCache;
 }
