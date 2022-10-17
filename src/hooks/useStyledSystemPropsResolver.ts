@@ -56,7 +56,8 @@ export const useStyledSystemPropsResolver = ({
       strictMode,
       getResponsiveStyles,
       restProps.INTERNAL_themeStyle,
-      restProps.stateProps
+      restProps.stateProps,
+      restProps.INTERNAL_inlineStyle
     );
     return resolvedStyle;
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -71,6 +72,7 @@ export const useStyledSystemPropsResolver = ({
     getResponsiveStyles,
     stableHash(props),
     stableHash(restProps.stateProps),
+    stableHash(restProps.INTERNAL_inlineStyle),
   ]);
 
   // if (process.env.NODE_ENV === "development" && debug) {
