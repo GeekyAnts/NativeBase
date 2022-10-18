@@ -3,8 +3,8 @@ import { useId } from '@react-native-aria/utils';
 import omit from 'lodash.omit';
 import type { IFormControlProps } from './types';
 import { ariaAttr } from '../../../utils';
-import { ResponsiveQueryContext } from '../../../utils/useResponsiveQuery/ResponsiveQueryProvider';
 import { uniqueId } from 'lodash';
+import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
 
 export type IFormControlContext = Omit<
   ReturnType<typeof useFormControlProvider>,
@@ -24,8 +24,8 @@ export function useFormControlProvider(props: IFormControlProps) {
   } = props;
 
   let id = uniqueId();
-  const responsiveQueryContext = React.useContext(ResponsiveQueryContext);
-  const disableCSSMediaQueries = responsiveQueryContext.disableCSSMediaQueries;
+  const isSSR = useNativeBaseConfig('NativeBase').isSSR;
+  const disableCSSMediaQueries = !isSSR;
 
   if (!disableCSSMediaQueries) {
     // This if statement technically breaks the rules of hooks, but is safe
@@ -112,7 +112,7 @@ export function useFormControl(props: IFormControlProps) {
 
   return {
     ...cleanProps,
-    nativeID: props.nativeID ?? field?.nativeID + '-input',
+    nativeID: props.nativeID ?? field?.nativeID,
     disabled: props.isDisabled || field?.isDisabled,
     readOnly: props.isReadOnly || field?.isReadOnly,
     required: props.isRequired || field?.isRequired,

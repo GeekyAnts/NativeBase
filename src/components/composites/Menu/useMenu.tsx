@@ -1,9 +1,8 @@
-import React from 'react';
 import { useFocusManager } from '@react-aria/focus';
 import { useId } from '@react-native-aria/utils';
 import { AccessibilityRole, Platform } from 'react-native';
-import { ResponsiveQueryContext } from '../../../utils/useResponsiveQuery/ResponsiveQueryProvider';
 import { uniqueId } from 'lodash';
+import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
 
 type IMenuTriggerProps = {
   handleOpen: () => void;
@@ -14,8 +13,8 @@ export const useMenuTrigger = ({ handleOpen, isOpen }: IMenuTriggerProps) => {
   let menuTriggerId = uniqueId();
 
   // let id = uniqueId();
-  const responsiveQueryContext = React.useContext(ResponsiveQueryContext);
-  const disableCSSMediaQueries = responsiveQueryContext.disableCSSMediaQueries;
+  const isSSR = useNativeBaseConfig('NativeBase').isSSR;
+  const disableCSSMediaQueries = !isSSR;
 
   if (!disableCSSMediaQueries) {
     // This if statement technically breaks the rules of hooks, but is safe
