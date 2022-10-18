@@ -61,15 +61,12 @@ const Pressable = (
   const { pressableProps, isPressed } = useIsPressed();
   const { focusProps, isFocused } = useFocus();
   const { isFocusVisible, focusProps: focusRingProps }: any = useFocusRing();
-  const state = {
+
+  const stateProps = {
     isPressed: isPressedProp || isPressed,
     isFocused: isFocusedProp || isFocused,
     isHovered: isHoveredProp || isHovered,
-    isFocusVisible: isFocusVisibleProp || isFocusVisible,
-    isDisabled: disabled || isDisabled,
   };
-
-  // console.log(style, 'hello style');
 
   const {
     onPressIn,
@@ -79,7 +76,11 @@ const Pressable = (
     onFocus,
     onBlur,
     ...resolvedProps
-  } = usePropsResolution('Pressable', props, state);
+  } = usePropsResolution('Pressable', props, {
+    ...stateProps,
+    isFocusVisible: isFocusVisibleProp || isFocusVisible,
+    isDisabled: disabled || isDisabled,
+  });
 
   // TODO: Replace Render props with Context Hook
 
@@ -116,13 +117,7 @@ const Pressable = (
       disabled={disabled || isDisabled}
       {...resolvedProps}
     >
-      {typeof children !== 'function'
-        ? children
-        : children({
-            isPressed,
-            isHovered,
-            isFocused,
-          })}
+      {typeof children !== 'function' ? children : children({ ...stateProps })}
     </StyledPressable>
   );
 };

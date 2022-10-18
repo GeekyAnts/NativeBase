@@ -4,6 +4,6 @@ export default {
   dependencies: {
     'linear-gradient': require('expo-linear-gradient').LinearGradient,
   },
-  enableRem: true,
+  enableRem: false,
   // strictMode: 'warn',
 } as INativebaseConfig;
