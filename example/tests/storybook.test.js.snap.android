@@ -7493,7 +7493,6 @@ exports[`Storyshots Alert Variant 1`] = `
           Object {
             "dataSet": Object {},
           },
-          Object {},
         ]
       }
       dataSet={Object {}}
@@ -18051,7 +18050,6 @@ exports[`Storyshots Button Loading 1`] = `
                   Object {
                     "dataSet": Object {},
                   },
-                  Object {},
                 ],
                 undefined,
               ]
@@ -18124,7 +18122,6 @@ exports[`Storyshots Button Loading 1`] = `
                   Object {
                     "dataSet": Object {},
                   },
-                  Object {},
                 ],
                 undefined,
               ]
@@ -18255,7 +18252,6 @@ exports[`Storyshots Button Loading 1`] = `
                   Object {
                     "dataSet": Object {},
                   },
-                  Object {},
                 ],
                 undefined,
               ]
@@ -18335,7 +18331,6 @@ exports[`Storyshots Button Loading 1`] = `
                   Object {
                     "dataSet": Object {},
                   },
-                  Object {},
                 ],
                 undefined,
               ]
@@ -18438,7 +18433,6 @@ exports[`Storyshots Button Loading 1`] = `
                   Object {
                     "dataSet": Object {},
                   },
-                  Object {},
                 ],
                 undefined,
               ]
@@ -19020,7 +19014,6 @@ exports[`Storyshots Button Variants 1`] = `
           Object {
             "dataSet": Object {},
           },
-          Object {},
         ]
       }
       dataSet={Object {}}
@@ -21581,7 +21574,6 @@ exports[`Storyshots ButtonGroup Variants 1`] = `
           Object {
             "dataSet": Object {},
           },
-          Object {},
         ]
       }
       dataSet={Object {}}
@@ -23407,7 +23399,6 @@ exports[`Storyshots ButtonGroup isAttached 1`] = `
           Object {
             "dataSet": Object {},
           },
-          Object {},
         ]
       }
       dataSet={Object {}}
@@ -36342,7 +36333,6 @@ exports[`Storyshots FlatList Basic 1`] = `
             Object {
               "dataSet": Object {},
             },
-            Object {},
           ]
         }
         data={
@@ -37343,7 +37333,6 @@ exports[`Storyshots Flex Basic Usage 1`] = `
             Object {
               "dataSet": Object {},
             },
-            Object {},
           ]
         }
         dataSet={Object {}}
@@ -38433,7 +38422,6 @@ exports[`Storyshots FormControl CustomStyle 1`] = `
           Object {
             "dataSet": Object {},
           },
-          Object {},
         ]
       }
       dataSet={Object {}}
@@ -41848,7 +41836,6 @@ exports[`Storyshots Icon All Icons 1`] = `
             Object {
               "dataSet": Object {},
             },
-            Object {},
           ]
         }
         data={
@@ -48808,7 +48795,6 @@ exports[`Storyshots Image Sizes 1`] = `
           Object {
             "dataSet": Object {},
           },
-          Object {},
         ]
       }
       dataSet={Object {}}
@@ -57128,7 +57114,6 @@ exports[`Storyshots Menu Menu positions 1`] = `
                         Object {
                           "dataSet": Object {},
                         },
-                        Object {},
                       ]
                     }
                     data={
@@ -58721,7 +58706,6 @@ exports[`Storyshots Modal Basic 1`] = `
                     Object {
                       "dataSet": Object {},
                     },
-                    Object {},
                   ]
                 }
                 dataSet={Object {}}
@@ -59593,7 +59577,6 @@ exports[`Storyshots Modal Modal Custom Backdrop 1`] = `
                     Object {
                       "dataSet": Object {},
                     },
-                    Object {},
                   ]
                 }
                 dataSet={Object {}}
@@ -60571,7 +60554,6 @@ exports[`Storyshots Modal Modal Placement 1`] = `
                   Object {
                     "dataSet": Object {},
                   },
-                  Object {},
                 ]
               }
               dataSet={Object {}}
@@ -61369,7 +61351,6 @@ exports[`Storyshots Modal Modal Ref Examples 1`] = `
                   Object {
                     "dataSet": Object {},
                   },
-                  Object {},
                 ]
               }
               dataSet={Object {}}
@@ -62294,7 +62275,6 @@ exports[`Storyshots Modal Modal Size Examples 1`] = `
                   Object {
                     "dataSet": Object {},
                   },
-                  Object {},
                 ]
               }
               dataSet={Object {}}
@@ -62319,7 +62299,6 @@ exports[`Storyshots Modal Modal Size Examples 1`] = `
                         Object {
                           "dataSet": Object {},
                         },
-                        Object {},
                       ]
                     }
                     dataSet={Object {}}
@@ -63366,7 +63345,6 @@ exports[`Storyshots Modal Modal with Keyboard Avoid view 1`] = `
                   Object {
                     "dataSet": Object {},
                   },
-                  Object {},
                 ]
               }
               dataSet={Object {}}
@@ -64176,7 +64154,6 @@ exports[`Storyshots Modal Multiple modal 1`] = `
                     Object {
                       "dataSet": Object {},
                     },
-                    Object {},
                   ]
                 }
                 dataSet={Object {}}
@@ -64738,7 +64715,6 @@ exports[`Storyshots Modal Multiple modal 1`] = `
                     Object {
                       "dataSet": Object {},
                     },
-                    Object {},
                   ]
                 }
                 dataSet={Object {}}
@@ -65532,7 +65508,6 @@ exports[`Storyshots Modal Multiple modal 1`] = `
                     Object {
                       "dataSet": Object {},
                     },
-                    Object {},
                   ]
                 }
                 dataSet={Object {}}
@@ -67334,7 +67309,6 @@ exports[`Storyshots Popover Popover positions 1`] = `
                           Object {
                             "dataSet": Object {},
                           },
-                          Object {},
                         ]
                       }
                       data={
@@ -78719,7 +78693,6 @@ exports[`Storyshots ScrollView Basic 1`] = `
           Object {
             "dataSet": Object {},
           },
-          Object {},
         ]
       }
       dataSet={Object {}}
@@ -80415,7 +80388,6 @@ exports[`Storyshots Select Basic 1`] = `
                           Object {
                             "dataSet": Object {},
                           },
-                          Object {},
                         ]
                       }
                       data={
@@ -81442,7 +81414,6 @@ exports[`Storyshots Select FormControlled 1`] = `
                           Object {
                             "dataSet": Object {},
                           },
-                          Object {},
                         ]
                       }
                       data={
@@ -82577,7 +82548,6 @@ exports[`Storyshots Select Select Long list 1`] = `
                           Object {
                             "dataSet": Object {},
                           },
-                          Object {},
                         ]
                       }
                       data={
@@ -89712,7 +89682,6 @@ exports[`Storyshots Spinner Color 1`] = `
               Object {
                 "dataSet": Object {},
               },
-              Object {},
             ],
             undefined,
           ]
@@ -89742,7 +89711,6 @@ exports[`Storyshots Spinner Color 1`] = `
               Object {
                 "dataSet": Object {},
               },
-              Object {},
             ],
             undefined,
           ]
@@ -89772,7 +89740,6 @@ exports[`Storyshots Spinner Color 1`] = `
               Object {
                 "dataSet": Object {},
               },
-              Object {},
             ],
             undefined,
           ]
@@ -89802,7 +89769,6 @@ exports[`Storyshots Spinner Color 1`] = `
               Object {
                 "dataSet": Object {},
               },
-              Object {},
             ],
             undefined,
           ]
@@ -89961,7 +89927,6 @@ exports[`Storyshots Spinner Playground 1`] = `
               Object {
                 "dataSet": Object {},
               },
-              Object {},
             ],
             undefined,
           ]
@@ -90120,7 +90085,6 @@ exports[`Storyshots Spinner Size 1`] = `
               Object {
                 "dataSet": Object {},
               },
-              Object {},
             ],
             undefined,
           ]
@@ -90150,7 +90114,6 @@ exports[`Storyshots Spinner Size 1`] = `
               Object {
                 "dataSet": Object {},
               },
-              Object {},
             ],
             undefined,
           ]
@@ -90309,7 +90272,6 @@ exports[`Storyshots Spinner Usage 1`] = `
                 "accessibilityLabel": "Loading posts",
                 "dataSet": Object {},
               },
-              Object {},
             ],
             undefined,
           ]
@@ -90473,7 +90435,6 @@ exports[`Storyshots Stack Basic 1`] = `
           Object {
             "dataSet": Object {},
           },
-          Object {},
         ]
       }
       dataSet={Object {}}
@@ -98902,7 +98863,6 @@ exports[`Storyshots Tooltip Tooltip Positions 1`] = `
                         Object {
                           "dataSet": Object {},
                         },
-                        Object {},
                       ]
                     }
                     data={
@@ -104228,7 +104188,6 @@ exports[`Storyshots useBreakpointValue Usage 1`] = `
           Object {
             "dataSet": Object {},
           },
-          Object {},
         ]
       }
       dataSet={Object {}}
@@ -106412,7 +106371,6 @@ exports[`Storyshots useDisclose Usage 1`] = `
                     Object {
                       "dataSet": Object {},
                     },
-                    Object {},
                   ]
                 }
                 dataSet={Object {}}

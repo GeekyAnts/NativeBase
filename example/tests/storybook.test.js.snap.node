@@ -64004,44 +64004,6 @@ exports[`Storyshots Radio Custom Icon 1`] = `
             />
           </div>
           <div
-            style={
-              Object {
-                "border": 0,
-                "clip": "rect(0 0 0 0)",
-                "clipPath": "inset(50%)",
-                "height": 1,
-                "margin": "0 -1px -1px 0",
-                "overflow": "hidden",
-                "padding": 0,
-                "position": "absolute",
-                "whiteSpace": "nowrap",
-                "width": 1,
-              }
-            }
-          >
-            <input
-              checked={false}
-              name="exampleGroup"
-              onBlur={[Function]}
-              onChange={[Function]}
-              onClick={[Function]}
-              onFocus={[Function]}
-              onKeyDown={[Function]}
-              onKeyUp={[Function]}
-              onMouseDown={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              onMouseUp={[Function]}
-              onTouchCancel={[Function]}
-              onTouchEnd={[Function]}
-              onTouchMove={[Function]}
-              onTouchStart={[Function]}
-              tabIndex={0}
-              type="radio"
-              value="2"
-            />
-          </div>
-          <div
             className="css-view-1dbjc4n"
             style={
               Object {
@@ -67295,8 +67257,20 @@ exports[`Storyshots Radio Uncontrolled Radio 1`] = `
           onMouseUp={[Function]}
         >
           <div
-            onMouseDown={[Function]}
-            onMouseUp={[Function]}
+            style={
+              Object {
+                "border": 0,
+                "clip": "rect(0 0 0 0)",
+                "clipPath": "inset(50%)",
+                "height": 1,
+                "margin": "0 -1px -1px 0",
+                "overflow": "hidden",
+                "padding": 0,
+                "position": "absolute",
+                "whiteSpace": "nowrap",
+                "width": 1,
+              }
+            }
           >
             <input
               checked={true}
@@ -67335,46 +67309,27 @@ exports[`Storyshots Radio Uncontrolled Radio 1`] = `
                 "msFlexAlign": "center",
                 "msFlexDirection": "row",
               }
-            >
-              <input
-                checked={false}
-                name="exampleGroup"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                onKeyUp={[Function]}
-                onMouseDown={[Function]}
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
-                onMouseUp={[Function]}
-                onTouchCancel={[Function]}
-                onTouchEnd={[Function]}
-                onTouchMove={[Function]}
-                onTouchStart={[Function]}
-                tabIndex={0}
-                type="radio"
-                value="2"
-              />
-            </div>
+            }
+          >
             <div
               className="css-view-1dbjc4n"
               style={
                 Object {
                   "WebkitAlignItems": "center",
                   "WebkitBoxAlign": "center",
-                  "WebkitBoxDirection": "normal",
-                  "WebkitBoxOrient": "horizontal",
-                  "WebkitFlexDirection": "row",
+                  "WebkitBoxPack": "center",
+                  "WebkitJustifyContent": "center",
                   "alignItems": "center",
-                  "cursor": "pointer",
-                  "flexDirection": "row",
+                  "display": "flex",
+                  "justifyContent": "center",
                   "msFlexAlign": "center",
-                  "msFlexDirection": "row",
+                  "msFlexPack": "center",
                 }
               }
             >
+              <div
+                className="css-view-1dbjc4n"
+              />
               <div
                 className="css-view-1dbjc4n"
                 style={
@@ -67399,16 +67354,20 @@ exports[`Storyshots Radio Uncontrolled Radio 1`] = `
                     "borderTopWidth": "2px",
                     "display": "flex",
                     "justifyContent": "center",
+                    "marginBottom": "4px",
+                    "marginTop": "4px",
                     "msFlexAlign": "center",
                     "msFlexPack": "center",
+                    "paddingBottom": "4px",
+                    "paddingLeft": "4px",
+                    "paddingRight": "4px",
+                    "paddingTop": "4px",
                   }
                 }
               >
-                <div
-                  className="css-view-1dbjc4n"
-                />
-                <div
-                  className="css-view-1dbjc4n"
+                <svg
+                  role="img"
+                  stroke=""
                   style={
                     Object {
                       "color": "rgba(8,145,178,1.00)",
@@ -67417,36 +67376,37 @@ exports[`Storyshots Radio Uncontrolled Radio 1`] = `
                       "width": "12px",
                     }
                   }
+                  viewBox="0 0 24 24"
                 >
-                  <svg
-                    role="img"
-                    stroke=""
-                    style={
-                      Object {
-                        "color": "rgba(115,115,115,1.00)",
-                        "height": "12px",
-                        "opacity": 0,
-                        "width": "12px",
-                      }
-                    }
-                    viewBox="0 0 24 24"
-                  >
-                    <g>
-                      <path
-                        d="M0 12C-2.34822e-08 13.5759 0.310389 15.1363 0.913445 16.5922C1.5165 18.0481 2.40042 19.371 3.51472 20.4853C4.62902 21.5996 5.95189 22.4835 7.4078 23.0866C8.86371 23.6896 10.4241 24 12 24C13.5759 24 15.1363 23.6896 16.5922 23.0866C18.0481 22.4835 19.371 21.5996 20.4853 20.4853C21.5996 19.371 22.4835 18.0481 23.0866 16.5922C23.6896 15.1363 24 13.5759 24 12C24 10.4241 23.6896 8.86371 23.0866 7.4078C22.4835 5.95189 21.5996 4.62902 20.4853 3.51472C19.371 2.40042 18.0481 1.5165 16.5922 0.913446C15.1363 0.310389 13.5759 0 12 0C10.4241 0 8.86371 0.310389 7.4078 0.913446C5.95189 1.5165 4.62902 2.40042 3.51472 3.51472C2.40042 4.62902 1.5165 5.95189 0.913445 7.4078C0.310389 8.86371 -2.34822e-08 10.4241 0 12Z"
-                        fill="currentColor"
-                        stroke=""
-                      />
-                    </g>
-                  </svg>
-                </div>
+                  <g>
+                    <path
+                      d="M0 12C-2.34822e-08 13.5759 0.310389 15.1363 0.913445 16.5922C1.5165 18.0481 2.40042 19.371 3.51472 20.4853C4.62902 21.5996 5.95189 22.4835 7.4078 23.0866C8.86371 23.6896 10.4241 24 12 24C13.5759 24 15.1363 23.6896 16.5922 23.0866C18.0481 22.4835 19.371 21.5996 20.4853 20.4853C21.5996 19.371 22.4835 18.0481 23.0866 16.5922C23.6896 15.1363 24 13.5759 24 12C24 10.4241 23.6896 8.86371 23.0866 7.4078C22.4835 5.95189 21.5996 4.62902 20.4853 3.51472C19.371 2.40042 18.0481 1.5165 16.5922 0.913446C15.1363 0.310389 13.5759 0 12 0C10.4241 0 8.86371 0.310389 7.4078 0.913446C5.95189 1.5165 4.62902 2.40042 3.51472 3.51472C2.40042 4.62902 1.5165 5.95189 0.913445 7.4078C0.310389 8.86371 -2.34822e-08 10.4241 0 12Z"
+                      fill="currentColor"
+                      stroke=""
+                    />
+                  </g>
+                </svg>
               </div>
-              <div
-                className="css-view-1dbjc4n"
-                style={
-                  Object {
-                    "width": "8px",
-                  }
+            </div>
+            <div
+              className="css-view-1dbjc4n"
+              style={
+                Object {
+                  "width": "8px",
+                }
+              }
+            />
+            <div
+              className="css-text-901oao"
+              dir="auto"
+              style={
+                Object {
+                  "color": "rgba(23,23,23,1.00)",
+                  "fontSize": "16px",
+                  "fontStyle": "normal",
+                  "fontWeight": "400",
+                  "letterSpacing": "0px",
+                  "lineHeight": "1.5em",
                 }
               }
             >
@@ -67503,77 +67463,42 @@ exports[`Storyshots Radio Uncontrolled Radio 1`] = `
               value="2"
             />
           </div>
-        </label>
-        <div
-          className="css-view-1dbjc4n"
-          style={
-            Object {
-              "height": "16px",
-            }
-          }
-        />
-        <label
-          className="css-view-1dbjc4n"
-        >
           <div
-            onMouseDown={[Function]}
-            onMouseUp={[Function]}
-          >
-            <div
-              style={
-                Object {
-                  "border": 0,
-                  "clip": "rect(0 0 0 0)",
-                  "clipPath": "inset(50%)",
-                  "height": 1,
-                  "margin": "0 -1px -1px 0",
-                  "overflow": "hidden",
-                  "padding": 0,
-                  "position": "absolute",
-                  "whiteSpace": "nowrap",
-                  "width": 1,
-                }
+            className="css-view-1dbjc4n"
+            style={
+              Object {
+                "WebkitAlignItems": "center",
+                "WebkitBoxAlign": "center",
+                "WebkitBoxDirection": "normal",
+                "WebkitBoxOrient": "horizontal",
+                "WebkitFlexDirection": "row",
+                "alignItems": "center",
+                "cursor": "pointer",
+                "flexDirection": "row",
+                "msFlexAlign": "center",
+                "msFlexDirection": "row",
               }
-            >
-              <input
-                checked={false}
-                name="exampleGroup"
-                onBlur={[Function]}
-                onChange={[Function]}
-                onClick={[Function]}
-                onFocus={[Function]}
-                onKeyDown={[Function]}
-                onKeyUp={[Function]}
-                onMouseDown={[Function]}
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
-                onMouseUp={[Function]}
-                onTouchCancel={[Function]}
-                onTouchEnd={[Function]}
-                onTouchMove={[Function]}
-                onTouchStart={[Function]}
-                tabIndex={0}
-                type="radio"
-                value="3"
-              />
-            </div>
+            }
+          >
             <div
               className="css-view-1dbjc4n"
               style={
                 Object {
                   "WebkitAlignItems": "center",
                   "WebkitBoxAlign": "center",
-                  "WebkitBoxDirection": "normal",
-                  "WebkitBoxOrient": "horizontal",
-                  "WebkitFlexDirection": "row",
+                  "WebkitBoxPack": "center",
+                  "WebkitJustifyContent": "center",
                   "alignItems": "center",
-                  "cursor": "pointer",
-                  "flexDirection": "row",
+                  "display": "flex",
+                  "justifyContent": "center",
                   "msFlexAlign": "center",
-                  "msFlexDirection": "row",
+                  "msFlexPack": "center",
                 }
               }
             >
+              <div
+                className="css-view-1dbjc4n"
+              />
               <div
                 className="css-view-1dbjc4n"
                 style={
@@ -67583,18 +67508,35 @@ exports[`Storyshots Radio Uncontrolled Radio 1`] = `
                     "WebkitBoxPack": "center",
                     "WebkitJustifyContent": "center",
                     "alignItems": "center",
+                    "backgroundColor": "rgba(250,250,250,1.00)",
+                    "borderBottomColor": "rgba(163,163,163,1.00)",
+                    "borderBottomLeftRadius": "9999px",
+                    "borderBottomRightRadius": "9999px",
+                    "borderBottomWidth": "2px",
+                    "borderLeftColor": "rgba(163,163,163,1.00)",
+                    "borderLeftWidth": "2px",
+                    "borderRightColor": "rgba(163,163,163,1.00)",
+                    "borderRightWidth": "2px",
+                    "borderTopColor": "rgba(163,163,163,1.00)",
+                    "borderTopLeftRadius": "9999px",
+                    "borderTopRightRadius": "9999px",
+                    "borderTopWidth": "2px",
                     "display": "flex",
                     "justifyContent": "center",
+                    "marginBottom": "4px",
+                    "marginTop": "4px",
                     "msFlexAlign": "center",
                     "msFlexPack": "center",
+                    "paddingBottom": "4px",
+                    "paddingLeft": "4px",
+                    "paddingRight": "4px",
+                    "paddingTop": "4px",
                   }
                 }
               >
-                <div
-                  className="css-view-1dbjc4n"
-                />
-                <div
-                  className="css-view-1dbjc4n"
+                <svg
+                  role="img"
+                  stroke=""
                   style={
                     Object {
                       "color": "rgba(115,115,115,1.00)",
@@ -67603,6 +67545,7 @@ exports[`Storyshots Radio Uncontrolled Radio 1`] = `
                       "width": "12px",
                     }
                   }
+                  viewBox="0 0 24 24"
                 >
                   <g>
                     <path
