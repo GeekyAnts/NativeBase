@@ -205,17 +205,13 @@ export function usePropsResolution(
         config?.notResolveThemeProps
       );
 
-      componentThemeProps.style = [
-        ...componentThemeProps.style,
-        ...extendedThemeProps.style,
-      ];
       componentThemeProps.styleFromProps = {
-        ...componentThemeProps.styleFromProps,
-        ...extendedThemeProps.styleFromProps,
+        ...componentThemeProps?.styleFromProps,
+        ...extendedThemeProps?.styleFromProps,
       };
       componentThemeProps.unResolvedProps = {
-        ...componentThemeProps.unResolvedProps,
-        ...extendedThemeProps.unResolvedProps,
+        ...componentThemeProps?.unResolvedProps,
+        ...extendedThemeProps?.unResolvedProps,
       };
     });
   }
