@@ -80,6 +80,8 @@ export const useStyledSystemPropsResolver = ({
   // console.log('** use prop resolution 2', restProps);
 
   delete restProps.INTERNAL_themeStyle;
+  delete restProps.stateProps;
+
   restProps.dataSet = { ...restProps.dataSet, ...dataSet };
 
   const boxStyleSheet = StyleSheet.create({ box: style }); // StyleSheet.create(style);
