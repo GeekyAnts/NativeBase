@@ -1,36 +1,71 @@
 export { useThemeProps } from './useProps';
 export { usePropsResolution } from './usePropsResolution';
 import type { ComponentTheme } from '../../theme';
-import { usePropsResolutionWithComponentTheme } from './usePropsResolution';
+import {
+  mergeFinalResolvedProps,
+  usePropsResolutionWithComponentTheme,
+} from './usePropsResolution';
 import merge from 'lodash.merge';
 import { getStyledObject } from '../../utils/getStyledComponentAndObjects';
 import { Platform } from 'react-native';
-import { isLiteral, omitUndefined } from '../../theme/tools';
-import {
-  PSEUDO_PROP_COMPONENT_MAP,
-  useColorMode,
-  getThemeProps,
-} from '../../core';
-import { isEmptyObj } from '../../utils/isEmptyObj';
+import { omitUndefined } from '../../theme/tools';
+import { ColorMode, useColorMode } from '../../core';
 import { useNativeBaseConfig } from '../../core/NativeBaseContext';
 
-const sizesExistsInTheme = (componentTheme: any, size: any) => {
-  if (componentTheme?.sizes) {
-    if (componentTheme.sizes[size]) {
-      return true;
-    }
-  }
-  return false;
-};
-
-export const useComponentThemePropsResolution = (
-  componentTheme: ComponentTheme,
+const useResolvedFactoryProps = (
+  styleObj: any,
   incomingProps: any,
-  theme?: any
+  colorMode: ColorMode,
+  theme: any,
+  componentTheme: ComponentTheme,
+  incomingInternalThemeProps: any,
+  incomingStateProps: any
 ) => {
-  const { colorMode } = useColorMode();
   const providerId = useNativeBaseConfig('NativeBase').providerId;
 
+  const resolvedPropsWithStateProps = usePropsResolutionWithComponentTheme(
+    componentTheme,
+    incomingProps,
+    theme,
+    {}
+  );
+
+  resolvedPropsWithStateProps.stateProps = merge(
+    {},
+    resolvedPropsWithStateProps?.stateProps,
+    incomingStateProps
+  );
+
+  styleObj.styleFromProps = merge(
+    {},
+    styleObj.styleFromProps,
+    incomingInternalThemeProps
+  );
+
+  const stateStyleFromProps = omitUndefined(styleObj?.stateStyleFromProps);
+
+  const resolvedProps = mergeFinalResolvedProps(
+    componentTheme,
+    styleObj,
+    incomingProps,
+    '',
+    stateStyleFromProps,
+    resolvedPropsWithStateProps,
+    {
+      component: '',
+      theme,
+      providerId,
+      colorMode,
+      ignoredProps: {},
+      stateProps: {},
+      notResolveThemeProps: false,
+    }
+  );
+
+  return resolvedProps;
+};
+
+const getModiefiedIncomingProps = (incomingProps: any) => {
   const incomingInternalThemeProps = merge.apply(
     {},
     incomingProps?.INTERNAL_themeStyle
@@ -41,6 +76,26 @@ export const useComponentThemePropsResolution = (
 
   delete modifiedIncomingProps?.INTERNAL_themeStyle;
   delete modifiedIncomingProps?.stateProps;
+
+  return {
+    modifiedIncomingProps,
+    incomingInternalThemeProps,
+    incomingStateProps,
+  };
+};
+
+export const useComponentThemePropsResolution = (
+  componentTheme: ComponentTheme,
+  incomingProps: any,
+  theme?: any
+) => {
+  const { colorMode } = useColorMode();
+
+  const {
+    modifiedIncomingProps,
+    incomingInternalThemeProps,
+    incomingStateProps,
+  } = getModiefiedIncomingProps(incomingProps);
 
   const styleObj = getStyledObject(
     theme,
@@ -54,112 +109,20 @@ export const useComponentThemePropsResolution = (
     true
   );
 
-  const resolvedPropsWithStateProps = usePropsResolutionWithComponentTheme(
-    componentTheme,
+  const resolvedProps = useResolvedFactoryProps(
+    styleObj,
     merge(
       {},
       styleObj?.unResolvedProps,
       styleObj?.restDefaultProps,
       modifiedIncomingProps
     ),
+    colorMode,
     theme,
-    {}
-  );
-
-  resolvedPropsWithStateProps.flattenProps = merge(
-    {},
-    resolvedPropsWithStateProps.flattenProps,
-    modifiedIncomingProps
-  );
-
-  let resolvedFlattenProps = resolvedPropsWithStateProps.flattenProps;
-  const resolvedStateProps = {
-    ...resolvedPropsWithStateProps?.stateProps,
-    ...incomingStateProps,
-  };
-
-  const restDefaultWithStateProps = styleObj?.stateRestDefaultProps;
-  const stateStyleFromProps = omitUndefined(styleObj?.stateStyleFromProps);
-
-  for (const property in restDefaultWithStateProps) {
-    resolvedFlattenProps[property] =
-      resolvedPropsWithStateProps.stateProps[property] ??
-      restDefaultWithStateProps[property];
-  }
-  // Merge default props with inline resolved props
-  resolvedFlattenProps.INTERNAL_themeStyle = [
-    styleObj.styleFromProps,
+    componentTheme,
     incomingInternalThemeProps,
-  ];
-
-  resolvedStateProps.INTERNAL_themeStyle = isEmptyObj(stateStyleFromProps)
-    ? []
-    : [stateStyleFromProps];
-
-  // merge rest default props with resolved props
-  resolvedFlattenProps = {
-    ...resolvedFlattenProps,
-    ...styleObj.restDefaultProps,
-  };
-
-  if (resolvedFlattenProps.size) {
-    if (
-      !sizesExistsInTheme(componentTheme, resolvedFlattenProps.size) &&
-      isLiteral(resolvedFlattenProps.size)
-    ) {
-      resolvedFlattenProps = {
-        boxSize: resolvedFlattenProps.size,
-        ...resolvedFlattenProps,
-      };
-    }
-
-    resolvedFlattenProps.size = undefined;
-  }
-
-  for (const property in styleObj?.internalPseudoProps) {
-    if (PSEUDO_PROP_COMPONENT_MAP[property]) {
-      const pseudoComponentThemeProps = getThemeProps(
-        theme,
-        providerId,
-        ``,
-        { colorMode, platform: Platform.OS },
-        {},
-        incomingProps,
-        false
-      );
-
-      resolvedFlattenProps[property] = {
-        ...pseudoComponentThemeProps.restDefaultProps,
-        ...styleObj?.internalPseudoProps[property],
-        ...resolvedFlattenProps[property],
-        INTERNAL_themeStyle: resolvedFlattenProps[property]?.INTERNAL_themeStyle
-          ? [
-              pseudoComponentThemeProps.styleFromProps,
-              ...resolvedFlattenProps[property].INTERNAL_themeStyle,
-            ]
-          : [pseudoComponentThemeProps.styleFromProps],
-      };
-    }
-  }
-
-  // for inline pseudo compoennt props- merge property
-  for (const property in resolvedStateProps) {
-    if (PSEUDO_PROP_COMPONENT_MAP[property]) {
-      if (resolvedFlattenProps[property]) {
-        resolvedFlattenProps[property].stateProps =
-          resolvedStateProps[property];
-      } else {
-        resolvedFlattenProps[property] = {
-          stateProps: resolvedStateProps[property],
-        };
-      }
-    }
-  }
-
-  const resolvedProps = omitUndefined({
-    ...resolvedFlattenProps,
-    stateProps: resolvedStateProps,
-  });
+    incomingStateProps
+  );
 
   return resolvedProps;
 };
