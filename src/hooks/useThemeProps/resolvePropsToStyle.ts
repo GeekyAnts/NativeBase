@@ -23,10 +23,14 @@ export const resolvePropsToStyle = (
     fontSize = flattenInternalThemeProps?.fontSize;
   }
 
-  const modifiedStyledSytemProps = {
-    fontSize,
-    ...styledSystemProps,
-  };
+  let modifiedStyledSytemProps = styledSystemProps;
+
+  if (fontSize) {
+    modifiedStyledSytemProps = {
+      fontSize,
+      ...styledSystemProps,
+    };
+  }
 
   const {
     unResolvedProps,
