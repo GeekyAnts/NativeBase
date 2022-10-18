@@ -4617,6 +4617,7 @@ exports[`Storyshots Alert Variant 1`] = `
           Object {
             "dataSet": Object {},
           },
+          Object {},
         ]
       }
       dataSet={Object {}}
@@ -15063,6 +15064,7 @@ exports[`Storyshots Button Loading 1`] = `
                   Object {
                     "dataSet": Object {},
                   },
+                  Object {},
                 ],
                 undefined,
               ]
@@ -15135,6 +15137,7 @@ exports[`Storyshots Button Loading 1`] = `
                   Object {
                     "dataSet": Object {},
                   },
+                  Object {},
                 ],
                 undefined,
               ]
@@ -15265,6 +15268,7 @@ exports[`Storyshots Button Loading 1`] = `
                   Object {
                     "dataSet": Object {},
                   },
+                  Object {},
                 ],
                 undefined,
               ]
@@ -15344,6 +15348,7 @@ exports[`Storyshots Button Loading 1`] = `
                   Object {
                     "dataSet": Object {},
                   },
+                  Object {},
                 ],
                 undefined,
               ]
@@ -15446,6 +15451,7 @@ exports[`Storyshots Button Loading 1`] = `
                   Object {
                     "dataSet": Object {},
                   },
+                  Object {},
                 ],
                 undefined,
               ]
@@ -16027,6 +16033,7 @@ exports[`Storyshots Button Variants 1`] = `
           Object {
             "dataSet": Object {},
           },
+          Object {},
         ]
       }
       dataSet={Object {}}
@@ -18587,6 +18594,7 @@ exports[`Storyshots ButtonGroup Variants 1`] = `
           Object {
             "dataSet": Object {},
           },
+          Object {},
         ]
       }
       dataSet={Object {}}
@@ -20412,6 +20420,7 @@ exports[`Storyshots ButtonGroup isAttached 1`] = `
           Object {
             "dataSet": Object {},
           },
+          Object {},
         ]
       }
       dataSet={Object {}}
@@ -33346,6 +33355,7 @@ exports[`Storyshots FlatList Basic 1`] = `
             Object {
               "dataSet": Object {},
             },
+            Object {},
           ]
         }
         data={
@@ -34346,6 +34356,7 @@ exports[`Storyshots Flex Basic Usage 1`] = `
             Object {
               "dataSet": Object {},
             },
+            Object {},
           ]
         }
         dataSet={Object {}}
@@ -35435,6 +35446,7 @@ exports[`Storyshots FormControl CustomStyle 1`] = `
           Object {
             "dataSet": Object {},
           },
+          Object {},
         ]
       }
       dataSet={Object {}}
@@ -38878,6 +38890,7 @@ exports[`Storyshots Icon All Icons 1`] = `
             Object {
               "dataSet": Object {},
             },
+            Object {},
           ]
         }
         data={
@@ -45837,6 +45850,7 @@ exports[`Storyshots Image Sizes 1`] = `
           Object {
             "dataSet": Object {},
           },
+          Object {},
         ]
       }
       dataSet={Object {}}
@@ -67617,6 +67631,7 @@ exports[`Storyshots ScrollView Basic 1`] = `
           Object {
             "dataSet": Object {},
           },
+          Object {},
         ]
       }
       dataSet={Object {}}
@@ -76083,6 +76098,7 @@ exports[`Storyshots Spinner Color 1`] = `
               Object {
                 "dataSet": Object {},
               },
+              Object {},
             ],
             undefined,
           ]
@@ -76112,6 +76128,7 @@ exports[`Storyshots Spinner Color 1`] = `
               Object {
                 "dataSet": Object {},
               },
+              Object {},
             ],
             undefined,
           ]
@@ -76141,6 +76158,7 @@ exports[`Storyshots Spinner Color 1`] = `
               Object {
                 "dataSet": Object {},
               },
+              Object {},
             ],
             undefined,
           ]
@@ -76170,6 +76188,7 @@ exports[`Storyshots Spinner Color 1`] = `
               Object {
                 "dataSet": Object {},
               },
+              Object {},
             ],
             undefined,
           ]
@@ -76328,6 +76347,7 @@ exports[`Storyshots Spinner Playground 1`] = `
               Object {
                 "dataSet": Object {},
               },
+              Object {},
             ],
             undefined,
           ]
@@ -76486,6 +76506,7 @@ exports[`Storyshots Spinner Size 1`] = `
               Object {
                 "dataSet": Object {},
               },
+              Object {},
             ],
             undefined,
           ]
@@ -76515,6 +76536,7 @@ exports[`Storyshots Spinner Size 1`] = `
               Object {
                 "dataSet": Object {},
               },
+              Object {},
             ],
             undefined,
           ]
@@ -76673,6 +76695,7 @@ exports[`Storyshots Spinner Usage 1`] = `
                 "accessibilityLabel": "Loading posts",
                 "dataSet": Object {},
               },
+              Object {},
             ],
             undefined,
           ]
@@ -76836,6 +76859,7 @@ exports[`Storyshots Stack Basic 1`] = `
           Object {
             "dataSet": Object {},
           },
+          Object {},
         ]
       }
       dataSet={Object {}}
@@ -80512,7 +80536,6 @@ exports[`Storyshots TextArea Default 1`] = `
           dataSet={Object {}}
           editable={true}
           multiline={true}
-          nativeID="undefined-input"
           onBlur={[Function]}
           onFocus={[Function]}
           onKeyPress={[Function]}
@@ -80735,7 +80758,6 @@ exports[`Storyshots TextArea InValid and Disabled 1`] = `
               editable={true}
               isInvalid={true}
               multiline={true}
-              nativeID="undefined-input"
               onBlur={[Function]}
               onFocus={[Function]}
               onKeyPress={[Function]}
@@ -80832,7 +80854,6 @@ exports[`Storyshots TextArea InValid and Disabled 1`] = `
               disabled={true}
               editable={false}
               multiline={true}
-              nativeID="undefined-input"
               onBlur={[Function]}
               onFocus={[Function]}
               onKeyPress={[Function]}
@@ -80998,6 +81019,7 @@ exports[`Storyshots TextArea Sizes 1`] = `
           Object {
             "dataSet": Object {},
           },
+          Object {},
         ]
       }
       dataSet={Object {}}
@@ -81069,7 +81091,6 @@ exports[`Storyshots TextArea Sizes 1`] = `
                 dataSet={Object {}}
                 editable={true}
                 multiline={true}
-                nativeID="undefined-input"
                 onBlur={[Function]}
                 onFocus={[Function]}
                 onKeyPress={[Function]}
@@ -81128,7 +81149,6 @@ exports[`Storyshots TextArea Sizes 1`] = `
                 dataSet={Object {}}
                 editable={true}
                 multiline={true}
-                nativeID="undefined-input"
                 onBlur={[Function]}
                 onFocus={[Function]}
                 onKeyPress={[Function]}
@@ -81187,7 +81207,6 @@ exports[`Storyshots TextArea Sizes 1`] = `
                 dataSet={Object {}}
                 editable={true}
                 multiline={true}
-                nativeID="undefined-input"
                 onBlur={[Function]}
                 onFocus={[Function]}
                 onKeyPress={[Function]}
@@ -81246,7 +81265,6 @@ exports[`Storyshots TextArea Sizes 1`] = `
                 dataSet={Object {}}
                 editable={true}
                 multiline={true}
-                nativeID="undefined-input"
                 onBlur={[Function]}
                 onFocus={[Function]}
                 onKeyPress={[Function]}
@@ -81305,7 +81323,6 @@ exports[`Storyshots TextArea Sizes 1`] = `
                 dataSet={Object {}}
                 editable={true}
                 multiline={true}
-                nativeID="undefined-input"
                 onBlur={[Function]}
                 onFocus={[Function]}
                 onKeyPress={[Function]}
@@ -81364,7 +81381,6 @@ exports[`Storyshots TextArea Sizes 1`] = `
                 dataSet={Object {}}
                 editable={true}
                 multiline={true}
-                nativeID="undefined-input"
                 onBlur={[Function]}
                 onFocus={[Function]}
                 onKeyPress={[Function]}
@@ -81556,7 +81572,6 @@ exports[`Storyshots TextArea Value Controlled 1`] = `
           dataSet={Object {}}
           editable={true}
           multiline={true}
-          nativeID="undefined-input"
           onBlur={[Function]}
           onChange={[Function]}
           onChangeText={[Function]}
@@ -89611,6 +89626,7 @@ exports[`Storyshots useBreakpointValue Usage 1`] = `
           Object {
             "dataSet": Object {},
           },
+          Object {},
         ]
       }
       dataSet={Object {}}

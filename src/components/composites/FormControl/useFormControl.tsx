@@ -110,9 +110,15 @@ export function useFormControl(props: IFormControlProps) {
     'isRequired',
   ]);
 
+  let nativeID = props?.nativeID;
+
+  if (!nativeID && field?.nativeID) {
+    nativeID = `${field?.nativeID}-input`;
+  }
+
   return {
     ...cleanProps,
-    nativeID: props.nativeID ?? field?.nativeID,
+    nativeID: nativeID,
     disabled: props.isDisabled || field?.isDisabled,
     readOnly: props.isReadOnly || field?.isReadOnly,
     required: props.isRequired || field?.isRequired,
