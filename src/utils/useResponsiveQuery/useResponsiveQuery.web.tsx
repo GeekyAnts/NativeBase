@@ -36,6 +36,7 @@ import React from 'react';
  * This Implementation is based on asumptions that RNW doesn't change the         * function  or doesn't re-write them. if there is any change in RNW implmentation * it we'll break and needs to be updated.
  *
  */
+let textContentMap: any = {};
 
 export const useResponsiveQuery = (
   queries?: UseResponsiveQueryParams
@@ -161,10 +162,20 @@ const getResponsiveStyles = (
         if (mediaRules) {
           const mediaQueryRule = getMediaQueryRule(queryRule, mediaRules);
           insert(`/*${queryHash}{}*/${mediaQueryRule}`);
+          textContentMap[`/*${queryHash}{}*/${mediaQueryRule}`] = true;
         }
       }
     });
   }
 
   return { styles, dataSet };
+};
+
+export const getStyleElement = () => {
+  return (
+    <style
+      type="text/css"
+      dangerouslySetInnerHTML={{ __html: Object.keys(textContentMap).join('') }}
+    />
+  );
 };
