@@ -24,6 +24,10 @@ export const useResponsiveQuery = (
 
   return values;
 };
+
+/**
+ * This function is copied from intergalacticspacehighway/rnw-responsive-ssr
+ */
 // noop, web-only. Refer useResponsiveQuery.web.tsx
 export const getStyleElement = () => {
   return <></>;

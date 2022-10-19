@@ -118,6 +118,10 @@ const getResponsiveStyles = (
 
   let dataSet: DataSet = {};
   let styleSheet: any;
+
+  /**
+   * This function is copied from intergalacticspacehighway/rnw-responsive-ssr
+   */
   const insert = (rule: string) => {
     if (typeof window !== 'undefined') {
       if (!styleSheet) {
@@ -171,6 +175,9 @@ const getResponsiveStyles = (
   return { styles, dataSet };
 };
 
+/**
+ * This function is copied from intergalacticspacehighway/rnw-responsive-ssr
+ */
 export const getStyleElement = () => {
   return (
     <style
