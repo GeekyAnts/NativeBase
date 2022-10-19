@@ -78,7 +78,7 @@ function SliderThumb(props: ISliderThumbProps, ref: any) {
     setIsPressed(state.isThumbDragging(0));
   }, [state]);
 
-  const thumbAbsoluteSize = useToken('sizes', resolvedProps.size);
+  const thumbAbsoluteSize = useToken('sizes', resolvedProps.boxSize);
 
   const thumbStyles: any = {
     bottom:
