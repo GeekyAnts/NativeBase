@@ -8,7 +8,7 @@ const path = require('path');
 // const externalGlobals = require('rollup-plugin-external-globals');
 
 const inputOptions = {
-  input: path.join(__dirname, 'src/utils/styled.ts'),
+  input: path.join(__dirname, 'src/utils/static/index.ts'),
   plugins: [typescript({ tsconfig: false }), commonjs()],
 };
 const outputOptions = { file: 'dist.js', format: 'cjs' };
@@ -30,7 +30,7 @@ async function build() {
 
   fs.writeFileSync(path.join(__dirname, 'src/bundle.js'), outputCodes[0]);
   const newBundle = require(path.join(__dirname, 'src/bundle.js'));
-  const { generateBuildTimeMap } = newBundle;
+  const { generateBuildTimeMap, defaultTheme, convertStyledProps } = newBundle;
   const usedComponentDetailMap = {
     Button: [
       { variant: 'unstyled' },
@@ -41,6 +41,10 @@ async function build() {
       { colorScheme: 'indigo' },
     ],
   };
+  const resolvedProps = convertStyledProps({
+    theme: defaultTheme,
+    styledSystemProps: { p: 4, m: 4, bg: 'red.500' },
+  });
   generateBuildTimeMap('web', usedComponentDetailMap);
   // console.log(outputCodes, 'eeee');
   return outputCodes;

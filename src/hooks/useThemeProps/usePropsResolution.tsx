@@ -6,11 +6,11 @@ import { IStateProps, propsSpreader } from './propsFlattener';
 import { useResponsiveSSRProps } from '../useResponsiveSSRProps';
 import type { ComponentTheme } from '../../theme';
 import { useNativeBaseConfig } from '../../core/NativeBaseContext';
-import { getThemeProps } from '../../utils/styled';
+import { getThemeProps } from '../../utils/static/styled';
 import { callPropsFlattener } from './propsFlattener';
 
 import { useColorMode } from '../../core/color-mode';
-import { PSEUDO_PROP_COMPONENT_MAP } from '../../utils/styled';
+import { PSEUDO_PROP_COMPONENT_MAP } from '../../utils/static/styled';
 import get from 'lodash.get';
 import { Platform } from 'react-native';
 import merge from 'lodash.merge';

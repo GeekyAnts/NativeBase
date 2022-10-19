@@ -2,7 +2,7 @@ import React, { memo, forwardRef } from 'react';
 import Text from '../Text';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import type { IHeadingProps } from './types';
-import { getThemeProps } from '../../../utils/styled';
+import { getThemeProps } from '../../../utils/static/styled';
 import { useColorMode } from '../../../core/color-mode';
 
 import { useNativeBase } from '../../../hooks';
