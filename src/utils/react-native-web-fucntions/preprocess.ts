@@ -1,6 +1,6 @@
 /* eslint-disable */
 //@ts-nocheck
-// This hash function is taken from react native web
+// This functions is taken from react native web
 
 import normalizeColor from './normalizeColor';
 import normalizeValueWithProperty from './normalizeValueWithProperty';

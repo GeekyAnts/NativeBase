@@ -1,7 +1,6 @@
 /* eslint-disable */
 //@ts-nocheck
-// This hash function is taken from react native web
-
+// This functions is taken from react native web
 import backgroundClip from 'inline-style-prefixer/lib/plugins/backgroundClip';
 import crossFade from 'inline-style-prefixer/lib/plugins/crossFade';
 import cursor from 'inline-style-prefixer/lib/plugins/cursor';
