@@ -12,7 +12,7 @@ import { StyleSheet } from 'react-native';
 import { useId } from '@react-native-aria/utils';
 import { Overlay } from '../../primitives/Overlay';
 import { uniqueId } from 'lodash';
-import { ResponsiveQueryContext } from '../../../utils/useResponsiveQuery/ResponsiveQueryProvider';
+import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
 
 const Popover = (
   {
@@ -43,8 +43,8 @@ const Popover = (
   const [bodyMounted, setBodyMounted] = React.useState(false);
   const [headerMounted, setHeaderMounted] = React.useState(false);
   let id = uniqueId();
-  const responsiveQueryContext = React.useContext(ResponsiveQueryContext);
-  const disableCSSMediaQueries = responsiveQueryContext.disableCSSMediaQueries;
+  const isSSR = useNativeBaseConfig('NativeBase').isSSR;
+  const disableCSSMediaQueries = !isSSR;
 
   if (!disableCSSMediaQueries) {
     // This if statement technically breaks the rules of hooks, but is safe

@@ -9,111 +9,38 @@ import { useNativeBaseConfig } from '../../core/NativeBaseContext';
 import { getThemeProps } from '../../utils/static/styled';
 import { callPropsFlattener } from './propsFlattener';
 
-import { useColorMode } from '../../core/color-mode';
+import { ColorMode, useColorMode } from '../../core/color-mode';
 import { PSEUDO_PROP_COMPONENT_MAP } from '../../utils/static/styled';
 import get from 'lodash.get';
 import { Platform } from 'react-native';
 import merge from 'lodash.merge';
 import { isEmptyObj } from '../../utils/isEmptyObj';
 
-// const getThemeProps = resolvedMap.theme.getThemeProps;
-
-/**
- * @summary Combines provided porps with component's theme props and resloves them.
- * @arg {string} component - Name of the component.
- * @arg {object} incomingProps - Props passed by the user.
- * @arg {object} state - dependent states.
- * @arg {object} config - configuration for resolution. Accepts key like ignoreProps, resolveResponsively.
- * @returns {object} Resolved and flattened props.
- */
-export function usePropsResolution(
-  component: string,
-  { INTERNAL_themeStyle, stateProps, ...inputProps }: any,
-  state?: IStateProps,
-  config?: {
-    componentTheme?: any;
-    resolveResponsively?: string[];
-    ignoreProps?: string[];
-    cascadePseudoProps?: boolean;
-    extendTheme?: string[];
+export const mergeFinalResolvedProps = (
+  componentTheme: ComponentTheme,
+  componentThemeProps: any,
+  incomingProps: any,
+  INTERNAL_themeStyle: any,
+  stateStyleFromProps: any,
+  resolvedPropsWithStateProps: any,
+  config: {
+    component?: string;
+    theme?: any;
+    providerId?: string;
+    colorMode?: ColorMode;
+    ignoredProps?: any;
     notResolveThemeProps?: boolean;
+    stateProps?: any;
   }
-) {
-  const { theme } = useNativeBase();
-
-  const { colorMode } = useColorMode();
-  const providerId = useNativeBaseConfig('NativeBase').providerId;
-
-  // need to think
-  const [ignoredProps, incomingProps] = extractInObject(
-    inputProps,
-    ['children', 'onPress', 'onOpen', 'onClose'].concat(
-      config?.ignoreProps || []
-    )
-  );
-
-  // componentThemeProps - return default+extended theme resolved props
-  const componentThemeProps = getThemeProps(
+) => {
+  const {
+    component,
     theme,
     providerId,
-    component,
-    { colorMode: colorMode, platform: Platform.OS },
-    state,
-    incomingProps,
-    config?.notResolveThemeProps
-  );
-
-  const stateStyleFromProps = omitUndefined(
-    componentThemeProps.stateStyleFromProps
-  );
-
-  // This is only for TextArea
-  if (config?.extendTheme) {
-    config.extendTheme.forEach((extendedComponent) => {
-      const extendedThemeProps = getThemeProps(
-        theme,
-        providerId,
-        extendedComponent,
-        { colorMode, platform: Platform.OS },
-        state,
-        incomingProps,
-        config?.notResolveThemeProps
-      );
-
-      componentThemeProps.style = [
-        ...componentThemeProps.style,
-        ...extendedThemeProps.style,
-      ];
-      componentThemeProps.styleFromProps = {
-        ...componentThemeProps.styleFromProps,
-        ...extendedThemeProps.styleFromProps,
-      };
-      componentThemeProps.unResolvedProps = {
-        ...componentThemeProps.unResolvedProps,
-        ...extendedThemeProps.unResolvedProps,
-      };
-    });
-  }
-
-  const componentTheme = get(theme, `components.${component}`);
-
-  // usePropsResolutionWithComponentTheme - returns inline theme props
-
-  /**
-   * merging inline props on top of rest default props at line:105
-   */
-  const resolvedPropsWithStateProps = usePropsResolutionWithComponentTheme(
-    componentTheme,
-    merge(
-      {},
-      componentThemeProps?.unResolvedProps,
-      componentThemeProps?.restDefaultProps,
-      incomingProps
-    ),
-    theme,
-    state,
-    { ...config, name: component }
-  );
+    colorMode,
+    ignoredProps,
+    stateProps,
+  } = config;
 
   let resolvedFlattenProps = resolvedPropsWithStateProps.flattenProps;
   const resolvedStateProps = {
@@ -186,16 +113,7 @@ export function usePropsResolution(
               pseudoComponentThemeProps.styleFromProps,
               ...resolvedFlattenProps[property].INTERNAL_themeStyle,
             ]
-          : // resolvedProps[property].INTERNAL_themeStyle.unshift(
-            //     pseudoComponentThemeProps.styleFromProps
-            //   )
-            // [
-            //     {
-            //       ...pseudoComponentThemeProps.styleFromProps,
-            //     },
-            //     ...resolvedProps[property].INTERNAL_themeStyle,
-            //   ]
-            [pseudoComponentThemeProps.styleFromProps],
+          : [pseudoComponentThemeProps.styleFromProps],
       };
     }
   }
@@ -219,6 +137,122 @@ export function usePropsResolution(
     ...ignoredProps,
     stateProps: resolvedStateProps,
   });
+
+  return resolvedProps;
+};
+
+// const getThemeProps = resolvedMap.theme.getThemeProps;
+
+/**
+ * @summary Combines provided porps with component's theme props and resloves them.
+ * @arg {string} component - Name of the component.
+ * @arg {object} incomingProps - Props passed by the user.
+ * @arg {object} state - dependent states.
+ * @arg {object} config - configuration for resolution. Accepts key like ignoreProps, resolveResponsively.
+ * @returns {object} Resolved and flattened props.
+ */
+export function usePropsResolution(
+  component: string,
+  { INTERNAL_themeStyle, stateProps, ...inputProps }: any,
+  state?: IStateProps,
+  config?: {
+    componentTheme?: any;
+    resolveResponsively?: string[];
+    ignoreProps?: string[];
+    cascadePseudoProps?: boolean;
+    extendTheme?: string[];
+    notResolveThemeProps?: boolean;
+  }
+) {
+  const { theme } = useNativeBase();
+
+  const { colorMode } = useColorMode();
+  const providerId = useNativeBaseConfig('NativeBase').providerId;
+
+  // need to think
+  const [ignoredProps, incomingProps] = extractInObject(
+    inputProps,
+    ['children', 'onPress', 'onOpen', 'onClose'].concat(
+      config?.ignoreProps || []
+    )
+  );
+
+  // componentThemeProps - return default+extended theme resolved props
+  const componentThemeProps = getThemeProps(
+    theme,
+    providerId,
+    component,
+    { colorMode: colorMode, platform: Platform.OS },
+    state,
+    incomingProps,
+    config?.notResolveThemeProps
+  );
+
+  const stateStyleFromProps = omitUndefined(
+    componentThemeProps.stateStyleFromProps
+  );
+
+  // This is only for TextArea
+  if (config?.extendTheme) {
+    config.extendTheme.forEach((extendedComponent) => {
+      const extendedThemeProps = getThemeProps(
+        theme,
+        providerId,
+        extendedComponent,
+        { colorMode, platform: Platform.OS },
+        state,
+        incomingProps,
+        config?.notResolveThemeProps
+      );
+
+      componentThemeProps.styleFromProps = {
+        ...componentThemeProps?.styleFromProps,
+        ...extendedThemeProps?.styleFromProps,
+      };
+      componentThemeProps.unResolvedProps = {
+        ...componentThemeProps?.unResolvedProps,
+        ...extendedThemeProps?.unResolvedProps,
+      };
+    });
+  }
+
+  const componentTheme = get(theme, `components.${component}`);
+
+  // usePropsResolutionWithComponentTheme - returns inline theme props
+
+  /**
+   * merging inline props on top of rest default props at line:105
+   */
+  const resolvedPropsWithStateProps = usePropsResolutionWithComponentTheme(
+    componentTheme,
+    merge(
+      {},
+      componentThemeProps?.unResolvedProps,
+      componentThemeProps?.restDefaultProps,
+      incomingProps
+    ),
+    theme,
+    state,
+    { ...config, name: component }
+  );
+
+  const resolvedProps = mergeFinalResolvedProps(
+    componentTheme,
+    componentThemeProps,
+    incomingProps,
+    INTERNAL_themeStyle,
+    stateStyleFromProps,
+    resolvedPropsWithStateProps,
+    {
+      component,
+      theme,
+      providerId,
+      colorMode,
+      ignoredProps,
+      stateProps,
+      notResolveThemeProps: config?.notResolveThemeProps,
+    }
+  );
 
   return resolvedProps;
 }
