@@ -17,9 +17,14 @@ export const extractFilteredProps = (
   defaultStateThemeStyles: any = {},
   defaultThemeStyles: any = {}
 ) => {
+  // ...merge.apply({}, inlineResolvedProps?.INTERNAL_themeStyle),
+
   //Merge with default styles
   const [layoutStyles, nonLayoutStyles] = extractInObject(
-    defaultThemeStyles,
+    {
+      ...defaultThemeStyles,
+      ...merge.apply({}, inlineResolvedProps?.INTERNAL_themeStyle),
+    },
     filterProps
   );
 
