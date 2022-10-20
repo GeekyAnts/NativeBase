@@ -8,6 +8,7 @@ import { HybridContext } from './../hybrid-overlay/Context';
 import type { IHybridContextProps } from './../hybrid-overlay/types';
 import { AppState, useColorScheme as _useColorScheme } from 'react-native';
 import { useSubscription } from 'use-subscription';
+import { useNativeBaseConfig } from '../NativeBaseContext';
 
 export const useColorMode = (): IColorModeContextProps => {
   const {
@@ -37,7 +38,17 @@ export const useAppState = () => {
     }),
     []
   );
-  return useSubscription(subscription);
+
+  const isSSR = useNativeBaseConfig('useBreakpointResolvedProps').isSSR;
+
+  if (isSSR) {
+    return 'unknown';
+  } else {
+    // This if statement technically breaks the rules of hooks, but is safe
+    // because the condition never changes after mounting.
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    return useSubscription(subscription);
+  }
 };
 
 export const useColorScheme = () => {
