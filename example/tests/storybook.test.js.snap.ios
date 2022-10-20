@@ -1323,8 +1323,8 @@ exports[`Storyshots Alert Basic 1`] = `
               <RNSVGSvgView
                 accessibilityRole="image"
                 align="xMidYMid"
-                bbHeight={20}
-                bbWidth={20}
+                bbHeight={12}
+                bbWidth={12}
                 color={4283127139}
                 dataSet={Object {}}
                 focusable={false}
@@ -1340,13 +1340,13 @@ exports[`Storyshots Alert Basic 1`] = `
                     },
                     Object {
                       "color": "#4b5563",
-                      "height": 20,
-                      "width": 20,
+                      "height": 12,
+                      "width": 12,
                     },
                     Object {
                       "flex": 0,
-                      "height": 20,
-                      "width": 20,
+                      "height": 12,
+                      "width": 12,
                     },
                   ]
                 }
@@ -1739,8 +1739,8 @@ exports[`Storyshots Alert ColorScheme 1`] = `
               <RNSVGSvgView
                 accessibilityRole="image"
                 align="xMidYMid"
-                bbHeight={20}
-                bbWidth={20}
+                bbHeight={12}
+                bbWidth={12}
                 color={4283127139}
                 dataSet={Object {}}
                 focusable={false}
@@ -1756,13 +1756,13 @@ exports[`Storyshots Alert ColorScheme 1`] = `
                     },
                     Object {
                       "color": "#4b5563",
-                      "height": 20,
-                      "width": 20,
+                      "height": 12,
+                      "width": 12,
                     },
                     Object {
                       "flex": 0,
-                      "height": 20,
-                      "width": 20,
+                      "height": 12,
+                      "width": 12,
                     },
                   ]
                 }
@@ -2025,8 +2025,8 @@ exports[`Storyshots Alert ColorScheme 1`] = `
               <RNSVGSvgView
                 accessibilityRole="image"
                 align="xMidYMid"
-                bbHeight={20}
-                bbWidth={20}
+                bbHeight={12}
+                bbWidth={12}
                 color={4283127139}
                 dataSet={Object {}}
                 focusable={false}
@@ -2042,13 +2042,13 @@ exports[`Storyshots Alert ColorScheme 1`] = `
                     },
                     Object {
                       "color": "#4b5563",
-                      "height": 20,
-                      "width": 20,
+                      "height": 12,
+                      "width": 12,
                     },
                     Object {
                       "flex": 0,
-                      "height": 20,
-                      "width": 20,
+                      "height": 12,
+                      "width": 12,
                     },
                   ]
                 }
@@ -2311,8 +2311,8 @@ exports[`Storyshots Alert ColorScheme 1`] = `
               <RNSVGSvgView
                 accessibilityRole="image"
                 align="xMidYMid"
-                bbHeight={20}
-                bbWidth={20}
+                bbHeight={12}
+                bbWidth={12}
                 color={4283127139}
                 dataSet={Object {}}
                 focusable={false}
@@ -2328,13 +2328,13 @@ exports[`Storyshots Alert ColorScheme 1`] = `
                     },
                     Object {
                       "color": "#4b5563",
-                      "height": 20,
-                      "width": 20,
+                      "height": 12,
+                      "width": 12,
                     },
                     Object {
                       "flex": 0,
-                      "height": 20,
-                      "width": 20,
+                      "height": 12,
+                      "width": 12,
                     },
                   ]
                 }
@@ -2735,8 +2735,8 @@ exports[`Storyshots Alert Composition 1`] = `
                 <RNSVGSvgView
                   accessibilityRole="image"
                   align="xMidYMid"
-                  bbHeight={20}
-                  bbWidth={20}
+                  bbHeight={12}
+                  bbWidth={12}
                   color={4283127139}
                   dataSet={Object {}}
                   focusable={false}
@@ -2752,13 +2752,13 @@ exports[`Storyshots Alert Composition 1`] = `
                       },
                       Object {
                         "color": "#4b5563",
-                        "height": 20,
-                        "width": 20,
+                        "height": 12,
+                        "width": 12,
                       },
                       Object {
                         "flex": 0,
-                        "height": 20,
-                        "width": 20,
+                        "height": 12,
+                        "width": 12,
                       },
                     ]
                   }
@@ -3311,8 +3311,8 @@ exports[`Storyshots Alert Status 1`] = `
               <RNSVGSvgView
                 accessibilityRole="image"
                 align="xMidYMid"
-                bbHeight={20}
-                bbWidth={20}
+                bbHeight={12}
+                bbWidth={12}
                 color={4283127139}
                 dataSet={Object {}}
                 focusable={false}
@@ -3328,13 +3328,13 @@ exports[`Storyshots Alert Status 1`] = `
                     },
                     Object {
                       "color": "#4b5563",
-                      "height": 20,
-                      "width": 20,
+                      "height": 12,
+                      "width": 12,
                     },
                     Object {
                       "flex": 0,
-                      "height": 20,
-                      "width": 20,
+                      "height": 12,
+                      "width": 12,
                     },
                   ]
                 }
@@ -3576,8 +3576,8 @@ exports[`Storyshots Alert Status 1`] = `
               <RNSVGSvgView
                 accessibilityRole="image"
                 align="xMidYMid"
-                bbHeight={20}
-                bbWidth={20}
+                bbHeight={12}
+                bbWidth={12}
                 color={4283127139}
                 dataSet={Object {}}
                 focusable={false}
@@ -3593,13 +3593,13 @@ exports[`Storyshots Alert Status 1`] = `
                     },
                     Object {
                       "color": "#4b5563",
-                      "height": 20,
-                      "width": 20,
+                      "height": 12,
+                      "width": 12,
                     },
                     Object {
                       "flex": 0,
-                      "height": 20,
-                      "width": 20,
+                      "height": 12,
+                      "width": 12,
                     },
                   ]
                 }
@@ -3826,8 +3826,8 @@ exports[`Storyshots Alert Status 1`] = `
               <RNSVGSvgView
                 accessibilityRole="image"
                 align="xMidYMid"
-                bbHeight={20}
-                bbWidth={20}
+                bbHeight={12}
+                bbWidth={12}
                 color={4283127139}
                 dataSet={Object {}}
                 focusable={false}
@@ -3843,13 +3843,13 @@ exports[`Storyshots Alert Status 1`] = `
                     },
                     Object {
                       "color": "#4b5563",
-                      "height": 20,
-                      "width": 20,
+                      "height": 12,
+                      "width": 12,
                     },
                     Object {
                       "flex": 0,
-                      "height": 20,
-                      "width": 20,
+                      "height": 12,
+                      "width": 12,
                     },
                   ]
                 }
@@ -4076,8 +4076,8 @@ exports[`Storyshots Alert Status 1`] = `
               <RNSVGSvgView
                 accessibilityRole="image"
                 align="xMidYMid"
-                bbHeight={20}
-                bbWidth={20}
+                bbHeight={12}
+                bbWidth={12}
                 color={4283127139}
                 dataSet={Object {}}
                 focusable={false}
@@ -4093,13 +4093,13 @@ exports[`Storyshots Alert Status 1`] = `
                     },
                     Object {
                       "color": "#4b5563",
-                      "height": 20,
-                      "width": 20,
+                      "height": 12,
+                      "width": 12,
                     },
                     Object {
                       "flex": 0,
-                      "height": 20,
-                      "width": 20,
+                      "height": 12,
+                      "width": 12,
                     },
                   ]
                 }
@@ -4457,8 +4457,8 @@ exports[`Storyshots Alert Usage 1`] = `
               <RNSVGSvgView
                 accessibilityRole="image"
                 align="xMidYMid"
-                bbHeight={20}
-                bbWidth={20}
+                bbHeight={12}
+                bbWidth={12}
                 color={4283127139}
                 dataSet={Object {}}
                 focusable={false}
@@ -4474,13 +4474,13 @@ exports[`Storyshots Alert Usage 1`] = `
                     },
                     Object {
                       "color": "#4b5563",
-                      "height": 20,
-                      "width": 20,
+                      "height": 12,
+                      "width": 12,
                     },
                     Object {
                       "flex": 0,
-                      "height": 20,
-                      "width": 20,
+                      "height": 12,
+                      "width": 12,
                     },
                   ]
                 }
@@ -4689,6 +4689,7 @@ exports[`Storyshots Alert Variant 1`] = `
           Object {
             "dataSet": Object {},
           },
+          Object {},
         ]
       }
       dataSet={Object {}}
@@ -6272,8 +6273,8 @@ exports[`Storyshots Alert action 1`] = `
                   <RNSVGSvgView
                     accessibilityRole="image"
                     align="xMidYMid"
-                    bbHeight={20}
-                    bbWidth={20}
+                    bbHeight={12}
+                    bbWidth={12}
                     color={4283127139}
                     dataSet={Object {}}
                     focusable={false}
@@ -6289,13 +6290,13 @@ exports[`Storyshots Alert action 1`] = `
                         },
                         Object {
                           "color": "#4b5563",
-                          "height": 20,
-                          "width": 20,
+                          "height": 12,
+                          "width": 12,
                         },
                         Object {
                           "flex": 0,
-                          "height": 20,
-                          "width": 20,
+                          "height": 12,
+                          "width": 12,
                         },
                       ]
                     }
@@ -12439,7 +12440,7 @@ exports[`Storyshots Breadcrumb Basic 1`] = `
             "backgroundColor": undefined,
             "color": "#171717",
             "fontFamily": undefined,
-            "fontSize": null,
+            "fontSize": 24,
             "fontStyle": "normal",
             "fontWeight": "700",
             "letterSpacing": 0,
@@ -12824,7 +12825,7 @@ exports[`Storyshots Breadcrumb Collapsible 1`] = `
             "backgroundColor": undefined,
             "color": "#171717",
             "fontFamily": undefined,
-            "fontSize": null,
+            "fontSize": 24,
             "fontStyle": "normal",
             "fontWeight": "700",
             "letterSpacing": 0,
@@ -13407,7 +13408,7 @@ exports[`Storyshots Breadcrumb ComponentSeparator 1`] = `
             "backgroundColor": undefined,
             "color": "#171717",
             "fontFamily": undefined,
-            "fontSize": null,
+            "fontSize": 24,
             "fontStyle": "normal",
             "fontWeight": "700",
             "letterSpacing": 0,
@@ -13731,7 +13732,7 @@ exports[`Storyshots Breadcrumb Composition 1`] = `
             "backgroundColor": undefined,
             "color": "#171717",
             "fontFamily": undefined,
-            "fontSize": null,
+            "fontSize": 24,
             "fontStyle": "normal",
             "fontWeight": "700",
             "letterSpacing": 0,
@@ -14164,7 +14165,7 @@ exports[`Storyshots Breadcrumb Separators 1`] = `
             "backgroundColor": undefined,
             "color": "#171717",
             "fontFamily": undefined,
-            "fontSize": null,
+            "fontSize": 24,
             "fontStyle": "normal",
             "fontWeight": "700",
             "letterSpacing": 0,
@@ -15335,6 +15336,7 @@ exports[`Storyshots Button Loading 1`] = `
                     "dataSet": Object {},
                     "focusable": false,
                   },
+                  Object {},
                 ],
                 undefined,
               ]
@@ -15407,6 +15409,7 @@ exports[`Storyshots Button Loading 1`] = `
                     "dataSet": Object {},
                     "focusable": false,
                   },
+                  Object {},
                 ],
                 undefined,
               ]
@@ -15541,6 +15544,7 @@ exports[`Storyshots Button Loading 1`] = `
                     "dataSet": Object {},
                     "focusable": false,
                   },
+                  Object {},
                 ],
                 undefined,
               ]
@@ -15613,6 +15617,7 @@ exports[`Storyshots Button Loading 1`] = `
                     "dataSet": Object {},
                     "focusable": false,
                   },
+                  Object {},
                 ],
                 undefined,
               ]
@@ -15717,6 +15722,7 @@ exports[`Storyshots Button Loading 1`] = `
                     "dataSet": Object {},
                     "focusable": false,
                   },
+                  Object {},
                 ],
                 undefined,
               ]
@@ -16314,6 +16320,7 @@ exports[`Storyshots Button Variants 1`] = `
           Object {
             "dataSet": Object {},
           },
+          Object {},
         ]
       }
       dataSet={Object {}}
@@ -18954,6 +18961,7 @@ exports[`Storyshots ButtonGroup Variants 1`] = `
           Object {
             "dataSet": Object {},
           },
+          Object {},
         ]
       }
       dataSet={Object {}}
@@ -20829,6 +20837,7 @@ exports[`Storyshots ButtonGroup isAttached 1`] = `
           Object {
             "dataSet": Object {},
           },
+          Object {},
         ]
       }
       dataSet={Object {}}
@@ -22899,6 +22908,7 @@ exports[`Storyshots Checkbox Basic 1`] = `
       }
     >
       <View
+        accessibilityLabel="This is a dummy checkbox"
         accessibilityRole="checkbox"
         accessibilityState={
           Object {
@@ -22947,7 +22957,6 @@ exports[`Storyshots Checkbox Basic 1`] = `
               style={Object {}}
             />
             <View
-              accessibilityLabel="This is a dummy checkbox"
               checked={false}
               colorScheme="primary"
               dataSet={Object {}}
@@ -22994,6 +23003,7 @@ exports[`Storyshots Checkbox Basic 1`] = `
         }
       />
       <View
+        accessibilityLabel="This is a dummy checkbox"
         accessibilityRole="checkbox"
         accessibilityState={
           Object {
@@ -23042,7 +23052,6 @@ exports[`Storyshots Checkbox Basic 1`] = `
               style={Object {}}
             />
             <View
-              accessibilityLabel="This is a dummy checkbox"
               checked={true}
               colorScheme="primary"
               dataSet={Object {}}
@@ -26497,16 +26506,16 @@ exports[`Storyshots Checkbox Form Controlled 1`] = `
         >
           <View
             dataSet={Object {}}
-            feedbackId="field-react-aria-0-2-feedback"
+            feedbackId="field-69-feedback"
             hasFeedbackText={false}
             hasHelpText={false}
-            helpTextId="field-react-aria-0-2-helptext"
+            helpTextId="field-69-helptext"
             isDisabled={false}
             isInvalid={true}
             isReadOnly={false}
             isRequired={false}
-            labelId="field-react-aria-0-2-label"
-            nativeID="field-react-aria-0-2-label"
+            labelId="field-69-label"
+            nativeID="field-69-label"
             setHasFeedbackText={[Function]}
             setHasHelpText={[Function]}
             style={
@@ -26634,16 +26643,16 @@ exports[`Storyshots Checkbox Form Controlled 1`] = `
                     dataSet={Object {}}
                     defaultIsChecked={false}
                     disabled={false}
-                    feedbackId="field-react-aria-0-2-feedback"
+                    feedbackId="field-69-feedback"
                     hasFeedbackText={false}
                     hasHelpText={false}
-                    helpTextId="field-react-aria-0-2-helptext"
+                    helpTextId="field-69-helptext"
                     isDisabled={false}
                     isInvalid={true}
                     isReadOnly={false}
                     isRequired={false}
-                    labelId="field-react-aria-0-2-label"
-                    nativeID="field-react-aria-0-2"
+                    labelId="field-69-label"
+                    nativeID="field-69"
                     readOnly={false}
                     required={false}
                     setHasFeedbackText={[Function]}
@@ -26829,16 +26838,16 @@ exports[`Storyshots Checkbox Form Controlled 1`] = `
                     dataSet={Object {}}
                     defaultIsChecked={false}
                     disabled={false}
-                    feedbackId="field-react-aria-0-2-feedback"
+                    feedbackId="field-69-feedback"
                     hasFeedbackText={false}
                     hasHelpText={false}
-                    helpTextId="field-react-aria-0-2-helptext"
+                    helpTextId="field-69-helptext"
                     isDisabled={false}
                     isInvalid={true}
                     isReadOnly={false}
                     isRequired={false}
-                    labelId="field-react-aria-0-2-label"
-                    nativeID="field-react-aria-0-2"
+                    labelId="field-69-label"
+                    nativeID="field-69"
                     readOnly={false}
                     required={false}
                     setHasFeedbackText={[Function]}
@@ -27024,16 +27033,16 @@ exports[`Storyshots Checkbox Form Controlled 1`] = `
                     dataSet={Object {}}
                     defaultIsChecked={false}
                     disabled={false}
-                    feedbackId="field-react-aria-0-2-feedback"
+                    feedbackId="field-69-feedback"
                     hasFeedbackText={false}
                     hasHelpText={false}
-                    helpTextId="field-react-aria-0-2-helptext"
+                    helpTextId="field-69-helptext"
                     isDisabled={false}
                     isInvalid={true}
                     isReadOnly={false}
                     isRequired={false}
-                    labelId="field-react-aria-0-2-label"
-                    nativeID="field-react-aria-0-2"
+                    labelId="field-69-label"
+                    nativeID="field-69"
                     readOnly={false}
                     required={false}
                     setHasFeedbackText={[Function]}
@@ -27168,16 +27177,16 @@ exports[`Storyshots Checkbox Form Controlled 1`] = `
                     dataSet={Object {}}
                     defaultIsChecked={false}
                     disabled={false}
-                    feedbackId="field-react-aria-0-2-feedback"
+                    feedbackId="field-69-feedback"
                     hasFeedbackText={false}
                     hasHelpText={false}
-                    helpTextId="field-react-aria-0-2-helptext"
+                    helpTextId="field-69-helptext"
                     isDisabled={false}
                     isInvalid={true}
                     isReadOnly={false}
                     isRequired={false}
-                    labelId="field-react-aria-0-2-label"
-                    nativeID="field-react-aria-0-2"
+                    labelId="field-69-label"
+                    nativeID="field-69"
                     readOnly={false}
                     required={false}
                     setHasFeedbackText={[Function]}
@@ -27259,16 +27268,16 @@ exports[`Storyshots Checkbox Form Controlled 1`] = `
           </View>
           <View
             dataSet={Object {}}
-            feedbackId="field-react-aria-0-2-feedback"
+            feedbackId="field-69-feedback"
             hasFeedbackText={false}
             hasHelpText={false}
-            helpTextId="field-react-aria-0-2-helptext"
+            helpTextId="field-69-helptext"
             isDisabled={false}
             isInvalid={true}
             isReadOnly={false}
             isRequired={false}
-            labelId="field-react-aria-0-2-label"
-            nativeID="field-react-aria-0-2"
+            labelId="field-69-label"
+            nativeID="field-69"
             setHasFeedbackText={[Function]}
             setHasHelpText={[Function]}
             style={
@@ -27281,7 +27290,7 @@ exports[`Storyshots Checkbox Form Controlled 1`] = `
               dataSet={Object {}}
               style={
                 Object {
-                  "alignItems": "center",
+                  "alignItems": "flex-start",
                   "flexDirection": "row",
                 }
               }
@@ -27308,6 +27317,7 @@ exports[`Storyshots Checkbox Form Controlled 1`] = `
                       "color": "#dc2626",
                       "fontSize": 12,
                       "height": 12,
+                      "marginTop": 4,
                       "width": 12,
                     },
                     Object {
@@ -29545,7 +29555,7 @@ exports[`Storyshots Container Playground 1`] = `
             "backgroundColor": undefined,
             "color": "#171717",
             "fontFamily": undefined,
-            "fontSize": null,
+            "fontSize": 24,
             "fontStyle": "normal",
             "fontWeight": "700",
             "letterSpacing": 0,
@@ -29728,7 +29738,7 @@ exports[`Storyshots Container Usage 1`] = `
               "backgroundColor": undefined,
               "color": "#171717",
               "fontFamily": undefined,
-              "fontSize": null,
+              "fontSize": 24,
               "fontStyle": "normal",
               "fontWeight": "700",
               "letterSpacing": 0,
@@ -29998,7 +30008,7 @@ exports[`Storyshots Divider Basic 1`] = `
               "color": "#171717",
               "flexDirection": "row",
               "fontFamily": undefined,
-              "fontSize": null,
+              "fontSize": 24,
               "fontStyle": "normal",
               "fontWeight": "700",
               "letterSpacing": 0,
@@ -30034,7 +30044,7 @@ exports[`Storyshots Divider Basic 1`] = `
               "color": "#171717",
               "flexDirection": "row",
               "fontFamily": undefined,
-              "fontSize": null,
+              "fontSize": 24,
               "fontStyle": "normal",
               "fontWeight": "700",
               "letterSpacing": 0,
@@ -30432,7 +30442,7 @@ exports[`Storyshots Divider Orientation 1`] = `
               "backgroundColor": undefined,
               "color": "#171717",
               "fontFamily": undefined,
-              "fontSize": null,
+              "fontSize": 24,
               "fontStyle": "normal",
               "fontWeight": "700",
               "letterSpacing": 0,
@@ -30479,7 +30489,7 @@ exports[`Storyshots Divider Orientation 1`] = `
                 "backgroundColor": undefined,
                 "color": "#171717",
                 "fontFamily": undefined,
-                "fontSize": null,
+                "fontSize": 24,
                 "fontStyle": "normal",
                 "fontWeight": "700",
                 "letterSpacing": 0,
@@ -30513,7 +30523,7 @@ exports[`Storyshots Divider Orientation 1`] = `
                 "backgroundColor": undefined,
                 "color": "#171717",
                 "fontFamily": undefined,
-                "fontSize": null,
+                "fontSize": 24,
                 "fontStyle": "normal",
                 "fontWeight": "700",
                 "letterSpacing": 0,
@@ -30687,7 +30697,7 @@ exports[`Storyshots Examples Signin Screen 1`] = `
               "backgroundColor": undefined,
               "color": "#1f2937",
               "fontFamily": undefined,
-              "fontSize": null,
+              "fontSize": 24,
               "fontStyle": "normal",
               "fontWeight": "600",
               "letterSpacing": 0,
@@ -30735,16 +30745,16 @@ exports[`Storyshots Examples Signin Screen 1`] = `
           >
             <View
               dataSet={Object {}}
-              feedbackId="field-react-aria-0-2-feedback"
+              feedbackId="field-264-feedback"
               hasFeedbackText={false}
               hasHelpText={false}
-              helpTextId="field-react-aria-0-2-helptext"
+              helpTextId="field-264-helptext"
               isDisabled={false}
               isInvalid={false}
               isReadOnly={false}
               isRequired={false}
-              labelId="field-react-aria-0-2-label"
-              nativeID="field-react-aria-0-2-label"
+              labelId="field-264-label"
+              nativeID="field-264-label"
               setHasFeedbackText={[Function]}
               setHasHelpText={[Function]}
               style={
@@ -30796,7 +30806,7 @@ exports[`Storyshots Examples Signin Screen 1`] = `
                 disabled={false}
                 editable={true}
                 isRequired={false}
-                nativeID="field-react-aria-0-2"
+                nativeID="field-264-input"
                 onBlur={[Function]}
                 onFocus={[Function]}
                 onKeyPress={[Function]}
@@ -30805,7 +30815,6 @@ exports[`Storyshots Examples Signin Screen 1`] = `
                 rejectResponderTermination={true}
                 required={false}
                 secureTextEntry={false}
-                selectionColor="#1f2937"
                 style={
                   Object {
                     "backgroundColor": "transparent",
@@ -30845,16 +30854,16 @@ exports[`Storyshots Examples Signin Screen 1`] = `
           >
             <View
               dataSet={Object {}}
-              feedbackId="field-react-aria-0-3-feedback"
+              feedbackId="field-265-feedback"
               hasFeedbackText={false}
               hasHelpText={false}
-              helpTextId="field-react-aria-0-3-helptext"
+              helpTextId="field-265-helptext"
               isDisabled={false}
               isInvalid={false}
               isReadOnly={false}
               isRequired={false}
-              labelId="field-react-aria-0-3-label"
-              nativeID="field-react-aria-0-3-label"
+              labelId="field-265-label"
+              nativeID="field-265-label"
               setHasFeedbackText={[Function]}
               setHasHelpText={[Function]}
               style={
@@ -30906,7 +30915,7 @@ exports[`Storyshots Examples Signin Screen 1`] = `
                 disabled={false}
                 editable={true}
                 isRequired={false}
-                nativeID="field-react-aria-0-3"
+                nativeID="field-265-input"
                 onBlur={[Function]}
                 onFocus={[Function]}
                 onKeyPress={[Function]}
@@ -30915,7 +30924,6 @@ exports[`Storyshots Examples Signin Screen 1`] = `
                 rejectResponderTermination={true}
                 required={false}
                 secureTextEntry={true}
-                selectionColor="#1f2937"
                 style={
                   Object {
                     "backgroundColor": "transparent",
@@ -31303,7 +31311,7 @@ exports[`Storyshots Examples Signup Screen 1`] = `
               "backgroundColor": undefined,
               "color": "#1f2937",
               "fontFamily": undefined,
-              "fontSize": null,
+              "fontSize": 24,
               "fontStyle": "normal",
               "fontWeight": "600",
               "letterSpacing": 0,
@@ -31351,16 +31359,16 @@ exports[`Storyshots Examples Signup Screen 1`] = `
           >
             <View
               dataSet={Object {}}
-              feedbackId="field-react-aria-0-2-feedback"
+              feedbackId="field-267-feedback"
               hasFeedbackText={false}
               hasHelpText={false}
-              helpTextId="field-react-aria-0-2-helptext"
+              helpTextId="field-267-helptext"
               isDisabled={false}
               isInvalid={false}
               isReadOnly={false}
               isRequired={false}
-              labelId="field-react-aria-0-2-label"
-              nativeID="field-react-aria-0-2-label"
+              labelId="field-267-label"
+              nativeID="field-267-label"
               setHasFeedbackText={[Function]}
               setHasHelpText={[Function]}
               style={
@@ -31412,7 +31420,7 @@ exports[`Storyshots Examples Signup Screen 1`] = `
                 disabled={false}
                 editable={true}
                 isRequired={false}
-                nativeID="field-react-aria-0-2"
+                nativeID="field-267-input"
                 onBlur={[Function]}
                 onFocus={[Function]}
                 onKeyPress={[Function]}
@@ -31421,7 +31429,6 @@ exports[`Storyshots Examples Signup Screen 1`] = `
                 rejectResponderTermination={true}
                 required={false}
                 secureTextEntry={false}
-                selectionColor="#1f2937"
                 style={
                   Object {
                     "backgroundColor": "transparent",
@@ -31461,16 +31468,16 @@ exports[`Storyshots Examples Signup Screen 1`] = `
           >
             <View
               dataSet={Object {}}
-              feedbackId="field-react-aria-0-3-feedback"
+              feedbackId="field-268-feedback"
               hasFeedbackText={false}
               hasHelpText={false}
-              helpTextId="field-react-aria-0-3-helptext"
+              helpTextId="field-268-helptext"
               isDisabled={false}
               isInvalid={false}
               isReadOnly={false}
               isRequired={false}
-              labelId="field-react-aria-0-3-label"
-              nativeID="field-react-aria-0-3-label"
+              labelId="field-268-label"
+              nativeID="field-268-label"
               setHasFeedbackText={[Function]}
               setHasHelpText={[Function]}
               style={
@@ -31522,7 +31529,7 @@ exports[`Storyshots Examples Signup Screen 1`] = `
                 disabled={false}
                 editable={true}
                 isRequired={false}
-                nativeID="field-react-aria-0-3"
+                nativeID="field-268-input"
                 onBlur={[Function]}
                 onFocus={[Function]}
                 onKeyPress={[Function]}
@@ -31531,7 +31538,6 @@ exports[`Storyshots Examples Signup Screen 1`] = `
                 rejectResponderTermination={true}
                 required={false}
                 secureTextEntry={true}
-                selectionColor="#1f2937"
                 style={
                   Object {
                     "backgroundColor": "transparent",
@@ -31571,16 +31577,16 @@ exports[`Storyshots Examples Signup Screen 1`] = `
           >
             <View
               dataSet={Object {}}
-              feedbackId="field-react-aria-0-4-feedback"
+              feedbackId="field-269-feedback"
               hasFeedbackText={false}
               hasHelpText={false}
-              helpTextId="field-react-aria-0-4-helptext"
+              helpTextId="field-269-helptext"
               isDisabled={false}
               isInvalid={false}
               isReadOnly={false}
               isRequired={false}
-              labelId="field-react-aria-0-4-label"
-              nativeID="field-react-aria-0-4-label"
+              labelId="field-269-label"
+              nativeID="field-269-label"
               setHasFeedbackText={[Function]}
               setHasHelpText={[Function]}
               style={
@@ -31632,7 +31638,7 @@ exports[`Storyshots Examples Signup Screen 1`] = `
                 disabled={false}
                 editable={true}
                 isRequired={false}
-                nativeID="field-react-aria-0-4"
+                nativeID="field-269-input"
                 onBlur={[Function]}
                 onFocus={[Function]}
                 onKeyPress={[Function]}
@@ -31641,7 +31647,6 @@ exports[`Storyshots Examples Signup Screen 1`] = `
                 rejectResponderTermination={true}
                 required={false}
                 secureTextEntry={true}
-                selectionColor="#1f2937"
                 style={
                   Object {
                     "backgroundColor": "transparent",
@@ -31947,7 +31952,6 @@ exports[`Storyshots Examples Todo App 1`] = `
                 placeholderTextColor="#a3a3a3"
                 rejectResponderTermination={true}
                 secureTextEntry={false}
-                selectionColor="#1f2937"
                 style={
                   Object {
                     "backgroundColor": "transparent",
@@ -32018,11 +32022,11 @@ exports[`Storyshots Examples Todo App 1`] = `
                       "fontSize": 12,
                     },
                     Object {
-                      "color": "#fafafa",
-                      "fontSize": 20,
-                      "height": 20,
-                      "lineHeight": 20,
-                      "width": 20,
+                      "color": "#fafaf9",
+                      "fontSize": 16,
+                      "height": 16,
+                      "lineHeight": 16,
+                      "width": 16,
                     },
                     Object {
                       "fontFamily": "feather",
@@ -32271,11 +32275,11 @@ exports[`Storyshots Examples Todo App 1`] = `
                         "fontSize": 12,
                       },
                       Object {
-                        "color": "#525252",
-                        "fontSize": 16,
-                        "height": 16,
-                        "lineHeight": 16,
-                        "width": 16,
+                        "color": "#a3a3a3",
+                        "fontSize": 12,
+                        "height": 12,
+                        "lineHeight": 12,
+                        "width": 12,
                       },
                       Object {
                         "fontFamily": "entypo",
@@ -32469,11 +32473,11 @@ exports[`Storyshots Examples Todo App 1`] = `
                         "fontSize": 12,
                       },
                       Object {
-                        "color": "#525252",
-                        "fontSize": 16,
-                        "height": 16,
-                        "lineHeight": 16,
-                        "width": 16,
+                        "color": "#a3a3a3",
+                        "fontSize": 12,
+                        "height": 12,
+                        "lineHeight": 12,
+                        "width": 12,
                       },
                       Object {
                         "fontFamily": "entypo",
@@ -32667,11 +32671,11 @@ exports[`Storyshots Examples Todo App 1`] = `
                         "fontSize": 12,
                       },
                       Object {
-                        "color": "#525252",
-                        "fontSize": 16,
-                        "height": 16,
-                        "lineHeight": 16,
-                        "width": 16,
+                        "color": "#a3a3a3",
+                        "fontSize": 12,
+                        "height": 12,
+                        "lineHeight": 12,
+                        "width": 12,
                       },
                       Object {
                         "fontFamily": "entypo",
@@ -32865,11 +32869,11 @@ exports[`Storyshots Examples Todo App 1`] = `
                         "fontSize": 12,
                       },
                       Object {
-                        "color": "#525252",
-                        "fontSize": 16,
-                        "height": 16,
-                        "lineHeight": 16,
-                        "width": 16,
+                        "color": "#a3a3a3",
+                        "fontSize": 12,
+                        "height": 12,
+                        "lineHeight": 12,
+                        "width": 12,
                       },
                       Object {
                         "fontFamily": "entypo",
@@ -33458,6 +33462,7 @@ exports[`Storyshots FlatList Basic 1`] = `
             Object {
               "dataSet": Object {},
             },
+            Object {},
           ]
         }
         data={
@@ -34489,6 +34494,7 @@ exports[`Storyshots Flex Basic Usage 1`] = `
             Object {
               "dataSet": Object {},
             },
+            Object {},
           ]
         }
         dataSet={Object {}}
@@ -35624,6 +35630,7 @@ exports[`Storyshots FormControl CustomStyle 1`] = `
           Object {
             "dataSet": Object {},
           },
+          Object {},
         ]
       }
       dataSet={Object {}}
@@ -35680,16 +35687,16 @@ exports[`Storyshots FormControl CustomStyle 1`] = `
             >
               <View
                 dataSet={Object {}}
-                feedbackId="field-react-aria-0-2-feedback"
+                feedbackId="field-87-feedback"
                 hasFeedbackText={false}
                 hasHelpText={false}
-                helpTextId="field-react-aria-0-2-helptext"
+                helpTextId="field-87-helptext"
                 isDisabled={false}
                 isInvalid={false}
                 isReadOnly={false}
                 isRequired={false}
-                labelId="field-react-aria-0-2-label"
-                nativeID="field-react-aria-0-2-label"
+                labelId="field-87-label"
+                nativeID="field-87-label"
                 setHasFeedbackText={[Function]}
                 setHasHelpText={[Function]}
                 style={
@@ -35741,7 +35748,7 @@ exports[`Storyshots FormControl CustomStyle 1`] = `
                   disabled={false}
                   editable={true}
                   isRequired={false}
-                  nativeID="field-react-aria-0-2"
+                  nativeID="field-87-input"
                   onBlur={[Function]}
                   onFocus={[Function]}
                   onKeyPress={[Function]}
@@ -35750,7 +35757,6 @@ exports[`Storyshots FormControl CustomStyle 1`] = `
                   rejectResponderTermination={true}
                   required={false}
                   secureTextEntry={false}
-                  selectionColor="#1f2937"
                   style={
                     Object {
                       "backgroundColor": "transparent",
@@ -35773,16 +35779,16 @@ exports[`Storyshots FormControl CustomStyle 1`] = `
               </View>
               <View
                 dataSet={Object {}}
-                feedbackId="field-react-aria-0-2-feedback"
+                feedbackId="field-87-feedback"
                 hasFeedbackText={false}
                 hasHelpText={false}
-                helpTextId="field-react-aria-0-2-helptext"
+                helpTextId="field-87-helptext"
                 isDisabled={false}
                 isInvalid={false}
                 isReadOnly={false}
                 isRequired={false}
-                labelId="field-react-aria-0-2-label"
-                nativeID="field-react-aria-0-2-feedback"
+                labelId="field-87-label"
+                nativeID="field-87-feedback"
                 setHasFeedbackText={[Function]}
                 setHasHelpText={[Function]}
                 style={
@@ -35867,16 +35873,16 @@ exports[`Storyshots FormControl CustomStyle 1`] = `
             >
               <View
                 dataSet={Object {}}
-                feedbackId="field-react-aria-0-3-feedback"
+                feedbackId="field-88-feedback"
                 hasFeedbackText={false}
                 hasHelpText={false}
-                helpTextId="field-react-aria-0-3-helptext"
+                helpTextId="field-88-helptext"
                 isDisabled={true}
                 isInvalid={false}
                 isReadOnly={false}
                 isRequired={false}
-                labelId="field-react-aria-0-3-label"
-                nativeID="field-react-aria-0-3-label"
+                labelId="field-88-label"
+                nativeID="field-88-label"
                 setHasFeedbackText={[Function]}
                 setHasHelpText={[Function]}
                 style={
@@ -35929,17 +35935,16 @@ exports[`Storyshots FormControl CustomStyle 1`] = `
                   disabled={true}
                   editable={false}
                   isRequired={false}
-                  nativeID="field-react-aria-0-3"
+                  nativeID="field-88-input"
                   onBlur={[Function]}
                   onFocus={[Function]}
                   onKeyPress={[Function]}
                   placeholder="Title"
-                  placeholderTextColor="#404040"
+                  placeholderTextColor="#a3a3a3"
                   readOnly={false}
                   rejectResponderTermination={true}
                   required={false}
                   secureTextEntry={false}
-                  selectionColor="#1f2937"
                   style={
                     Object {
                       "backgroundColor": "transparent",
@@ -35962,16 +35967,16 @@ exports[`Storyshots FormControl CustomStyle 1`] = `
               </View>
               <View
                 dataSet={Object {}}
-                feedbackId="field-react-aria-0-3-feedback"
+                feedbackId="field-88-feedback"
                 hasFeedbackText={false}
                 hasHelpText={false}
-                helpTextId="field-react-aria-0-3-helptext"
+                helpTextId="field-88-helptext"
                 isDisabled={true}
                 isInvalid={false}
                 isReadOnly={false}
                 isRequired={false}
-                labelId="field-react-aria-0-3-label"
-                nativeID="field-react-aria-0-3-feedback"
+                labelId="field-88-label"
+                nativeID="field-88-feedback"
                 setHasFeedbackText={[Function]}
                 setHasHelpText={[Function]}
                 style={
@@ -36055,16 +36060,16 @@ exports[`Storyshots FormControl CustomStyle 1`] = `
             >
               <View
                 dataSet={Object {}}
-                feedbackId="field-react-aria-0-4-feedback"
+                feedbackId="field-89-feedback"
                 hasFeedbackText={false}
                 hasHelpText={false}
-                helpTextId="field-react-aria-0-4-helptext"
+                helpTextId="field-89-helptext"
                 isDisabled={false}
                 isInvalid={true}
                 isReadOnly={false}
                 isRequired={false}
-                labelId="field-react-aria-0-4-label"
-                nativeID="field-react-aria-0-4-label"
+                labelId="field-89-label"
+                nativeID="field-89-label"
                 setHasFeedbackText={[Function]}
                 setHasHelpText={[Function]}
                 style={
@@ -36099,21 +36104,14 @@ exports[`Storyshots FormControl CustomStyle 1`] = `
                 dataSet={Object {}}
                 isFocused={false}
                 style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "borderColor": "#dc2626",
-                      "borderRadius": 4,
-                      "borderWidth": 1,
-                      "flexDirection": "row",
-                      "overflow": "hidden",
-                    },
-                    Object {
-                      "outlineColor": "#dc2626",
-                      "outlineStyle": "solid",
-                      "outlineWidth": "1px",
-                    },
-                  ]
+                  Object {
+                    "alignItems": "center",
+                    "borderColor": "#d4d4d4",
+                    "borderRadius": 4,
+                    "borderWidth": 1,
+                    "flexDirection": "row",
+                    "overflow": "hidden",
+                  }
                 }
               >
                 <TextInput
@@ -36125,7 +36123,7 @@ exports[`Storyshots FormControl CustomStyle 1`] = `
                   editable={true}
                   isInvalid={true}
                   isRequired={false}
-                  nativeID="field-react-aria-0-4"
+                  nativeID="field-89-input"
                   onBlur={[Function]}
                   onFocus={[Function]}
                   onKeyPress={[Function]}
@@ -36135,7 +36133,6 @@ exports[`Storyshots FormControl CustomStyle 1`] = `
                   rejectResponderTermination={true}
                   required={false}
                   secureTextEntry={false}
-                  selectionColor="#1f2937"
                   style={
                     Object {
                       "backgroundColor": "transparent",
@@ -36158,16 +36155,16 @@ exports[`Storyshots FormControl CustomStyle 1`] = `
               </View>
               <View
                 dataSet={Object {}}
-                feedbackId="field-react-aria-0-4-feedback"
+                feedbackId="field-89-feedback"
                 hasFeedbackText={false}
                 hasHelpText={false}
-                helpTextId="field-react-aria-0-4-helptext"
+                helpTextId="field-89-helptext"
                 isDisabled={false}
                 isInvalid={true}
                 isReadOnly={false}
                 isRequired={false}
-                labelId="field-react-aria-0-4-label"
-                nativeID="field-react-aria-0-4"
+                labelId="field-89-label"
+                nativeID="field-89"
                 setHasFeedbackText={[Function]}
                 setHasHelpText={[Function]}
                 style={
@@ -36435,16 +36432,16 @@ exports[`Storyshots FormControl Playground 1`] = `
       >
         <View
           dataSet={Object {}}
-          feedbackId="field-react-aria-0-2-feedback"
+          feedbackId="field-83-feedback"
           hasFeedbackText={false}
           hasHelpText={false}
-          helpTextId="field-react-aria-0-2-helptext"
+          helpTextId="field-83-helptext"
           isDisabled={false}
           isInvalid={false}
           isReadOnly={false}
           isRequired={true}
-          labelId="field-react-aria-0-2-label"
-          nativeID="field-react-aria-0-2-label"
+          labelId="field-83-label"
+          nativeID="field-83-label"
           setHasFeedbackText={[Function]}
           setHasHelpText={[Function]}
           style={
@@ -36519,7 +36516,7 @@ exports[`Storyshots FormControl Playground 1`] = `
             disabled={false}
             editable={true}
             isRequired={true}
-            nativeID="field-react-aria-0-2"
+            nativeID="field-83-input"
             onBlur={[Function]}
             onFocus={[Function]}
             onKeyPress={[Function]}
@@ -36529,7 +36526,6 @@ exports[`Storyshots FormControl Playground 1`] = `
             rejectResponderTermination={true}
             required={true}
             secureTextEntry={false}
-            selectionColor="#1f2937"
             style={
               Object {
                 "backgroundColor": "transparent",
@@ -36556,16 +36552,16 @@ exports[`Storyshots FormControl Playground 1`] = `
         />
         <View
           dataSet={Object {}}
-          feedbackId="field-react-aria-0-2-feedback"
+          feedbackId="field-83-feedback"
           hasFeedbackText={false}
           hasHelpText={false}
-          helpTextId="field-react-aria-0-2-helptext"
+          helpTextId="field-83-helptext"
           isDisabled={false}
           isInvalid={false}
           isReadOnly={false}
           isRequired={true}
-          labelId="field-react-aria-0-2-label"
-          nativeID="field-react-aria-0-2-feedback"
+          labelId="field-83-label"
+          nativeID="field-83-feedback"
           setHasFeedbackText={[Function]}
           setHasHelpText={[Function]}
           style={
@@ -36763,16 +36759,16 @@ exports[`Storyshots FormControl Usage 1`] = `
           >
             <View
               dataSet={Object {}}
-              feedbackId="field-react-aria-0-2-feedback"
+              feedbackId="field-85-feedback"
               hasFeedbackText={false}
               hasHelpText={false}
-              helpTextId="field-react-aria-0-2-helptext"
+              helpTextId="field-85-helptext"
               isDisabled={false}
               isInvalid={false}
               isReadOnly={false}
               isRequired={true}
-              labelId="field-react-aria-0-2-label"
-              nativeID="field-react-aria-0-2-label"
+              labelId="field-85-label"
+              nativeID="field-85-label"
               setHasFeedbackText={[Function]}
               setHasHelpText={[Function]}
               style={
@@ -36848,7 +36844,7 @@ exports[`Storyshots FormControl Usage 1`] = `
                 disabled={false}
                 editable={true}
                 isRequired={true}
-                nativeID="field-react-aria-0-2"
+                nativeID="field-85-input"
                 onBlur={[Function]}
                 onFocus={[Function]}
                 onKeyPress={[Function]}
@@ -36858,7 +36854,6 @@ exports[`Storyshots FormControl Usage 1`] = `
                 rejectResponderTermination={true}
                 required={true}
                 secureTextEntry={true}
-                selectionColor="#1f2937"
                 style={
                   Object {
                     "backgroundColor": "transparent",
@@ -36885,16 +36880,16 @@ exports[`Storyshots FormControl Usage 1`] = `
             />
             <View
               dataSet={Object {}}
-              feedbackId="field-react-aria-0-2-feedback"
+              feedbackId="field-85-feedback"
               hasFeedbackText={false}
               hasHelpText={false}
-              helpTextId="field-react-aria-0-2-helptext"
+              helpTextId="field-85-helptext"
               isDisabled={false}
               isInvalid={false}
               isReadOnly={false}
               isRequired={true}
-              labelId="field-react-aria-0-2-label"
-              nativeID="field-react-aria-0-2-feedback"
+              labelId="field-85-label"
+              nativeID="field-85-feedback"
               setHasFeedbackText={[Function]}
               setHasHelpText={[Function]}
               style={
@@ -37283,7 +37278,7 @@ exports[`Storyshots Heading Basic 1`] = `
           "backgroundColor": undefined,
           "color": "#171717",
           "fontFamily": undefined,
-          "fontSize": null,
+          "fontSize": 24,
           "fontStyle": "normal",
           "fontWeight": "700",
           "letterSpacing": 0,
@@ -37432,7 +37427,7 @@ exports[`Storyshots Heading Composition 1`] = `
             "backgroundColor": undefined,
             "color": "#171717",
             "fontFamily": undefined,
-            "fontSize": null,
+            "fontSize": 30,
             "fontStyle": "normal",
             "fontWeight": "700",
             "letterSpacing": 0,
@@ -37828,7 +37823,7 @@ exports[`Storyshots Heading Sizes 1`] = `
             "backgroundColor": undefined,
             "color": "#171717",
             "fontFamily": undefined,
-            "fontSize": null,
+            "fontSize": 24,
             "fontStyle": "normal",
             "fontWeight": "700",
             "letterSpacing": 0,
@@ -37854,7 +37849,7 @@ exports[`Storyshots Heading Sizes 1`] = `
             "backgroundColor": undefined,
             "color": "#171717",
             "fontFamily": undefined,
-            "fontSize": null,
+            "fontSize": 30,
             "fontStyle": "normal",
             "fontWeight": "700",
             "letterSpacing": 0,
@@ -37880,7 +37875,7 @@ exports[`Storyshots Heading Sizes 1`] = `
             "backgroundColor": undefined,
             "color": "#171717",
             "fontFamily": undefined,
-            "fontSize": null,
+            "fontSize": 36,
             "fontStyle": "normal",
             "fontWeight": "700",
             "letterSpacing": 0,
@@ -37906,7 +37901,7 @@ exports[`Storyshots Heading Sizes 1`] = `
             "backgroundColor": undefined,
             "color": "#171717",
             "fontFamily": undefined,
-            "fontSize": null,
+            "fontSize": 48,
             "fontStyle": "normal",
             "fontWeight": "700",
             "letterSpacing": 2.4000000000000004,
@@ -37932,7 +37927,7 @@ exports[`Storyshots Heading Sizes 1`] = `
             "backgroundColor": undefined,
             "color": "#171717",
             "fontFamily": undefined,
-            "fontSize": null,
+            "fontSize": 60,
             "fontStyle": "normal",
             "fontWeight": "700",
             "letterSpacing": 3,
@@ -38079,7 +38074,7 @@ exports[`Storyshots Heading Truncate 1`] = `
           "backgroundColor": undefined,
           "color": "#171717",
           "fontFamily": undefined,
-          "fontSize": null,
+          "fontSize": 24,
           "fontStyle": "normal",
           "fontWeight": "700",
           "letterSpacing": 0,
@@ -39169,6 +39164,7 @@ exports[`Storyshots Icon All Icons 1`] = `
             Object {
               "dataSet": Object {},
             },
+            Object {},
           ]
         }
         data={
@@ -39649,7 +39645,7 @@ exports[`Storyshots Icon All Icons 1`] = `
                           stroke={null}
                         >
                           <RNSVGPath
-                            d="M10.9334 3.76375L17.5661 10.3964L18.4196 11.25H17.2125H2.5V12.75H17.2125H18.4181L17.5664 13.6032L10.9443 24.2372L12 21.2929L21.2929 12L11.9988 2.70586L10.9334 3.76375Z"
+                            d="M10.9334 3.76375L17.5661 10.3964L18.4196 11.25H17.2125H2.5V12.75H17.2125H18.4181L17.5664 13.6032L10.9443 20.2372L12 21.2929L21.2929 12L11.9988 2.70586L10.9334 3.76375Z"
                             propList={
                               Array [
                                 "stroke",
@@ -44040,7 +44036,7 @@ exports[`Storyshots Icon Sizes 1`] = `
             "backgroundColor": undefined,
             "color": "#171717",
             "fontFamily": undefined,
-            "fontSize": null,
+            "fontSize": 24,
             "fontStyle": "normal",
             "fontWeight": "700",
             "letterSpacing": 0,
@@ -44338,10 +44334,10 @@ exports[`Storyshots IconButton Basic 1`] = `
               },
               Object {
                 "color": "#f97316",
-                "fontSize": 32,
-                "height": 32,
-                "lineHeight": 32,
-                "width": 32,
+                "fontSize": 20,
+                "height": 20,
+                "lineHeight": 20,
+                "width": 20,
               },
               Object {
                 "fontFamily": "entypo",
@@ -44625,9 +44621,9 @@ exports[`Storyshots IconButton SVGIcon 1`] = `
         <RNSVGSvgView
           accessibilityRole="image"
           align="xMidYMid"
-          bbHeight={20}
-          bbWidth={20}
-          color={4294638330}
+          bbHeight={40}
+          bbWidth={40}
+          color={4278355143}
           dataSet={Object {}}
           focusable={false}
           meetOrSlice={0}
@@ -44642,18 +44638,18 @@ exports[`Storyshots IconButton SVGIcon 1`] = `
                 "borderWidth": 0,
               },
               Object {
-                "color": "#fafafa",
-                "height": 20,
-                "width": 20,
+                "color": "#0284c7",
+                "height": 40,
+                "width": 40,
               },
               Object {
                 "flex": 0,
-                "height": 20,
-                "width": 20,
+                "height": 40,
+                "width": 40,
               },
             ]
           }
-          tintColor={4294638330}
+          tintColor={4278355143}
           vbHeight={100}
           vbWidth={100}
         >
@@ -46196,7 +46192,7 @@ exports[`Storyshots Image Sizes 1`] = `
           "backgroundColor": undefined,
           "color": "#171717",
           "fontFamily": undefined,
-          "fontSize": null,
+          "fontSize": 24,
           "fontStyle": "normal",
           "fontWeight": "700",
           "letterSpacing": 0,
@@ -46217,6 +46213,7 @@ exports[`Storyshots Image Sizes 1`] = `
           Object {
             "dataSet": Object {},
           },
+          Object {},
         ]
       }
       dataSet={Object {}}
@@ -46772,7 +46769,6 @@ exports[`Storyshots Input Addons 1`] = `
             placeholderTextColor="#a3a3a3"
             rejectResponderTermination={true}
             secureTextEntry={false}
-            selectionColor="#1f2937"
             style={
               Object {
                 "backgroundColor": "transparent",
@@ -47042,7 +47038,6 @@ exports[`Storyshots Input Elements 1`] = `
           placeholderTextColor="#a3a3a3"
           rejectResponderTermination={true}
           secureTextEntry={false}
-          selectionColor="#1f2937"
           style={
             Object {
               "backgroundColor": "transparent",
@@ -47098,7 +47093,6 @@ exports[`Storyshots Input Elements 1`] = `
           placeholderTextColor="#a3a3a3"
           rejectResponderTermination={true}
           secureTextEntry={true}
-          selectionColor="#1f2937"
           style={
             Object {
               "backgroundColor": "transparent",
@@ -47122,35 +47116,52 @@ exports[`Storyshots Input Elements 1`] = `
           dataSet={Object {}}
           style={Object {}}
         />
-        <Text
-          allowFontScaling={false}
+        <View
+          accessible={true}
           dataSet={Object {}}
-          onPress={[Function]}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
-              },
-              Object {
-                "color": "#a3a3a3",
-                "fontSize": 20,
-                "height": 20,
-                "lineHeight": 20,
-                "marginRight": 8,
-                "width": 20,
-              },
-              Object {
-                "fontFamily": "material",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onHoverIn={[Function]}
+          onHoverOut={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={Object {}}
         >
-          
-        </Text>
+          <Text
+            allowFontScaling={false}
+            dataSet={Object {}}
+            style={
+              Array [
+                Object {
+                  "color": undefined,
+                  "fontSize": 12,
+                },
+                Object {
+                  "color": "#a3a3a3",
+                  "fontSize": 20,
+                  "height": 20,
+                  "lineHeight": 20,
+                  "marginRight": 8,
+                  "width": 20,
+                },
+                Object {
+                  "fontFamily": "material",
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                },
+                Object {},
+              ]
+            }
+          >
+            
+          </Text>
+        </View>
       </View>
     </View>
   </View>
@@ -47300,16 +47311,16 @@ exports[`Storyshots Input Form Controlled 1`] = `
       >
         <View
           dataSet={Object {}}
-          feedbackId="field-react-aria-0-2-feedback"
+          feedbackId="field-125-feedback"
           hasFeedbackText={false}
           hasHelpText={false}
-          helpTextId="field-react-aria-0-2-helptext"
+          helpTextId="field-125-helptext"
           isDisabled={false}
           isInvalid={true}
           isReadOnly={false}
           isRequired={false}
-          labelId="field-react-aria-0-2-label"
-          nativeID="field-react-aria-0-2-label"
+          labelId="field-125-label"
+          nativeID="field-125-label"
           setHasFeedbackText={[Function]}
           setHasHelpText={[Function]}
           style={
@@ -47344,21 +47355,14 @@ exports[`Storyshots Input Form Controlled 1`] = `
           dataSet={Object {}}
           isFocused={false}
           style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "borderColor": "#dc2626",
-                "borderRadius": 4,
-                "borderWidth": 1,
-                "flexDirection": "row",
-                "overflow": "hidden",
-              },
-              Object {
-                "outlineColor": "#dc2626",
-                "outlineStyle": "solid",
-                "outlineWidth": "1px",
-              },
-            ]
+            Object {
+              "alignItems": "center",
+              "borderColor": "#d4d4d4",
+              "borderRadius": 4,
+              "borderWidth": 1,
+              "flexDirection": "row",
+              "overflow": "hidden",
+            }
           }
         >
           <TextInput
@@ -47370,7 +47374,7 @@ exports[`Storyshots Input Form Controlled 1`] = `
             editable={true}
             isInvalid={true}
             isRequired={false}
-            nativeID="field-react-aria-0-2"
+            nativeID="field-125-input"
             onBlur={[Function]}
             onFocus={[Function]}
             onKeyPress={[Function]}
@@ -47380,7 +47384,6 @@ exports[`Storyshots Input Form Controlled 1`] = `
             rejectResponderTermination={true}
             required={false}
             secureTextEntry={false}
-            selectionColor="#1f2937"
             style={
               Object {
                 "backgroundColor": "transparent",
@@ -47403,16 +47406,16 @@ exports[`Storyshots Input Form Controlled 1`] = `
         </View>
         <View
           dataSet={Object {}}
-          feedbackId="field-react-aria-0-2-feedback"
+          feedbackId="field-125-feedback"
           hasFeedbackText={false}
           hasHelpText={false}
-          helpTextId="field-react-aria-0-2-helptext"
+          helpTextId="field-125-helptext"
           isDisabled={false}
           isInvalid={true}
           isReadOnly={false}
           isRequired={false}
-          labelId="field-react-aria-0-2-label"
-          nativeID="field-react-aria-0-2"
+          labelId="field-125-label"
+          nativeID="field-125"
           setHasFeedbackText={[Function]}
           setHasHelpText={[Function]}
           style={
@@ -47689,7 +47692,6 @@ exports[`Storyshots Input Password 1`] = `
           placeholderTextColor="#a3a3a3"
           rejectResponderTermination={true}
           secureTextEntry={true}
-          selectionColor="#1f2937"
           style={
             Object {
               "backgroundColor": "transparent",
@@ -47947,7 +47949,6 @@ exports[`Storyshots Input Primary 1`] = `
           placeholderTextColor="#a3a3a3"
           rejectResponderTermination={true}
           secureTextEntry={false}
-          selectionColor="#1f2937"
           style={
             Object {
               "backgroundColor": "transparent",
@@ -48133,7 +48134,6 @@ exports[`Storyshots Input Size  1`] = `
           placeholderTextColor="#a3a3a3"
           rejectResponderTermination={true}
           secureTextEntry={false}
-          selectionColor="#1f2937"
           style={
             Object {
               "backgroundColor": "transparent",
@@ -48188,7 +48188,6 @@ exports[`Storyshots Input Size  1`] = `
           placeholderTextColor="#a3a3a3"
           rejectResponderTermination={true}
           secureTextEntry={false}
-          selectionColor="#1f2937"
           style={
             Object {
               "backgroundColor": "transparent",
@@ -48243,7 +48242,6 @@ exports[`Storyshots Input Size  1`] = `
           placeholderTextColor="#a3a3a3"
           rejectResponderTermination={true}
           secureTextEntry={false}
-          selectionColor="#1f2937"
           style={
             Object {
               "backgroundColor": "transparent",
@@ -48298,7 +48296,6 @@ exports[`Storyshots Input Size  1`] = `
           placeholderTextColor="#a3a3a3"
           rejectResponderTermination={true}
           secureTextEntry={false}
-          selectionColor="#1f2937"
           style={
             Object {
               "backgroundColor": "transparent",
@@ -48353,7 +48350,6 @@ exports[`Storyshots Input Size  1`] = `
           placeholderTextColor="#a3a3a3"
           rejectResponderTermination={true}
           secureTextEntry={false}
-          selectionColor="#1f2937"
           style={
             Object {
               "backgroundColor": "transparent",
@@ -48408,7 +48404,6 @@ exports[`Storyshots Input Size  1`] = `
           placeholderTextColor="#a3a3a3"
           rejectResponderTermination={true}
           secureTextEntry={false}
-          selectionColor="#1f2937"
           style={
             Object {
               "backgroundColor": "transparent",
@@ -48593,7 +48588,6 @@ exports[`Storyshots Input Value Controlled 1`] = `
           placeholderTextColor="#a3a3a3"
           rejectResponderTermination={true}
           secureTextEntry={false}
-          selectionColor="#1f2937"
           style={
             Object {
               "backgroundColor": "transparent",
@@ -48780,7 +48774,6 @@ exports[`Storyshots Input Variants 1`] = `
           placeholderTextColor="#a3a3a3"
           rejectResponderTermination={true}
           secureTextEntry={false}
-          selectionColor="#1f2937"
           style={
             Object {
               "backgroundColor": "transparent",
@@ -48836,7 +48829,6 @@ exports[`Storyshots Input Variants 1`] = `
           placeholderTextColor="#a3a3a3"
           rejectResponderTermination={true}
           secureTextEntry={false}
-          selectionColor="#1f2937"
           style={
             Object {
               "backgroundColor": "transparent",
@@ -48892,7 +48884,6 @@ exports[`Storyshots Input Variants 1`] = `
           placeholderTextColor="#a3a3a3"
           rejectResponderTermination={true}
           secureTextEntry={false}
-          selectionColor="#1f2937"
           style={
             Object {
               "backgroundColor": "transparent",
@@ -48947,7 +48938,6 @@ exports[`Storyshots Input Variants 1`] = `
           placeholderTextColor="#a3a3a3"
           rejectResponderTermination={true}
           secureTextEntry={false}
-          selectionColor="#1f2937"
           style={
             Object {
               "backgroundColor": "transparent",
@@ -49002,7 +48992,6 @@ exports[`Storyshots Input Variants 1`] = `
           placeholderTextColor="#a3a3a3"
           rejectResponderTermination={true}
           secureTextEntry={false}
-          selectionColor="#1f2937"
           style={
             Object {
               "backgroundColor": "transparent",
@@ -49193,7 +49182,7 @@ exports[`Storyshots KeyboardAvoidingView Basic 1`] = `
                 "backgroundColor": undefined,
                 "color": "#171717",
                 "fontFamily": undefined,
-                "fontSize": null,
+                "fontSize": 24,
                 "fontStyle": "normal",
                 "fontWeight": "700",
                 "letterSpacing": 0,
@@ -49259,7 +49248,6 @@ exports[`Storyshots KeyboardAvoidingView Basic 1`] = `
               placeholderTextColor="#a3a3a3"
               rejectResponderTermination={true}
               secureTextEntry={false}
-              selectionColor="#1f2937"
               style={
                 Object {
                   "backgroundColor": "transparent",
@@ -53827,7 +53815,7 @@ exports[`Storyshots Menu Basic 1`] = `
         aria-haspopup="menu"
         dataSet={Object {}}
         focusable={true}
-        nativeID="react-aria-0-2"
+        nativeID="139"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -54046,7 +54034,7 @@ exports[`Storyshots Menu Group 1`] = `
         aria-haspopup="menu"
         dataSet={Object {}}
         focusable={true}
-        nativeID="react-aria-0-2"
+        nativeID="141"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -54267,7 +54255,7 @@ exports[`Storyshots Menu Menu positions 1`] = `
         colorScheme="primary"
         dataSet={Object {}}
         focusable={true}
-        nativeID="react-aria-0-2"
+        nativeID="145"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -54372,8 +54360,6 @@ exports[`Storyshots Menu Menu positions 1`] = `
               "borderRadius": 4,
               "borderWidth": 1,
               "flexDirection": "row",
-              "marginLeft": 0,
-              "marginRight": 0,
               "overflow": "hidden",
             }
           }
@@ -54393,7 +54379,11 @@ exports[`Storyshots Menu Menu positions 1`] = `
             pointerEvents="none"
             rejectResponderTermination={true}
             secureTextEntry={false}
-            selectionColor="#1f2937"
+            selection={
+              Object {
+                "start": 0,
+              }
+            }
             style={
               Object {
                 "backgroundColor": "transparent",
@@ -54421,8 +54411,8 @@ exports[`Storyshots Menu Menu positions 1`] = `
           <RNSVGSvgView
             accessibilityRole="image"
             align="xMidYMid"
-            bbHeight={16}
-            bbWidth={16}
+            bbHeight={24}
+            bbWidth={24}
             color={4285756275}
             dataSet={Object {}}
             focusable={false}
@@ -54438,14 +54428,18 @@ exports[`Storyshots Menu Menu positions 1`] = `
                 },
                 Object {
                   "color": "#737373",
-                  "height": 16,
+                  "height": 24,
                   "marginRight": 12,
-                  "width": 16,
+                  "paddingBottom": 4,
+                  "paddingLeft": 4,
+                  "paddingRight": 4,
+                  "paddingTop": 4,
+                  "width": 24,
                 },
                 Object {
                   "flex": 0,
-                  "height": 16,
-                  "width": 16,
+                  "height": 24,
+                  "width": 24,
                 },
               ]
             }
@@ -54624,7 +54618,7 @@ exports[`Storyshots Menu MenuOptionsGroup 1`] = `
         aria-haspopup="menu"
         dataSet={Object {}}
         focusable={true}
-        nativeID="react-aria-0-2"
+        nativeID="143"
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -55846,7 +55840,6 @@ exports[`Storyshots Modal Modal Ref Examples 1`] = `
           placeholderTextColor="#334155"
           rejectResponderTermination={true}
           secureTextEntry={false}
-          selectionColor="#1f2937"
           style={
             Object {
               "backgroundColor": "transparent",
@@ -57640,8 +57633,6 @@ exports[`Storyshots Popover Popover positions 1`] = `
                 "borderRadius": 4,
                 "borderWidth": 1,
                 "flexDirection": "row",
-                "marginLeft": 0,
-                "marginRight": 0,
                 "overflow": "hidden",
               }
             }
@@ -57661,7 +57652,11 @@ exports[`Storyshots Popover Popover positions 1`] = `
               pointerEvents="none"
               rejectResponderTermination={true}
               secureTextEntry={false}
-              selectionColor="#1f2937"
+              selection={
+                Object {
+                  "start": 0,
+                }
+              }
               style={
                 Object {
                   "backgroundColor": "transparent",
@@ -57689,8 +57684,8 @@ exports[`Storyshots Popover Popover positions 1`] = `
             <RNSVGSvgView
               accessibilityRole="image"
               align="xMidYMid"
-              bbHeight={16}
-              bbWidth={16}
+              bbHeight={24}
+              bbWidth={24}
               color={4285756275}
               dataSet={Object {}}
               focusable={false}
@@ -57706,14 +57701,18 @@ exports[`Storyshots Popover Popover positions 1`] = `
                   },
                   Object {
                     "color": "#737373",
-                    "height": 16,
+                    "height": 24,
                     "marginRight": 12,
-                    "width": 16,
+                    "paddingBottom": 4,
+                    "paddingLeft": 4,
+                    "paddingRight": 4,
+                    "paddingTop": 4,
+                    "width": 24,
                   },
                   Object {
                     "flex": 0,
-                    "height": 16,
-                    "width": 16,
+                    "height": 24,
+                    "width": 24,
                   },
                 ]
               }
@@ -62998,16 +62997,16 @@ exports[`Storyshots Radio Form Controlled 1`] = `
       >
         <View
           dataSet={Object {}}
-          feedbackId="field-react-aria-0-2-feedback"
+          feedbackId="field-174-feedback"
           hasFeedbackText={false}
           hasHelpText={false}
-          helpTextId="field-react-aria-0-2-helptext"
+          helpTextId="field-174-helptext"
           isDisabled={false}
           isInvalid={true}
           isReadOnly={false}
           isRequired={false}
-          labelId="field-react-aria-0-2-label"
-          nativeID="field-react-aria-0-2-label"
+          labelId="field-174-label"
+          nativeID="field-174-label"
           setHasFeedbackText={[Function]}
           setHasHelpText={[Function]}
           style={
@@ -63067,32 +63066,32 @@ exports[`Storyshots Radio Form Controlled 1`] = `
             accessible={true}
             checked={true}
             dataSet={Object {}}
-            feedbackId="field-react-aria-0-2-feedback"
+            feedbackId="field-174-feedback"
             focusable={true}
             formControlContext={
               Object {
-                "feedbackId": "field-react-aria-0-2-feedback",
+                "feedbackId": "field-174-feedback",
                 "hasFeedbackText": false,
                 "hasHelpText": false,
-                "helpTextId": "field-react-aria-0-2-helptext",
+                "helpTextId": "field-174-helptext",
                 "isDisabled": false,
                 "isInvalid": true,
                 "isReadOnly": false,
                 "isRequired": false,
-                "labelId": "field-react-aria-0-2-label",
-                "nativeID": "field-react-aria-0-2",
+                "labelId": "field-174-label",
+                "nativeID": "field-174",
                 "setHasFeedbackText": [Function],
                 "setHasHelpText": [Function],
               }
             }
             hasFeedbackText={false}
             hasHelpText={false}
-            helpTextId="field-react-aria-0-2-helptext"
+            helpTextId="field-174-helptext"
             isInvalid={true}
             isReadOnly={false}
             isRequired={false}
-            labelId="field-react-aria-0-2-label"
-            nativeID="field-react-aria-0-2"
+            labelId="field-174-label"
+            nativeID="field-174"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -63145,32 +63144,32 @@ exports[`Storyshots Radio Form Controlled 1`] = `
                   colorScheme="primary"
                   dataSet={Object {}}
                   defaultIsChecked={false}
-                  feedbackId="field-react-aria-0-2-feedback"
+                  feedbackId="field-174-feedback"
                   formControlContext={
                     Object {
-                      "feedbackId": "field-react-aria-0-2-feedback",
+                      "feedbackId": "field-174-feedback",
                       "hasFeedbackText": false,
                       "hasHelpText": false,
-                      "helpTextId": "field-react-aria-0-2-helptext",
+                      "helpTextId": "field-174-helptext",
                       "isDisabled": false,
                       "isInvalid": true,
                       "isReadOnly": false,
                       "isRequired": false,
-                      "labelId": "field-react-aria-0-2-label",
-                      "nativeID": "field-react-aria-0-2",
+                      "labelId": "field-174-label",
+                      "nativeID": "field-174",
                       "setHasFeedbackText": [Function],
                       "setHasHelpText": [Function],
                     }
                   }
                   hasFeedbackText={false}
                   hasHelpText={false}
-                  helpTextId="field-react-aria-0-2-helptext"
+                  helpTextId="field-174-helptext"
                   isDisabled={false}
                   isInvalid={true}
                   isReadOnly={false}
                   isRequired={false}
-                  labelId="field-react-aria-0-2-label"
-                  nativeID="field-react-aria-0-2"
+                  labelId="field-174-label"
+                  nativeID="field-174"
                   setHasFeedbackText={[Function]}
                   setHasHelpText={[Function]}
                   state={
@@ -63309,32 +63308,32 @@ exports[`Storyshots Radio Form Controlled 1`] = `
             accessible={true}
             checked={false}
             dataSet={Object {}}
-            feedbackId="field-react-aria-0-2-feedback"
+            feedbackId="field-174-feedback"
             focusable={true}
             formControlContext={
               Object {
-                "feedbackId": "field-react-aria-0-2-feedback",
+                "feedbackId": "field-174-feedback",
                 "hasFeedbackText": false,
                 "hasHelpText": false,
-                "helpTextId": "field-react-aria-0-2-helptext",
+                "helpTextId": "field-174-helptext",
                 "isDisabled": false,
                 "isInvalid": true,
                 "isReadOnly": false,
                 "isRequired": false,
-                "labelId": "field-react-aria-0-2-label",
-                "nativeID": "field-react-aria-0-2",
+                "labelId": "field-174-label",
+                "nativeID": "field-174",
                 "setHasFeedbackText": [Function],
                 "setHasHelpText": [Function],
               }
             }
             hasFeedbackText={false}
             hasHelpText={false}
-            helpTextId="field-react-aria-0-2-helptext"
+            helpTextId="field-174-helptext"
             isInvalid={true}
             isReadOnly={false}
             isRequired={false}
-            labelId="field-react-aria-0-2-label"
-            nativeID="field-react-aria-0-2"
+            labelId="field-174-label"
+            nativeID="field-174"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -63387,32 +63386,32 @@ exports[`Storyshots Radio Form Controlled 1`] = `
                   colorScheme="primary"
                   dataSet={Object {}}
                   defaultIsChecked={false}
-                  feedbackId="field-react-aria-0-2-feedback"
+                  feedbackId="field-174-feedback"
                   formControlContext={
                     Object {
-                      "feedbackId": "field-react-aria-0-2-feedback",
+                      "feedbackId": "field-174-feedback",
                       "hasFeedbackText": false,
                       "hasHelpText": false,
-                      "helpTextId": "field-react-aria-0-2-helptext",
+                      "helpTextId": "field-174-helptext",
                       "isDisabled": false,
                       "isInvalid": true,
                       "isReadOnly": false,
                       "isRequired": false,
-                      "labelId": "field-react-aria-0-2-label",
-                      "nativeID": "field-react-aria-0-2",
+                      "labelId": "field-174-label",
+                      "nativeID": "field-174",
                       "setHasFeedbackText": [Function],
                       "setHasHelpText": [Function],
                     }
                   }
                   hasFeedbackText={false}
                   hasHelpText={false}
-                  helpTextId="field-react-aria-0-2-helptext"
+                  helpTextId="field-174-helptext"
                   isDisabled={false}
                   isInvalid={true}
                   isReadOnly={false}
                   isRequired={false}
-                  labelId="field-react-aria-0-2-label"
-                  nativeID="field-react-aria-0-2"
+                  labelId="field-174-label"
+                  nativeID="field-174"
                   setHasFeedbackText={[Function]}
                   setHasHelpText={[Function]}
                   state={
@@ -63551,32 +63550,32 @@ exports[`Storyshots Radio Form Controlled 1`] = `
             accessible={true}
             checked={false}
             dataSet={Object {}}
-            feedbackId="field-react-aria-0-2-feedback"
+            feedbackId="field-174-feedback"
             focusable={true}
             formControlContext={
               Object {
-                "feedbackId": "field-react-aria-0-2-feedback",
+                "feedbackId": "field-174-feedback",
                 "hasFeedbackText": false,
                 "hasHelpText": false,
-                "helpTextId": "field-react-aria-0-2-helptext",
+                "helpTextId": "field-174-helptext",
                 "isDisabled": false,
                 "isInvalid": true,
                 "isReadOnly": false,
                 "isRequired": false,
-                "labelId": "field-react-aria-0-2-label",
-                "nativeID": "field-react-aria-0-2",
+                "labelId": "field-174-label",
+                "nativeID": "field-174",
                 "setHasFeedbackText": [Function],
                 "setHasHelpText": [Function],
               }
             }
             hasFeedbackText={false}
             hasHelpText={false}
-            helpTextId="field-react-aria-0-2-helptext"
+            helpTextId="field-174-helptext"
             isInvalid={true}
             isReadOnly={false}
             isRequired={false}
-            labelId="field-react-aria-0-2-label"
-            nativeID="field-react-aria-0-2"
+            labelId="field-174-label"
+            nativeID="field-174"
             onBlur={[Function]}
             onClick={[Function]}
             onFocus={[Function]}
@@ -63629,32 +63628,32 @@ exports[`Storyshots Radio Form Controlled 1`] = `
                   colorScheme="primary"
                   dataSet={Object {}}
                   defaultIsChecked={false}
-                  feedbackId="field-react-aria-0-2-feedback"
+                  feedbackId="field-174-feedback"
                   formControlContext={
                     Object {
-                      "feedbackId": "field-react-aria-0-2-feedback",
+                      "feedbackId": "field-174-feedback",
                       "hasFeedbackText": false,
                       "hasHelpText": false,
-                      "helpTextId": "field-react-aria-0-2-helptext",
+                      "helpTextId": "field-174-helptext",
                       "isDisabled": false,
                       "isInvalid": true,
                       "isReadOnly": false,
                       "isRequired": false,
-                      "labelId": "field-react-aria-0-2-label",
-                      "nativeID": "field-react-aria-0-2",
+                      "labelId": "field-174-label",
+                      "nativeID": "field-174",
                       "setHasFeedbackText": [Function],
                       "setHasHelpText": [Function],
                     }
                   }
                   hasFeedbackText={false}
                   hasHelpText={false}
-                  helpTextId="field-react-aria-0-2-helptext"
+                  helpTextId="field-174-helptext"
                   isDisabled={false}
                   isInvalid={true}
                   isReadOnly={false}
                   isRequired={false}
-                  labelId="field-react-aria-0-2-label"
-                  nativeID="field-react-aria-0-2"
+                  labelId="field-174-label"
+                  nativeID="field-174"
                   setHasFeedbackText={[Function]}
                   setHasHelpText={[Function]}
                   state={
@@ -63781,16 +63780,16 @@ exports[`Storyshots Radio Form Controlled 1`] = `
         </View>
         <View
           dataSet={Object {}}
-          feedbackId="field-react-aria-0-2-feedback"
+          feedbackId="field-174-feedback"
           hasFeedbackText={false}
           hasHelpText={false}
-          helpTextId="field-react-aria-0-2-helptext"
+          helpTextId="field-174-helptext"
           isDisabled={false}
           isInvalid={true}
           isReadOnly={false}
           isRequired={false}
-          labelId="field-react-aria-0-2-label"
-          nativeID="field-react-aria-0-2"
+          labelId="field-174-label"
+          nativeID="field-174"
           setHasFeedbackText={[Function]}
           setHasHelpText={[Function]}
           style={
@@ -68397,6 +68396,7 @@ exports[`Storyshots ScrollView Basic 1`] = `
           Object {
             "dataSet": Object {},
           },
+          Object {},
         ]
       }
       dataSet={Object {}}
@@ -69789,7 +69789,6 @@ exports[`Storyshots Select Basic 1`] = `
                 "borderRadius": 4,
                 "borderWidth": 1,
                 "flexDirection": "row",
-                "marginTop": 4,
                 "minWidth": 200,
                 "overflow": "hidden",
               }
@@ -69811,7 +69810,11 @@ exports[`Storyshots Select Basic 1`] = `
               pointerEvents="none"
               rejectResponderTermination={true}
               secureTextEntry={false}
-              selectionColor="#1f2937"
+              selection={
+                Object {
+                  "start": 0,
+                }
+              }
               style={
                 Object {
                   "backgroundColor": "transparent",
@@ -69839,8 +69842,8 @@ exports[`Storyshots Select Basic 1`] = `
             <RNSVGSvgView
               accessibilityRole="image"
               align="xMidYMid"
-              bbHeight={16}
-              bbWidth={16}
+              bbHeight={24}
+              bbWidth={24}
               color={4285756275}
               dataSet={Object {}}
               focusable={false}
@@ -69856,14 +69859,18 @@ exports[`Storyshots Select Basic 1`] = `
                   },
                   Object {
                     "color": "#737373",
-                    "height": 16,
+                    "height": 24,
                     "marginRight": 12,
-                    "width": 16,
+                    "paddingBottom": 4,
+                    "paddingLeft": 4,
+                    "paddingRight": 4,
+                    "paddingTop": 4,
+                    "width": 24,
                   },
                   Object {
                     "flex": 0,
-                    "height": 16,
-                    "width": 16,
+                    "height": 24,
+                    "width": 24,
                   },
                 ]
               }
@@ -70052,16 +70059,16 @@ exports[`Storyshots Select FormControlled 1`] = `
       >
         <View
           dataSet={Object {}}
-          feedbackId="field-react-aria-0-2-feedback"
+          feedbackId="field-179-feedback"
           hasFeedbackText={false}
           hasHelpText={false}
-          helpTextId="field-react-aria-0-2-helptext"
+          helpTextId="field-179-helptext"
           isDisabled={false}
           isInvalid={true}
           isReadOnly={false}
           isRequired={true}
-          labelId="field-react-aria-0-2-label"
-          nativeID="field-react-aria-0-2-label"
+          labelId="field-179-label"
+          nativeID="field-179-label"
           setHasFeedbackText={[Function]}
           setHasHelpText={[Function]}
           style={
@@ -70137,23 +70144,15 @@ exports[`Storyshots Select FormControlled 1`] = `
             dataSet={Object {}}
             isFocused={false}
             style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "borderColor": "#dc2626",
-                  "borderRadius": 4,
-                  "borderWidth": 1,
-                  "flexDirection": "row",
-                  "marginTop": 4,
-                  "minWidth": 200,
-                  "overflow": "hidden",
-                },
-                Object {
-                  "outlineColor": "#dc2626",
-                  "outlineStyle": "solid",
-                  "outlineWidth": "1px",
-                },
-              ]
+              Object {
+                "alignItems": "center",
+                "borderColor": "#d4d4d4",
+                "borderRadius": 4,
+                "borderWidth": 1,
+                "flexDirection": "row",
+                "minWidth": 200,
+                "overflow": "hidden",
+              }
             }
           >
             <TextInput
@@ -70169,7 +70168,7 @@ exports[`Storyshots Select FormControlled 1`] = `
               importantForAccessibility="no"
               isInvalid={true}
               isRequired={true}
-              nativeID="field-react-aria-0-2"
+              nativeID="field-179-input"
               onBlur={[Function]}
               onFocus={[Function]}
               onKeyPress={[Function]}
@@ -70180,7 +70179,11 @@ exports[`Storyshots Select FormControlled 1`] = `
               rejectResponderTermination={true}
               required={true}
               secureTextEntry={false}
-              selectionColor="#1f2937"
+              selection={
+                Object {
+                  "start": 0,
+                }
+              }
               style={
                 Object {
                   "backgroundColor": "transparent",
@@ -70208,8 +70211,8 @@ exports[`Storyshots Select FormControlled 1`] = `
             <RNSVGSvgView
               accessibilityRole="image"
               align="xMidYMid"
-              bbHeight={16}
-              bbWidth={16}
+              bbHeight={24}
+              bbWidth={24}
               color={4285756275}
               dataSet={Object {}}
               focusable={false}
@@ -70225,14 +70228,18 @@ exports[`Storyshots Select FormControlled 1`] = `
                   },
                   Object {
                     "color": "#737373",
-                    "height": 16,
+                    "height": 24,
                     "marginRight": 12,
-                    "width": 16,
+                    "paddingBottom": 4,
+                    "paddingLeft": 4,
+                    "paddingRight": 4,
+                    "paddingTop": 4,
+                    "width": 24,
                   },
                   Object {
                     "flex": 0,
-                    "height": 16,
-                    "width": 16,
+                    "height": 24,
+                    "width": 24,
                   },
                 ]
               }
@@ -70271,16 +70278,16 @@ exports[`Storyshots Select FormControlled 1`] = `
         </View>
         <View
           dataSet={Object {}}
-          feedbackId="field-react-aria-0-2-feedback"
+          feedbackId="field-179-feedback"
           hasFeedbackText={false}
           hasHelpText={false}
-          helpTextId="field-react-aria-0-2-helptext"
+          helpTextId="field-179-helptext"
           isDisabled={false}
           isInvalid={true}
           isReadOnly={false}
           isRequired={true}
-          labelId="field-react-aria-0-2-label"
-          nativeID="field-react-aria-0-2"
+          labelId="field-179-label"
+          nativeID="field-179"
           setHasFeedbackText={[Function]}
           setHasHelpText={[Function]}
           style={
@@ -70541,16 +70548,16 @@ exports[`Storyshots Select Select Long list 1`] = `
       >
         <View
           dataSet={Object {}}
-          feedbackId="field-react-aria-0-2-feedback"
+          feedbackId="field-181-feedback"
           hasFeedbackText={false}
           hasHelpText={false}
-          helpTextId="field-react-aria-0-2-helptext"
+          helpTextId="field-181-helptext"
           isDisabled={false}
           isInvalid={false}
           isReadOnly={false}
           isRequired={false}
-          labelId="field-react-aria-0-2-label"
-          nativeID="field-react-aria-0-2-label"
+          labelId="field-181-label"
+          nativeID="field-181-label"
           setHasFeedbackText={[Function]}
           setHasHelpText={[Function]}
           style={
@@ -70614,7 +70621,6 @@ exports[`Storyshots Select Select Long list 1`] = `
                 "borderRadius": 4,
                 "borderWidth": 1,
                 "flexDirection": "row",
-                "marginTop": 4,
                 "minWidth": 100,
                 "overflow": "hidden",
               }
@@ -70630,7 +70636,7 @@ exports[`Storyshots Select Select Long list 1`] = `
               focusable={false}
               importantForAccessibility="no"
               isRequired={false}
-              nativeID="field-react-aria-0-2"
+              nativeID="field-181-input"
               onBlur={[Function]}
               onFocus={[Function]}
               onKeyPress={[Function]}
@@ -70641,7 +70647,11 @@ exports[`Storyshots Select Select Long list 1`] = `
               rejectResponderTermination={true}
               required={false}
               secureTextEntry={false}
-              selectionColor="#1f2937"
+              selection={
+                Object {
+                  "start": 0,
+                }
+              }
               style={
                 Object {
                   "backgroundColor": "transparent",
@@ -70669,8 +70679,8 @@ exports[`Storyshots Select Select Long list 1`] = `
             <RNSVGSvgView
               accessibilityRole="image"
               align="xMidYMid"
-              bbHeight={16}
-              bbWidth={16}
+              bbHeight={24}
+              bbWidth={24}
               color={4285756275}
               dataSet={Object {}}
               focusable={false}
@@ -70686,14 +70696,18 @@ exports[`Storyshots Select Select Long list 1`] = `
                   },
                   Object {
                     "color": "#737373",
-                    "height": 16,
+                    "height": 24,
                     "marginRight": 12,
-                    "width": 16,
+                    "paddingBottom": 4,
+                    "paddingLeft": 4,
+                    "paddingRight": 4,
+                    "paddingTop": 4,
+                    "width": 24,
                   },
                   Object {
                     "flex": 0,
-                    "height": 16,
-                    "width": 16,
+                    "height": 24,
+                    "width": 24,
                   },
                 ]
               }
@@ -74149,16 +74163,16 @@ exports[`Storyshots Slider Form Controlled 1`] = `
         >
           <View
             dataSet={Object {}}
-            feedbackId="field-react-aria-0-2-feedback"
+            feedbackId="field-197-feedback"
             hasFeedbackText={false}
             hasHelpText={false}
-            helpTextId="field-react-aria-0-2-helptext"
+            helpTextId="field-197-helptext"
             isDisabled={false}
             isInvalid={true}
             isReadOnly={false}
             isRequired={false}
-            labelId="field-react-aria-0-2-label"
-            nativeID="field-react-aria-0-2-label"
+            labelId="field-197-label"
+            nativeID="field-197-label"
             setHasFeedbackText={[Function]}
             setHasHelpText={[Function]}
             style={
@@ -74379,16 +74393,16 @@ exports[`Storyshots Slider Form Controlled 1`] = `
           </View>
           <View
             dataSet={Object {}}
-            feedbackId="field-react-aria-0-2-feedback"
+            feedbackId="field-197-feedback"
             hasFeedbackText={false}
             hasHelpText={false}
-            helpTextId="field-react-aria-0-2-helptext"
+            helpTextId="field-197-helptext"
             isDisabled={false}
             isInvalid={true}
             isReadOnly={false}
             isRequired={false}
-            labelId="field-react-aria-0-2-label"
-            nativeID="field-react-aria-0-2"
+            labelId="field-197-label"
+            nativeID="field-197"
             setHasFeedbackText={[Function]}
             setHasHelpText={[Function]}
             style={
@@ -77095,6 +77109,7 @@ exports[`Storyshots Spinner Color 1`] = `
               Object {
                 "dataSet": Object {},
               },
+              Object {},
             ],
             undefined,
           ]
@@ -77122,6 +77137,7 @@ exports[`Storyshots Spinner Color 1`] = `
               Object {
                 "dataSet": Object {},
               },
+              Object {},
             ],
             undefined,
           ]
@@ -77149,6 +77165,7 @@ exports[`Storyshots Spinner Color 1`] = `
               Object {
                 "dataSet": Object {},
               },
+              Object {},
             ],
             undefined,
           ]
@@ -77176,6 +77193,7 @@ exports[`Storyshots Spinner Color 1`] = `
               Object {
                 "dataSet": Object {},
               },
+              Object {},
             ],
             undefined,
           ]
@@ -77333,6 +77351,7 @@ exports[`Storyshots Spinner Playground 1`] = `
               Object {
                 "dataSet": Object {},
               },
+              Object {},
             ],
             undefined,
           ]
@@ -77490,6 +77509,7 @@ exports[`Storyshots Spinner Size 1`] = `
               Object {
                 "dataSet": Object {},
               },
+              Object {},
             ],
             undefined,
           ]
@@ -77517,6 +77537,7 @@ exports[`Storyshots Spinner Size 1`] = `
               Object {
                 "dataSet": Object {},
               },
+              Object {},
             ],
             undefined,
           ]
@@ -77674,6 +77695,7 @@ exports[`Storyshots Spinner Usage 1`] = `
                 "accessibilityLabel": "Loading posts",
                 "dataSet": Object {},
               },
+              Object {},
             ],
             undefined,
           ]
@@ -77840,6 +77862,7 @@ exports[`Storyshots Stack Basic 1`] = `
           Object {
             "dataSet": Object {},
           },
+          Object {},
         ]
       }
       dataSet={Object {}}
@@ -81637,7 +81660,6 @@ exports[`Storyshots TextArea Default 1`] = `
           placeholderTextColor="#a3a3a3"
           rejectResponderTermination={true}
           secureTextEntry={false}
-          selectionColor="#1f2937"
           style={
             Object {
               "backgroundColor": "transparent",
@@ -81832,23 +81854,16 @@ exports[`Storyshots TextArea InValid and Disabled 1`] = `
             dataSet={Object {}}
             isFocused={false}
             style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "borderColor": "#dc2626",
-                  "borderRadius": 4,
-                  "borderWidth": 1,
-                  "flexDirection": "row",
-                  "height": 80,
-                  "marginBottom": 20,
-                  "overflow": "hidden",
-                },
-                Object {
-                  "outlineColor": "#dc2626",
-                  "outlineStyle": "solid",
-                  "outlineWidth": "1px",
-                },
-              ]
+              Object {
+                "alignItems": "center",
+                "borderColor": "#d4d4d4",
+                "borderRadius": 4,
+                "borderWidth": 1,
+                "flexDirection": "row",
+                "height": 80,
+                "marginBottom": 20,
+                "overflow": "hidden",
+              }
             }
           >
             <TextInput
@@ -81867,7 +81882,6 @@ exports[`Storyshots TextArea InValid and Disabled 1`] = `
               placeholderTextColor="#a3a3a3"
               rejectResponderTermination={true}
               secureTextEntry={false}
-              selectionColor="#1f2937"
               style={
                 Object {
                   "backgroundColor": "transparent",
@@ -81961,10 +81975,9 @@ exports[`Storyshots TextArea InValid and Disabled 1`] = `
               onFocus={[Function]}
               onKeyPress={[Function]}
               placeholder="Disabled TextArea"
-              placeholderTextColor="#404040"
+              placeholderTextColor="#a3a3a3"
               rejectResponderTermination={true}
               secureTextEntry={false}
-              selectionColor="#1f2937"
               style={
                 Object {
                   "backgroundColor": "transparent",
@@ -82123,6 +82136,7 @@ exports[`Storyshots TextArea Sizes 1`] = `
           Object {
             "dataSet": Object {},
           },
+          Object {},
         ]
       }
       dataSet={Object {}}
@@ -82151,7 +82165,7 @@ exports[`Storyshots TextArea Sizes 1`] = `
                 "backgroundColor": undefined,
                 "color": "#171717",
                 "fontFamily": undefined,
-                "fontSize": null,
+                "fontSize": 24,
                 "fontStyle": "normal",
                 "fontWeight": "700",
                 "letterSpacing": 0,
@@ -82201,7 +82215,6 @@ exports[`Storyshots TextArea Sizes 1`] = `
                 placeholderTextColor="#a3a3a3"
                 rejectResponderTermination={true}
                 secureTextEntry={false}
-                selectionColor="#1f2937"
                 style={
                   Object {
                     "backgroundColor": "transparent",
@@ -82260,7 +82273,6 @@ exports[`Storyshots TextArea Sizes 1`] = `
                 placeholderTextColor="#a3a3a3"
                 rejectResponderTermination={true}
                 secureTextEntry={false}
-                selectionColor="#1f2937"
                 style={
                   Object {
                     "backgroundColor": "transparent",
@@ -82319,7 +82331,6 @@ exports[`Storyshots TextArea Sizes 1`] = `
                 placeholderTextColor="#a3a3a3"
                 rejectResponderTermination={true}
                 secureTextEntry={false}
-                selectionColor="#1f2937"
                 style={
                   Object {
                     "backgroundColor": "transparent",
@@ -82378,7 +82389,6 @@ exports[`Storyshots TextArea Sizes 1`] = `
                 placeholderTextColor="#a3a3a3"
                 rejectResponderTermination={true}
                 secureTextEntry={false}
-                selectionColor="#1f2937"
                 style={
                   Object {
                     "backgroundColor": "transparent",
@@ -82437,7 +82447,6 @@ exports[`Storyshots TextArea Sizes 1`] = `
                 placeholderTextColor="#a3a3a3"
                 rejectResponderTermination={true}
                 secureTextEntry={false}
-                selectionColor="#1f2937"
                 style={
                   Object {
                     "backgroundColor": "transparent",
@@ -82496,7 +82505,6 @@ exports[`Storyshots TextArea Sizes 1`] = `
                 placeholderTextColor="#a3a3a3"
                 rejectResponderTermination={true}
                 secureTextEntry={false}
-                selectionColor="#1f2937"
                 style={
                   Object {
                     "backgroundColor": "transparent",
@@ -82689,7 +82697,6 @@ exports[`Storyshots TextArea Value Controlled 1`] = `
           placeholderTextColor="#a3a3a3"
           rejectResponderTermination={true}
           secureTextEntry={false}
-          selectionColor="#1f2937"
           style={
             Object {
               "backgroundColor": "transparent",
@@ -86248,8 +86255,6 @@ exports[`Storyshots Tooltip Tooltip Positions 1`] = `
               "borderRadius": 4,
               "borderWidth": 1,
               "flexDirection": "row",
-              "marginLeft": 0,
-              "marginRight": 0,
               "overflow": "hidden",
             }
           }
@@ -86269,7 +86274,11 @@ exports[`Storyshots Tooltip Tooltip Positions 1`] = `
             pointerEvents="none"
             rejectResponderTermination={true}
             secureTextEntry={false}
-            selectionColor="#1f2937"
+            selection={
+              Object {
+                "start": 0,
+              }
+            }
             style={
               Object {
                 "backgroundColor": "transparent",
@@ -86297,8 +86306,8 @@ exports[`Storyshots Tooltip Tooltip Positions 1`] = `
           <RNSVGSvgView
             accessibilityRole="image"
             align="xMidYMid"
-            bbHeight={16}
-            bbWidth={16}
+            bbHeight={24}
+            bbWidth={24}
             color={4285756275}
             dataSet={Object {}}
             focusable={false}
@@ -86314,14 +86323,18 @@ exports[`Storyshots Tooltip Tooltip Positions 1`] = `
                 },
                 Object {
                   "color": "#737373",
-                  "height": 16,
+                  "height": 24,
                   "marginRight": 12,
-                  "width": 16,
+                  "paddingBottom": 4,
+                  "paddingLeft": 4,
+                  "paddingRight": 4,
+                  "paddingTop": 4,
+                  "width": 24,
                 },
                 Object {
                   "flex": 0,
-                  "height": 16,
-                  "width": 16,
+                  "height": 24,
+                  "width": 24,
                 },
               ]
             }
@@ -87264,7 +87277,7 @@ exports[`Storyshots Transitions Slide wrapped inside parent 1`] = `
                   "backgroundColor": undefined,
                   "color": "#171717",
                   "fontFamily": undefined,
-                  "fontSize": null,
+                  "fontSize": 24,
                   "fontStyle": "normal",
                   "fontWeight": "700",
                   "letterSpacing": 0,
@@ -87529,7 +87542,6 @@ exports[`Storyshots Transitions Slide wrapped inside parent 1`] = `
                   placeholderTextColor="#a3a3a3"
                   rejectResponderTermination={true}
                   secureTextEntry={false}
-                  selectionColor="#1f2937"
                   style={
                     Object {
                       "backgroundColor": "transparent",
@@ -87885,7 +87897,7 @@ exports[`Storyshots Transitions SlideComposition 1`] = `
                     "backgroundColor": undefined,
                     "color": "#171717",
                     "fontFamily": undefined,
-                    "fontSize": null,
+                    "fontSize": 24,
                     "fontStyle": "normal",
                     "fontWeight": "700",
                     "letterSpacing": 0,
@@ -88228,7 +88240,6 @@ exports[`Storyshots Transitions SlideComposition 1`] = `
                     placeholderTextColor="#a3a3a3"
                     rejectResponderTermination={true}
                     secureTextEntry={false}
-                    selectionColor="#1f2937"
                     style={
                       Object {
                         "backgroundColor": "transparent",
@@ -88885,11 +88896,11 @@ exports[`Storyshots Transitions Stagger 1`] = `
                     "fontSize": 12,
                   },
                   Object {
-                    "color": "#fafafa",
-                    "fontSize": 20,
-                    "height": 20,
-                    "lineHeight": 20,
-                    "width": 20,
+                    "color": "#fafaf9",
+                    "fontSize": 24,
+                    "height": 24,
+                    "lineHeight": 24,
+                    "width": 24,
                   },
                   Object {
                     "fontFamily": "material",
@@ -88974,11 +88985,11 @@ exports[`Storyshots Transitions Stagger 1`] = `
                     "fontSize": 12,
                   },
                   Object {
-                    "color": "#fafafa",
-                    "fontSize": 20,
-                    "height": 20,
-                    "lineHeight": 20,
-                    "width": 20,
+                    "color": "#fafaf9",
+                    "fontSize": 24,
+                    "height": 24,
+                    "lineHeight": 24,
+                    "width": 24,
                   },
                   Object {
                     "fontFamily": "material-community",
@@ -89063,11 +89074,11 @@ exports[`Storyshots Transitions Stagger 1`] = `
                     "fontSize": 12,
                   },
                   Object {
-                    "color": "#fafafa",
-                    "fontSize": 20,
-                    "height": 20,
-                    "lineHeight": 20,
-                    "width": 20,
+                    "color": "#fafaf9",
+                    "fontSize": 24,
+                    "height": 24,
+                    "lineHeight": 24,
+                    "width": 24,
                   },
                   Object {
                     "fontFamily": "material-community",
@@ -89152,11 +89163,11 @@ exports[`Storyshots Transitions Stagger 1`] = `
                     "fontSize": 12,
                   },
                   Object {
-                    "color": "#fafafa",
-                    "fontSize": 20,
-                    "height": 20,
-                    "lineHeight": 20,
-                    "width": 20,
+                    "color": "#fafaf9",
+                    "fontSize": 24,
+                    "height": 24,
+                    "lineHeight": 24,
+                    "width": 24,
                   },
                   Object {
                     "fontFamily": "material",
@@ -89222,7 +89233,7 @@ exports[`Storyshots Transitions Stagger 1`] = `
                   "fontSize": 12,
                 },
                 Object {
-                  "color": "#fafafa",
+                  "color": "#fafaf9",
                   "fontSize": 24,
                   "height": 24,
                   "lineHeight": 24,
@@ -89598,7 +89609,7 @@ exports[`Storyshots View Basic 1`] = `
             "backgroundColor": undefined,
             "color": "#171717",
             "fontFamily": undefined,
-            "fontSize": null,
+            "fontSize": 24,
             "fontStyle": "normal",
             "fontWeight": "700",
             "letterSpacing": 0,
@@ -89615,7 +89626,7 @@ exports[`Storyshots View Basic 1`] = `
               "backgroundColor": undefined,
               "color": "#10b981",
               "fontFamily": undefined,
-              "fontSize": null,
+              "fontSize": 24,
               "fontStyle": undefined,
               "fontWeight": "700",
               "lineHeight": 30,
@@ -90922,6 +90933,7 @@ exports[`Storyshots useBreakpointValue Usage 1`] = `
           Object {
             "dataSet": Object {},
           },
+          Object {},
         ]
       }
       dataSet={Object {}}
@@ -90947,7 +90959,7 @@ exports[`Storyshots useBreakpointValue Usage 1`] = `
                 "backgroundColor": undefined,
                 "color": "#171717",
                 "fontFamily": undefined,
-                "fontSize": null,
+                "fontSize": 24,
                 "fontStyle": "normal",
                 "fontWeight": "700",
                 "letterSpacing": 0,
@@ -91305,7 +91317,6 @@ exports[`Storyshots useClipboard Usage 1`] = `
               placeholderTextColor="#a3a3a3"
               rejectResponderTermination={true}
               secureTextEntry={false}
-              selectionColor="#1f2937"
               style={
                 Object {
                   "backgroundColor": "transparent",
@@ -91445,7 +91456,6 @@ exports[`Storyshots useClipboard Usage 1`] = `
               placeholderTextColor="#a3a3a3"
               rejectResponderTermination={true}
               secureTextEntry={false}
-              selectionColor="#1f2937"
               style={
                 Object {
                   "backgroundColor": "transparent",
@@ -94259,4 +94269,160 @@ exports[`Storyshots useSafeArea Hook 1`] = `
     }
   />
 </View>
+`;
+
+exports[`Storyshots useSx Basic 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    Array [
+      Object {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    dataSet={Object {}}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#fafafa",
+        "flex": 1,
+        "justifyContent": "center",
+        "paddingLeft": 12,
+        "paddingRight": 12,
+      }
+    }
+  >
+    <View
+      accessibilityRole="button"
+      accessible={true}
+      colorScheme="primary"
+      dataSet={Object {}}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onHoverIn={[Function]}
+      onHoverOut={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "borderRadius": 4,
+          "flexDirection": "row",
+          "justifyContent": "center",
+          "paddingBottom": 12,
+          "paddingLeft": 12,
+          "paddingRight": 12,
+          "paddingTop": 12,
+          "position": "absolute",
+          "right": 32,
+          "top": 48,
+          "zIndex": 4,
+        }
+      }
+    >
+      <RNSVGSvgView
+        accessibilityRole="image"
+        align="xMidYMid"
+        bbHeight={24}
+        bbWidth={24}
+        color={4278751666}
+        dataSet={Object {}}
+        focusable={false}
+        meetOrSlice={0}
+        minX={0}
+        minY={0}
+        stroke=""
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderWidth": 0,
+            },
+            Object {
+              "color": "#0891b2",
+              "height": 24,
+              "width": 24,
+            },
+            Object {
+              "flex": 0,
+              "height": 24,
+              "width": 24,
+            },
+          ]
+        }
+        tintColor={4278751666}
+        vbHeight={24}
+        vbWidth={24}
+      >
+        <RNSVGGroup
+          propList={
+            Array [
+              "stroke",
+            ]
+          }
+          stroke={null}
+        >
+          <RNSVGGroup>
+            <RNSVGPath
+              d="M20.8562 13.4434C20.1167 13.6274 19.3772 13.7194 18.6378 13.7194C14.0162 13.7194 10.3189 10.0391 10.3189 5.43876C10.3189 4.7027 10.4113 3.96665 10.5962 3.23059C10.6886 2.95457 10.5962 2.58654 10.3189 2.31052C10.0416 2.0345 9.7643 1.9425 9.39457 2.0345C5.05026 3.3226 2 7.3709 2 11.8792C2 17.4917 6.52917 22 12.1675 22C16.6967 22 20.7637 18.9638 21.9653 14.5474C22.0578 14.2714 21.9653 13.9034 21.688 13.6274C21.5032 13.4434 21.1334 13.3514 20.8562 13.4434Z"
+              fill={
+                Array [
+                  2,
+                ]
+              }
+              propList={
+                Array [
+                  "fill",
+                  "stroke",
+                ]
+              }
+              stroke={null}
+            />
+          </RNSVGGroup>
+        </RNSVGGroup>
+      </RNSVGSvgView>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#a78bfa",
+            "height": 192,
+            "padding": 8,
+            "width": 192,
+          },
+          Object {
+            "alignItems": "center",
+            "justifyContent": "center",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#FFFFFF",
+            "height": 48,
+            "textAlign": "center",
+            "width": 48,
+          }
+        }
+      >
+        New Feat useSx in NativeBase
+      </Text>
+    </View>
+  </View>
+</RNCSafeAreaProvider>
 `;

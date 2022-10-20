@@ -22,3 +22,4 @@ export { createContext } from './createContext';
 export { useKeyboardBottomInset } from './useKeyboardBottomInset';
 export { isEmptyObj } from './isEmptyObj';
 export { resolveStackStyleInput } from './resolveStackStyleInput';
+export { getStyleElement } from './useResponsiveQuery/useResponsiveQuery';

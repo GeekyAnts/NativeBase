@@ -11,10 +11,12 @@ import {
   useIsPressed,
 } from '../../primitives/Pressable/Pressable';
 import { useFocusRing } from '@react-native-aria/focus';
+import merge from 'lodash.merge';
 
 const IconButton = (
   {
     icon,
+    _icon: pseudoIconProp,
     children,
     isHovered: isHoveredProp,
     isPressed: isPressedProp,
@@ -39,20 +41,22 @@ const IconButton = (
     onFocus,
     onBlur,
     ...resolvedProps
-  } = usePropsResolution('IconButton', props, {
-    isHovered: isHoveredProp || isHovered,
-    isPressed: isPressedProp || isPressed,
-    isFocused: isFocusedProp || isFocused,
-    isFocusVisible: isFocusVisibleProp || isFocusVisible,
-    isDisabled,
-  });
+  } = usePropsResolution(
+    'IconButton',
+    { ...props, _icon: merge({}, pseudoIconProp, icon?.props) },
+    {
+      isHovered: isHoveredProp || isHovered,
+      isPressed: isPressedProp || isPressed,
+      isFocused: isFocusedProp || isFocused,
+      isFocusVisible: isFocusVisibleProp || isFocusVisible,
+      isDisabled,
+    }
+  );
 
   let clonedIcon;
   if (icon) {
     clonedIcon = React.cloneElement(icon, {
       ..._icon,
-      ...icon?.props,
-      ...props._icon,
     });
   }
 
