@@ -46,7 +46,7 @@ export const useStyledSystemPropsResolver = ({
     props
   );
 
-  const { style, dataSet } = React.useMemo(() => {
+  const { style, dataSet, styleFromProps } = React.useMemo(() => {
     const resolvedStyle = resolvePropsToStyle(
       styledSystemProps,
       theme,
@@ -95,5 +95,5 @@ export const useStyledSystemPropsResolver = ({
     styleSheet = boxStyleSheet.box;
   }
 
-  return [styleSheet, restProps];
+  return [styleSheet, restProps, styleFromProps];
 };
