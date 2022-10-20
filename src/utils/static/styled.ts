@@ -1,11 +1,11 @@
 import { get as lodashGet, isNil } from 'lodash';
 
-import { getStyledObject } from './getStyledComponentAndObjects';
-import { theme as defaultTheme } from '../theme';
-import { pseudoPropsMap } from '../hooks/useThemeProps/propsFlattener';
+import { getStyledObject } from '../getStyledComponentAndObjects';
+import { theme as defaultTheme } from '../../theme';
+import { pseudoPropsMap } from '../../hooks/useThemeProps/propsFlattener';
 
 import { forEach, map, merge } from 'lodash';
-import { isEmptyObj } from '../utils/isEmptyObj';
+import { isEmptyObj } from '../isEmptyObj';
 
 // Adding Map for storing the props and style for the styled component
 export let resolvedStyledMap: { [key: string]: any } = {};
