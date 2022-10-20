@@ -1,3 +1,4 @@
+import React from 'react';
 import type {
   UseResponsiveQueryParams,
   UseResponsiveQueryReturnType,
@@ -22,4 +23,12 @@ export const useResponsiveQuery = (
   }, [queries, windowWidth]);
 
   return values;
+};
+
+/**
+ * This function is copied from intergalacticspacehighway/rnw-responsive-ssr
+ */
+// noop, web-only. Refer useResponsiveQuery.web.tsx
+export const getStyleElement = () => {
+  return <></>;
 };
