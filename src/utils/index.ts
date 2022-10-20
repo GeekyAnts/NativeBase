@@ -19,3 +19,4 @@ export { ariaAttr } from './accessibilityUtils';
 // export { createContext } from './createContext';
 export { useKeyboardBottomInset } from './useKeyboardBottomInset';
 export { resolveStackStyleInput } from './resolveStackStyleInput';
+export { getStyleElement } from './useResponsiveQuery/useResponsiveQuery';

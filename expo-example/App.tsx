@@ -10,20 +10,20 @@ import { LogBox } from 'react-native';
 LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
 LogBox.ignoreAllLogs(); //Ignore all log notifications
 
-console.currentKey = {};
-const theme = makeTheme({});
+// console.currentKey = {};
+// const theme = makeTheme({});
 
-console.startTimeKey = function (key) {
-  console.currentKey[key] = Date.now();
-};
+// console.startTimeKey = function (key) {
+//   console.currentKey[key] = Date.now();
+// };
 
-console.endTimeKey = function (key, msg) {
-  console.log(msg, key, Date.now() - console.currentKey[key]);
+// console.endTimeKey = function (key, msg) {
+//   console.log(msg, key, Date.now() - console.currentKey[key]);
 
-  // if (console.currentKey[key]) {
-  //   delete console.currentKey[key];
-  // }
-};
+//   // if (console.currentKey[key]) {
+//   //   delete console.currentKey[key];
+//   // }
+// };
 
 export default function App() {
   const [nativeBaseIsOn, setNativeBaseIsOn] = useState(false);
@@ -48,19 +48,20 @@ export default function App() {
         {customIsOn && <CustomButtonScreen />}
         {nativeBaseIsOn && <NativeBaseScreen />} */}
         <NativeBaseProvider
-        // theme={extendTheme({
-        //   // config: { initialColorMode: 'dark' },
-        //   components: {
-        //     Pressable: {
-        //       bg: 'blue.400',
-        //       _hover: 'red.500',
-        //     },
-        //   },
-        // })}
+          isSSR
+          // theme={extendTheme({
+          //   // config: { initialColorMode: 'dark' },
+          //   components: {
+          //     Pressable: {
+          //       bg: 'blue.400',
+          //       _hover: 'red.500',
+          //     },
+          //   },
+          // })}
         >
-          <DripsyProvider theme={theme}>
-            <NativeBaseScreen />
-          </DripsyProvider>
+          {/* <DripsyProvider theme={theme}> */}
+          <NativeBaseScreen />
+          {/* </DripsyProvider> */}
         </NativeBaseProvider>
       </View>
     </>
