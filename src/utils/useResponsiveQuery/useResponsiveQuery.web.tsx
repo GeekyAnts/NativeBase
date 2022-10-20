@@ -1,4 +1,5 @@
 // import { atomic } from 'react-native-web/dist/exports/StyleSheet/compiler';
+import React from 'react';
 import { atomic } from '../react-native-web-fucntions/atomic';
 import preprocess from '../react-native-web-fucntions/preprocess';
 import type {
