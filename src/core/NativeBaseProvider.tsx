@@ -22,7 +22,7 @@ import { platformSpecificSpaceUnits } from '../theme/tools/platformSpecificSpace
 import {
   init as initResolvedStyleMap,
   resolvedStyledMap,
-} from '../utils/styled';
+} from '../utils/static/styled';
 import { uniqueId } from 'lodash';
 
 initResolvedStyleMap();

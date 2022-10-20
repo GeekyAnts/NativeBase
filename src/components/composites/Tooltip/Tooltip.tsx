@@ -10,7 +10,7 @@ import Box from '../../primitives/Box';
 import type { ITooltipProps } from './types';
 import { useId } from '@react-native-aria/utils';
 import { uniqueId } from 'lodash';
-import { ResponsiveQueryContext } from '../../../utils/useResponsiveQuery/ResponsiveQueryProvider';
+import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
 
 export const Tooltip = ({
   label,
@@ -57,8 +57,8 @@ export const Tooltip = ({
   let tooltipID = uniqueId();
 
   // let id = uniqueId();
-  const responsiveQueryContext = React.useContext(ResponsiveQueryContext);
-  const disableCSSMediaQueries = responsiveQueryContext.disableCSSMediaQueries;
+  const isSSR = useNativeBaseConfig('NativeBase').isSSR;
+  const disableCSSMediaQueries = !isSSR;
 
   if (!disableCSSMediaQueries) {
     // This if statement technically breaks the rules of hooks, but is safe

@@ -18,4 +18,4 @@ export type {
 } from './color-mode';
 
 export { ToastProvider } from '../components/composites/Toast';
-export * from '../utils/styled';
+export * from '../utils/static/styled';

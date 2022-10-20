@@ -177,7 +177,7 @@ import {
   IOverlayProps,
 } from './components/primitives';
 import map from './utils/map';
-import { init } from './utils/styled';
+import { init } from './utils/static/styled';
 init(map);
 export * from './components/basic';
 export * from './components/primitives/Icon/Icons';

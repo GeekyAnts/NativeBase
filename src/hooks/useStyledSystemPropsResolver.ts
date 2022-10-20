@@ -46,7 +46,7 @@ export const useStyledSystemPropsResolver = ({
     props
   );
 
-  const { style, dataSet } = React.useMemo(() => {
+  const { style, dataSet, styleFromProps } = React.useMemo(() => {
     const resolvedStyle = resolvePropsToStyle(
       styledSystemProps,
       theme,
@@ -82,6 +82,8 @@ export const useStyledSystemPropsResolver = ({
   // console.log('** use prop resolution 2', restProps);
 
   delete restProps.INTERNAL_themeStyle;
+  delete restProps.stateProps;
+
   restProps.dataSet = { ...restProps.dataSet, ...dataSet };
 
   const boxStyleSheet = StyleSheet.create({ box: style }); // StyleSheet.create(style);
@@ -93,5 +95,5 @@ export const useStyledSystemPropsResolver = ({
     styleSheet = boxStyleSheet.box;
   }
 
-  return [styleSheet, restProps];
+  return [styleSheet, restProps, styleFromProps];
 };

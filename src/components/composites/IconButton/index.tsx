@@ -10,10 +10,12 @@ import {
 } from '../../primitives/Pressable/Pressable';
 import { useFocusRing } from '@react-native-aria/focus';
 import { Icon } from '../../primitives/Icon';
+import merge from 'lodash.merge';
 
 const IconButton = (
   {
     icon,
+    _icon: pseudoIconProp,
     children,
     isHovered: isHoveredProp,
     isPressed: isPressedProp,
@@ -46,15 +48,17 @@ const IconButton = (
     onFocus,
     onBlur,
     ...resolvedProps
-  } = usePropsResolution('IconButton', props, state);
+  } = usePropsResolution(
+    'IconButton',
+    { ...props, _icon: merge({}, pseudoIconProp, icon?.props) },
+    state
+  );
 
   let clonedIcon;
 
   if (icon) {
     clonedIcon = React.cloneElement(icon, {
       ..._icon,
-      ...icon?.props,
-      ...props._icon,
     });
   }
 

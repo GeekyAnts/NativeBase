@@ -10,7 +10,7 @@ import { mergeRefs, resolveStackStyleInput } from '../../../utils';
 import { Stack } from '../Stack';
 import { makeStyledComponent } from '../../../utils/makeStyledComponent';
 import { useResolvedFontFamily } from '../../../hooks/useResolvedFontFamily';
-import { getThemeProps } from '../../../utils/styled';
+import { getThemeProps } from '../../../utils/static/styled';
 import { useColorMode } from '../../../core/color-mode';
 import { useNativeBase } from '../../../hooks';
 import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
