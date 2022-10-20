@@ -7493,6 +7493,7 @@ exports[`Storyshots Alert Variant 1`] = `
           Object {
             "dataSet": Object {},
           },
+          Object {},
         ]
       }
       dataSet={Object {}}
@@ -14257,7 +14258,7 @@ exports[`Storyshots Box Basic Box 1`] = `
         style={
           Object {
             "alignSelf": "center",
-            "backgroundColor": "#06b6d4",
+            "backgroundColor": "#60a5fa",
           }
         }
       >
@@ -15576,6 +15577,7 @@ exports[`Storyshots Breadcrumb Collapsible 1`] = `
                 allowFontScaling={false}
                 dataSet={Object {}}
                 direction="row"
+                selectable={false}
                 spacing="2"
                 style={
                   Array [
@@ -15805,6 +15807,7 @@ exports[`Storyshots Breadcrumb Collapsible 1`] = `
                 allowFontScaling={false}
                 dataSet={Object {}}
                 direction="row"
+                selectable={false}
                 spacing="2"
                 style={
                   Array [
@@ -16156,6 +16159,7 @@ exports[`Storyshots Breadcrumb ComponentSeparator 1`] = `
           allowFontScaling={false}
           dataSet={Object {}}
           orientation="vertical"
+          selectable={false}
           style={
             Array [
               Object {
@@ -16237,6 +16241,7 @@ exports[`Storyshots Breadcrumb ComponentSeparator 1`] = `
           allowFontScaling={false}
           dataSet={Object {}}
           orientation="vertical"
+          selectable={false}
           style={
             Array [
               Object {
@@ -16523,6 +16528,7 @@ exports[`Storyshots Breadcrumb Composition 1`] = `
                 allowFontScaling={false}
                 dataSet={Object {}}
                 direction="row"
+                selectable={false}
                 spacing="2"
                 style={
                   Array [
@@ -17696,6 +17702,7 @@ exports[`Storyshots Button Icons 1`] = `
           <Text
             allowFontScaling={false}
             dataSet={Object {}}
+            selectable={false}
             style={
               Array [
                 Object {
@@ -17831,6 +17838,7 @@ exports[`Storyshots Button Icons 1`] = `
           <Text
             allowFontScaling={false}
             dataSet={Object {}}
+            selectable={false}
             style={
               Array [
                 Object {
@@ -18050,6 +18058,7 @@ exports[`Storyshots Button Loading 1`] = `
                   Object {
                     "dataSet": Object {},
                   },
+                  Object {},
                 ],
                 undefined,
               ]
@@ -18122,6 +18131,7 @@ exports[`Storyshots Button Loading 1`] = `
                   Object {
                     "dataSet": Object {},
                   },
+                  Object {},
                 ],
                 undefined,
               ]
@@ -18252,6 +18262,7 @@ exports[`Storyshots Button Loading 1`] = `
                   Object {
                     "dataSet": Object {},
                   },
+                  Object {},
                 ],
                 undefined,
               ]
@@ -18331,6 +18342,7 @@ exports[`Storyshots Button Loading 1`] = `
                   Object {
                     "dataSet": Object {},
                   },
+                  Object {},
                 ],
                 undefined,
               ]
@@ -18433,6 +18445,7 @@ exports[`Storyshots Button Loading 1`] = `
                   Object {
                     "dataSet": Object {},
                   },
+                  Object {},
                 ],
                 undefined,
               ]
@@ -19014,6 +19027,7 @@ exports[`Storyshots Button Variants 1`] = `
           Object {
             "dataSet": Object {},
           },
+          Object {},
         ]
       }
       dataSet={Object {}}
@@ -21574,6 +21588,7 @@ exports[`Storyshots ButtonGroup Variants 1`] = `
           Object {
             "dataSet": Object {},
           },
+          Object {},
         ]
       }
       dataSet={Object {}}
@@ -23399,6 +23414,7 @@ exports[`Storyshots ButtonGroup isAttached 1`] = `
           Object {
             "dataSet": Object {},
           },
+          Object {},
         ]
       }
       dataSet={Object {}}
@@ -24996,6 +25012,7 @@ exports[`Storyshots Center SquareCircle 1`] = `
         <Text
           allowFontScaling={false}
           dataSet={Object {}}
+          selectable={false}
           style={
             Array [
               Object {
@@ -25214,6 +25231,7 @@ exports[`Storyshots Center WithIcons 1`] = `
         <Text
           allowFontScaling={false}
           dataSet={Object {}}
+          selectable={false}
           style={
             Array [
               Object {
@@ -27845,6 +27863,7 @@ exports[`Storyshots Checkbox Custom Icon 1`] = `
                 <Text
                   allowFontScaling={false}
                   dataSet={Object {}}
+                  selectable={false}
                   style={
                     Array [
                       Object {
@@ -27981,6 +28000,7 @@ exports[`Storyshots Checkbox Custom Icon 1`] = `
                 <Text
                   allowFontScaling={false}
                   dataSet={Object {}}
+                  selectable={false}
                   style={
                     Array [
                       Object {
@@ -28117,6 +28137,7 @@ exports[`Storyshots Checkbox Custom Icon 1`] = `
                 <Text
                   allowFontScaling={false}
                   dataSet={Object {}}
+                  selectable={false}
                   style={
                     Array [
                       Object {
@@ -28253,6 +28274,7 @@ exports[`Storyshots Checkbox Custom Icon 1`] = `
                 <Text
                   allowFontScaling={false}
                   dataSet={Object {}}
+                  selectable={false}
                   style={
                     Array [
                       Object {
@@ -34265,6 +34287,7 @@ exports[`Storyshots Examples Todo App 1`] = `
               <Text
                 allowFontScaling={false}
                 dataSet={Object {}}
+                selectable={false}
                 style={
                   Array [
                     Object {
@@ -34516,6 +34539,7 @@ exports[`Storyshots Examples Todo App 1`] = `
                 <Text
                   allowFontScaling={false}
                   dataSet={Object {}}
+                  selectable={false}
                   style={
                     Array [
                       Object {
@@ -34711,6 +34735,7 @@ exports[`Storyshots Examples Todo App 1`] = `
                 <Text
                   allowFontScaling={false}
                   dataSet={Object {}}
+                  selectable={false}
                   style={
                     Array [
                       Object {
@@ -34906,6 +34931,7 @@ exports[`Storyshots Examples Todo App 1`] = `
                 <Text
                   allowFontScaling={false}
                   dataSet={Object {}}
+                  selectable={false}
                   style={
                     Array [
                       Object {
@@ -35101,6 +35127,7 @@ exports[`Storyshots Examples Todo App 1`] = `
                 <Text
                   allowFontScaling={false}
                   dataSet={Object {}}
+                  selectable={false}
                   style={
                     Array [
                       Object {
@@ -35806,11 +35833,6 @@ exports[`Storyshots Factory Ref 1`] = `
       style={Object {}}
     >
       <TextInput
-        _dark={
-          Object {
-            "color": "trueGray.200",
-          }
-        }
         allowFontScaling={true}
         dataSet={Object {}}
         placeholder="Click on the button"
@@ -35820,7 +35842,6 @@ exports[`Storyshots Factory Ref 1`] = `
             "borderColor": "#22d3ee",
             "borderRadius": 6,
             "borderWidth": 1,
-            "padding": 8,
             "paddingBottom": 8,
             "paddingLeft": 8,
             "paddingRight": 8,
@@ -36333,6 +36354,7 @@ exports[`Storyshots FlatList Basic 1`] = `
             Object {
               "dataSet": Object {},
             },
+            Object {},
           ]
         }
         data={
@@ -37333,6 +37355,7 @@ exports[`Storyshots Flex Basic Usage 1`] = `
             Object {
               "dataSet": Object {},
             },
+            Object {},
           ]
         }
         dataSet={Object {}}
@@ -38422,6 +38445,7 @@ exports[`Storyshots FormControl CustomStyle 1`] = `
           Object {
             "dataSet": Object {},
           },
+          Object {},
         ]
       }
       dataSet={Object {}}
@@ -41836,6 +41860,7 @@ exports[`Storyshots Icon All Icons 1`] = `
             Object {
               "dataSet": Object {},
             },
+            Object {},
           ]
         }
         data={
@@ -46425,6 +46450,7 @@ exports[`Storyshots Icon Integration with Third Party Icons 1`] = `
         <Text
           allowFontScaling={false}
           dataSet={Object {}}
+          selectable={false}
           style={
             Array [
               Object {
@@ -46469,6 +46495,7 @@ exports[`Storyshots Icon Integration with Third Party Icons 1`] = `
         <Text
           allowFontScaling={false}
           dataSet={Object {}}
+          selectable={false}
           style={
             Array [
               Object {
@@ -46659,6 +46686,7 @@ exports[`Storyshots Icon Sizes 1`] = `
         <Text
           allowFontScaling={false}
           dataSet={Object {}}
+          selectable={false}
           style={
             Array [
               Object {
@@ -46695,6 +46723,7 @@ exports[`Storyshots Icon Sizes 1`] = `
         <Text
           allowFontScaling={false}
           dataSet={Object {}}
+          selectable={false}
           style={
             Array [
               Object {
@@ -46731,6 +46760,7 @@ exports[`Storyshots Icon Sizes 1`] = `
         <Text
           allowFontScaling={false}
           dataSet={Object {}}
+          selectable={false}
           style={
             Array [
               Object {
@@ -46924,6 +46954,7 @@ exports[`Storyshots IconButton Basic 1`] = `
         <Text
           allowFontScaling={false}
           dataSet={Object {}}
+          selectable={false}
           style={
             Array [
               Object {
@@ -47456,6 +47487,7 @@ exports[`Storyshots IconButton Sizes 1`] = `
           <Text
             allowFontScaling={false}
             dataSet={Object {}}
+            selectable={false}
             style={
               Array [
                 Object {
@@ -47522,6 +47554,7 @@ exports[`Storyshots IconButton Sizes 1`] = `
           <Text
             allowFontScaling={false}
             dataSet={Object {}}
+            selectable={false}
             style={
               Array [
                 Object {
@@ -47588,6 +47621,7 @@ exports[`Storyshots IconButton Sizes 1`] = `
           <Text
             allowFontScaling={false}
             dataSet={Object {}}
+            selectable={false}
             style={
               Array [
                 Object {
@@ -47654,6 +47688,7 @@ exports[`Storyshots IconButton Sizes 1`] = `
           <Text
             allowFontScaling={false}
             dataSet={Object {}}
+            selectable={false}
             style={
               Array [
                 Object {
@@ -47860,6 +47895,7 @@ exports[`Storyshots IconButton Variant 1`] = `
           <Text
             allowFontScaling={false}
             dataSet={Object {}}
+            selectable={false}
             style={
               Array [
                 Object {
@@ -47927,6 +47963,7 @@ exports[`Storyshots IconButton Variant 1`] = `
           <Text
             allowFontScaling={false}
             dataSet={Object {}}
+            selectable={false}
             style={
               Array [
                 Object {
@@ -47993,6 +48030,7 @@ exports[`Storyshots IconButton Variant 1`] = `
           <Text
             allowFontScaling={false}
             dataSet={Object {}}
+            selectable={false}
             style={
               Array [
                 Object {
@@ -48795,6 +48833,7 @@ exports[`Storyshots Image Sizes 1`] = `
           Object {
             "dataSet": Object {},
           },
+          Object {},
         ]
       }
       dataSet={Object {}}
@@ -49569,6 +49608,7 @@ exports[`Storyshots Input Elements 1`] = `
         <Text
           allowFontScaling={false}
           dataSet={Object {}}
+          selectable={false}
           style={
             Array [
               Object {
@@ -49704,6 +49744,7 @@ exports[`Storyshots Input Elements 1`] = `
           <Text
             allowFontScaling={false}
             dataSet={Object {}}
+            selectable={false}
             style={
               Array [
                 Object {
@@ -53622,6 +53663,7 @@ exports[`Storyshots List List with Icon 1`] = `
           <Text
             allowFontScaling={false}
             dataSet={Object {}}
+            selectable={false}
             style={
               Array [
                 Object {
@@ -53706,6 +53748,7 @@ exports[`Storyshots List List with Icon 1`] = `
           <Text
             allowFontScaling={false}
             dataSet={Object {}}
+            selectable={false}
             style={
               Array [
                 Object {
@@ -57114,6 +57157,7 @@ exports[`Storyshots Menu Menu positions 1`] = `
                         Object {
                           "dataSet": Object {},
                         },
+                        Object {},
                       ]
                     }
                     data={
@@ -58706,6 +58750,7 @@ exports[`Storyshots Modal Basic 1`] = `
                     Object {
                       "dataSet": Object {},
                     },
+                    Object {},
                   ]
                 }
                 dataSet={Object {}}
@@ -59577,6 +59622,7 @@ exports[`Storyshots Modal Modal Custom Backdrop 1`] = `
                     Object {
                       "dataSet": Object {},
                     },
+                    Object {},
                   ]
                 }
                 dataSet={Object {}}
@@ -60554,6 +60600,7 @@ exports[`Storyshots Modal Modal Placement 1`] = `
                   Object {
                     "dataSet": Object {},
                   },
+                  Object {},
                 ]
               }
               dataSet={Object {}}
@@ -61351,6 +61398,7 @@ exports[`Storyshots Modal Modal Ref Examples 1`] = `
                   Object {
                     "dataSet": Object {},
                   },
+                  Object {},
                 ]
               }
               dataSet={Object {}}
@@ -62275,6 +62323,7 @@ exports[`Storyshots Modal Modal Size Examples 1`] = `
                   Object {
                     "dataSet": Object {},
                   },
+                  Object {},
                 ]
               }
               dataSet={Object {}}
@@ -62299,6 +62348,7 @@ exports[`Storyshots Modal Modal Size Examples 1`] = `
                         Object {
                           "dataSet": Object {},
                         },
+                        Object {},
                       ]
                     }
                     dataSet={Object {}}
@@ -63345,6 +63395,7 @@ exports[`Storyshots Modal Modal with Keyboard Avoid view 1`] = `
                   Object {
                     "dataSet": Object {},
                   },
+                  Object {},
                 ]
               }
               dataSet={Object {}}
@@ -64154,6 +64205,7 @@ exports[`Storyshots Modal Multiple modal 1`] = `
                     Object {
                       "dataSet": Object {},
                     },
+                    Object {},
                   ]
                 }
                 dataSet={Object {}}
@@ -64715,6 +64767,7 @@ exports[`Storyshots Modal Multiple modal 1`] = `
                     Object {
                       "dataSet": Object {},
                     },
+                    Object {},
                   ]
                 }
                 dataSet={Object {}}
@@ -65508,6 +65561,7 @@ exports[`Storyshots Modal Multiple modal 1`] = `
                     Object {
                       "dataSet": Object {},
                     },
+                    Object {},
                   ]
                 }
                 dataSet={Object {}}
@@ -67309,6 +67363,7 @@ exports[`Storyshots Popover Popover positions 1`] = `
                           Object {
                             "dataSet": Object {},
                           },
+                          Object {},
                         ]
                       }
                       data={
@@ -72078,6 +72133,7 @@ exports[`Storyshots Radio Custom Icon 1`] = `
               <Text
                 allowFontScaling={false}
                 dataSet={Object {}}
+                selectable={false}
                 style={
                   Array [
                     Object {
@@ -78693,6 +78749,7 @@ exports[`Storyshots ScrollView Basic 1`] = `
           Object {
             "dataSet": Object {},
           },
+          Object {},
         ]
       }
       dataSet={Object {}}
@@ -80388,6 +80445,7 @@ exports[`Storyshots Select Basic 1`] = `
                           Object {
                             "dataSet": Object {},
                           },
+                          Object {},
                         ]
                       }
                       data={
@@ -81414,6 +81472,7 @@ exports[`Storyshots Select FormControlled 1`] = `
                           Object {
                             "dataSet": Object {},
                           },
+                          Object {},
                         ]
                       }
                       data={
@@ -82548,6 +82607,7 @@ exports[`Storyshots Select Select Long list 1`] = `
                           Object {
                             "dataSet": Object {},
                           },
+                          Object {},
                         ]
                       }
                       data={
@@ -85552,7 +85612,7 @@ exports[`Storyshots Slider Color 1`] = `
                     },
                     Object {
                       "height": 4,
-                      "width": "70%",
+                      "width": 0,
                     },
                   ]
                 }
@@ -85595,7 +85655,7 @@ exports[`Storyshots Slider Color 1`] = `
                     "left": "70%",
                     "transform": Array [
                       Object {
-                        "translateX": NaN,
+                        "translateX": -8,
                       },
                       Object {
                         "scale": 1,
@@ -85739,7 +85799,7 @@ exports[`Storyshots Slider Color 1`] = `
                     },
                     Object {
                       "height": 4,
-                      "width": "70%",
+                      "width": 0,
                     },
                   ]
                 }
@@ -85782,7 +85842,7 @@ exports[`Storyshots Slider Color 1`] = `
                     "left": "70%",
                     "transform": Array [
                       Object {
-                        "translateX": NaN,
+                        "translateX": -8,
                       },
                       Object {
                         "scale": 1,
@@ -85926,7 +85986,7 @@ exports[`Storyshots Slider Color 1`] = `
                     },
                     Object {
                       "height": 4,
-                      "width": "70%",
+                      "width": 0,
                     },
                   ]
                 }
@@ -85969,7 +86029,7 @@ exports[`Storyshots Slider Color 1`] = `
                     "left": "70%",
                     "transform": Array [
                       Object {
-                        "translateX": NaN,
+                        "translateX": -8,
                       },
                       Object {
                         "scale": 1,
@@ -86243,7 +86303,7 @@ exports[`Storyshots Slider Customized 1`] = `
                   },
                   Object {
                     "height": 4,
-                    "width": "70%",
+                    "width": 0,
                   },
                 ]
               }
@@ -86287,7 +86347,7 @@ exports[`Storyshots Slider Customized 1`] = `
                   "left": "70%",
                   "transform": Array [
                     Object {
-                      "translateX": NaN,
+                      "translateX": -8,
                     },
                     Object {
                       "scale": 1,
@@ -86347,6 +86407,7 @@ exports[`Storyshots Slider Customized 1`] = `
               <Text
                 allowFontScaling={false}
                 dataSet={Object {}}
+                selectable={false}
                 style={
                   Array [
                     Object {
@@ -86593,7 +86654,7 @@ exports[`Storyshots Slider Disabled 1`] = `
                   },
                   Object {
                     "height": 4,
-                    "width": "50%",
+                    "width": 0,
                   },
                 ]
               }
@@ -86636,7 +86697,7 @@ exports[`Storyshots Slider Disabled 1`] = `
                   "left": "50%",
                   "transform": Array [
                     Object {
-                      "translateX": NaN,
+                      "translateX": -8,
                     },
                     Object {
                       "scale": 1,
@@ -86964,7 +87025,7 @@ exports[`Storyshots Slider Form Controlled 1`] = `
                       },
                       Object {
                         "height": 4,
-                        "width": "50%",
+                        "width": 0,
                       },
                     ]
                   }
@@ -87006,7 +87067,7 @@ exports[`Storyshots Slider Form Controlled 1`] = `
                       "left": "50%",
                       "transform": Array [
                         Object {
-                          "translateX": NaN,
+                          "translateX": -8,
                         },
                         Object {
                           "scale": 1,
@@ -87413,7 +87474,7 @@ exports[`Storyshots Slider Playground 1`] = `
                   },
                   Object {
                     "height": 4,
-                    "width": "50%",
+                    "width": 0,
                   },
                 ]
               }
@@ -87456,7 +87517,7 @@ exports[`Storyshots Slider Playground 1`] = `
                   "left": "50%",
                   "transform": Array [
                     Object {
-                      "translateX": NaN,
+                      "translateX": -8,
                     },
                     Object {
                       "scale": 1,
@@ -87730,7 +87791,7 @@ exports[`Storyshots Slider ReadOnly 1`] = `
                   },
                   Object {
                     "height": 4,
-                    "width": "50%",
+                    "width": 0,
                   },
                 ]
               }
@@ -87772,7 +87833,7 @@ exports[`Storyshots Slider ReadOnly 1`] = `
                   "left": "50%",
                   "transform": Array [
                     Object {
-                      "translateX": NaN,
+                      "translateX": -8,
                     },
                     Object {
                       "scale": 1,
@@ -88050,7 +88111,7 @@ exports[`Storyshots Slider Size 1`] = `
                     },
                     Object {
                       "height": 4,
-                      "width": "40%",
+                      "width": 0,
                     },
                   ]
                 }
@@ -88092,7 +88153,7 @@ exports[`Storyshots Slider Size 1`] = `
                     "left": "40%",
                     "transform": Array [
                       Object {
-                        "translateX": NaN,
+                        "translateX": -8,
                       },
                       Object {
                         "scale": 1,
@@ -88233,7 +88294,7 @@ exports[`Storyshots Slider Size 1`] = `
                     },
                     Object {
                       "height": 4,
-                      "width": "60%",
+                      "width": 0,
                     },
                   ]
                 }
@@ -88275,7 +88336,7 @@ exports[`Storyshots Slider Size 1`] = `
                     "left": "60%",
                     "transform": Array [
                       Object {
-                        "translateX": NaN,
+                        "translateX": -10,
                       },
                       Object {
                         "scale": 1,
@@ -88416,7 +88477,7 @@ exports[`Storyshots Slider Size 1`] = `
                     },
                     Object {
                       "height": 4,
-                      "width": "80%",
+                      "width": 0,
                     },
                   ]
                 }
@@ -88458,7 +88519,7 @@ exports[`Storyshots Slider Size 1`] = `
                     "left": "80%",
                     "transform": Array [
                       Object {
-                        "translateX": NaN,
+                        "translateX": -12,
                       },
                       Object {
                         "scale": 1,
@@ -88733,7 +88794,7 @@ exports[`Storyshots Slider Usage 1`] = `
                   },
                   Object {
                     "height": 4,
-                    "width": "70%",
+                    "width": 0,
                   },
                 ]
               }
@@ -88775,7 +88836,7 @@ exports[`Storyshots Slider Usage 1`] = `
                   "left": "70%",
                   "transform": Array [
                     Object {
-                      "translateX": NaN,
+                      "translateX": -8,
                     },
                     Object {
                       "scale": 1,
@@ -89110,7 +89171,7 @@ exports[`Storyshots Slider Value 1`] = `
                     },
                     Object {
                       "height": 4,
-                      "width": "70%",
+                      "width": 0,
                     },
                   ]
                 }
@@ -89153,7 +89214,7 @@ exports[`Storyshots Slider Value 1`] = `
                     "left": "70%",
                     "transform": Array [
                       Object {
-                        "translateX": NaN,
+                        "translateX": -8,
                       },
                       Object {
                         "scale": 1,
@@ -89427,7 +89488,7 @@ exports[`Storyshots Slider Vertical 1`] = `
                     "width": 16,
                   },
                   Object {
-                    "height": "70%",
+                    "height": 0,
                     "width": 4,
                   },
                 ]
@@ -89471,7 +89532,7 @@ exports[`Storyshots Slider Vertical 1`] = `
                   "left": undefined,
                   "transform": Array [
                     Object {
-                      "translateY": NaN,
+                      "translateY": 8,
                     },
                     Object {
                       "scale": 1,
@@ -89682,6 +89743,7 @@ exports[`Storyshots Spinner Color 1`] = `
               Object {
                 "dataSet": Object {},
               },
+              Object {},
             ],
             undefined,
           ]
@@ -89711,6 +89773,7 @@ exports[`Storyshots Spinner Color 1`] = `
               Object {
                 "dataSet": Object {},
               },
+              Object {},
             ],
             undefined,
           ]
@@ -89740,6 +89803,7 @@ exports[`Storyshots Spinner Color 1`] = `
               Object {
                 "dataSet": Object {},
               },
+              Object {},
             ],
             undefined,
           ]
@@ -89769,6 +89833,7 @@ exports[`Storyshots Spinner Color 1`] = `
               Object {
                 "dataSet": Object {},
               },
+              Object {},
             ],
             undefined,
           ]
@@ -89927,6 +89992,7 @@ exports[`Storyshots Spinner Playground 1`] = `
               Object {
                 "dataSet": Object {},
               },
+              Object {},
             ],
             undefined,
           ]
@@ -90085,6 +90151,7 @@ exports[`Storyshots Spinner Size 1`] = `
               Object {
                 "dataSet": Object {},
               },
+              Object {},
             ],
             undefined,
           ]
@@ -90114,6 +90181,7 @@ exports[`Storyshots Spinner Size 1`] = `
               Object {
                 "dataSet": Object {},
               },
+              Object {},
             ],
             undefined,
           ]
@@ -90272,6 +90340,7 @@ exports[`Storyshots Spinner Usage 1`] = `
                 "accessibilityLabel": "Loading posts",
                 "dataSet": Object {},
               },
+              Object {},
             ],
             undefined,
           ]
@@ -90435,6 +90504,7 @@ exports[`Storyshots Stack Basic 1`] = `
           Object {
             "dataSet": Object {},
           },
+          Object {},
         ]
       }
       dataSet={Object {}}
@@ -93858,7 +93928,6 @@ exports[`Storyshots TextArea Default 1`] = `
     <View
       accessibilityRole="button"
       accessible={true}
-      colorScheme="primary"
       dataSet={Object {}}
       focusable={true}
       onBlur={[Function]}
@@ -93994,10 +94063,8 @@ exports[`Storyshots TextArea Default 1`] = `
           secureTextEntry={false}
           style={
             Object {
-              "backgroundColor": "transparent",
               "color": "#171717",
               "flex": 1,
-              "fontFamily": undefined,
               "fontSize": 12,
               "fontStyle": "normal",
               "fontWeight": "400",
@@ -94006,7 +94073,7 @@ exports[`Storyshots TextArea Default 1`] = `
               "paddingLeft": 12,
               "paddingRight": 12,
               "paddingTop": 8,
-              "width": "100%",
+              "width": 384,
             }
           }
           textAlignVertical="top"
@@ -94046,7 +94113,6 @@ exports[`Storyshots TextArea InValid and Disabled 1`] = `
     <View
       accessibilityRole="button"
       accessible={true}
-      colorScheme="primary"
       dataSet={Object {}}
       focusable={true}
       onBlur={[Function]}
@@ -94167,16 +94233,14 @@ exports[`Storyshots TextArea InValid and Disabled 1`] = `
             dataSet={Object {}}
             style={
               Object {
-                "backgroundColor": undefined,
                 "color": "#171717",
                 "fontFamily": undefined,
                 "fontSize": 18,
                 "fontStyle": "normal",
                 "fontWeight": "700",
                 "letterSpacing": 0,
-                "lineHeight": 27,
+                "lineHeight": 21,
                 "marginBottom": 16,
-                "textDecorationLine": undefined,
               }
             }
           >
@@ -94192,7 +94256,6 @@ exports[`Storyshots TextArea InValid and Disabled 1`] = `
                 "borderRadius": 4,
                 "borderWidth": 1,
                 "flexDirection": "row",
-                "height": 80,
                 "marginBottom": 20,
                 "overflow": "hidden",
               }
@@ -94216,10 +94279,8 @@ exports[`Storyshots TextArea InValid and Disabled 1`] = `
               secureTextEntry={false}
               style={
                 Object {
-                  "backgroundColor": "transparent",
                   "color": "#171717",
                   "flex": 1,
-                  "fontFamily": undefined,
                   "fontSize": 12,
                   "fontStyle": "normal",
                   "fontWeight": "400",
@@ -94228,7 +94289,7 @@ exports[`Storyshots TextArea InValid and Disabled 1`] = `
                   "paddingLeft": 12,
                   "paddingRight": 12,
                   "paddingTop": 8,
-                  "width": "100%",
+                  "width": 384,
                 }
               }
               textAlignVertical="top"
@@ -94264,16 +94325,14 @@ exports[`Storyshots TextArea InValid and Disabled 1`] = `
             dataSet={Object {}}
             style={
               Object {
-                "backgroundColor": undefined,
                 "color": "#171717",
                 "fontFamily": undefined,
                 "fontSize": 18,
                 "fontStyle": "normal",
                 "fontWeight": "700",
                 "letterSpacing": 0,
-                "lineHeight": 27,
+                "lineHeight": 21,
                 "marginBottom": 16,
-                "textDecorationLine": undefined,
               }
             }
           >
@@ -94289,7 +94348,6 @@ exports[`Storyshots TextArea InValid and Disabled 1`] = `
                 "borderRadius": 4,
                 "borderWidth": 1,
                 "flexDirection": "row",
-                "height": 80,
                 "opacity": 0.4,
                 "overflow": "hidden",
               }
@@ -94312,10 +94370,8 @@ exports[`Storyshots TextArea InValid and Disabled 1`] = `
               secureTextEntry={false}
               style={
                 Object {
-                  "backgroundColor": "transparent",
                   "color": "#171717",
                   "flex": 1,
-                  "fontFamily": undefined,
                   "fontSize": 12,
                   "fontStyle": "normal",
                   "fontWeight": "400",
@@ -94324,7 +94380,7 @@ exports[`Storyshots TextArea InValid and Disabled 1`] = `
                   "paddingLeft": 12,
                   "paddingRight": 12,
                   "paddingTop": 8,
-                  "width": "100%",
+                  "width": 384,
                 }
               }
               textAlignVertical="top"
@@ -94366,7 +94422,6 @@ exports[`Storyshots TextArea Sizes 1`] = `
     <View
       accessibilityRole="button"
       accessible={true}
-      colorScheme="primary"
       dataSet={Object {}}
       focusable={true}
       onBlur={[Function]}
@@ -94494,17 +94549,15 @@ exports[`Storyshots TextArea Sizes 1`] = `
             dataSet={Object {}}
             style={
               Object {
-                "backgroundColor": undefined,
                 "color": "#171717",
                 "fontFamily": undefined,
                 "fontSize": 24,
                 "fontStyle": "normal",
                 "fontWeight": "700",
                 "letterSpacing": 0,
-                "lineHeight": 30,
+                "lineHeight": 37.5,
                 "marginBottom": 40,
                 "textAlign": "center",
-                "textDecorationLine": undefined,
               }
             }
           >
@@ -94528,7 +94581,6 @@ exports[`Storyshots TextArea Sizes 1`] = `
                   "borderRadius": 4,
                   "borderWidth": 1,
                   "flexDirection": "row",
-                  "height": 80,
                   "overflow": "hidden",
                 }
               }
@@ -94549,11 +94601,9 @@ exports[`Storyshots TextArea Sizes 1`] = `
                 secureTextEntry={false}
                 style={
                   Object {
-                    "backgroundColor": "transparent",
                     "color": "#171717",
                     "flex": 1,
-                    "fontFamily": undefined,
-                    "fontSize": 10,
+                    "fontSize": 12,
                     "fontStyle": "normal",
                     "fontWeight": "400",
                     "height": "100%",
@@ -94561,7 +94611,7 @@ exports[`Storyshots TextArea Sizes 1`] = `
                     "paddingLeft": 12,
                     "paddingRight": 12,
                     "paddingTop": 8,
-                    "width": "100%",
+                    "width": 320,
                   }
                 }
                 textAlignVertical="top"
@@ -94586,7 +94636,6 @@ exports[`Storyshots TextArea Sizes 1`] = `
                   "borderRadius": 4,
                   "borderWidth": 1,
                   "flexDirection": "row",
-                  "height": 80,
                   "overflow": "hidden",
                 }
               }
@@ -94607,10 +94656,8 @@ exports[`Storyshots TextArea Sizes 1`] = `
                 secureTextEntry={false}
                 style={
                   Object {
-                    "backgroundColor": "transparent",
                     "color": "#171717",
                     "flex": 1,
-                    "fontFamily": undefined,
                     "fontSize": 12,
                     "fontStyle": "normal",
                     "fontWeight": "400",
@@ -94619,7 +94666,7 @@ exports[`Storyshots TextArea Sizes 1`] = `
                     "paddingLeft": 12,
                     "paddingRight": 12,
                     "paddingTop": 8,
-                    "width": "100%",
+                    "width": 384,
                   }
                 }
                 textAlignVertical="top"
@@ -94644,7 +94691,6 @@ exports[`Storyshots TextArea Sizes 1`] = `
                   "borderRadius": 4,
                   "borderWidth": 1,
                   "flexDirection": "row",
-                  "height": 80,
                   "overflow": "hidden",
                 }
               }
@@ -94665,11 +94711,9 @@ exports[`Storyshots TextArea Sizes 1`] = `
                 secureTextEntry={false}
                 style={
                   Object {
-                    "backgroundColor": "transparent",
                     "color": "#171717",
                     "flex": 1,
-                    "fontFamily": undefined,
-                    "fontSize": 14,
+                    "fontSize": 12,
                     "fontStyle": "normal",
                     "fontWeight": "400",
                     "height": "100%",
@@ -94677,7 +94721,7 @@ exports[`Storyshots TextArea Sizes 1`] = `
                     "paddingLeft": 12,
                     "paddingRight": 12,
                     "paddingTop": 8,
-                    "width": "100%",
+                    "width": 448,
                   }
                 }
                 textAlignVertical="top"
@@ -94702,7 +94746,6 @@ exports[`Storyshots TextArea Sizes 1`] = `
                   "borderRadius": 4,
                   "borderWidth": 1,
                   "flexDirection": "row",
-                  "height": 80,
                   "overflow": "hidden",
                 }
               }
@@ -94723,11 +94766,9 @@ exports[`Storyshots TextArea Sizes 1`] = `
                 secureTextEntry={false}
                 style={
                   Object {
-                    "backgroundColor": "transparent",
                     "color": "#171717",
                     "flex": 1,
-                    "fontFamily": undefined,
-                    "fontSize": 16,
+                    "fontSize": 12,
                     "fontStyle": "normal",
                     "fontWeight": "400",
                     "height": "100%",
@@ -94735,7 +94776,7 @@ exports[`Storyshots TextArea Sizes 1`] = `
                     "paddingLeft": 12,
                     "paddingRight": 12,
                     "paddingTop": 8,
-                    "width": "100%",
+                    "width": 512,
                   }
                 }
                 textAlignVertical="top"
@@ -94760,7 +94801,6 @@ exports[`Storyshots TextArea Sizes 1`] = `
                   "borderRadius": 4,
                   "borderWidth": 1,
                   "flexDirection": "row",
-                  "height": 80,
                   "overflow": "hidden",
                 }
               }
@@ -94781,11 +94821,9 @@ exports[`Storyshots TextArea Sizes 1`] = `
                 secureTextEntry={false}
                 style={
                   Object {
-                    "backgroundColor": "transparent",
                     "color": "#171717",
                     "flex": 1,
-                    "fontFamily": undefined,
-                    "fontSize": 18,
+                    "fontSize": 12,
                     "fontStyle": "normal",
                     "fontWeight": "400",
                     "height": "100%",
@@ -94793,7 +94831,7 @@ exports[`Storyshots TextArea Sizes 1`] = `
                     "paddingLeft": 12,
                     "paddingRight": 12,
                     "paddingTop": 8,
-                    "width": "100%",
+                    "width": 576,
                   }
                 }
                 textAlignVertical="top"
@@ -94818,7 +94856,6 @@ exports[`Storyshots TextArea Sizes 1`] = `
                   "borderRadius": 4,
                   "borderWidth": 1,
                   "flexDirection": "row",
-                  "height": 80,
                   "overflow": "hidden",
                 }
               }
@@ -94839,11 +94876,9 @@ exports[`Storyshots TextArea Sizes 1`] = `
                 secureTextEntry={false}
                 style={
                   Object {
-                    "backgroundColor": "transparent",
                     "color": "#171717",
                     "flex": 1,
-                    "fontFamily": undefined,
-                    "fontSize": 20,
+                    "fontSize": 12,
                     "fontStyle": "normal",
                     "fontWeight": "400",
                     "height": "100%",
@@ -94851,7 +94886,7 @@ exports[`Storyshots TextArea Sizes 1`] = `
                     "paddingLeft": 12,
                     "paddingRight": 12,
                     "paddingTop": 8,
-                    "width": "100%",
+                    "width": 672,
                   }
                 }
                 textAlignVertical="top"
@@ -94894,7 +94929,6 @@ exports[`Storyshots TextArea Value Controlled 1`] = `
     <View
       accessibilityRole="button"
       accessible={true}
-      colorScheme="primary"
       dataSet={Object {}}
       focusable={true}
       onBlur={[Function]}
@@ -95008,7 +95042,6 @@ exports[`Storyshots TextArea Value Controlled 1`] = `
             "borderRadius": 4,
             "borderWidth": 1,
             "flexDirection": "row",
-            "height": 80,
             "maxWidth": 300,
             "overflow": "hidden",
             "width": "75%",
@@ -95031,10 +95064,8 @@ exports[`Storyshots TextArea Value Controlled 1`] = `
           secureTextEntry={false}
           style={
             Object {
-              "backgroundColor": "transparent",
               "color": "#171717",
               "flex": 1,
-              "fontFamily": undefined,
               "fontSize": 12,
               "fontStyle": "normal",
               "fontWeight": "400",
@@ -95043,7 +95074,7 @@ exports[`Storyshots TextArea Value Controlled 1`] = `
               "paddingLeft": 12,
               "paddingRight": 12,
               "paddingTop": 8,
-              "width": "100%",
+              "width": 384,
             }
           }
           textAlignVertical="top"
@@ -98863,6 +98894,7 @@ exports[`Storyshots Tooltip Tooltip Positions 1`] = `
                         Object {
                           "dataSet": Object {},
                         },
+                        Object {},
                       ]
                     }
                     data={
@@ -102185,6 +102217,7 @@ exports[`Storyshots Transitions Stagger 1`] = `
             <Text
               allowFontScaling={false}
               dataSet={Object {}}
+              selectable={false}
               style={
                 Array [
                   Object {
@@ -102274,6 +102307,7 @@ exports[`Storyshots Transitions Stagger 1`] = `
             <Text
               allowFontScaling={false}
               dataSet={Object {}}
+              selectable={false}
               style={
                 Array [
                   Object {
@@ -102363,6 +102397,7 @@ exports[`Storyshots Transitions Stagger 1`] = `
             <Text
               allowFontScaling={false}
               dataSet={Object {}}
+              selectable={false}
               style={
                 Array [
                   Object {
@@ -102452,6 +102487,7 @@ exports[`Storyshots Transitions Stagger 1`] = `
             <Text
               allowFontScaling={false}
               dataSet={Object {}}
+              selectable={false}
               style={
                 Array [
                   Object {
@@ -102521,6 +102557,7 @@ exports[`Storyshots Transitions Stagger 1`] = `
           <Text
             allowFontScaling={false}
             dataSet={Object {}}
+            selectable={false}
             style={
               Array [
                 Object {
@@ -104188,6 +104225,7 @@ exports[`Storyshots useBreakpointValue Usage 1`] = `
           Object {
             "dataSet": Object {},
           },
+          Object {},
         ]
       }
       dataSet={Object {}}
@@ -106371,6 +106409,7 @@ exports[`Storyshots useDisclose Usage 1`] = `
                     Object {
                       "dataSet": Object {},
                     },
+                    Object {},
                   ]
                 }
                 dataSet={Object {}}
@@ -108064,7 +108103,12 @@ exports[`Storyshots useSx Basic 1`] = `
     <View
       style={
         Array [
-          undefined,
+          Object {
+            "backgroundColor": "#a78bfa",
+            "height": 192,
+            "padding": 8,
+            "width": 192,
+          },
           Object {
             "alignItems": "center",
             "justifyContent": "center",
@@ -108072,7 +108116,14 @@ exports[`Storyshots useSx Basic 1`] = `
         ]
       }
     >
-      <Text>
+      <Text
+        style={
+          Object {
+            "color": "#FFFFFF",
+            "textAlign": "center",
+          }
+        }
+      >
         New Feat useSx in NativeBase
       </Text>
     </View>
