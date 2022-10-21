@@ -32,7 +32,6 @@ export const useAppState = () => {
       getCurrentValue: () => AppState.currentState,
       subscribe: (callback: () => void) => {
         const subsription = AppState.addEventListener('change', callback);
-        // return () => AppState.removeEventListener('change', callback);
         return () => {
           if (AppState.removeEventListener) {
             // React Native < 0.65
