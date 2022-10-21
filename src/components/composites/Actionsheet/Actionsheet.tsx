@@ -30,7 +30,7 @@ const Actionsheet = (
       onClose={onClose}
       {...resolvedProps}
       overlayVisible={disableOverlay ? false : true}
-      closeOnOverlayClick={disableOverlay ? false : true}
+      closeOnOverlayClick={true}
       ref={ref}
       _overlay={{ style: overlayStyle }}
     >
