@@ -6,7 +6,8 @@ export interface InterfaceFabProps extends InterfaceButtonProps {
    * Placement of the Fab.
    * @default bottom-right
    */
-  placement?: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
+   placement?: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left'|'top-center'|'bottom-center'
+   |'center'|'left-center'|'right-center';
   /**
    * Text to be displayed in Fab.
    */
