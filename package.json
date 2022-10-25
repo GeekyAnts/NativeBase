@@ -101,6 +101,11 @@
     "react-native-safe-area-context": "*",
     "react-native-svg": "*"
   },
+  "peerDependenciesMeta": {
+    "react-dom": {
+      "optional": true
+    }
+  },
   "jest": {
     "preset": "jest-expo",
     "transform": {
