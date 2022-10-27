@@ -12737,7 +12737,7 @@ exports[`Storyshots Breadcrumb Basic 1`] = `
                 }
               }
             >
-              Github
+              GitHub
             </div>
           </a>
         </div>
@@ -13113,7 +13113,7 @@ exports[`Storyshots Breadcrumb Collapsible 1`] = `
                   }
                 }
               >
-                Github (This is currently active)
+                GitHub (This is currently active)
               </div>
             </div>
           </a>
@@ -13509,7 +13509,7 @@ exports[`Storyshots Breadcrumb ComponentSeparator 1`] = `
                 }
               }
             >
-              Github
+              GitHub
             </div>
           </a>
         </div>
@@ -13941,7 +13941,7 @@ exports[`Storyshots Breadcrumb Composition 1`] = `
                   }
                 }
               >
-                Github (This is currently active)
+                GitHub (This is currently active)
               </div>
             </div>
           </a>
@@ -14277,7 +14277,7 @@ exports[`Storyshots Breadcrumb Separators 1`] = `
                 }
               }
             >
-              Github
+              GitHub
             </div>
           </a>
         </div>

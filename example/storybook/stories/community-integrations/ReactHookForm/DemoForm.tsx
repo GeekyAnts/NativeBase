@@ -196,7 +196,7 @@ export const Example = () => {
           <Box flex={2}>
             <Button.Group variant="outline" colorScheme="light" space={2}>
               <Button startIcon={<Icon as={EvilIcons} name="sc-github" />}>
-                Connect Github
+                Connect GitHub
               </Button>
               <Button
                 startIcon={
