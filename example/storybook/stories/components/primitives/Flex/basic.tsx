@@ -13,7 +13,7 @@ export function Example() {
   return (
     <Box flex="1" safeAreaTop>
       <ScrollView>
-        <VStack space={2.5} w="100%" px="3">
+        <VStack alignItems="start" space={2.5} w="100%" px="3">
           {/* flexDirection -> row */}
           <Heading size="md">row</Heading>
           <Flex direction="row" mb="2.5" mt="1.5">

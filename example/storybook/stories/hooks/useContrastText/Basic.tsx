@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button, Center, VStack, useContrastText } from 'native-base';
 export const Example = () => {
-  const bgDark = 'gray.900';
-  const bgLight = 'gray.50';
+  const bgDark = 'coolGray.900';
+  const bgLight = 'coolGray.100';
   const colorContrastDark = useContrastText(bgDark);
   const colorContrastLight = useContrastText(bgLight);
   return (
