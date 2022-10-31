@@ -32,7 +32,7 @@ export interface InterfaceModalProps extends InterfaceBoxProps<IModalProps> {
    */
   finalFocusRef?: React.RefObject<any>;
   /**
-   * If true and the keyboard is opened, the modal will move up equvivalent to the keyboard height.
+   * If true and the keyboard is opened, the modal will move up equivalent to the keyboard height.
    * @default false
    */
   avoidKeyboard?: boolean;
