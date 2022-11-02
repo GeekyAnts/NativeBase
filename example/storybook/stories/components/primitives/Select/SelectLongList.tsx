@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormControl, Select, Container, CheckIcon } from 'native-base';
+import { FormControl, Select, Container, Center, CheckIcon } from 'native-base';
 
 export const Example = () => {
   const [value, setValue] = React.useState('');
@@ -54,27 +54,29 @@ export const Example = () => {
   ];
   return (
     <Container>
-      <FormControl>
-        <FormControl.Label>Select Color</FormControl.Label>
-        <Select
-          selectedValue={value}
-          minWidth="100"
-          accessibilityLabel="Select a Color"
-          placeholder="Select a Color"
-          onValueChange={(itemValue) => {
-            setValue(itemValue);
-          }}
-          _selectedItem={{
-            bg: 'teal.600',
-            endIcon: <CheckIcon size={5} />,
-          }}
-          mt="1"
-        >
-          {colorNames.map((value, ind) => {
-            return <Select.Item label={value} value={`${ind}`} />;
-          })}
-        </Select>
-      </FormControl>
+      <Center>
+        <FormControl w="3/4" maxW="300">
+          <FormControl.Label>Select Color</FormControl.Label>
+          <Select
+            selectedValue={value}
+            minWidth="100"
+            accessibilityLabel="Select a Color"
+            placeholder="Select a Color"
+            onValueChange={(itemValue) => {
+              setValue(itemValue);
+            }}
+            _selectedItem={{
+              bg: 'teal.600',
+              endIcon: <CheckIcon size={5} />,
+            }}
+            mt="1"
+          >
+            {colorNames.map((value, ind) => {
+              return <Select.Item label={value} value={`${ind}`} />;
+            })}
+          </Select>
+        </FormControl>
+      </Center>
     </Container>
   );
 };
