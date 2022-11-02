@@ -6,7 +6,7 @@ export const Example = () => {
 
   return (
     <Center>
-      <Box maxW="300">
+      <Box maxW="300" w="3/4">
         <Select
           selectedValue={service}
           minWidth="200"
