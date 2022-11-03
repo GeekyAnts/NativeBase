@@ -1,31 +1,80 @@
 import React from 'react';
-import { Select, Box, CheckIcon, Center } from 'native-base';
+import { FormControl, Select, Container, CheckIcon } from 'native-base';
 
 export const Example = () => {
-  const [service, setService] = React.useState('');
-
+  const [value, setValue] = React.useState('');
+  const colorNames = [
+    'Pink',
+    'Crimson',
+    'Red',
+    'Maroon',
+    'Brown',
+    'Misty-Rose',
+    'Salmon',
+    'Coral',
+    'Orange-Red',
+    'Chocolate',
+    'Orange',
+    'Gold',
+    'Ivory',
+    'Yellow',
+    'Olive',
+    'Yellow-Green',
+    'Lawngreen',
+    'Chartreuse',
+    'Lime',
+    'Green',
+    'Spring-green',
+    'Aquamarine',
+    'Turquoise',
+    'Azure',
+    'Aqua/Cyan',
+    'Teal',
+    'Lavender',
+    'Blue',
+    'Navy',
+    'Blue-Violet',
+    'Indigo',
+    'Dark-Violet',
+    'Plum',
+    'Magenta',
+    'Purple',
+    'Red-Violet',
+    'Tan',
+    'Beige',
+    'Slate-gray',
+    'White',
+    'White-Smoke',
+    'Light-Gray',
+    'Silver',
+    'Dark-Gray',
+    'Gray',
+    'Dim-Gray',
+    'Black',
+  ];
   return (
-    <Center>
-      <Box maxW="300" w="3/4">
+    <Container>
+      <FormControl maxW="300" alignItems="center" justifyContent="center">
+        <FormControl.Label>Select Color</FormControl.Label>
         <Select
-          selectedValue={service}
-          minWidth="200"
-          accessibilityLabel="Choose Service"
-          placeholder="Choose Service"
+          selectedValue={value}
+          minWidth="100"
+          accessibilityLabel="Select a Color"
+          placeholder="Select a Color"
+          onValueChange={(itemValue) => {
+            setValue(itemValue);
+          }}
           _selectedItem={{
             bg: 'teal.600',
-            endIcon: <CheckIcon size="5" />,
+            endIcon: <CheckIcon size={5} />,
           }}
-          mt={1}
-          onValueChange={(itemValue) => setService(itemValue)}
+          mt="1"
         >
-          <Select.Item label="UX Research" value="ux" />
-          <Select.Item label="Web Development" value="web" />
-          <Select.Item label="Cross Platform Development" value="cross" />
-          <Select.Item label="UI Designing" value="ui" />
-          <Select.Item label="Backend Development" value="backend" />
+          {colorNames.map((value, ind) => {
+            return <Select.Item label={value} value={`${ind}`} />;
+          })}
         </Select>
-      </Box>
-    </Center>
+      </FormControl>
+    </Container>
   );
 };
