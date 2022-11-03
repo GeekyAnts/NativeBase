@@ -123,7 +123,7 @@ function MyWrapper({ children }: any) {
       bg={bgColor}
       safeAreaY
     >
-      {/* <Tooltip
+      <Tooltip
         label={colorMode === 'dark' ? 'Enable light mode' : 'Enable dark mode'}
         placement="bottom right"
         openDelay={300}
@@ -138,7 +138,7 @@ function MyWrapper({ children }: any) {
           icon={colorMode === 'dark' ? <SunIcon /> : <MoonIcon />}
           size="lg"
         />
-      </Tooltip> */}
+      </Tooltip>
       {children}
     </Box>
   );

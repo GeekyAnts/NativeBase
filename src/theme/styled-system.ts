@@ -114,6 +114,7 @@ export const flexbox = {
   flexDirection: true,
   flexDir: {
     property: 'flexDirection',
+    scale: 'flexDirection',
   },
   // item
   flex: true,
