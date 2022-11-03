@@ -103,6 +103,10 @@ export interface InterfacePopoverProps {
    * @default false
    */
   useRNModal?: boolean;
+  /**
+   * Props applied on Overlay.
+   */
+  _backdrop?: any;
 }
 
 export type IPopoverContentImpl = {
