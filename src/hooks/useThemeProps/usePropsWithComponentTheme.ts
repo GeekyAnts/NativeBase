@@ -5,7 +5,11 @@ import type { IStateProps } from './propsFlattener';
 export function usePropsWithComponentTheme(
   localTheme: ComponentTheme,
   propsReceived: any,
-  state?: IStateProps
+  _state?: IStateProps
 ) {
-  return usePropsResolutionWithComponentTheme(localTheme, propsReceived, state);
+  return usePropsResolutionWithComponentTheme(
+    localTheme,
+    propsReceived,
+    _state
+  );
 }

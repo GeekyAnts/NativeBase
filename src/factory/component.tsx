@@ -9,12 +9,12 @@ export default function Factory<P>(
   componentTheme?: ComponentTheme
 ) {
   return React.forwardRef(
-    ({ children, state, ...props }: P & FactoryComponentProps, ref: any) => {
+    ({ children, _state, ...props }: P & FactoryComponentProps, ref: any) => {
       const StyledComponent = useMemo(() => makeStyledComponent(Component), []);
       const calculatedProps = usePropsWithComponentTheme(
         componentTheme ?? {},
         props,
-        state
+        _state
       );
       return (
         <StyledComponent {...(calculatedProps as P)} ref={ref}>
