@@ -22,7 +22,6 @@ const getAvatarGroupChildren = (
     plusAvatars = childrenArray.length - max;
     childrenArray = childrenArray.slice(0, max);
   }
-  const trailingChildren = childrenArray.slice(1);
   const spacingProps = {
     ml: isVertical ? 0 : space,
     mt: isVertical ? space : 0,
@@ -38,29 +37,18 @@ const getAvatarGroupChildren = (
         {'+ ' + plusAvatars}
       </Avatar>
     ) : null,
-    React.Children.map(
-      trailingChildren.reverse(),
-      (child: any, index: number) => {
-        return React.cloneElement(
-          child,
-          {
-            key: `avatar-group-child-${index}`,
-            ..._avatar,
-            ...spacingProps,
-            ...child.props,
-          },
-          child.props.children
-        );
-      }
-    ),
-    React.cloneElement(
-      childrenArray[0],
-      {
-        ..._avatar,
-        ...childrenArray[0].props,
-      },
-      childrenArray[0].props.children
-    ),
+    React.Children.map(childrenArray.reverse(), (child: any, index: number) => {
+      return React.cloneElement(
+        child,
+        {
+          key: `avatar-group-child-${index}`,
+          ..._avatar,
+          ...spacingProps,
+          ...child.props,
+        },
+        child.props.children
+      );
+    }),
   ];
 };
 
