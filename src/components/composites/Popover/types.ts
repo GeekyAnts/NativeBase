@@ -104,7 +104,7 @@ export interface InterfacePopoverProps {
    */
   useRNModal?: boolean;
   /**
-   * Props applied on Overlay.
+   * Props applied on backdrop.
    */
   _backdrop?: any;
 }
