@@ -16,7 +16,7 @@ export function Example() {
   return (
     <Box w="100%" alignItems="center">
       <Collapse isOpen={show}>
-        <Alert w="90%" maxW="400" status="error">
+        <Alert maxW="400" status="error">
           <VStack space={1} flexShrink={1} w="100%">
             <HStack
               flexShrink={1}
@@ -36,7 +36,9 @@ export function Example() {
               </HStack>
               <IconButton
                 variant="unstyled"
-                icon={<CloseIcon size="3" color="coolGray.600" />}
+                _focus={{ borderWidth: 0 }}
+                icon={<CloseIcon size="3" />}
+                _icon={{ color: 'coolGray.600' }}
                 onPress={() => setShow(false)}
               />
             </HStack>

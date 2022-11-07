@@ -1,8 +1,8 @@
 import type { ScrollViewProps } from 'react-native';
 import type { StyledProps } from '../../../theme/types';
-import type { PlatformProps } from '../../types';
+import type { CustomProps, PlatformProps } from '../../types';
 
-export interface IScrollViewProps
+export interface InterfaceScrollViewProps
   extends ScrollViewProps,
     StyledProps,
     PlatformProps<IScrollViewProps> {
@@ -10,7 +10,10 @@ export interface IScrollViewProps
    * Renders components as Box children. Accepts a JSX.Element or an array of JSX.Element. */
   children?: JSX.Element | JSX.Element[] | string | any;
   /**
-   * pass props to contentContainerStyle, and this also resolved NB tokens.
+   * Pass props to contentContainerStyle, and this also resolves NB tokens.
    */
-  _contentContainerStyle?: IScrollViewProps;
+  _contentContainerStyle?: Partial<IScrollViewProps>;
 }
+
+export type IScrollViewProps = InterfaceScrollViewProps &
+  CustomProps<'ScrollView'>;

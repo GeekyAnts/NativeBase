@@ -21,10 +21,22 @@ const Content = memo(
       }: any,
       ref: any
     ) => {
-      const { _dragIndicator, ...resolvedProps } = usePropsResolution(
-        'ActionsheetContent',
-        props
-      );
+      const {
+        _dragIndicator,
+        _dragIndicatorWrapperOffSet,
+        _dragIndicatorWrapper,
+        ...resolvedProps
+      } = usePropsResolution('ActionsheetContent', props);
+
+      const handleCloseRef = React.useRef(null);
+      const handleCloseCallback = React.useCallback(() => {
+        let handleCloseCurrent = handleCloseRef.current;
+        //@ts-ignore
+        return handleCloseCurrent();
+      }, []);
+      React.useEffect(() => {
+        handleCloseRef.current = handleClose;
+      }, [handleClose]);
 
       const panResponder = React.useRef(
         PanResponder.create({
@@ -46,15 +58,15 @@ const Content = memo(
                 toValue: { x: 0, y: sheetHeight.current },
                 duration: 150,
                 useNativeDriver: true,
-              }).start(handleClose);
+              }).start(handleCloseCallback);
 
               setTimeout(() => {
-                Animated.spring(pan, {
+                Animated.timing(pan, {
                   toValue: { x: 0, y: 0 },
-                  overshootClamping: true,
+                  duration: 150,
                   useNativeDriver: true,
                 }).start();
-              });
+              }, 300);
             } else {
               Animated.spring(pan, {
                 toValue: { x: 0, y: 0 },
@@ -71,7 +83,10 @@ const Content = memo(
           {!hideDragIndicator ? (
             <>
               {/* To increase the draggable area */}
-              <Box py={5} {...panResponder.panHandlers} collapsable={false} />
+              <Box
+                {...panResponder.panHandlers}
+                {..._dragIndicatorWrapperOffSet}
+              />
             </>
           ) : null}
 
@@ -79,15 +94,7 @@ const Content = memo(
             {!hideDragIndicator ? (
               <>
                 {/* Hack. Fix later. Add -2 negative margin to remove the padding added by ActionSheetContent */}
-                <Box
-                  pt={3}
-                  pb={3}
-                  mt={-2}
-                  {...panResponder.panHandlers}
-                  width="100%"
-                  alignItems="center"
-                  collapsable={false}
-                >
+                <Box {...panResponder.panHandlers} {..._dragIndicatorWrapper}>
                   <Box {..._dragIndicator} />
                 </Box>
               </>

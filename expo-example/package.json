@@ -1,0 +1,34 @@
+{
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "eject": "expo eject"
+  },
+  "dependencies": {
+    "@react-stately/checkbox": "^3.0.6",
+    "@react-stately/toggle": "^3.2.6",
+    "babel-preset-expo": "~9.2.0",
+    "dripsy": "^3.6.0",
+    "expo": "^46.0.0",
+    "expo-status-bar": "~1.4.0",
+    "native-base-old": "npm:native-base@3.4.6",
+    "react": "18.0.0",
+    "react-dom": "18.0.0",
+    "react-native": "0.69.5",
+    "react-native-safe-area-context": "4.3.1",
+    "react-native-svg": "12.3.0",
+    "react-native-web": "~0.18.7"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.6",
+    "@expo/webpack-config": "^0.17.0",
+    "@types/react": "~18.0.0",
+    "@types/react-native": "~0.69.1",
+    "babel-loader": "^8.2.5",
+    "typescript": "^4.6.3"
+  },
+  "private": true
+}

@@ -19,17 +19,6 @@ import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import type { ISelectItemProps } from './types';
 import { Pressable } from '../Pressable';
 
-const unstyledSelecWebtStyles = {
-  appearance: 'none',
-  WebkitAppearance: 'none',
-  MozAppearance: 'none',
-  position: 'absolute',
-  width: '100%',
-  height: '100%',
-  opacity: 0,
-  zIndex: 1,
-};
-
 export const SelectContext = React.createContext({
   onValueChange: (() => {}) as any,
   selectedValue: null as any,
@@ -42,6 +31,7 @@ const Select = (
     isHovered: isHoveredProp,
     isFocused: isFocusedProp,
     isFocusVisible: isFocusVisibleProp,
+    variant,
     ...props
   }: ISelectProps,
   ref: any
@@ -78,7 +68,10 @@ const Select = (
     onClose,
     optimized,
     customDropdownIconProps,
+    _actionSheet,
     _actionSheetContent,
+    _actionSheetBody,
+    _webSelect,
     ...resolvedProps
   } = usePropsResolution(
     'Select',
@@ -100,18 +93,21 @@ const Select = (
       setIsOpen(false);
     },
   });
-  const itemsList: Array<{ label: string; value: string }> = React.Children.map(
-    children ?? [],
-    (child: any) => {
-      return {
-        label: child.props.label,
-        value: child.props.value,
-      };
-    }
-  );
+
+  const itemsList: Array<{
+    label: string;
+    value: string;
+  }> = React.Children.toArray(children).map((child: any) => {
+    return {
+      label: child?.props?.label,
+      value: child?.props?.value,
+    };
+  });
+
   const selectedItemArray = itemsList.filter(
-    (item: any) => item.value === value
+    (item: any) => item?.value === value
   );
+
   const selectedItem =
     selectedItemArray && selectedItemArray.length ? selectedItemArray[0] : null;
 
@@ -146,12 +142,12 @@ const Select = (
   };
 
   if (optimized) {
-    React.Children.map(children, (child: any) => {
+    React.Children.toArray(children).map((child: any) => {
       flatListData.push(child.props);
     });
   }
 
-  const [layoutProps] = extractInObject(resolvedProps, [
+  const [layoutProps, nonLayoutProps] = extractInObject(resolvedProps, [
     ...stylingProps.margin,
     ...stylingProps.flexbox,
     ...stylingProps.position,
@@ -163,56 +159,23 @@ const Select = (
     <Input
       placeholder={placeholder}
       InputRightElement={rightIcon}
-      {...resolvedProps}
+      {...nonLayoutProps}
       // NOTE: Adding ts-ignore as we're not exposing isFocused in the Input component
       // @ts-ignore-next-line
       isFocused={isFocused}
       isHovered={isHovered}
       aria-hidden={true}
       importantForAccessibility="no"
-      value={selectedItem?.label}
+      value={selectedItem ? selectedItem.label : ''}
       editable={false}
       focusable={false}
       isDisabled={isDisabled}
       pointerEvents="none"
+      variant={variant}
     />
   );
 
-  return Platform.OS === 'web' ? (
-    <Box>
-      {/* <Box w="100%" h="100%" position="absolute" opacity="0" zIndex={1}> */}
-      <select
-        aria-readonly={selectProps.readOnly}
-        required={selectProps.required}
-        disabled={isDisabled}
-        {...focusProps}
-        {...hoverProps}
-        ref={mergeRefs([ref, _ref])}
-        //@ts-ignore
-        style={unstyledSelecWebtStyles}
-        onChange={(e) => {
-          setValue(e.target.value);
-        }}
-        value={selectedItem === null ? tempFix : value}
-        aria-label={placeholder}
-        onFocus={() => {
-          setIsFocused(true);
-          onOpen && onOpen();
-        }}
-        onBlur={() => {
-          setIsFocused(false);
-          onClose && onClose();
-        }}
-      >
-        <option disabled value={tempFix}>
-          {placeholder}
-        </option>
-        {children}
-      </select>
-      {/* </Box> */}
-      {commonInput}
-    </Box>
-  ) : (
+  return Platform.OS === 'android' || Platform.OS === 'ios' ? (
     <>
       <Pressable
         onPress={() => {
@@ -228,21 +191,22 @@ const Select = (
       >
         {commonInput}
       </Pressable>
-      <Actionsheet isOpen={isOpen} onClose={handleClose}>
+      <Actionsheet isOpen={isOpen} onClose={handleClose} {..._actionSheet}>
         <Actionsheet.Content {..._actionSheetContent}>
           {/* TODO: Replace ScrollVeiw with FlatList */}
           {optimized ? (
             <FlatList
-              w="100%"
+              {..._actionSheetBody}
               data={flatListData}
+              // eslint-disable-next-line no-shadow
               keyExtractor={(_item, index) => index.toString()}
-              renderItem={({ item }) => {
-                const isSelected = selectedValue === item.value;
+              renderItem={({ item }: any) => {
+                const isSelected = selectedValue === item?.value;
                 return (
                   <Actionsheet.Item
                     onPress={() => {
                       if (!isDisabled) {
-                        setValue(item.value);
+                        setValue(item?.value);
                       }
                     }}
                     accessibilityState={{ selected: isSelected }}
@@ -250,13 +214,13 @@ const Select = (
                     {..._item}
                     {...(isSelected && _selectedItem)}
                   >
-                    {item.label}
+                    {item?.label}
                   </Actionsheet.Item>
                 );
               }}
             />
           ) : (
-            <ScrollView width="100%">
+            <ScrollView {..._actionSheetBody}>
               <SelectContext.Provider value={contextValue}>
                 {children}
               </SelectContext.Provider>
@@ -265,6 +229,40 @@ const Select = (
         </Actionsheet.Content>
       </Actionsheet>
     </>
+  ) : (
+    <Box {...layoutProps}>
+      {/* <Box w="100%" h="100%" position="absolute" opacity="0" zIndex={1}> */}
+      <select
+        aria-readonly={selectProps.readOnly}
+        required={selectProps.required}
+        disabled={isDisabled}
+        {...focusProps}
+        {...hoverProps}
+        ref={mergeRefs([ref, _ref])}
+        //@ts-ignore
+        onChange={(e) => {
+          setValue(e.target.value);
+        }}
+        value={selectedItem === null ? tempFix : value}
+        aria-label={placeholder}
+        onFocus={() => {
+          setIsFocused(true);
+          onOpen && onOpen();
+        }}
+        onBlur={() => {
+          setIsFocused(false);
+          onClose && onClose();
+        }}
+        {..._webSelect}
+      >
+        <option disabled value={tempFix}>
+          {placeholder}
+        </option>
+        {children}
+      </select>
+      {/* </Box> */}
+      {commonInput}
+    </Box>
   );
 };
 

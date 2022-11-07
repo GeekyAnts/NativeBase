@@ -87,7 +87,7 @@ export * from './hooks/useMediaQuery';
 export * from './hooks/useSafeArea';
 export * from './hooks/useContrastText';
 export * from './hooks/useAccessibleColors';
-
+export * from './hooks/useSx';
 // // Theme
 export * from './theme/Custom';
 export * from './theme/Mode';

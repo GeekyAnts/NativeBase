@@ -11,15 +11,18 @@ import {
   useIsPressed,
 } from '../../primitives/Pressable/Pressable';
 import { useFocusRing } from '@react-native-aria/focus';
+import merge from 'lodash.merge';
 
 const IconButton = (
   {
     icon,
+    _icon: pseudoIconProp,
     children,
     isHovered: isHoveredProp,
     isPressed: isPressedProp,
     isFocused: isFocusedProp,
     isFocusVisible: isFocusVisibleProp,
+    isDisabled,
     ...props
   }: IIconButtonProps,
   ref: any
@@ -38,12 +41,17 @@ const IconButton = (
     onFocus,
     onBlur,
     ...resolvedProps
-  } = usePropsResolution('IconButton', props, {
-    isHovered: isHoveredProp || isHovered,
-    isPressed: isPressedProp || isPressed,
-    isFocused: isFocusedProp || isFocused,
-    isFocusVisible: isFocusVisibleProp || isFocusVisible,
-  });
+  } = usePropsResolution(
+    'IconButton',
+    { ...props, _icon: merge({}, pseudoIconProp, icon?.props) },
+    {
+      isHovered: isHoveredProp || isHovered,
+      isPressed: isPressedProp || isPressed,
+      isFocused: isFocusedProp || isFocused,
+      isFocusVisible: isFocusVisibleProp || isFocusVisible,
+      isDisabled,
+    }
+  );
 
   let clonedIcon;
   if (icon) {
@@ -59,6 +67,7 @@ const IconButton = (
 
   return (
     <Pressable
+      disabled={isDisabled}
       accessibilityRole="button"
       ref={ref}
       onPressIn={composeEventHandlers(onPressIn, pressableProps.onPressIn)}

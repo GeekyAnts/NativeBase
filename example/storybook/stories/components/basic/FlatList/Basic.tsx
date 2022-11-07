@@ -62,14 +62,14 @@ export const Example = () => {
           <Box
             borderBottomWidth="1"
             _dark={{
-              borderColor: 'gray.600',
+              borderColor: 'muted.50',
             }}
-            borderColor="coolGray.200"
-            pl="4"
-            pr="5"
+            borderColor="muted.800"
+            pl={['0', '4']}
+            pr={['0', '5']}
             py="2"
           >
-            <HStack space={3} justifyContent="space-between">
+            <HStack space={[2, 3]} justifyContent="space-between">
               <Avatar
                 size="48px"
                 source={{

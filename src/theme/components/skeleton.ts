@@ -1,11 +1,13 @@
-import { mode } from '../tools';
-
 // Skeleton
 export const Skeleton = {
-  baseStyle: (props: Record<string, any>) => {
+  baseStyle: () => {
     return {
-      startColor: mode('muted.200', 'muted.600')(props),
+      startColor: 'muted.200',
+      _dark: {
+        startColor: 'muted.600',
+      },
       endColor: 'transparent',
+      overflow: 'hidden',
       fadeDuration: 0.1,
       speed: 1.0,
       h: '10',
@@ -16,13 +18,17 @@ export const Skeleton = {
 
 // SkeletonText
 export const SkeletonText = {
-  baseStyle: (props: Record<string, any>) => {
+  baseStyle: () => {
     return {
-      startColor: mode('muted.200', 'muted.600')(props),
+      startColor: 'muted.200',
+      _dark: {
+        startColor: 'muted.600',
+      },
       endColor: 'transparent',
       fadeDuration: 0.1,
       w: '100%',
       speed: 1.0,
+      flexDirection: 'column',
       _line: {
         h: 3,
         rounded: 'full',

@@ -1,8 +1,9 @@
 import type { MutableRefObject } from 'react';
-import type { IBoxProps, IIconProps } from '../../primitives';
-import type { VariantType } from '../../types';
+import type { InterfaceBoxProps } from '../../../components/primitives/Box';
+import type { IIconProps } from '../../primitives';
+import type { ColorSchemeType, CustomProps, VariantType } from '../../types';
 
-export interface IAlertProps extends IBoxProps<IAlertProps> {
+export interface InterfaceAlertProps extends InterfaceBoxProps<IAlertProps> {
   /** The status of the alert
    *  @default info
    */
@@ -12,9 +13,9 @@ export interface IAlertProps extends IBoxProps<IAlertProps> {
    */
   variant?: VariantType<'Alert'>;
 
-  /** The colorScheme of the Alert.
+  /** The color scheme of the Alert.
    */
-  colorScheme?: string;
+  colorScheme?: ColorSchemeType;
 }
 export type IAlertContext = {
   status?: string;
@@ -31,3 +32,5 @@ export type IAlertComponentType = ((
     (props: IAlertIconProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
 };
+
+export type IAlertProps = InterfaceAlertProps & CustomProps<'Alert'>;

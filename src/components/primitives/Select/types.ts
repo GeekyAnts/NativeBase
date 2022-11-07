@@ -1,11 +1,16 @@
-import type { IBoxProps } from '../Box';
+import type { InterfaceBoxProps } from '../Box';
 import type { IButtonProps } from '../Button';
-import type { IActionsheetContentProps } from '../../composites/Actionsheet/types';
+import type {
+  IActionsheetContentProps,
+  IActionsheetProps,
+} from '../../composites/Actionsheet/types';
 import type { MutableRefObject } from 'react';
-import type { ResponsiveValue } from '../../../components/types';
+import type { CustomProps, ResponsiveValue } from '../../../components/types';
 import type { IColors } from '../../../theme/base/colors';
+import type { IFlatListProps } from '../../../components/basic/FlatList';
+import type { InterfaceButtonProps } from '../Button/types';
 
-export interface ISelectProps extends IBoxProps<ISelectProps> {
+export interface InterfaceSelectProps extends InterfaceBoxProps<ISelectProps> {
   /**
    * The placeholder that describes the Select.
    */
@@ -21,11 +26,11 @@ export interface ISelectProps extends IBoxProps<ISelectProps> {
   /**
    * Item props passed here will be passed to each Select.Item component.
    */
-  _item?: IButtonProps;
+  _item?: Partial<IButtonProps>;
   /**
    * Item props passed here will be passed to the selected Select.Item component.
    */
-  _selectedItem?: IButtonProps;
+  _selectedItem?: Partial<IButtonProps>;
   /**
    * Currently selected value. Useful for controlling the Select state
    */
@@ -80,16 +85,24 @@ export interface ISelectProps extends IBoxProps<ISelectProps> {
    */
   onClose?: (nativeEvent: any) => void;
   /**
+   * props to be passed to underlying ActionSheet. Select uses ActionSheet underneath.
+   */
+  _actionSheet?: Partial<IActionsheetProps>;
+  /**
    * props to be passed to underlying ActionSheet.Content. Select uses ActionSheet underneath.
    */
-  _actionSheetContent?: IActionsheetContentProps;
+  _actionSheetContent?: Partial<IActionsheetContentProps>;
+  /**
+   * props to be passed to underlying Flatlist in ActionSheet.Content.
+   */
+  _actionSheetBody?: Partial<IFlatListProps<any>>;
   /**
    * Ref to be attached to the Select wrapper
    */
   wrapperRef?: MutableRefObject<any>;
 }
 
-export interface ISelectItemProps extends IButtonProps {
+export interface ISelectItemProps extends InterfaceButtonProps {
   /**
    * The label which will be displayed.
    */
@@ -107,3 +120,4 @@ export type ISelectComponentType = ((
     (props: ISelectItemProps & { ref?: MutableRefObject<any> }) => JSX.Element
   >;
 };
+export type ISelectProps = InterfaceSelectProps & CustomProps<'Select'>;

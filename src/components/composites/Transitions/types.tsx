@@ -1,33 +1,44 @@
 import type { ReactNode } from 'react';
 import type { ViewProps } from 'react-native';
-import type { IBoxProps } from '../../primitives';
-
-export type IFadeProps = IBoxProps<IFadeProps> & {
+import type { CustomProps } from '../../../components/types';
+import type { InterfaceBoxProps } from '../../primitives/Box';
+import type { IOverlayProps } from '../../primitives/Overlay';
+export type IFadeProps = InterfaceBoxProps<IFadeProps> & {
   in?: boolean;
   entryDuration?: number;
   exitDuration?: number;
   delay?: number;
+  initial?: ISupportedTransitions;
+  animate?: ITransitionStyleProps;
+  exit?: ITransitionStyleProps;
 };
-export type IScaleFadeProps = IBoxProps<IScaleFadeProps> & {
+export type IScaleFadeProps = InterfaceBoxProps<IScaleFadeProps> & {
   in?: boolean;
   duration?: number;
   delay?: number;
   initialScale?: number;
+  initial?: ISupportedTransitions;
+  animate?: ITransitionStyleProps;
+  exit?: ITransitionStyleProps;
 };
-export type ISlideProps = IBoxProps<ISlideProps> & {
+export type ISlideProps = InterfaceBoxProps<ISlideProps> & {
   in?: boolean;
   duration?: number;
   delay?: number;
   placement?: 'top' | 'bottom' | 'right' | 'left';
   overlay?: boolean;
+  /**
+   * Props to be passed to the Overlay used inside of Slide when overlay is true.
+   */
+  _overlay?: IOverlayProps;
 };
-export type ISlideFadeProps = IBoxProps<ISlideFadeProps> & {
+export type ISlideFadeProps = InterfaceBoxProps<ISlideFadeProps> & {
   in?: boolean;
   delay?: number;
   duration?: number;
   offsetX?: number;
   offsetY?: number;
-};
+} & CustomProps<'Slide'>;
 
 export interface ISupportedTransitions {
   opacity?: number;
@@ -63,7 +74,7 @@ export interface ITransitionStyleProps extends ISupportedTransitions {
 }
 export interface ITransitionProps extends ViewProps {
   /**
-   * Callback invoked when transition is completed
+   * Callback invoked when the transition is completed.
    */
   onTransitionComplete?: (s: 'entered' | 'exited') => any;
   /**
@@ -90,28 +101,28 @@ export interface ITransitionProps extends ViewProps {
 
 export interface IPresenceTransitionProps extends ViewProps {
   /**
-   * Callback invoked when transition is completed
+   * Callback invoked when the transition is completed.
    */
   onTransitionComplete?: (s: 'entered' | 'exited') => any;
   /**
-   * Styles before the transition starts
+   * Styles before the transition starts.
    */
   initial?: ISupportedTransitions;
   /**
-   * Entry animation styles
+   * Entry animation styles.
    */
   animate?: ITransitionStyleProps;
   /**
-   * Exit animation styles
+   * Exit animation styles.
    */
   exit?: ITransitionStyleProps;
   /**
-   * Determines whether to start the animation
+   * Determines whether to start the animation.
    */
   visible?: boolean;
   children?: ReactNode;
   /**
-   * Accepts a Component to be rendered as Wrapper. Defaults to `View`
+   * Accepts a Component to be rendered as Wrapper. Defaults to `View`.
    */
   as?: ReactNode;
 }

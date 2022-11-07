@@ -23,9 +23,7 @@ const Flex = (props: IFlexProps, ref: any) => {
 
   return (
     <Box
-      {...props}
       {...resolvedProps}
-      display="flex"
       flexDirection={direction || resolvedProps.flexDirection}
       alignItems={align || resolvedProps.alignItems}
       justifyContent={justify || resolvedProps.justifyContent}
@@ -40,7 +38,9 @@ const Flex = (props: IFlexProps, ref: any) => {
 
 //Spacer Component that adds space between components where it is placed
 export const Spacer = (props: any) => {
-  return <Box flexGrow={1} {...props} />;
+  const resolvedProps = usePropsResolution('Spacer', props);
+
+  return <Box {...resolvedProps} />;
 };
 
 export type { IFlexProps };

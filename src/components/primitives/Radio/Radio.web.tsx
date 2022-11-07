@@ -1,7 +1,11 @@
 import React, { memo, forwardRef } from 'react';
+//@ts-ignore
+import stableHash from 'stable-hash';
 import Box from '../Box';
+import { Stack } from '../Stack';
 import { Center } from '../../composites/Center';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
+import { wrapStringChild } from '../../../utils/wrapStringChild';
 import type { IRadioProps } from './types';
 import { mergeRefs } from './../../../utils';
 import { useHover } from '@react-native-aria/interactions';
@@ -12,9 +16,7 @@ import { useFocusRing } from '@react-native-aria/focus';
 import { CircleIcon } from '../Icon/Icons';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { combineContextAndProps, isEmptyObj } from '../../../utils';
-import { extractInObject, stylingProps } from '../../../theme/tools/utils';
 import { useFormControlContext } from '../../composites/FormControl';
-
 const RadioComponent = memo(
   forwardRef(
     (
@@ -25,41 +27,51 @@ const RadioComponent = memo(
         children,
         wrapperRef,
         isHovered: isHoveredProp,
+        isPressed: isPressedProp,
+        isFocused: isFocusedProp,
         isFocusVisible: isFocusVisibleProp,
         ...props
       }: any,
       ref: any
     ) => {
       const { isInvalid, isReadOnly, isIndeterminate } = combinedProps;
-
       const { disabled: isDisabled, checked: isChecked } = inputProps;
       const _ref = React.useRef(null);
       const { isHovered } = useHover({}, _ref);
       const mergedRefs = mergeRefs([_ref, wrapperRef]);
       const { focusProps, isFocusVisible } = useFocusRing();
-      // const mergedWrapperRef = React.useMemo(() => mergeRefs([wrapperRef, _ref]), []);
+      const [isFocused, setFocused] = React.useState(isFocusedProp);
+      const [isPressed, setPressed] = React.useState(isPressedProp);
+      const handleFocus = () => {
+        setFocused(true);
+      };
+      const handleBlur = () => {
+        isFocusedProp ? setFocused(true) : setFocused(false);
+      };
+      const handlePressIn = () => {
+        setPressed(true);
+      };
 
-      const { _interactionBox, _icon, ...resolvedProps } = usePropsResolution(
-        'Radio',
-        combinedProps,
-        {
-          isInvalid,
-          isReadOnly,
-          isFocusVisible: isFocusVisibleProp || isFocusVisible,
-          isDisabled,
-          isIndeterminate,
-          isChecked,
-          isHovered: isHoveredProp || isHovered,
-        }
-      );
-
-      const [layoutProps, nonLayoutProps] = extractInObject(resolvedProps, [
-        ...stylingProps.margin,
-        ...stylingProps.layout,
-        ...stylingProps.flexbox,
-        ...stylingProps.position,
-        '_text',
-      ]);
+      const handlePressOut = () => {
+        isPressedProp ? setPressed(true) : setPressed(false);
+      };
+      const {
+        _interactionBox,
+        _icon,
+        _stack,
+        _text,
+        ...resolvedProps
+      } = usePropsResolution('Radio', combinedProps, {
+        isInvalid,
+        isReadOnly,
+        isFocusVisible: isFocusVisibleProp || isFocused || isFocusVisible,
+        isDisabled,
+        isIndeterminate,
+        isChecked,
+        isHovered: isHoveredProp || isHovered,
+        isPressed,
+        isFocused,
+      });
 
       // only calling below function when icon exist.
       const sizedIcon = () =>
@@ -69,41 +81,12 @@ const RadioComponent = memo(
         });
 
       const component = (
-        <Box
-          flexDirection="row"
-          alignItems="center"
-          {...layoutProps}
-          opacity={isDisabled ? 0.4 : 1}
-          cursor={isDisabled ? 'not-allowed' : 'pointer'}
-        >
+        <Stack {..._stack}>
           <Center>
             {/* Interaction Box */}
-            <Box
-              {..._interactionBox}
-              style={{
-                // @ts-ignore - only for web"
-                transition: 'height 200ms, width 200ms',
-              }}
-              h={
-                isFocusVisible ||
-                isFocusVisibleProp ||
-                isHovered ||
-                isHoveredProp
-                  ? '200%'
-                  : '100%'
-              }
-              w={
-                isFocusVisible ||
-                isFocusVisibleProp ||
-                isHovered ||
-                isHoveredProp
-                  ? '200%'
-                  : '100%'
-              }
-              pointerEvents="none"
-            />
+            <Box {..._interactionBox} />
             {/* Radio */}
-            <Center {...nonLayoutProps}>
+            <Center {...resolvedProps}>
               {icon && sizedIcon && isChecked ? (
                 sizedIcon()
               ) : (
@@ -111,16 +94,13 @@ const RadioComponent = memo(
               )}
             </Center>
           </Center>
-          {children}
-        </Box>
+          {wrapStringChild(children, _text)}
+        </Stack>
       );
       //TODO: refactor for responsive prop
       if (useHasResponsiveProps(props)) {
         return null;
       }
-
-      // console.log(inputProps, focusProps, ref);
-      // return null;
 
       return (
         <Box
@@ -128,10 +108,18 @@ const RadioComponent = memo(
           accessibilityRole="label"
           ref={mergedRefs}
         >
-          <VisuallyHidden>
-            <input {...inputProps} {...focusProps} ref={ref} />
-          </VisuallyHidden>
-          {component}
+          <div onMouseDown={handlePressIn} onMouseUp={handlePressOut}>
+            <VisuallyHidden>
+              <input
+                {...inputProps}
+                {...focusProps}
+                ref={ref}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+              />
+            </VisuallyHidden>
+            {component}
+          </div>
         </Box>
       );
     }
@@ -144,6 +132,8 @@ const Radio = (
     children,
     wrapperRef,
     isHovered: isHoveredProp,
+    isPressed,
+    isFocused: isFocusedProp,
     isFocusVisible: isFocusVisibleProp,
     ...props
   }: IRadioProps,
@@ -152,7 +142,10 @@ const Radio = (
   const formControlContext = useFormControlContext();
   const contextState = React.useContext(RadioContext);
 
-  const combinedProps = combineContextAndProps(formControlContext, props);
+  const combinedProps = combineContextAndProps(
+    { ...formControlContext, ...contextState },
+    props
+  );
 
   const inputRef = React.useRef(null);
   const radioState = useRadio(
@@ -161,7 +154,6 @@ const Radio = (
     inputRef
   );
 
-  // console.log('radio', radioState);
   //@ts-ignore
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const inputProps = React.useMemo(() => radioState.inputProps, [
@@ -169,9 +161,10 @@ const Radio = (
     radioState.inputProps.disabled,
   ]);
 
-  const [contextCombinedProps] = React.useState({
-    ...combinedProps,
-  });
+  const contextCombinedProps = React.useMemo(() => {
+    return { ...combinedProps };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [stableHash(combinedProps)]);
 
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
@@ -191,6 +184,8 @@ const Radio = (
       icon={icon}
       wrapperRef={wrapperRef}
       isHovered={isHoveredProp}
+      isPressed={isPressed}
+      isFocused={isFocusedProp}
       isFocusVisible={isFocusVisibleProp}
     />
   );

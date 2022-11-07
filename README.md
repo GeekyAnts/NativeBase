@@ -1,6 +1,13 @@
-# <img src="https://raw.githubusercontent.com/GeekyAnts/NativeBase/development/img/header1.png" alt="Nativebase Logo">
+# <img src="https://raw.githubusercontent.com/GeekyAnts/NativeBase/master/img/header_new.png" alt="Nativebase Logo">
 
-[![Financial Contributors on Open Collective](https://opencollective.com/NativeBase/all/badge.svg?label=financial+contributors)](https://opencollective.com/NativeBase) [![](http://slack.nativebase.io/badge.svg)](http://slack.nativebase.io/) [![Build Status](https://travis-ci.org/GeekyAnts/NativeBase.svg?branch=master)](https://travis-ci.org/GeekyAnts/NativeBase) [![npm version](https://badge.fury.io/js/native-base.svg)](https://badge.fury.io/js/native-base) [![npm downloads](https://img.shields.io/npm/dt/native-base.svg)](https://npm-stat.com/charts.html?package=native-base&from=2016-04-01&to=2018-02-17)
+[![Financial Contributors on Open Collective](https://opencollective.com/NativeBase/all/badge.svg?label=financial+contributors)](https://opencollective.com/NativeBase)
+[![](https://img.shields.io/discord/785491682719301643?label=Discord&logo=discord&logoColor=%237289DA)](https://discord.com/invite/TSgCw2UPmb)
+[![npm next package](https://img.shields.io/npm/v/native-base/next.svg)](https://www.npmjs.com/package/native-base)
+[![npm latest package](https://img.shields.io/npm/v/native-base/latest.svg)](https://www.npmjs.com/package/native-base)
+[![npm downloads](https://img.shields.io/npm/dm/native-base.svg)](https://npm-stat.com/charts.html?package=native-base)
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/GeekyAnts/NativeBase/blob/master/LICENSE)
+[![Follow on Twitter](https://img.shields.io/twitter/follow/nativebase.svg?label=follow+NativeBase)](https://twitter.com/nativebase)
+[![Github Stars](https://img.shields.io/github/stars/GeekyAnts/NativeBase)](https://img.shields.io/github/stars/GeekyAnts/NativeBase)
 
 ## NativeBase is a mobile-first, accessible component library for building a consistent design system across android, iOS & web.
 
@@ -27,7 +34,7 @@
 
 ## 1. Introduction?
 
-[NativeBase](https://nativebase.github.io/) is a mobile-first, component library for React & React Native. Version 3.0 ships with complete ARIA integration, support for utility props and nearly 40 components that are consistent across Android, iOS and Web. Fast-track your dev process with NativeBase 3.0.
+[NativeBase](https://nativebase.io/) is a mobile-first, component library for React & React Native. Version 3.0 ships with complete ARIA integration, support for utility props and nearly 40 components that are consistent across Android, iOS and Web. Fast-track your dev process with NativeBase 3.0.
 
 **Recommended by [Awesome React Native](https://github.com/jondot/awesome-react-native)**
 
@@ -82,7 +89,7 @@ React Native, Expo
 
 NativeBase is supported in Expo or React Native CLI initiated apps. Web support is made possible by react-native-web.
 
-Refer the [guides](https://alpha-docs.nativebase.io/installation) to setup NativeBase in your React app.
+Refer the [guides](https://docs.nativebase.io/installation) to setup NativeBase in your React app.
 
 ## 6. Components
 
@@ -93,19 +100,19 @@ NativeBase 3.0 is a rich component library with nearly 40 components.
 - [**Data Display**](https://docs.nativebase.io/badge)
 - [**Feedback**](https://docs.nativebase.io/alert)
 - [**Typography**](https://docs.nativebase.io/text)
-- [**Overlay** ](https://docs.nativebase.io/alertDialog)
-- [**Disclosure**](https://docs.nativebase.io/actionSheet)
+- [**Overlay** ](https://docs.nativebase.io/alert-dialog)
+- [**Disclosure**](https://docs.nativebase.io/action-sheet)
 - [**Media & Icons**](https://docs.nativebase.io/avatar)
 - [**Transition**](https://docs.nativebase.io/presence-transition)
-- [**Other**](https://docs.nativebase.io/FAB)
+- [**Other**](https://docs.nativebase.io/fab)
 
 ## 7. Examples
 
-[Check out the Login Screen example](https://docs.nativebase.io/todo-example)
+[Check out the Todo-List example](https://docs.nativebase.io/todo-list)
 
 ## 8. KitchenSink App
 
-Kitchen Sink is a comprehensive demo app showcasing all the NativeBase components in action. It includes buttons, forms, icons, etc.
+[Kitchen Sink](https://kitchensink.nativebase.io/) is a comprehensive demo app showcasing all the NativeBase components in action. It includes buttons, forms, icons, etc.
 
 <div class="flexible">
   <img src="https://github.com/GeekyAnts/NativeBase/raw/development/img/kitchensink.gif" height="500px" alt="Kitchensink App gif">  
@@ -132,6 +139,7 @@ JavaScript, React Native, Styled System
 | v2.3.0 to 2.6.1                  | v0.46.0 and above (does not support React 16.0.0-alpha.13) |
 | v2.7.0                           | v0.56.0 and above                                          |
 | v3.0.0-next.36 to v3.0.0-next-41 | v0.63.0 and above                                          |
+| v3.0.0 to latest                 | v0.63.0 and above                                          |
 
 ## 11. Contributors
 
@@ -170,10 +178,10 @@ Support this project with your organization. Your logo will show up here with a 
 ## 13. Community
 
 - [Facebook](https://www.facebook.com/nativebaseio)
-- [Twitter](https://twitter.com/nativebaseio)
+- [Twitter](https://twitter.com/nativebase)
 - [Discord](https://discord.com/invite/TSgCw2UPmb)
 - [Stackoverflow](https://stackoverflow.com/questions/tagged/native-base)
-- [Blog](https://techblog.nativebase.io/)
+- [Blog](https://nativebase.io/blogs)
 - [YouTube](https://www.youtube.com/channel/UCoL_iTwpY07vDs91974z3xA/about)
 
 ## 14. License

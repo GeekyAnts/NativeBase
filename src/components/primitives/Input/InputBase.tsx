@@ -66,6 +66,7 @@ const InputBase = (
     fontFamily,
     fontWeight,
     fontStyle,
+    _webInputBase,
     ...resolvedProps
   } = usePropsResolution(
     'Input',
@@ -110,13 +111,13 @@ const InputBase = (
   return (
     <StyledInput
       {...inputProps}
-      {...resolvedFontFamily}
       secureTextEntry={type === 'password'}
       accessible
       accessibilityLabel={ariaLabel || accessibilityLabel}
       editable={isDisabled || isReadOnly ? false : true}
       w={isFullWidth ? '100%' : undefined}
       {...(passUnresolvedProps ? props : resolvedProps)}
+      {...resolvedFontFamily}
       placeholderTextColor={resolvedPlaceholderTextColor}
       selectionColor={resolvedSelectionColor}
       underlineColorAndroid={resolvedUnderlineColorAndroid}
@@ -138,7 +139,7 @@ const InputBase = (
           }
         : {})}
       ref={mergeRefs([ref, _ref, wrapperRef])}
-      style={Platform.OS === 'web' ? { outline: 'none' } : {}}
+      style={Platform.OS === 'web' ? _webInputBase : {}}
     />
   );
 };

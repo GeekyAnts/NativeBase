@@ -6,7 +6,7 @@ export const Example = () => {
     <Box alignItems="center">
       <Link href="https://nativebase.io" isExternal>
         <Box
-          maxW="96"
+          w={[64, 96]}
           borderWidth="1"
           borderColor="coolGray.300"
           shadow="3"

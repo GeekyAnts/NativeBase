@@ -3,6 +3,8 @@ import { useId } from '@react-native-aria/utils';
 import omit from 'lodash.omit';
 import type { IFormControlProps } from './types';
 import { ariaAttr } from '../../../utils';
+import { ResponsiveQueryContext } from '../../../utils/useResponsiveQuery/ResponsiveQueryProvider';
+import { uniqueId } from 'lodash';
 
 export type IFormControlContext = Omit<
   ReturnType<typeof useFormControlProvider>,
@@ -21,7 +23,18 @@ export function useFormControlProvider(props: IFormControlProps) {
     ...htmlProps
   } = props;
 
-  const id = useId();
+  let id = uniqueId();
+  const responsiveQueryContext = React.useContext(ResponsiveQueryContext);
+  const disableCSSMediaQueries = responsiveQueryContext.disableCSSMediaQueries;
+
+  if (!disableCSSMediaQueries) {
+    // This if statement technically breaks the rules of hooks, but is safe
+    // because the condition never changes after mounting.
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    id = useId();
+  }
+
+  // const id = '';
   // Generate all the required ids
   const nativeID = idProp || `field-${id}`;
 
@@ -83,9 +96,15 @@ export function useFormControl(props: IFormControlProps) {
     'isRequired',
   ]);
 
+  let nativeID = props?.nativeID;
+
+  if (!nativeID && field?.nativeID) {
+    nativeID = `${field?.nativeID}-input`;
+  }
+
   return {
     ...cleanProps,
-    nativeID: props.nativeID ?? field?.nativeID,
+    nativeID: nativeID,
     disabled: props.isDisabled || field?.isDisabled,
     readOnly: props.isReadOnly || field?.isReadOnly,
     required: props.isRequired || field?.isRequired,

@@ -1,5 +1,5 @@
 import React from 'react';
-import { VStack, Image, ScrollView, Heading, Center } from 'native-base';
+import { VStack, Image, ScrollView, Heading } from 'native-base';
 
 export function Example() {
   return (
@@ -7,7 +7,7 @@ export function Example() {
       <Heading mb="10" textAlign="center" mt="3">
         Image Sizes
       </Heading>
-      <ScrollView px="20">
+      <ScrollView>
         {/* <Center mt="3" h="80"> */}
 
         <VStack

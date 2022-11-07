@@ -42,7 +42,10 @@ export const Example = () => {
               Fax
             </Checkbox>
           </Checkbox.Group>
-          <FormControl.ErrorMessage leftIcon={<WarningOutlineIcon size="xs" />}>
+          <FormControl.ErrorMessage
+            _stack={{ alignItems: 'flex-start' }}
+            leftIcon={<WarningOutlineIcon size="xs" mt={1} />}
+          >
             You must select at least three methods
           </FormControl.ErrorMessage>
         </FormControl>

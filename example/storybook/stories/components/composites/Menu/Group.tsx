@@ -3,12 +3,9 @@ import { Menu, Divider, HamburgerIcon, Box, Pressable } from 'native-base';
 
 export function Example() {
   return (
-    <Box h="80%" w="90%" alignItems="flex-start">
+    <Box w="90%" alignItems="center">
       <Menu
         w="190"
-        closeOnSelect={false}
-        onOpen={() => console.log('opened')}
-        onClose={() => console.log('closed')}
         trigger={(triggerProps) => {
           return (
             <Pressable {...triggerProps}>

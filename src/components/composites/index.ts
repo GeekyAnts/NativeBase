@@ -54,7 +54,7 @@ export type {
   IAccordionItemContextProps,
 } from './Accordion';
 
-export { FormControl } from './FormControl';
+export { FormControl, useFormControlContext } from './FormControl';
 export type {
   IFormControlProps,
   IFormControlLabelProps,
@@ -110,6 +110,8 @@ export { default as CircularProgress } from './CircularProgress';
 
 export { Popover } from './Popover';
 export { Tooltip } from './Tooltip';
+export type { ITooltipProps } from './Tooltip';
+
 export type { IPopoverProps } from './Popover';
 
 export { AlertDialog } from './AlertDialog';

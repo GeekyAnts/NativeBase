@@ -10,7 +10,7 @@ import {
 export const Example = () => {
   return (
     <Center>
-      <FormControl w="3/4" maxW="300" isRequired isInvalid>
+      <FormControl maxW="300" isRequired isInvalid>
         <FormControl.Label>Choose service</FormControl.Label>
         <Select
           minWidth="200"

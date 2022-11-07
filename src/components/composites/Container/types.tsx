@@ -1,5 +1,9 @@
-import type { IBoxProps } from '../../primitives';
+import type { CustomProps } from '../../../components/types';
+import type { InterfaceBoxProps } from '../../primitives/Box';
 
-export type IContainerProps = IBoxProps<IContainerProps> & {
+export type InterfaceContainerProps = InterfaceBoxProps<IContainerProps> & {
   centerContent?: boolean;
 };
+
+export type IContainerProps = InterfaceContainerProps &
+  CustomProps<'Container'>;

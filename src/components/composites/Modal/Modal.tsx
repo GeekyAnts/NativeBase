@@ -25,17 +25,22 @@ const Modal = (
     isKeyboardDismissable = true,
     overlayVisible = true,
     backdropVisible = true,
-    //@ts-ignore - internal purpose only
-    animationPreset = 'fade',
+    animationPreset,
     ...rest
   }: IModalProps,
   ref: any
 ) => {
   const bottomInset = useKeyboardBottomInset();
-  const { contentSize, _backdrop, ...resolvedProps } = usePropsResolution(
-    'Modal',
-    rest
-  );
+  const {
+    contentSize,
+    _backdrop,
+    _backdropFade,
+    _fade,
+    _slide,
+    _overlay,
+    useRNModal,
+    ...resolvedProps
+  } = usePropsResolution('Modal', rest);
 
   const [visible, setVisible] = useControllableState({
     value: isOpen,
@@ -80,14 +85,11 @@ const Modal = (
       isKeyboardDismissable={isKeyboardDismissable}
       animationPreset={animationPreset}
       useRNModalOnAndroid
+      useRNModal={useRNModal}
+      {..._overlay}
     >
       <ModalContext.Provider value={contextValue}>
-        <Fade
-          exitDuration={150}
-          entryDuration={200}
-          in={visible}
-          style={StyleSheet.absoluteFill}
-        >
+        <Fade in={visible} style={StyleSheet.absoluteFill} {..._backdropFade}>
           {overlayVisible && backdropVisible && (
             <Backdrop
               onPress={() => {
@@ -98,7 +100,7 @@ const Modal = (
           )}
         </Fade>
         {animationPreset === 'slide' ? (
-          <Slide in={visible} overlay={false} duration={200}>
+          <Slide in={visible} {..._slide}>
             <FocusScope
               contain={visible}
               autoFocus={visible && !initialFocusRef}
@@ -108,12 +110,7 @@ const Modal = (
             </FocusScope>
           </Slide>
         ) : (
-          <Fade
-            exitDuration={100}
-            entryDuration={200}
-            in={visible}
-            style={StyleSheet.absoluteFill}
-          >
+          <Fade in={visible} style={StyleSheet.absoluteFill} {..._fade}>
             <FocusScope
               contain={visible}
               autoFocus={visible && !initialFocusRef}

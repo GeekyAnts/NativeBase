@@ -7,11 +7,10 @@ import type {
   ILetterSpacing,
   ILineHeight,
 } from '../../../theme/base/typography';
-import type { PlatformProps, ResponsiveValue } from '../../types';
-import type { VariantType } from '../../../components/types';
+import type { CustomProps, PlatformProps, ResponsiveValue } from '../../types';
 
-export interface ITextProps
-  extends PlatformProps<ITextProps>,
+export interface InterfaceTextProps<T = ITextProps>
+  extends PlatformProps<T>,
     StyledProps,
     TextProps {
   /**
@@ -51,23 +50,23 @@ export interface ITextProps
    */
   noOfLines?: number;
   /**
-   * Make the text bold.
+   * Used to make the text bold.
    */
   bold?: boolean;
   /**
-   * If true, it'll render an ellipsis when the text exceeds the width of the viewport or maxWidth set.
+   * If true, it will render an ellipsis when the text exceeds the width of the viewport or maxWidth set.
    */
   isTruncated?: boolean;
   /**
-   * Make the text italic.
+   * Used to make the text italic.
    */
   italic?: boolean;
   /**
-   * Underline the text.
+   * Used to underline the text.
    */
   underline?: boolean;
   /**
-   * A horizontal line through its center.
+   * A horizontal line through the center of the text.
    */
   strikeThrough?: boolean;
   /**
@@ -75,11 +74,9 @@ export interface ITextProps
    */
   sub?: boolean;
   /**
-   * Highlight the text with a yellow background.
+   * Used to highlight the text with a yellow background.
    */
   highlight?: boolean;
-  /**
-   * Text component variant typings. Refer extendTheme
-   */
-  variant?: VariantType<'Text'>;
 }
+
+export type ITextProps = InterfaceTextProps & CustomProps<'Text'>;

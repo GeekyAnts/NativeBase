@@ -23,8 +23,7 @@
     "bootstrap": "yarn example && yarn && yarn pods",
     "build:web": "rollup --config",
     "bundle:analysis": "visualize-bundle",
-    "commit-test": "yarn prepare && cd example && yarn test && cd ..",
-    "postinstall": "patch-package"
+    "commit-test": "yarn prepare && cd example && yarn test && cd .."
   },
   "lint-staged": {
     "src/**/*.{js,ts,tsx}": [
@@ -37,7 +36,7 @@
       "prettier --write"
     ]
   },
-  "version": "3.3.5",
+  "version": "3.4.21",
   "license": "MIT",
   "private": false,
   "main": "lib/commonjs/index",
@@ -80,15 +79,17 @@
     "pod-install": "^0.1.0",
     "postinstall-postinstall": "^2.1.0",
     "prettier": "^2.0.5",
-    "react": "16.11.0",
+    "react": "17.0.1",
+    "react-dom": "17.0.1",
     "react-native": "0.63.2",
     "react-native-safe-area-context": "^3.1.9",
     "react-native-svg": "^12.1.0",
+    "react-native-web": "^0.17.7",
     "react-test-renderer": "^16.9.0",
     "release-it": "^13.5.8",
     "rollup": "^2.34.1",
     "rollup-plugin-flow": "^1.1.1",
-    "typescript": "4.2",
+    "typescript": "4.6",
     "visualize-bundle": "^1.4.0"
   },
   "peerDependencies": {
@@ -97,8 +98,8 @@
     "react": "*",
     "react-dom": "*",
     "react-native": "*",
-    "react-native-safe-area-context": "3.1.9",
-    "react-native-svg": "12.1.0"
+    "react-native-safe-area-context": "*",
+    "react-native-svg": "*"
   },
   "jest": {
     "preset": "jest-expo",
@@ -110,7 +111,7 @@
       "<rootDir>/lib/"
     ],
     "transformIgnorePatterns": [
-      "node_modules/(?!(react-native|expo-asset|expo-constants|@unimodules|react-native-unimodules|expo-font|react-native-svg|@expo/vector-icons|react-native-vector-icons|@react-native-aria/checkbox|@react-native-aria/interactions|@react-native-aria/button|@react-native-aria/switch|@react-native-aria/toggle|@react-native-aria/utils|@react-native-aria/*))"
+      "node_modules/(?!(@react-native|react-native|expo-asset|expo-constants|@unimodules|react-native-unimodules|expo-font|react-native-svg|@expo/vector-icons|react-native-vector-icons|@react-native-aria/checkbox|@react-native-aria/interactions|@react-native-aria/button|@react-native-aria/switch|@react-native-aria/toggle|@react-native-aria/utils|@react-native-aria/*))"
     ],
     "setupFiles": [
       "<rootDir>/src/jest/mock.ts"
@@ -173,13 +174,13 @@
     ]
   },
   "dependencies": {
-    "@react-aria/focus": "^3.2.3",
+    "@react-aria/focus": "3.2.3",
     "@react-aria/utils": "^3.6.0",
     "@react-aria/visually-hidden": "^3.2.1",
     "@react-native-aria/button": "^0.2.4",
     "@react-native-aria/checkbox": "^0.2.2",
     "@react-native-aria/combobox": "^0.2.4-alpha.0",
-    "@react-native-aria/focus": "^0.2.4",
+    "@react-native-aria/focus": "^0.2.6",
     "@react-native-aria/interactions": "^0.2.2",
     "@react-native-aria/listbox": "^0.2.4-alpha.3",
     "@react-native-aria/overlays": "0.3.3-rc.0",
@@ -187,14 +188,16 @@
     "@react-native-aria/slider": "^0.2.5-alpha.1",
     "@react-native-aria/tabs": "^0.2.7",
     "@react-native-aria/utils": "^0.2.8",
-    "@react-stately/checkbox": "^3.0.1",
-    "@react-stately/collections": "^3.3.0",
-    "@react-stately/combobox": "^3.0.0-alpha.1",
-    "@react-stately/radio": "^3.2.1",
-    "@react-stately/slider": "^3.0.1",
-    "@react-stately/tabs": "^3.0.0-alpha.1",
-    "@react-stately/toggle": "^3.2.1",
+    "@react-stately/checkbox": "3.0.3",
+    "@react-stately/collections": "3.3.0",
+    "@react-stately/combobox": "3.0.0-alpha.1",
+    "@react-stately/radio": "3.2.1",
+    "@react-stately/slider": "3.0.1",
+    "@react-stately/tabs": "3.0.0-alpha.1",
+    "@react-stately/toggle": "3.2.1",
     "@types/lodash.has": "^4.5.6",
+    "@types/use-subscription": "^1.0.0",
+    "inline-style-prefixer": "^6.0.1",
     "lodash.clonedeep": "^4.5.0",
     "lodash.get": "^4.4.2",
     "lodash.has": "^4.5.2",
@@ -206,10 +209,10 @@
     "lodash.omit": "^4.5.0",
     "lodash.omitby": "^4.6.0",
     "lodash.pick": "^4.4.0",
-    "patch-package": "^6.4.7",
     "react-native-keyboard-aware-scroll-view": "^0.9.5",
     "stable-hash": "^0.0.2",
-    "tinycolor2": "^1.4.2"
+    "tinycolor2": "^1.4.2",
+    "use-subscription": "^1.8.0"
   },
   "directories": {
     "example": "example",

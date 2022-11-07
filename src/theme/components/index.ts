@@ -24,6 +24,7 @@ import Button, { ButtonGroup } from './button';
 import Card from './card';
 import Center from './center';
 import Checkbox from './checkbox';
+import CheckboxGroup from './checkbox-group';
 import Box from './box';
 import FlatList from './flatList';
 import KeyboardAvoidingView from './keyboardAvoidingView';
@@ -36,6 +37,7 @@ import Container from './container';
 import HStack from './hstack';
 import VStack from './vstack';
 import Divider from './divider';
+import Circle from './circle';
 import SimpleGrid from './simple-grid';
 import {
   FormControl,
@@ -76,6 +78,7 @@ import PinInput from './pin-input';
 import Pressable from './pressable';
 import Progress from './progress';
 import Radio from './radio';
+import RadioGroup from './radio-group';
 import { Skeleton, SkeletonText } from './skeleton';
 import Spinner from './spinner';
 import Stat from './stat';
@@ -92,8 +95,9 @@ import { Fade, ScaleFade, Slide, SlideFade } from './transitions';
 import { List, ListItem, ListIcon } from './list';
 import { TypeAheadSearchItem } from './typeahead';
 import { Wrap } from './wrap';
-import Flex from './flex';
+import { Flex, Spacer } from './flex';
 import Stack from './stack';
+import Square from './square';
 import View from './view';
 import ZStack from './zstack';
 import FAB from './fab';
@@ -133,7 +137,9 @@ export default {
   ButtonGroup,
   Card,
   Center,
+  Circle,
   Checkbox,
+  CheckboxGroup,
   CircularProgress,
   Code,
   Container,
@@ -141,6 +147,7 @@ export default {
   Fade,
   FAB,
   Flex,
+  Spacer,
   FormControl,
   FormControlLabel,
   FormControlHelperText,
@@ -183,6 +190,7 @@ export default {
   ...PopoverComponentTheme,
   Progress,
   Radio,
+  RadioGroup,
   ScaleFade,
   Select,
   SelectItem,
@@ -196,6 +204,7 @@ export default {
   Slide,
   SlideFade,
   Spinner,
+  Square,
   Stack,
   Stat,
   Switch,

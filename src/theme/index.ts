@@ -31,4 +31,4 @@ export interface ITheme extends ICustomTheme, Omit<Theme, keyof ICustomTheme> {}
 export { theme, tools as themeTools };
 
 export { getColor } from './styled-system';
-export { StyledProps } from './types';
+export * from './v33x-theme';

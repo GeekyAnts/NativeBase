@@ -25,18 +25,21 @@ const AlertDialog = (
     isKeyboardDismissable = true,
     overlayVisible = true,
     backdropVisible = true,
-    //@ts-ignore - internal purpose only
-    animationPreset = 'fade',
-
+    animationPreset,
     ...rest
   }: IAlertDialogProps,
   ref: any
 ) => {
   const bottomInset = useKeyboardBottomInset();
-  const { contentSize, _backdrop, ...restThemeProps } = usePropsResolution(
-    'AlertDialog',
-    rest
-  );
+  const {
+    contentSize,
+    _backdrop,
+    _backdropFade,
+    _fade,
+    _slide,
+    useRNModal,
+    ...restThemeProps
+  } = usePropsResolution('AlertDialog', rest);
 
   const [visible, setVisible] = useControllableState({
     value: isOpen,
@@ -48,16 +51,16 @@ const AlertDialog = (
 
   const handleClose = () => setVisible(false);
 
-  let child = (
+  const child = (
     <Box
       bottom={avoidKeyboard ? bottomInset + 'px' : undefined}
       {...restThemeProps}
       ref={ref}
-      pointerEvents="box-none"
     >
       {children}
     </Box>
   );
+
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(rest)) {
     return null;
@@ -68,6 +71,8 @@ const AlertDialog = (
       onRequestClose={handleClose}
       isKeyboardDismissable={isKeyboardDismissable}
       useRNModalOnAndroid
+      useRNModal={useRNModal}
+      unmountOnExit
     >
       <AlertDialogContext.Provider
         value={{
@@ -77,12 +82,7 @@ const AlertDialog = (
           finalFocusRef,
         }}
       >
-        <Fade
-          exitDuration={150}
-          entryDuration={200}
-          in={visible}
-          style={StyleSheet.absoluteFill}
-        >
+        <Fade in={visible} style={StyleSheet.absoluteFill} {..._backdropFade}>
           {overlayVisible && backdropVisible && (
             <Backdrop
               onPress={() => {
@@ -93,7 +93,7 @@ const AlertDialog = (
           )}
         </Fade>
         {animationPreset === 'slide' ? (
-          <Slide overlay={false} in={visible} duration={200}>
+          <Slide in={visible} {..._slide}>
             <FocusScope
               contain={visible}
               autoFocus={visible && !initialFocusRef}
@@ -103,12 +103,7 @@ const AlertDialog = (
             </FocusScope>
           </Slide>
         ) : (
-          <Fade
-            exitDuration={100}
-            entryDuration={200}
-            in={visible}
-            style={StyleSheet.absoluteFill}
-          >
+          <Fade in={visible} style={StyleSheet.absoluteFill} {..._fade}>
             <FocusScope
               contain={visible}
               autoFocus={visible && !initialFocusRef}

@@ -1,5 +1,3 @@
-import { mode, getColorScheme } from '../tools';
-
 const defaultProps = {
   colorScheme: 'primary',
   size: 'sm',
@@ -11,21 +9,28 @@ const defaultProps = {
 };
 
 function baseStyle(props: Record<string, any>) {
-  const colorScheme = getColorScheme(props);
+  const { colorScheme: c } = props;
 
   return {
-    bg: `${colorScheme}.200`,
     overflow: 'hidden',
     _filledTrack: {
-      bg: mode(`${colorScheme}.600`, `${colorScheme}.500`)(props),
+      bg: `${c}.600`,
       shadow: 0,
       height: '100%',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
+      rounded: 'full',
       _text: {
         color: 'white',
         fontWeight: 'bold',
+      },
+    },
+    bg: 'muted.200',
+    _dark: {
+      bg: 'muted.700',
+      _filledTrack: {
+        bg: `${c}.400`,
       },
     },
   };

@@ -1,29 +1,34 @@
-import React, { forwardRef, memo } from 'react';
+import React, { forwardRef, memo, useContext } from 'react';
 import { CheckIcon } from '../../primitives/Icon/Icons';
-import Box from '../../primitives/Box';
+import Text from '../../primitives/Text';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import MenuItem from './MenuItem';
 import type { IMenuItemOptionProps, IMenuOptionContextProps } from './types';
 import { MenuOptionContext } from './MenuOptionGroup';
 import { useMenuOptionItem } from './useMenu';
-import { HStack } from '../../primitives/Stack';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
-const MenuItemOption = (props: IMenuItemOptionProps, ref: any) => {
-  const { value, children, onPress, ...resolvedProps } = usePropsResolution(
-    'MenuItem',
-    props
-  );
-  const { values, onChange, type }: IMenuOptionContextProps = React.useContext(
+const MenuItemOption = (
+  { value, ...props }: IMenuItemOptionProps,
+  ref: any
+) => {
+  const { values, onChange, type }: IMenuOptionContextProps = useContext(
     MenuOptionContext
   );
+  const isChecked = values.includes(value);
+  const menuOptionProps = useMenuOptionItem({ isChecked, type });
+  const {
+    children,
+    onPress,
+    _icon,
+    _text,
+    ...resolvedProps
+  } = usePropsResolution('MenuItem', props, { isChecked });
+
   const modifiedOnPress = (e: any) => {
     onChange(value);
     onPress && onPress(e);
   };
-
-  const isChecked = values.includes(value);
-  const menuOptionProps = useMenuOptionItem({ isChecked, type });
 
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
@@ -37,10 +42,18 @@ const MenuItemOption = (props: IMenuItemOptionProps, ref: any) => {
       onPress={modifiedOnPress}
       ref={ref}
     >
-      <HStack alignItems="center" px={resolvedProps.px} space={3}>
-        <CheckIcon {...resolvedProps._icon} opacity={isChecked ? 1 : 0} />
-        <Box>{children}</Box>
-      </HStack>
+      <CheckIcon {..._icon} />
+      {React.Children.map(children, (child, index: any) => {
+        if (typeof child === 'string' || typeof child === 'number') {
+          return (
+            <Text key={`menu-item-option-${index}`} {..._text}>
+              {child}
+            </Text>
+          );
+        } else {
+          return child;
+        }
+      })}
     </MenuItem>
   );
 };

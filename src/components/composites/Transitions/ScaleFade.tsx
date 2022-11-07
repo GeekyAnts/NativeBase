@@ -1,31 +1,31 @@
 import React from 'react';
-import { useThemeProps } from '../../../hooks/useThemeProps';
 import type { IScaleFadeProps } from './types';
 import PresenceTransition from './PresenceTransition';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import { usePropsResolution } from '../../../hooks/';
 
-const ScaleFade = (
-  { children, style, ...props }: IScaleFadeProps,
-  ref?: any
-) => {
-  const { in: animationState, duration, initialScale } = useThemeProps(
-    'ScaleFade',
-    props
-  );
+const ScaleFade = ({ children, ...props }: IScaleFadeProps, ref?: any) => {
+  const {
+    in: animationState,
+    duration,
+    initialScale,
+    ...resolvedProps
+  } = usePropsResolution('ScaleFade', props);
   //TODO: refactor for responsive prop
   if (useHasResponsiveProps(props)) {
     return null;
   }
+  if (duration) {
+    resolvedProps.animate.transition.duration = duration;
+    resolvedProps.exit.transition.duration = duration;
+  }
+  if (initialScale) {
+    resolvedProps.animate.initial.scale = initialScale;
+    resolvedProps.exit.initial.scale = initialScale;
+  }
 
   return (
-    <PresenceTransition
-      initial={{ opacity: 0, scale: initialScale }}
-      animate={{ opacity: 1, scale: 1, transition: { duration } }}
-      exit={{ opacity: 0, scale: initialScale, transition: { duration } }}
-      style={style}
-      visible={animationState}
-      ref={ref}
-    >
+    <PresenceTransition visible={animationState} {...resolvedProps} ref={ref}>
       {children}
     </PresenceTransition>
   );
