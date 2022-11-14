@@ -12,6 +12,7 @@ export default function Factory<P>(
   return React.forwardRef(
     ({ children, _state, ...props }: P & FactoryComponentProps, ref: any) => {
       const StyledComponent = useMemo(() => makeStyledComponent(Component), []);
+
       const calculatedProps = useComponentThemePropsResolution(
         componentTheme ?? {},
         props,

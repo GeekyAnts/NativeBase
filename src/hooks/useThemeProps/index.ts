@@ -11,6 +11,7 @@ import { Platform } from 'react-native';
 import { omitUndefined } from '../../theme/tools';
 import { ColorMode, useColorMode } from '../../core';
 import { useNativeBaseConfig } from '../../core/NativeBaseContext';
+import { useTheme } from '../useTheme';
 
 const useResolvedFactoryProps = (
   styleObj: any,
@@ -87,9 +88,10 @@ const getModiefiedIncomingProps = (incomingProps: any) => {
 export const useComponentThemePropsResolution = (
   componentTheme: ComponentTheme,
   incomingProps: any,
-  theme?: any
+  state?: any
 ) => {
   const { colorMode } = useColorMode();
+  const theme = useTheme();
 
   const {
     modifiedIncomingProps,
@@ -106,7 +108,8 @@ export const useComponentThemePropsResolution = (
       colorMode: colorMode,
     },
     merge({}, modifiedIncomingProps),
-    true
+    true,
+    state
   );
 
   const resolvedProps = useResolvedFactoryProps(

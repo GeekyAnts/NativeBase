@@ -15,7 +15,8 @@ export const getStyledObject = (
   componentTheme: any,
   config: any,
   inputProps?: {},
-  mergeDefaultProps: boolean = true
+  mergeDefaultProps: boolean = true,
+  stateProps?: {}
 ) => {
   const componentStyle = componentTheme?.defaultProps?.style;
 
@@ -78,7 +79,9 @@ export const getStyledObject = (
     false,
     4,
     false,
-    undefined
+    undefined,
+    undefined,
+    stateProps
   );
 
   styleObj.internalPseudoProps = internalPseudoProps;

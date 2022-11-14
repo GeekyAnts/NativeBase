@@ -693,6 +693,12 @@ export const getStyleAndFilteredProps = ({
   let restDefaultProps: any = {};
   const unResolvedProps: any = {};
   let dataSet: any = {};
+
+  if (!theme) {
+    theme = {
+      breakpoints: [],
+    };
+  }
   let responsiveStyles: null | Record<
     keyof typeof theme.breakpoints,
     Array<any>
