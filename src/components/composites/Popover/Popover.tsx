@@ -26,6 +26,7 @@ const Popover = (
     finalFocusRef,
     useRNModal,
     trapFocus = true,
+    _backdrop,
     ...props
   }: IPopoverProps,
   ref: any
@@ -96,7 +97,7 @@ const Popover = (
           style={StyleSheet.absoluteFill}
         >
           <Popper onClose={handleClose} triggerRef={triggerRef} {...props}>
-            <Backdrop onPress={handleClose} bg="transparent" />
+            <Backdrop onPress={handleClose} bg="transparent" {..._backdrop} />
             <PopoverContext.Provider
               value={{
                 onClose: handleClose,

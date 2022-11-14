@@ -15,6 +15,9 @@ export const ActionsheetContent = {
     py: 2,
     borderRadius: 'none',
     roundedTop: 20,
+    _web: {
+      userSelect: 'none',
+    },
     _dragIndicator: {
       height: 1,
       width: 10,

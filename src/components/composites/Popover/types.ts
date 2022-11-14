@@ -103,6 +103,10 @@ export interface InterfacePopoverProps {
    * @default false
    */
   useRNModal?: boolean;
+  /**
+   * Props applied on backdrop.
+   */
+  _backdrop?: any;
 }
 
 export type IPopoverContentImpl = {

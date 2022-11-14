@@ -15,6 +15,9 @@ export const Example = () => {
           rounded: ({ colorScheme }: any) => {
             return {
               bg: `${colorScheme}.500`,
+              _hover: { bg: `${colorScheme}.600` },
+              _pressed: { bg: `${colorScheme}.700` },
+              _text: { color: `${colorScheme}.50` },
               rounded: 'full',
             };
           },
