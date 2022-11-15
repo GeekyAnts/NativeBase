@@ -610,7 +610,8 @@ export const getStyleAndFilteredProps = ({
   let { styleFromProps, responsiveStyles }: any = getStyledFromProps(
     styledSystemProps,
     theme,
-    currentBreakpoint
+    currentBreakpoint,
+    propConfig
   );
 
   if (responsiveStyles) {

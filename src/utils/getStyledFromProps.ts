@@ -1,4 +1,3 @@
-import { propConfig } from '../theme/styled-system';
 import { hasValidBreakpointFormat } from '../theme/tools';
 import { getRNKeyAndStyleValue } from './getRNKeyAndStyleValue';
 import type { ITheme } from '../theme';
@@ -13,7 +12,8 @@ import type { ITheme } from '../theme';
 export const getStyledFromProps = (
   styledSystemProps: any,
   theme: any,
-  currentBreakpoint: any
+  currentBreakpoint: any,
+  propConfig: any
 ) => {
   let styleFromProps: any = {};
   let responsiveStyles: null | Record<
