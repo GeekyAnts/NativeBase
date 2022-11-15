@@ -158,6 +158,7 @@ const CheckboxComponent = React.memo(
       'accessibilityRole',
       'accessibilityState',
       'accessibilityLabel',
+      'accessibilityHint',
     ]);
 
     //TODO: refactor for responsive prop
