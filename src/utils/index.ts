@@ -14,7 +14,6 @@ export {
   composeEventHandlers,
 };
 export { wrapStringChild } from './wrapStringChild';
-export { RadioContext } from '../components/primitives/Radio/RadioGroup';
 export { combineContextAndProps } from './combineContextAndProps';
 export type { IAccessibilityProps } from './accessibilityTypes';
 export { ariaAttr } from './accessibilityUtils';
