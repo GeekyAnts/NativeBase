@@ -14,7 +14,7 @@ export interface ILinearGradientProps {
     colors: Array<string>;
     start?: Array<number>;
     end?: Array<number>;
-    location?: Array<number>;
+    locations?: Array<number>;
   };
 }
 
