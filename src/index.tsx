@@ -95,6 +95,7 @@ import {
   IActionsheetItemProps,
   Fab,
   IFabProps,
+  useFormControlContext,
   TextField,
   ITextFieldProps,
   Typeahead,
@@ -107,6 +108,7 @@ import {
   useToast,
   Toast,
   IToastProps,
+  ITooltipProps,
   Backdrop,
   Drawer,
   Tooltip,
@@ -178,6 +180,7 @@ import {
 export * from './components/basic';
 export * from './components/primitives/Icon/Icons';
 export * from './theme';
+export { extractInObject, stylingProps } from './theme/tools';
 export * from './core';
 export * from './hooks';
 export * from './factory';
@@ -260,6 +263,7 @@ export {
   // Tabs,
   Actionsheet,
   Fab,
+  useFormControlContext,
   Typeahead,
   useTypeahead,
   Select,
@@ -270,6 +274,7 @@ export {
   Drawer,
   Tooltip,
 };
+export * from './utils';
 export type {
   IAlertProps,
   IAspectRatioProps,
@@ -347,6 +352,7 @@ export type {
   // ITabViewProps,
   // ITabsContextProps,
   IToastProps,
+  ITooltipProps,
   IActionsheetProps,
   IActionsheetContentProps,
   IActionsheetItemProps,

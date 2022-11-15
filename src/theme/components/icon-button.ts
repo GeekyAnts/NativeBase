@@ -1,20 +1,6 @@
-import { mode } from './../tools';
-
 const baseStyle = (props: any) => {
   const { colorScheme } = props;
   const colors = props.theme.colors;
-  const focusRing = mode(
-    {
-      outlineWidth: '2px',
-      outlineColor: `${colors[colorScheme][600]}`,
-      outlineStyle: 'solid',
-    },
-    {
-      outlineWidth: '2px',
-      outlineColor: `${colors[colorScheme][500]}`,
-      outlineStyle: 'solid',
-    }
-  )(props);
 
   return {
     borderRadius: 'sm', // '4px'
@@ -36,7 +22,11 @@ const baseStyle = (props: any) => {
     },
     _focusVisible: {
       _web: {
-        style: { ...focusRing },
+        style: {
+          outlineWidth: '2px',
+          outlineColor: `${colors[colorScheme][600]}`,
+          outlineStyle: 'solid',
+        },
       },
     },
     _loading: {
@@ -45,21 +35,30 @@ const baseStyle = (props: any) => {
     _disabled: {
       opacity: '40',
     },
+    _dark: {
+      _focusVisible: {
+        _web: {
+          style: {
+            outlineWidth: '2px',
+            outlineColor: `${colors[colorScheme][500]}`,
+            outlineStyle: 'solid',
+          },
+        },
+      },
+    },
   };
 };
 
 function variantGhost({ colorScheme }: Record<string, any>) {
   return {
-    _light: {
-      _icon: {
-        color: `${colorScheme}.600`,
-      },
-      _hover: {
-        bg: `${colorScheme}.600:alpha.10`,
-      },
-      _pressed: {
-        bg: `${colorScheme}.600:alpha.20`,
-      },
+    _icon: {
+      color: `${colorScheme}.600`,
+    },
+    _hover: {
+      bg: `${colorScheme}.600:alpha.10`,
+    },
+    _pressed: {
+      bg: `${colorScheme}.600:alpha.20`,
     },
     _dark: {
       _icon: {
@@ -78,28 +77,26 @@ function variantGhost({ colorScheme }: Record<string, any>) {
 function variantOutline({ colorScheme }: Record<string, any>) {
   return {
     borderWidth: '1px',
-    _light: {
-      borderColor: `${colorScheme}.600`,
+    borderColor: `${colorScheme}.600`,
+    _icon: {
+      color: `${colorScheme}.600`,
+    },
+    _hover: {
+      bg: `${colorScheme}.700`,
       _icon: {
-        color: `${colorScheme}.600`,
+        color: 'muted.50',
       },
-      _hover: {
-        bg: `${colorScheme}.700`,
-        _icon: {
-          color: 'muted.50',
-        },
+    },
+    _pressed: {
+      bg: `${colorScheme}.800`,
+      _icon: {
+        color: 'muted.50',
       },
-      _pressed: {
-        bg: `${colorScheme}.800`,
-        _icon: {
-          color: 'muted.50',
-        },
-      },
-      _focus: {
-        bg: `${colorScheme}.600`,
-        _icon: {
-          color: 'muted.50',
-        },
+    },
+    _focus: {
+      bg: `${colorScheme}.600`,
+      _icon: {
+        color: 'muted.50',
       },
     },
     _dark: {
@@ -131,17 +128,15 @@ function variantOutline({ colorScheme }: Record<string, any>) {
 
 function variantSolid({ colorScheme }: Record<string, any>) {
   return {
-    _light: {
-      bg: `${colorScheme}.600`,
-      _hover: {
-        bg: `${colorScheme}.700`,
-      },
-      _pressed: {
-        bg: `${colorScheme}.800`,
-      },
-      _icon: {
-        color: 'muted.50',
-      },
+    bg: `${colorScheme}.600`,
+    _hover: {
+      bg: `${colorScheme}.700`,
+    },
+    _pressed: {
+      bg: `${colorScheme}.800`,
+    },
+    _icon: {
+      color: 'muted.50',
     },
     _dark: {
       bg: `${colorScheme}.500`,
@@ -169,14 +164,12 @@ function variantSubtle({ colorScheme }: Record<string, any>) {
     _icon: {
       color: `${colorScheme}.900`,
     },
-    _light: {
-      bg: `${colorScheme}.100`,
-      _hover: {
-        bg: `${colorScheme}.200`,
-      },
-      _pressed: {
-        bg: `${colorScheme}.300`,
-      },
+    bg: `${colorScheme}.100`,
+    _hover: {
+      bg: `${colorScheme}.200`,
+    },
+    _pressed: {
+      bg: `${colorScheme}.300`,
     },
     _dark: {
       bg: `${colorScheme}.300`,
@@ -196,19 +189,17 @@ function variantLink({ colorScheme }: Record<string, any>) {
       color: `${colorScheme}.600`,
     },
 
-    _light: {
+    _icon: {
+      color: `${colorScheme}.600`,
+    },
+    _hover: {
       _icon: {
-        color: `${colorScheme}.600`,
+        color: `${colorScheme}.700`,
       },
-      _hover: {
-        _icon: {
-          color: `${colorScheme}.700`,
-        },
-      },
-      _pressed: {
-        _icon: {
-          color: `${colorScheme}.800`,
-        },
+    },
+    _pressed: {
+      _icon: {
+        color: `${colorScheme}.800`,
       },
     },
     _dark: {
@@ -231,10 +222,8 @@ function variantLink({ colorScheme }: Record<string, any>) {
 
 function variantUnstyled() {
   return {
-    _light: {
-      _icon: {
-        color: 'muted.900',
-      },
+    _icon: {
+      color: 'muted.900',
     },
     _dark: {
       _icon: {

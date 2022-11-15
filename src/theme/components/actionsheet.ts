@@ -15,21 +15,22 @@ export const ActionsheetContent = {
     py: 2,
     borderRadius: 'none',
     roundedTop: 20,
-    _light: {
-      _dragIndicator: {
-        bg: 'muted.500',
-      },
-    },
-    _dark: {
-      _dragIndicator: {
-        bg: 'muted.400',
-      },
+    _web: {
+      userSelect: 'none',
     },
     _dragIndicator: {
       height: 1,
       width: 10,
       borderRadius: 2,
+      bg: 'muted.500',
     },
+
+    _dark: {
+      _dragIndicator: {
+        bg: 'muted.400',
+      },
+    },
+
     _dragIndicatorWrapper: {
       pt: 3,
       pb: 3,
@@ -55,35 +56,34 @@ export const ActionsheetItem = {
     },
     p: 4,
     _text: {
+      color: 'text.900',
       fontSize: 'md',
       fontWeight: 'normal',
     },
     _disabled: {
       opacity: 40,
     },
-    _light: {
-      bg: 'muted.50',
-      _icon: {
-        color: 'muted.500',
-      },
-      _text: {
-        color: 'text.900',
-      },
-      _hover: {
-        bg: 'muted.200',
-      },
-      _pressed: {
-        bg: 'muted.400',
-      },
-      _focusVisible: {
-        _web: {
-          outlineWidth: '0',
-          style: { boxShadow: `none` },
-          bg: 'muted.300',
-        },
+
+    bg: 'muted.50',
+    _icon: {
+      color: 'muted.500',
+    },
+
+    _hover: {
+      bg: 'muted.200',
+    },
+    _pressed: {
+      bg: 'muted.400',
+    },
+    _focusVisible: {
+      _web: {
+        outlineWidth: '0',
+        style: { boxShadow: `none` },
         bg: 'muted.300',
       },
+      bg: 'muted.300',
     },
+
     _dark: {
       bg: 'muted.800',
       _icon: {

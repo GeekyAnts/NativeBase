@@ -1,25 +1,11 @@
-import { getStyleAndFilteredProps, propConfig } from '../theme/styled-system';
+import { getStyleAndFilteredProps } from '../theme/styled-system';
 import { useTheme } from './useTheme';
 import React from 'react';
 import { useNativeBaseConfig } from '../core/NativeBaseContext';
 import { useResponsiveQuery } from '../utils/useResponsiveQuery';
+import { getStyledSystemPropsAndRestProps } from '../utils/getStyledSystemPropsAndRestProps';
 //@ts-ignore
 import stableHash from 'stable-hash';
-
-const getStyledSystemPropsAndRestProps = (props: any) => {
-  const styledSystemProps: any = {};
-  const restProps: any = {};
-
-  for (let key in props) {
-    if (key in propConfig) {
-      styledSystemProps[key] = props[key];
-    } else {
-      restProps[key] = props[key];
-    }
-  }
-
-  return { styledSystemProps, restProps };
-};
 
 export const useStyledSystemPropsResolver = ({
   style: propStyle,
@@ -38,8 +24,8 @@ export const useStyledSystemPropsResolver = ({
     props
   );
 
-  const { style, dataSet } = React.useMemo(() => {
-    const { styleSheet, dataSet } = getStyleAndFilteredProps({
+  const { style, dataSet, styleFromProps } = React.useMemo(() => {
+    const { styleSheet, dataSet, styleFromProps } = getStyleAndFilteredProps({
       styledSystemProps,
       theme,
       debug,
@@ -48,9 +34,9 @@ export const useStyledSystemPropsResolver = ({
       getResponsiveStyles,
     });
     if (propStyle) {
-      return { style: [styleSheet.box, propStyle], dataSet };
+      return { style: [styleSheet.box, propStyle], dataSet, styleFromProps };
     } else {
-      return { style: styleSheet.box, dataSet };
+      return { style: styleSheet.box, dataSet, styleFromProps };
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
@@ -69,7 +55,7 @@ export const useStyledSystemPropsResolver = ({
     console.log('style,resprops', currentBreakpoint);
   }
 
-  restProps.dataSet = dataSet;
+  restProps.dataSet = { ...restProps.dataSet, ...dataSet };
 
-  return [style, restProps];
+  return [style, restProps, styleFromProps];
 };

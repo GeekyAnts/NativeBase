@@ -56,6 +56,11 @@ export interface InterfaceToastProps extends InterfaceBoxProps<IToastProps> {
    * Determines the [accessibility announcement tone](https://reactnative.dev/docs/accessibility#accessibilityliveregion-android).
    */
   accessibilityLiveRegion?: 'none' | 'polite' | 'assertive';
+  /**
+   * If true and the keyboard is opened, the Toast will move up equivalent to the keyboard height.
+   * @default false
+   */
+  avoidKeyboard?: boolean;
 }
 
 export type IToast = {

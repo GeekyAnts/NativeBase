@@ -14,4 +14,7 @@ export type {
   IRadioGroupProps,
   IRadioContext,
   IRadioValue,
+  IRadioComponentType,
 } from './types';
+
+export { RadioContext } from './RadioGroup';

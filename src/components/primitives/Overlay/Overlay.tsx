@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { OverlayContainer } from '@react-native-aria/overlays';
 import React from 'react';
-import { Platform, ViewStyle } from 'react-native';
-import { Modal } from 'react-native';
+import type { ViewStyle } from 'react-native';
+import { Modal, Platform } from 'react-native';
 import { useKeyboardDismissable } from '../../../hooks';
 import { ExitAnimationContext } from './ExitAnimationContext';
 
@@ -11,7 +11,8 @@ export interface IOverlayProps {
   children?: any;
   // We use RN modal on android if needed as it supports shifting accessiblity focus to the opened view. IOS automatically shifts focus if an absolutely placed view appears in front.
   useRNModalOnAndroid?: boolean;
-  onRequestClose?: (() => any) | undefined;
+  useRNModal?: boolean;
+  onRequestClose?: any;
   isKeyboardDismissable?: boolean;
   animationPreset?: 'fade' | 'slide' | 'none';
   style?: ViewStyle;
@@ -21,6 +22,7 @@ export interface IOverlayProps {
 export function Overlay({
   children,
   isOpen,
+  useRNModal = false,
   useRNModalOnAndroid = false,
   isKeyboardDismissable = true,
   //@ts-ignore
@@ -47,10 +49,11 @@ export function Overlay({
     return null;
   }
 
-  if (Platform.OS === 'android' && useRNModalOnAndroid) {
+  if (useRNModal || (useRNModalOnAndroid && Platform.OS === 'android')) {
     return (
       <ExitAnimationContext.Provider value={{ exited, setExited }}>
         <Modal
+          statusBarTranslucent
           transparent
           visible={isOpen}
           onRequestClose={onRequestClose}

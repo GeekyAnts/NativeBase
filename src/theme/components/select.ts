@@ -4,21 +4,25 @@ export const Select = {
       selection: {
         start: 0,
       },
-      _light: {
-        customDropdownIconProps: { color: 'muted.500', mr: '3' },
-        _hover: {
-          borderColor: 'primary.600',
-        },
-        _focus: {
-          borderColor: 'primary.600',
-        },
-        _disabled: {
-          bg: 'muted.100',
-          placeholderTextColor: 'muted.700',
-        },
-        _invalid: {
-          borderColor: 'error.600',
-        },
+
+      customDropdownIconProps: {
+        color: 'muted.500',
+        mr: '3',
+        size: '6',
+        p: '1',
+      },
+      _hover: {
+        borderColor: 'primary.600',
+      },
+      _focus: {
+        borderColor: 'primary.600',
+      },
+      _disabled: {
+        bg: 'muted.100',
+        placeholderTextColor: 'muted.700',
+      },
+      _invalid: {
+        borderColor: 'error.600',
       },
 
       _dark: {
@@ -31,6 +35,7 @@ export const Select = {
         },
         _disabled: {
           bg: 'muted.800',
+          opacity: '80',
           placeholderTextColor: 'text.50',
         },
         _invalid: {
@@ -38,10 +43,6 @@ export const Select = {
         },
       },
 
-      customDropdownIconProps: {
-        size: '6',
-        p: '1',
-      },
       _webSelect: {
         style: {
           appearance: 'none',
@@ -57,9 +58,7 @@ export const Select = {
       _web: {
         pointerEvents: 'none',
       },
-      _disabled: {
-        opacity: '80',
-      },
+
       _actionSheetBody: {
         w: '100%',
       },

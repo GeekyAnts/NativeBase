@@ -6,11 +6,11 @@ import type { CustomProps } from '../../../components/types';
 export interface InterfaceActionsheetProps
   extends InterfaceBoxProps<IActionsheetProps> {
   /**
-   * If true, the ActionSheet will open. Useful for controllable state behaviour
+   * If true, the ActionSheet will open. Useful for controllable state behavior.
    */
   isOpen?: boolean;
   /**
-   * Callback invoked when the modal is closed
+   * Callback invoked when the modal is closed.
    */
   onClose?: () => any;
   /**
@@ -27,20 +27,24 @@ export interface InterfaceActionsheetProps
    * Props applied on Overlay.
    */
   _backdrop?: any;
+  /* If true, renders react-native native modal
+   * @default false
+   */
+  useRNModal?: boolean;
 }
 
 export interface IActionsheetContentProps
   extends InterfaceBoxProps<IActionsheetContentProps> {
   /**
-   * Props applied on area above actionsheet content
+   * Props applied on area above actionsheet content.
    */
   _dragIndicatorWrapperOffSet?: InterfaceBoxProps<IActionsheetContentProps>;
   /**
-   * Props applied on area around drag indicator
+   * Props applied on area around drag indicator.
    */
   _dragIndicatorWrapper?: InterfaceBoxProps<IActionsheetContentProps>;
   /**
-   * Props applied on drag indicator
+   * Props applied on drag indicator.
    */
   _dragIndicator?: InterfaceBoxProps<IActionsheetContentProps>;
 }

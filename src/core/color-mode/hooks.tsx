@@ -6,7 +6,9 @@ import type {
 } from './types';
 import { HybridContext } from './../hybrid-overlay/Context';
 import type { IHybridContextProps } from './../hybrid-overlay/types';
-import { useColorScheme } from 'react-native';
+import { AppState, useColorScheme as _useColorScheme } from 'react-native';
+import { useSubscription } from 'use-subscription';
+import { useNativeBaseConfig } from '../NativeBaseContext';
 
 export const useColorMode = (): IColorModeContextProps => {
   const {
@@ -24,6 +26,53 @@ export function useColorModeValue(light: any, dark: any) {
   const { colorMode } = useColorMode();
   return colorMode === 'dark' ? dark : light;
 }
+
+export const useAppState = () => {
+  const subscription = React.useMemo(
+    () => ({
+      getCurrentValue: () => AppState.currentState,
+      subscribe: (callback: () => void) => {
+        const subsription = AppState.addEventListener('change', callback);
+        return () => {
+          if (AppState.removeEventListener) {
+            // React Native < 0.65
+            AppState.removeEventListener('change', callback);
+          } else {
+            // React Native >= 0.65
+            // @ts-ignore:next-line ignoring ts error as devDependency contains "@types/react-native" < 0.65
+            subsription.remove();
+          }
+        };
+      },
+    }),
+    []
+  );
+
+  const isSSR = useNativeBaseConfig('useBreakpointResolvedProps').isSSR;
+
+  if (isSSR) {
+    return 'unknown';
+  } else {
+    // This if statement technically breaks the rules of hooks, but is safe
+    // because the condition never changes after mounting.
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    return useSubscription(subscription);
+  }
+};
+
+export const useColorScheme = () => {
+  const colorScheme = _useColorScheme();
+  const [currentScheme, setCurrentScheme] = useState(colorScheme);
+  const appState = useAppState();
+
+  useEffect(() => {
+    if (appState === 'active') {
+      setCurrentScheme(colorScheme);
+    }
+  }, [appState, colorScheme]);
+
+  return currentScheme;
+};
 
 export function useModeManager(
   initialColorMode: ColorMode,

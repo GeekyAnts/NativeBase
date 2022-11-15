@@ -6,45 +6,44 @@ const baseStyle = (props: Record<string, any>) => {
     borderRadius: 'full',
     p: 1,
 
-    _light: {
-      bg: 'muted.50',
-      borderColor: 'muted.400',
+    bg: 'muted.50',
+    borderColor: 'muted.400',
 
-      _checked: {
-        borderColor: `${c}.600`,
-        _icon: {
-          color: `${c}.600`,
-        },
-        _hover: {
-          borderColor: `${c}.700`,
-          _icon: { color: `${c}.700` },
-          _disabled: {
-            borderColor: `${c}.600`,
-            _icon: {
-              color: `${c}.600`,
-            },
+    _checked: {
+      borderColor: `${c}.600`,
+      _icon: {
+        color: `${c}.600`,
+      },
+      _hover: {
+        borderColor: `${c}.700`,
+        _icon: { color: `${c}.700` },
+        _disabled: {
+          borderColor: `${c}.600`,
+          _icon: {
+            color: `${c}.600`,
           },
         },
-        _pressed: {
-          borderColor: `${c}.800`,
-          _icon: { color: `${c}.800` },
-        },
       },
-
-      _hover: {
-        borderColor: 'muted.500',
-        _disabled: {
-          borderColor: 'muted.400',
-        },
-      },
-
       _pressed: {
-        borderColor: 'muted.600',
+        borderColor: `${c}.800`,
+        _icon: { color: `${c}.800` },
       },
+    },
 
-      _invalid: {
-        borderColor: 'error.600',
+    _hover: {
+      borderColor: 'muted.500',
+      _disabled: {
+        borderColor: 'muted.400',
       },
+      _checked: { borderColor: `${c}.600` },
+    },
+
+    _pressed: {
+      borderColor: 'muted.600',
+    },
+
+    _invalid: {
+      borderColor: 'error.600',
     },
 
     _dark: {
@@ -77,6 +76,7 @@ const baseStyle = (props: Record<string, any>) => {
         _disabled: {
           borderColor: 'muted.500',
         },
+        _checked: { borderColor: `${c}.600` },
       },
 
       _pressed: {

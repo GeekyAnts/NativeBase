@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import type { ViewProps } from 'react-native';
+import type { CustomProps } from '../../../components/types';
 import type { InterfaceBoxProps } from '../../primitives/Box';
 import type { IOverlayProps } from '../../primitives/Overlay';
 export type IFadeProps = InterfaceBoxProps<IFadeProps> & {
@@ -37,7 +38,7 @@ export type ISlideFadeProps = InterfaceBoxProps<ISlideFadeProps> & {
   duration?: number;
   offsetX?: number;
   offsetY?: number;
-};
+} & CustomProps<'Slide'>;
 
 export interface ISupportedTransitions {
   opacity?: number;
@@ -73,7 +74,7 @@ export interface ITransitionStyleProps extends ISupportedTransitions {
 }
 export interface ITransitionProps extends ViewProps {
   /**
-   * Callback invoked when transition is completed
+   * Callback invoked when the transition is completed.
    */
   onTransitionComplete?: (s: 'entered' | 'exited') => any;
   /**
@@ -100,28 +101,28 @@ export interface ITransitionProps extends ViewProps {
 
 export interface IPresenceTransitionProps extends ViewProps {
   /**
-   * Callback invoked when transition is completed
+   * Callback invoked when the transition is completed.
    */
   onTransitionComplete?: (s: 'entered' | 'exited') => any;
   /**
-   * Styles before the transition starts
+   * Styles before the transition starts.
    */
   initial?: ISupportedTransitions;
   /**
-   * Entry animation styles
+   * Entry animation styles.
    */
   animate?: ITransitionStyleProps;
   /**
-   * Exit animation styles
+   * Exit animation styles.
    */
   exit?: ITransitionStyleProps;
   /**
-   * Determines whether to start the animation
+   * Determines whether to start the animation.
    */
   visible?: boolean;
   children?: ReactNode;
   /**
-   * Accepts a Component to be rendered as Wrapper. Defaults to `View`
+   * Accepts a Component to be rendered as Wrapper. Defaults to `View`.
    */
   as?: ReactNode;
 }

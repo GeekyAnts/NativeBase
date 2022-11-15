@@ -38,7 +38,7 @@ export interface InterfaceAlertDialogProps
    */
   finalFocusRef?: React.RefObject<any> | any;
   /**
-   * If true and the keyboard is opened, the AlertDialog will move up equvivalent to the keyboard height.
+   * If true and the keyboard is opened, the AlertDialog will move up equivalent to the keyboard height.
    * @default false
    */
   avoidKeyboard?: boolean;
@@ -83,6 +83,10 @@ export interface InterfaceAlertDialogProps
    * @default "fade"
    */
   animationPreset?: 'slide' | 'fade';
+  /* If true, renders react-native native modal
+   * @default false
+   */
+  useRNModal?: boolean;
 }
 
 export type IAlertDialogComponentType = ((
