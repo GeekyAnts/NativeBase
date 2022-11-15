@@ -5,7 +5,7 @@ export const Select = {
         start: 0,
       },
 
-      customDropdownIconProps: {
+      _customDropdownIconProps: {
         color: 'muted.500',
         mr: '3',
         size: '6',
@@ -26,7 +26,7 @@ export const Select = {
       },
 
       _dark: {
-        customDropdownIconProps: { color: 'muted.400', mr: '3' },
+        _customDropdownIconProps: { color: 'muted.400', mr: '3' },
         _hover: {
           borderColor: 'primary.500',
         },
