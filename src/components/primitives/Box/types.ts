@@ -1,11 +1,9 @@
 import type { ViewProps } from 'react-native';
 import type { StyledProps } from '../../../theme/types';
 import type {
-  SafeAreaProps,
-  PlatformProps,
-  ResponsiveValue,
   ColorType,
-  CustomProps,
+  CustomProps, PlatformProps,
+  ResponsiveValue, SafeAreaProps
 } from '../../types';
 import type { ITextProps } from './../Text/types';
 
@@ -47,3 +45,32 @@ export interface InterfaceBoxProps<T = null>
 }
 
 export type IBoxProps<T = null> = InterfaceBoxProps<T> & CustomProps<'Box'>;
+
+export type LinearGradientProps = LinearGradientBaseProps & (
+  LinearGradientPropsStartEnd | LinearGradientPropsAngle
+);
+
+export type LinearGradientBaseProps = {
+  colors: string[];
+  locations: number[];
+}
+
+export type LinearGradientPropsStartEnd = {
+  start: {
+    x: number;
+    y: number;
+  };
+  end: {
+    x: number;
+    y: number;
+  };
+};
+
+export type LinearGradientPropsAngle = {
+  useAngle: boolean;
+  angle: number;
+  angleCenter: {
+    x: number;
+    y: number;
+  };
+}
