@@ -1,5 +1,5 @@
 import React from 'react';
-import { useFocusManager } from '@react-aria/focus';
+import { useFocusManager } from '@react-native-aria/focus';
 import { useId } from '@react-native-aria/utils';
 import { AccessibilityRole, Platform } from 'react-native';
 import { ResponsiveQueryContext } from '../../../utils/useResponsiveQuery/ResponsiveQueryProvider';
@@ -42,12 +42,14 @@ export const useMenu = () => {
     switch (e.key) {
       case 'ArrowDown': {
         e.preventDefault();
-        focusManager.focusNext({ wrap: true });
+        //@ts-ignore
+        focusManager?.focusNext({ wrap: true });
         break;
       }
       case 'ArrowUp': {
         e.preventDefault();
-        focusManager.focusPrevious({ wrap: true });
+        //@ts-ignore
+        focusManager?.focusPrevious({ wrap: true });
         break;
       }
     }
