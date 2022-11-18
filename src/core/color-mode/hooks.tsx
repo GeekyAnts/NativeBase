@@ -22,7 +22,7 @@ export const useColorMode = (): IColorModeContextProps => {
   return colorModeContext;
 };
 
-export function useColorModeValue(light: any, dark: any) {
+export function useColorModeValue<ValueType>(light: ValueType, dark: ValueType) {
   const { colorMode } = useColorMode();
   return colorMode === 'dark' ? dark : light;
 }
