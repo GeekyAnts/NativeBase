@@ -156,10 +156,11 @@ const getResponsiveStyles = (
           const oldIdentifier = compiledStyle[key];
           compiledOrderedRules.forEach(([rules, _order]: any) => {
             // Rule returned by atomic has css selectors, so we'll replace it with data-attr selector
-            const newRule = rules[0].replace(
-              '.' + oldIdentifier,
-              newIdentifier
-            );
+
+            let newRule = '';
+            if (rules[0].includes(oldIdentifier)) {
+              newRule = rules[0].replace('.' + oldIdentifier, newIdentifier);
+            }
             mediaRules += newRule;
           });
         });
