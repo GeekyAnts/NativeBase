@@ -31,8 +31,9 @@ export const ExampleWithAngle = () => {
       bg={{
         linearGradient: {
           colors: ['lightBlue.300', 'violet.800'],
-          angle: 45,
-          angleCenter: { x: 0.5, y: 0.5},
+          useAngle: true,
+          angle: 15,
+          angleCenter: { x: 0.5, y: 0.5 },
         },
       }}
       p="12"
@@ -48,4 +49,4 @@ export const ExampleWithAngle = () => {
       This is a Box with Linear Gradient using angle props
     </Box>
   );
-}
+};
