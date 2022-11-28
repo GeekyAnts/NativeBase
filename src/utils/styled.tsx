@@ -1,4 +1,5 @@
 import React from 'react';
+import { View } from 'react-native';
 import { useStyledSystemPropsResolver } from '../hooks/';
 
 export const makeStyledComponent = (Comp: any) => {
@@ -21,10 +22,15 @@ export const makeStyledComponent = (Comp: any) => {
         restProps
       );
     }
+
+    console.log(style, 'hello style', restProps);
+    // delete restProps.dataSet;
+
+    // <View
     return (
-      <Comp {...restProps} style={style} ref={ref}>
+      <View {...restProps} style={style} ref={ref}>
         {props.children}
-      </Comp>
+      </View>
     );
   });
 };

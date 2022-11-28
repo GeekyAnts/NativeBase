@@ -5,34 +5,36 @@ import { Box, Stack, Button } from 'native-base';
 
 const Home: NextPage = () => {
   return (
-    <Stack
-      // space={[10, 20, 32]}
-      space={[10, 20, 24]}
-      // space={'10'}
-      direction={['row', 'column', 'row']}
-      // direction={'column'}
-      // flexWrap={'wrap'}
-    >
-      {/* <Text>hi</Text> */}
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
-      <Text>Hello</Text>
+    <>
+      <Box width={{ base: '100%', md: '100%' }}></Box>
+      <Stack
+        bg="red.500"
+        // space={[10, 20, 32]}
 
-      {/* <Button
+        // direction={'column'}
+        // flexWrap={'wrap'}
+        width={{ base: '100%', md: '55%' }}
+      >
+        {/* <Text>hi</Text> */}
+        <Text>Hello</Text>
+        <Text>Hello</Text>
+        <Text>Hello</Text>
+        <Text>Hello</Text>
+        <Text>Hello</Text>
+        <Text>Hello</Text>
+        <Text>Hello</Text>
+        <Text>Hello</Text>
+        <Text>Hello</Text>
+        <Text>Hello</Text>
+
+        {/* <Button
         w="16"
         bg={['red.900', 'light.200', 'lightBlue.100']}
         // _text={{ color: ['white', 'black', 'red.900'] }}
       >
         Text
       </Button> */}
-      {/* <Button
+        {/* <Button
         w="16"
         bg={['red.900', 'light.200', 'lightBlue.100']}
         // _text={{ color: ['white', 'black', 'red.900'] }}
@@ -104,7 +106,7 @@ const Home: NextPage = () => {
       >
         Text
       </Button> */}
-      {/* 
+        {/* 
  <Button
         w="16"
         bg={['red.900', 'light.200', 'lightBlue.100']}
@@ -112,8 +114,10 @@ const Home: NextPage = () => {
       >
         Text
       </Button> */}
-      {/* <Box boxSize="20" bg="red.100"></Box> */}
-    </Stack>
+        {/* <Box boxSize="20" bg="red.100"></Box> */}
+      </Stack>
+      <Box width={{ base: '100%', md: '100%' }} bg="red.500"></Box>
+    </>
   );
 };
 

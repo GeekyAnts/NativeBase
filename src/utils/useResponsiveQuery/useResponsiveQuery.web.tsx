@@ -150,30 +150,58 @@ const getResponsiveStyles = (
         const flattenQueryStyle = StyleSheet.flatten(queryRule.style);
         const newStyle = preprocess(flattenQueryStyle);
         const [compiledStyle, compiledOrderedRules] = atomic(newStyle);
+
+        console.log(
+          '🚀 ~ queries.query.forEach ~ mediaQueryRule',
+          // compiledStyle,
+          flattenQueryStyle
+        );
+
         //@ts-ignore
         delete compiledStyle.$$css; //removing unnecessary $$css property
         Object.keys(compiledStyle).forEach((key) => {
           const oldIdentifier = compiledStyle[key];
           compiledOrderedRules.forEach(([rules, _order]: any) => {
             // Rule returned by atomic has css selectors, so we'll replace it with data-attr selector
-
             let newRule = '';
-            if (rules[0].includes(oldIdentifier)) {
+            if (rules[0].indexOf(oldIdentifier) > -1) {
               newRule = rules[0].replace('.' + oldIdentifier, newIdentifier);
             }
+
+            // console.log(
+            //   '🚀 ~ queries.query.forEach ~ mediaQueryRule',
+            //   // compiledStyle,
+            //   key,
+            //   '  -------  ',
+            //   newIdentifier,
+            //   ' ------- ',
+            //   oldIdentifier,
+            //   ' ******* ',
+            //   rules[0],
+            //   ' ******* ',
+
+            //   newRule
+            // );
+
             mediaRules += newRule;
           });
         });
         if (mediaRules) {
           const mediaQueryRule = getMediaQueryRule(queryRule, mediaRules);
           insert(`/*${queryHash}{}*/${mediaQueryRule}`);
+
+          console.log('🚀 ~ queries.query.forEach ~ queryHash', queryHash);
           textContentMap[`/*${queryHash}{}*/${mediaQueryRule}`] = true;
         }
       }
     });
   }
 
-  return { styles, dataSet };
+  console.log(JSON.stringify(textContentMap), 'hello here 2323');
+
+  console.log(dataSet, styles, 'hello here');
+
+  return { styles: styles, dataSet };
 };
 
 /**
