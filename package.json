@@ -36,7 +36,7 @@
       "prettier --write"
     ]
   },
-  "version": "3.4.22",
+  "version": "3.4.24-alpha.0",
   "license": "MIT",
   "private": false,
   "main": "lib/commonjs/index",
@@ -46,8 +46,6 @@
   "source": "src/index",
   "typings": "lib/typescript/index.d.ts",
   "devDependencies": {
-    "@types/lodash.has": "^4.5.6",
-    "@types/use-subscription": "^1.0.0",
     "@commitlint/config-conventional": "^8.3.4",
     "@react-native-community/bob": "^0.16.2",
     "@react-native-community/eslint-config": "^2.0.0",
@@ -57,6 +55,7 @@
     "@types/jest": "^26.0.0",
     "@types/lodash.clonedeep": "^4.5.6",
     "@types/lodash.get": "^4.4.6",
+    "@types/lodash.has": "^4.5.6",
     "@types/lodash.isempty": "^4.4.6",
     "@types/lodash.isequal": "^4.5.5",
     "@types/lodash.isnil": "^4.0.6",
@@ -68,6 +67,7 @@
     "@types/react": "^16.9.19",
     "@types/react-native": "~0.63.2",
     "@types/tinycolor2": "^1.4.2",
+    "@types/use-subscription": "^1.0.0",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "commitlint": "^8.3.5",
     "eslint": "^7.10.0",
