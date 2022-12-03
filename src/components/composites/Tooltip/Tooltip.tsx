@@ -120,6 +120,9 @@ export const Tooltip = ({
     'ref': mergeRefs([newChildren.ref, targetRef]),
 
     'aria-describedby': isOpen ? tooltipID : undefined,
+    
+    // to avoid null targetRef on android
+    'collapsable': false,
   });
 
   useKeyboardDismissable({
