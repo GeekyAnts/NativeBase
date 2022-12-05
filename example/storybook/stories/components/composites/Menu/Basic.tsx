@@ -13,6 +13,8 @@ export function Example() {
             </Pressable>
           );
         }}
+        // isOpen={true}
+        // defaultIsOpen={true}
       >
         <Menu.Item>Arial</Menu.Item>
         <Menu.Item>Nunito Sans</Menu.Item>
