@@ -60,6 +60,8 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
   if (resolvedFontFamily) {
     fontFamily = resolvedFontFamily;
   }
+
+  // Need to apply fontWeight & fontStyle on web
   if (Platform.OS === 'web') {
     if (resolvedFontFamily) {
       fontFamily = resolvedFontFamily;
