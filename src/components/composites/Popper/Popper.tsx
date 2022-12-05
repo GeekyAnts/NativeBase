@@ -193,8 +193,8 @@ const PopperArrow = React.forwardRef(
     );
 
     const arrowStyles = React.useMemo(
-      () => [arrowProps.style, triangleStyle, additionalStyles, style],
-      [triangleStyle, additionalStyles, arrowProps.style, style]
+      () => [arrowProps?.style, triangleStyle, additionalStyles, style],
+      [triangleStyle, additionalStyles, arrowProps?.style, style]
     );
 
     return (
