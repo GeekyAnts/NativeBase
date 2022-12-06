@@ -12,7 +12,7 @@ import { StyleSheet } from 'react-native';
 import { useId } from '@react-native-aria/utils';
 import { Overlay } from '../../primitives/Overlay';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-import { uniqueId } from 'lodash';
+import uniqueId from 'lodash.uniqueid';
 import { ResponsiveQueryContext } from '../../../utils/useResponsiveQuery/ResponsiveQueryProvider';
 
 const Popover = (
