@@ -14,6 +14,7 @@ import { Overlay } from '../../primitives/Overlay';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import uniqueId from 'lodash.uniqueid';
 import { ResponsiveQueryContext } from '../../../utils/useResponsiveQuery/ResponsiveQueryProvider';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 
 const Popover = (
   {
@@ -32,6 +33,8 @@ const Popover = (
   }: IPopoverProps,
   ref: any
 ) => {
+  const { _overlay } = usePropsResolution('Popover', props);
+
   const triggerRef = React.useRef(null);
   const mergedRef = mergeRefs([triggerRef]);
   const [isOpen, setIsOpen] = useControllableState({
@@ -92,7 +95,7 @@ const Popover = (
         onRequestClose={handleClose}
         useRNModalOnAndroid
         useRNModal={useRNModal}
-        unmountOnExit
+        {..._overlay}
       >
         <PresenceTransition
           initial={{ opacity: 0 }}

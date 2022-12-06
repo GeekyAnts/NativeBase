@@ -18,7 +18,9 @@ const baseStyle = {
     exit: { opacity: 0, transition: { duration: 150 } },
     style: StyleSheet.absoluteFill,
   },
-  _overlay: {},
+  _overlay: {
+    unmountOnExit: true,
+  },
   _backdrop: {
     bg: 'transparent',
   },
