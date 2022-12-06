@@ -3,7 +3,7 @@ import { useFocusManager } from '@react-native-aria/focus';
 import { useId } from '@react-native-aria/utils';
 import { AccessibilityRole, Platform } from 'react-native';
 import { ResponsiveQueryContext } from '../../../utils/useResponsiveQuery/ResponsiveQueryProvider';
-import { uniqueId } from 'lodash';
+import uniqueId from 'lodash.uniqueid';
 
 type IMenuTriggerProps = {
   handleOpen: () => void;

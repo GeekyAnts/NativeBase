@@ -64,6 +64,7 @@
     "@types/lodash.omit": "^4.5.6",
     "@types/lodash.omitby": "^4.6.6",
     "@types/lodash.pick": "^4.4.6",
+    "@types/lodash.uniqueid": "^4.0.7",
     "@types/react": "^16.9.19",
     "@types/react-native": "~0.63.2",
     "@types/tinycolor2": "^1.4.2",
@@ -207,6 +208,7 @@
     "lodash.omit": "^4.5.0",
     "lodash.omitby": "^4.6.0",
     "lodash.pick": "^4.4.0",
+    "lodash.uniqueid": "^4.0.1",
     "stable-hash": "^0.0.2",
     "tinycolor2": "^1.4.2",
     "use-subscription": "^1.8.0"
