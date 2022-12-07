@@ -48,6 +48,9 @@ export const AlertDialog = {
     _backdropFade: { exitDuration: 150, entryDuration: 200 },
     _fade: { exitDuration: 100, entryDuration: 200 },
     _slide: { duration: 200, overlay: false },
+    _overlay: {
+      unmountOnExit: true,
+    },
   },
   sizes,
   defaultProps: {

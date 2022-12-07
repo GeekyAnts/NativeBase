@@ -10,7 +10,7 @@ import Box from '../../primitives/Box';
 import type { ITooltipProps } from './types';
 import { useId } from '@react-native-aria/utils';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-import { uniqueId } from 'lodash';
+import uniqueId from 'lodash.uniqueid';
 import { ResponsiveQueryContext } from '../../../utils/useResponsiveQuery/ResponsiveQueryProvider';
 
 export const Tooltip = ({

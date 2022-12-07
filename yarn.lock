@@ -2352,10 +2352,10 @@
     "@react-types/listbox" "^3.1.1"
     "@react-types/shared" "^3.4.0"
 
-"@react-native-aria/overlays@0.3.3-rc.0":
-  version "0.3.3-rc.0"
-  resolved "https://registry.yarnpkg.com/@react-native-aria/overlays/-/overlays-0.3.3-rc.0.tgz#9041ddd6f151e6edb50c971d29920c458aa41459"
-  integrity sha512-RgaIYIHMltt0RdMrVwfXLAVxc22TIUY1Yx07HbQRMdt4LcSmU8pyp5CEtJ/MQCXceuqocnXfsUxyHOSnfhmfpA==
+"@react-native-aria/overlays@^0.3.3":
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/@react-native-aria/overlays/-/overlays-0.3.3.tgz#52c45a43cd4620cd20c3dda8fc7560a807949373"
+  integrity sha512-uXMLBhWwTP55BdWTlmfLf9mCk8mzVxN8lu/P2mKU0FfuJuwvT1RIc4DbU3V93B5fpgsOPPmLuMX82FZL/qiybQ==
   dependencies:
     "@react-aria/interactions" "^3.3.2"
     "@react-aria/overlays" "^3.7.0"
@@ -3236,6 +3236,13 @@
   version "4.4.6"
   resolved "https://registry.yarnpkg.com/@types/lodash.pick/-/lodash.pick-4.4.6.tgz#ae4e8f109e982786313bb6aac4b1a73aefa6e9be"
   integrity sha512-u8bzA16qQ+8dY280z3aK7PoWb3fzX5ATJ0rJB6F+uqchOX2VYF02Aqa+8aYiHiHgPzQiITqCgeimlyKFy4OA6g==
+  dependencies:
+    "@types/lodash" "*"
+
+"@types/lodash.uniqueid@^4.0.7":
+  version "4.0.7"
+  resolved "https://registry.yarnpkg.com/@types/lodash.uniqueid/-/lodash.uniqueid-4.0.7.tgz#d366034c757fb6b00cc4fe1f1fa942e6be3ff012"
+  integrity sha512-ipMGW5nR+DTR6U5O08k1Ufr1F9iH+F3p7bhdwsnq6V6nCn/HgMq22UalDq4n91+03+pHFKyeXV1Y7vdJrm7S4g==
   dependencies:
     "@types/lodash" "*"
 
@@ -8863,6 +8870,11 @@ lodash.throttle@^4.1.1:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-4.1.1.tgz#c23e91b710242ac70c37f1e1cda9274cc39bf2f4"
   integrity sha1-wj6RtxAkKscMN/HhzaknTMOb8vQ=
+
+lodash.uniqueid@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/lodash.uniqueid/-/lodash.uniqueid-4.0.1.tgz#3268f26a7c88e4f4b1758d679271814e31fa5b26"
+  integrity sha512-GQQWaIeGlL6DIIr06kj1j6sSmBxyNMwI8kaX9aKpHR/XsMTiaXDVPNPAkiboOTK9OJpTJF/dXT3xYoFQnj386Q==
 
 lodash@4.17.15:
   version "4.17.15"
