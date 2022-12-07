@@ -123,6 +123,7 @@ const getResponsiveStyles = (
   queries: GetResponsiveStylesParams
 ): GetResponsiveStylesReturnType => {
   const queryString = stableHash(queries.query);
+
   const queriesHash = hash(queryString);
 
   const styles = queries.initial
@@ -168,8 +169,13 @@ const getResponsiveStyles = (
         });
         if (mediaRules) {
           const mediaQueryRule = getMediaQueryRule(queryRule, mediaRules);
-          insert(`/*${queryHash}{}*/${mediaQueryRule}`);
-          textContentMap[`/*${queryHash}{}*/${mediaQueryRule}`] = true;
+
+          const queryKey = `/*${queryHash}{}*/${mediaQueryRule}`;
+
+          if (!textContentMap[queryKey]) {
+            insert(queryKey);
+            textContentMap[queryKey] = true;
+          }
         }
       }
     });
