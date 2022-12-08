@@ -1,12 +1,21 @@
+import React from 'react';
 import { memo } from 'react';
 import type { IHiddenProps } from './types';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { useBreakpointValue, useTheme, useToken } from '../../../hooks';
 import { useColorMode } from '../../../core/color-mode/hooks';
 import { Platform } from 'react-native';
-
-export function Hidden({ children, ...props }: IHiddenProps) {
-  const { from, till, only, platform, colorMode } = usePropsResolution(
+import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
+import { HiddenSSR } from './HiddenSSR';
+export function Hidden({ ...props }: IHiddenProps) {
+  const {
+    from,
+    till,
+    only,
+    platform,
+    colorMode,
+    children,
+  } = usePropsResolution(
     'Hidden',
     props,
     {},
@@ -28,7 +37,8 @@ export function Hidden({ children, ...props }: IHiddenProps) {
   const [currentBreakpointValue] = useToken('breakpoints', [breakpointValue]);
   const [fromBreakPointValue] = useToken('breakpoints', [from]);
   const [tillBreakPointValue] = useToken('breakpoints', [till]);
-
+  const isSSR = useNativeBaseConfig('useBreakpointResolvedProps').isSSR;
+  if (isSSR) return <HiddenSSR {...props} />;
   //if no prop is passed, it will hide the element wrapped with hidden
   if (!from && !till && !only && !colorMode && !platform) {
     return null;
