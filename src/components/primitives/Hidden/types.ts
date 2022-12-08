@@ -30,6 +30,10 @@ export interface InterfaceHiddenProps {
    *
    */
   children: React.ReactElement | null;
+  /**
+   *
+   */
+  isSSR?: boolean;
 }
 
 export type IHiddenProps = InterfaceHiddenProps;
