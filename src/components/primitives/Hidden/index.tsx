@@ -7,7 +7,7 @@ import { useColorMode } from '../../../core/color-mode/hooks';
 import { Platform } from 'react-native';
 import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
 import { HiddenSSR } from './HiddenSSR';
-export function Hidden({ ...props }: IHiddenProps) {
+export function Hidden({ isSSR, ...props }: IHiddenProps) {
   const {
     from,
     till,
@@ -37,8 +37,9 @@ export function Hidden({ ...props }: IHiddenProps) {
   const [currentBreakpointValue] = useToken('breakpoints', [breakpointValue]);
   const [fromBreakPointValue] = useToken('breakpoints', [from]);
   const [tillBreakPointValue] = useToken('breakpoints', [till]);
-  const isSSR = useNativeBaseConfig('useBreakpointResolvedProps').isSSR;
-  if (isSSR) return <HiddenSSR {...props} />;
+  const isSSRProvider = useNativeBaseConfig('useBreakpointResolvedProps').isSSR;
+
+  if (isSSR && isSSRProvider) return <HiddenSSR {...props} />;
   //if no prop is passed, it will hide the element wrapped with hidden
   if (!from && !till && !only && !colorMode && !platform) {
     return null;
