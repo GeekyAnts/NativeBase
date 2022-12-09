@@ -7,7 +7,7 @@ import { useColorMode } from '../../../core/color-mode/hooks';
 import { Platform } from 'react-native';
 import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
 import { HiddenSSR } from './HiddenSSR';
-export function Hidden({ isSSR, ...props }: IHiddenProps) {
+export function Hidden({ ...props }: IHiddenProps) {
   const {
     from,
     till,
@@ -15,6 +15,7 @@ export function Hidden({ isSSR, ...props }: IHiddenProps) {
     platform,
     colorMode,
     children,
+    isSSR,
   } = usePropsResolution(
     'Hidden',
     props,
