@@ -10,10 +10,14 @@ import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 import { useTheme } from '../../../hooks';
 
 const Spinner = (props: ISpinnerProps, ref: any) => {
-  const { color, size, style, testID, ...resolvedProps } = usePropsResolution(
-    'Spinner',
-    props
-  );
+  const {
+    color,
+    size,
+    style,
+    testID,
+    animating,
+    ...resolvedProps
+  } = usePropsResolution('Spinner', props);
   const resolvedColor = getColor(color, useTheme().colors, useTheme());
   const resolvedStyle = useStyledSystemPropsResolver(resolvedProps);
   //TODO: refactor for responsive prop
@@ -30,6 +34,7 @@ const Spinner = (props: ISpinnerProps, ref: any) => {
       ref={ref}
       size={size}
       style={[resolvedStyle, style]}
+      animating={animating}
     />
   );
 };
