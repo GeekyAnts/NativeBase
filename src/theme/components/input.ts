@@ -42,6 +42,16 @@ const baseStyle = (props: InterfaceInputProps & { theme: any }) => {
     _hover: {
       borderColor: 'primary.600',
     },
+    _invalid: {
+      borderColor: 'error.600',
+      _hover: { borderColor: 'error.600' },
+      _stack: {
+        style: {
+          outlineWidth: '0',
+          boxShadow: `0 0 0 1px ${error[600]}`,
+        },
+      },
+    },
     _focus: {
       borderColor: 'primary.600',
       _hover: { borderColor: 'primary.600' },
