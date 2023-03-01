@@ -154,6 +154,8 @@ const Select = (
     'shadow',
     'opacity',
   ]);
+  
+  const isSafari = Platform.OS === 'web' && window.safari
 
   const commonInput = (
     <Input
@@ -172,6 +174,7 @@ const Select = (
       isDisabled={isDisabled}
       pointerEvents="none"
       variant={variant}
+      selection={isSafari ? undefined : nonLayoutProps.selection}
     />
   );
 
