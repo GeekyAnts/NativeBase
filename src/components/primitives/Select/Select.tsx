@@ -155,7 +155,7 @@ const Select = (
     'opacity',
   ]);
   
-  const isSafari = Platform.OS === 'web' && window.safari
+  const isSafari = Platform.OS === 'web' && navigator.userAgent.match(/Version\/[\d.]+.*Safari/)
 
   const commonInput = (
     <Input
