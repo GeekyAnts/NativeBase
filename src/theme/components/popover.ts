@@ -1,3 +1,11 @@
+export const Popover = {
+  baseStyle: () => ({
+    _overlay: {
+      unmountOnExit: true,
+    },
+  }),
+};
+
 export const PopoverCloseButton = {
   baseStyle: () => ({
     position: 'absolute',

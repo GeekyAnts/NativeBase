@@ -7,7 +7,8 @@ import type {
 import { HybridContext } from './../hybrid-overlay/Context';
 import type { IHybridContextProps } from './../hybrid-overlay/types';
 import { AppState, useColorScheme as _useColorScheme } from 'react-native';
-import { useSubscription } from 'use-subscription';
+import { useSyncExternalStore } from 'use-sync-external-store/shim';
+
 import { useNativeBaseConfig } from '../NativeBaseContext';
 
 export const useColorMode = (): IColorModeContextProps => {
@@ -32,8 +33,17 @@ export const useAppState = () => {
     () => ({
       getCurrentValue: () => AppState.currentState,
       subscribe: (callback: () => void) => {
-        AppState.addEventListener('change', callback);
-        return () => AppState.removeEventListener('change', callback);
+        const subsription = AppState.addEventListener('change', callback);
+        return () => {
+          if (AppState.removeEventListener) {
+            // React Native < 0.65
+            AppState.removeEventListener('change', callback);
+          } else {
+            // React Native >= 0.65
+            // @ts-ignore:next-line ignoring ts error as devDependency contains "@types/react-native" < 0.65
+            subsription.remove();
+          }
+        };
       },
     }),
     []
@@ -47,7 +57,11 @@ export const useAppState = () => {
     // This if statement technically breaks the rules of hooks, but is safe
     // because the condition never changes after mounting.
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    return useSubscription(subscription);
+    return useSyncExternalStore(
+      subscription.subscribe,
+      subscription.getCurrentValue,
+      subscription.getCurrentValue
+    );
   }
 };
 
@@ -91,7 +105,7 @@ export function useModeManager(
   useEffect(() => {
     if (colorModeManager) {
       (async function getMode() {
-        let value = await colorModeManager.get(initialColorMode);
+        const value = await colorModeManager.get(initialColorMode);
         if (value && value !== colorMode) {
           setRawMode(value);
         }

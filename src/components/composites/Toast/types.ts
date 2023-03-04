@@ -57,7 +57,7 @@ export interface InterfaceToastProps extends InterfaceBoxProps<IToastProps> {
    */
   accessibilityLiveRegion?: 'none' | 'polite' | 'assertive';
   /**
-   * If true and the keyboard is opened, the Toast will move up equvivalent to the keyboard height.
+   * If true and the keyboard is opened, the Toast will move up equivalent to the keyboard height.
    * @default false
    */
   avoidKeyboard?: boolean;

@@ -12,8 +12,9 @@ import { StyleSheet } from 'react-native';
 import { useId } from '@react-native-aria/utils';
 import { Overlay } from '../../primitives/Overlay';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-import { uniqueId } from 'lodash';
+import uniqueId from 'lodash.uniqueid';
 import { ResponsiveQueryContext } from '../../../utils/useResponsiveQuery/ResponsiveQueryProvider';
+import { usePropsResolution } from '../../../hooks/useThemeProps';
 
 const Popover = (
   {
@@ -27,10 +28,13 @@ const Popover = (
     finalFocusRef,
     useRNModal,
     trapFocus = true,
+    _backdrop,
     ...props
   }: IPopoverProps,
   ref: any
 ) => {
+  const { _overlay } = usePropsResolution('Popover', props);
+
   const triggerRef = React.useRef(null);
   const mergedRef = mergeRefs([triggerRef]);
   const [isOpen, setIsOpen] = useControllableState({
@@ -91,7 +95,7 @@ const Popover = (
         onRequestClose={handleClose}
         useRNModalOnAndroid
         useRNModal={useRNModal}
-        unmountOnExit
+        {..._overlay}
       >
         <PresenceTransition
           initial={{ opacity: 0 }}
@@ -101,7 +105,7 @@ const Popover = (
           style={StyleSheet.absoluteFill}
         >
           <Popper onClose={handleClose} triggerRef={triggerRef} {...props}>
-            <Backdrop onPress={handleClose} bg="transparent" />
+            <Backdrop onPress={handleClose} bg="transparent" {..._backdrop} />
             <PopoverContext.Provider
               value={{
                 onClose: handleClose,

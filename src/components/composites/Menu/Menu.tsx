@@ -77,6 +77,7 @@ const Menu = (
   if (useHasResponsiveProps(resolvedProps)) {
     return null;
   }
+
   return (
     <>
       {updatedTrigger()}
@@ -86,7 +87,6 @@ const Menu = (
         useRNModalOnAndroid
         useRNModal={useRNModal}
         {..._overlay}
-        unmountOnExit
       >
         <PresenceTransition visible={isOpen} {..._presenceTransition}>
           <Popper

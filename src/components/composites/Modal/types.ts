@@ -32,7 +32,7 @@ export interface InterfaceModalProps extends InterfaceBoxProps<IModalProps> {
    */
   finalFocusRef?: React.RefObject<any>;
   /**
-   * If true and the keyboard is opened, the modal will move up equvivalent to the keyboard height.
+   * If true and the keyboard is opened, the modal will move up equivalent to the keyboard height.
    * @default false
    */
   avoidKeyboard?: boolean;
@@ -81,8 +81,8 @@ export interface InterfaceModalProps extends InterfaceBoxProps<IModalProps> {
    * Props to be passed to the Overlay used inside of Modal.
    */
   _overlay?: IOverlayProps;
-
-  /* If true, renders react-native native modal
+  /**
+   * If true, renders react-native native modal
    * @default false
    */
   useRNModal?: boolean;

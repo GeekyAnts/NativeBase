@@ -123,6 +123,11 @@ NativeBase 3.0 is a rich component library with nearly 40 components.
 
 JavaScript, React Native, Styled System
 
+### Made with :heart: at [GeekyAnts](https://geekyants.com/?utm_source=nb-github&utm_medium=landing+page&utm_campaign=nativebase-github-cta)
+NativeBase is an open-source project made by the tech-savvy geeks at GeekyAnts.
+GeekyAnts is a group of React Native experts. Do [get in touch with us](https://geekyants.com/hire/?utm_source=nb-github&utm_medium=landing+page&utm_campaign=nativebase-github-hire-cta) for any help with your React Native project. Always happy to help!
+
+
 ## 10. Compatible Versions
 
 | NativeBase                       | React Native                                               |
@@ -187,3 +192,4 @@ Support this project with your organization. Your logo will show up here with a 
 ## 14. License
 
 Licensed under the MIT License, Copyright © 2021 GeekyAnts. See [LICENSE](https://github.com/GeekyAnts/NativeBase/blob/master/LICENSE) for more information.
+

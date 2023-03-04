@@ -5,7 +5,7 @@ import { useHover } from '@react-native-aria/interactions';
 import { mergeRefs } from '../../../utils/mergeRefs';
 import { makeStyledComponent } from '../../../utils/styled';
 import { useResolvedFontFamily } from '../../../hooks/useResolvedFontFamily';
-import { Text as NativeText } from 'react-native';
+import { Platform, Text as NativeText } from 'react-native';
 import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 
 const StyledText = makeStyledComponent(NativeText);
@@ -49,8 +49,9 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
   let fontFamily = propFontFamily;
   const fontStyle = italic ? 'italic' : propFontStyle;
   const fontWeight = bold ? 'bold' : propFontWeight;
+  let resolvedFontFamily;
 
-  const resolvedFontFamily = useResolvedFontFamily({
+  resolvedFontFamily = useResolvedFontFamily({
     fontFamily,
     fontWeight: fontWeight ?? (hasTextAncestor ? undefined : 400),
     fontStyle: fontStyle ?? (hasTextAncestor ? undefined : 'normal'),
@@ -58,6 +59,18 @@ const Text = ({ children, ...props }: ITextProps, ref: any) => {
 
   if (resolvedFontFamily) {
     fontFamily = resolvedFontFamily;
+  }
+  // Need to apply fontWeight & fontStyle on web
+  if (Platform.OS === 'web') {
+    if (resolvedFontFamily) {
+      fontFamily = resolvedFontFamily.fontFamily;
+    }
+
+    resolvedFontFamily = {
+      fontFamily,
+      fontWeight: fontWeight ?? (hasTextAncestor ? undefined : 400),
+      fontStyle: fontStyle ?? (hasTextAncestor ? undefined : 'normal'),
+    };
   }
 
   //TODO: refactor for responsive prop

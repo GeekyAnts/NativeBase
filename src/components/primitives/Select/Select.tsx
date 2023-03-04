@@ -67,7 +67,7 @@ const Select = (
     onOpen,
     onClose,
     optimized,
-    customDropdownIconProps,
+    _customDropdownIconProps,
     _actionSheet,
     _actionSheetContent,
     _actionSheetBody,
@@ -133,7 +133,7 @@ const Select = (
     ) : dropdownIcon ? (
       dropdownIcon
     ) : (
-      <ChevronDownIcon {...customDropdownIconProps} />
+      <ChevronDownIcon {..._customDropdownIconProps} />
     );
 
   const handleClose = () => {
