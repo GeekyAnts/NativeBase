@@ -36,7 +36,7 @@
       "prettier --write"
     ]
   },
-  "version": "3.4.27",
+  "version": "3.4.28",
   "license": "MIT",
   "private": false,
   "main": "lib/commonjs/index",
@@ -189,7 +189,7 @@
     "@react-native-aria/slider": "^0.2.5-alpha.1",
     "@react-native-aria/tabs": "^0.2.7",
     "@react-native-aria/utils": "^0.2.8",
-    "@react-stately/checkbox": "3.4.0",
+    "@react-stately/checkbox": "3.0.3",
     "@react-stately/collections": "3.3.0",
     "@react-stately/combobox": "3.0.0-alpha.1",
     "@react-stately/radio": "3.2.1",
