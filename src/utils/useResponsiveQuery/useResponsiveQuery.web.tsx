@@ -102,11 +102,28 @@ const getMediaQueryRule = (query: Query, newRule: string) => {
   }
   return undefined;
 };
+let styleSheet: any;
+const insert = (rule: string) => {
+  if (rule === '') {
+    return;
+  }
+  if (typeof window !== 'undefined') {
+    if (!styleSheet) {
+      const styleEl = document.createElement('style');
+      styleEl.type = 'text/css';
+      styleEl.appendChild(document.createTextNode(''));
+      document.head.appendChild(styleEl);
+      styleSheet = styleEl.sheet;
+    }
 
+    styleSheet.insertRule(rule, styleSheet.cssRules.length);
+  }
+};
 const getResponsiveStyles = (
   queries: GetResponsiveStylesParams
 ): GetResponsiveStylesReturnType => {
   const queryString = stableHash(queries.query);
+
   const queriesHash = hash(queryString);
 
   const styles = queries.initial
@@ -117,24 +134,10 @@ const getResponsiveStyles = (
     : undefined;
 
   let dataSet: DataSet = {};
-  let styleSheet: any;
 
   /**
    * This function is copied from intergalacticspacehighway/rnw-responsive-ssr
    */
-  const insert = (rule: string) => {
-    if (typeof window !== 'undefined') {
-      if (!styleSheet) {
-        const styleEl = document.createElement('style');
-        styleEl.type = 'text/css';
-        styleEl.appendChild(document.createTextNode(''));
-        document.head.appendChild(styleEl);
-        styleSheet = styleEl.sheet;
-      }
-
-      styleSheet.insertRule(rule, styleSheet.cssRules.length);
-    }
-  };
 
   if (queries.query) {
     queries.query.forEach((queryRule) => {
@@ -166,8 +169,13 @@ const getResponsiveStyles = (
         });
         if (mediaRules) {
           const mediaQueryRule = getMediaQueryRule(queryRule, mediaRules);
-          insert(`/*${queryHash}{}*/${mediaQueryRule}`);
-          textContentMap[`/*${queryHash}{}*/${mediaQueryRule}`] = true;
+
+          const queryKey = `/*${queryHash}{}*/${mediaQueryRule}`;
+
+          if (!textContentMap[queryKey]) {
+            insert(queryKey);
+            textContentMap[queryKey] = true;
+          }
         }
       }
     });

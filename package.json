@@ -36,7 +36,7 @@
       "prettier --write"
     ]
   },
-  "version": "3.4.25",
+  "version": "3.4.28",
   "license": "MIT",
   "private": false,
   "main": "lib/commonjs/index",
@@ -64,10 +64,11 @@
     "@types/lodash.omit": "^4.5.6",
     "@types/lodash.omitby": "^4.6.6",
     "@types/lodash.pick": "^4.4.6",
+    "@types/lodash.uniqueid": "^4.0.7",
     "@types/react": "^16.9.19",
     "@types/react-native": "~0.63.2",
     "@types/tinycolor2": "^1.4.2",
-    "@types/use-subscription": "^1.0.0",
+    "@types/use-sync-external-store": "^0.0.3",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "commitlint": "^8.3.5",
     "eslint": "^7.10.0",
@@ -178,12 +179,12 @@
   "dependencies": {
     "@react-aria/visually-hidden": "^3.2.1",
     "@react-native-aria/button": "^0.2.4",
-    "@react-native-aria/checkbox": "^0.2.2",
+    "@react-native-aria/checkbox": "^0.2.3",
     "@react-native-aria/combobox": "^0.2.4-alpha.0",
     "@react-native-aria/focus": "^0.2.6",
     "@react-native-aria/interactions": "^0.2.2",
     "@react-native-aria/listbox": "^0.2.4-alpha.3",
-    "@react-native-aria/overlays": "0.3.3-rc.0",
+    "@react-native-aria/overlays": "^0.3.3",
     "@react-native-aria/radio": "^0.2.4",
     "@react-native-aria/slider": "^0.2.5-alpha.1",
     "@react-native-aria/tabs": "^0.2.7",
@@ -207,9 +208,10 @@
     "lodash.omit": "^4.5.0",
     "lodash.omitby": "^4.6.0",
     "lodash.pick": "^4.4.0",
+    "lodash.uniqueid": "^4.0.1",
     "stable-hash": "^0.0.2",
     "tinycolor2": "^1.4.2",
-    "use-subscription": "^1.8.0"
+    "use-sync-external-store": "^1.2.0"
   },
   "directories": {
     "example": "example",

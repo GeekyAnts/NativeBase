@@ -77,7 +77,7 @@ const Modal = (
   if (useHasResponsiveProps(rest)) {
     return null;
   }
-  // console.log('visible here', visible);
+
   return (
     <Overlay
       isOpen={visible}
