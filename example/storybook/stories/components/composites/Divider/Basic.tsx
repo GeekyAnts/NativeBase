@@ -5,7 +5,7 @@ export const Example = () => {
   return (
     <Box alignItems="center">
       <Box w="140">
-        <Heading mx="3" alignItems="center" flexDirection="row">
+        <Heading mx="3" alignItems="center" flexDirection="row" textAlign="center">
           Chrome
         </Heading>
         <Divider
@@ -13,7 +13,7 @@ export const Example = () => {
           _light={{ bg: 'muted.800' }}
           _dark={{ bg: 'muted.50' }}
         />
-        <Heading mx="3" alignItems="center" flexDirection="row">
+        <Heading mx="3" alignItems="center" flexDirection="row" textAlign="center">
           Firefox
         </Heading>
       </Box>
