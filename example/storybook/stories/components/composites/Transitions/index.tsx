@@ -3,6 +3,7 @@ import { storiesOf } from '@storybook/react-native';
 import { withKnobs } from '@storybook/addon-knobs';
 import Wrapper from './../../Wrapper';
 import { Example as Fade } from './Fade';
+import { Example as Loop } from './Loop';
 import { Example as ScaleFade } from './ScaleFade';
 import { Example as Slide } from './Slide';
 import { Example as SlideWrapped } from './SlideWrapped';
@@ -14,6 +15,7 @@ storiesOf('Transitions', module)
   .addDecorator(withKnobs)
   .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
   .add('Fade', () => <Fade />)
+  .add('Loop', () => <Loop />)
   .add('ScaleFade', () => <ScaleFade />)
   .add('Slide', () => <Slide />)
   .add('Slide wrapped inside parent', () => <SlideWrapped />)
