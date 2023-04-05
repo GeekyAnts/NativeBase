@@ -74,6 +74,7 @@ export const Transition = forwardRef(
       exit,
       style,
       as,
+      loop,
       ...rest
     }: ITransitionProps,
     ref: any
@@ -105,8 +106,7 @@ export const Transition = forwardRef(
         const startAnimation = animationState === 'entering' ? 1 : 0;
 
         const transition = startAnimation ? entryTransition : exitTransition;
-
-        Animated.sequence([
+        let animation = Animated.sequence([
           // @ts-ignore - delay is present in defaultTransitionConfig
           Animated.delay(transition.delay),
           Animated[transition.type ?? 'timing'](animateValue, {
@@ -114,7 +114,13 @@ export const Transition = forwardRef(
             useNativeDriver: true,
             ...transition,
           }),
-        ]).start(() => {
+        ]);
+
+        if (loop) {
+          animation = Animated.loop(animation);
+        }
+
+        animation.start(() => {
           if (animationState === 'entering') {
             setAnimationState('entered');
           } else if (animationState === 'exiting') {
