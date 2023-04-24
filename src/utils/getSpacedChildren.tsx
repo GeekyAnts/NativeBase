@@ -75,12 +75,22 @@ const getSpacedChildren = (
       ...spacingProp,
     });
 
+    // childrenArray = childrenArray.map((child: any, index: number) => {
+    //   return (
+    //     <React.Fragment key={child.key ?? `spaced-child-${index}`}>
+    //       {child}
+    //       {index < childrenArray.length - 1 && divider}
+    //     </React.Fragment>
+    //   );
+
     childrenArray = childrenArray.map((child: any, index: number) => {
-      return (
+      return Object.keys(child?.props).length ? (
         <React.Fragment key={child.key ?? `spaced-child-${index}`}>
           {child}
           {index < childrenArray.length - 1 && divider}
         </React.Fragment>
+      ) : (
+        <></>
       );
     });
   } else {
