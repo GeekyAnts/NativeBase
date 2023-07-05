@@ -4,6 +4,7 @@ import {
   Metrics,
   initialWindowMetrics as defaultInitialWindowMetrics,
 } from 'react-native-safe-area-context';
+import { SSRProvider } from '@react-native-aria/utils';
 import { theme as defaultTheme, ITheme } from './../theme';
 import type { IColorModeProviderProps } from './color-mode';
 import HybridProvider from './hybrid-overlay/HybridProvider';
@@ -93,7 +94,7 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
             <OverlayProvider isSSR>
               <ToastProvider>
                 <InitializeToastRef />
-                {children}
+                <SSRProvider>{children}</SSRProvider>
               </ToastProvider>
             </OverlayProvider>
           </HybridProvider>
