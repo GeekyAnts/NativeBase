@@ -183,7 +183,7 @@ const CheckboxComponent = React.memo(
         // @ts-ignore - web only
         onFocus={composeEventHandlers(
           composeEventHandlers(onFocus, focusProps.onFocus)
-          // focusRingProps.onFocu
+          // focusRingProps.onFocus
         )}
         // @ts-ignore - web only
         onBlur={composeEventHandlers(
