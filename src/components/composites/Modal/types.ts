@@ -86,6 +86,12 @@ export interface InterfaceModalProps extends InterfaceBoxProps<IModalProps> {
    * @default false
    */
   useRNModal?: boolean;
+  /**
+   * If true, renders react-native native modal (android only)
+   * We use RN modal on android if needed as it supports shifting accessiblity focus to the opened view. IOS automatically shifts focus if an absolutely placed view appears in front.
+   * @default true
+   */
+  useRNModalOnAndroid?: boolean;
 }
 
 export type IModalComponentType = ((

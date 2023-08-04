@@ -31,6 +31,7 @@ const Actionsheet = (
       {...resolvedProps}
       overlayVisible={disableOverlay ? false : true}
       closeOnOverlayClick={disableOverlay ? false : true}
+      useRNModalOnAndroid={disableOverlay ? false : true}
       ref={ref}
       _overlay={{ style: overlayStyle }}
     >
