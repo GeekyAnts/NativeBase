@@ -20,7 +20,7 @@ export function useResolvedFontFamily(props: {
   let newFontWeight = fontWeight;
 
   const { fontConfig, fontWeights, fonts } = useTheme();
-  if (fontWeight && fontStyle && fontFamily && fontFamily in fonts) {
+  if (fontWeight && fontStyle && fontFamily && fontFamily in fontConfig) {
     // TODO: Fix typing remove any.
     const fontToken: any = fonts[fontFamily];
     if (fontConfig && fontConfig[fontToken]) {
