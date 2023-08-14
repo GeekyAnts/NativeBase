@@ -5,7 +5,7 @@ const { variants, defaultProps } = Badge;
 
 const baseStyle = {
   _text: {
-    fontFamily: Platform.OS === 'ios' ? 'Courier' : 'monospace',
+    fontFamily: Platform.OS === 'ios' ? 'Courier New' : 'monospace',
     fontSize: 'sm',
   },
   borderRadius: 'sm',

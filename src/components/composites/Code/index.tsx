@@ -14,7 +14,7 @@ const Code = ({ ...props }: ICodeProps, ref?: any) => {
   return (
     <Box
       _text={{
-        fontFamily: Platform.OS === 'ios' ? 'Courier' : 'monospace',
+        fontFamily: Platform.OS === 'ios' ? 'Courier New' : 'monospace',
       }}
       {...newProps}
       ref={ref}
