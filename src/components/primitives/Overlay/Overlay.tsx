@@ -55,7 +55,7 @@ export function Overlay({
         <Modal
           statusBarTranslucent
           transparent
-          visible={isOpen}
+          visible={isOpen?isOpen:false}
           onRequestClose={onRequestClose}
           animationType={animationPreset}
         >
