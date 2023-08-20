@@ -7,7 +7,7 @@
 [![npm downloads](https://img.shields.io/npm/dm/native-base.svg)](https://npm-stat.com/charts.html?package=native-base)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/GeekyAnts/NativeBase/blob/master/LICENSE)
 [![Follow on Twitter](https://img.shields.io/twitter/follow/nativebase.svg?label=follow+NativeBase)](https://twitter.com/nativebase)
-[![Github Stars](https://img.shields.io/github/stars/GeekyAnts/NativeBase)](https://img.shields.io/github/stars/GeekyAnts/NativeBase)
+[![GitHub Stars](https://img.shields.io/github/stars/GeekyAnts/NativeBase)](https://img.shields.io/github/stars/GeekyAnts/NativeBase)
 
 **IMPORTANT MESSAGE** — If you are starting a new project with NativeBase, we recommend using [gluestack-ui](https://ui.gluestack.io/) instead. [Know More](https://nativebase.io/blogs/road-ahead-with-gluestack-ui).
 

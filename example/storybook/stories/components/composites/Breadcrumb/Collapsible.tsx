@@ -77,7 +77,7 @@ export const Example = () => {
                   _current={{ color: 'red.500' }}
                 />
                 <Breadcrumb.Text _current={{ color: 'red.500' }}>
-                  Github (This is currently active)
+                  GitHub (This is currently active)
                 </Breadcrumb.Text>
               </HStack>
             </Breadcrumb.Link>
