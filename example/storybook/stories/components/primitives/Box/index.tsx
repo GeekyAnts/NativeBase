@@ -2,7 +2,10 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { withKnobs } from '@storybook/addon-knobs';
 import { Example as Basic } from './basic';
-import { Example as LinearGrad } from './LinearGrad';
+import {
+   Example as LinearGrad,
+   ExampleWithAngle as LinearGradWithAngle 
+} from './LinearGrad';
 import { Example as WithRef } from './WithRef';
 import { Example as Composition } from './composition';
 // import { Example as CompositionCard } from './composition-card';
@@ -17,6 +20,7 @@ storiesOf('Box', module)
   .addDecorator((getStory: any) => <Wrapper>{getStory()}</Wrapper>)
   .add('Basic Box', () => <Basic />)
   .add('LinearGradient Box', () => <LinearGrad />)
+  .add('LinearGradient Box Angle', () => <LinearGradWithAngle />)
   .add('Composition', () => <Composition />)
   .add('With Ref', () => <WithRef />);
 // .add('Composition Card', () => <CompositionCard />)
