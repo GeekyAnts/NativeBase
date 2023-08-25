@@ -11,6 +11,7 @@ export interface InterfaceSpinnerProps
    * Size of Spinner
    */
   size?: ThemeComponentSizeType<'Spinner'>;
+  animating?: boolean;
 
   // variant?:
   //   | 'custom'
