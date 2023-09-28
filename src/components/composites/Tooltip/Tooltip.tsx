@@ -32,9 +32,7 @@ export const Tooltip = ({
 }: ITooltipProps) => {
   if (hasArrow && offset === undefined) {
     offset = 0;
-  } else {
-    offset = 6;
-  }
+  } 
 
   const resolvedProps = usePropsResolution('Tooltip', props);
   const [isOpen, setIsOpen] = useControllableState({
