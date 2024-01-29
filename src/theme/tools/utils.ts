@@ -1,6 +1,6 @@
 import omitBy from 'lodash.omitby';
 import isNil from 'lodash.isnil';
-import pick from 'lodash.pick';
+import { pick } from 'lodash';
 import omit from 'lodash.omit';
 import get from 'lodash.get';
 import type { ITheme } from '../index';
