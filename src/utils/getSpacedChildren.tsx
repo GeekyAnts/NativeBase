@@ -92,7 +92,8 @@ const getSpacedChildren = (
         <React.Fragment key={child.key ?? `spaced-child-${index}`}>
           {child}
           {disableCSSMediaQueries ? (
-            index < childrenArray.length - 1 && <Box {...spacingProp} />
+            index < childrenArray.length - 1 &&
+            space !== undefined && <Box {...spacingProp} />
           ) : (
             <></>
           )}
