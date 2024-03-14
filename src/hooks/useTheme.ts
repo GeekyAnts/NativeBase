@@ -1,6 +1,6 @@
 import { useNativeBaseConfig } from './../core/NativeBaseContext';
 
-export function useTheme() {
+export function useTheme<T = any>(): T {
   const theme = useNativeBaseConfig('useTheme').theme;
   if (!theme) {
     throw Error(
