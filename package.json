@@ -189,6 +189,7 @@
     "@react-native-aria/slider": "^0.2.5-alpha.1",
     "@react-native-aria/tabs": "^0.2.7",
     "@react-native-aria/utils": "^0.2.8",
+    "@react-native-clipboard/clipboard": "^1.14.1",
     "@react-stately/checkbox": "3.0.3",
     "@react-stately/collections": "3.3.0",
     "@react-stately/combobox": "3.0.0-alpha.1",
