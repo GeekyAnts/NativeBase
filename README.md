@@ -1,3 +1,4 @@
+# ⛔️ DEPRECATED
 # NativeBase ↔ gluestack
 
 > 🚀 NativeBase is evolving into gluestack-ui! What was planned as NativeBase v4 is now available as gluestack-ui - our next-generation component library built for better performance, enhanced customization, and improved developer experience. Visit [gluestack.io](http://gluestack.io) to get started!
