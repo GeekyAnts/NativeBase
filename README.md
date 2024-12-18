@@ -1,3 +1,11 @@
+# NativeBase ↔ gluestack
+
+> 🚀 NativeBase is evolving into gluestack-ui! What was planned as NativeBase v4 is now available as gluestack-ui - our next-generation component library built for better performance, enhanced customization, and improved developer experience. Visit [gluestack.io](http://gluestack.io) to get started!
+
+## Important Notice: Evolution to gluestack-ui
+
+NativeBase is entering maintenance mode as we evolve into gluestack-ui. This transition represents our commitment to providing the React Native community with more powerful, flexible, and performant UI components. If you are starting a new project with NativeBase, we recommend using [gluestack-ui](https://ui.gluestack.io/) instead. [Know More](https://nativebase.io/blogs/road-ahead-with-gluestack-ui).
+
 # <img src="https://raw.githubusercontent.com/GeekyAnts/NativeBase/master/img/header_new.png" alt="Nativebase Logo">
 
 [![Financial Contributors on Open Collective](https://opencollective.com/NativeBase/all/badge.svg?label=financial+contributors)](https://opencollective.com/NativeBase)
@@ -8,8 +16,6 @@
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/GeekyAnts/NativeBase/blob/master/LICENSE)
 [![Follow on Twitter](https://img.shields.io/twitter/follow/nativebase.svg?label=follow+NativeBase)](https://twitter.com/nativebase)
 [![Github Stars](https://img.shields.io/github/stars/GeekyAnts/NativeBase)](https://img.shields.io/github/stars/GeekyAnts/NativeBase)
-
-**IMPORTANT MESSAGE** — If you are starting a new project with NativeBase, we recommend using [gluestack-ui](https://ui.gluestack.io/) instead. [Know More](https://nativebase.io/blogs/road-ahead-with-gluestack-ui).
 
 ## NativeBase is a mobile-first, accessible component library for building a consistent design system across android, iOS & web.
 
