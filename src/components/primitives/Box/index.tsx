@@ -1,14 +1,14 @@
-import React, { memo, forwardRef } from 'react';
+import React, { forwardRef, memo } from 'react';
 import { View } from 'react-native';
+import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
+import { useTheme } from '../../../hooks';
+import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import { useSafeArea } from '../../../hooks/useSafeArea';
 import { usePropsResolution } from '../../../hooks/useThemeProps';
 import { getColor } from '../../../theme';
-import { useTheme } from '../../../hooks';
 import { makeStyledComponent } from '../../../utils/styled';
 import { wrapStringChild } from '../../../utils/wrapStringChild';
-import type { IBoxProps, InterfaceBoxProps } from './types';
-import { useSafeArea } from '../../../hooks/useSafeArea';
-import { useNativeBaseConfig } from '../../../core/NativeBaseContext';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
+import type { IBoxProps, InterfaceBoxProps, LinearGradientBaseProps, LinearGradientProps } from './types';
 
 const StyledBox = makeStyledComponent(View);
 
@@ -50,20 +50,43 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
       lgrad.colors = lgrad.colors?.map((color: string) => {
         return getColor(color, theme.colors, theme);
       });
-      let startObj = { x: 0, y: 0 };
-      let endObj = { x: 0, y: 1 };
-      if (lgrad.start && lgrad.start.length === 2) {
-        startObj = {
-          x: lgrad.start[0],
-          y: lgrad.start[1],
-        };
+
+      let linearGradientBaseProps: LinearGradientBaseProps = {
+        colors: lgrad.colors,
+        locations: lgrad.locations,
+      };
+
+      let linearGradientProps: LinearGradientProps;
+
+      if(lgrad.useAngle) {
+        linearGradientProps = {
+          ...linearGradientBaseProps,
+          useAngle: lgrad.useAngle,
+          angle: lgrad.angle,
+          angleCenter: lgrad.angleCenter,
+        }
+      } else {
+        let startObj = { x: 0, y: 0 };
+        let endObj = { x: 0, y: 1 };
+        if (lgrad.start && lgrad.start.length === 2) {
+          startObj = {
+            x: lgrad.start[0],
+            y: lgrad.start[1],
+          };
+        }
+        if (lgrad.end && lgrad.end.length === 2) {
+          endObj = {
+            x: lgrad.end[0],
+            y: lgrad.end[1],
+          };
+        }
+        linearGradientProps = {
+          ...linearGradientBaseProps,
+          start: startObj,
+          end: endObj,
+        }
       }
-      if (lgrad.end && lgrad.end.length === 2) {
-        endObj = {
-          x: lgrad.end[0],
-          y: lgrad.end[1],
-        };
-      }
+      
       const backgroundColorProps = [
         'bg',
         'bgColor',
@@ -79,10 +102,7 @@ const Box = ({ children, ...props }: IBoxProps, ref: any) => {
         <Gradient
           ref={ref}
           {...safeAreaProps}
-          colors={lgrad.colors}
-          start={startObj}
-          end={endObj}
-          locations={lgrad.locations}
+          {...linearGradientProps}
         >
           {/* {React.Children.map(children, (child) =>
             typeof child === 'string' || typeof child === 'number' ? (
