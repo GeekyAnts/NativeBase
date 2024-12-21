@@ -19,6 +19,8 @@ const Link = ({ isHovered: isHoveredProp, ...props }: ILinkProps, ref: any) => {
     _text,
     href,
     onPress,
+    accessibilityLabel,
+    accessibilityHint,
     isExternal,
     ...resolvedProps
   } = usePropsResolution('Link', props, {
@@ -53,6 +55,8 @@ const Link = ({ isHovered: isHoveredProp, ...props }: ILinkProps, ref: any) => {
           _text={linkTextProps}
           ref={mergeRefs([ref, _ref])}
           flexDirection="row"
+          accessibilityLabel={accessibilityLabel}
+          accessibilityHint={accessibilityHint}
         >
           {children}
         </Box>
@@ -65,7 +69,12 @@ const Link = ({ isHovered: isHoveredProp, ...props }: ILinkProps, ref: any) => {
         >
           {React.Children.map(children, (child) =>
             typeof child === 'string' || typeof child === 'number' ? (
-              <Text {...resolvedProps._text} {...linkTextProps}>
+              <Text
+                accessibilityLabel={accessibilityLabel}
+                accessibilityHint={accessibilityHint}
+                {...resolvedProps._text}
+                {...linkTextProps}
+              >
                 {child}
               </Text>
             ) : (
