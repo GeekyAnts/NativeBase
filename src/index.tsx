@@ -176,6 +176,10 @@ import {
   IZStackProps,
   Overlay,
   IOverlayProps,
+  useFocus,
+  useHover,
+  useIsPressed,
+  IRadioContext
 } from './components/primitives';
 
 export * from './components/basic';
@@ -365,6 +369,10 @@ export type {
   IScrollViewProps,
   IStackProps,
   IWrapProps,
+  useFocus,
+  useHover,
+  useIsPressed,
+  IRadioContext
 };
 
 export type { StyledProps } from './theme/types';
