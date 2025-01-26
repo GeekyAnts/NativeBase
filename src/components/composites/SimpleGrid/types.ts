@@ -1,9 +1,9 @@
+import type { ResponsiveValue } from '../../../components/types';
 import type { InterfaceBoxProps } from '../../primitives/Box/types';
 
 export type ISimpleGridProps = InterfaceBoxProps<ISimpleGridProps> & {
-  space?: number;
-  columns?: number;
-  minChildWidth?: number;
-  spacingX?: number;
-  spacingY?: number;
+  space?: ResponsiveValue<number>;
+  columns?: ResponsiveValue<number>;
+  spacingX?: ResponsiveValue<number>;
+  spacingY?: ResponsiveValue<number>;
 };
