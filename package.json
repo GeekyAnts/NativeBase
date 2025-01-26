@@ -96,13 +96,13 @@
     "visualize-bundle": "^1.4.0"
   },
   "peerDependencies": {
-    "@types/react": "*",
-    "@types/react-native": "*",
-    "react": "*",
-    "react-dom": "*",
-    "react-native": "*",
-    "react-native-safe-area-context": "*",
-    "react-native-svg": "*"
+    "@types/react": ">=16.9.19",
+    "@types/react-native": ">=0.63.2",
+    "react": ">=17.0.1",
+    "react-dom": ">=17.0.1",
+    "react-native": ">=0.63.2",
+    "react-native-safe-area-context": ">=3.1.9",
+    "react-native-svg": ">=12.1.0"
   },
   "jest": {
     "preset": "jest-expo",
@@ -234,3 +234,4 @@
     "cli.js"
   ]
 }
+
