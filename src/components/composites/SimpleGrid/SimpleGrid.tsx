@@ -8,10 +8,10 @@ import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
 const DEBUG_STYLES = false
   ? {
       rows: {
-        borderWidth: '1px',
+        borderWidth: 1,
       },
       cols: {
-        borderWidth: '1px',
+        borderWidth: 1,
       },
     }
   : {

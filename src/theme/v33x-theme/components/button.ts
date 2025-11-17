@@ -65,7 +65,7 @@ function variantGhost(props: Dict) {
     },
     bg: 'transparent',
     _web: {
-      outlineWidth: '0',
+      outlineWidth: 0,
     },
     _hover: {
       borderColor: mode(`${c}.500`, `${c}.200`)(props),
@@ -89,7 +89,7 @@ function variantOutline(props: Dict) {
   const { colorScheme: c } = props;
   const borderColor = mode(`muted.200`, `muted.500`)(props);
   return {
-    borderWidth: '1',
+    borderWidth: 1,
     borderColor:
       c === 'muted'
         ? borderColor
@@ -109,7 +109,7 @@ function variantSolid(props: Dict) {
 
   const styleObject = {
     _web: {
-      outlineWidth: '0',
+      outlineWidth: 0,
     },
     bg,
     _hover: {
@@ -166,7 +166,7 @@ function variantSubtle(props: Dict) {
       color: color,
     },
     _web: {
-      outlineWidth: '0',
+      outlineWidth: 0,
     },
     bg,
     _hover: {

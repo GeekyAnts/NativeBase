@@ -43,7 +43,7 @@ export const PopoverHeader = {
     },
     py: '4',
     px: '3',
-    borderBottomWidth: '1',
+    borderBottomWidth: 1,
     borderColor: mode('coolGray.200', 'gray.600')(props),
     _text: {
       fontSize: 'md',

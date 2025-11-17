@@ -23,7 +23,7 @@ const baseStyle = (props: any) => {
     _focusVisible: {
       _web: {
         style: {
-          outlineWidth: '2px',
+          outlineWidth: 2,
           outlineColor: `${colors[colorScheme][600]}`,
           outlineStyle: 'solid',
         },
@@ -39,7 +39,7 @@ const baseStyle = (props: any) => {
       _focusVisible: {
         _web: {
           style: {
-            outlineWidth: '2px',
+            outlineWidth: 2,
             outlineColor: `${colors[colorScheme][500]}`,
             outlineStyle: 'solid',
           },
@@ -76,7 +76,7 @@ function variantGhost({ colorScheme }: Record<string, any>) {
 
 function variantOutline({ colorScheme }: Record<string, any>) {
   return {
-    borderWidth: '1px',
+    borderWidth: 1,
     borderColor: `${colorScheme}.600`,
     _icon: {
       color: `${colorScheme}.600`,

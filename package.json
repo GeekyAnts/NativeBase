@@ -16,7 +16,7 @@
   "scripts": {
     "test": "node_modules/.bin/jest",
     "typescript": "tsc --noEmit",
-    "prepare": "bob build",
+    "prepare": "echo 'skip native-base build'",
     "release": "release-it",
     "example": "yarn --cwd example",
     "pods": "cd example && pod-install --quiet",
@@ -36,9 +36,9 @@
       "prettier --write"
     ]
   },
-  "version": "3.4.28",
+  "version": "3.4.28-napp.0",
   "license": "MIT",
-  "private": false,
+  "private": true,
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/src/index.d.ts",

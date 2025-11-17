@@ -122,7 +122,7 @@ export const ModalHeader = {
   baseStyle: () => {
     return {
       p: '4',
-      borderBottomWidth: '1',
+      borderBottomWidth: 1,
       _text: {
         color: 'text.900',
         fontSize: 'md',

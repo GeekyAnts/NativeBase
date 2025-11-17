@@ -50,7 +50,7 @@ const baseStyle = (props: Record<string, any>) => {
       borderColor: mode('primary.400', 'primary.500')(props),
     },
     _web: {
-      outlineWidth: '0',
+      outlineWidth: 0,
       overflow: 'auto',
       lineHeight: 'lg', // Todo: Move to _web inside size so that sm and xs don't have this much height
       outline: 'none',
@@ -72,7 +72,7 @@ const baseStyle = (props: Record<string, any>) => {
 function roundedStyle(props: Record<string, any>) {
   return {
     borderRadius: '25',
-    borderWidth: '1',
+    borderWidth: 1,
     _hover: {
       bg: mode('gray.100', 'gray.700')(props),
     },
@@ -80,7 +80,7 @@ function roundedStyle(props: Record<string, any>) {
 }
 function outlineStyle(props: Record<string, any>) {
   return {
-    borderWidth: '1',
+    borderWidth: 1,
     _hover: {
       bg: mode('gray.100', 'gray.700')(props),
     },
@@ -89,7 +89,7 @@ function outlineStyle(props: Record<string, any>) {
 function filledStyle(props: Record<string, any>) {
   return {
     bg: props.bg || mode('muted.200', 'muted.600')(props),
-    borderWidth: '1',
+    borderWidth: 1,
     borderColor: 'transparent',
     _hover: {
       bg: mode('muted.300', 'muted.700')(props),
@@ -98,16 +98,16 @@ function filledStyle(props: Record<string, any>) {
 }
 function unstyledStyle() {
   return {
-    borderWidth: '0',
+    borderWidth: 0,
   };
 }
 function underlinedStyle() {
   return {
     borderRadius: '0',
-    borderTopWidth: '0',
-    borderLeftWidth: '0',
-    borderRightWidth: '0',
-    borderBottomWidth: '1',
+    borderTopWidth: 0,
+    borderLeftWidth: 0,
+    borderRightWidth: 0,
+    borderBottomWidth: 1,
   };
 }
 

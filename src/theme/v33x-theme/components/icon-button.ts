@@ -57,7 +57,7 @@ function variantGhost(props: Dict) {
 function variantOutline(props: Dict) {
   const { colorScheme } = props;
   return {
-    borderWidth: '1',
+    borderWidth: 1,
     borderColor: `${colorScheme}.300`,
     _icon: {
       color: mode(`${colorScheme}.500`, `${colorScheme}.300`)(props),

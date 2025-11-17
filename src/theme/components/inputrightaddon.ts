@@ -2,8 +2,8 @@ const baseStyle = () => {
   return {
     // roundedRight: '4',
     p: '2',
-    borderWidth: '1',
-    borderLeftWidth: '0',
+    borderWidth: 1,
+    borderLeftWidth: 0,
     borderRightRadius: 'sm',
     _text: {
       color: 'text.900',

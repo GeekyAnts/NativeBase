@@ -90,7 +90,7 @@ export const PopoverHeader = {
       accessibilityRole: 'header',
     },
     p: '4',
-    borderBottomWidth: '1',
+    borderBottomWidth: 1,
     _text: {
       fontSize: 'md',
       fontWeight: '700',

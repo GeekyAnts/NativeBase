@@ -110,7 +110,7 @@ const baseStyle = (props: Record<string, any>) => {
     _focusVisible: {
       _web: {
         style: {
-          outlineWidth: '2px',
+          outlineWidth: 2,
           outlineColor: colors[c][400],
           outlineStyle: 'solid',
         },

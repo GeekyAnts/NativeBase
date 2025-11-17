@@ -122,7 +122,7 @@ export const AlertDialogHeader = {
   baseStyle: () => {
     return {
       p: '4',
-      borderBottomWidth: '1',
+      borderBottomWidth: 1,
       _text: {
         color: 'text.900',
         fontSize: 'md',
@@ -168,7 +168,7 @@ export const AlertDialogFooter = {
       flexDirection: 'row',
       justifyContent: 'flex-end',
       flexWrap: 'wrap',
-      borderTopWidth: '1',
+      borderTopWidth: 1,
       bg: 'muted.50',
       borderColor: 'muted.300',
 

@@ -20,7 +20,7 @@ function variantSolid(props: InterfaceBadgeProps & { colorScheme: any }) {
       color: 'text.50',
     },
     bg: `${colorScheme}.600`,
-    borderWidth: '1',
+    borderWidth: 1,
     borderColor: 'transparent',
     borderRadius: '2',
   };
@@ -33,7 +33,7 @@ function variantSubtle(props: InterfaceBadgeProps & { colorScheme: any }) {
     _icon: { color: `${colorScheme}.900` },
     bg: `${colorScheme}.100`,
     _dark: { bg: `${colorScheme}.300` },
-    borderWidth: '1',
+    borderWidth: 1,
     borderRadius: '2',
     borderColor: 'transparent',
   };
@@ -55,7 +55,7 @@ function variantOutline(props: InterfaceBadgeProps & { colorScheme: any }) {
       borderColor: `${colorScheme}.300`,
     },
     borderRadius: '2',
-    borderWidth: '1',
+    borderWidth: 1,
   };
 }
 

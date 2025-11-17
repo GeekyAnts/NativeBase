@@ -20,14 +20,14 @@ const baseStyle = (props: InterfaceButtonProps & { theme: any }) => {
     },
     _focusVisible: {
       _web: {
-        outlineWidth: '0',
+        outlineWidth: 0,
         style: { boxShadow: `${primary[400]} 0px 0px 0px 2px` },
       },
     },
     _dark: {
       _focusVisible: {
         _web: {
-          outlineWidth: '0',
+          outlineWidth: 0,
           style: { boxShadow: `${primary[500]} 0px 0px 0px 2px` },
         },
       },
@@ -89,7 +89,7 @@ function variantGhost({ colorScheme }: InterfaceButtonProps) {
 
 function variantOutline({ colorScheme }: InterfaceButtonProps) {
   return {
-    borderWidth: '1px',
+    borderWidth: 1,
     borderColor: 'muted.300',
     _text: {
       color: `${colorScheme}.600`,
