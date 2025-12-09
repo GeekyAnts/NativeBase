@@ -7,7 +7,7 @@ import {
   HStack,
   Icon,
   Center,
-} from 'native-base';
+} from '@bilwifi/native-base';
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 
 export const Example = () => {

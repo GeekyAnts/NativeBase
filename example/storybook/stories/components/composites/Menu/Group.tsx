@@ -1,5 +1,11 @@
 import React from 'react';
-import { Menu, Divider, HamburgerIcon, Box, Pressable } from 'native-base';
+import {
+  Menu,
+  Divider,
+  HamburgerIcon,
+  Box,
+  Pressable,
+} from '@bilwifi/native-base';
 
 export function Example() {
   return (

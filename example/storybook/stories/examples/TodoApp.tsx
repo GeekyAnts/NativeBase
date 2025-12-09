@@ -11,7 +11,7 @@ import {
   Icon,
   Center,
   useToast,
-} from 'native-base';
+} from '@bilwifi/native-base';
 import { Feather, Entypo } from '@expo/vector-icons';
 
 export const Example = () => {

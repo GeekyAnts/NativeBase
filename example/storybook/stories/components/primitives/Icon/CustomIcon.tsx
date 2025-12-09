@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon, Center } from 'native-base';
+import { Icon, Center } from '@bilwifi/native-base';
 import { Path, G } from 'react-native-svg';
 export const Example = () => {
   return (

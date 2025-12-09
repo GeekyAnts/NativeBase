@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tag, Avatar } from 'native-base';
+import { Tag, Avatar } from '@bilwifi/native-base';
 
 export const Example = () => {
   return (

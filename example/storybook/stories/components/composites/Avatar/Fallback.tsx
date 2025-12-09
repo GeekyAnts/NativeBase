@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar, HStack } from 'native-base';
+import { Avatar, HStack } from '@bilwifi/native-base';
 
 export const Example = () => {
   return (

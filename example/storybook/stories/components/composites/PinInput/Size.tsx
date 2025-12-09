@@ -1,5 +1,5 @@
 import React from 'react';
-import { PinInput, Stack } from 'native-base';
+import { PinInput, Stack } from '@bilwifi/native-base';
 
 export const Example = () => {
   return (

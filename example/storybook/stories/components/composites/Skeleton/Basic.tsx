@@ -1,5 +1,5 @@
 import React from 'react';
-import { Skeleton, VStack, Center } from 'native-base';
+import { Skeleton, VStack, Center } from '@bilwifi/native-base';
 export const Example = () => {
   return (
     <Center w="100%">

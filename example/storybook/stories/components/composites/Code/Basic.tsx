@@ -1,5 +1,5 @@
 import React from 'react';
-import { Code } from 'native-base';
+import { Code } from '@bilwifi/native-base';
 export const Example = () => {
   return <Code>Hello World!</Code>;
 };

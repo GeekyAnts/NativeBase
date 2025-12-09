@@ -1,5 +1,11 @@
 import React from 'react';
-import { Hidden, Button, Image, useColorMode, Center } from 'native-base';
+import {
+  Hidden,
+  Button,
+  Image,
+  useColorMode,
+  Center,
+} from '@bilwifi/native-base';
 
 export const Example = () => {
   const { toggleColorMode } = useColorMode();
@@ -20,8 +26,7 @@ export const Example = () => {
             w="150"
             h="150"
             source={{
-              uri:
-                'https://images.unsplash.com/photo-1561566482-5fa7e82d88b7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80',
+              uri: 'https://images.unsplash.com/photo-1561566482-5fa7e82d88b7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80',
             }}
             alt="image"
           />
@@ -33,8 +38,7 @@ export const Example = () => {
             w="150"
             h="150"
             source={{
-              uri:
-                'https://images.unsplash.com/photo-1590083948603-b270aff24cc1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80',
+              uri: 'https://images.unsplash.com/photo-1590083948603-b270aff24cc1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80',
             }}
             alt="image"
           />

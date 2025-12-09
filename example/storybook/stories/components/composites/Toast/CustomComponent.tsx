@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, useToast, Box, Center } from 'native-base';
+import { Button, useToast, Box, Center } from '@bilwifi/native-base';
 
 export const Example = () => {
   const toast = useToast();

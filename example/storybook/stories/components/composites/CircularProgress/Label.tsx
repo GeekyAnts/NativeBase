@@ -1,5 +1,5 @@
 import React from 'react';
-import { CircularProgress, Heading, Center } from 'native-base';
+import { CircularProgress, Heading, Center } from '@bilwifi/native-base';
 export const Example = () => {
   return (
     <Center>

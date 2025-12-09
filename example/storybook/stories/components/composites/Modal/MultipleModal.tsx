@@ -7,7 +7,7 @@ import {
   Text,
   Radio,
   Center,
-} from 'native-base';
+} from '@bilwifi/native-base';
 import { useState } from 'react';
 
 export const Example = () => {

@@ -1,5 +1,11 @@
 import React from 'react';
-import { useMediaQuery, HStack, VStack, Center, Skeleton } from 'native-base';
+import {
+  useMediaQuery,
+  HStack,
+  VStack,
+  Center,
+  Skeleton,
+} from '@bilwifi/native-base';
 
 export const Example = () => {
   const [isSmallScreen] = useMediaQuery({

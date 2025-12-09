@@ -1,5 +1,5 @@
 import React from 'react';
-import { HStack, Center } from 'native-base';
+import { HStack, Center } from '@bilwifi/native-base';
 
 export function Example() {
   return (

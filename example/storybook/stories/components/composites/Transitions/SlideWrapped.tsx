@@ -10,7 +10,7 @@ import {
   Text,
   CheckIcon,
   Center,
-} from 'native-base';
+} from '@bilwifi/native-base';
 
 export const Example = () => {
   const [isOpen, setIsOpen] = React.useState(false);

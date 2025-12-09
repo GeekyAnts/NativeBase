@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Modal, Center } from 'native-base';
+import { Button, Modal, Center } from '@bilwifi/native-base';
 import { useState } from 'react';
 
 export const Example = () => {

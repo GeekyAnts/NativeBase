@@ -1,6 +1,13 @@
 // @ts-nocheck
 import React from 'react';
-import { Modal, Button, ScrollView, Text, Center, VStack } from 'native-base';
+import {
+  Modal,
+  Button,
+  ScrollView,
+  Text,
+  Center,
+  VStack,
+} from '@bilwifi/native-base';
 
 export function Example() {
   const [modalVisible, setModalVisible] = React.useState(false);

@@ -10,7 +10,7 @@ import {
   Button,
   HStack,
   Center,
-} from 'native-base';
+} from '@bilwifi/native-base';
 
 export const Example = () => {
   return (

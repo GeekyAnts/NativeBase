@@ -7,7 +7,7 @@ import {
   VStack,
   Heading,
   Center,
-} from 'native-base';
+} from '@bilwifi/native-base';
 import { Platform } from 'react-native';
 
 export const Example = () => {

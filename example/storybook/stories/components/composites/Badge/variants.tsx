@@ -1,6 +1,6 @@
 //@ts-nocheck
 import React from 'react';
-import { Badge, HStack, VStack, Box } from 'native-base';
+import { Badge, HStack, VStack, Box } from '@bilwifi/native-base';
 
 export function Example() {
   return (

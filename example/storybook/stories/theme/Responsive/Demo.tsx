@@ -1,5 +1,13 @@
 import React from 'react';
-import { Box, HStack, Image, Text, Center, Stack, Heading } from 'native-base';
+import {
+  Box,
+  HStack,
+  Image,
+  Text,
+  Center,
+  Stack,
+  Heading,
+} from '@bilwifi/native-base';
 
 export const Example = () => {
   return (
@@ -22,8 +30,7 @@ export const Example = () => {
           w={['100%', '100%', '40']}
           h="40"
           source={{
-            uri:
-              'https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg',
+            uri: 'https://www.holidify.com/images/cmsuploads/compressed/Bangalore_citycover_20190613234056.jpg',
           }}
           alt="image"
         />

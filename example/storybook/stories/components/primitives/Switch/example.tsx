@@ -1,5 +1,5 @@
 import React from 'react';
-import { VStack, Switch } from 'native-base';
+import { VStack, Switch } from '@bilwifi/native-base';
 import { select, boolean } from '@storybook/addon-knobs';
 
 export const Example = () => {

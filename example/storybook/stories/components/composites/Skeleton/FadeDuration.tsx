@@ -1,5 +1,5 @@
 import React from 'react';
-import { Skeleton, Stack } from 'native-base';
+import { Skeleton, Stack } from '@bilwifi/native-base';
 export const Example = () => {
   return (
     <Stack w="50%">

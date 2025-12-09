@@ -1,5 +1,10 @@
 import React from 'react';
-import { Heading, VStack, NativeBaseProvider, extendTheme } from 'native-base';
+import {
+  Heading,
+  VStack,
+  NativeBaseProvider,
+  extendTheme,
+} from '@bilwifi/native-base';
 
 export const Example = () => {
   const theme = extendTheme({

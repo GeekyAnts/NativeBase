@@ -7,7 +7,7 @@ import {
   HStack,
   Avatar,
   Center,
-} from 'native-base';
+} from '@bilwifi/native-base';
 
 export const Content = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -28,16 +28,14 @@ export const Content = () => {
       <HStack space={2} mt={3}>
         <Avatar
           source={{
-            uri:
-              'https://pbs.twimg.com/profile_images/1309797238651060226/18cm6VhQ_400x400.jpg',
+            uri: 'https://pbs.twimg.com/profile_images/1309797238651060226/18cm6VhQ_400x400.jpg',
           }}
         >
           Ankur
         </Avatar>
         <Avatar
           source={{
-            uri:
-              'https://pbs.twimg.com/profile_images/1260766060401188864/ySJfMIbZ_400x400.jpg',
+            uri: 'https://pbs.twimg.com/profile_images/1260766060401188864/ySJfMIbZ_400x400.jpg',
           }}
         >
           Rohit

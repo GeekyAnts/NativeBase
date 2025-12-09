@@ -1,5 +1,5 @@
 import React from 'react';
-import { Radio, Stack } from 'native-base';
+import { Radio, Stack } from '@bilwifi/native-base';
 
 export const Example = () => {
   return (

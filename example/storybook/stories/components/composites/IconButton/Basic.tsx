@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconButton, Icon, Box } from 'native-base';
+import { IconButton, Icon, Box } from '@bilwifi/native-base';
 import { Entypo } from '@expo/vector-icons';
 
 export const Example = () => {

@@ -8,7 +8,7 @@ import {
   IconButton,
   Box,
   CloseIcon,
-} from 'native-base';
+} from '@bilwifi/native-base';
 
 export function Example() {
   return (

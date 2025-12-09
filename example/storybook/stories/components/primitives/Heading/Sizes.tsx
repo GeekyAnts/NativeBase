@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heading, VStack } from 'native-base';
+import { Heading, VStack } from '@bilwifi/native-base';
 
 export function Example() {
   return (

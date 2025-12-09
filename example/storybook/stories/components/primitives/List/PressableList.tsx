@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, Heading, Box } from 'native-base';
+import { List, Heading, Box } from '@bilwifi/native-base';
 
 export const Example = () => {
   const [defaultColor, setDefaultColor] = React.useState('primary.400');

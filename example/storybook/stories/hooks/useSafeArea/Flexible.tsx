@@ -1,5 +1,5 @@
 import React from 'react';
-import { NativeBaseProvider, Text, Box } from 'native-base';
+import { NativeBaseProvider, Text, Box } from '@bilwifi/native-base';
 function MyComponent() {
   return (
     // This would look different on devices with different insets

@@ -9,7 +9,7 @@ import {
   CloseIcon,
   Box,
   Text,
-} from 'native-base';
+} from '@bilwifi/native-base';
 
 export function Example() {
   const [show, setShow] = React.useState(true);

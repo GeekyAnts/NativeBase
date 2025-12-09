@@ -12,8 +12,8 @@ import {
   extendTheme,
   Button,
   Input,
-} from 'native-base';
-import type { StorageManager } from 'native-base';
+} from '@bilwifi/native-base';
+import type { StorageManager } from '@bilwifi/native-base';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import Config from '../../../nativebase.config';
@@ -105,7 +105,7 @@ const myTheme = extendTheme({
 });
 
 type MyThemeType = typeof myTheme;
-declare module 'native-base' {
+declare module '@bilwifi/native-base' {
   interface ICustomTheme extends MyThemeType {}
 }
 

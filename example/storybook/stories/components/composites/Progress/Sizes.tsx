@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Progress, VStack, Center } from 'native-base';
+import { Box, Progress, VStack, Center } from '@bilwifi/native-base';
 
 export const Example = () => {
   return (

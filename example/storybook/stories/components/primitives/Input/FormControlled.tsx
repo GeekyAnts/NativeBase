@@ -1,5 +1,10 @@
 import React from 'react';
-import { Input, FormControl, WarningOutlineIcon, Box } from 'native-base';
+import {
+  Input,
+  FormControl,
+  WarningOutlineIcon,
+  Box,
+} from '@bilwifi/native-base';
 
 export const Example = () => {
   return (

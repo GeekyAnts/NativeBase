@@ -7,7 +7,7 @@ import {
   Box,
   Text,
   Center,
-} from 'native-base';
+} from '@bilwifi/native-base';
 import { Path } from 'react-native-svg';
 import { MaterialIcons, Ionicons } from '@expo/vector-icons';
 

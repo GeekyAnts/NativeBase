@@ -5,7 +5,7 @@ import {
   extendTheme,
   Center,
   VStack,
-} from 'native-base';
+} from '@bilwifi/native-base';
 
 export const Example = () => {
   const theme = extendTheme({

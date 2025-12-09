@@ -6,7 +6,7 @@ import {
   Container,
   WarningOutlineIcon,
   Box,
-} from 'native-base';
+} from '@bilwifi/native-base';
 
 export const Example = () => {
   const [groupValue, setGroupValue] = React.useState(['Phone', 'Email']);

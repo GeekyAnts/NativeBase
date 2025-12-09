@@ -1,5 +1,5 @@
 import React from 'react';
-import { Code, Stack } from 'native-base';
+import { Code, Stack } from '@bilwifi/native-base';
 export const Example = () => {
   return (
     <Stack space={4}>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { List } from 'native-base';
+import { List } from '@bilwifi/native-base';
 import { SimpleLineIcons, Ionicons } from '@expo/vector-icons';
 export const Example = () => {
   return (

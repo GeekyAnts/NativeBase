@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "native-base": ["../src/index"]
+      "@bilwifi/native-base": ["../src/index"]
     },
     "allowSyntheticDefaultImports": true,
     "jsx": "react-native",

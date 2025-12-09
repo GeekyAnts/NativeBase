@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTheme } from 'native-base';
+import { useTheme } from '@bilwifi/native-base';
 import { Platform } from 'react-native';
 import type { IHiddenProps } from './types';
 import { useColorMode } from '../../../core/color-mode/hooks';

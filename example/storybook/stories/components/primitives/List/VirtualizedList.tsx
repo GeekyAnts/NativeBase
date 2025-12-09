@@ -1,6 +1,6 @@
 import React from 'react';
 import { VirtualizedList } from 'react-native';
-import { List } from 'native-base';
+import { List } from '@bilwifi/native-base';
 
 const DATA = [];
 

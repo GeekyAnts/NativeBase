@@ -8,7 +8,7 @@ import {
   VStack,
   Text,
   Center,
-} from 'native-base';
+} from '@bilwifi/native-base';
 
 export function Example() {
   return (

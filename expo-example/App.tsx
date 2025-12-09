@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Switch } from 'react-native';
 import { CustomButtonScreen } from './custompressablescreen';
 import { NativeBaseScreen } from './nativebase';
 import { RNButtonScreen } from './reactnativescreen';
-import { NativeBaseProvider, extendTheme } from 'native-base';
+import { NativeBaseProvider, extendTheme } from '@bilwifi/native-base';
 import { DripsyProvider, makeTheme } from 'dripsy';
 
 import { LogBox } from 'react-native';

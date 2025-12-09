@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tooltip, Button, Center } from 'native-base';
+import { Tooltip, Button, Center } from '@bilwifi/native-base';
 
 export function Example() {
   return (

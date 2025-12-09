@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StatusBar, Box, Text, Button } from 'native-base';
+import { StatusBar, Box, Text, Button } from '@bilwifi/native-base';
 
 export const Example = () => {
   const [hidden, setHidden] = useState(false);

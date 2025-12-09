@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Center, VStack, useContrastText } from 'native-base';
+import { Button, Center, VStack, useContrastText } from '@bilwifi/native-base';
 export const Example = () => {
   const bgDark = 'coolGray.900';
   const bgLight = 'coolGray.100';

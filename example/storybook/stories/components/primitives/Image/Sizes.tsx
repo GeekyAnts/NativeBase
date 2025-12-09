@@ -1,5 +1,5 @@
 import React from 'react';
-import { VStack, Image, ScrollView, Heading } from 'native-base';
+import { VStack, Image, ScrollView, Heading } from '@bilwifi/native-base';
 
 export function Example() {
   return (

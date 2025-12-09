@@ -9,7 +9,7 @@ import {
   Switch,
   Text,
   Stack,
-} from 'native-base';
+} from '@bilwifi/native-base';
 
 const ButtonTemplate = ({ shade }: any) => {
   const colorContrast = useContrastText(`emerald.${shade}`);

@@ -1,5 +1,9 @@
 import React from 'react';
-import { NativeBaseProvider, extendTheme, themeTools } from 'native-base';
+import {
+  NativeBaseProvider,
+  extendTheme,
+  themeTools,
+} from '@bilwifi/native-base';
 import { Content } from './Content';
 
 const customTheme = extendTheme({

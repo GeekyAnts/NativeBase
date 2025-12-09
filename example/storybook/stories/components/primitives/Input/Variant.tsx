@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Stack } from 'native-base';
+import { Input, Stack } from '@bilwifi/native-base';
 export const Example = () => {
   return (
     <Stack space={4} w="75%" maxW="300px" mx="auto">

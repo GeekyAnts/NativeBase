@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react-native';
 import { withKnobs } from '@storybook/addon-knobs';
 import { RNButtons } from './RNButton';
 import { NBButtons } from './NBButton';
-import { NativeBaseProvider, View as NBView } from 'native-base';
+import { NativeBaseProvider, View as NBView } from '@bilwifi/native-base';
 import { View } from 'react-native';
 
 storiesOf('Button Perf', module)

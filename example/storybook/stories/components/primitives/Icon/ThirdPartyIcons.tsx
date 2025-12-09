@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon, Center, HStack } from 'native-base';
+import { Icon, Center, HStack } from '@bilwifi/native-base';
 import { MaterialCommunityIcons, AntDesign, Entypo } from '@expo/vector-icons';
 
 export const Example = () => {

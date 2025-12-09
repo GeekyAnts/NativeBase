@@ -6,7 +6,7 @@ import {
   NumberInputStepper,
   NumberIncrementStepper,
   NumberDecrementStepper,
-} from 'native-base';
+} from '@bilwifi/native-base';
 export const Example = () => {
   return (
     <Stack w="90%">

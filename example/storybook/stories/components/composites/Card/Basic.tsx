@@ -1,5 +1,12 @@
 import React from 'react';
-import { Card, HStack, Heading, Text, Spacer, Flex } from 'native-base';
+import {
+  Card,
+  HStack,
+  Heading,
+  Text,
+  Spacer,
+  Flex,
+} from '@bilwifi/native-base';
 
 export function Example() {
   return (

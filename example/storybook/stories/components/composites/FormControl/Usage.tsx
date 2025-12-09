@@ -5,7 +5,7 @@ import {
   Stack,
   WarningOutlineIcon,
   Box,
-} from 'native-base';
+} from '@bilwifi/native-base';
 
 export const Example = () => {
   return (

@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
-import { Popover, Button, VStack, Select, CheckIcon, Box } from 'native-base';
+import {
+  Popover,
+  Button,
+  VStack,
+  Select,
+  CheckIcon,
+  Box,
+} from '@bilwifi/native-base';
 
 export function Example() {
   const [position, setPosition] = useState('auto');

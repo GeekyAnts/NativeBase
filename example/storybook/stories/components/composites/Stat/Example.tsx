@@ -1,5 +1,5 @@
 import React from 'react';
-import { Stat, Heading, Box } from 'native-base';
+import { Stat, Heading, Box } from '@bilwifi/native-base';
 
 export const Example = () => {
   return (

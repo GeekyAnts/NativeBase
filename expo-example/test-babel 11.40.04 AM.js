@@ -35,7 +35,7 @@ module.exports = function ({ types: t }) {
         // } else {
         //   path.traverse({
         //     ImportDeclaration(importPath) {
-        //       if (importPath.node.source.value === 'native-base') {
+        //       if (importPath.node.source.value === '@bilwifi/native-base') {
         //         if (importPath.node.specifiers) {
         //           importPath.node.specifiers.map((specifier) => {
         //             if (specifier.imported) {

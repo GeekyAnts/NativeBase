@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "paths": {
-      "native-base": ["../src"]
+      "@bilwifi/native-base": ["../src"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],

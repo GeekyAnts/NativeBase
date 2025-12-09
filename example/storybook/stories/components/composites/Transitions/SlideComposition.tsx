@@ -12,7 +12,7 @@ import {
   Input,
   Center,
   useSafeArea,
-} from 'native-base';
+} from '@bilwifi/native-base';
 export const Example = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const safeAreaProps = useSafeArea({

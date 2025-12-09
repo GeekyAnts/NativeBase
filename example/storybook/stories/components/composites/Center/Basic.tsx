@@ -1,5 +1,5 @@
 import React from 'react';
-import { Center } from 'native-base';
+import { Center } from '@bilwifi/native-base';
 export function Example() {
   return (
     <Center>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Icon, Stack, Pressable } from 'native-base';
+import { Input, Icon, Stack, Pressable } from '@bilwifi/native-base';
 import { MaterialIcons } from '@expo/vector-icons';
 
 export const Example = () => {

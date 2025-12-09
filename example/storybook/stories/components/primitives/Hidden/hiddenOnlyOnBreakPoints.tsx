@@ -1,5 +1,5 @@
 import React from 'react';
-import { Hidden, Text, Stack, Box } from 'native-base';
+import { Hidden, Text, Stack, Box } from '@bilwifi/native-base';
 
 export function Example() {
   return (

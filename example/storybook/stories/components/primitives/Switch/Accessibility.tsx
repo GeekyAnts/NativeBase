@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, HStack, Text } from 'native-base';
+import { Switch, HStack, Text } from '@bilwifi/native-base';
 
 export const Example = () => {
   return (

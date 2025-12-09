@@ -8,7 +8,7 @@ import {
   VStack,
   Text,
   Spacer,
-} from 'native-base';
+} from '@bilwifi/native-base';
 export const Example = () => {
   const data = [
     {

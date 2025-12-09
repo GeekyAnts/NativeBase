@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heading } from 'native-base';
+import { Heading } from '@bilwifi/native-base';
 
 export function Example() {
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, VStack } from 'native-base';
+import { Switch, VStack } from '@bilwifi/native-base';
 
 export const Example = () => {
   return (

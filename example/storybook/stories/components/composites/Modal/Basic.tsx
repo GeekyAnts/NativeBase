@@ -1,5 +1,11 @@
 import React from 'react';
-import { Button, Modal, FormControl, Input, Center } from 'native-base';
+import {
+  Button,
+  Modal,
+  FormControl,
+  Input,
+  Center,
+} from '@bilwifi/native-base';
 import { useState } from 'react';
 
 export const Example = () => {

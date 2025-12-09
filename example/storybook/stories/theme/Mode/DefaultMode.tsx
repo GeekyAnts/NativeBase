@@ -1,5 +1,5 @@
 import React from 'react';
-import { NativeBaseProvider, extendTheme } from 'native-base';
+import { NativeBaseProvider, extendTheme } from '@bilwifi/native-base';
 import { Content } from './Content';
 
 export const Example = () => {

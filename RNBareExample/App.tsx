@@ -1,5 +1,5 @@
 import React from 'react';
-import {NativeBaseProvider, Box, Center} from 'native-base';
+import {NativeBaseProvider, Box, Center} from '@bilwifi/native-base';
 
 const config = {
   dependencies: {
