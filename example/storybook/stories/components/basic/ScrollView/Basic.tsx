@@ -1,5 +1,11 @@
 import React from 'react';
-import { ScrollView, VStack, Center, useTheme, Heading } from 'native-base';
+import {
+  ScrollView,
+  VStack,
+  Center,
+  useTheme,
+  Heading,
+} from '@bilwifi/native-base';
 export const Example = () => {
   const { colors } = useTheme();
   return (

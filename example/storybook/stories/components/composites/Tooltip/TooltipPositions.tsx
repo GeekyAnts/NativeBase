@@ -1,5 +1,11 @@
 import React from 'react';
-import { Tooltip, Button, VStack, Select, CheckIcon } from 'native-base';
+import {
+  Tooltip,
+  Button,
+  VStack,
+  Select,
+  CheckIcon,
+} from '@bilwifi/native-base';
 
 export function Example() {
   const [position, setPosition] = React.useState('top left');

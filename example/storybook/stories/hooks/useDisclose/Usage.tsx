@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Button, useDisclose, Center } from 'native-base';
+import { Modal, Button, useDisclose, Center } from '@bilwifi/native-base';
 
 export const Example = () => {
   const { isOpen, onOpen, onClose } = useDisclose();

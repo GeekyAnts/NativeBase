@@ -1,5 +1,5 @@
 import React from 'react';
-import { Select, Box, CheckIcon, Center } from 'native-base';
+import { Select, Box, CheckIcon, Center } from '@bilwifi/native-base';
 
 export const Example = () => {
   const [service, setService] = React.useState('');

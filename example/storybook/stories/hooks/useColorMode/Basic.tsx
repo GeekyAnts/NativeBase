@@ -6,7 +6,7 @@ import {
   Button,
   Center,
   Box,
-} from 'native-base';
+} from '@bilwifi/native-base';
 
 function UseColorMode() {
   const { colorMode, toggleColorMode } = useColorMode();

@@ -6,7 +6,7 @@ import {
   VStack,
   Heading,
   ScrollView,
-} from 'native-base';
+} from '@bilwifi/native-base';
 import { Foundation, Feather } from '@expo/vector-icons';
 import { View } from 'react-native';
 

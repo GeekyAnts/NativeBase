@@ -1,5 +1,5 @@
 import React from 'react';
-import { Badge, HStack } from 'native-base';
+import { Badge, HStack } from '@bilwifi/native-base';
 
 export function Example() {
   return (

@@ -7,7 +7,7 @@ import {
   VStack,
   CloseIcon,
   Text,
-} from 'native-base';
+} from '@bilwifi/native-base';
 
 export function Example() {
   const statusArray = [

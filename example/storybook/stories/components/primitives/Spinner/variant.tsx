@@ -1,5 +1,5 @@
 // import React from 'react';
-// import { Spinner, HStack, Icon } from 'native-base';
+// import { Spinner, HStack, Icon } from '@bilwifi/native-base';
 
 //  export const Example = () => {
 //   return (

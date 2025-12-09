@@ -1,4 +1,4 @@
-import { SimpleGrid, Center } from 'native-base';
+import { SimpleGrid, Center } from '@bilwifi/native-base';
 import React from 'react';
 
 const items = 12;

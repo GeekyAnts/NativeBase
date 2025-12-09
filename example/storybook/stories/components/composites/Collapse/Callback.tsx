@@ -1,5 +1,5 @@
 import React from 'react';
-import { Collapse, Stack, Heading, Button, Text } from 'native-base';
+import { Collapse, Stack, Heading, Button, Text } from '@bilwifi/native-base';
 export const Example = () => {
   const [show, setShow] = React.useState(false);
   const handleToggle = () => setShow(!show);

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typeahead, Icon } from 'native-base';
+import { Typeahead, Icon } from '@bilwifi/native-base';
 import { MaterialIcons } from '@expo/vector-icons';
 
 const animals = [

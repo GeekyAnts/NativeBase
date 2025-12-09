@@ -7,7 +7,7 @@ import {
   Center,
   Box,
   useColorModeValue,
-} from 'native-base';
+} from '@bilwifi/native-base';
 
 function UseColorMode() {
   const { toggleColorMode } = useColorMode();

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Breadcrumb, Box, Heading, HStack, Button } from 'native-base';
+import { Breadcrumb, Box, Heading, HStack, Button } from '@bilwifi/native-base';
 import {
   MaterialCommunityIcons,
   MaterialIcons,

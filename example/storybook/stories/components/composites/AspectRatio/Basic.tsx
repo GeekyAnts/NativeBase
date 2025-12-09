@@ -1,5 +1,5 @@
 import React from 'react';
-import { AspectRatio, Box } from 'native-base';
+import { AspectRatio, Box } from '@bilwifi/native-base';
 
 export const Example = () => {
   return (

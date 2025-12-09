@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Box } from 'native-base';
+import { Link, Box } from '@bilwifi/native-base';
 
 export const Example = () => {
   return (

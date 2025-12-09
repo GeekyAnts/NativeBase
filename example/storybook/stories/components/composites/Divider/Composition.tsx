@@ -1,5 +1,5 @@
 import React from 'react';
-import { Divider, Flex, Text, Box } from 'native-base';
+import { Divider, Flex, Text, Box } from '@bilwifi/native-base';
 
 export const Example = () => {
   return (

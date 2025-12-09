@@ -1,5 +1,11 @@
 import React from 'react';
-import { TextArea, Stack, ScrollView, Center, Heading } from 'native-base';
+import {
+  TextArea,
+  Stack,
+  ScrollView,
+  Center,
+  Heading,
+} from '@bilwifi/native-base';
 
 export const Example = () => {
   const Sizes = ['xs', 'sm', 'md', 'lg', 'xl', '2xl'];

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Checkbox, Icon, Box } from 'native-base';
+import { Checkbox, Icon, Box } from '@bilwifi/native-base';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Platform } from 'react-native';
 

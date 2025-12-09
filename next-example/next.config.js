@@ -18,7 +18,7 @@ const nextConfig = {
         'node_modules',
         'react-native-web'
       ),
-      'native-base': path.resolve(__dirname, '..', 'src'),
+      '@bilwifi/native-base': path.resolve(__dirname, '..', 'src'),
       'react': path.resolve(__dirname, 'node_modules', 'react'),
       'react-dom': path.resolve(__dirname, 'node_modules', 'react-dom'),
       'react-native-web': path.resolve(

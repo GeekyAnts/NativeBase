@@ -1,5 +1,5 @@
 import React from 'react';
-import { Slider, Icon, Box } from 'native-base';
+import { Slider, Icon, Box } from '@bilwifi/native-base';
 import { MaterialIcons } from '@expo/vector-icons';
 
 export const Example = () => {

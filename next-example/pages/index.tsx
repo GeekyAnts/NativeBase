@@ -1,7 +1,7 @@
 import React from 'react';
 import type { NextPage } from 'next';
 import { Text } from 'react-native';
-import { Box, Stack, Button } from 'native-base';
+import { Box, Stack, Button } from '@bilwifi/native-base';
 
 const Home: NextPage = () => {
   return (

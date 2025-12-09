@@ -6,7 +6,7 @@ import {
   Text,
   Box,
   Center,
-} from 'native-base';
+} from '@bilwifi/native-base';
 
 export function Example() {
   const { isOpen, onOpen, onClose } = useDisclose();

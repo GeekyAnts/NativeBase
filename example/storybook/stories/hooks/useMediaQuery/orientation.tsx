@@ -1,5 +1,11 @@
 import React from 'react';
-import { useMediaQuery, VStack, Skeleton, Center, HStack } from 'native-base';
+import {
+  useMediaQuery,
+  VStack,
+  Skeleton,
+  Center,
+  HStack,
+} from '@bilwifi/native-base';
 
 export const Example = () => {
   const [isLandScape, isPortrait] = useMediaQuery([

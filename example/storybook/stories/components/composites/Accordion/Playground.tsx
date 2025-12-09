@@ -1,5 +1,5 @@
 import React from 'react';
-import { Accordion, Box } from 'native-base';
+import { Accordion, Box } from '@bilwifi/native-base';
 import { boolean } from '@storybook/addon-knobs';
 export const Example = () => {
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Checkbox, VStack } from 'native-base';
+import { Checkbox, VStack } from '@bilwifi/native-base';
 
 export const Example = () => {
   return (

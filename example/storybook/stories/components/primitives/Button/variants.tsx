@@ -6,7 +6,7 @@ import {
   VStack,
   Stack,
   ScrollView,
-} from 'native-base';
+} from '@bilwifi/native-base';
 
 export const Example = () => {
   return (

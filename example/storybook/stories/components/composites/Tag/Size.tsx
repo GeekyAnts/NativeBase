@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tag, HStack } from 'native-base';
+import { Tag, HStack } from '@bilwifi/native-base';
 
 export const Example = () => {
   return (

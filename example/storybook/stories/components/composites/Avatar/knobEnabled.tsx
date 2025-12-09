@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar } from 'native-base';
+import { Avatar } from '@bilwifi/native-base';
 import { select, number, text } from '@storybook/addon-knobs';
 
 export const Example = () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Accordion, Box } from 'native-base';
+import { Accordion, Box } from '@bilwifi/native-base';
 export const Example = () => {
   return (
     <Box m={3}>

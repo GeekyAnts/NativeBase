@@ -1,5 +1,5 @@
 import React from 'react';
-import { CloseButton, HStack } from 'native-base';
+import { CloseButton, HStack } from '@bilwifi/native-base';
 export const Example = () => {
   return (
     <HStack space="md">

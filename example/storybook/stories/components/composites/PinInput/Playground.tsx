@@ -1,5 +1,5 @@
 import React from 'react';
-import { PinInput } from 'native-base';
+import { PinInput } from '@bilwifi/native-base';
 import { select, text } from '@storybook/addon-knobs';
 
 export const Example = () => {

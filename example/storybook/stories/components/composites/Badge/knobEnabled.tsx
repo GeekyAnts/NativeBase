@@ -1,5 +1,5 @@
 import React from 'react';
-import { Badge } from 'native-base';
+import { Badge } from '@bilwifi/native-base';
 import { select, text } from '@storybook/addon-knobs';
 
 export function Example() {

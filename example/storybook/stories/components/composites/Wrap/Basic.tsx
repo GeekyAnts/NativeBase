@@ -1,5 +1,5 @@
 import React from 'react';
-import { Wrap, Center } from 'native-base';
+import { Wrap, Center } from '@bilwifi/native-base';
 export const Example = () => {
   return (
     <Wrap direction="row" space={10} mx={4}>

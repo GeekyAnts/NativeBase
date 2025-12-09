@@ -155,6 +155,16 @@ GeekyAnts is a group of React Native experts. Do [get in touch with us](https://
 | v3.0.0-next.36 to v3.0.0-next-41 | v0.63.0 and above                                          |
 | v3.0.0 to latest                 | v0.63.0 and above                                          |
 
+## Publication sur GitHub Packages
+
+Le paquet de cette branche est désormais scoppé sous `@bilwifi/native-base` et prépare la publication automatique vers le registre GitHub Packages via `.npmrc` et `publishConfig`.
+
+1. Crée un [token personnel GitHub](https://github.com/settings/tokens) doté des scopes `write:packages` et `read:packages` (et `repo` si nécessaire pour ton workflow).
+2. Export le token dans ton shell avant de publier : `export NPM_TOKEN=ghp_XXXX`.
+3. Installe les dépendances (`yarn install`) puis publie avec `yarn publish` ou `npm publish`. La publication vise automatiquement `https://npm.pkg.github.com` grâce à `publishConfig`.
+
+Besoins complémentaires : si tu veux publier depuis un pipeline CI, assure-toi que `NPM_TOKEN` est défini dans tes secrets GitHub et que le job utilise `npm config get @bilwifi:registry` pour confirmer la configuration.
+
 ## 11. Contributors
 
 ### Code Contributors

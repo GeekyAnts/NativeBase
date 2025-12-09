@@ -1,5 +1,11 @@
 import React from 'react';
-import { Modal, Button, Input, FormControl, HStack } from 'native-base';
+import {
+  Modal,
+  Button,
+  Input,
+  FormControl,
+  HStack,
+} from '@bilwifi/native-base';
 
 export function Example() {
   const [modalVisible, setModalVisible] = React.useState(false);

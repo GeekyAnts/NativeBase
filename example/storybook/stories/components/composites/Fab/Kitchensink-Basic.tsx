@@ -1,4 +1,4 @@
-import { Fab, Icon, Box, NativeBaseProvider } from 'native-base';
+import { Fab, Icon, Box, NativeBaseProvider } from '@bilwifi/native-base';
 import React from 'react';
 import { AntDesign } from '@expo/vector-icons';
 

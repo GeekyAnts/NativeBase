@@ -7,7 +7,7 @@ import {
   Text,
   Icon,
   IconButton,
-} from 'native-base';
+} from '@bilwifi/native-base';
 import { ScrollView } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 

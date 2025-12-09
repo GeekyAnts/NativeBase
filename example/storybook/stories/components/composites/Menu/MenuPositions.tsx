@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu, Button, VStack, Select, CheckIcon } from 'native-base';
+import { Menu, Button, VStack, Select, CheckIcon } from '@bilwifi/native-base';
 
 export function Example() {
   const [shouldOverlapWithTrigger] = React.useState(false);

@@ -1,5 +1,13 @@
 import React from 'react';
-import { Pressable, Text, Box, HStack, Spacer, Flex, Badge } from 'native-base';
+import {
+  Pressable,
+  Text,
+  Box,
+  HStack,
+  Spacer,
+  Flex,
+  Badge,
+} from '@bilwifi/native-base';
 
 export function Example() {
   return (

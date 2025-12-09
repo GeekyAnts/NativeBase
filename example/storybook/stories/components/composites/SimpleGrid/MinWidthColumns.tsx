@@ -1,4 +1,4 @@
-import { SimpleGrid, Box } from 'native-base';
+import { SimpleGrid, Box } from '@bilwifi/native-base';
 import React from 'react';
 
 const items = 12;

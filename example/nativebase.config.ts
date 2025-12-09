@@ -1,4 +1,4 @@
-import { INativebaseConfig } from 'native-base';
+import { INativebaseConfig } from '@bilwifi/native-base';
 
 export default {
   dependencies: {

@@ -1,5 +1,5 @@
 {
-  "name": "native-base",
+  "name": "@bilwifi/native-base",
   "description": "Essential cross-platform UI components for React Native",
   "sideEffects": false,
   "keywords": [
@@ -38,7 +38,7 @@
   },
   "version": "3.4.28-napp.0",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/src/index.d.ts",
@@ -223,6 +223,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GeekyAnts/NativeBase.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "collective": {
     "type": "opencollective",

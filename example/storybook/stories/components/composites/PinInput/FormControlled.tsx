@@ -1,5 +1,5 @@
 import React from 'react';
-import { PinInput, Center, FormControl } from 'native-base';
+import { PinInput, Center, FormControl } from '@bilwifi/native-base';
 
 export const Example = () => {
   return (

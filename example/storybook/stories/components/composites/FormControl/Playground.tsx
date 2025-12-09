@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormControl, Input, Stack } from 'native-base';
+import { FormControl, Input, Stack } from '@bilwifi/native-base';
 import { boolean } from '@storybook/addon-knobs';
 
 export const Example = () => {

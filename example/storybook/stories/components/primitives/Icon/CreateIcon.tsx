@@ -1,5 +1,5 @@
 import React from 'react';
-import { createIcon } from 'native-base';
+import { createIcon } from '@bilwifi/native-base';
 import { Circle as CircleSvg } from 'react-native-svg';
 export const Example = () => {
   const CustomIcon = createIcon({

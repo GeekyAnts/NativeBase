@@ -6,7 +6,7 @@ import {
   Text,
   useColorModeValue,
   Center,
-} from 'native-base';
+} from '@bilwifi/native-base';
 export const Example = () => {
   const [isOpenTop, setIsOpenTop] = React.useState(false);
   const str = `${isOpenTop ? 'Hide' : 'Check Internet Connection'}`;

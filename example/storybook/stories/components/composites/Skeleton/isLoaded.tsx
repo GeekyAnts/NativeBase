@@ -7,7 +7,7 @@ import {
   Image,
   VStack,
   Center,
-} from 'native-base';
+} from '@bilwifi/native-base';
 export const Example = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [text, setText] = useState('');
@@ -34,8 +34,7 @@ export const Example = () => {
             <Image
               h="40"
               source={{
-                uri:
-                  'https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80',
+                uri: 'https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2940&q=80',
               }}
             />
           </Skeleton>

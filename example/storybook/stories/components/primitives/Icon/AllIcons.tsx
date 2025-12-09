@@ -36,7 +36,7 @@ import {
   VStack,
   FlatList,
   useBreakpointValue,
-} from 'native-base';
+} from '@bilwifi/native-base';
 export const Example = () => {
   const cols = useBreakpointValue({
     base: 3,

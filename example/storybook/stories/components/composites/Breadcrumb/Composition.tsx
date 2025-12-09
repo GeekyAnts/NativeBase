@@ -1,5 +1,5 @@
 import React from 'react';
-import { Breadcrumb, Box, Heading, HStack } from 'native-base';
+import { Breadcrumb, Box, Heading, HStack } from '@bilwifi/native-base';
 import {
   MaterialCommunityIcons,
   MaterialIcons,

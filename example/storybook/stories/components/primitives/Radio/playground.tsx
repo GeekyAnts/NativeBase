@@ -1,5 +1,5 @@
 import React from 'react';
-import { Radio, Box } from 'native-base';
+import { Radio, Box } from '@bilwifi/native-base';
 import { boolean, select, text } from '@storybook/addon-knobs';
 import { useState } from 'react';
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import { useSx } from 'native-base';
-import type { StyledProps } from 'native-base';
+import { useSx } from '@bilwifi/native-base';
+import type { StyledProps } from '@bilwifi/native-base';
 import { View, Text } from 'react-native';
 
 const textStyle: StyledProps = {

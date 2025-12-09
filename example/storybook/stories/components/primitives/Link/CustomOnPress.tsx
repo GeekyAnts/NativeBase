@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Link } from 'native-base';
+import { Box, Link } from '@bilwifi/native-base';
 
 export const Example = () => {
   const [state, setState] = React.useState(false);

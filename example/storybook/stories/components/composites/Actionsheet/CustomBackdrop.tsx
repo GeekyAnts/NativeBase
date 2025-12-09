@@ -1,5 +1,11 @@
 import React from 'react';
-import { Button, Actionsheet, useDisclose, Box, Text } from 'native-base';
+import {
+  Button,
+  Actionsheet,
+  useDisclose,
+  Box,
+  Text,
+} from '@bilwifi/native-base';
 
 export function Example() {
   const { isOpen, onOpen, onClose } = useDisclose();

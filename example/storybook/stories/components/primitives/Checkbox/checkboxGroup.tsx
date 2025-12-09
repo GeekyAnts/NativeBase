@@ -1,5 +1,12 @@
 import React from 'react';
-import { Checkbox, Heading, HStack, VStack, Text, Box } from 'native-base';
+import {
+  Checkbox,
+  Heading,
+  HStack,
+  VStack,
+  Text,
+  Box,
+} from '@bilwifi/native-base';
 
 export const Example = () => {
   const [groupValue, setGroupValue] = React.useState([

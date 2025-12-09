@@ -1,5 +1,5 @@
 import React from 'react';
-import { Center, Box, HStack, Icon } from 'native-base';
+import { Center, Box, HStack, Icon } from '@bilwifi/native-base';
 import { MaterialIcons } from '@expo/vector-icons';
 
 export function Example() {

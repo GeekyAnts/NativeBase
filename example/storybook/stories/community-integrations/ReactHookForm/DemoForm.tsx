@@ -13,7 +13,7 @@ import {
   Select,
   Checkbox,
   Icon,
-} from 'native-base';
+} from '@bilwifi/native-base';
 import React from 'react';
 import { Ionicons, EvilIcons, AntDesign } from '@expo/vector-icons';
 
@@ -78,8 +78,7 @@ export const Example = () => {
             <HStack alignItems="center" space={6}>
               <Avatar
                 source={{
-                  uri:
-                    'https://images.unsplash.com/photo-1488282396544-0212eea56a21?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
+                  uri: 'https://images.unsplash.com/photo-1488282396544-0212eea56a21?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
                 }}
                 size={'24'}
               >

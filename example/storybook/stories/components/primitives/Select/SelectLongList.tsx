@@ -1,5 +1,10 @@
 import React from 'react';
-import { FormControl, Select, Container, CheckIcon } from 'native-base';
+import {
+  FormControl,
+  Select,
+  Container,
+  CheckIcon,
+} from '@bilwifi/native-base';
 
 export const Example = () => {
   const [value, setValue] = React.useState('');

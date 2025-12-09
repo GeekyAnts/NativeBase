@@ -7,7 +7,7 @@ import {
   Text,
   Divider,
   ScrollView,
-} from 'native-base';
+} from '@bilwifi/native-base';
 
 export function Example() {
   const getTextColor = (

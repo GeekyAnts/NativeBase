@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text } from 'native-base';
+import { Text } from '@bilwifi/native-base';
 export const Example = () => {
   return (
     <Text fontSize={{ base: '24px', md: '40px', lg: '56px' }}>

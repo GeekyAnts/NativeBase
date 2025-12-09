@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconButton, Icon, VStack } from 'native-base';
+import { IconButton, Icon, VStack } from '@bilwifi/native-base';
 import { Path } from 'react-native-svg';
 
 export const Example = () => {

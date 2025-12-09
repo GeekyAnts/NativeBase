@@ -1,5 +1,5 @@
 import React from 'react';
-import { Stack, Factory, Button } from 'native-base';
+import { Stack, Factory, Button } from '@bilwifi/native-base';
 import { TextInput } from 'react-native';
 
 export const Example = () => {

@@ -9,7 +9,7 @@ import {
   IconButton,
   CloseIcon,
   Alert,
-} from 'native-base';
+} from '@bilwifi/native-base';
 
 export const Example = () => {
   const toast = useToast();

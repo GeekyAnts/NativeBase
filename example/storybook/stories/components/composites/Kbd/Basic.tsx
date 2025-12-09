@@ -1,5 +1,5 @@
 import React from 'react';
-import { VStack, HStack, Kbd, Text } from 'native-base';
+import { VStack, HStack, Kbd, Text } from '@bilwifi/native-base';
 
 export const Example = () => {
   return (

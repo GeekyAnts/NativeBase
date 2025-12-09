@@ -7,7 +7,7 @@ import {
   VStack,
   Divider,
   Box,
-} from 'native-base';
+} from '@bilwifi/native-base';
 
 export function Example() {
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Slider, Stack, Text, Box } from 'native-base';
+import { Slider, Stack, Text, Box } from '@bilwifi/native-base';
 
 export const Example = () => {
   const [onChangeValue, setOnChangeValue] = React.useState(70);

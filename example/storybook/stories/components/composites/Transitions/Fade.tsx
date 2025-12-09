@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Center, PresenceTransition } from 'native-base';
+import { Button, Center, PresenceTransition } from '@bilwifi/native-base';
 
 export const Example = () => {
   const [isOpen, setIsOpen] = React.useState(false);

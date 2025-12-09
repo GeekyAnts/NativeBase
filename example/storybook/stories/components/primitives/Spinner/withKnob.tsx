@@ -1,5 +1,5 @@
 import React from 'react';
-import { Spinner, Box } from 'native-base';
+import { Spinner, Box } from '@bilwifi/native-base';
 import { select } from '@storybook/addon-knobs';
 
 export const Example = () => {

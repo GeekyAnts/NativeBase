@@ -1,5 +1,5 @@
 import React from 'react';
-import { Slider, Box, VStack } from 'native-base';
+import { Slider, Box, VStack } from '@bilwifi/native-base';
 
 export const Example = () => {
   return (

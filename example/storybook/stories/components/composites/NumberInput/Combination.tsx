@@ -7,7 +7,7 @@ import {
   NumberIncrementStepper,
   NumberDecrementStepper,
   Slider,
-} from 'native-base';
+} from '@bilwifi/native-base';
 export const Example = () => {
   const [value, setValue] = React.useState(20);
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Spinner, HStack, Heading } from 'native-base';
+import { Spinner, HStack, Heading } from '@bilwifi/native-base';
 
 export const Example = () => {
   return (

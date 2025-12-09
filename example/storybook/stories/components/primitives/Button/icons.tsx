@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Stack, Icon } from 'native-base';
+import { Button, Stack, Icon } from '@bilwifi/native-base';
 import { Ionicons } from '@expo/vector-icons';
 
 export const Example = () => {

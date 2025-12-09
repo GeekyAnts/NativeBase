@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert, Box, CloseIcon, IconButton, Text } from 'native-base';
+import { Alert, Box, CloseIcon, IconButton, Text } from '@bilwifi/native-base';
 import { select } from '@storybook/addon-knobs';
 
 export const Example = () => {

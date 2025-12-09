@@ -1,5 +1,5 @@
 import React from 'react';
-import { Popover, Button, Box } from 'native-base';
+import { Popover, Button, Box } from '@bilwifi/native-base';
 
 export function Example() {
   return (

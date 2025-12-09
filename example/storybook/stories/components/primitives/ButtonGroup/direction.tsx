@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Divider, Heading, VStack, Center } from 'native-base';
+import { Button, Divider, Heading, VStack, Center } from '@bilwifi/native-base';
 
 export const Example = () => {
   return (

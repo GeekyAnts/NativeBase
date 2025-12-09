@@ -6,7 +6,7 @@ import {
   Checkbox,
   Text,
   Icon,
-} from 'native-base';
+} from '@bilwifi/native-base';
 import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import { MaterialCommunityIcons } from '@expo/vector-icons';

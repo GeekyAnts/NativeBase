@@ -1,5 +1,5 @@
 import React from 'react';
-import { SectionList, Heading, Center } from 'native-base';
+import { SectionList, Heading, Center } from '@bilwifi/native-base';
 export const Example = () => {
   const data = [
     {

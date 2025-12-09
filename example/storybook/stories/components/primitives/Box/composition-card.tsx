@@ -1,5 +1,13 @@
 import React from 'react';
-import { Box, Stack, Heading, Icon, Text, HStack, Avatar } from 'native-base';
+import {
+  Box,
+  Stack,
+  Heading,
+  Icon,
+  Text,
+  HStack,
+  Avatar,
+} from '@bilwifi/native-base';
 import {
   MaterialCommunityIcons,
   SimpleLineIcons,
@@ -22,8 +30,7 @@ export const Example = () => {
             size={'sm'}
             bg="teal.500"
             source={{
-              uri:
-                'https://i.pinimg.com/originals/4d/72/97/4d7297dad94265c0acbc3b677d418935.jpg',
+              uri: 'https://i.pinimg.com/originals/4d/72/97/4d7297dad94265c0acbc3b677d418935.jpg',
             }}
           />
           <HStack space={2} alignItems="center">

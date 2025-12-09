@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Heading } from 'native-base';
+import { View, Text, Heading } from '@bilwifi/native-base';
 export const Example = () => {
   return (
     <View>

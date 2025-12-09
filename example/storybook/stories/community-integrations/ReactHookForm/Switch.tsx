@@ -1,4 +1,4 @@
-import { VStack, Button, FormControl, Switch } from 'native-base';
+import { VStack, Button, FormControl, Switch } from '@bilwifi/native-base';
 import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
 

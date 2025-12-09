@@ -1,5 +1,13 @@
 import React from 'react';
-import { Box, Heading, Image, Text, HStack, Stack, Button } from 'native-base';
+import {
+  Box,
+  Heading,
+  Image,
+  Text,
+  HStack,
+  Stack,
+  Button,
+} from '@bilwifi/native-base';
 export const Example = () => {
   return (
     <Box
@@ -15,8 +23,7 @@ export const Example = () => {
         roundedTop="25"
         h={56}
         source={{
-          uri:
-            'https://image.freepik.com/free-photo/clown-anemonefish-amphiprion-swimming-among-tentacles-its-anemone-home_211453-2.jpg',
+          uri: 'https://image.freepik.com/free-photo/clown-anemonefish-amphiprion-swimming-among-tentacles-its-anemone-home_211453-2.jpg',
         }}
         alt="NativeBase Card"
       />

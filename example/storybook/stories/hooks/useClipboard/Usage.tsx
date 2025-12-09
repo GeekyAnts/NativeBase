@@ -6,7 +6,7 @@ import {
   VStack,
   Input,
   useClipboard,
-} from 'native-base';
+} from '@bilwifi/native-base';
 
 export const Example = () => {
   const [copyText, setCopyText] = React.useState('Hello');

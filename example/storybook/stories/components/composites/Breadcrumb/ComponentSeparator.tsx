@@ -1,5 +1,5 @@
 import React from 'react';
-import { Breadcrumb, Box, Heading, Icon } from 'native-base';
+import { Breadcrumb, Box, Heading, Icon } from '@bilwifi/native-base';
 import { Ionicons } from '@expo/vector-icons';
 export const Example = () => {
   return (

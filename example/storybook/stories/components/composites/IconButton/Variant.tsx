@@ -1,5 +1,5 @@
 import React from 'react';
-import { Center, IconButton, VStack } from 'native-base';
+import { Center, IconButton, VStack } from '@bilwifi/native-base';
 import { AntDesign } from '@expo/vector-icons';
 export const Example = () => {
   return (

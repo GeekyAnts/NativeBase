@@ -1,5 +1,12 @@
 import React from 'react';
-import { Box, Progress, Center, Heading, Text, Flex } from 'native-base';
+import {
+  Box,
+  Progress,
+  Center,
+  Heading,
+  Text,
+  Flex,
+} from '@bilwifi/native-base';
 
 export const Example = () => {
   return (

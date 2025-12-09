@@ -1,5 +1,10 @@
 import React from 'react';
-import { Container, FormControl, Radio, WarningOutlineIcon } from 'native-base';
+import {
+  Container,
+  FormControl,
+  Radio,
+  WarningOutlineIcon,
+} from '@bilwifi/native-base';
 
 export const Example = () => {
   const [groupValue, setGroupValue] = React.useState('1');

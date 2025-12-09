@@ -6,7 +6,7 @@ import {
   InputLeftAddon,
   InputRightAddon,
   Stack,
-} from 'native-base';
+} from '@bilwifi/native-base';
 
 export const Example = () => {
   return (

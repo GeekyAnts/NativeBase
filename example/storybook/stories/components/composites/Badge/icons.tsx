@@ -1,5 +1,5 @@
 import React from 'react';
-import { Badge, Stack, AddIcon } from 'native-base';
+import { Badge, Stack, AddIcon } from '@bilwifi/native-base';
 
 export const Example = () => {
   return (

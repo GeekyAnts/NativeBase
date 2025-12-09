@@ -31,7 +31,7 @@ import {
   Modal,
   Backdrop,
   Tooltip,
-} from 'native-base';
+} from '@bilwifi/native-base';
 
 import {
   Text,
@@ -63,7 +63,7 @@ import {
   Pressable,
   Overlay,
   Skeleton,
-} from 'native-base';
+} from '@bilwifi/native-base';
 
 export const Example = () => {
   return (

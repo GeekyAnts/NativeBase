@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Button, Box } from 'native-base';
+import { Input, Button, Box } from '@bilwifi/native-base';
 
 export const Example = () => {
   const [show, setShow] = React.useState(false);

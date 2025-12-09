@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Text, Heading } from 'native-base';
+import { Container, Text, Heading } from '@bilwifi/native-base';
 export const Example = () => {
   return (
     <Container centerContent>

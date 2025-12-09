@@ -1,5 +1,5 @@
 import React from 'react';
-import { Radio, Icon } from 'native-base';
+import { Radio, Icon } from '@bilwifi/native-base';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export const Example = () => {
