@@ -1,183 +1,119 @@
 import React, { memo, forwardRef } from 'react';
 import type { IInputProps } from './types';
-import { TextInput } from 'react-native';
-import { useToken } from '../../../hooks';
-import { useFormControl } from '../../composites/FormControl';
-import { useHasResponsiveProps } from '../../../hooks/useHasResponsiveProps';
-import { useHover } from '@react-native-aria/interactions';
-import { extractInObject, stylingProps } from '../../../theme/tools/utils';
-import { usePropsResolution } from '../../../hooks/useThemeProps';
-import { mergeRefs, resolveStackStyleInput } from '../../../utils';
-import { Stack } from '../Stack';
-import { makeStyledComponent } from '../../../utils/styled';
-import { useResolvedFontFamily } from '../../../hooks/useResolvedFontFamily';
+import { TextInput, StyleSheet, View } from 'react-native';
+import { useTheme } from '../../../hooks';
+import { useColorMode } from '../../../core/color-mode';
 
-const StyledInput = makeStyledComponent(TextInput);
+// Helper pour convertir les valeurs éventuellement en string vers number si possible
+const normalize = (val: any) => {
+  if (typeof val === 'number') return val;
+  const n = Number(val);
+  return Number.isFinite(n) ? n : val;
+};
 
+// Input basé sur TextInput RN, mais conserve les éléments gauche/droite et le theming clair/sombre.
 const Input = (
   {
-    isHovered: isHoveredProp,
-    isFocused: isFocusedProp,
-    onKeyPress,
-    InputLeftElement,
-    InputRightElement,
-    leftElement,
-    rightElement,
-    ...props
-  }: IInputProps,
+  InputLeftElement,
+  InputRightElement,
+  leftElement,
+  rightElement,
+  isDisabled,
+  isReadOnly,
+  style,
+  placeholderTextColor,
+  width,
+  w,
+  h,
+  borderRadius,
+  borderWidth,
+  borderColor,
+  px,
+  py,
+  fontSize,
+  fontFamily,
+  fontWeight,
+  fontStyle,
+  color,
+  ...rest
+}: IInputProps,
   ref: any
 ) => {
-  const inputProps = useFormControl({
-    isDisabled: props.isDisabled,
-    isInvalid: props.isInvalid,
-    isReadOnly: props.isReadOnly,
-    isRequired: props.isRequired,
-    nativeID: props.nativeID,
-  });
-  const [isFocused, setIsFocused] = React.useState(false);
-  const handleFocus = (focusState: boolean, callback: any) => {
-    setIsFocused(focusState);
-    callback();
-  };
+  const theme = useTheme?.() || {};
+  const { colorMode } = useColorMode?.() || { colorMode: 'light' };
+  const colors = theme.colors || {};
 
-  const _ref = React.useRef(null);
-  const { isHovered } = useHover({}, _ref);
+  const colorConfig =
+    colorMode === 'dark'
+      ? {
+          backgroundColor: colors.dark?.['100'] || '#111',
+          borderColor: colors.muted?.['700'] || '#555',
+          text: colors.text?.['50'] || '#f5f5f5',
+          placeholder: colors.text?.['600'] || '#9ca3af',
+        }
+      : {
+          backgroundColor: colors.light?.['50'] || '#fff',
+          borderColor: colors.muted?.['300'] || '#d1d5db',
+          text: colors.text?.['900'] || '#111827',
+          placeholder: colors.text?.['400'] || '#9ca3af',
+        };
 
-  const inputThemeProps = {
-    isDisabled: inputProps.disabled,
-    isInvalid: inputProps.accessibilityInvalid,
-    isReadOnly: inputProps.accessibilityReadOnly,
-    isRequired: inputProps.required,
-  };
-
-  const {
-    ariaLabel,
-    accessibilityLabel,
-    type,
-    isFullWidth,
-    isDisabled,
-    isReadOnly,
-    fontFamily,
-    fontWeight,
-    fontStyle,
-    placeholderTextColor,
-    selectionColor,
-    underlineColorAndroid,
-    onFocus,
-    onBlur,
-    wrapperRef,
-    _stack,
-    _input,
-
-    ...resolvedProps
-  } = usePropsResolution(
-    'Input',
+  const containerStyle = StyleSheet.flatten([
+    defaultContainer,
     {
-      ...inputThemeProps,
-      ...props,
+      backgroundColor: colorConfig.backgroundColor,
+      borderColor: borderColor || colorConfig.borderColor,
+      width: width ? normalize(width) : w ? normalize(w) : undefined,
+      height: h ? normalize(h) : undefined,
+      borderRadius: borderRadius ? normalize(borderRadius) : defaultContainer.borderRadius,
+      borderWidth: borderWidth ? normalize(borderWidth) : defaultContainer.borderWidth,
+      paddingHorizontal: px ? normalize(px) : defaultContainer.paddingHorizontal,
+      paddingVertical: py ? normalize(py) : defaultContainer.paddingVertical,
     },
-    {
-      isDisabled: inputThemeProps.isDisabled,
-      isHovered: isHoveredProp || isHovered,
-      isFocused: isFocusedProp || isFocused,
-      isInvalid: inputThemeProps.isInvalid,
-      isReadOnly: inputThemeProps.isReadOnly,
-    }
-  );
-
-  const [layoutProps, nonLayoutProps] = extractInObject(resolvedProps, [
-    ...stylingProps.margin,
-    ...stylingProps.border,
-    ...stylingProps.layout,
-    ...stylingProps.flexbox,
-    ...stylingProps.position,
-    ...stylingProps.background,
-    'shadow',
-    'opacity',
+    style,
   ]);
 
-  const resolvedFontFamily = useResolvedFontFamily({
-    fontFamily,
-    fontWeight: fontWeight ?? 400,
-    fontStyle: fontStyle ?? 'normal',
-  });
-  const resolvedPlaceholderTextColor = useToken('colors', placeholderTextColor);
-  const resolvedSelectionColor = useToken('colors', selectionColor);
-  const resolvedUnderlineColorAndroid = useToken(
-    'colors',
-    underlineColorAndroid
-  );
-
-  /**Converting into Hash Color Code */
-  //@ts-ignore
-  resolvedProps.focusOutlineColor = useToken(
-    'colors',
-    resolvedProps.focusOutlineColor
-  );
-  //@ts-ignore
-  resolvedProps.invalidOutlineColor = useToken(
-    'colors',
-    resolvedProps.invalidOutlineColor
-  );
-  //TODO: refactor for responsive prop
-  if (useHasResponsiveProps(props)) {
-    return null;
-  }
-
-  if (resolvedProps.focusOutlineColor && isFocused) {
-    layoutProps.borderColor = resolvedProps.focusOutlineColor;
-    _stack.style = resolveStackStyleInput(
-      props.variant,
-      resolvedProps.focusOutlineColor
-    );
-  }
-
-  if (resolvedProps.invalidOutlineColor && props.isInvalid) {
-    layoutProps.borderColor = resolvedProps.invalidOutlineColor;
-    _stack.style = resolveStackStyleInput(
-      props.variant,
-      resolvedProps.invalidOutlineColor
-    );
-  }
+  const textStyle = StyleSheet.flatten([
+    styles.textInput,
+    {
+      color: color || colorConfig.text,
+      fontSize: fontSize ? normalize(fontSize) : 16,
+      fontFamily: fontFamily || undefined,
+      fontWeight: fontWeight || undefined,
+      fontStyle: fontStyle || undefined,
+    },
+  ]);
 
   return (
-    <Stack
-      {..._stack}
-      {...layoutProps}
-      ref={mergeRefs([_ref, wrapperRef])}
-      isFocused={isFocused}
-    >
-      {InputLeftElement || leftElement ? InputLeftElement || leftElement : null}
-      <StyledInput
-        {...inputProps}
-        secureTextEntry={type === 'password'}
-        accessible
-        accessibilityLabel={ariaLabel || accessibilityLabel}
-        editable={isDisabled || isReadOnly ? false : true}
-        w={isFullWidth ? '100%' : undefined}
-        {...nonLayoutProps}
-        {...resolvedFontFamily}
-        placeholderTextColor={resolvedPlaceholderTextColor}
-        selectionColor={resolvedSelectionColor}
-        underlineColorAndroid={resolvedUnderlineColorAndroid}
-        onKeyPress={(e: any) => {
-          e.persist();
-          onKeyPress && onKeyPress(e);
-        }}
-        onFocus={(e: any) => {
-          handleFocus(true, onFocus ? () => onFocus(e) : () => {});
-        }}
-        onBlur={(e: any) => {
-          handleFocus(false, onBlur ? () => onBlur(e) : () => {});
-        }}
-        {..._input}
-        ref={mergeRefs([ref, _ref, wrapperRef])}
+    <View style={containerStyle}>
+      {InputLeftElement || leftElement}
+      <TextInput
+        ref={ref}
+        style={textStyle}
+        editable={!(isDisabled || isReadOnly)}
+        placeholderTextColor={placeholderTextColor || colorConfig.placeholder}
+        {...rest}
       />
-      {InputRightElement || rightElement
-        ? InputRightElement || rightElement
-        : null}
-    </Stack>
+      {InputRightElement || rightElement}
+    </View>
   );
 };
+
+const defaultContainer = {
+  flexDirection: 'row' as const,
+  alignItems: 'center' as const,
+  height: 44,
+  paddingHorizontal: 12,
+  paddingVertical: 6,
+  borderWidth: 1,
+  borderRadius: 6,
+};
+
+const styles = StyleSheet.create({
+  textInput: {
+    flex: 1,
+    height: '100%',
+  },
+});
 
 export default memo(forwardRef(Input));

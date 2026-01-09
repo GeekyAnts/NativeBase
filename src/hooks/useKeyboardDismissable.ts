@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect } from 'react';
-import { BackHandler } from 'react-native';
+import { BackHandler, Platform } from 'react-native';
 
 type IParams = {
   enabled?: boolean;
@@ -27,6 +27,11 @@ export const keyboardDismissHandlerManager = {
  * Handles attaching callback for Escape key listener on web and Back button listener on Android
  */
 export const useKeyboardDismissable = ({ enabled, callback }: IParams) => {
+  // Sur iOS, s'abonner au BackHandler/escape peut provoquer des effets
+  // indésirables (perte de focus/clavier qui se ferme). On ne l'active donc
+  // pas sur cette plateforme.
+  if (Platform.OS === 'ios') return;
+
   React.useEffect(() => {
     let cleanupFn = () => {};
     if (enabled) {

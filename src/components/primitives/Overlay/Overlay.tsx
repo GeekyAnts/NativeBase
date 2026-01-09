@@ -34,7 +34,9 @@ export function Overlay({
   const [exited, setExited] = React.useState(!isOpen);
 
   useKeyboardDismissable({
-    enabled: isOpen && isKeyboardDismissable,
+    // iOS n'a pas de bouton back matériel ; éviter de s'abonner ici peut
+    // prévenir des effets de bord qui ferment le clavier dès le focus.
+    enabled: Platform.OS !== 'ios' && isOpen && isKeyboardDismissable,
     callback: onRequestClose ? onRequestClose : () => {},
   });
   const styleObj = { ...style };
