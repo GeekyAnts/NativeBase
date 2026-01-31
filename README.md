@@ -24,6 +24,30 @@ NativeBase is entering maintenance mode as we evolve into gluestack-ui. This tra
 <br/>
 [**Documentation**](https://docs.nativebase.io/)
 
+
+## About GeekyAnts
+
+   NativeBase is built and maintained by [GeekyAnts](https://geekyants.com?utm_source=github&utm_medium=opensource&utm_campaign=nativebase),
+   a product development studio with expertise in:
+
+   - [React Native Development](https://geekyants.com/hire-react-native-developers?utm_source=github&utm_medium=opensource&utm_campaign=nativebase) -
+     Building production-ready mobile applications
+   - [Design Systems](https://geekyants.com/solution/design-system-development-service?utm_source=github&utm_medium=opensource&utm_campaign=nativebase) -
+     Creating scalable UI component libraries
+   - [Cross-Platform Development](https://geekyants.com/solution/universal-and-cross-platform-app-development-services?utm_source=github&utm_medium=opensource&utm_campaign=nativebase) -
+     Universal apps for iOS, Android, and Web
+
+   ### Get Professional Support
+
+   Need help implementing NativeBase in your project?
+   [Contact our mobile engineering team](https://geekyants.com/hire?utm_source=github&utm_medium=opensource&utm_campaign=nativebase) for:
+   - Custom component development
+   - Performance optimization
+   - Enterprise support plans
+
+   [Explore all services](https://geekyants.com/service?utm_source=github&utm_medium=opensource&utm_campaign=nativebase) |
+   [View our open source projects](https://geekyants.com/open-source?utm_source=github&utm_medium=opensource&utm_campaign=nativebase)
+
 ## Table of Contents
 
 1. [Introduction](#1-introduction)
@@ -201,3 +225,6 @@ Support this project with your organization. Your logo will show up here with a 
 ## 14. License
 
 Licensed under the MIT License, Copyright © 2021 GeekyAnts. See [LICENSE](https://github.com/GeekyAnts/NativeBase/blob/master/LICENSE) for more information.
+
+Built with ❤️ by [GeekyAnts](https://geekyants.com?utm_source=github&utm_medium=opensource&utm_campaign=nativebase) |
+   [React Native Experts](https://geekyants.com/hire-react-native-developers?utm_source=github&utm_medium=opensource&utm_campaign=nativebase)
