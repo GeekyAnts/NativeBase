@@ -244,7 +244,7 @@ const Select = (
           setValue(e.target.value);
         }}
         value={selectedItem === null ? tempFix : value}
-        aria-label={placeholder}
+        aria-label={accessibilityLabel}
         onFocus={() => {
           setIsFocused(true);
           onOpen && onOpen();
