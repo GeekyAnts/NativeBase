@@ -94,7 +94,11 @@ const NativeBaseProvider = (props: NativeBaseProviderProps) => {
             <OverlayProvider isSSR>
               <ToastProvider>
                 <InitializeToastRef />
-                <SSRProvider>{children}</SSRProvider>
+                {React.version >= '18' ? (
+                  { children }
+                ) : (
+                  <SSRProvider>{children}</SSRProvider>
+                )}
               </ToastProvider>
             </OverlayProvider>
           </HybridProvider>
