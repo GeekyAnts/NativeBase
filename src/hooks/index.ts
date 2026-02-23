@@ -26,3 +26,4 @@ export {
 } from './useKeyboardDismissable';
 export { useLayout } from './useLayout';
 export { useSx } from './useSx';
+export { useHasResponsiveProps } from './useHasResponsiveProps';
