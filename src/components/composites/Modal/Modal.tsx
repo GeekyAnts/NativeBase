@@ -39,6 +39,7 @@ const Modal = (
     _slide,
     _overlay,
     useRNModal,
+    useRNModalOnAndroid = true,
     ...resolvedProps
   } = usePropsResolution('Modal', rest);
 
@@ -84,7 +85,7 @@ const Modal = (
       onRequestClose={handleClose}
       isKeyboardDismissable={isKeyboardDismissable}
       animationPreset={animationPreset}
-      useRNModalOnAndroid
+      useRNModalOnAndroid={useRNModalOnAndroid}
       useRNModal={useRNModal}
       {..._overlay}
     >
