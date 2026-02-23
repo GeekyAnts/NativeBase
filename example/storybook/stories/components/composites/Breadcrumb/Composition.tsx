@@ -51,7 +51,7 @@ export const Example = () => {
                 size="xs"
               />
               <Breadcrumb.Text>
-                Github (This is currently active)
+                GitHub (This is currently active)
               </Breadcrumb.Text>
             </HStack>
           </Breadcrumb.Link>

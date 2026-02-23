@@ -22,7 +22,7 @@ export const Example = () => {
             href="https://github.com/GeekyAnts/nativebase"
             isExternal
           >
-            <Breadcrumb.Text>Github</Breadcrumb.Text>
+            <Breadcrumb.Text>GitHub</Breadcrumb.Text>
           </Breadcrumb.Link>
         </Breadcrumb.Item>
       </Breadcrumb>

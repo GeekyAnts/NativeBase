@@ -16,7 +16,7 @@ NativeBase is entering maintenance mode as we evolve into gluestack-ui. This tra
 [![npm downloads](https://img.shields.io/npm/dm/native-base.svg)](https://npm-stat.com/charts.html?package=native-base)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/GeekyAnts/NativeBase/blob/master/LICENSE)
 [![Follow on Twitter](https://img.shields.io/twitter/follow/nativebase.svg?label=follow+NativeBase)](https://twitter.com/nativebase)
-[![Github Stars](https://img.shields.io/github/stars/GeekyAnts/NativeBase)](https://img.shields.io/github/stars/GeekyAnts/NativeBase)
+[![GitHub Stars](https://img.shields.io/github/stars/GeekyAnts/NativeBase)](https://img.shields.io/github/stars/GeekyAnts/NativeBase)
 
 ## NativeBase is a mobile-first, accessible component library for building a consistent design system across android, iOS & web.
 
